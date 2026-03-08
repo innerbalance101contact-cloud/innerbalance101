@@ -1,40 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>innerbalance101 — From Performing Fine to Actually Being Fine</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --clay: #C4A882;
-    --clay-light: #DDD0BE;
-    --clay-deep: #A68B65;
-    --warm-white: #FAF7F2;
-    --linen: #F0E8DC;
-    --deep: #2C2420;
-    --mid: #6B5B4E;
-    --soft: #9C8575;
-    --accent: #8B6F5E;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--deep); overflow-x: hidden; }
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="founder-inner">
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 60px;
-    background: rgba(250,247,242,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(196,168,130,0.2);
-  }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; letter-spacing: 0.08em; color: var(--deep); }
-  .nav-divider { width: 1px; height: 24px; background: var(--clay); }
-  .nav-cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--deep); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
+    <!-- Founder Image -->
+    <div class="founder-image">
+
+      <img class="founder-img" src="naomi-founder.jpg" alt="Naomi Lucia - Founder of InnerBalance101" loading="lazy">
+
+      <div class="founder-img-overlay"></div>
+
+      <div class="founder-quote-block">
+        <p class="founder-quote-text">
+        “I searched for tools like these when I needed them most and couldn’t find them.  
+        So I built them.”
+        </p>
+
+        <div class="founder-attribution">
+        Naomi Lucia · Founder
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Founder Story -->
+    <div class="founder-content">
+
+      <div class="section-label">
+      The Founder
+      </div>
+
+      <h2 class="section-headline">
+      Built by someone who knows the pressure.
+      </h2>
+
+      <div class="founder-story">
+
+        <p>
+        Naomi Lucia is an entrepreneur, executive, and creator who understands the
+        invisible emotional load that high achievers carry.
+        </p>
+
+        <p>
+        She has built businesses, led teams, and navigated the intense expectations
+        that come with ambition and responsibility.
+        </p>
+
+        <p>
+        Through those experiences she discovered something important:
+        <strong>performance systems exist everywhere, but emotional regulation systems rarely do.</strong>
+        </p>
+
+        <p>
+        InnerBalance101 was created to fill that gap. A practical library of rituals,
+        practices, and frameworks designed to help high-performing people restore
+        inner clarity while continuing to pursue meaningful work.
+        </p>
+
+        <p style="color:#8B6F5E; font-style:italic;">
+        This is not about escaping ambition.  
+        It is about learning how to carry it well.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>  .nav-cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--deep); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
   .nav-cta:hover { background: var(--clay-deep); }
 
   /* HERO */
