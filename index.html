@@ -639,6 +639,9 @@
   async function handleSubmit(e) {
     e.preventDefault();
     const name = document.getElementById('f-name').value.trim();
+    async function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
     const email = document.getElementById('f-email').value.trim();
     const btn = document.getElementById('f-btn');
     if (!name) { document.getElementById('f-name').focus(); return; }
@@ -646,6 +649,14 @@
     btn.textContent = 'One moment...';
     btn.style.opacity = '0.7';
     btn.disabled = true;
+    try {
+      const fd = new FormData();
+      fd.append('email_address', email);
+      fd.append('fields[first_name]', name.split(' ')[0]);
+      fetch('https://app.kit.com/forms/9180408/subscriptions', { method: 'POST', body: fd, mode: 'no-cors' });
+    } catch(err) {}
+    window.location.href = '/emotional_load_assessment.html';
+  }
     try {
       const fd = new FormData();
       fd.append('email_address', email);
