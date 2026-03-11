@@ -46,8 +46,6 @@
   ]
 }
 </script>
-
-<!-- SCHEMA: WebSite (enables Sitelinks search) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,8 +58,6 @@
   }
 }
 </script>
-
-<!-- SCHEMA: ItemList — the Practice library -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,51 +66,14 @@
   "description": "Science-backed emotional regulation practices for high-achieving professionals.",
   "url": "https://innerbalance101.com/#library",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "The Overwhelm Practice",
-      "description": "Move from overwhelm to grounded. A structured self-guided PDF combining thought work, EFT tapping and gratitude practice.",
-      "url": "https://stan.store/innerbalance101/innerbalance101_store/page/4531304",
-      "offers": { "@type": "Offer", "price": "17", "priceCurrency": "USD" }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "The Pressure Practice",
-      "description": "Move from pressure to self-assurance. Thought work, breathwork, and somatic release.",
-      "url": "https://stan.store/innerbalance101/innerbalance101_store/page/4531304",
-      "offers": { "@type": "Offer", "price": "17", "priceCurrency": "USD" }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "The Self-Doubt Practice",
-      "description": "Move from self-doubt to self-trust. Journaling, chest opening, and nervous system regulation.",
-      "url": "https://stan.store/innerbalance101/innerbalance101_store/page/4531304",
-      "offers": { "@type": "Offer", "price": "17", "priceCurrency": "USD" }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "The Uncertainty Practice",
-      "description": "Move from uncertainty to grounded presence. Journaling, proprioceptive work, and integration.",
-      "url": "https://stan.store/innerbalance101/innerbalance101_store/page/4531304",
-      "offers": { "@type": "Offer", "price": "17", "priceCurrency": "USD" }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "name": "The Guilt Practice",
-      "description": "Move from guilt to release. Thought work, Qi Gong shake, and reframe.",
-      "url": "https://stan.store/innerbalance101/innerbalance101_store/page/4531304",
-      "offers": { "@type": "Offer", "price": "17", "priceCurrency": "USD" }
-    }
+    {"@type":"ListItem","position":1,"name":"The Overwhelm Practice","description":"Move from overwhelm to grounded.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":2,"name":"The Pressure Practice","description":"Move from pressure to self-assurance.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":3,"name":"The Self-Doubt Practice","description":"Move from self-doubt to self-trust.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":4,"name":"The Uncertainty Practice","description":"Move from uncertainty to grounded presence.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":5,"name":"The Guilt Practice","description":"Move from guilt to release.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}}
   ]
 }
 </script>
-
-<!-- SCHEMA: Free tool — Emotional Load Assessment -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -123,12 +82,8 @@
   "url": "https://innerbalance101.com/emotional_load_assessment.html",
   "description": "A free 8-minute interactive tool that identifies what your nervous system is carrying and which Practice to begin with.",
   "applicationCategory": "HealthApplication",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "author": {
-    "@type": "Person",
-    "name": "Naomi Lucia",
-    "url": "https://innerbalance101.com"
-  }
+  "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "author": {"@type":"Person","name":"Naomi Lucia","url":"https://innerbalance101.com"}
 }
 </script>
 
@@ -139,47 +94,139 @@
     --clay: #C4A882; --clay-light: #DDD0BE; --clay-deep: #A68B65;
     --warm-white: #FAF7F2; --linen: #F0E8DC; --deep: #2C2420;
     --mid: #6B5B4E; --soft: #9C8575; --accent: #8B6F5E;
+    /* Single source of truth for nav height */
+    --nav-h: 64px;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; font-size:16px; }
   body { font-family:'Jost',sans-serif; background:var(--warm-white); color:var(--deep); overflow-x:hidden; }
 
-  /* NAV */
-  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:20px 60px; background:rgba(250,247,242,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(196,168,130,0.2); }
+  /* ─── NAV ─────────────────────────────────────────────────────── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    height:var(--nav-h);
+    padding:0 60px;
+    background:rgba(250,247,242,0.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(196,168,130,0.2);
+  }
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
   .nav-logo-text { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:500; letter-spacing:0.08em; color:var(--deep); }
   .nav-divider { width:1px; height:24px; background:var(--clay); }
-  .nav-cta { font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--warm-white); background:var(--deep); padding:10px 24px; text-decoration:none; transition:background 0.3s; }
+  .nav-cta {
+    font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--warm-white); background:var(--deep);
+    padding:10px 24px; text-decoration:none; transition:background 0.3s;
+    white-space:nowrap;
+  }
   .nav-cta:hover { background:var(--clay-deep); }
 
-  /* HERO */
-  .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:72px; position:relative; overflow:hidden; }
-  .hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 60px; }
-  /* 3-SECOND CLARITY BOX */
-  .hero-clarity { background:var(--linen); border-left:3px solid var(--clay); padding:16px 20px; margin-bottom:28px; animation:fadeUp 0.6s ease 0.18s both; }
+  /* ─── HERO ────────────────────────────────────────────────────── */
+  .hero {
+    margin-top:var(--nav-h);
+    min-height:calc(100vh - var(--nav-h));
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .hero-left {
+    display:flex; flex-direction:column; justify-content:center;
+    padding:64px 60px 80px;
+    animation:fadeUp 0.6s ease 0.15s both;
+  }
+  .hero-clarity {
+    background:var(--linen); border-left:3px solid var(--clay);
+    padding:16px 20px; margin-bottom:28px;
+  }
   .hero-clarity p { font-size:0.93rem; font-weight:400; color:var(--deep); line-height:1.65; }
   .hero-clarity strong { font-weight:600; }
-
-  .hero-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,4.5vw,5rem); font-weight:300; line-height:1.1; color:var(--deep); margin-bottom:28px; animation:fadeUp 0.6s ease 0.25s both; }
+  .hero-headline {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(3rem,4.5vw,5rem); font-weight:300; line-height:1.1;
+    color:var(--deep); margin-bottom:28px;
+    animation:fadeUp 0.6s ease 0.25s both;
+  }
   .hero-headline em { font-style:italic; color:var(--clay-deep); }
-  .hero-actions { display:flex; flex-direction:column; gap:14px; animation:fadeUp 0.6s ease 0.55s both; }
+  .hero-actions { display:flex; flex-direction:column; gap:14px; animation:fadeUp 0.6s ease 0.45s both; }
   .hero-primary-action { display:flex; flex-direction:column; gap:6px; }
   .hero-action-note { font-size:0.72rem; font-weight:300; color:var(--soft); letter-spacing:0.05em; }
   .hero-secondary-row { display:flex; align-items:center; gap:12px; }
   .hero-secondary-or { font-size:0.7rem; color:var(--clay-light); font-weight:300; }
 
-  .btn-primary { font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-white); background:var(--deep); padding:16px 36px; text-decoration:none; transition:background 0.3s,transform 0.2s; display:inline-block; }
+  .hero-right {
+    position:relative;
+    background:var(--linen);
+    display:flex; align-items:center; justify-content:center;
+    padding:80px 40px;
+    animation:fadeUp 0.7s ease 0.35s both;
+    overflow:visible;
+  }
+
+  /* ── HERO CARD PREVIEW ── */
+  .hero-cards-preview {
+    position:relative;
+    width:320px;
+    height:420px;
+  }
+  .hcp-card {
+    position:absolute;
+    width:176px;
+    background:#1a1410;
+    border-radius:16px;
+    padding:8px;
+    box-shadow:0 20px 60px rgba(44,36,32,0.3), 0 6px 18px rgba(44,36,32,0.18);
+    transition:transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .hcp-inner {
+    background:var(--warm-white);
+    border-radius:10px;
+    padding:20px 14px 14px;
+    display:flex;
+    flex-direction:column;
+    min-height:236px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hcp-brand { font-family:'Jost',sans-serif; font-size:0.43rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); margin-bottom:6px; }
+  .hcp-num { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:300; color:var(--clay-light); line-height:1; position:absolute; right:10px; top:12px; opacity:0.3; }
+  .hcp-the { font-family:'Cormorant Garamond',serif; font-size:0.72rem; font-weight:300; font-style:italic; color:var(--soft); margin-top:auto; padding-top:24px; }
+  .hcp-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--deep); line-height:1.1; margin-bottom:2px; }
+  .hcp-practice { font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--mid); margin-bottom:8px; }
+  .hcp-rule { width:20px; height:1px; background:var(--clay); margin-bottom:8px; }
+  .hcp-arrow { font-family:'Jost',sans-serif; font-size:0.44rem; color:var(--clay-deep); letter-spacing:0.06em; margin-bottom:2px; }
+  .hcp-dest { font-family:'Cormorant Garamond',serif; font-size:0.82rem; font-weight:500; font-style:italic; color:var(--deep); margin-bottom:10px; }
+  .hcp-cta { background:var(--clay); padding:6px 8px; text-align:center; border-radius:3px; font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--deep); }
+
+  /* Cascade — front card (03) centred, others fanned behind */
+  .hcp-card--1 { left:0;     top:90px;  transform:rotate(-13deg); z-index:1; opacity:0.65; }
+  .hcp-card--2 { left:30px;  top:48px;  transform:rotate(-6.5deg); z-index:2; opacity:0.82; }
+  .hcp-card--3 { left:72px;  top:16px;  transform:rotate(0deg);    z-index:5; }
+  .hcp-card--4 { left:116px; top:48px;  transform:rotate(6.5deg);  z-index:2; opacity:0.82; }
+  .hcp-card--5 { left:148px; top:90px;  transform:rotate(13deg);   z-index:1; opacity:0.65; }
+
+  .hero-cards-preview:hover .hcp-card--1 { transform:rotate(-20deg) translate(-18px, 12px); }
+  .hero-cards-preview:hover .hcp-card--2 { transform:rotate(-10deg) translate(-9px, 5px); }
+  .hero-cards-preview:hover .hcp-card--3 { transform:rotate(0deg) translateY(-10px); box-shadow:0 28px 72px rgba(44,36,32,0.38); }
+  .hero-cards-preview:hover .hcp-card--4 { transform:rotate(10deg) translate(9px, 5px); }
+  .hero-cards-preview:hover .hcp-card--5 { transform:rotate(20deg) translate(18px, 12px); }
+
+  /* ─── BUTTONS ─────────────────────────────────────────────────── */
+  .btn-primary {
+    font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--warm-white); background:var(--deep);
+    padding:16px 36px; text-decoration:none;
+    transition:background 0.3s,transform 0.2s; display:inline-block;
+  }
   .btn-primary:hover { background:var(--clay-deep); transform:translateY(-1px); }
-  .btn-ghost { font-size:0.8rem; font-weight:400; letter-spacing:0.06em; color:var(--soft); text-decoration:none; border-bottom:1px solid var(--clay-light); padding-bottom:2px; transition:color 0.3s,border-color 0.3s; }
+  .btn-ghost {
+    font-size:0.8rem; font-weight:400; letter-spacing:0.06em;
+    color:var(--soft); text-decoration:none;
+    border-bottom:1px solid var(--clay-light); padding-bottom:2px;
+    transition:color 0.3s,border-color 0.3s;
+  }
   .btn-ghost:hover { color:var(--clay-deep); border-color:var(--clay-deep); }
 
-  .hero-right { position:relative; overflow:hidden; animation:fadeUp 0.7s ease 0.35s both; }
-  .hero-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.7) brightness(0.96); }
-  .hero-img-overlay { position:absolute; inset:0; background:linear-gradient(to right, rgba(250,247,242,0.3) 0%, transparent 40%); }
-  .hero-img-caption { position:absolute; bottom:40px; right:40px; background:var(--warm-white); border-left:3px solid var(--clay); padding:20px 24px; max-width:260px; }
-  .hero-caption-text { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:300; font-style:italic; color:var(--deep); line-height:1.5; }
-
-  /* WHAT YOU GET STRIP */
+  /* ─── WHAT YOU GET ────────────────────────────────────────────── */
   .what-you-get { background:var(--deep); padding:52px 60px; display:grid; grid-template-columns:repeat(3,1fr); }
   .wyg-item { padding:0 44px; border-right:1px solid rgba(196,168,130,0.18); }
   .wyg-item:first-child { padding-left:0; }
@@ -188,7 +235,7 @@
   .wyg-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--warm-white); margin-bottom:8px; line-height:1.25; }
   .wyg-body { font-size:0.87rem; font-weight:300; color:rgba(250,247,242,0.55); line-height:1.72; }
 
-  /* RECOGNITION */
+  /* ─── RECOGNITION ─────────────────────────────────────────────── */
   .recognition { background:var(--linen); padding:80px 60px; }
   .recognition-intro { font-family:'Cormorant Garamond',serif; font-size:clamp(1.6rem,2.5vw,2.4rem); font-weight:300; font-style:italic; color:var(--deep); max-width:760px; margin:0 auto 56px; line-height:1.4; text-align:center; }
   .recognition-grid { display:grid; grid-template-columns:repeat(3,1fr); max-width:960px; margin:0 auto; }
@@ -197,7 +244,7 @@
   .recog-icon { font-size:1.4rem; margin-bottom:16px; opacity:0.7; }
   .recog-text { font-size:1.05rem; font-weight:300; line-height:1.75; color:var(--mid); }
 
-  /* WHO THIS IS FOR */
+  /* ─── FOR WHO ─────────────────────────────────────────────────── */
   .for-who { padding:100px 60px; background:var(--warm-white); }
   .for-who-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; max-width:1200px; margin:0 auto; }
   .for-who-list { display:flex; flex-direction:column; margin-top:36px; }
@@ -213,7 +260,7 @@
   .for-who-not-item:last-child { border-bottom:none; padding-bottom:0; }
   .for-who-not-item::before { content:'\00d7'; color:var(--clay-light); font-size:1rem; flex-shrink:0; line-height:1.7; }
 
-  /* ASSESSMENT PRIMARY */
+  /* ─── ASSESSMENT PRIMARY ──────────────────────────────────────── */
   .assessment-primary { background:var(--deep); }
   .assessment-primary-inner { display:grid; grid-template-columns:1fr 1fr; }
   .assessment-image { position:relative; overflow:hidden; min-height:600px; }
@@ -226,23 +273,19 @@
   .assessment-label::before { content:''; width:24px; height:1px; background:var(--clay); }
   .assessment-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.2vw,3rem); font-weight:300; line-height:1.2; color:var(--warm-white); margin-bottom:20px; }
   .assessment-subtext { font-size:1rem; font-weight:300; line-height:1.8; color:rgba(250,247,242,0.65); margin-bottom:32px; }
-  .assessment-outcomes { display:flex; flex-direction:column; gap:14px; margin-bottom:36px; }
-  .assessment-outcome { display:flex; gap:14px; align-items:flex-start; }
-  .assessment-outcome-marker { width:6px; height:6px; background:var(--clay); border-radius:50%; flex-shrink:0; margin-top:8px; }
-  .assessment-outcome-text { font-size:0.94rem; font-weight:300; line-height:1.65; color:rgba(250,247,242,0.72); }
-  .assessment-outcome-text strong { color:var(--warm-white); font-weight:500; }
   .btn-assessment { font-size:0.8rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--deep); background:var(--clay); padding:17px 40px; text-decoration:none; display:inline-block; transition:background 0.3s,transform 0.2s; align-self:flex-start; }
   .btn-assessment:hover { background:var(--clay-light); transform:translateY(-1px); }
   .assessment-note { font-size:0.72rem; font-weight:300; color:rgba(250,247,242,0.35); margin-top:12px; letter-spacing:0.04em; }
 
-  /* HOW IT WORKS */
+  /* ─── HOW IT WORKS ────────────────────────────────────────────── */
   .how { padding:0; }
   .how-inner { display:grid; grid-template-columns:1fr 1fr; }
   .how-image { position:relative; overflow:hidden; min-height:600px; }
   .how-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.75); }
-  .how-img-overlay { position:absolute; inset:0; background:linear-gradient(to left, rgba(250,247,242,0.15) 0%, transparent 50%); }
+  .how-img-overlay { position:absolute; inset:0; background:linear-gradient(to left,rgba(250,247,242,0.15) 0%,transparent 50%); }
   .how-content { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; }
 
+  /* ─── SHARED SECTION PARTS ────────────────────────────────────── */
   .section-label { font-size:0.75rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay-deep); margin-bottom:20px; display:flex; align-items:center; gap:12px; }
   .section-label::before { content:''; width:24px; height:1px; background:var(--clay); }
   .section-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; color:var(--deep); margin-bottom:24px; }
@@ -254,12 +297,11 @@
   .step-content-title { font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:500; color:var(--deep); margin-bottom:6px; }
   .step-content-desc { font-size:0.96rem; font-weight:300; line-height:1.7; color:var(--soft); }
 
-  /* EVIDENCE */
+  /* ─── EVIDENCE ────────────────────────────────────────────────── */
   .evidence { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
   .evidence-header { max-width:720px; margin-bottom:56px; }
   .evidence-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; color:var(--deep); margin-bottom:20px; margin-top:20px; }
   .evidence-intro { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--mid); }
-  /* ACCORDION */
   .evidence-accordion { max-width:720px; display:flex; flex-direction:column; }
   .evidence-tab { border-top:1px solid rgba(196,168,130,0.35); }
   .evidence-tab:last-child { border-bottom:1px solid rgba(196,168,130,0.35); }
@@ -276,9 +318,10 @@
   .evidence-tab.open .evidence-tab-body { max-height:400px; opacity:1; }
   .evidence-tab-body p { font-size:0.92rem; font-weight:300; color:var(--mid); line-height:1.78; padding-bottom:24px; }
   .evidence-tab-cite { font-size:0.72rem; color:var(--soft); font-style:italic; }
-  .evidence-tab-full-claim { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:500; color:var(--deep); line-height:1.35; padding-bottom:4px; }
+  .evidence-analogy { margin-top:28px; display:flex; flex-direction:column; gap:14px; padding:32px 36px; background:var(--warm-white); border-left:3px solid var(--clay); margin-bottom:0; }
+  .evidence-analogy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--mid); }
 
-  /* LIBRARY */
+  /* ─── LIBRARY ─────────────────────────────────────────────────── */
   .library { background:var(--deep); padding:100px 60px; }
   .library-header { margin-bottom:64px; }
   .library-header .section-label { color:var(--clay); }
@@ -310,7 +353,7 @@
   .guide-price { font-size:0.95rem; font-weight:500; color:var(--clay); }
   .guide-card-coming { opacity:0.45; cursor:default; }
 
-  /* BUNDLE */
+  /* ─── BUNDLE ──────────────────────────────────────────────────── */
   .bundle-banner { background:var(--deep); padding:64px 48px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
   .bundle-text-label { font-size:0.62rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay); margin-bottom:16px; }
   .bundle-text-title { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:400; color:var(--warm-white); line-height:1.15; margin-bottom:16px; }
@@ -345,7 +388,7 @@
   .bstack-name { font-family:'Cormorant Garamond',serif; font-size:0.75rem; font-weight:500; color:var(--deep); text-align:center; line-height:1.35; }
   .bstack-state { font-family:'Jost',sans-serif; font-size:0.55rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--clay-deep); text-align:center; }
 
-  /* PROOF STRIP */
+  /* ─── PROOF STRIP ─────────────────────────────────────────────── */
   .proof-strip { background:var(--deep); padding:64px 60px; display:grid; grid-template-columns:repeat(3,1fr); }
   .proof-item { padding:0 48px; border-right:1px solid rgba(196,168,130,0.2); }
   .proof-item:first-child { padding-left:0; }
@@ -353,13 +396,13 @@
   .proof-num { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:300; color:var(--clay); line-height:1; margin-bottom:8px; }
   .proof-label { font-size:0.85rem; font-weight:300; color:rgba(250,247,242,0.55); letter-spacing:0.06em; line-height:1.6; }
 
-  /* FOUNDER */
+  /* ─── FOUNDER ─────────────────────────────────────────────────── */
   .founder { padding:0; }
   .founder-inner { display:grid; grid-template-columns:1fr 1fr; }
   .founder-image { position:relative; overflow:hidden; min-height:640px; }
   .founder-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.6) brightness(0.88); }
-  .founder-img-overlay { position:absolute; inset:0; background:linear-gradient(to right, transparent 50%, rgba(250,247,242,0.15) 100%); }
-  .founder-quote-block { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(44,36,32,0.85) 0%, transparent 100%); padding:60px 40px 40px; }
+  .founder-img-overlay { position:absolute; inset:0; background:linear-gradient(to right,transparent 50%,rgba(250,247,242,0.15) 100%); }
+  .founder-quote-block { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top,rgba(44,36,32,0.85) 0%,transparent 100%); padding:60px 40px 40px; }
   .founder-quote-text { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; font-style:italic; color:var(--warm-white); line-height:1.5; margin-bottom:12px; }
   .founder-attribution { font-size:0.78rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:var(--clay); }
   .founder-content { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; background:var(--warm-white); }
@@ -381,7 +424,7 @@
   .founder-story p strong { color:var(--deep); font-weight:500; }
   .founder-story p em { color:var(--accent); }
 
-  /* LEAD MAGNET */
+  /* ─── LEAD MAGNET ─────────────────────────────────────────────── */
   .lead-magnet { padding:0; }
   .lead-magnet-inner { display:grid; grid-template-columns:1fr 1fr; }
   .lm-image { position:relative; overflow:hidden; min-height:560px; }
@@ -405,7 +448,7 @@
   .form-submit:hover { background:var(--clay-deep); }
   .form-disclaimer { font-size:0.78rem; font-weight:300; color:var(--soft); margin-top:10px; line-height:1.5; }
 
-  /* FOOTER */
+  /* ─── FOOTER ──────────────────────────────────────────────────── */
   footer { background:var(--deep); padding:48px 60px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
   .footer-left { display:flex; flex-direction:column; gap:8px; }
   .footer-logo { display:flex; align-items:center; gap:10px; }
@@ -419,46 +462,179 @@
   .social-link:hover { color:var(--clay); border-color:var(--clay); }
   .social-link svg { width:16px; height:16px; fill:currentColor; }
 
-
-  /* EVIDENCE ANALOGY */
-  .evidence-analogy { margin-top:28px; display:flex; flex-direction:column; gap:14px; padding:32px 36px; background:var(--warm-white); border-left:3px solid var(--clay); margin-bottom:0; }
-  .evidence-analogy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--mid); }
-
+  /* ─── ANIMATIONS ──────────────────────────────────────────────── */
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
+  /* ═══════════════════════════════════════════════════════════════
+     RESPONSIVE — TABLET (≤960px) + PHONE (≤480px)
+  ══════════════════════════════════════════════════════════════════ */
   @media (max-width:960px) {
-    nav { padding:18px 24px; }
-    .hero { grid-template-columns:1fr; min-height:auto; }
-    .hero-left { padding:100px 24px 48px; }
-    .hero-right { min-height:50vw; }
-    .hero-img-caption { bottom:20px; right:20px; max-width:200px; padding:14px 18px; }
-    .what-you-get { grid-template-columns:1fr; padding:48px 24px; gap:32px; }
-    .wyg-item { padding:0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); padding-bottom:24px; }
+    :root { --nav-h: 58px; }
+
+    nav { padding:0 24px; }
+    .nav-logo-text { font-size:1.1rem; }
+
+    /* ── HERO ── */
+    .hero {
+      grid-template-columns:1fr;
+      min-height:auto;
+      margin-top:var(--nav-h);
+    }
+    /* Cards panel — sits below text on tablet, natural height */
+    .hero-right {
+      order:1;
+      padding:48px 24px 56px;
+      min-height:auto;
+    }
+    .hero-cards-preview {
+      width:280px;
+      height:370px;
+      margin:0 auto;
+    }
+    .hcp-card { width:154px; }
+    .hcp-card--1 { left:0;    top:76px; }
+    .hcp-card--2 { left:24px; top:40px; }
+    .hcp-card--3 { left:62px; top:12px; }
+    .hcp-card--4 { left:100px; top:40px; }
+    .hcp-card--5 { left:126px; top:76px; }
+    /* Left content on top */
+    .hero-left {
+      padding:32px 24px 36px;
+    }
+    .hero-clarity p { font-size:0.88rem; }
+    .hero-clarity p + p { font-size:0.82rem; }
+    .hero-headline { font-size:clamp(2.4rem,8vw,3.4rem); margin-bottom:24px; }
+    .btn-primary { padding:15px 28px; font-size:0.78rem; }
+
+    /* ── WHAT YOU GET ── */
+    .what-you-get { grid-template-columns:1fr; padding:40px 24px; gap:0; }
+    .wyg-item { padding:24px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); }
     .wyg-item:last-child { border-bottom:none; padding-bottom:0; }
-    .recognition { padding:60px 24px; }
+
+    /* ── RECOGNITION ── */
+    .recognition { padding:56px 24px; }
+    .recognition-intro { font-size:clamp(1.4rem,5vw,1.9rem); margin-bottom:40px; }
     .recognition-grid { grid-template-columns:1fr; }
-    .recog-item { border-right:none; border-bottom:1px solid rgba(196,168,130,0.2); }
+    .recog-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.2); }
     .recog-item:last-child { border-bottom:none; }
-    .for-who { padding:60px 24px; }
-    .for-who-inner { grid-template-columns:1fr; gap:48px; }
+
+    /* ── FOR WHO ── */
+    .for-who { padding:56px 24px; }
+    .for-who-inner { grid-template-columns:1fr; gap:40px; }
+
+    /* ── ASSESSMENT ── */
     .assessment-primary-inner { grid-template-columns:1fr; }
-    .assessment-image { min-height:280px; }
-    .assessment-content { padding:60px 24px; }
-    .how-inner,.founder-inner,.lead-magnet-inner { grid-template-columns:1fr; }
-    .how-image,.founder-image,.lm-image { min-height:280px; }
-    .how-content,.founder-content,.lm-form-side { padding:60px 24px; }
-    .evidence { padding:60px 24px; }
-    .evidence-grid { grid-template-columns:1fr; }
-    .library { padding:60px 24px; }
-    .guides-grid { grid-template-columns:repeat(3,1fr); gap:12px; }
-    .bundle-banner { grid-template-columns:1fr; gap:48px; padding:40px 24px; }
-    .bundle-right { order:-1; }
+    .assessment-image { min-height:52vw; max-height:64vw; }
+    .assessment-img-badge { top:20px; left:20px; padding:8px 14px; }
+    .assessment-content { padding:48px 24px 56px; }
+
+    /* ── HOW ── */
+    .how-inner { grid-template-columns:1fr; }
+    .how-image { min-height:52vw; max-height:64vw; }
+    .how-content { padding:52px 24px; }
+
+    /* ── EVIDENCE ── */
+    .evidence { padding:56px 24px; }
+    .evidence-analogy { padding:24px; }
+
+    /* ── LIBRARY ── */
+    .library { padding:56px 24px; }
+    /* 2-col grid on tablet for readable cards */
+    .guides-grid { grid-template-columns:repeat(2,1fr); gap:16px; }
+    .guide-card { max-width:none; }
+
+    /* ── BUNDLE ── */
+    .bundle-banner { grid-template-columns:1fr; gap:40px; padding:48px 24px; }
+    /* Hide decorative stack on mobile — takes too much height */
+    .bundle-right { display:none; }
     .bundle-cta-row { flex-direction:column; align-items:flex-start; gap:20px; }
-    .proof-strip { grid-template-columns:1fr; gap:32px; padding:48px 24px; }
-    .proof-item { padding:0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.15); padding-bottom:32px; }
+
+    /* ── PROOF STRIP ── */
+    .proof-strip { grid-template-columns:1fr; gap:0; padding:40px 24px; }
+    .proof-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.15); }
     .proof-item:last-child { border-bottom:none; padding-bottom:0; }
-    footer { flex-direction:column; align-items:flex-start; padding:40px 24px; }
+
+    /* ── FOUNDER ── */
+    .founder-inner { grid-template-columns:1fr; }
+    .founder-image { min-height:72vw; max-height:80vw; }
+    .founder-content { padding:52px 24px; }
+    .founder-quote-text { font-size:1.1rem; }
+
+    /* ── LEAD MAGNET ── */
+    .lead-magnet-inner { grid-template-columns:1fr; }
+    .lm-image { min-height:52vw; max-height:64vw; }
+    .lm-img-content { padding:32px 24px; }
+    .lm-img-title { font-size:1.6rem; }
+    .lm-form-side { padding:48px 24px 56px; }
+
+    /* ── FOOTER ── */
+    footer { flex-direction:column; align-items:flex-start; padding:40px 24px; gap:28px; }
     .footer-tagline { padding-left:0; }
+    .footer-right { display:flex; flex-direction:column; gap:20px; align-items:flex-start; width:100%; }
+    .footer-links { flex-wrap:wrap; }
+  }
+
+  /* ── PHONE (≤480px) ────────────────────────────────────────────── */
+  @media (max-width:480px) {
+    :root { --nav-h: 54px; }
+
+    .nav-logo-text { font-size:1rem; }
+    .nav-cta { font-size:0.68rem; padding:9px 16px; letter-spacing:0.08em; }
+
+    .hero-right { padding:36px 16px 48px; }
+    .hero-cards-preview { width:240px; height:320px; }
+    .hcp-card { width:132px; }
+    .hcp-inner { min-height:200px; padding:16px 12px 12px; }
+    .hcp-num { font-size:2rem; }
+    .hcp-title { font-size:1rem; }
+    .hcp-card--1 { left:0;    top:66px; }
+    .hcp-card--2 { left:20px; top:34px; }
+    .hcp-card--3 { left:54px; top:8px;  }
+    .hcp-card--4 { left:88px; top:34px; }
+    .hcp-card--5 { left:108px; top:66px; }
+    .hero-left { padding:24px 20px 32px; }
+
+    .what-you-get { padding:32px 20px; }
+    .recognition { padding:44px 20px; }
+    .for-who { padding:44px 20px; }
+    .for-who-item { grid-template-columns:28px 1fr; gap:12px; padding:18px 0; }
+    .for-who-text { font-size:0.97rem; }
+    .for-who-not { padding:24px 20px; }
+
+    .assessment-content { padding:36px 20px 48px; }
+    .btn-assessment { width:100%; text-align:center; padding:15px 24px; }
+
+    .how-content { padding:40px 20px; }
+    .section-body { font-size:0.97rem; margin-bottom:32px; }
+    .step-content-title { font-size:1.25rem; }
+    .step-content-desc { font-size:0.9rem; }
+
+    .evidence { padding:44px 20px; }
+    .evidence-tab-claim { font-size:1.05rem; }
+    .evidence-analogy { padding:20px; }
+
+    .library { padding:44px 20px; }
+    /* Single column on small phones for readable cards */
+    .guides-grid { grid-template-columns:1fr 1fr; gap:12px; }
+
+    .bundle-banner { padding:36px 20px; gap:32px; }
+    .bundle-text-title { font-size:1.9rem; }
+    .bundle-now { font-size:2.2rem; }
+    .btn-bundle { width:100%; text-align:center; padding:15px 24px; }
+
+    .proof-strip { padding:32px 20px; }
+    .proof-num { font-size:2.8rem; }
+
+    .founder-content { padding:40px 20px; }
+    .founder-summary { font-size:1rem; }
+
+    .lm-form-side { padding:36px 20px 48px; }
+    .form-input { font-size:0.95rem; padding:13px 16px; }
+    .form-submit { font-size:0.8rem; padding:15px; }
+
+    footer { padding:36px 20px; }
+    .footer-links { gap:16px; }
+    .footer-link { font-size:0.72rem; }
   }
 </style>
 </head>
@@ -492,10 +668,72 @@
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-img" src="images/hero banner image.png" alt="Naomi Lucia" loading="eager">
-    <div class="hero-img-overlay"></div>
-    <div class="hero-img-caption">
-      <p class="hero-caption-text">&ldquo;You&rsquo;re not broken. You&rsquo;re overloaded.&rdquo;</p>
+    <div class="hero-cards-preview">
+      <div class="hcp-card hcp-card--1">
+        <div class="hcp-inner">
+          <div class="hcp-brand">innerbalance101</div>
+          <div class="hcp-num">01</div>
+          <div class="hcp-the">The</div>
+          <div class="hcp-title">Overwhelm</div>
+          <div class="hcp-practice">Practice</div>
+          <div class="hcp-rule"></div>
+          <div class="hcp-arrow">&rarr; Leads to</div>
+          <div class="hcp-dest">Grounded</div>
+          <div class="hcp-cta">Start Practising</div>
+        </div>
+      </div>
+      <div class="hcp-card hcp-card--2">
+        <div class="hcp-inner">
+          <div class="hcp-brand">innerbalance101</div>
+          <div class="hcp-num">02</div>
+          <div class="hcp-the">The</div>
+          <div class="hcp-title">Pressure</div>
+          <div class="hcp-practice">Practice</div>
+          <div class="hcp-rule"></div>
+          <div class="hcp-arrow">&rarr; Leads to</div>
+          <div class="hcp-dest">Self-Assurance</div>
+          <div class="hcp-cta">Start Practising</div>
+        </div>
+      </div>
+      <div class="hcp-card hcp-card--3">
+        <div class="hcp-inner">
+          <div class="hcp-brand">innerbalance101</div>
+          <div class="hcp-num">03</div>
+          <div class="hcp-the">The</div>
+          <div class="hcp-title">Self-Doubt</div>
+          <div class="hcp-practice">Practice</div>
+          <div class="hcp-rule"></div>
+          <div class="hcp-arrow">&rarr; Leads to</div>
+          <div class="hcp-dest">Self-Trust</div>
+          <div class="hcp-cta">Start Practising</div>
+        </div>
+      </div>
+      <div class="hcp-card hcp-card--4">
+        <div class="hcp-inner">
+          <div class="hcp-brand">innerbalance101</div>
+          <div class="hcp-num">04</div>
+          <div class="hcp-the">The</div>
+          <div class="hcp-title">Uncertainty</div>
+          <div class="hcp-practice">Practice</div>
+          <div class="hcp-rule"></div>
+          <div class="hcp-arrow">&rarr; Leads to</div>
+          <div class="hcp-dest">Presence</div>
+          <div class="hcp-cta">Start Practising</div>
+        </div>
+      </div>
+      <div class="hcp-card hcp-card--5">
+        <div class="hcp-inner">
+          <div class="hcp-brand">innerbalance101</div>
+          <div class="hcp-num">05</div>
+          <div class="hcp-the">The</div>
+          <div class="hcp-title">Guilt</div>
+          <div class="hcp-practice">Practice</div>
+          <div class="hcp-rule"></div>
+          <div class="hcp-arrow">&rarr; Leads to</div>
+          <div class="hcp-dest">Release</div>
+          <div class="hcp-cta">Start Practising</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -518,8 +756,75 @@
   </div>
 </section>
 
+<section class="library" id="library">
+  <div class="library-header">
+    <div class="section-label">The Digital Library</div>
+    <h2 class="section-headline" id="library-heading" style="color:var(--warm-white);">Five emotional states. Five Practices. Choose where you are.</h2>
+    <p class="section-body">No program. No timeline. Each Practice is $17. Or get all five for $57.</p>
+  </div>
+  <div class="guides-grid">
+    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">01</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Overwhelm</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
+      <div class="guide-info"><div class="guide-transform">Overwhelm &rarr; Grounded</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">EFT Tapping</span><span class="guide-tag">Gratitude</span></div><div class="guide-price">$17</div></div>
+    </a>
+    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">02</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Pressure</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Assurance</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
+      <div class="guide-info"><div class="guide-transform">Pressure &rarr; Self-Assurance</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Breathwork</span><span class="guide-tag">Somatic Release</span></div><div class="guide-price">$17</div></div>
+    </a>
+    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">03</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Self-Doubt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Trust</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
+      <div class="guide-info"><div class="guide-transform">Self-Doubt &rarr; Self-Trust</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Chest Opening</span><span class="guide-tag">Nervous System</span></div><div class="guide-price">$17</div></div>
+    </a>
+    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">04</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Uncertainty</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded Presence</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
+      <div class="guide-info"><div class="guide-transform">Uncertainty &rarr; Grounded Presence</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Proprioceptive</span><span class="guide-tag">Integration</span></div><div class="guide-price">$17</div></div>
+    </a>
+    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">05</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Guilt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Release</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
+      <div class="guide-info"><div class="guide-transform">Guilt &rarr; Release</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Qi Gong Shake</span><span class="guide-tag">Reframe</span></div><div class="guide-price">$17</div></div>
+    </a>
+    <div class="guide-card guide-card-coming">
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num" style="opacity:0.25;">06</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Disappointment</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform" style="color:var(--clay-light);">&rarr; Leads to</div><div class="guide-screen-destination" style="color:var(--soft);">Acceptance</div><div class="guide-screen-cta" style="background:rgba(196,168,130,0.25);"><div class="guide-screen-cta-text" style="color:var(--soft);">Coming Soon</div></div><div class="guide-screen-duration">&mdash; minute practice</div></div></div>
+      <div class="guide-info"><div class="guide-transform">Disappointment &rarr; Acceptance</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Somatic Release</span><span class="guide-tag">Integration</span></div><div class="guide-price" style="color:var(--soft);">Coming soon</div></div>
+    </div>
+  </div>
+
+  <div class="bundle-banner">
+    <div class="bundle-left">
+      <div class="bundle-text-label">Best Value</div>
+      <h2 class="bundle-text-title">The Full Library Bundle</h2>
+      <p class="bundle-text-sub">Every emotional state that costs high achievers most. One library. One discipline.</p>
+      <div class="bundle-includes">
+        <div class="bundle-includes-label">What&rsquo;s inside</div>
+        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Overwhelm Practice</div><div class="bundle-include-state">&rarr; Grounded</div></div>
+        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Pressure Practice</div><div class="bundle-include-state">&rarr; Self-Assurance</div></div>
+        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Self-Doubt Practice</div><div class="bundle-include-state">&rarr; Self-Trust</div></div>
+        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Uncertainty Practice</div><div class="bundle-include-state">&rarr; Presence</div></div>
+        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Guilt Practice</div><div class="bundle-include-state">&rarr; Release</div></div>
+      </div>
+      <div class="bundle-cta-row">
+        <div class="bundle-pricing">
+          <div class="bundle-was">$85 individually</div>
+          <div class="bundle-now">$57</div>
+          <div class="bundle-save">You save $28</div>
+        </div>
+        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer" class="btn-bundle">Get the Full Library</a>
+      </div>
+    </div>
+    <div class="bundle-right">
+      <div class="bundle-stack">
+        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Overwhelm Practice</div><div class="bstack-state">Grounded</div></div>
+        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Pressure Practice</div><div class="bstack-state">Self-Assurance</div></div>
+        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Self-Doubt Practice</div><div class="bstack-state">Self-Trust</div></div>
+        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Uncertainty Practice</div><div class="bstack-state">Presence</div></div>
+        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Guilt Practice</div><div class="bstack-state">Release</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="recognition">
-  <h2 class="recognition-intro">&ldquo;I&rsquo;m doing everything right. Why do I still feel like this?&rdquo;</p>
+  <h2 class="recognition-intro">&ldquo;I&rsquo;m doing everything right. Why do I still feel like this?&rdquo;</h2>
   <div class="recognition-grid">
     <div class="recog-item">
       <div class="recog-icon">&#9678;</div>
@@ -540,7 +845,7 @@
   <div class="for-who-inner">
     <div>
       <div class="section-label">Who This Is For</div>
-      <h2 class="section-headline">For when hustle culture<br>is taking the best<br><em>out of you.</em></p>
+      <h2 class="section-headline">For when hustle culture<br>is taking the best<br><em>out of you.</em></h2>
       <div class="for-who-list">
         <div class="for-who-item"><div class="for-who-check"></div><div class="for-who-text">You&rsquo;ve built your identity around achieving. When you don&rsquo;t hit the mark, <strong>the shame hits harder than the failure itself.</strong></div></div>
         <div class="for-who-item"><div class="for-who-check"></div><div class="for-who-text">You&rsquo;re constantly proving yourself. To your team, your peers, maybe even your past self. <strong>Even when you win, it still doesn&rsquo;t feel like enough.</strong></div></div>
@@ -607,72 +912,7 @@
   </div>
 </section>
 
-<section class="library" id="library">
-  <div class="library-header">
-    <div class="section-label">The Digital Library</div>
-    <h2 class="section-headline" id="library-heading" style="color:var(--warm-white);">Choose what you need, when you need it.</h2>
-    <p class="section-body">No program. No timeline. No accountability group. You take the Practice that meets you where you are and work it at your own pace.</p>
-  </div>
-  <div class="guides-grid">
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">01</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Overwhelm</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
-      <div class="guide-info"><div class="guide-transform">Overwhelm &rarr; Grounded</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">EFT Tapping</span><span class="guide-tag">Gratitude</span></div><div class="guide-price">$17</div></div>
-    </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">02</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Pressure</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Assurance</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
-      <div class="guide-info"><div class="guide-transform">Pressure &rarr; Self-Assurance</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Breathwork</span><span class="guide-tag">Somatic Release</span></div><div class="guide-price">$17</div></div>
-    </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">03</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Self-Doubt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Trust</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
-      <div class="guide-info"><div class="guide-transform">Self-Doubt &rarr; Self-Trust</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Chest Opening</span><span class="guide-tag">Nervous System</span></div><div class="guide-price">$17</div></div>
-    </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">04</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Uncertainty</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded Presence</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
-      <div class="guide-info"><div class="guide-transform">Uncertainty &rarr; Grounded Presence</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Proprioceptive</span><span class="guide-tag">Integration</span></div><div class="guide-price">$17</div></div>
-    </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">05</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Guilt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Release</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
-      <div class="guide-info"><div class="guide-transform">Guilt &rarr; Release</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Qi Gong Shake</span><span class="guide-tag">Reframe</span></div><div class="guide-price">$17</div></div>
-    </a>
-    <div class="guide-card guide-card-coming">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num" style="opacity:0.25;">06</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Disappointment</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform" style="color:var(--clay-light);">&rarr; Leads to</div><div class="guide-screen-destination" style="color:var(--soft);">Acceptance</div><div class="guide-screen-cta" style="background:rgba(196,168,130,0.25);"><div class="guide-screen-cta-text" style="color:var(--soft);">Coming Soon</div></div><div class="guide-screen-duration">&mdash; minute practice</div></div></div>
-      <div class="guide-info"><div class="guide-transform">Disappointment &rarr; Acceptance</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Somatic Release</span><span class="guide-tag">Integration</span></div><div class="guide-price" style="color:var(--soft);">Coming soon</div></div>
-    </div>
-  </div>
 
-  <div class="bundle-banner">
-    <div class="bundle-left">
-      <div class="bundle-text-label">Best Value</div>
-      <h2 class="bundle-text-title">The Full Library Bundle</h2>
-      <p class="bundle-text-sub">Every emotional state that costs high achievers most. One library. One discipline.</p>
-      <div class="bundle-includes">
-        <div class="bundle-includes-label">What&rsquo;s inside</div>
-        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Overwhelm Practice</div><div class="bundle-include-state">&rarr; Grounded</div></div>
-        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Pressure Practice</div><div class="bundle-include-state">&rarr; Self-Assurance</div></div>
-        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Self-Doubt Practice</div><div class="bundle-include-state">&rarr; Self-Trust</div></div>
-        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Uncertainty Practice</div><div class="bundle-include-state">&rarr; Presence</div></div>
-        <div class="bundle-include-row"><div class="bundle-include-dot"></div><div class="bundle-include-name">The Guilt Practice</div><div class="bundle-include-state">&rarr; Release</div></div>
-      </div>
-      <div class="bundle-cta-row">
-        <div class="bundle-pricing">
-          <div class="bundle-was">$85 individually</div>
-          <div class="bundle-now">$57</div>
-          <div class="bundle-save">You save $28</div>
-        </div>
-        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer" class="btn-bundle">Get the Full Library</a>
-      </div>
-    </div>
-    <div class="bundle-right">
-      <div class="bundle-stack">
-        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Overwhelm Practice</div><div class="bstack-state">Grounded</div></div>
-        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Pressure Practice</div><div class="bstack-state">Self-Assurance</div></div>
-        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Self-Doubt Practice</div><div class="bstack-state">Self-Trust</div></div>
-        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Uncertainty Practice</div><div class="bstack-state">Presence</div></div>
-        <div class="bstack-card"><svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#C4A882" stroke-width="2" fill="none"/><line x1="11" y1="32" x2="53" y2="32" stroke="#2C2420" stroke-width="2.2"/><line x1="32" y1="14" x2="32" y2="50" stroke="#2C2420" stroke-width="1" stroke-dasharray="2 3.2"/><circle cx="20" cy="32" r="4" fill="#C4A882"/><circle cx="44" cy="32" r="4" fill="#C4A882"/><circle cx="32" cy="32" r="2.5" fill="#2C2420"/></svg><div class="bstack-rule"></div><div class="bstack-name">The Guilt Practice</div><div class="bstack-state">Release</div></div>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="evidence">
   <div class="evidence-header">
     <div class="section-label">The Science</div>
@@ -687,10 +927,7 @@
   <div class="evidence-accordion">
     <div class="evidence-tab">
       <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left">
-          <div class="evidence-tab-field">Polyvagal Theory</div>
-          <div class="evidence-tab-claim">Your body, not your mind, sets the state.</div>
-        </div>
+        <div class="evidence-tab-left"><div class="evidence-tab-field">Polyvagal Theory</div><div class="evidence-tab-claim">Your body, not your mind, sets the state.</div></div>
         <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
       </button>
       <div class="evidence-tab-body">
@@ -700,10 +937,7 @@
     </div>
     <div class="evidence-tab">
       <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left">
-          <div class="evidence-tab-field">Somatic Processing</div>
-          <div class="evidence-tab-claim">Thinking your way out doesn&rsquo;t reach this layer.</div>
-        </div>
+        <div class="evidence-tab-left"><div class="evidence-tab-field">Somatic Processing</div><div class="evidence-tab-claim">Thinking your way out doesn&rsquo;t reach this layer.</div></div>
         <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
       </button>
       <div class="evidence-tab-body">
@@ -713,10 +947,7 @@
     </div>
     <div class="evidence-tab">
       <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left">
-          <div class="evidence-tab-field">EFT Tapping</div>
-          <div class="evidence-tab-claim">The effect is measurable. Not metaphorical.</div>
-        </div>
+        <div class="evidence-tab-left"><div class="evidence-tab-field">EFT Tapping</div><div class="evidence-tab-claim">The effect is measurable. Not metaphorical.</div></div>
         <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
       </button>
       <div class="evidence-tab-body">
@@ -726,10 +957,7 @@
     </div>
     <div class="evidence-tab">
       <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left">
-          <div class="evidence-tab-field">Breathwork and HRV</div>
-          <div class="evidence-tab-claim">The shift begins within 90 seconds.</div>
-        </div>
+        <div class="evidence-tab-left"><div class="evidence-tab-field">Breathwork and HRV</div><div class="evidence-tab-claim">The shift begins within 90 seconds.</div></div>
         <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
       </button>
       <div class="evidence-tab-body">
@@ -739,7 +967,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="proof-strip">
   <div class="proof-item"><div class="proof-num">10</div><div class="proof-label">minutes to start<br>Short enough to do today. Deep enough to feel it.</div></div>
@@ -813,11 +1040,11 @@
     </div>
     <div class="footer-tagline">From performing fine to actually being fine.</div>
   </div>
-  <div style="display:flex; flex-direction:column; align-items:flex-end; gap:20px;">
+  <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:20px;">
     <div class="footer-links">
       <a href="#library" class="footer-link" aria-label="Browse the Practice Library">Library</a>
       <a href="https://innerbalance101.com/emotional_load_assessment.html" class="footer-link" aria-label="Take the free Emotional Load Assessment">Assessment</a>
-      <a href="mailto:innerbalance101.contact@gmail.com" class="footer-link">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#4e2720202b3c2c2f222f202d2b7f7e7f602d21203a2f2d3a0e29232f2722602d2123" class="footer-link">Contact</a>
     </div>
     <div class="social-links">
       <a href="https://www.linkedin.com/company/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -826,7 +1053,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggleTab(btn) {
     const tab = btn.closest('.evidence-tab');
     const isOpen = tab.classList.contains('open');
@@ -845,19 +1072,18 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target;
-    btn.textContent = 'Check your inbox ✓';
+    btn.textContent = 'Check your inbox \u2713';
     btn.style.background = 'var(--clay-deep)';
     btn.disabled = true;
   }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.style.opacity='1'; entry.target.style.transform='translateY(0)'; }
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.recognition,.how,.evidence,.proof-strip,.founder,.lead-magnet').forEach(el => {
-    el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity 0.7s ease,transform 0.7s ease';
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+    el.style.opacity = '0';
+    el.
