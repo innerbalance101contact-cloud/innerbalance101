@@ -516,10 +516,10 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 </main>
 
 <footer class="assessment-footer">
-  <p>© 2025 innerbalance101 &nbsp;·&nbsp; <a href="mailto:innerbalance101.contact@gmail.com">innerbalance101.contact@gmail.com</a></p>
+  <p>© 2025 innerbalance101 &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#3d545353584f5f5c515c535e580c0d0c135e5253495c5e497d5a505c5451135e5250"><span class="__cf_email__" data-cfemail="5f3631313a2d3d3e333e313c3a6e6f6e713c30312b3e3c2b1f38323e3633713c3032">[email&#160;protected]</span></a></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const state = {
   zones: new Set(),
   chips: new Set(),
@@ -679,6 +679,7 @@ function awarenessLabel(r){const p=r/15;return p>=0.7?'High':p>=0.45?'Developing
 
 function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
   const key=(highA?'HA':'LA')+'_'+(highL?'HL':'LL');
+  state.profileKey = key; // store for Kit tagging
   const p=PROFILES[key];
   const bodyText = bodyBlind ? p.bodyBlind : p.bodySignal;
 
@@ -708,6 +709,15 @@ function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
 
   // If email was collected at the gate, auto-fill and show success state
   if(gateSubmitted && state.gateEmail){
+    // Send profile tag to Kit now that we know the result
+    setTimeout(()=>{
+      const fd2 = new FormData();
+      fd2.append('email_address', state.gateEmail);
+      if(state.gateName) fd2.append('first_name', state.gateName);
+      fd2.append('fields[profile]', state.profileKey || '');
+      fetch('https://app.kit.com/forms/9180408/subscriptions',{method:'POST',body:fd2,mode:'no-cors'}).catch(()=>{});
+    }, 800);
+    // Auto-fill and hide the in-page email block
     setTimeout(()=>{
       const ni = document.getElementById('nameInput');
       const ei = document.getElementById('emailInput');
@@ -732,16 +742,45 @@ function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
     </div>`;
 }
 
+// ── EMAIL GATE ──
+let gateSubmitted = false;
+function submitGateEmail(){
+  const name = document.getElementById('gateName').value.trim();
+  const email = document.getElementById('gateEmail').value.trim();
+  const valMsg = document.getElementById('emailGateVal');
+  if(!email || !email.includes('@')){
+    valMsg.classList.add('show');
+    document.getElementById('gateEmail').style.borderColor='#b94040';
+    return;
+  }
+  valMsg.classList.remove('show');
+  document.getElementById('gateEmail').style.borderColor='';
+  state.gateName = name;
+  state.gateEmail = email;
+  gateSubmitted = true;
+  // Navigate first — do not let Kit submission block progress
+  go('s-body');
+  // Fire Kit subscription in background after navigation
+  try {
+    const fd = new FormData();
+    fd.append('email_address', email);
+    if(name) fd.append('first_name', name);
+    fetch('https://app.kit.com/forms/9180408/subscriptions',{method:'POST',body:fd,mode:'no-cors'}).catch(()=>{});
+  } catch(e){ /* silent — never block navigation */ }
+}
+
 function submitEmail(){
-  const name=document.getElementById('nameInput').value.trim();
-  const email=document.getElementById('emailInput').value.trim() || state.gateEmail || '';
-  if(!email||!email.includes('@')){
-    document.getElementById('emailInput').style.borderColor='#b94040'; return;
+  const name = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim() || state.gateEmail || '';
+  if(!email || !email.includes('@')){
+    document.getElementById('emailInput').style.borderColor='#b94040';
+    return;
   }
   document.getElementById('emailInput').style.borderColor='';
-  const fd=new FormData();
-  fd.append('email_address',email);
-  fd.append('first_name',name);
+  const fd = new FormData();
+  fd.append('email_address', email);
+  if(name) fd.append('first_name', name);
+  fd.append('fields[profile]', state.profileKey || '');
   fetch('https://app.kit.com/forms/9180408/subscriptions',{method:'POST',body:fd,mode:'no-cors'}).catch(()=>{});
   document.getElementById('emailForm').style.display='none';
   document.getElementById('emailSuccess').classList.add('show');
