@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Emotional Load Assessment — innerbalance101</title>
+<meta name="description" content="An 8-minute assessment to measure your emotional load and self-regulation capacity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --warm-white:#FAF7F2;
+  --linen:#F0E8DC;
+  --clay:#C4A882;
+  --clay-light:#DDD0BE;
+  --clay-deep:#A68B65;
+  --soft:#9C8575;
+  --mid:#6B5B4E;
+  --deep:#2C2420;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);font-size:16px;line-height:1.7;min-height:100vh}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(196,168,130,0.18);height:64px;display:flex;align-items:center;padding:0 40px;justify-content:space-between}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;letter-spacing:0.04em;color:var(--deep);text-decoration:none}
+.nav-back{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--clay-deep)}
+
+.progress-wrap{position:fixed;top:64px;left:0;right:0;z-index:99;background:var(--linen);border-bottom:1px solid rgba(196,168,130,0.15);padding:0 40px;height:48px;display:flex;align-items:center;gap:20px}
+.progress-bar{flex:1;height:3px;background:rgba(196,168,130,0.2);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:var(--clay);border-radius:99px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1)}
+.progress-label{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
+
+.assessment-wrap{padding-top:112px;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+.screen{display:none;width:100%;max-width:680px;padding:60px 40px 80px;animation:fadeUp 0.45s ease both}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* Intro */
+.intro-eyebrow{font-size:0.68rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.intro-eyebrow::before{content:'';width:24px;height:1px;background:var(--clay)}
+.intro-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,5vw,3.1rem);font-weight:300;line-height:1.15;color:var(--deep);margin-bottom:28px}
+.intro-headline em{font-style:italic;color:var(--clay-deep)}
+.intro-body{font-size:1rem;font-weight:300;line-height:1.9;color:var(--mid);margin-bottom:16px}
+.intro-note{font-size:0.82rem;font-weight:300;color:var(--soft);border-left:2px solid var(--clay-light);padding-left:16px;margin:28px 0 36px;line-height:1.75;font-style:italic}
+.what-youll-get{background:var(--linen);padding:28px 32px;margin-bottom:40px;border-left:3px solid var(--clay)}
+.wyg-title{font-size:0.68rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:14px}
+.wyg-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.wyg-list li{font-size:0.9rem;font-weight:300;color:var(--mid);display:flex;align-items:flex-start;gap:12px;line-height:1.6}
+.wyg-list li::before{content:'→';color:var(--clay);font-size:0.85rem;margin-top:2px;flex-shrink:0}
+
+/* Buttons */
+.btn-primary{display:inline-block;background:var(--deep);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:18px 44px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;text-decoration:none}
+.btn-primary:hover{background:var(--mid);transform:translateY(-1px)}
+.btn-secondary{display:inline-block;background:transparent;color:var(--deep);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:16px 36px;cursor:pointer;border:1.5px solid var(--clay-light);transition:border-color 0.25s,color 0.25s;text-decoration:none}
+.btn-secondary:hover{border-color:var(--clay);color:var(--clay-deep)}
+.btn-clay{display:inline-block;background:var(--clay);color:var(--deep);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:18px 44px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;text-decoration:none}
+.btn-clay:hover{background:var(--clay-light);transform:translateY(-1px)}
+.btn-back-step{background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft);display:flex;align-items:center;gap:8px;padding:0;transition:color 0.2s}
+.btn-back-step:hover{color:var(--clay-deep)}
+.btn-back-step::before{content:'←';font-size:0.9rem}
+
+/* Phase header */
+.phase-tag{display:inline-flex;align-items:center;gap:10px;font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:20px}
+.phase-dot{width:6px;height:6px;background:var(--clay);border-radius:50%;flex-shrink:0}
+.screen-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:300;line-height:1.2;color:var(--deep);margin-bottom:14px}
+.screen-headline em{font-style:italic;color:var(--clay-deep)}
+.screen-sub{font-size:0.92rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:40px}
+
+/* Body map */
+.body-check-wrap{display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;margin-bottom:36px}
+.body-map-col{flex-shrink:0}
+.body-map-col svg{display:block}
+.zone{cursor:pointer;fill:var(--clay-light);opacity:0.35;transition:opacity 0.2s,fill 0.2s}
+.zone:hover{opacity:0.65;fill:var(--clay)}
+.zone.selected{opacity:1;fill:var(--clay-deep)}
+.body-outline-path{fill:none;stroke:var(--clay-light);stroke-width:1.5;stroke-linecap:round}
+.map-caption{font-size:0.63rem;font-weight:300;color:var(--soft);text-align:center;margin-top:8px;letter-spacing:0.06em}
+
+.chips-col{flex:1;min-width:220px}
+.chips-label{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{font-family:'Jost',sans-serif;font-size:0.8rem;font-weight:400;padding:8px 16px;border:1.5px solid var(--clay-light);color:var(--mid);cursor:pointer;background:transparent;transition:all 0.2s;letter-spacing:0.04em}
+.chip:hover{border-color:var(--clay);color:var(--clay-deep);background:rgba(196,168,130,0.07)}
+.chip.selected{border-color:var(--clay-deep);background:var(--clay-deep);color:var(--warm-white)}
+.chips-note{font-size:0.78rem;font-weight:300;color:var(--soft);line-height:1.65;font-style:italic}
+
+/* Scale questions */
+.q-block{border-bottom:1px solid rgba(196,168,130,0.18);padding:28px 0}
+.q-block:first-child{padding-top:0}
+.q-block:last-child{border-bottom:none}
+.q-num{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:8px}
+.q-text{font-size:1rem;font-weight:300;color:var(--deep);line-height:1.65;margin-bottom:20px}
+.scale-row{display:flex;gap:0}
+.scale-opt{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer}
+.scale-dot{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--clay-light);background:transparent;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
+.scale-opt:hover .scale-dot{border-color:var(--clay);background:rgba(196,168,130,0.1)}
+.scale-opt.sel .scale-dot{border-color:var(--clay-deep);background:var(--clay-deep)}
+.dot-inner{width:10px;height:10px;border-radius:50%;background:var(--warm-white);opacity:0;transition:opacity 0.2s}
+.scale-opt.sel .dot-inner{opacity:1}
+.scale-num{font-size:0.68rem;font-weight:400;color:var(--soft);letter-spacing:0.04em}
+.scale-labels{display:flex;justify-content:space-between;margin-top:4px}
+.scale-lbl{font-size:0.63rem;font-weight:300;color:var(--soft);letter-spacing:0.07em;text-transform:uppercase}
+
+/* Nav */
+.screen-nav{display:flex;align-items:center;justify-content:space-between;margin-top:36px;padding-top:28px;border-top:1px solid rgba(196,168,130,0.18)}
+
+/* Validation */
+.val-msg{font-size:0.78rem;color:#b94040;margin-top:-12px;margin-bottom:20px;display:none}
+.val-msg.show{display:block}
+
+/* Results */
+.results-screen{max-width:700px}
+.result-hero{background:var(--deep);padding:48px 48px 40px;margin-bottom:36px;position:relative;overflow:hidden}
+.result-hero::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(196,168,130,0.1)}
+.result-hero::after{content:'';position:absolute;top:-15px;right:-15px;width:130px;height:130px;border-radius:50%;border:1px solid rgba(196,168,130,0.07)}
+.result-eyebrow{font-size:0.63rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.result-eyebrow::before{content:'';width:18px;height:1px;background:var(--clay)}
+.result-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:300;line-height:1.15;color:var(--warm-white);margin-bottom:20px}
+.result-name em{font-style:italic;color:var(--clay-light)}
+.result-desc{font-size:0.95rem;font-weight:300;line-height:1.9;color:rgba(250,247,242,0.72);margin-bottom:24px}
+.result-body-signal{border-left:2px solid var(--clay);padding-left:16px;font-size:0.88rem;font-weight:300;color:rgba(250,247,242,0.55);line-height:1.7;font-style:italic}
+
+.scores-row{display:flex;gap:20px;margin-bottom:36px;flex-wrap:wrap}
+.score-card{flex:1;min-width:140px;background:var(--linen);padding:20px 24px;border-left:3px solid var(--clay)}
+.score-lbl{font-size:0.63rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
+.score-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--deep);margin-bottom:4px}
+.score-desc-text{font-size:0.78rem;font-weight:300;color:var(--mid)}
+
+.insight-section{margin-bottom:36px}
+.insight-title{font-size:0.68rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:16px}
+.insight-section p{font-size:0.95rem;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:14px}
+.insight-section p:last-child{margin-bottom:0}
+
+.email-block{background:var(--deep);padding:40px 44px;margin-bottom:32px}
+.email-lbl{font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:10px}
+.email-headline{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;color:var(--warm-white);margin-bottom:8px;line-height:1.3}
+.email-body{font-size:0.88rem;font-weight:300;color:rgba(250,247,242,0.58);line-height:1.75;margin-bottom:22px}
+.email-row{display:flex;gap:8px;flex-wrap:wrap}
+.email-input,.name-input{flex:1;min-width:160px;background:rgba(250,247,242,0.07);border:1px solid rgba(196,168,130,0.22);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.9rem;font-weight:300;padding:13px 18px;outline:none;transition:border-color 0.2s}
+.email-input::placeholder,.name-input::placeholder{color:rgba(250,247,242,0.28)}
+.email-input:focus,.name-input:focus{border-color:var(--clay)}
+.email-btn{background:var(--clay);color:var(--deep);font-family:'Jost',sans-serif;font-size:0.73rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:13px 24px;border:none;cursor:pointer;transition:background 0.2s;white-space:nowrap;flex-shrink:0}
+.email-btn:hover{background:var(--clay-light)}
+.email-privacy{font-size:0.65rem;font-weight:300;color:rgba(250,247,242,0.28);margin-top:10px;letter-spacing:0.04em}
+.email-success{display:none;text-align:center;padding:16px 0}
+.email-success.show{display:block}
+.email-success p{font-size:0.92rem;font-weight:300;color:rgba(250,247,242,0.7);line-height:1.8}
+.email-success strong{color:var(--clay-light)}
+
+.rec-block{background:var(--linen);padding:36px 40px;margin-bottom:28px;border-top:3px solid var(--clay)}
+.rec-lbl{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:12px}
+.rec-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--deep);margin-bottom:6px}
+.rec-transformation{font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:16px}
+.rec-body{font-size:0.92rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:24px}
+.rec-price{font-size:0.8rem;font-weight:300;color:var(--soft);margin-bottom:22px}
+.rec-price strong{color:var(--deep);font-weight:500}
+.btn-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+
+.bundle-nudge{text-align:center;padding:22px;border:1px solid var(--clay-light);margin-bottom:48px}
+.bundle-nudge p{font-size:0.88rem;font-weight:300;color:var(--mid);line-height:1.7}
+.bundle-nudge a{color:var(--clay-deep);text-decoration:none;font-weight:500}
+.bundle-nudge a:hover{text-decoration:underline}
+
+.assessment-footer{text-align:center;padding:32px 40px;border-top:1px solid rgba(196,168,130,0.15);margin-top:auto;width:100%}
+.assessment-footer p{font-size:0.72rem;font-weight:300;color:var(--soft);letter-spacing:0.04em}
+.assessment-footer a{color:var(--clay);text-decoration:none}
+
+@media(max-width:640px){
+  .nav{padding:0 20px}
+  .progress-wrap{padding:0 20px}
+  .screen{padding:36px 22px 56px}
+  .body-check-wrap{flex-direction:column;gap:28px}
+  .result-hero{padding:30px 24px 28px}
+  .email-block{padding:28px 22px}
+  .rec-block{padding:28px 22px}
+  .scores-row{flex-direction:column}
+  .score-card{min-width:unset}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://innerbalance101.com" class="nav-brand">innerbalance101</a>
+  <a href="https://innerbalance101.com" class="nav-back">← Back to site</a>
+</nav>
+
+<div class="progress-wrap">
+  <span class="progress-label" id="progressLabel">Introduction</span>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
+
+<main class="assessment-wrap">
+
+  <!-- SCREEN 0: INTRO -->
+  <div class="screen active" id="s-intro">
+    <div class="intro-eyebrow">The Emotional Load Assessment</div>
+    <h1 class="intro-headline">Before you can regulate,<br>you need to know<br><em>what you're carrying.</em></h1>
+    <p class="intro-body">Most high-achieving professionals can name their goals, their KPIs, their next move. What they struggle to name — with any precision — is what's happening inside them while they do it all.</p>
+    <p class="intro-body">This assessment is different. It doesn't start with a questionnaire. It starts with your body. Then it measures how connected you are to your inner experience. Then it maps your emotional load.</p>
+    <blockquote class="intro-note">This takes around 8 minutes. There are no right answers. The most useful thing you can do is slow down enough to answer honestly.</blockquote>
+    <div class="what-youll-get">
+      <div class="wyg-title">What you'll leave with</div>
+      <ul class="wyg-list">
+        <li>A clear read of your current emotional load level</li>
+        <li>An honest look at your self-awareness and somatic connection</li>
+        <li>A personalised result profile — not a generic score</li>
+        <li>One specific practice recommended for where you actually are</li>
+      </ul>
+    </div>
+    <button class="btn-primary" onclick="go('s-body')">Begin the assessment</button>
+  </div>
+
+  <!-- SCREEN 1: BODY CHECK-IN -->
+  <div class="screen" id="s-body">
+    <div class="phase-tag"><span class="phase-dot"></span>Phase 1 of 3 — Body Check-In</div>
+    <h2 class="screen-headline">Right now, where do you feel tension <em>in your body?</em></h2>
+    <p class="screen-sub">Before you answer anything with your mind, pause. Take a breath. Then notice — not what you're thinking, but what you're physically sensing. There's no right answer. Even not knowing is useful information.</p>
+
+    <div class="body-check-wrap">
+      <!-- SVG body map -->
+      <div class="body-map-col">
+        <svg width="130" height="290" viewBox="0 0 130 290" xmlns="http://www.w3.org/2000/svg">
+          <!-- Static outline -->
+          <ellipse cx="65" cy="28" rx="20" ry="24" class="body-outline-path"/>
+          <line x1="57" y1="50" x2="55" y2="66" class="body-outline-path"/>
+          <line x1="73" y1="50" x2="75" y2="66" class="body-outline-path"/>
+          <path d="M40 68 C32 72 20 90 16 128 L12 158" class="body-outline-path"/>
+          <path d="M90 68 C98 72 110 90 114 128 L118 158" class="body-outline-path"/>
+          <path d="M40 68 L30 165 L36 168 L90 168 L94 165 L90 68 Z" class="body-outline-path"/>
+          <path d="M46 168 L42 230 L40 275" class="body-outline-path"/>
+          <path d="M56 168 L54 230 L56 275" class="body-outline-path"/>
+          <path d="M74 168 L76 230 L74 275" class="body-outline-path"/>
+          <path d="M84 168 L88 230 L90 275" class="body-outline-path"/>
+          <!-- Clickable zones -->
+          <ellipse cx="65" cy="28" rx="19" ry="22" class="zone" data-zone="head" onclick="toggleZone(this,'head')" title="Head / Jaw"/>
+          <rect x="58" y="50" width="14" height="16" rx="3" class="zone" data-zone="throat" onclick="toggleZone(this,'throat')" title="Throat / Neck"/>
+          <ellipse cx="33" cy="74" rx="13" ry="9" class="zone" data-zone="shoulders" onclick="toggleZone(this,'shoulders-l')" title="Shoulders"/>
+          <ellipse cx="97" cy="74" rx="13" ry="9" class="zone" data-zone="shoulders" onclick="toggleZone(this,'shoulders-r')" title="Shoulders"/>
+          <ellipse cx="65" cy="104" rx="24" ry="20" class="zone" data-zone="chest" onclick="toggleZone(this,'chest')" title="Chest"/>
+          <ellipse cx="65" cy="146" rx="22" ry="17" class="zone" data-zone="stomach" onclick="toggleZone(this,'stomach')" title="Stomach / Gut"/>
+          <ellipse cx="13" cy="156" rx="7" ry="5" class="zone" data-zone="hands" onclick="toggleZone(this,'hands-l')" title="Hands"/>
+          <ellipse cx="117" cy="156" rx="7" ry="5" class="zone" data-zone="hands" onclick="toggleZone(this,'hands-r')" title="Hands"/>
+          <ellipse cx="49" cy="215" rx="10" ry="22" class="zone" data-zone="lower" onclick="toggleZone(this,'lower-l')" title="Legs"/>
+          <ellipse cx="81" cy="215" rx="10" ry="22" class="zone" data-zone="lower" onclick="toggleZone(this,'lower-r')" title="Legs"/>
+        </svg>
+        <p class="map-caption">tap to mark areas</p>
+      </div>
+
+      <!-- Word chips -->
+      <div class="chips-col">
+        <div class="chips-label">Or choose what you notice</div>
+        <div class="chips" id="bodyChips">
+          <button class="chip" data-s="jaw" onclick="toggleChip(this)">Jaw tension</button>
+          <button class="chip" data-s="chest" onclick="toggleChip(this)">Tight chest</button>
+          <button class="chip" data-s="shoulders" onclick="toggleChip(this)">Heavy shoulders</button>
+          <button class="chip" data-s="gut" onclick="toggleChip(this)">Stomach knot</button>
+          <button class="chip" data-s="breath" onclick="toggleChip(this)">Shallow breath</button>
+          <button class="chip" data-s="throat" onclick="toggleChip(this)">Throat constriction</button>
+          <button class="chip" data-s="legs" onclick="toggleChip(this)">Restless legs</button>
+          <button class="chip" data-s="hands" onclick="toggleChip(this)">Clenched hands</button>
+          <button class="chip" data-s="head" onclick="toggleChip(this)">Head pressure</button>
+          <button class="chip" data-s="numb" onclick="toggleChip(this)">Body feels numb</button>
+          <button class="chip" data-s="nothing" onclick="toggleChip(this)">Nothing right now</button>
+          <button class="chip" data-s="unsure" onclick="toggleChip(this)">Not sure</button>
+        </div>
+        <p class="chips-note">You can select both — the map and the words. Or neither, if nothing applies. That tells us something too.</p>
+      </div>
+    </div>
+
+    <p class="val-msg" id="bodyVal">Please select at least one area or sensation to continue.</p>
+
+    <div class="screen-nav">
+      <button class="btn-back-step" onclick="go('s-intro')">Introduction</button>
+      <button class="btn-primary" onclick="nextBody()">Continue</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: AWARENESS AUDIT -->
+  <div class="screen" id="s-awareness">
+    <div class="phase-tag"><span class="phase-dot"></span>Phase 2 of 3 — Awareness Audit</div>
+    <h2 class="screen-headline">How connected are you to your <em>inner experience?</em></h2>
+    <p class="screen-sub">Rate each of the following statements honestly. 1 means this rarely applies to you. 5 means it almost always does. There's no score to aim for — only the truth of where you actually are.</p>
+
+    <div id="awarenessQs">
+      <div class="q-block">
+        <div class="q-text">"I can usually name what I'm feeling before it affects my decisions or behaviour."</div>
+        <div class="scale-row" id="aq1">
+          <div class="scale-opt" onclick="selAQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selAQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selAQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selAQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selAQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">"I notice physical tension in my body before I notice the emotion behind it."</div>
+        <div class="scale-row" id="aq2">
+          <div class="scale-opt" onclick="selAQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selAQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selAQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selAQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selAQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">"After a difficult interaction or setback, I know what I need to feel settled again."</div>
+        <div class="scale-row" id="aq3">
+          <div class="scale-opt" onclick="selAQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selAQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selAQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selAQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selAQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
+      </div>
+    </div>
+
+    <p class="val-msg" id="awarenessVal">Please answer all three statements to continue.</p>
+
+    <div class="screen-nav">
+      <button class="btn-back-step" onclick="go('s-body')">Body check-in</button>
+      <button class="btn-primary" onclick="nextAwareness()">Continue</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: LOAD QUESTIONS -->
+  <div class="screen" id="s-load">
+    <div class="phase-tag"><span class="phase-dot"></span>Phase 3 of 3 — Emotional Load</div>
+    <h2 class="screen-headline">How much are you <em>actually carrying?</em></h2>
+    <p class="screen-sub">Rate each statement on a scale of 1 to 5. Not how you want to feel. How you actually feel, most of the time.</p>
+
+    <div id="loadQs">
+      <div class="q-block">
+        <div class="q-num">01</div>
+        <div class="q-text">I end most days feeling depleted, even when I haven't done anything physically demanding.</div>
+        <div class="scale-row" id="lq1">
+          <div class="scale-opt" onclick="selLQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">02</div>
+        <div class="q-text">I find it difficult to fully switch off — even in situations where I'm supposed to be relaxing.</div>
+        <div class="scale-row" id="lq2">
+          <div class="scale-opt" onclick="selLQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">03</div>
+        <div class="q-text">I often feel pressure that I can't fully explain — it's there even when things are going well.</div>
+        <div class="scale-row" id="lq3">
+          <div class="scale-opt" onclick="selLQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">04</div>
+        <div class="q-text">I second-guess decisions I've already made, often replaying what I could have done differently.</div>
+        <div class="scale-row" id="lq4">
+          <div class="scale-opt" onclick="selLQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">05</div>
+        <div class="q-text">My emotions tend to surface in the wrong moments — irritability, withdrawal, or reactions that surprise me.</div>
+        <div class="scale-row" id="lq5">
+          <div class="scale-opt" onclick="selLQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">06</div>
+        <div class="q-text">I feel responsible for managing how others feel around me — their reactions are part of what I'm monitoring.</div>
+        <div class="scale-row" id="lq6">
+          <div class="scale-opt" onclick="selLQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">07</div>
+        <div class="q-text">Open loops, unmade decisions, and unclear outcomes take up far more mental space than they should.</div>
+        <div class="scale-row" id="lq7">
+          <div class="scale-opt" onclick="selLQ(7,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(7,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(7,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(7,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(7,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">08</div>
+        <div class="q-text">Even when I achieve things I worked hard for, the satisfaction doesn't last — there's always something next.</div>
+        <div class="scale-row" id="lq8">
+          <div class="scale-opt" onclick="selLQ(8,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(8,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(8,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(8,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(8,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+    </div>
+
+    <p class="val-msg" id="loadVal">Please answer all eight questions to see your results.</p>
+
+    <div class="screen-nav">
+      <button class="btn-back-step" onclick="go('s-awareness')">Awareness audit</button>
+      <button class="btn-primary" onclick="calcResults()">See my results</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: RESULTS -->
+  <div class="screen results-screen" id="s-results">
+    <div id="rProfile"></div>
+    <div class="scores-row" id="rScores"></div>
+    <div class="insight-section" id="rInsight"></div>
+    <div class="email-block">
+      <div class="email-lbl">Keep your results</div>
+      <h3 class="email-headline">Send this to yourself. Start the practice.</h3>
+      <p class="email-body">Enter your name and email and we'll send you your result profile and your recommended practice — so you have it when you're ready to begin.</p>
+      <div id="emailForm">
+        <div class="email-row">
+          <input type="text" class="name-input" id="nameInput" placeholder="Your first name">
+          <input type="email" class="email-input" id="emailInput" placeholder="Your email address">
+          <button class="email-btn" onclick="submitEmail()">Send me my results</button>
+        </div>
+      </div>
+      <div class="email-success" id="emailSuccess">
+        <p>You're in. Check your inbox — your results and recommended practice are on their way.<br><strong>Now, the real work begins.</strong></p>
+      </div>
+      <p class="email-privacy">No spam. Just the practice you need, when you're ready.</p>
+    </div>
+    <div id="rRec"></div>
+    <div class="bundle-nudge">
+      <p>The Full Library Bundle includes all 5 practices for <strong>$57</strong> — saving $28 compared to individual guides. <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank">View the full library →</a></p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="assessment-footer">
+  <p>© 2025 innerbalance101 &nbsp;·&nbsp; <a href="mailto:innerbalance101.contact@gmail.com">innerbalance101.contact@gmail.com</a></p>
+</footer>
+
+<script>
+const state = {
+  zones: new Set(),
+  chips: new Set(),
+  aq: {},
+  lq: {}
+};
+
+const SCREENS = ['s-intro','s-body','s-awareness','s-load','s-results'];
+const PROG = {
+  's-intro':    {pct:0,   label:'Introduction'},
+  's-body':     {pct:20,  label:'Phase 1 — Body Check-In'},
+  's-awareness':{pct:50,  label:'Phase 2 — Awareness Audit'},
+  's-load':     {pct:75,  label:'Phase 3 — Emotional Load'},
+  's-results':  {pct:100, label:'Your Results'}
+};
+
+function go(id){
+  SCREENS.forEach(s=>document.getElementById(s).classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('progressFill').style.width = PROG[id].pct+'%';
+  document.getElementById('progressLabel').textContent = PROG[id].label;
+}
+
+function toggleZone(el,id){
+  el.classList.toggle('selected');
+  el.classList.contains('selected') ? state.zones.add(id) : state.zones.delete(id);
+}
+
+function toggleChip(el){
+  const v = el.dataset.s;
+  if(v==='nothing'||v==='unsure'){
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('selected'));
+    document.querySelectorAll('.zone').forEach(z=>z.classList.remove('selected'));
+    state.chips.clear(); state.zones.clear();
+    el.classList.add('selected'); state.chips.add(v);
+  } else {
+    ['nothing','unsure'].forEach(s=>{
+      state.chips.delete(s);
+      document.querySelector(`[data-s="${s}"]`)?.classList.remove('selected');
+    });
+    el.classList.toggle('selected');
+    el.classList.contains('selected') ? state.chips.add(v) : state.chips.delete(v);
+  }
+}
+
+function nextBody(){
+  if(state.zones.size===0 && state.chips.size===0){
+    document.getElementById('bodyVal').classList.add('show'); return;
+  }
+  document.getElementById('bodyVal').classList.remove('show');
+  go('s-awareness');
+}
+
+function selAQ(q,v){
+  state.aq[q]=v;
+  document.getElementById('aq'+q).querySelectorAll('.scale-opt').forEach((o,i)=>{
+    o.classList.toggle('sel', i+1===v);
+  });
+}
+
+function nextAwareness(){
+  if([1,2,3].some(q=>!state.aq[q])){
+    document.getElementById('awarenessVal').classList.add('show'); return;
+  }
+  document.getElementById('awarenessVal').classList.remove('show');
+  go('s-load');
+}
+
+function selLQ(q,v){
+  state.lq[q]=v;
+  document.getElementById('lq'+q).querySelectorAll('.scale-opt').forEach((o,i)=>{
+    o.classList.toggle('sel', i+1===v);
+  });
+}
+
+function calcResults(){
+  if([1,2,3,4,5,6,7,8].some(q=>!state.lq[q])){
+    document.getElementById('loadVal').classList.add('show'); return;
+  }
+  document.getElementById('loadVal').classList.remove('show');
+
+  const aRaw = [1,2,3].reduce((s,q)=>s+state.aq[q],0);   // 3–15
+  const lRaw = [1,2,3,4,5,6,7,8].reduce((s,q)=>s+state.lq[q],0); // 8–40
+
+  const highA = aRaw/15 >= 0.5;
+  const highL = lRaw/40 >= 0.5;
+  const bodyBlind = state.chips.has('nothing')||state.chips.has('unsure');
+  const hasBodySignal = state.zones.size>0 || ([...state.chips].some(s=>s!=='nothing'&&s!=='unsure'));
+
+  renderResults(highA, highL, aRaw, lRaw, hasBodySignal, bodyBlind);
+  go('s-results');
+}
+
+const PROFILES = {
+  HA_HL: {
+    eyebrow:'Profile 1 of 4',
+    nameHTML:'You know what\'s happening.<br><em>You just haven\'t had the tools to move it.</em>',
+    desc:'You have genuine self-awareness. You can name what you\'re feeling and you\'re not in denial about the weight you\'re carrying. That\'s rare. What\'s missing isn\'t insight — it\'s the somatic practice to process and discharge what you\'ve been holding. Understanding it in your mind is not the same as releasing it from your body.',
+    bodySignal:'The tension you noticed at the start of this assessment is where the work begins. Not the thinking about it. The feeling of it.',
+    bodyBlind:'The fact that you\'re not sure where you feel it in your body is worth noting. Your awareness lives primarily in your mind. The next step is building a bridge to your body.',
+    aLabel:'High', lLabel:'High',
+    insights:[
+      'High-awareness, high-load is one of the most common profiles among high-achieving professionals. You have the cognitive clarity to see what\'s happening — but the emotional and somatic load is outrunning your capacity to process it.',
+      'The risk here is intellectualising. You can analyse your experience clearly, which can create the illusion of progress without the actual discharge. Insight without practice is just more content for an already overloaded system.',
+      'What you need is not more understanding. It\'s a structured, repeatable somatic practice that creates real physiological change — not just new ways of thinking about the same old weight.'
+    ],
+    practice:{name:'The Overwhelm Practice',transformation:'Overwhelm → Grounded',body:'This practice works directly with the nervous system\'s overwhelm response — where everything feels urgent, nothing feels manageable, and your body has been running on threat-response for too long. It moves you from activation back to ground, through breath, movement, and regulation. Ten minutes to start. The change is physiological, not cognitive.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
+  },
+  HA_LL: {
+    eyebrow:'Profile 2 of 4',
+    nameHTML:'You\'re more regulated than you think.<br><em>Now make it a discipline.</em>',
+    desc:'You have a relatively high capacity for self-awareness and your emotional load is currently manageable. This is a good place to be — and the right moment to build a practice before the next season demands it. High-achievers who feel regulated often wait until they\'re overloaded before investing in this work. That\'s reactive. You have the rare opportunity to be proactive.',
+    bodySignal:'The physical awareness you brought to the start of this assessment is your foundation. That signal is already there. The practice is learning to trust it.',
+    bodyBlind:'Even at a lower load, there\'s room to deepen your body connection. The somatic channel is the one that holds most reliably under pressure.',
+    aLabel:'High', lLabel:'Moderate',
+    insights:[
+      'Regulated seasons are when the practice gets built — not when you\'re already in crisis. The professionals who maintain their equilibrium under sustained pressure are the ones who developed the tools before they needed them urgently.',
+      'Your nervous system is relatively available right now. That means new practice patterns will embed more easily now than they would when you\'re running on cortisol.',
+      'The question to sit with: what happens to your regulation when the pressure intensifies? Do you have a practice that reliably brings you back? If the answer is no — this is the work.'
+    ],
+    practice:{name:'The Pressure Practice',transformation:'Pressure → Self-Assurance',body:'This practice is for the persistent background hum of pressure that high-achievers carry even when things are going well — the constant proving, the performing, the sense that you need to be more. It builds a felt sense of capacity from the inside. Not confidence from achievement. Assurance from being grounded in yourself.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
+  },
+  LA_HL: {
+    eyebrow:'Profile 3 of 4',
+    nameHTML:'Your body has been signalling for a while.<br><em>You\'ve been too busy to hear it.</em>',
+    desc:'Your emotional load is high and your connection to your inner experience is currently limited. This is a very common combination in high-achieving professionals — you\'ve learned to move fast, stay productive, and push through. The cost of that is a growing disconnect from what your nervous system is actually experiencing. The signals are there. They\'re just not being read.',
+    bodySignal:'What you felt at the start of this assessment — even if it surprised you — is the beginning of the signal. That\'s your body trying to communicate. The practice is learning to hear it before it has to shout.',
+    bodyBlind:'The fact that you felt nothing, or weren\'t sure, while carrying a high emotional load is itself the signal. This disconnect is one of the most important things to work with.',
+    aLabel:'Developing', lLabel:'High',
+    insights:[
+      'Low awareness and high load means there\'s a significant mismatch between what your nervous system is experiencing and what you\'re consciously registering. This isn\'t a character flaw — it\'s the result of years of training yourself to override discomfort in service of performance.',
+      'The risk with this profile is that the load doesn\'t disappear when you don\'t notice it. It accumulates. It leaks out in reactivity, in physical symptoms, in a growing sense of emptiness even when things look good on the outside.',
+      'The work here isn\'t dramatic. It starts with 10 minutes a day and a single question: what am I actually feeling right now? Not what am I thinking. What am I feeling. In my body.'
+    ],
+    practice:{name:'The Self-Doubt Practice',transformation:'Self-Doubt → Self-Trust',body:'This practice rebuilds the internal signal that high-achievers often override — the quiet knowing that sits beneath the constant mental noise of proving and justifying. It starts in the body, where self-trust actually lives, and moves from somatic signal to cognitive clarity. Ten minutes. Repeatable. Transformative over 21 days.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
+  },
+  LA_LL: {
+    eyebrow:'Profile 4 of 4',
+    nameHTML:'You\'re at the beginning.<br><em>That\'s a good place to start.</em>',
+    desc:'Your emotional load is currently moderate and your inner awareness is still developing. This profile often belongs to someone who is functioning well on the surface and hasn\'t yet had reason to go deeper — or someone who has been managing so effectively that they\'ve trained themselves not to notice. Either way, building the practice before the load increases is the work.',
+    bodySignal:'The body awareness you\'re beginning to develop is the foundation everything else builds on. Start there.',
+    bodyBlind:'The fact that you\'re not yet reading your body clearly is the starting point, not a problem. It\'s a skill. This work teaches it.',
+    aLabel:'Developing', lLabel:'Moderate',
+    insights:[
+      'The professionals who most need this work are often the ones who feel least urgency about it. When things are manageable, the case for building a practice feels weak. But the practice doesn\'t exist for crisis management — it exists for building sustained inner capacity.',
+      'What you\'re building is the ability to stay grounded when the pressure rises, to trust your instincts when the stakes are high, and to know what you\'re feeling before it controls what you do.',
+      'The entry point is small. Ten minutes. One practice. Twenty-one days. The shift is quiet at first — and then it\'s not.'
+    ],
+    practice:{name:'The Overwhelm Practice',transformation:'Overwhelm → Grounded',body:'This is the best place to start if you\'re new to somatic practice. Structured, science-backed, and ten minutes. It introduces you to the body-based approach — the one that produces real physiological change, not just new ways of thinking. One practice. One transformation. A clear before and after.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
+  }
+};
+
+function loadLabel(r){const p=r/40;return p>=0.75?'Very High':p>=0.5?'High':p>=0.3?'Moderate':'Low'}
+function awarenessLabel(r){const p=r/15;return p>=0.7?'High':p>=0.45?'Developing':'Limited'}
+
+function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
+  const key=(highA?'HA':'LA')+'_'+(highL?'HL':'LL');
+  const p=PROFILES[key];
+  const bodyText = bodyBlind ? p.bodyBlind : p.bodySignal;
+
+  document.getElementById('rProfile').innerHTML=`
+    <div class="result-hero">
+      <div class="result-eyebrow">${p.eyebrow}</div>
+      <h2 class="result-name">${p.nameHTML}</h2>
+      <p class="result-desc">${p.desc}</p>
+      <p class="result-body-signal">${bodyText}</p>
+    </div>`;
+
+  document.getElementById('rScores').innerHTML=`
+    <div class="score-card">
+      <div class="score-lbl">Emotional Load</div>
+      <div class="score-val">${lRaw}<span style="font-size:1rem;color:var(--soft)">/40</span></div>
+      <div class="score-desc-text">${loadLabel(lRaw)}</div>
+    </div>
+    <div class="score-card">
+      <div class="score-lbl">Self-Awareness</div>
+      <div class="score-val">${aRaw}<span style="font-size:1rem;color:var(--soft)">/15</span></div>
+      <div class="score-desc-text">${awarenessLabel(aRaw)}</div>
+    </div>`;
+
+  document.getElementById('rInsight').innerHTML=`
+    <div class="insight-title">What this means for you</div>
+    ${p.insights.map(i=>`<p>${i}</p>`).join('')}`;
+
+  document.getElementById('rRec').innerHTML=`
+    <div class="rec-block">
+      <div class="rec-lbl">Recommended for your profile</div>
+      <div class="rec-name">${p.practice.name}</div>
+      <div class="rec-transformation">${p.practice.transformation}</div>
+      <p class="rec-body">${p.practice.body}</p>
+      <p class="rec-price">Downloadable PDF guide &nbsp;·&nbsp; <strong>${p.practice.price}</strong></p>
+      <div class="btn-row">
+        <a href="${p.practice.link}" target="_blank" class="btn-clay">Get the practice — ${p.practice.price}</a>
+        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="btn-secondary">View full library</a>
+      </div>
+    </div>`;
+}
+
+function submitEmail(){
+  const name=document.getElementById('nameInput').value.trim();
+  const email=document.getElementById('emailInput').value.trim();
+  if(!email||!email.includes('@')){
+    document.getElementById('emailInput').style.borderColor='#b94040'; return;
+  }
+  document.getElementById('emailInput').style.borderColor='';
+  const fd=new FormData();
+  fd.append('email_address',email);
+  fd.append('first_name',name);
+  fetch('https://app.kit.com/forms/9180408/subscriptions',{method:'POST',body:fd,mode:'no-cors'}).catch(()=>{});
+  document.getElementById('emailForm').style.display='none';
+  document.getElementById('emailSuccess').classList.add('show');
+}
+</script>
+</body>
+</html>
