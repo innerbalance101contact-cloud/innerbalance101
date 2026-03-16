@@ -135,16 +135,18 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 .insight-section p{font-size:0.95rem;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:14px}
 .insight-section p:last-child{margin-bottom:0}
 
-
-
-.email-headline{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;color:var(--warm-white);margin-bottom:8px;line-height:1.3}
-.email-body{font-size:0.88rem;font-weight:300;color:rgba(250,247,242,0.58);line-height:1.75;margin-bottom:22px}
-.email-row{display:flex;gap:8px;flex-wrap:wrap}
-.email-input,.name-input{flex:1;min-width:160px;background:rgba(250,247,242,0.07);border:1px solid rgba(196,168,130,0.22);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.9rem;font-weight:300;padding:13px 18px;outline:none;transition:border-color 0.2s}
-.email-input::placeholder,.name-input::placeholder{color:rgba(250,247,242,0.28)}
-.email-input:focus,.name-input:focus{border-color:var(--clay)}
-
-
+/* Send results block */
+.send-results-block{background:var(--deep);padding:36px 40px;margin-bottom:28px}
+.send-results-block .sr-eyebrow{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:14px}
+.send-results-block .sr-headline{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:var(--warm-white);line-height:1.3;margin-bottom:8px}
+.send-results-block .sr-sub{font-size:0.85rem;font-weight:300;color:rgba(250,247,242,0.55);line-height:1.75;margin-bottom:22px}
+.sr-btn{display:inline-block;background:var(--clay);color:var(--deep);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:16px 36px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;width:100%;text-align:center}
+.sr-btn:hover{background:var(--clay-light);transform:translateY(-1px)}
+.sr-btn:disabled{opacity:0.5;cursor:default;transform:none}
+.sr-success{display:none;padding:16px 0 0}
+.sr-success.show{display:block}
+.sr-success p{font-size:0.88rem;font-weight:300;color:rgba(250,247,242,0.65);line-height:1.8}
+.sr-success strong{color:var(--clay-light)}
 
 .email-gate-form{display:flex;flex-direction:column;gap:20px;margin-top:8px}
 .egate-field{display:flex;flex-direction:column;gap:8px}
@@ -154,11 +156,6 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 .egate-input:focus{border-color:var(--clay)}
 .egate-btn{width:100%;display:block;text-align:center}
 .egate-privacy{font-size:0.72rem;font-weight:300;color:var(--soft);line-height:1.6;letter-spacing:0.04em}
-
-.email-success{display:none;text-align:center;padding:16px 0}
-.email-success.show{display:block}
-.email-success p{font-size:0.92rem;font-weight:300;color:rgba(250,247,242,0.7);line-height:1.8}
-.email-success strong{color:var(--clay-light)}
 
 .rec-block{background:var(--linen);padding:36px 40px;margin-bottom:28px;border-top:3px solid var(--clay)}
 .rec-lbl{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:12px}
@@ -190,12 +187,10 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
   .chip{font-size:0.76rem;padding:7px 13px}
   .result-hero{padding:30px 20px 28px}
   .result-profile-name{font-size:clamp(1.3rem,5.5vw,1.8rem)}
-
   .rec-block{padding:24px 20px}
+  .send-results-block{padding:28px 20px}
   .scores-row{flex-direction:column;gap:12px}
   .score-card{min-width:unset}
-  .rec-header{gap:16px}
-  .rec-img{width:48px;height:48px;flex-shrink:0}
   .bundle-nudge{padding:20px}
   .egate-input{font-size:0.95rem;padding:12px 16px}
   .email-gate-form{gap:16px}
@@ -237,7 +232,6 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <a href="javascript:void(0)" class="btn-primary" onclick="go('s-email')">Begin the assessment</a>
   </div>
 
-
   <!-- SCREEN 0b: EMAIL GATE -->
   <div class="screen" id="s-email">
     <div class="intro-eyebrow">Before we begin</div>
@@ -265,10 +259,8 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <p class="screen-sub">Before you answer anything with your mind, pause. Take a breath. Then notice — not what you're thinking, but what you're physically sensing. There's no right answer. Even not knowing is useful information.</p>
 
     <div class="body-check-wrap">
-      <!-- SVG body map -->
       <div class="body-map-col">
         <svg width="130" height="290" viewBox="0 0 130 290" xmlns="http://www.w3.org/2000/svg">
-          <!-- Static outline -->
           <ellipse cx="65" cy="28" rx="20" ry="24" class="body-outline-path"/>
           <line x1="57" y1="50" x2="55" y2="66" class="body-outline-path"/>
           <line x1="73" y1="50" x2="75" y2="66" class="body-outline-path"/>
@@ -279,7 +271,6 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
           <path d="M56 168 L54 230 L56 275" class="body-outline-path"/>
           <path d="M74 168 L76 230 L74 275" class="body-outline-path"/>
           <path d="M84 168 L88 230 L90 275" class="body-outline-path"/>
-          <!-- Clickable zones -->
           <ellipse cx="65" cy="28" rx="19" ry="22" class="zone" data-zone="head" onclick="toggleZone(this,'head')" title="Head / Jaw"/>
           <rect x="58" y="50" width="14" height="16" rx="3" class="zone" data-zone="throat" onclick="toggleZone(this,'throat')" title="Throat / Neck"/>
           <ellipse cx="33" cy="74" rx="13" ry="9" class="zone" data-zone="shoulders" onclick="toggleZone(this,'shoulders-l')" title="Shoulders"/>
@@ -294,7 +285,6 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
         <p class="map-caption">tap to mark areas</p>
       </div>
 
-      <!-- Word chips -->
       <div class="chips-col">
         <div class="chips-label">Or choose what you notice</div>
         <div class="chips" id="bodyChips">
@@ -491,7 +481,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <div id="rProfile"></div>
     <div class="scores-row" id="rScores"></div>
     <div class="insight-section" id="rInsight"></div>
-
+    <div id="rSendResults"></div>
     <div id="rRec"></div>
     <div class="bundle-nudge">
       <p>The Full Library Bundle includes all 5 practices for <strong>$57</strong> — saving $28 compared to individual guides. <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank">View the full library →</a></p>
@@ -589,8 +579,8 @@ function calcResults(){
   }
   document.getElementById('loadVal').classList.remove('show');
 
-  const aRaw = [1,2,3].reduce((s,q)=>s+state.aq[q],0);   // 3–15
-  const lRaw = [1,2,3,4,5,6,7,8].reduce((s,q)=>s+state.lq[q],0); // 8–40
+  const aRaw = [1,2,3].reduce((s,q)=>s+state.aq[q],0);
+  const lRaw = [1,2,3,4,5,6,7,8].reduce((s,q)=>s+state.lq[q],0);
 
   const highA = aRaw/15 >= 0.5;
   const highL = lRaw/40 >= 0.5;
@@ -614,6 +604,10 @@ const PROFILES = {
       'The risk here is intellectualising. You can analyse your experience clearly, which can create the illusion of progress without the actual discharge. Insight without practice is just more content for an already overloaded system.',
       'What you need is not more understanding. It\'s a structured, repeatable somatic practice that creates real physiological change — not just new ways of thinking about the same old weight.'
     ],
+    emailSubject:'Your Emotional Load Assessment results — Profile 1',
+    emailProfile:'High Awareness, High Load',
+    emailSummary:'You have genuine self-awareness and a high emotional load. The gap isn\'t insight — it\'s a somatic practice to actually discharge what you\'ve been holding. Understanding it in your mind is not the same as releasing it from your body.',
+    emailNextStep:'The Overwhelm Practice is where to start. It works directly with the nervous system\'s overwhelm response — moving you from activation back to ground through breath, movement, and regulation. Ten minutes to start. The change is physiological, not cognitive.',
     practice:{name:'The Overwhelm Practice',transformation:'Overwhelm → Grounded',body:'This practice works directly with the nervous system\'s overwhelm response — where everything feels urgent, nothing feels manageable, and your body has been running on threat-response for too long. It moves you from activation back to ground, through breath, movement, and regulation. Ten minutes to start. The change is physiological, not cognitive.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
   },
   HA_LL: {
@@ -628,6 +622,10 @@ const PROFILES = {
       'Your nervous system is relatively available right now. That means new practice patterns will embed more easily now than they would when you\'re running on cortisol.',
       'The question to sit with: what happens to your regulation when the pressure intensifies? Do you have a practice that reliably brings you back? If the answer is no — this is the work.'
     ],
+    emailSubject:'Your Emotional Load Assessment results — Profile 2',
+    emailProfile:'High Awareness, Moderate Load',
+    emailSummary:'You\'re more regulated than most. Your emotional load is manageable and your self-awareness is strong. This is the right moment to build a practice — before the next season demands it.',
+    emailNextStep:'The Pressure Practice is built for where you are. It addresses the persistent background hum of pressure that high-achievers carry even in regulated seasons — building a felt sense of capacity from the inside.',
     practice:{name:'The Pressure Practice',transformation:'Pressure → Self-Assurance',body:'This practice is for the persistent background hum of pressure that high-achievers carry even when things are going well — the constant proving, the performing, the sense that you need to be more. It builds a felt sense of capacity from the inside. Not confidence from achievement. Assurance from being grounded in yourself.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
   },
   LA_HL: {
@@ -642,6 +640,10 @@ const PROFILES = {
       'The risk with this profile is that the load doesn\'t disappear when you don\'t notice it. It accumulates. It leaks out in reactivity, in physical symptoms, in a growing sense of emptiness even when things look good on the outside.',
       'The work here isn\'t dramatic. It starts with 10 minutes a day and a single question: what am I actually feeling right now? Not what am I thinking. What am I feeling. In my body.'
     ],
+    emailSubject:'Your Emotional Load Assessment results — Profile 3',
+    emailProfile:'Developing Awareness, High Load',
+    emailSummary:'Your emotional load is high and your connection to your inner experience is limited. You\'ve trained yourself to push through — the cost is a growing disconnect from what your nervous system is actually carrying.',
+    emailNextStep:'The Self-Doubt Practice is where to start. It rebuilds the internal signal that high-achievers override — starting in the body, where self-trust actually lives, and moving toward cognitive clarity.',
     practice:{name:'The Self-Doubt Practice',transformation:'Self-Doubt → Self-Trust',body:'This practice rebuilds the internal signal that high-achievers often override — the quiet knowing that sits beneath the constant mental noise of proving and justifying. It starts in the body, where self-trust actually lives, and moves from somatic signal to cognitive clarity. Ten minutes. Repeatable. Transformative over 21 days.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
   },
   LA_LL: {
@@ -656,6 +658,10 @@ const PROFILES = {
       'What you\'re building is the ability to stay grounded when the pressure rises, to trust your instincts when the stakes are high, and to know what you\'re feeling before it controls what you do.',
       'The entry point is small. Ten minutes. One practice. Twenty-one days. The shift is quiet at first — and then it\'s not.'
     ],
+    emailSubject:'Your Emotional Load Assessment results — Profile 4',
+    emailProfile:'Developing Awareness, Moderate Load',
+    emailSummary:'You\'re functioning well and your load is manageable. The work now is building inner capacity before the pressure rises — not as crisis management, but as discipline.',
+    emailNextStep:'The Overwhelm Practice is the best entry point. Structured, science-backed, and ten minutes. It introduces the body-based approach that produces real physiological change.',
     practice:{name:'The Overwhelm Practice',transformation:'Overwhelm → Grounded',body:'This is the best place to start if you\'re new to somatic practice. Structured, science-backed, and ten minutes. It introduces you to the body-based approach — the one that produces real physiological change, not just new ways of thinking. One practice. One transformation. A clear before and after.',price:'$17',link:'https://stan.store/innerbalance101/innerbalance101_store/page/4531304'}
   }
 };
@@ -663,9 +669,46 @@ const PROFILES = {
 function loadLabel(r){const p=r/40;return p>=0.75?'Very High':p>=0.5?'High':p>=0.3?'Moderate':'Low'}
 function awarenessLabel(r){const p=r/15;return p>=0.7?'High':p>=0.45?'Developing':'Limited'}
 
+// Kit form ID — single form, profile passed as custom field
+const KIT_FORM_ID = '9180408';
+
+function sendToKit(email, name, profileKey, loadScore, loadLbl, awarenessScore, awarenessLbl) {
+  try {
+    const fd = new FormData();
+    fd.append('email_address', email);
+    if(name) fd.append('first_name', name);
+    fd.append('fields[profile]', profileKey);
+    fd.append('fields[load_score]', loadScore + '/40 — ' + loadLbl);
+    fd.append('fields[awareness_score]', awarenessScore + '/15 — ' + awarenessLbl);
+    fetch('https://app.kit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
+      method: 'POST', body: fd, mode: 'no-cors'
+    }).catch(()=>{});
+  } catch(e){}
+}
+
+function sendMyResults() {
+  const btn = document.getElementById('srBtn');
+  const successEl = document.getElementById('srSuccess');
+  if(!btn || btn.disabled) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  sendToKit(state.gateEmail, state.gateName, state.profileKey, state.loadScore, state.loadLabel, state.awarenessScore, state.awarenessLabel);
+
+  setTimeout(()=>{
+    btn.style.display = 'none';
+    successEl.classList.add('show');
+  }, 900);
+}
+
 function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
   const key=(highA?'HA':'LA')+'_'+(highL?'HL':'LL');
-  state.profileKey = key; // store for Kit tagging
+  state.profileKey = key;
+  state.loadScore = lRaw;
+  state.awarenessScore = aRaw;
+  state.loadLabel = loadLabel(lRaw);
+  state.awarenessLabel = awarenessLabel(aRaw);
   const p=PROFILES[key];
   const bodyText = bodyBlind ? p.bodyBlind : p.bodySignal;
 
@@ -693,17 +736,17 @@ function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
     <div class="insight-title">What this means for you</div>
     ${p.insights.map(i=>`<p>${i}</p>`).join('')}`;
 
-  // If email was collected at the gate, auto-fill and show success state
-  // Send profile tag to Kit now that we know the result
-  if(gateSubmitted && state.gateEmail){
-    setTimeout(()=>{
-      const fd2 = new FormData();
-      fd2.append('email_address', state.gateEmail);
-      if(state.gateName) fd2.append('first_name', state.gateName);
-      fd2.append('fields[profile]', state.profileKey || '');
-      fetch('https://app.kit.com/forms/9180408/subscriptions',{method:'POST',body:fd2,mode:'no-cors'}).catch(()=>{});
-    }, 800);
-  }
+  // Send results block — shown after insights, before recommendation
+  document.getElementById('rSendResults').innerHTML=`
+    <div class="send-results-block">
+      <div class="sr-eyebrow">Your results</div>
+      <div class="sr-headline">Send these results to your inbox</div>
+      <p class="sr-sub">We'll send your scores and a personalised next step to ${state.gateEmail ? `<strong style="color:var(--clay-light)">${state.gateEmail}</strong>` : 'your inbox'} — so you have it when you're ready to act.</p>
+      <button class="sr-btn" id="srBtn" type="button" onclick="sendMyResults()">Send me my results</button>
+      <div class="sr-success" id="srSuccess">
+        <p>On its way. Check your inbox — your results and recommended practice will arrive within a few minutes.</p>
+      </div>
+    </div>`;
 
   document.getElementById('rRec').innerHTML=`
     <div class="rec-block">
@@ -736,9 +779,7 @@ function submitGateEmail(){
   state.gateEmail = email;
   gateSubmitted = true;
   go('s-body');
-  // Kit subscription fires at results stage with profile tag — see renderResults()
 }
-
 </script>
 </body>
 </html>
