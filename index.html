@@ -66,11 +66,11 @@
   "description": "Science-backed emotional regulation practices for high-achieving professionals.",
   "url": "https://innerbalance101.com/#library",
   "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"The Overwhelm Practice","description":"Move from overwhelm to grounded.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
-    {"@type":"ListItem","position":2,"name":"The Pressure Practice","description":"Move from pressure to self-assurance.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
-    {"@type":"ListItem","position":3,"name":"The Self-Doubt Practice","description":"Move from self-doubt to self-trust.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
-    {"@type":"ListItem","position":4,"name":"The Uncertainty Practice","description":"Move from uncertainty to grounded presence.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
-    {"@type":"ListItem","position":5,"name":"The Guilt Practice","description":"Move from guilt to release.","url":"https://stan.store/innerbalance101/innerbalance101_store/page/4531304","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}}
+    {"@type":"ListItem","position":1,"name":"The Overwhelm Practice","description":"Move from overwhelm to grounded.","url":"https://innerbalance101.com/overwhelm-10min.html","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":2,"name":"The Pressure Practice","description":"Move from pressure to self-assurance.","url":"https://innerbalance101.com/pressure-10min.html","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":3,"name":"The Self-Doubt Practice","description":"Move from self-doubt to self-trust.","url":"https://innerbalance101.com/self-doubt-10min.html","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":4,"name":"The Uncertainty Practice","description":"Move from uncertainty to grounded presence.","url":"https://innerbalance101.com/uncertainty-10min.html","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}},
+    {"@type":"ListItem","position":5,"name":"The Guilt Practice","description":"Move from guilt to release.","url":"https://innerbalance101.com/guilt-10min.html","offers":{"@type":"Offer","price":"17","priceCurrency":"USD"}}
   ]
 }
 </script>
@@ -94,7 +94,6 @@
     --clay: #C4A882; --clay-light: #DDD0BE; --clay-deep: #A68B65;
     --warm-white: #FAF7F2; --linen: #F0E8DC; --deep: #2C2420;
     --mid: #6B5B4E; --soft: #9C8575; --accent: #8B6F5E;
-    /* Single source of truth for nav height */
     --nav-h: 64px;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -197,7 +196,6 @@
   .hcp-dest { font-family:'Cormorant Garamond',serif; font-size:0.82rem; font-weight:500; font-style:italic; color:var(--deep); margin-bottom:10px; }
   .hcp-cta { background:var(--clay); padding:6px 8px; text-align:center; border-radius:3px; font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--deep); }
 
-  /* Cascade — front card (03) centred, others fanned behind */
   .hcp-card--1 { left:0;     top:90px;  transform:rotate(-13deg); z-index:1; opacity:0.65; }
   .hcp-card--2 { left:30px;  top:48px;  transform:rotate(-6.5deg); z-index:2; opacity:0.82; }
   .hcp-card--3 { left:72px;  top:16px;  transform:rotate(0deg);    z-index:5; }
@@ -467,122 +465,70 @@
   /* ─── ANIMATIONS ──────────────────────────────────────────────── */
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
-  /* ═══════════════════════════════════════════════════════════════
-     RESPONSIVE — TABLET (≤960px) + PHONE (≤480px)
-  ══════════════════════════════════════════════════════════════════ */
   @media (max-width:960px) {
     :root { --nav-h: 58px; }
-
     nav { padding:0 24px; }
     .nav-logo-text { font-size:1.1rem; }
-
-    /* ── HERO ── */
-    .hero {
-      grid-template-columns:1fr;
-      min-height:auto;
-      margin-top:var(--nav-h);
-    }
-    /* Cards panel — sits below text on tablet, natural height */
-    .hero-right {
-      order:1;
-      padding:48px 24px 56px;
-      min-height:auto;
-    }
-    .hero-cards-preview {
-      width:280px;
-      height:370px;
-      margin:0 auto;
-    }
+    .hero { grid-template-columns:1fr; min-height:auto; margin-top:var(--nav-h); }
+    .hero-right { order:1; padding:48px 24px 56px; min-height:auto; }
+    .hero-cards-preview { width:280px; height:370px; margin:0 auto; }
     .hcp-card { width:154px; }
     .hcp-card--1 { left:0;    top:76px; }
     .hcp-card--2 { left:24px; top:40px; }
     .hcp-card--3 { left:62px; top:12px; }
     .hcp-card--4 { left:100px; top:40px; }
     .hcp-card--5 { left:126px; top:76px; }
-    /* Left content on top */
-    .hero-left {
-      padding:32px 24px 36px;
-    }
+    .hero-left { padding:32px 24px 36px; }
     .hero-clarity p { font-size:0.88rem; }
-    .hero-clarity p + p { font-size:0.82rem; }
     .hero-headline { font-size:clamp(2.4rem,8vw,3.4rem); margin-bottom:24px; }
     .btn-primary { padding:15px 28px; font-size:0.78rem; }
-
-    /* ── WHAT YOU GET ── */
     .what-you-get { grid-template-columns:1fr; padding:40px 24px; gap:0; }
     .wyg-item { padding:24px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); }
     .wyg-item:last-child { border-bottom:none; padding-bottom:0; }
-
-    /* ── RECOGNITION ── */
     .recognition { padding:56px 24px; }
     .recognition-intro { font-size:clamp(1.4rem,5vw,1.9rem); margin-bottom:40px; }
     .recognition-grid { grid-template-columns:1fr; }
     .recog-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.2); }
     .recog-item:last-child { border-bottom:none; }
-
-    /* ── FOR WHO ── */
     .for-who { padding:56px 24px; }
     .for-who-inner { grid-template-columns:1fr; gap:40px; }
-
-    /* ── ASSESSMENT ── */
     .assessment-primary-inner { grid-template-columns:1fr; }
     .assessment-image { min-height:52vw; max-height:64vw; }
     .assessment-img-badge { top:20px; left:20px; padding:8px 14px; }
     .assessment-content { padding:48px 24px 56px; }
-
-    /* ── HOW ── */
     .how-inner { grid-template-columns:1fr; }
     .how-image { min-height:52vw; max-height:64vw; }
     .how-content { padding:52px 24px; }
-
-    /* ── EVIDENCE ── */
     .evidence { padding:56px 24px; }
     .evidence-analogy { padding:24px; }
-
-    /* ── LIBRARY ── */
     .library { padding:56px 24px; }
-    /* 2-col grid on tablet for readable cards */
     .guides-grid { grid-template-columns:repeat(2,1fr); gap:16px; }
     .guide-card { max-width:none; }
-
-    /* ── BUNDLE ── */
     .bundle-banner { grid-template-columns:1fr; gap:40px; padding:48px 24px; }
-    /* Hide decorative stack on mobile — takes too much height */
     .bundle-right { display:none; }
     .bundle-cta-row { flex-direction:column; align-items:flex-start; gap:20px; }
-
-    /* ── PROOF STRIP ── */
     .proof-strip { grid-template-columns:1fr; gap:0; padding:40px 24px; }
     .proof-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.15); }
     .proof-item:last-child { border-bottom:none; padding-bottom:0; }
-
-    /* ── FOUNDER ── */
     .founder-inner { grid-template-columns:1fr; }
     .founder-image { min-height:72vw; max-height:80vw; }
     .founder-content { padding:52px 24px; }
     .founder-quote-text { font-size:1.1rem; }
-
-    /* ── LEAD MAGNET ── */
     .lead-magnet-inner { grid-template-columns:1fr; }
     .lm-image { min-height:52vw; max-height:64vw; }
     .lm-img-content { padding:32px 24px; }
     .lm-img-title { font-size:1.6rem; }
     .lm-form-side { padding:48px 24px 56px; }
-
-    /* ── FOOTER ── */
     footer { flex-direction:column; align-items:flex-start; padding:40px 24px; gap:28px; }
     .footer-tagline { padding-left:0; }
     .footer-right { display:flex; flex-direction:column; gap:20px; align-items:flex-start; width:100%; }
     .footer-links { flex-wrap:wrap; }
   }
 
-  /* ── PHONE (≤480px) ────────────────────────────────────────────── */
   @media (max-width:480px) {
     :root { --nav-h: 54px; }
-
     .nav-logo-text { font-size:1rem; }
     .nav-cta { font-size:0.68rem; padding:9px 16px; letter-spacing:0.08em; }
-
     .hero-right { padding:36px 16px 48px; }
     .hero-cards-preview { width:240px; height:320px; }
     .hcp-card { width:132px; }
@@ -595,45 +541,34 @@
     .hcp-card--4 { left:88px; top:34px; }
     .hcp-card--5 { left:108px; top:66px; }
     .hero-left { padding:24px 20px 32px; }
-
     .what-you-get { padding:32px 20px; }
     .recognition { padding:44px 20px; }
     .for-who { padding:44px 20px; }
     .for-who-item { grid-template-columns:28px 1fr; gap:12px; padding:18px 0; }
     .for-who-text { font-size:0.97rem; }
     .for-who-not { padding:24px 20px; }
-
     .assessment-content { padding:36px 20px 48px; }
     .btn-assessment { width:100%; text-align:center; padding:15px 24px; }
-
     .how-content { padding:40px 20px; }
     .section-body { font-size:0.97rem; margin-bottom:32px; }
     .step-content-title { font-size:1.25rem; }
     .step-content-desc { font-size:0.9rem; }
-
     .evidence { padding:44px 20px; }
     .evidence-tab-claim { font-size:1.05rem; }
     .evidence-analogy { padding:20px; }
-
     .library { padding:44px 20px; }
-    /* Single column on small phones for readable cards */
     .guides-grid { grid-template-columns:1fr 1fr; gap:12px; }
-
     .bundle-banner { padding:36px 20px; gap:32px; }
     .bundle-text-title { font-size:1.9rem; }
     .bundle-now { font-size:2.2rem; }
     .btn-bundle { width:100%; text-align:center; padding:15px 24px; }
-
     .proof-strip { padding:32px 20px; }
     .proof-num { font-size:2.8rem; }
-
     .founder-content { padding:40px 20px; }
     .founder-summary { font-size:1rem; }
-
     .lm-form-side { padding:36px 20px 48px; }
     .form-input { font-size:0.95rem; padding:13px 16px; }
     .form-submit { font-size:0.8rem; padding:15px; }
-
     footer { padding:36px 20px; }
     .footer-links { gap:16px; }
     .footer-link { font-size:0.72rem; }
@@ -765,26 +700,32 @@
     <p class="section-body">No program. No timeline. Each Practice is $17. Or get all five for $57.</p>
   </div>
   <div class="guides-grid">
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+    <!-- CARD 1: OVERWHELM -->
+    <a class="guide-card" href="https://innerbalance101.com/overwhelm-10min.html" target="_blank" rel="noopener noreferrer">
       <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">01</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Overwhelm</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Overwhelm &rarr; Grounded</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">EFT Tapping</span><span class="guide-tag">Gratitude</span></div><div class="guide-price">$17</div></div>
     </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+    <!-- CARD 2: PRESSURE -->
+    <a class="guide-card" href="https://innerbalance101.com/pressure-10min.html" target="_blank" rel="noopener noreferrer">
       <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">02</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Pressure</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Assurance</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Pressure &rarr; Self-Assurance</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Breathwork</span><span class="guide-tag">Somatic Release</span></div><div class="guide-price">$17</div></div>
     </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+    <!-- CARD 3: SELF-DOUBT -->
+    <a class="guide-card" href="https://innerbalance101.com/self-doubt-10min.html" target="_blank" rel="noopener noreferrer">
       <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">03</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Self-Doubt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Trust</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Self-Doubt &rarr; Self-Trust</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Chest Opening</span><span class="guide-tag">Nervous System</span></div><div class="guide-price">$17</div></div>
     </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+    <!-- CARD 4: UNCERTAINTY -->
+    <a class="guide-card" href="https://innerbalance101.com/uncertainty-10min.html" target="_blank" rel="noopener noreferrer">
       <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">04</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Uncertainty</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded Presence</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Uncertainty &rarr; Grounded Presence</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Proprioceptive</span><span class="guide-tag">Integration</span></div><div class="guide-price">$17</div></div>
     </a>
-    <a class="guide-card" href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" rel="noopener noreferrer">
+    <!-- CARD 5: GUILT -->
+    <a class="guide-card" href="https://innerbalance101.com/guilt-10min.html" target="_blank" rel="noopener noreferrer">
       <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">05</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Guilt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Release</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Guilt &rarr; Release</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Qi Gong Shake</span><span class="guide-tag">Reframe</span></div><div class="guide-price">$17</div></div>
     </a>
+    <!-- CARD 6: COMING SOON -->
     <div class="guide-card guide-card-coming">
       <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num" style="opacity:0.25;">06</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Disappointment</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform" style="color:var(--clay-light);">&rarr; Leads to</div><div class="guide-screen-destination" style="color:var(--soft);">Acceptance</div><div class="guide-screen-cta" style="background:rgba(196,168,130,0.25);"><div class="guide-screen-cta-text" style="color:var(--soft);">Coming Soon</div></div><div class="guide-screen-duration">&mdash; minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Disappointment &rarr; Acceptance</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Somatic Release</span><span class="guide-tag">Integration</span></div><div class="guide-price" style="color:var(--soft);">Coming soon</div></div>
@@ -824,7 +765,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="for-who">
   <div class="for-who-inner">
@@ -897,7 +837,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="evidence">
   <div class="evidence-header">
