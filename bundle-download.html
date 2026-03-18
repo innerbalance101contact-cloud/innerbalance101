@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Full Library | innerbalance101</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --clay: #C4A882;
+    --clay-light: #DDD0BE;
+    --clay-deep: #A68B65;
+    --warm-white: #FAF7F2;
+    --linen: #F0E8DC;
+    --deep: #2C2420;
+    --mid: #2C2420;
+    --soft: #6B5B4E;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; font-size:18px; }
+  body {
+    font-family:'Jost', sans-serif;
+    background:var(--warm-white);
+    color:var(--deep);
+    min-height:100vh;
+    font-size:18px;
+    line-height:1.6;
+  }
+  p {
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:18px;
+    max-width:680px;
+    color:var(--deep);
+  }
+  h1 { font-size:34px; line-height:1.2; }
+  h2 { font-size:26px; line-height:1.3; margin-bottom:20px; }
+  h3 { font-size:20px; }
+
+  /* ── HEADER ── */
+  header {
+    background:var(--deep);
+    padding:28px 60px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid rgba(196,168,130,0.15);
+  }
+  .header-logo {
+    display:flex; align-items:center; gap:12px; text-decoration:none;
+  }
+  .header-logo-text {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.2rem; font-weight:500;
+    color:var(--warm-white);
+    letter-spacing:0.08em;
+  }
+  .header-badge {
+    font-size:0.65rem; font-weight:500;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--clay);
+    border:1px solid rgba(196,168,130,0.3);
+    padding:6px 14px;
+  }
+
+  /* ── WELCOME BLOCK ── */
+  .welcome {
+    background:var(--deep);
+    padding:72px 60px 80px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .welcome::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(ellipse at 50% 0%, rgba(196,168,130,0.08) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .welcome-eyebrow {
+    font-size:0.68rem; font-weight:500;
+    letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--clay);
+    display:flex; align-items:center; justify-content:center; gap:16px;
+    margin-bottom:28px;
+    animation:fadeUp 0.5s ease 0.1s both;
+  }
+  .welcome-eyebrow::before,
+  .welcome-eyebrow::after {
+    content:''; width:32px; height:1px; background:var(--clay); opacity:0.5;
+  }
+  .welcome-headline {
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(2.4rem, 5vw, 4rem);
+    font-weight:300; line-height:1.1;
+    color:var(--warm-white);
+    margin-bottom:20px;
+    animation:fadeUp 0.5s ease 0.2s both;
+  }
+  .welcome-headline em { font-style:italic; color:var(--clay); }
+  .welcome-sub {
+    font-size:1rem; font-weight:300;
+    color:rgba(250,247,242,0.6);
+    max-width:520px; margin:0 auto 0;
+    line-height:1.7;
+    animation:fadeUp 0.5s ease 0.3s both;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height:1px;
+    background:linear-gradient(to right, transparent, rgba(196,168,130,0.3), transparent);
+    margin:0 60px;
+  }
+
+  /* ── LIBRARY GRID ── */
+  .library {
+    padding:72px 60px 80px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .library-label {
+    font-size:0.68rem; font-weight:500;
+    letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--clay-deep);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:48px;
+  }
+  .library-label::before { content:''; width:24px; height:1px; background:var(--clay); }
+
+  .practices {
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+
+  /* ── PRACTICE ROW ── */
+  .practice {
+    display:grid;
+    grid-template-columns:80px 1fr auto;
+    gap:0 40px;
+    align-items:center;
+    padding:36px 0;
+    border-bottom:1px solid rgba(196,168,130,0.2);
+    text-decoration:none;
+    transition:background 0.25s;
+    position:relative;
+    animation:fadeUp 0.5s ease both;
+  }
+  .practice:first-child { border-top:1px solid rgba(196,168,130,0.2); }
+  .practice:hover { background:var(--linen); margin:0 -24px; padding:36px 24px; }
+
+  .practice-num {
+    font-family:'Cormorant Garamond', serif;
+    font-size:3rem; font-weight:300;
+    color:var(--clay-light);
+    line-height:1;
+    opacity:0.5;
+    text-align:center;
+  }
+
+  .practice-body {}
+  .practice-state {
+    font-size:0.62rem; font-weight:500;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--clay-deep);
+    margin-bottom:6px;
+  }
+  .practice-name {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.7rem; font-weight:500;
+    color:var(--deep);
+    line-height:1.1;
+    margin-bottom:8px;
+  }
+  .practice-desc {
+    font-size:0.9rem; font-weight:300;
+    color:var(--soft);
+    line-height:1.6;
+    max-width:480px;
+  }
+  .practice-meta {
+    display:flex; gap:12px; align-items:center;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+  .practice-tag {
+    font-size:0.58rem; font-weight:500;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--soft);
+    background:rgba(196,168,130,0.12);
+    border:1px solid rgba(196,168,130,0.25);
+    padding:3px 10px;
+  }
+  .practice-duration {
+    font-size:0.7rem; font-weight:300;
+    color:var(--clay-deep);
+    letter-spacing:0.08em;
+  }
+
+  .practice-cta {
+    display:flex; flex-direction:column;
+    align-items:flex-end; gap:8px;
+    flex-shrink:0;
+  }
+  .btn-open {
+    font-size:0.72rem; font-weight:500;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--warm-white);
+    background:var(--deep);
+    padding:13px 28px;
+    text-decoration:none;
+    transition:background 0.25s, transform 0.2s;
+    white-space:nowrap;
+  }
+  .btn-open:hover { background:var(--clay-deep); transform:translateY(-1px); }
+  .practice-transform {
+    font-size:0.72rem; font-weight:300;
+    color:var(--clay);
+    font-style:italic;
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  /* ── COMING SOON ROW ── */
+  .practice-coming {
+    opacity:0.4;
+    cursor:default;
+    pointer-events:none;
+  }
+  .practice-coming .btn-open {
+    background:rgba(44,36,32,0.3);
+    color:rgba(250,247,242,0.5);
+  }
+  .coming-label {
+    font-size:0.62rem; font-weight:500;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--soft);
+  }
+
+  /* ── NOTE BLOCK ── */
+  .note-block {
+    margin:64px 60px 0;
+    padding:32px 40px;
+    background:var(--linen);
+    border-left:3px solid var(--clay);
+    max-width:680px;
+  }
+  .note-label {
+    font-size:0.62rem; font-weight:500;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--clay-deep);
+    margin-bottom:12px;
+  }
+  .note-block p {
+    font-size:0.95rem; font-weight:300;
+    color:var(--soft);
+    line-height:1.75;
+    max-width:none;
+    margin-bottom:0;
+  }
+  .note-block p + p { margin-top:10px; }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top:80px;
+    background:var(--deep);
+    padding:36px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+  }
+  .footer-left {
+    display:flex; align-items:center; gap:12px;
+  }
+  .footer-logo-text {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.1rem; font-weight:500;
+    color:var(--warm-white);
+    letter-spacing:0.06em;
+  }
+  .footer-tagline {
+    font-size:0.82rem; font-weight:300;
+    color:rgba(250,247,242,0.35);
+    font-style:italic;
+  }
+  .footer-contact {
+    font-size:0.75rem; font-weight:300;
+    color:rgba(250,247,242,0.35);
+    text-decoration:none;
+    letter-spacing:0.06em;
+    transition:color 0.2s;
+  }
+  .footer-contact:hover { color:var(--clay); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .practice:nth-child(1) { animation-delay:0.1s; }
+  .practice:nth-child(2) { animation-delay:0.18s; }
+  .practice:nth-child(3) { animation-delay:0.26s; }
+  .practice:nth-child(4) { animation-delay:0.34s; }
+  .practice:nth-child(5) { animation-delay:0.42s; }
+  .practice:nth-child(6) { animation-delay:0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:768px) {
+    body { font-size:18px; line-height:1.7; }
+    p { font-size:18px; line-height:1.7; }
+  }
+  @media (max-width:768px) {
+    header { padding:20px 24px; }
+    .welcome { padding:52px 24px 60px; }
+    .divider { margin:0 24px; }
+    .library { padding:48px 24px 56px; }
+    .note-block { margin:48px 24px 0; padding:24px; }
+    footer { flex-direction:column; align-items:flex-start; padding:32px 24px; gap:16px; }
+
+    .practice {
+      grid-template-columns:48px 1fr;
+      grid-template-rows:auto auto;
+      gap:0 20px;
+      padding:28px 0;
+    }
+    .practice:hover { margin:0 -16px; padding:28px 16px; }
+    .practice-cta {
+      grid-column:2;
+      flex-direction:row;
+      align-items:center;
+      justify-content:flex-start;
+      margin-top:16px;
+    }
+    .practice-transform { display:none; }
+    .practice-num { font-size:2rem; }
+    .practice-name { font-size:1.4rem; }
+    .btn-open { padding:11px 22px; }
+  }
+
+  @media (max-width:480px) {
+    .welcome-headline { font-size:2rem; }
+    .practice-desc { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://innerbalance101.com" class="header-logo">
+    <svg width="22" height="22" viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/>
+      <line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/>
+      <line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/>
+      <circle cx="19" cy="32" r="3.5" fill="#C4A882"/>
+      <circle cx="45" cy="32" r="3.5" fill="#C4A882"/>
+      <circle cx="32" cy="32" r="2" fill="#FAF7F2"/>
+    </svg>
+    <span class="header-logo-text">innerbalance101</span>
+  </a>
+  <div class="header-badge">Full Library Access</div>
+</header>
+
+<section class="welcome">
+  <div class="welcome-eyebrow">Your purchase is confirmed</div>
+  <h1 class="welcome-headline">Welcome to the <em>library.</em></h1>
+  <p class="welcome-sub">All five Practices are below. Bookmark this page. Every new Practice added to the library will appear here automatically.</p>
+</section>
+
+<div class="divider"></div>
+
+<div class="library">
+  <div class="library-label">Your Practices</div>
+
+  <div class="practices">
+
+    <!-- 01: OVERWHELM -->
+    <a class="practice" href="https://innerbalance101.com/practices/overwhelm-10min.html">
+      <div class="practice-num">01</div>
+      <div class="practice-body">
+        <div class="practice-state">Overwhelm &rarr; Grounded</div>
+        <div class="practice-name">The Overwhelm Practice</div>
+        <div class="practice-desc">When everything is too much and the to-do list has taken over your nervous system. Start here.</div>
+        <div class="practice-meta">
+          <span class="practice-tag">Thought Work</span>
+          <span class="practice-tag">EFT Tapping</span>
+          <span class="practice-tag">Gratitude</span>
+          <span class="practice-duration">10 minutes</span>
+        </div>
+      </div>
+      <div class="practice-cta">
+        <span class="btn-open">Open Practice &rarr;</span>
+        <span class="practice-transform">Overwhelm &rarr; Grounded</span>
+      </div>
+    </a>
+
+    <!-- 02: PRESSURE -->
+    <a class="practice" href="https://innerbalance101.com/practices/pressure-10min.html">
+      <div class="practice-num">02</div>
+      <div class="practice-body">
+        <div class="practice-state">Pressure &rarr; Self-Assurance</div>
+        <div class="practice-name">The Pressure Practice</div>
+        <div class="practice-desc">When the stakes feel too high and your confidence is running on fumes. For before a big moment, or after one that didn't land.</div>
+        <div class="practice-meta">
+          <span class="practice-tag">Thought Work</span>
+          <span class="practice-tag">Breathwork</span>
+          <span class="practice-tag">Somatic Release</span>
+          <span class="practice-duration">10 minutes</span>
+        </div>
+      </div>
+      <div class="practice-cta">
+        <span class="btn-open">Open Practice &rarr;</span>
+        <span class="practice-transform">Pressure &rarr; Self-Assurance</span>
+      </div>
+    </a>
+
+    <!-- 03: SELF-DOUBT -->
+    <a class="practice" href="https://innerbalance101.com/practices/self-doubt-10min.html">
+      <div class="practice-num">03</div>
+      <div class="practice-body">
+        <div class="practice-state">Self-Doubt &rarr; Self-Trust</div>
+        <div class="practice-name">The Self-Doubt Practice</div>
+        <div class="practice-desc">When the voice that questions you gets louder than the one that knows you. This practice returns you to your own judgment.</div>
+        <div class="practice-meta">
+          <span class="practice-tag">Journaling</span>
+          <span class="practice-tag">Chest Opening</span>
+          <span class="practice-tag">Nervous System</span>
+          <span class="practice-duration">12 minutes</span>
+        </div>
+      </div>
+      <div class="practice-cta">
+        <span class="btn-open">Open Practice &rarr;</span>
+        <span class="practice-transform">Self-Doubt &rarr; Self-Trust</span>
+      </div>
+    </a>
+
+    <!-- 04: UNCERTAINTY -->
+    <a class="practice" href="https://innerbalance101.com/practices/uncertainty-10min.html">
+      <div class="practice-num">04</div>
+      <div class="practice-body">
+        <div class="practice-state">Uncertainty &rarr; Grounded Presence</div>
+        <div class="practice-name">The Uncertainty Practice</div>
+        <div class="practice-desc">When you can't see the path forward and your mind is filling the gap with worst cases. Settle the noise. Find the ground.</div>
+        <div class="practice-meta">
+          <span class="practice-tag">Journaling</span>
+          <span class="practice-tag">Proprioceptive</span>
+          <span class="practice-tag">Integration</span>
+          <span class="practice-duration">12 minutes</span>
+        </div>
+      </div>
+      <div class="practice-cta">
+        <span class="btn-open">Open Practice &rarr;</span>
+        <span class="practice-transform">Uncertainty &rarr; Grounded Presence</span>
+      </div>
+    </a>
+
+    <!-- 05: GUILT -->
+    <a class="practice" href="https://innerbalance101.com/practices/guilt-10min.html">
+      <div class="practice-num">05</div>
+      <div class="practice-body">
+        <div class="practice-state">Guilt &rarr; Release</div>
+        <div class="practice-name">The Guilt Practice</div>
+        <div class="practice-desc">When guilt is sitting in your chest and no amount of logic is shifting it. Move it through the body so you can move forward.</div>
+        <div class="practice-meta">
+          <span class="practice-tag">Thought Work</span>
+          <span class="practice-tag">Qi Gong Shake</span>
+          <span class="practice-tag">Reframe</span>
+          <span class="practice-duration">10 minutes</span>
+        </div>
+      </div>
+      <div class="practice-cta">
+        <span class="btn-open">Open Practice &rarr;</span>
+        <span class="practice-transform">Guilt &rarr; Release</span>
+      </div>
+    </a>
+
+    <!-- 06: COMING SOON -->
+    <div class="practice practice-coming">
+      <div class="practice-num">06</div>
+      <div class="practice-body">
+        <div class="practice-state">Disappointment &rarr; Acceptance</div>
+        <div class="practice-name">The Disappointment Practice</div>
+        <div class="practice-desc">Coming soon. It will appear here automatically when published.</div>
+        <div class="practice-meta">
+          <span class="practice-tag">Journaling</span>
+          <span class="practice-tag">Somatic Release</span>
+          <span class="practice-tag">Integration</span>
+        </div>
+      </div>
+      <div class="practice-cta">
+        <span class="btn-open">Coming Soon</span>
+        <span class="coming-label">Added automatically on release</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="note-block">
+  <div class="note-label">A note on how to use these</div>
+  <p>You don't need to work through them in order. Start with the state you're in right now. Ten minutes is enough to begin. Over time, 21 days of daily practice is where the real shift happens.</p>
+
+</div>
+
+<footer>
+  <div class="footer-left">
+    <svg width="18" height="18" viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/>
+      <line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/>
+      <line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/>
+      <circle cx="19" cy="32" r="3.5" fill="#C4A882"/>
+      <circle cx="45" cy="32" r="3.5" fill="#C4A882"/>
+      <circle cx="32" cy="32" r="2" fill="#FAF7F2"/>
+    </svg>
+    <span class="footer-logo-text">innerbalance101</span>
+  </div>
+  <div class="footer-tagline">From performing fine to actually being fine.</div>
+  <a href="mailto:innerbalance101.contact@gmail.com" class="footer-contact">innerbalance101.contact@gmail.com</a>
+</footer>
+
+</body>
+</html>
