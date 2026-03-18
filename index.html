@@ -94,12 +94,43 @@
   :root {
     --clay: #C4A882; --clay-light: #DDD0BE; --clay-deep: #A68B65;
     --warm-white: #FAF7F2; --linen: #F0E8DC; --deep: #2C2420;
-    --mid: #6B5B4E; --soft: #9C8575; --accent: #8B6F5E;
+    --mid: #2C2420; --soft: #6B5B4E; --accent: #8B6F5E;
     --nav-h: 64px;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; font-size:16px; }
-  body { font-family:'Jost',sans-serif; background:var(--warm-white); color:var(--deep); overflow-x:hidden; }
+  html { scroll-behavior:smooth; font-size:18px; }
+  body {
+    font-family:'Jost',sans-serif;
+    background:var(--warm-white);
+    color:var(--deep);
+    overflow-x:hidden;
+    font-size:18px;
+    line-height:1.6;
+  }
+
+  /* ─── GLOBAL TYPOGRAPHY ───────────────────────────────────────── */
+  p {
+    margin-bottom:18px;
+    max-width:680px;
+    color:var(--deep);
+    font-size:18px;
+    line-height:1.6;
+  }
+  h1 {
+    font-size:34px;
+    line-height:1.2;
+  }
+  h2 {
+    font-size:26px;
+    line-height:1.3;
+    margin-bottom:20px;
+  }
+  h3 {
+    font-size:20px;
+  }
+  section + section {
+    margin-top:0;
+  }
 
   /* ─── NAV ─────────────────────────────────────────────────────── */
   nav {
@@ -138,7 +169,11 @@
     background:var(--linen); border-left:3px solid var(--clay);
     padding:16px 20px; margin-bottom:28px;
   }
-  .hero-clarity p { font-size:0.93rem; font-weight:400; color:var(--deep); line-height:1.65; }
+  .hero-clarity p {
+    font-size:0.93rem; font-weight:400; color:var(--deep); line-height:1.65;
+    max-width:none; margin-bottom:0;
+  }
+  .hero-clarity p + p { margin-top:10px; font-size:0.85rem; color:var(--soft); }
   .hero-clarity strong { font-weight:600; }
   .hero-headline {
     font-family:'Cormorant Garamond',serif;
@@ -187,11 +222,11 @@
     position:relative;
     overflow:hidden;
   }
-  .hcp-brand { font-family:'Jost',sans-serif; font-size:0.43rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); margin-bottom:6px; }
+  .hcp-brand { font-family:'Jost',sans-serif; font-size:0.43rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--soft); margin-bottom:6px; }
   .hcp-num { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:300; color:var(--clay-light); line-height:1; position:absolute; right:10px; top:12px; opacity:0.3; }
   .hcp-the { font-family:'Cormorant Garamond',serif; font-size:0.72rem; font-weight:300; font-style:italic; color:var(--soft); margin-top:auto; padding-top:24px; }
   .hcp-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--deep); line-height:1.1; margin-bottom:2px; }
-  .hcp-practice { font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--mid); margin-bottom:8px; }
+  .hcp-practice { font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--soft); margin-bottom:8px; }
   .hcp-rule { width:20px; height:1px; background:var(--clay); margin-bottom:8px; }
   .hcp-arrow { font-family:'Jost',sans-serif; font-size:0.44rem; color:var(--clay-deep); letter-spacing:0.06em; margin-bottom:2px; }
   .hcp-dest { font-family:'Cormorant Garamond',serif; font-size:0.82rem; font-weight:500; font-style:italic; color:var(--deep); margin-bottom:10px; }
@@ -226,13 +261,13 @@
   .btn-ghost:hover { color:var(--clay-deep); border-color:var(--clay-deep); }
 
   /* ─── WHAT YOU GET ────────────────────────────────────────────── */
-  .what-you-get { background:var(--deep); padding:52px 60px; display:grid; grid-template-columns:repeat(3,1fr); }
+  .what-you-get { background:var(--deep); padding:60px 60px; display:grid; grid-template-columns:repeat(3,1fr); }
   .wyg-item { padding:0 44px; border-right:1px solid rgba(196,168,130,0.18); }
   .wyg-item:first-child { padding-left:0; }
   .wyg-item:last-child { border-right:none; }
   .wyg-num { font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--clay); margin-bottom:12px; }
   .wyg-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--warm-white); margin-bottom:8px; line-height:1.25; }
-  .wyg-body { font-size:0.87rem; font-weight:300; color:rgba(250,247,242,0.55); line-height:1.72; }
+  .wyg-body { font-size:0.87rem; font-weight:300; color:rgba(250,247,242,0.75); line-height:1.72; max-width:none; }
 
   /* ─── RECOGNITION ─────────────────────────────────────────────── */
   .recognition { background:var(--linen); padding:80px 60px; }
@@ -241,7 +276,7 @@
   .recog-item { padding:40px 32px; border-right:1px solid rgba(196,168,130,0.3); }
   .recog-item:last-child { border-right:none; }
   .recog-icon { font-size:1.4rem; margin-bottom:16px; opacity:0.7; }
-  .recog-text { font-size:1.05rem; font-weight:300; line-height:1.75; color:var(--mid); }
+  .recog-text { font-size:1.05rem; font-weight:300; line-height:1.75; color:var(--deep); max-width:none; }
 
   /* ─── FOR WHO ─────────────────────────────────────────────────── */
   .for-who { padding:100px 60px; background:var(--warm-white); }
@@ -251,11 +286,11 @@
   .for-who-item:first-child { border-top:1px solid var(--linen); }
   .for-who-check { width:26px; height:26px; border:1.5px solid var(--clay); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:3px; }
   .for-who-check::after { content:''; width:8px; height:8px; background:var(--clay); border-radius:50%; }
-  .for-who-text { font-size:1.05rem; font-weight:300; line-height:1.75; color:var(--mid); }
+  .for-who-text { font-size:1.05rem; font-weight:300; line-height:1.75; color:var(--deep); max-width:none; }
   .for-who-text strong { color:var(--deep); font-weight:500; }
   .for-who-not { background:var(--linen); padding:36px; border-left:3px solid var(--clay-light); }
   .for-who-not-label { font-size:0.7rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--soft); margin-bottom:16px; }
-  .for-who-not-item { font-size:0.95rem; font-weight:300; line-height:1.7; color:var(--soft); padding:10px 0; border-bottom:1px solid rgba(196,168,130,0.2); display:flex; gap:12px; }
+  .for-who-not-item { font-size:0.95rem; font-weight:300; line-height:1.7; color:var(--soft); padding:10px 0; border-bottom:1px solid rgba(196,168,130,0.2); display:flex; gap:12px; max-width:none; margin-bottom:0; }
   .for-who-not-item:last-child { border-bottom:none; padding-bottom:0; }
   .for-who-not-item::before { content:'\00d7'; color:var(--clay-light); font-size:1rem; flex-shrink:0; line-height:1.7; }
 
@@ -271,10 +306,10 @@
   .assessment-label { font-size:0.7rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
   .assessment-label::before { content:''; width:24px; height:1px; background:var(--clay); }
   .assessment-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.2vw,3rem); font-weight:300; line-height:1.2; color:var(--warm-white); margin-bottom:20px; }
-  .assessment-subtext { font-size:1rem; font-weight:300; line-height:1.8; color:rgba(250,247,242,0.65); margin-bottom:32px; }
+  .assessment-subtext { font-size:1rem; font-weight:300; line-height:1.8; color:rgba(250,247,242,0.8); margin-bottom:32px; max-width:480px; }
   .btn-assessment { font-size:0.8rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--deep); background:var(--clay); padding:17px 40px; text-decoration:none; display:inline-block; transition:background 0.3s,transform 0.2s; align-self:flex-start; }
   .btn-assessment:hover { background:var(--clay-light); transform:translateY(-1px); }
-  .assessment-note { font-size:0.72rem; font-weight:300; color:rgba(250,247,242,0.35); margin-top:12px; letter-spacing:0.04em; }
+  .assessment-note { font-size:0.72rem; font-weight:300; color:rgba(250,247,242,0.45); margin-top:12px; letter-spacing:0.04em; }
 
   /* ─── HOW IT WORKS ────────────────────────────────────────────── */
   .how { padding:0; }
@@ -288,19 +323,19 @@
   .section-label { font-size:0.75rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay-deep); margin-bottom:20px; display:flex; align-items:center; gap:12px; }
   .section-label::before { content:''; width:24px; height:1px; background:var(--clay); }
   .section-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; color:var(--deep); margin-bottom:24px; }
-  .section-body { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--mid); margin-bottom:40px; }
+  .section-body { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--deep); margin-bottom:40px; max-width:580px; }
   .steps { display:flex; flex-direction:column; gap:32px; }
   .step { display:grid; grid-template-columns:48px 1fr; gap:20px; align-items:start; }
   .step-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--clay); line-height:1; padding-top:4px; }
   .step-content-label { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
   .step-content-title { font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:500; color:var(--deep); margin-bottom:6px; }
-  .step-content-desc { font-size:0.96rem; font-weight:300; line-height:1.7; color:var(--soft); }
+  .step-content-desc { font-size:0.96rem; font-weight:300; line-height:1.7; color:var(--soft); max-width:none; margin-bottom:0; }
 
   /* ─── EVIDENCE ────────────────────────────────────────────────── */
   .evidence { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
   .evidence-header { max-width:720px; margin-bottom:56px; }
   .evidence-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; color:var(--deep); margin-bottom:20px; margin-top:20px; }
-  .evidence-intro { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--mid); }
+  .evidence-intro { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--deep); max-width:680px; }
   .evidence-accordion { max-width:720px; display:flex; flex-direction:column; }
   .evidence-tab { border-top:1px solid rgba(196,168,130,0.35); }
   .evidence-tab:last-child { border-bottom:1px solid rgba(196,168,130,0.35); }
@@ -315,10 +350,10 @@
   .evidence-tab.open .tab-plus-v { display:none; }
   .evidence-tab-body { max-height:0; overflow:hidden; transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1),opacity 0.35s ease; opacity:0; }
   .evidence-tab.open .evidence-tab-body { max-height:400px; opacity:1; }
-  .evidence-tab-body p { font-size:0.92rem; font-weight:300; color:var(--mid); line-height:1.78; padding-bottom:24px; }
+  .evidence-tab-body p { font-size:0.92rem; font-weight:300; color:var(--deep); line-height:1.78; padding-bottom:24px; max-width:640px; }
   .evidence-tab-cite { font-size:0.72rem; color:var(--soft); font-style:italic; }
   .evidence-analogy { margin-top:28px; display:flex; flex-direction:column; gap:14px; padding:32px 36px; background:var(--warm-white); border-left:3px solid var(--clay); margin-bottom:0; }
-  .evidence-analogy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--mid); }
+  .evidence-analogy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--deep); max-width:640px; }
 
   /* ─── LIBRARY ─────────────────────────────────────────────────── */
   .library { background:var(--deep); padding:100px 60px; }
@@ -326,7 +361,7 @@
   .library-header .section-label { color:var(--clay); }
   .library-header .section-label::before { background:var(--clay); }
   .library-header .section-headline { color:var(--warm-white); }
-  .library-header .section-body { color:rgba(250,247,242,0.6); }
+  .library-header .section-body { color:rgba(250,247,242,0.75); }
   .guides-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:48px; align-items:start; }
   .guide-card { text-decoration:none; display:block; cursor:pointer; max-width:200px; margin:0 auto; }
   .guide-card:hover .guide-device { transform:translateY(-5px); }
@@ -334,11 +369,11 @@
   .guide-device::before { content:''; position:absolute; top:7px; left:50%; transform:translateX(-50%); width:40px; height:5px; background:#0d0d0d; border-radius:3px; z-index:2; }
   .guide-screen { background:var(--warm-white); border-radius:8px; overflow:hidden; aspect-ratio:9/16; position:relative; display:flex; flex-direction:column; padding:20px 14px 14px; }
   .guide-screen-header { display:flex; align-items:center; gap:5px; margin-bottom:10px; }
-  .guide-screen-brand { font-family:'Jost',sans-serif; font-size:0.42rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); }
+  .guide-screen-brand { font-family:'Jost',sans-serif; font-size:0.42rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--soft); }
   .guide-screen-num { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:300; color:var(--clay-light); line-height:1; position:absolute; right:10px; top:16px; opacity:0.4; }
   .guide-screen-the { font-family:'Cormorant Garamond',serif; font-size:0.7rem; font-weight:300; font-style:italic; color:var(--soft); margin-bottom:1px; margin-top:auto; padding-top:32px; }
   .guide-screen-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:500; color:var(--deep); line-height:1.1; margin-bottom:1px; }
-  .guide-screen-word { font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--mid); margin-bottom:8px; }
+  .guide-screen-word { font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--soft); margin-bottom:8px; }
   .guide-screen-divider { width:20px; height:1px; background:var(--clay); margin-bottom:8px; }
   .guide-screen-transform { font-family:'Jost',sans-serif; font-size:0.46rem; font-weight:400; letter-spacing:0.08em; color:var(--clay-deep); margin-bottom:2px; }
   .guide-screen-destination { font-family:'Cormorant Garamond',serif; font-size:0.78rem; font-weight:500; color:var(--deep); margin-bottom:8px; font-style:italic; }
@@ -356,7 +391,7 @@
   .bundle-banner { background:var(--deep); padding:64px 48px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
   .bundle-text-label { font-size:0.62rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay); margin-bottom:16px; }
   .bundle-text-title { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:400; color:var(--warm-white); line-height:1.15; margin-bottom:16px; }
-  .bundle-text-sub { font-size:0.95rem; font-weight:300; color:rgba(250,247,242,0.55); line-height:1.7; margin-bottom:32px; }
+  .bundle-text-sub { font-size:0.95rem; font-weight:300; color:rgba(250,247,242,0.7); line-height:1.7; margin-bottom:32px; max-width:none; }
   .bundle-includes { margin-bottom:36px; }
   .bundle-includes-label { font-size:0.6rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,247,242,0.3); margin-bottom:12px; }
   .bundle-include-row { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid rgba(250,247,242,0.06); }
@@ -393,8 +428,8 @@
   .proof-item:first-child { padding-left:0; }
   .proof-item:last-child { border-right:none; }
   .proof-num { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:300; color:var(--clay); line-height:1; margin-bottom:8px; }
-  .proof-label { font-size:0.75rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,247,242,0.45); margin-bottom:6px; }
-  .proof-sublabel { font-size:0.82rem; font-weight:300; color:rgba(250,247,242,0.4); letter-spacing:0.04em; line-height:1.5; }
+  .proof-label { font-size:0.75rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,247,242,0.55); margin-bottom:6px; }
+  .proof-sublabel { font-size:0.82rem; font-weight:300; color:rgba(250,247,242,0.5); letter-spacing:0.04em; line-height:1.5; max-width:none; margin-bottom:0; }
 
   /* ─── FOUNDER ─────────────────────────────────────────────────── */
   .founder { padding:0; }
@@ -403,16 +438,16 @@
   .founder-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.6) brightness(0.88); }
   .founder-img-overlay { position:absolute; inset:0; background:linear-gradient(to right,transparent 50%,rgba(250,247,242,0.15) 100%); }
   .founder-quote-block { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top,rgba(44,36,32,0.85) 0%,transparent 100%); padding:60px 40px 40px; }
-  .founder-quote-text { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; font-style:italic; color:var(--warm-white); line-height:1.5; margin-bottom:12px; }
+  .founder-quote-text { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; font-style:italic; color:var(--warm-white); line-height:1.5; margin-bottom:12px; max-width:none; }
   .founder-attribution { font-size:0.78rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:var(--clay); }
   .founder-content { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; background:var(--warm-white); }
-  .founder-summary { font-size:1.1rem; font-weight:300; line-height:1.85; color:var(--mid); margin-bottom:28px; }
+  .founder-summary { font-size:1.1rem; font-weight:300; line-height:1.85; color:var(--deep); margin-bottom:28px; max-width:520px; }
   .founder-summary strong { color:var(--deep); font-weight:500; }
   .founder-credentials { display:flex; flex-direction:column; margin-bottom:32px; border:1px solid rgba(196,168,130,0.3); }
   .founder-credential { display:flex; gap:20px; align-items:flex-start; padding:18px 20px; border-bottom:1px solid rgba(196,168,130,0.2); }
   .founder-credential:last-child { border-bottom:none; }
   .founder-credential-mark { width:6px; height:6px; background:var(--clay); border-radius:50%; flex-shrink:0; margin-top:7px; }
-  .founder-credential-text { font-size:0.92rem; font-weight:300; line-height:1.6; color:var(--mid); }
+  .founder-credential-text { font-size:0.92rem; font-weight:300; line-height:1.6; color:var(--deep); max-width:none; margin-bottom:0; }
   .founder-credential-text strong { color:var(--deep); font-weight:500; }
   .founder-expand-btn { display:inline-flex; align-items:center; gap:10px; background:none; border:none; cursor:pointer; padding:0; font-family:'Jost',sans-serif; font-size:0.78rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:var(--clay-deep); transition:color 0.2s; }
   .founder-expand-btn:hover { color:var(--clay); }
@@ -420,7 +455,7 @@
   .founder-expand-btn.open .founder-expand-icon { transform:rotate(45deg); background:var(--clay); border-color:var(--clay); }
   .founder-more { max-height:0; overflow:hidden; transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease; opacity:0; }
   .founder-more.open { max-height:600px; opacity:1; }
-  .founder-story p { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--mid); margin-bottom:20px; margin-top:24px; }
+  .founder-story p { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--deep); margin-bottom:20px; margin-top:24px; max-width:520px; }
   .founder-story p strong { color:var(--deep); font-weight:500; }
   .founder-story p em { color:var(--accent); }
 
@@ -432,14 +467,14 @@
   .lm-img-overlay { position:absolute; inset:0; background:rgba(44,36,32,0.45); }
   .lm-img-content { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:60px 48px; }
   .lm-img-label { font-size:0.6rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay); margin-bottom:16px; }
-  .lm-img-title { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:300; color:var(--warm-white); line-height:1.2; margin-bottom:12px; }
-  .lm-img-sub { font-size:0.92rem; font-weight:300; color:rgba(250,247,242,0.65); margin-bottom:32px; }
+  .lm-img-title { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:300; color:var(--warm-white); line-height:1.2; margin-bottom:12px; max-width:none; }
+  .lm-img-sub { font-size:0.92rem; font-weight:300; color:rgba(250,247,242,0.75); margin-bottom:32px; max-width:none; }
   .lm-items { display:flex; flex-direction:column; gap:12px; }
-  .lm-item { font-size:0.92rem; font-weight:300; color:rgba(250,247,242,0.75); display:flex; align-items:flex-start; gap:12px; line-height:1.5; }
+  .lm-item { font-size:0.92rem; font-weight:300; color:rgba(250,247,242,0.85); display:flex; align-items:flex-start; gap:12px; line-height:1.5; max-width:none; margin-bottom:0; }
   .lm-item::before { content:'\2013'; color:var(--clay); flex-shrink:0; margin-top:1px; }
   .lm-form-side { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; background:var(--linen); }
   .lm-form-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); font-weight:300; color:var(--deep); margin-bottom:16px; line-height:1.2; }
-  .lm-form-sub { font-size:1rem; font-weight:300; line-height:1.7; color:var(--mid); margin-bottom:36px; }
+  .lm-form-sub { font-size:1rem; font-weight:300; line-height:1.7; color:var(--deep); margin-bottom:36px; max-width:480px; }
   .form-row { display:flex; flex-direction:column; gap:12px; }
   .form-input { font-family:'Jost',sans-serif; font-size:1rem; font-weight:300; background:var(--warm-white); color:var(--deep); border:1px solid rgba(196,168,130,0.4); padding:14px 18px; outline:none; width:100%; transition:border-color 0.3s; }
   .form-input::placeholder { color:var(--soft); }
@@ -447,24 +482,31 @@
   .form-submit { font-family:'Jost',sans-serif; font-size:0.85rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; background:var(--deep); color:var(--warm-white); border:none; padding:16px; cursor:pointer; width:100%; transition:background 0.3s; }
   .form-submit:hover { background:var(--clay-deep); }
   .lm-cta-btn { display:block; text-align:center; text-decoration:none; }
-  .form-disclaimer { font-size:0.78rem; font-weight:300; color:var(--soft); margin-top:10px; line-height:1.5; }
+  .form-disclaimer { font-size:0.78rem; font-weight:300; color:var(--soft); margin-top:10px; line-height:1.5; max-width:none; }
 
   /* ─── FOOTER ──────────────────────────────────────────────────── */
   footer { background:var(--deep); padding:48px 60px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
   .footer-left { display:flex; flex-direction:column; gap:8px; }
   .footer-logo { display:flex; align-items:center; gap:10px; }
   .footer-logo-text { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--warm-white); letter-spacing:0.06em; }
-  .footer-tagline { font-size:0.88rem; font-weight:300; color:rgba(250,247,242,0.35); font-style:italic; padding-left:32px; }
+  .footer-tagline { font-size:0.88rem; font-weight:300; color:rgba(250,247,242,0.45); font-style:italic; padding-left:32px; }
   .footer-links { display:flex; gap:24px; }
-  .footer-link { font-size:0.78rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,247,242,0.4); text-decoration:none; transition:color 0.3s; }
+  .footer-link { font-size:0.78rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,247,242,0.5); text-decoration:none; transition:color 0.3s; }
   .footer-link:hover { color:var(--clay); }
   .social-links { display:flex; gap:16px; align-items:center; }
-  .social-link { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid rgba(250,247,242,0.15); color:rgba(250,247,242,0.4); transition:color 0.3s,border-color 0.3s; text-decoration:none; }
+  .social-link { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid rgba(250,247,242,0.15); color:rgba(250,247,242,0.5); transition:color 0.3s,border-color 0.3s; text-decoration:none; }
   .social-link:hover { color:var(--clay); border-color:var(--clay); }
   .social-link svg { width:16px; height:16px; fill:currentColor; }
 
   /* ─── ANIMATIONS ──────────────────────────────────────────────── */
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ─── MOBILE ──────────────────────────────────────────────────── */
+  @media (max-width:768px) {
+    body { font-size:18px; line-height:1.7; }
+    p { font-size:18px; line-height:1.7; }
+    section { padding:40px 16px; }
+  }
 
   @media (max-width:960px) {
     :root { --nav-h: 58px; }
@@ -590,8 +632,8 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-clarity">
-      <p>Step-by-step guides to move through the emotional states that high performance creates &mdash; and come out the other side grounded.</p>
-      <p style="margin-top:10px; font-size:0.85rem; color:var(--mid);">Self-guided. Downloadable. 10 minutes to start.</p>
+      <p>Step-by-step guides to move through the emotional states that high performance creates and come out the other side grounded.</p>
+      <p style="margin-top:10px; font-size:0.85rem; color:var(--soft);">Self-guided. Downloadable. 10 minutes to start.</p>
     </div>
     <h1 class="hero-headline">From performing<br><em>fine</em> to actually<br>being fine.</h1>
     <div class="hero-actions">
@@ -680,7 +722,7 @@
   <div class="wyg-item">
     <div class="wyg-num">What it is</div>
     <div class="wyg-title">A structured practice, not a passive read</div>
-    <div class="wyg-body">Each Practice is a structured, self-guided PDF. No app. No subscription. No login. Download once. Use when you need it.</div>
+    <div class="wyg-body">Each Practice is a structured, self-guided PDF. No app, no subscription. Download once. Use when you need it.</div>
   </div>
   <div class="wyg-item">
     <div class="wyg-num">How it works</div>
@@ -703,32 +745,32 @@
   <div class="guides-grid">
     <!-- CARD 1: OVERWHELM -->
     <a class="guide-card" href="https://stan.store/innerbalance101/p/-the-overwhelm-practice" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">01</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Overwhelm</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">01</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Overwhelm</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Overwhelm &rarr; Grounded</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">EFT Tapping</span><span class="guide-tag">Gratitude</span></div><div class="guide-price">$17</div></div>
     </a>
     <!-- CARD 2: PRESSURE -->
     <a class="guide-card" href="https://stan.store/innerbalance101/p/the-pressure-practice" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">02</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Pressure</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Assurance</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">02</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Pressure</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Assurance</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Pressure &rarr; Self-Assurance</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Breathwork</span><span class="guide-tag">Somatic Release</span></div><div class="guide-price">$17</div></div>
     </a>
     <!-- CARD 3: SELF-DOUBT -->
     <a class="guide-card" href="https://stan.store/innerbalance101/p/the-selfdoubt-practice" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">03</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Self-Doubt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Trust</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">03</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Self-Doubt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Self-Trust</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Self-Doubt &rarr; Self-Trust</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Chest Opening</span><span class="guide-tag">Nervous System</span></div><div class="guide-price">$17</div></div>
     </a>
     <!-- CARD 4: UNCERTAINTY -->
     <a class="guide-card" href="https://stan.store/innerbalance101/p/the-uncertainty-practice" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">04</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Uncertainty</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded Presence</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 &ndash; minute practice</div></div></div>
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">04</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Uncertainty</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Grounded Presence</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">12 minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Uncertainty &rarr; Grounded Presence</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Proprioceptive</span><span class="guide-tag">Integration</span></div><div class="guide-price">$17</div></div>
     </a>
     <!-- CARD 5: GUILT -->
     <a class="guide-card" href="https://stan.store/innerbalance101/p/the-guilt-practice" target="_blank" rel="noopener noreferrer">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">05</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Guilt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Release</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 &ndash; minute practice</div></div></div>
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num">05</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Guilt</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform">&rarr; Leads to</div><div class="guide-screen-destination">Release</div><div class="guide-screen-cta"><div class="guide-screen-cta-text">Start Practising</div></div><div class="guide-screen-duration">10 minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Guilt &rarr; Release</div><div class="guide-tags"><span class="guide-tag">Thought Work</span><span class="guide-tag">Qi Gong Shake</span><span class="guide-tag">Reframe</span></div><div class="guide-price">$17</div></div>
     </a>
     <!-- CARD 6: COMING SOON -->
     <div class="guide-card guide-card-coming">
-      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num" style="opacity:0.25;">06</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Disappointment</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform" style="color:var(--clay-light);">&rarr; Leads to</div><div class="guide-screen-destination" style="color:var(--soft);">Acceptance</div><div class="guide-screen-cta" style="background:rgba(196,168,130,0.25);"><div class="guide-screen-cta-text" style="color:var(--soft);">Coming Soon</div></div><div class="guide-screen-duration">&mdash; minute practice</div></div></div>
+      <div class="guide-device"><div class="guide-screen"><div class="guide-screen-header"><svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg><span class="guide-screen-brand">innerbalance101</span></div><div class="guide-screen-num" style="opacity:0.25;">06</div><div class="guide-screen-the">The</div><div class="guide-screen-title">Disappointment</div><div class="guide-screen-word">Practice</div><div class="guide-screen-divider"></div><div class="guide-screen-transform" style="color:var(--clay-light);">&rarr; Leads to</div><div class="guide-screen-destination" style="color:var(--soft);">Acceptance</div><div class="guide-screen-cta" style="background:rgba(196,168,130,0.25);"><div class="guide-screen-cta-text" style="color:var(--soft);">Coming Soon</div></div><div class="guide-screen-duration">minute practice</div></div></div>
       <div class="guide-info"><div class="guide-transform">Disappointment &rarr; Acceptance</div><div class="guide-tags"><span class="guide-tag">Journaling</span><span class="guide-tag">Somatic Release</span><span class="guide-tag">Integration</span></div><div class="guide-price" style="color:var(--soft);">Coming soon</div></div>
     </div>
   </div>
@@ -793,7 +835,7 @@
       </div>
       <div style="margin-top:36px; padding:28px; background:var(--deep);">
         <div style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--clay); margin-bottom:12px;">Not sure where you are?</div>
-        <p style="font-size:0.97rem; font-weight:300; line-height:1.75; color:rgba(250,247,242,0.7); margin-bottom:20px;">Most people who find innerbalance101 already know something is off. The assessment names it precisely and tells you which Practice to begin with.</p>
+        <p style="font-size:0.97rem; font-weight:300; line-height:1.75; color:rgba(250,247,242,0.8); margin-bottom:20px; max-width:none;">Most people who find innerbalance101 already know something is off. The assessment names it precisely and tells you which Practice to begin with.</p>
         <a href="https://innerbalance101.com/emotional_load_assessment.html" style="font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--clay); text-decoration:none; border-bottom:1px solid rgba(196,168,130,0.4); padding-bottom:2px;">Find out in 8 minutes &rarr;</a>
       </div>
     </div>
@@ -829,9 +871,10 @@
     <div class="how-content">
       <div class="section-label">How It Works</div>
       <h2 class="section-headline">Structure for the internal work you&rsquo;ve been putting off.</h2>
-      <p class="section-body">Each Practice is a guided sequence built for analytical minds who need a clear process, not an invitation to &ldquo;just breathe.&rdquo; Ten minutes today. Deeper connection tomorrow. Many people commit to 21 days of short practices and find they never want to stop.</p>
+      <p class="section-body">Each Practice is a guided sequence built for analytical minds who need a clear process, not an invitation to just breathe.</p>
+      <p class="section-body" style="margin-top:-20px;">Ten minutes today. Deeper connection tomorrow. Many people commit to 21 days of short practices and find they never want to stop.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-content-label">Name it</div><div class="step-content-title">Identify what&rsquo;s actually happening</div><div class="step-content-desc">Thought work and journaling to name the emotional state precisely. Not just &ldquo;stressed&rdquo; &mdash; but what it is, where it lives, and what it&rsquo;s doing.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-content-label">Name it</div><div class="step-content-title">Identify what&rsquo;s actually happening</div><div class="step-content-desc">Thought work and journaling to name the emotional state precisely. Not just "stressed" but what it is, where it lives, and what it&rsquo;s doing.</div></div></div>
         <div class="step"><div class="step-num">2</div><div><div class="step-content-label">Move it</div><div class="step-content-title">Shift it at the body level</div><div class="step-content-desc">Breathwork, EFT tapping, somatic movement, or proprioceptive grounding depending on the practice. The nervous system responds to the body first.</div></div></div>
         <div class="step"><div class="step-num">3</div><div><div class="step-content-label">Integrate</div><div class="step-content-title">Emerge with clarity, not just calm</div><div class="step-content-desc">Integration practices that reconnect you to your own judgment, values, and inner knowing so you move forward grounded.</div></div></div>
       </div>
@@ -842,12 +885,12 @@
 <section class="evidence">
   <div class="evidence-header">
     <div class="section-label">The Science</div>
-    <h2 class="evidence-headline" id="science">Why this works &mdash; and why logic alone doesn&rsquo;t.</h2>
+    <h2 class="evidence-headline" id="science">Why this works. And why logic alone doesn&rsquo;t.</h2>
     <p class="evidence-intro">The Practices in this library are built on established research in neuroscience, somatic psychology, and nervous system regulation. This is not wellness culture. It is applied science.</p>
     <div class="evidence-analogy">
       <p>Most high achievers already go to the gym. They drink water. They think carefully about what they eat. They understand that the body requires consistent, structured care to perform.</p>
-      <p>The mind is no different. These Practices are that structure. Not a remedy for a bad week. A discipline for the long game. The difference between someone who shows up to the gym with a plan and someone who wanders in hoping something will work.</p>
-      <p>The guesswork is already done. You just have to show up.</p>
+      <p>The mind is no different. These Practices are that structure. Not a remedy for a bad week. A discipline for the long game.</p>
+      <p>You just have to show up.</p>
     </div>
   </div>
   <div class="evidence-accordion">
@@ -857,7 +900,7 @@
         <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
       </button>
       <div class="evidence-tab-body">
-        <p>Dr Stephen Porges&rsquo; polyvagal theory established that the autonomic nervous system governs our capacity for emotional regulation, connection, and sound judgment. When it is dysregulated, the prefrontal cortex &mdash; the part of the brain responsible for executive function &mdash; becomes inaccessible. Rational effort alone cannot override this. The nervous system must be addressed at the body level first.</p>
+        <p>Dr Stephen Porges&rsquo; polyvagal theory established that the autonomic nervous system governs our capacity for emotional regulation, connection, and sound judgment. When it is dysregulated, the prefrontal cortex (the part of the brain responsible for executive function) becomes inaccessible. Rational effort alone cannot override this. The nervous system must be addressed at the body level first.</p>
         <p class="evidence-tab-cite">Porges, S.W. (2011). The Polyvagal Theory. W.W. Norton. &nbsp; Dana, D. (2018). The Polyvagal Theory in Therapy. W.W. Norton.</p>
       </div>
     </div>
@@ -877,7 +920,7 @@
         <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
       </button>
       <div class="evidence-tab-body">
-        <p>Multiple randomised controlled trials have found that Emotional Freedom Techniques (EFT) tapping significantly reduces cortisol levels, anxiety, and psychological distress. A 2012 study published in the Journal of Nervous and Mental Disease showed a 24% cortisol reduction in EFT participants versus controls. The mechanism involves stimulating meridian endpoints to send calming signals to the amygdala, interrupting the stress response at its source.</p>
+        <p>Multiple randomised controlled trials have found that Emotional Freedom Techniques (EFT) tapping significantly reduces cortisol levels, anxiety, and psychological distress. A 2012 study published in the Journal of Nervous and Mental Disease showed a 24% cortisol reduction in EFT participants versus controls. The mechanism involves stimulating meridian endpoints that send calming signals to the amygdala, interrupting the stress response at its source.</p>
         <p class="evidence-tab-cite">Church, D. et al. (2012). Journal of Nervous and Mental Disease, 200(10). &nbsp; Clond, M. (2016). Journal of Nervous and Mental Disease, 204(5).</p>
       </div>
     </div>
@@ -906,13 +949,14 @@
       <img class="founder-img" src="images/naomi.jpg" alt="Naomi Lucia, founder of innerbalance101" onerror="this.onerror=null;this.src='images/naomi.jpeg'" loading="lazy">
       <div class="founder-img-overlay"></div>
       <div class="founder-quote-block">
-        <p class="founder-quote-text">&ldquo;I sought these tools when I needed them most &mdash; and couldn&rsquo;t find them. So I built them.&rdquo;</p>
+        <p class="founder-quote-text">&ldquo;I sought these tools when I needed them most and couldn&rsquo;t find them. So I built them.&rdquo;</p>
         <div class="founder-attribution">Naomi Lucia, founder of innerbalance101</div>
       </div>
     </div>
     <div class="founder-content">
       <div class="section-label">The Founder</div>
-      <p class="founder-summary">Naomi Lucia knows what it costs to climb. She has built businesses, led teams, navigated the emotional weight of high-stakes decisions, and worn every version of success the outside world recognises. She also knows what it feels like when achieving stops being enough.</p>
+      <p class="founder-summary">Naomi Lucia knows what it costs to climb. She has built businesses, led teams, navigated the emotional weight of high-stakes decisions, and worn every version of success the outside world recognises.</p>
+      <p class="founder-summary">She also knows the particular exhaustion of getting everything right on the outside and feeling nothing on the inside.</p>
       <button class="founder-expand-btn" id="founder-btn" onclick="toggleFounder()">
         <span id="founder-btn-text">Read her story</span>
         <span class="founder-expand-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#A68B65" stroke-width="1.5"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
@@ -936,11 +980,11 @@
       <div class="lm-img-content">
         <div class="lm-img-label">Free &middot; 8 Minutes</div>
         <h2 class="lm-img-title">The Emotional Load Assessment</h2>
-        <div class="lm-img-sub">Find out exactly what your nervous system is carrying &mdash; and where to start.</div>
+        <div class="lm-img-sub">Find out exactly what your nervous system is carrying and where to start.</div>
         <div class="lm-items">
           <div class="lm-item">A body check-in before the questions even begin</div>
           <div class="lm-item">A measure of your self-awareness and somatic connection</div>
-          <div class="lm-item">A personalised result profile &mdash; not a generic score</div>
+          <div class="lm-item">A personalised result profile, not a generic score</div>
           <div class="lm-item">One specific practice recommended for where you actually are</div>
         </div>
       </div>
@@ -975,7 +1019,8 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
   function toggleTab(btn) {
     const tab = btn.closest('.evidence-tab');
     if (!tab) return;
