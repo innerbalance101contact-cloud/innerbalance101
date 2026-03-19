@@ -678,9 +678,9 @@ function sendToKit(email, name, profileKey, loadScore, loadLbl, awarenessScore, 
     const fd = new FormData();
     fd.append('email_address', email);
     if(name) fd.append('first_name', name);
-    fd.append('fields[profile]', profileKey);
-    fd.append('fields[load_score]', loadScore + '/40 — ' + loadLbl);
-    fd.append('fields[awareness_score]', awarenessScore + '/15 — ' + awarenessLbl);
+    if(profileKey) fd.append('fields[profile]', profileKey);
+    if(loadScore !== undefined && loadLbl) fd.append('fields[load_score]', loadScore + '/40 — ' + loadLbl);
+    if(awarenessScore !== undefined && awarenessLbl) fd.append('fields[awareness_score]', awarenessScore + '/15 — ' + awarenessLbl);
     fetch('https://app.kit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
       method: 'POST', body: fd, mode: 'no-cors'
     }).catch(()=>{});
@@ -712,6 +712,7 @@ function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
   state.awarenessLabel = awarenessLabel(aRaw);
   const p=PROFILES[key];
   const bodyText = bodyBlind ? p.bodyBlind : p.bodySignal;
+  sendToKit(state.gateEmail, state.gateName, key, lRaw, loadLabel(lRaw), aRaw, awarenessLabel(aRaw));
 
   document.getElementById('rProfile').innerHTML=`
     <div class="result-hero">
@@ -741,10 +742,9 @@ function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
   document.getElementById('rSendResults').innerHTML=`
     <div class="send-results-block">
       <div class="sr-eyebrow">Your results</div>
-      <div class="sr-headline">Send these results to your inbox</div>
-      <p class="sr-sub">We'll send your scores and a personalised next step to ${state.gateEmail ? `<strong style="color:var(--clay-light)">${state.gateEmail}</strong>` : 'your inbox'} — so you have it when you're ready to act.</p>
-      <button class="sr-btn" id="srBtn" type="button" onclick="sendMyResults()">Send me my results</button>
-      <div class="sr-success" id="srSuccess">
+      <div class="sr-headline">Results sent to your inbox</div>
+      <p class="sr-sub">We've sent your scores and a personalised next step to ${state.gateEmail ? `<strong style="color:var(--clay-light)">${state.gateEmail}</strong>` : 'your inbox'} — check your inbox in a few minutes.</p>
+      <div class="sr-success show" id="srSuccess">
         <p>On its way. Check your inbox — your results and recommended practice will arrive within a few minutes.</p>
       </div>
     </div>`;
@@ -779,6 +779,7 @@ function submitGateEmail(){
   state.gateName = name;
   state.gateEmail = email;
   gateSubmitted = true;
+  sendToKit(email, name);
   go('s-body');
 }
 </script>
