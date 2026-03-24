@@ -216,6 +216,16 @@
     .affirmation-list li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; font-weight: 300; color: var(--clay-deep); padding: 12px 0; border-bottom: 1px solid rgba(196,168,130,0.2); line-height: 1.4; }
     .affirmation-list li:last-child { border-bottom: none; }
 
+    /* ── SUB STEPS ── */
+    .sub-step { margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,168,130,0.15); }
+    .sub-step-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+    .sub-step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--clay); min-width: 24px; }
+    .sub-step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); }
+
+    /* ── WRITE LINES ── */
+    .write-area { margin: 16px 0 20px; display: flex; flex-direction: column; gap: 16px; }
+    .write-line { border-bottom: 1px solid rgba(196,168,130,0.4); height: 26px; }
+
     /* ── COMPLETION ── */
     .completion-section { background: var(--deep); margin: 40px -60px 0; padding: 80px 60px; text-align: center; }
     .completion-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 20px; }
@@ -320,7 +330,7 @@
       <a href="#step-1" class="prog-step" data-target="step-1">
         <span class="prog-num">1</span>
         <span class="prog-label">Thought Work</span>
-        <span class="prog-time">2 min</span>
+        <span class="prog-time">7 min</span>
       </a>
       <a href="#step-2" class="prog-step" data-target="step-2">
         <span class="prog-num">2</span>
@@ -401,23 +411,75 @@
           <span class="step-num-large">01</span>
           <div class="step-title-wrap">
             <h2 class="step-name">Thought Work</h2>
-            <span class="step-duration">2 minutes</span>
+            <span class="step-duration">7 minutes</span>
           </div>
         </div>
 
-        <img src="images/practices/Journalling%20example.jpg" alt="Open journal with thought work prompts" class="step-image" />
-        <p class="step-image-caption">Get curious. This is a judgement-free zone.</p>
+        <p class="step-context">Between what's happening around you and how you're responding to it, there's a gap. That gap is where this whole practice lives. Most of the time, we skip right over it. Our brain generates a thought, the thought triggers a feeling, the feeling drives a behaviour, and suddenly it's a habit we didn't choose. Mindfulness is the practice of stepping into that gap long enough to see what's actually going on.</p>
+        <p class="step-context">With overwhelm specifically, that gap has been flooded. Your brain has been running on autopilot in "doing mode" — active, scanning, trying to manage everything at once. Before you can look at any thought clearly, you need to shift into "being mode" for a few minutes. The breath is how we do that. And the feelings? They're not coming from your circumstances. They come from your thoughts about your circumstances. Two people can face the same to-do list, one is calm, and one is drowning. The list isn't the problem. The thoughts about it are. That's what we're going to work with.</p>
 
-        <p class="step-context">Before we move the emotion through the body, we name it. Emotions don't come out of nowhere. They're often driven by a thought, belief, or quiet pressure running below the surface. You don't need to fix anything here. Seeing it clearly is enough. Clarity creates space.</p>
-        <div class="step-instruction">
-          <p>Sit comfortably. Take one slow breath.</p>
-          <p><strong>In your journal, answer honestly:</strong></p>
-          <ul class="prompt-list">
-            <li>What am I feeling right now?</li>
-            <li>What thought might be creating this feeling?</li>
-            <li>Is there a quiet pressure running underneath it?</li>
-          </ul>
-          <p>Write 1–2 honest sentences. You don't need to solve anything. You're putting words to what's already there. That alone creates space.</p>
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">1</span>
+            <span class="sub-step-name">Breathe In</span>
+          </div>
+          <div class="step-instruction">
+            <p>Take three slow, deliberate breaths. Inhale for 4 counts. Exhale for 6.</p>
+            <p>This is not relaxation, it's a shift in mode. The longer exhale tells your brain you're not in danger right now. It moves you from automatic to aware. You are here. Let that be enough for this moment.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">2</span>
+            <span class="sub-step-name">Find It In Your Body</span>
+          </div>
+          <div class="step-instruction">
+            <p>Without trying to fix anything yet, ask yourself: <em>Where in my body am I feeling overwhelmed right now?</em></p>
+            <p>Scan gently. Maybe it's a tightness in the chest. A buzzing or scattered feeling through your limbs. Shallow breathing, tension behind your eyes, your mind jumping from one thing to the next before it finishes any of them.</p>
+            <p>Notice it without labelling it as good or bad. Approach it with curiosity, like you're encountering it for the first time. Mindfulness asks us to recognise and accept the experience as it actually is — not fight it and not collapse into it. Just see it. That seeing is already doing something.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">3</span>
+            <span class="sub-step-name">Write Your Thoughts</span>
+          </div>
+          <div class="step-instruction">
+            <p>Set a timer for 60–90 seconds. Write down every thought your brain is generating right now. Don't edit or organise, just let it come out.</p>
+            <div class="write-area">
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+            </div>
+            <p>Read back what you wrote. These are sentences in your mind, not facts about your life. Left unchecked, thoughts like these turn into feelings, then behaviours, then habits. You're stepping into the gap right now. You're catching the thought before it runs the show.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">4</span>
+            <span class="sub-step-name">Find a Thought You Can Believe</span>
+          </div>
+          <div class="step-instruction">
+            <p>Look at your list. Find the thought carrying the most charge.</p>
+            <p><strong>Current thought:</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>We're not forcing a positive replacement — your brain won't buy that, and it'll feel worse. We're practising what mindfulness calls "letting go" of the grip on this thought, loosening it just enough to allow something slightly more spacious in. Not untying the knot completely, just loosening it. A thought you can actually believe right now.</p>
+            <p><strong>Try these on and see what fits:</strong></p>
+            <ul class="affirmation-list">
+              <li>"I have a lot to do. I can choose what comes first."</li>
+              <li>"I don't have to solve everything today."</li>
+              <li>"One thing at a time is enough."</li>
+              <li>"I've been here before, and I've found my way through."</li>
+            </ul>
+            <p><strong>My shifted thought (write one you actually believe):</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Sit with it. Breathe. Notice if there's even a small release somewhere in your body when you think it. A little less chest tightness. A bit more air. That's what we're going for — not a miracle, just enough ease to start moving.</p>
+          </div>
         </div>
       </div>
 
