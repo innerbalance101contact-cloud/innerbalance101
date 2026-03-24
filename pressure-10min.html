@@ -106,6 +106,16 @@
     .affirmation-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; }
     .affirmation-list li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; font-weight: 300; color: var(--clay-deep); padding: 12px 0; border-bottom: 1px solid rgba(196,168,130,0.2); line-height: 1.4; }
     .affirmation-list li:last-child { border-bottom: none; }
+
+    /* ── SUB STEPS ── */
+    .sub-step { margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,168,130,0.15); }
+    .sub-step-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+    .sub-step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--clay); min-width: 24px; }
+    .sub-step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); }
+
+    /* ── WRITE LINES ── */
+    .write-area { margin: 16px 0 20px; display: flex; flex-direction: column; gap: 16px; }
+    .write-line { border-bottom: 1px solid rgba(196,168,130,0.4); height: 26px; }
     .completion-section { background: var(--deep); margin: 40px -60px 0; padding: 80px 60px; text-align: center; }
     .completion-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 20px; }
     .completion-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--warm-white); line-height: 1.2; margin: 0 auto 20px; max-width: 560px; }
@@ -176,7 +186,7 @@
   <nav class="progress-strip" aria-label="Practice steps">
     <div class="progress-inner">
       <a href="#intro" class="prog-step active" data-target="intro"><span class="prog-num">0</span><span class="prog-label">Understand</span></a>
-      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Thought Work</span><span class="prog-time">4 min</span></a>
+      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Thought Work</span><span class="prog-time">7 min</span></a>
       <a href="#step-2" class="prog-step" data-target="step-2"><span class="prog-num">2</span><span class="prog-label">Grounding Breath</span><span class="prog-time">3 min</span></a>
       <a href="#step-3" class="prog-step" data-target="step-3"><span class="prog-num">3</span><span class="prog-label">Micro-Release</span><span class="prog-time">2 min</span></a>
       <a href="#step-4" class="prog-step" data-target="step-4"><span class="prog-num">4</span><span class="prog-label">Close</span><span class="prog-time">1 min</span></a>
@@ -239,26 +249,75 @@
           <span class="step-num-large">01</span>
           <div class="step-title-wrap">
             <h2 class="step-name">Thought Work</h2>
-            <span class="step-duration">4 minutes</span>
+            <span class="step-duration">7 minutes</span>
           </div>
         </div>
-        <img src="images/practices/Journalling%20example.jpg" alt="Journalling to name the pressure" class="step-image" />
-        <p class="step-context">Pressure often comes from perfectionism. It convinces the body there's no room to pause until everything is resolved. When you slow down and notice the rule underneath the pressure, the body gets permission to soften without giving up care, quality, or responsibility. You're not opting out. You're choosing your pace.</p>
-        <div class="step-instruction">
-          <p>Sit comfortably. Hold or rest your hand on the steady object. Take one slow breath. Inhale for 4 counts, hold for 7, release for 8.</p>
-          <p><strong>In your journal, answer honestly:</strong></p>
-          <ul class="prompt-list">
-            <li>What do I feel pressured to do right now?</li>
-            <li>What standard am I trying to meet?</li>
-            <li>Where did this urgency come from?</li>
-            <li>What am I afraid would happen if I slowed down?</li>
-          </ul>
-          <p><strong>Then ask:</strong></p>
-          <ul class="prompt-list">
-            <li>What actually needs to happen today?</li>
-            <li>What could wait, without harm?</li>
-          </ul>
-          <p>Write simply. This isn't about lowering your standards. It's about removing urgency from care.</p>
+
+        <p class="step-context">Pressure is a feeling, and feelings are created by thoughts. That's the whole chain: something happens, your brain generates a thought about it ("I must get this right, or else"), that thought creates a physical feeling, that feeling drives your behaviour. Most of the time this chain runs completely on autopilot. You don't choose the pressure — it just appears, and suddenly it's running the day.</p>
+        <p class="step-context">What mindfulness gives us is the pause between the stimulus and the response. That gap is small, but it's enough. In it, we can see the thought that's creating the pressure, question it a little, and find something slightly more workable to think instead. When the thought changes, the feeling changes. When the feeling changes, so does how you act. Less pressure doesn't make you less motivated. It usually makes you sharper. But a braced body can't take in new thoughts easily. We start with the breath.</p>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">1</span>
+            <span class="sub-step-name">Breathe In</span>
+          </div>
+          <div class="step-instruction">
+            <p>Take three slow breaths. Each time you exhale, consciously release your jaw. Let your shoulders drop. Unclench your hands if they're tight.</p>
+            <p>Pressure keeps the body braced and the mind in doing mode — scanning for danger, preparing for impact. The exhale shifts that. It moves you from automatic to aware, from braced to open. Let it.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">2</span>
+            <span class="sub-step-name">Find It In Your Body</span>
+          </div>
+          <div class="step-instruction">
+            <p>Without trying to change anything yet, notice: <em>Where am I feeling pressure right now?</em></p>
+            <p>Tight chest? Tension across the shoulders or in your jaw? A hollow, knotted stomach? A sense of bracing, like you're waiting for something to go wrong?</p>
+            <p>Approach it with curiosity rather than judgment — you're not deciding it's bad or trying to make it leave. You're simply recognising what's there. Acceptance in mindfulness doesn't mean resignation. It means seeing clearly so you can respond rather than just react.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">3</span>
+            <span class="sub-step-name">Write Your Thoughts</span>
+          </div>
+          <div class="step-instruction">
+            <p>Set a timer for 60–90 seconds. Let your brain say everything it believes about this situation — what's at stake, what needs to happen, what will go wrong if it doesn't.</p>
+            <div class="write-area">
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+            </div>
+            <p>Read it back. You're being a scientist of your own mind right now — observing without judgment. Look for the hidden "or else": the catastrophe your brain is predicting. That's usually where the real pressure is living.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">4</span>
+            <span class="sub-step-name">Find a Thought You Can Believe</span>
+          </div>
+          <div class="step-instruction">
+            <p>Find the thought creating the most pressure.</p>
+            <p><strong>Current thought:</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Now find a version that's just slightly less contracted. Not a leap to full confidence, just one small step toward something you can actually breathe in. Think of this as practising "letting go" — not of your effort or your care, but of the grip on a thought that isn't serving you.</p>
+            <p><strong>Some options to try:</strong></p>
+            <ul class="affirmation-list">
+              <li>"I can focus on doing my best, not on controlling how this turns out."</li>
+              <li>"My worth isn't on the line here."</li>
+              <li>"Pressure is telling me I care. I can care without bracing."</li>
+              <li>"I am more capable than this feeling is telling me right now."</li>
+            </ul>
+            <p><strong>My shifted thought (write one you actually believe):</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Think it. Breathe. Does your jaw soften even slightly? Does your chest open a little? That small physical shift is what we're looking for. You don't need a total transformation to take the next step differently.</p>
+          </div>
         </div>
       </div>
 

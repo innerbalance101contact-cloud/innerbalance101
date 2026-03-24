@@ -94,6 +94,16 @@
     .affirmation-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; }
     .affirmation-list li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; font-weight: 300; color: var(--clay-deep); padding: 12px 0; border-bottom: 1px solid rgba(196,168,130,0.2); line-height: 1.4; }
     .affirmation-list li:last-child { border-bottom: none; }
+
+    /* ── SUB STEPS ── */
+    .sub-step { margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,168,130,0.15); }
+    .sub-step-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+    .sub-step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--clay); min-width: 24px; }
+    .sub-step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); }
+
+    /* ── WRITE LINES ── */
+    .write-area { margin: 16px 0 20px; display: flex; flex-direction: column; gap: 16px; }
+    .write-line { border-bottom: 1px solid rgba(196,168,130,0.4); height: 26px; }
     .completion-section { background: var(--deep); margin: 40px -60px 0; padding: 80px 60px; text-align: center; }
     .completion-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 20px; }
     .completion-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--warm-white); line-height: 1.2; margin: 0 auto 20px; max-width: 560px; }
@@ -164,7 +174,7 @@
   <nav class="progress-strip" aria-label="Practice steps">
     <div class="progress-inner">
       <a href="#intro" class="prog-step active" data-target="intro"><span class="prog-num">0</span><span class="prog-label">Understand</span></a>
-      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Journalling</span><span class="prog-time">3 min</span></a>
+      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Thought Work</span><span class="prog-time">7 min</span></a>
       <a href="#step-2" class="prog-step" data-target="step-2"><span class="prog-num">2</span><span class="prog-label">Body Grounding</span><span class="prog-time">4 min</span></a>
       <a href="#step-3" class="prog-step" data-target="step-3"><span class="prog-num">3</span><span class="prog-label">Presence Breath</span><span class="prog-time">2 min</span></a>
       <a href="#step-4" class="prog-step" data-target="step-4"><span class="prog-num">4</span><span class="prog-label">Close</span><span class="prog-time">1 min</span></a>
@@ -220,21 +230,76 @@
         <div class="step-header">
           <span class="step-num-large">01</span>
           <div class="step-title-wrap">
-            <h2 class="step-name">Journalling</h2>
-            <span class="step-duration">3 minutes</span>
+            <h2 class="step-name">Thought Work</h2>
+            <span class="step-duration">7 minutes</span>
           </div>
         </div>
-        <img src="images/practices/Journalling%20example.jpg" alt="Writing in a journal with a candle nearby" class="step-image" />
-        <p class="step-context">The first step is to name what the mind is scanning for. Not to resolve it. Not to find answers. Just to put words to the loop so it stops running invisibly underneath everything else.</p>
-        <div class="step-instruction">
-          <p>Sit comfortably. Hold or rest your hand on the steady object. Take one slow breath.</p>
-          <p><strong>In your journal, answer honestly:</strong></p>
-          <ul class="prompt-list">
-            <li>What outcome am I trying to predict or control right now?</li>
-            <li>What am I most afraid will happen if I don't know what comes next?</li>
-            <li>What would it mean to be okay right now, without knowing?</li>
-          </ul>
-          <p>Write without reframing. You're naming the uncertainty, not correcting it.</p>
+
+        <p class="step-context">One of the things mindfulness teaches is that we live most of our lives in "Mind Full" mode — our brain generates thoughts automatically, those thoughts create feelings, those feelings drive behaviours, and the whole thing runs without us choosing any of it. With uncertainty, that automatic chain looks like this: something unknown arises, your brain predicts danger, anxiety spikes, and you spend the day spinning through "what ifs" trying to get control. Each loop makes the habit stronger.</p>
+        <p class="step-context">The practice we're doing here creates a pause in that chain. Between the "I don't know" and the anxiety spiral, there is a gap. In that gap, you can see the thoughts your brain is generating, question whether they're facts or predictions, and find something more grounded to stand on. Mindfulness also teaches us that most of our suffering around uncertainty comes from the story on top of the not-knowing — not from the not-knowing itself. By practising non-judgment and acceptance (seeing things as they actually are), we can relate to the unknown differently. Not as a threat, but as something that hasn't been decided yet. We start with the breath because uncertainty keeps the mind spinning toward the future. The breath brings you back to right now, which is the only place you can actually do anything from.</p>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">1</span>
+            <span class="sub-step-name">Breathe In</span>
+          </div>
+          <div class="step-instruction">
+            <p>Take three slow breaths. Inhale for 4 counts, exhale for 6. With each exhale, say quietly: "Right now, I am okay."</p>
+            <p>Say it because it's true — not because everything is figured out. This is the shift from doing mode to being mode, from scanning for what might happen to simply being here, in this breath, in this moment. That's enough to start with.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">2</span>
+            <span class="sub-step-name">Find It In Your Body</span>
+          </div>
+          <div class="step-instruction">
+            <p>Without trying to fix anything, notice: <em>Where am I feeling uncertainty or anxiety right now?</em></p>
+            <p>Maybe it's a low hum of unease in your gut. A restlessness that makes it hard to sit still. A jumping mind, eyes that keep scanning, a feeling of not being able to land.</p>
+            <p>Approach it with a beginner's mind — as if you're noticing it for the first time, with curiosity rather than dread. Resisting a feeling keeps it activated. Recognising it, without judging it, is what starts to slow it down.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">3</span>
+            <span class="sub-step-name">Write Your Thoughts</span>
+          </div>
+          <div class="step-instruction">
+            <p>Set a timer for 60–90 seconds. Let your brain say everything it's been generating — the predictions, the fears, the what-ifs.</p>
+            <div class="write-area">
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+            </div>
+            <p>Read them back. You're being a scientist of your own mind. These are automatic thoughts your brain produced to try to protect you — not facts about the future. Not one of them is certain, including the worst ones.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">4</span>
+            <span class="sub-step-name">Find a Thought You Can Believe</span>
+          </div>
+          <div class="step-instruction">
+            <p>Find the thought carrying the most anxiety.</p>
+            <p><strong>Current thought:</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Now look for a thought that anchors you in yourself — in your own capacity and what's actually true right now — rather than one that tries to predict or control the outcome. This is the practice of "letting go": not of your awareness or your care, but of the tight grip on a prediction that isn't serving you. We're not going for false certainty. We're looking for ground.</p>
+            <p><strong>Some options to try:</strong></p>
+            <ul class="affirmation-list">
+              <li>"I don't know how this will turn out, and I can handle it either way."</li>
+              <li>"I've navigated uncertainty before. I'm still here."</li>
+              <li>"I don't need to know the outcome to take the next step."</li>
+              <li>"I trust myself more than I trust the fear."</li>
+            </ul>
+            <p><strong>My shifted thought (write one you actually believe):</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Breathe with it. Notice if the scanning, restless quality in your body settles even slightly. That's your body responding to a thought that feels more like ground than like falling.</p>
+          </div>
         </div>
       </div>
 

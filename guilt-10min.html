@@ -103,6 +103,16 @@
     .affirmation-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; }
     .affirmation-list li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; font-weight: 300; color: var(--clay-deep); padding: 12px 0; border-bottom: 1px solid rgba(196,168,130,0.2); line-height: 1.4; }
     .affirmation-list li:last-child { border-bottom: none; }
+
+    /* ── SUB STEPS ── */
+    .sub-step { margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,168,130,0.15); }
+    .sub-step-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+    .sub-step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--clay); min-width: 24px; }
+    .sub-step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); }
+
+    /* ── WRITE LINES ── */
+    .write-area { margin: 16px 0 20px; display: flex; flex-direction: column; gap: 16px; }
+    .write-line { border-bottom: 1px solid rgba(196,168,130,0.4); height: 26px; }
     .completion-section { background: var(--deep); margin: 40px -60px 0; padding: 80px 60px; text-align: center; }
     .completion-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 20px; }
     .completion-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--warm-white); line-height: 1.2; margin: 0 auto 20px; max-width: 560px; }
@@ -173,7 +183,7 @@
   <nav class="progress-strip" aria-label="Practice steps">
     <div class="progress-inner">
       <a href="#intro" class="prog-step active" data-target="intro"><span class="prog-num">0</span><span class="prog-label">Understand</span></a>
-      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Thought Work</span><span class="prog-time">6 min</span></a>
+      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Thought Work</span><span class="prog-time">7 min</span></a>
       <a href="#step-2" class="prog-step" data-target="step-2"><span class="prog-num">2</span><span class="prog-label">Qi Gong Shake</span><span class="prog-time">1 min</span></a>
       <a href="#step-3" class="prog-step" data-target="step-3"><span class="prog-num">3</span><span class="prog-label">Close</span><span class="prog-time">1 min</span></a>
     </div>
@@ -227,30 +237,75 @@
           <span class="step-num-large">01</span>
           <div class="step-title-wrap">
             <h2 class="step-name">Thought Work</h2>
-            <span class="step-duration">6 minutes</span>
+            <span class="step-duration">7 minutes</span>
           </div>
         </div>
-        <img src="images/practices/Gratitude%20journalling.png" alt="Sitting with a warm drink and a journal" class="step-image" />
-        <p class="step-image-caption">Hold something warm. Let it settle before you begin.</p>
-        <p class="step-context">The mind revisits what you said, what you did, what you could have done differently, trying to prevent future regret. The body carries this as heaviness. As a quiet sense of needing to make things right. This sequence moves through it step by step.</p>
-        <div class="step-instruction">
-          <p>Sit comfortably and take a sip of your warm drink. Let the warmth settle.</p>
-          <p><strong>In your journal, gently walk through:</strong></p>
-          <ul class="prompt-list">
-            <li>What am I feeling guilty about right now? Be specific. One situation is enough.</li>
-            <li>What thoughts am I telling myself about this? (I should have known better. I disappointed someone. I didn't do enough.)</li>
-            <li>How do these thoughts affect how I act? (Pushing harder, over-explaining, apologising excessively, holding it in.)</li>
-            <li>What is a more honest or balanced thought I could try instead?</li>
-            <li>If I held that new thought, what action would it allow? (Rest, a boundary, a conversation, letting it go.)</li>
-          </ul>
-          <p><strong>Examples of balanced thoughts:</strong></p>
-          <ul class="prompt-list">
-            <li>I made the best decision I could with what I knew at the time.</li>
-            <li>I can acknowledge this without blaming myself.</li>
-            <li>I can care and still have limits.</li>
-            <li>This doesn't define my character.</li>
-          </ul>
-          <p>Choose one that feels believable, not comforting. Write simply. You're not correcting yourself. You're creating options.</p>
+
+        <p class="step-context">Guilt is a feeling, and feelings come from thoughts. What tends to happen is this: something occurs, your brain generates a thought about what it means ("I am bad for this," "I let someone down"), that thought creates guilt, and the guilt drives behaviours like hiding, over-apologising, or spinning in the loop all day. If left unchecked, that loop becomes a habit — a way the brain automatically responds to anything that looks like a mistake.</p>
+        <p class="step-context">Mindfulness gives us the pause to step into the gap before the loop takes over. Instead of either running from the feeling or being consumed by it, we practise what mindfulness calls recognition and acceptance: seeing the experience as it actually is, without adding more story on top of it. When we separate the facts of what happened from the story we've built around it, something shifts. We can move into accountability — which is honest and forward-moving — rather than staying in self-punishment, which just keeps the loop running. Guilt is also one of the heaviest emotions to sit with. So before anything else, we breathe.</p>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">1</span>
+            <span class="sub-step-name">Breathe In</span>
+          </div>
+          <div class="step-instruction">
+            <p>Take three slow breaths. Each time you exhale, see if you can soften your stomach. Guilt tends to grip there.</p>
+            <p>The breath is how we shift from autopilot to awareness. You don't have to carry guilt in your body to prove you care. Your care is real. The suffering is a thought pattern, and thought patterns can be worked with.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">2</span>
+            <span class="sub-step-name">Find It In Your Body</span>
+          </div>
+          <div class="step-instruction">
+            <p>Without trying to change it yet, notice: <em>Where am I holding guilt right now?</em></p>
+            <p>Maybe it's a heaviness in the chest. A hollow or knotted stomach. Heat in your face or neck. A pull to make yourself smaller, to disappear from the situation.</p>
+            <p>Approach it with curiosity, not judgment. You're not deciding the feeling is good or bad — you're simply recognising it. In mindfulness, this is the first act of emotional intelligence: perceiving the emotion clearly so you can understand and manage it, rather than being run by it. That's the difference between feeling guilt and drowning in it.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">3</span>
+            <span class="sub-step-name">Write Your Thoughts</span>
+          </div>
+          <div class="step-instruction">
+            <p>Set a timer for 60–90 seconds. Let your brain say everything it's been repeating about what happened.</p>
+            <div class="write-area">
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+            </div>
+            <p>Now read it back. Look for the difference between two things: the facts (what actually happened, just that) and the story (what your brain has decided it means about you). Guilt lives in the story, not in the fact.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">4</span>
+            <span class="sub-step-name">Find a Thought You Can Believe</span>
+          </div>
+          <div class="step-instruction">
+            <p>Find the guilt thought carrying the most weight.</p>
+            <p><strong>Current thought:</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Ask yourself: what would accountability without punishment look like here? You're practising "letting go" in the mindfulness sense — not dismissing what happened, but releasing the grip on a thought that is creating more suffering than it is creating change. You're stepping off the loop long enough to actually move.</p>
+            <p><strong>Some options to try:</strong></p>
+            <ul class="affirmation-list">
+              <li>"What I did and who I am are not the same thing."</li>
+              <li>"I can acknowledge this, learn from it, and move forward."</li>
+              <li>"I acted from where I was then. I can choose differently now."</li>
+              <li>"I don't have to keep suffering to prove I care."</li>
+            </ul>
+            <p><strong>My shifted thought (write one you actually believe):</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Sit with it. Notice whether the heaviness in your stomach softens at all. That's not you dismissing what happened. That's you choosing to respond to yourself with wisdom instead of staying in punishment.</p>
+          </div>
         </div>
       </div>
 

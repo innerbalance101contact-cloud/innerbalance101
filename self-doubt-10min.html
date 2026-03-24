@@ -94,6 +94,16 @@
     .affirmation-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; }
     .affirmation-list li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; font-weight: 300; color: var(--clay-deep); padding: 12px 0; border-bottom: 1px solid rgba(196,168,130,0.2); line-height: 1.4; }
     .affirmation-list li:last-child { border-bottom: none; }
+
+    /* ── SUB STEPS ── */
+    .sub-step { margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,168,130,0.15); }
+    .sub-step-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+    .sub-step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--clay); min-width: 24px; }
+    .sub-step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); }
+
+    /* ── WRITE LINES ── */
+    .write-area { margin: 16px 0 20px; display: flex; flex-direction: column; gap: 16px; }
+    .write-line { border-bottom: 1px solid rgba(196,168,130,0.4); height: 26px; }
     .completion-section { background: var(--deep); margin: 40px -60px 0; padding: 80px 60px; text-align: center; }
     .completion-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 20px; }
     .completion-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--warm-white); line-height: 1.2; margin: 0 auto 20px; max-width: 560px; }
@@ -164,7 +174,7 @@
   <nav class="progress-strip" aria-label="Practice steps">
     <div class="progress-inner">
       <a href="#intro" class="prog-step active" data-target="intro"><span class="prog-num">0</span><span class="prog-label">Understand</span></a>
-      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Journalling</span><span class="prog-time">3 min</span></a>
+      <a href="#step-1" class="prog-step" data-target="step-1"><span class="prog-num">1</span><span class="prog-label">Thought Work</span><span class="prog-time">7 min</span></a>
       <a href="#step-2" class="prog-step" data-target="step-2"><span class="prog-num">2</span><span class="prog-label">Sounded Breath</span><span class="prog-time">3 min</span></a>
       <a href="#step-3" class="prog-step" data-target="step-3"><span class="prog-num">3</span><span class="prog-label">Speak It</span><span class="prog-time">2 min</span></a>
       <a href="#step-4" class="prog-step" data-target="step-4"><span class="prog-num">4</span><span class="prog-label">Integration</span><span class="prog-time">2 min</span></a>
@@ -220,25 +230,76 @@
         <div class="step-header">
           <span class="step-num-large">01</span>
           <div class="step-title-wrap">
-            <h2 class="step-name">Journalling</h2>
-            <span class="step-duration">3 minutes</span>
+            <h2 class="step-name">Thought Work</h2>
+            <span class="step-duration">7 minutes</span>
           </div>
         </div>
-        <img src="images/practices/Journalling%20example.jpg" alt="Writing honestly in a journal" class="step-image" />
-        <p class="step-context">Self-doubt is often a memory loop, not a present reality. Writing it down names the loop and creates distance from it. You're not solving anything here. You're identifying the pattern so your nervous system can see it for what it is.</p>
-        <div class="step-instruction">
-          <p>Sit comfortably. Hold or rest your hand on the steady object. Take one slow breath.</p>
-          <p><strong>In your journal, answer honestly:</strong></p>
-          <ul class="prompt-list">
-            <li>What decision or idea am I delaying right now?</li>
-            <li>What mistake am I afraid of making?</li>
-            <li>What past experience does this feeling remind me of?</li>
-          </ul>
-          <p><strong>Then gently ask:</strong></p>
-          <ul class="prompt-list">
-            <li>If this were new, not a repeat, what would feel possible?</li>
-          </ul>
-          <p>Write without editing. You're naming the memory loop, not solving it.</p>
+
+        <p class="step-context">Self-doubt runs on autopilot. Your brain learned these thoughts somewhere along the way — "I'm not ready," "who am I to do this" — and now they fire automatically, creating a physical sensation of contraction, which drives you to hold back, which produces the result of not moving, which the brain takes as proof that the thought was right. It's a loop.</p>
+        <p class="step-context">Mindfulness teaches us that between the thought and the reaction, there is a gap. This practice is about stepping into that gap long enough to look at what your brain is actually saying — without immediately believing it or judging yourself for having it. We approach our own thoughts the way a curious observer would: open, not defensive, not collapsed. From there, the thought work shows us that thoughts create feelings, and feelings drive action. We don't start by forcing confidence. We start by loosening the thought that's creating the contraction, just enough so that a different action feels possible. The breath comes first, because a contracted body can't take in new thoughts easily. We open the body a little, then the mind can follow.</p>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">1</span>
+            <span class="sub-step-name">Breathe In</span>
+          </div>
+          <div class="step-instruction">
+            <p>Take three slow breaths. On each inhale, let your chest and belly expand — deliberately. On each exhale, soften.</p>
+            <p>This is the shift from automatic to aware, from doing mode to being mode. Let the breath remind your body that you're allowed to take up space. That matters more than it sounds.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">2</span>
+            <span class="sub-step-name">Find It In Your Body</span>
+          </div>
+          <div class="step-instruction">
+            <p>Without trying to fix anything, ask: <em>Where is self-doubt showing up in my body right now?</em></p>
+            <p>Maybe it's a heaviness in your chest. A tightening in your throat. A slightly sunken posture, a pull to hold back.</p>
+            <p>Notice it without judgment — no labelling it as good or bad, no deciding you shouldn't be feeling it. Mindfulness calls this "recognition and acceptance": seeing the experience as it actually is. That seeing is the first thing that loosens its grip. You're a witness right now, not a fixer.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">3</span>
+            <span class="sub-step-name">Write Your Thoughts</span>
+          </div>
+          <div class="step-instruction">
+            <p>Set a timer for 60–90 seconds. Let your brain say everything it believes about your abilities, your readiness, your worth in this situation. Don't filter it.</p>
+            <div class="write-area">
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+            </div>
+            <p>Read it back. These are automatic thoughts your brain has been running. Notice how certain they sound. Also notice: you have had thoughts like these before, and you showed up anyway. That's real evidence that the thoughts weren't the final word.</p>
+          </div>
+        </div>
+
+        <div class="sub-step">
+          <div class="sub-step-header">
+            <span class="sub-step-num">4</span>
+            <span class="sub-step-name">Find a Thought You Can Believe</span>
+          </div>
+          <div class="step-instruction">
+            <p>Find the self-doubt thought carrying the most weight.</p>
+            <p><strong>Current thought:</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>We're not replacing it with forced positivity — your brain won't accept a thought it doesn't believe. Instead, we practise what mindfulness calls "letting go" of the tight grip on this version of the story, just enough to allow a slightly more open one in. Approach it with a beginner's mind: what might also be true here?</p>
+            <p><strong>Some options to try:</strong></p>
+            <ul class="affirmation-list">
+              <li>"I don't know everything yet. That's okay. I'm learning."</li>
+              <li>"Not knowing how yet isn't the same as being incapable."</li>
+              <li>"I have done hard things before. That's evidence."</li>
+              <li>"I can be unsure and still take the next step."</li>
+            </ul>
+            <p><strong>My shifted thought (write one you actually believe):</strong></p>
+            <div class="write-area"><div class="write-line"></div></div>
+            <p>Breathe with it. Notice whether your posture shifts when you let yourself think this thought — a little more open, a bit more upright. Your body responds to thoughts faster than your mind does. Trust what you feel.</p>
+          </div>
         </div>
       </div>
 
