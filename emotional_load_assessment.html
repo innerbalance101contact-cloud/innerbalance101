@@ -354,9 +354,42 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
         </div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
+      <div class="q-block">
+        <div class="q-text">"When I'm stuck in a difficult feeling, I can trace it back to a specific thought I'm having."</div>
+        <div class="scale-row" id="aq4">
+          <div class="scale-opt" onclick="selAQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selAQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selAQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selAQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selAQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">"I tend to push through emotions rather than pause and notice them."</div>
+        <div class="scale-row" id="aq5">
+          <div class="scale-opt" onclick="selAQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selAQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selAQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selAQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selAQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">"I can observe what I'm feeling without being completely consumed by it."</div>
+        <div class="scale-row" id="aq6">
+          <div class="scale-opt" onclick="selAQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selAQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selAQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selAQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selAQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
+      </div>
     </div>
 
-    <p class="val-msg" id="awarenessVal">Please answer all three statements to continue.</p>
+    <p class="val-msg" id="awarenessVal">Please answer all six statements to continue.</p>
 
     <div class="screen-nav">
       <button class="btn-back-step" onclick="go('s-body')">Body check-in</button>
@@ -409,7 +442,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
       </div>
       <div class="q-block">
         <div class="q-num">04</div>
-        <div class="q-text">I second-guess decisions I've already made, often replaying what I could have done differently.</div>
+        <div class="q-text">I feel like I have to get things right, and when I don't, something important is at stake.</div>
         <div class="scale-row" id="lq4">
           <div class="scale-opt" onclick="selLQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
           <div class="scale-opt" onclick="selLQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
@@ -421,7 +454,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
       </div>
       <div class="q-block">
         <div class="q-num">05</div>
-        <div class="q-text">My emotions tend to surface in the wrong moments: irritability, withdrawal, or reactions that surprise me.</div>
+        <div class="q-text">I feel responsible for managing how others feel around me, and their reactions are part of what I'm monitoring.</div>
         <div class="scale-row" id="lq5">
           <div class="scale-opt" onclick="selLQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
           <div class="scale-opt" onclick="selLQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
@@ -433,7 +466,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
       </div>
       <div class="q-block">
         <div class="q-num">06</div>
-        <div class="q-text">I feel responsible for managing how others feel around me, and their reactions are part of what I'm monitoring.</div>
+        <div class="q-text">I carry a low-level sense that I haven't done enough, or that I've let someone down.</div>
         <div class="scale-row" id="lq6">
           <div class="scale-opt" onclick="selLQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
           <div class="scale-opt" onclick="selLQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
@@ -445,7 +478,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
       </div>
       <div class="q-block">
         <div class="q-num">07</div>
-        <div class="q-text">Open loops, unmade decisions, and unclear outcomes take up far more mental space than they should.</div>
+        <div class="q-text">I second-guess decisions I've already made, often replaying what I could have done differently.</div>
         <div class="scale-row" id="lq7">
           <div class="scale-opt" onclick="selLQ(7,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
           <div class="scale-opt" onclick="selLQ(7,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
@@ -457,7 +490,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
       </div>
       <div class="q-block">
         <div class="q-num">08</div>
-        <div class="q-text">Even when I achieve things I worked hard for, the satisfaction doesn't last. There's always something next.</div>
+        <div class="q-text">I hold back or hesitate because I'm not sure I'm ready or capable enough.</div>
         <div class="scale-row" id="lq8">
           <div class="scale-opt" onclick="selLQ(8,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
           <div class="scale-opt" onclick="selLQ(8,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
@@ -467,9 +500,33 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
         </div>
         <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
       </div>
+      <div class="q-block">
+        <div class="q-num">09</div>
+        <div class="q-text">Open loops, unmade decisions, and unclear outcomes take up far more mental space than they should.</div>
+        <div class="scale-row" id="lq9">
+          <div class="scale-opt" onclick="selLQ(9,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(9,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(9,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(9,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(9,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
+      <div class="q-block">
+        <div class="q-num">10</div>
+        <div class="q-text">Not knowing how something will turn out creates a persistent low hum of anxiety.</div>
+        <div class="scale-row" id="lq10">
+          <div class="scale-opt" onclick="selLQ(10,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
+          <div class="scale-opt" onclick="selLQ(10,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
+          <div class="scale-opt" onclick="selLQ(10,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
+          <div class="scale-opt" onclick="selLQ(10,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
+          <div class="scale-opt" onclick="selLQ(10,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
+        </div>
+        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
+      </div>
     </div>
 
-    <p class="val-msg" id="loadVal">Please answer all eight questions to see your results.</p>
+    <p class="val-msg" id="loadVal">Please answer all ten questions to see your results.</p>
 
     <div class="screen-nav">
       <button class="btn-back-step" onclick="go('s-awareness')">Awareness audit</button>
@@ -560,7 +617,7 @@ function selAQ(q,v){
 }
 
 function nextAwareness(){
-  if([1,2,3].some(q=>!state.aq[q])){
+  if([1,2,3,4,5,6].some(q=>!state.aq[q])){
     document.getElementById('awarenessVal').classList.add('show'); return;
   }
   document.getElementById('awarenessVal').classList.remove('show');
@@ -575,170 +632,181 @@ function selLQ(q,v){
 }
 
 function calcResults(){
-  if([1,2,3,4,5,6,7,8].some(q=>!state.lq[q])){
+  if([1,2,3,4,5,6,7,8,9,10].some(q=>!state.lq[q])){
     document.getElementById('loadVal').classList.add('show'); return;
   }
   document.getElementById('loadVal').classList.remove('show');
 
-  const aRaw = [1,2,3].reduce((s,q)=>s+state.aq[q],0);
-  const lRaw = [1,2,3,4,5,6,7,8].reduce((s,q)=>s+state.lq[q],0);
+  // Awareness: aq5 is reverse scored (6 - value)
+  const aRaw = [1,2,3,4,6].reduce((s,q)=>s+state.aq[q],0) + (6 - state.aq[5]);
 
-  const highA = aRaw/15 >= 0.5;
-  const highL = lRaw/40 >= 0.5;
-  const bodyBlind = state.chips.has('nothing')||state.chips.has('unsure');
+  // Per-emotion scores (2 questions each, range 2–10)
+  const emotions = {
+    overwhelm:   state.lq[1]  + state.lq[2],
+    pressure:    state.lq[3]  + state.lq[4],
+    guilt:       state.lq[5]  + state.lq[6],
+    selfDoubt:   state.lq[7]  + state.lq[8],
+    uncertainty: state.lq[9]  + state.lq[10]
+  };
+
   const hasBodySignal = state.zones.size>0 || ([...state.chips].some(s=>s!=='nothing'&&s!=='unsure'));
+  const bodyBlind = state.chips.has('nothing')||state.chips.has('unsure');
 
-  renderResults(highA, highL, aRaw, lRaw, hasBodySignal, bodyBlind);
+  renderResults(aRaw, emotions, hasBodySignal, bodyBlind);
   go('s-results');
 }
 
-const PROFILES = {
-  HA_HL: {
-    eyebrow:'Profile 1 of 4',
-    nameHTML:'You know what\'s happening.<br><em>You just haven\'t had the tools to move it.</em>',
-    desc:'You have genuine self-awareness. You can name what you\'re feeling and you\'re not in denial about the weight you\'re carrying. That\'s rare, and it matters. What\'s missing isn\'t insight, it\'s a practice that helps your body actually let go of what you\'ve been holding. Understanding it in your head is not the same as releasing it from your system.',
-    bodySignal:'The tension you noticed at the start of this assessment is where the work begins. Not the thinking about it. The feeling of it.',
-    bodyBlind:'The fact that you\'re not sure where you feel it in your body is worth noting. Your awareness lives primarily in your mind. The next step is building a bridge to your body.',
-    aLabel:'High', lLabel:'High',
-    insights:[
-      'High-awareness, high-load is one of the most common patterns we see. You have the clarity to see what\'s happening, but the emotional weight is outrunning your ability to actually process it.',
-      'The risk here is getting stuck in your head. You can analyse your experience very clearly, which can feel like progress without actually being progress. Insight without practice is just more weight on a system that\'s already full.',
-      'What you need isn\'t more understanding. It\'s a structured, repeatable practice that creates real change in your body, not just new ways of thinking about the same old weight.'
-    ],
-    emailSubject:'Your Emotional Load Assessment results: Profile 1',
-    emailProfile:'High Awareness, High Load',
-    emailSummary:'You have genuine self-awareness and a high emotional load. The gap isn\'t insight, it\'s a somatic practice to actually discharge what you\'ve been holding. Understanding it in your mind is not the same as releasing it from your body.',
-    emailNextStep:'The Overwhelm Practice is where to start. It works directly with the nervous system\'s overwhelm response, moving you from activation back to ground through breath, movement, and regulation. Ten minutes to start. The change is physiological, not cognitive.',
-    practice:{name:'The Overwhelm Practice',transformation:'Overwhelm → Grounded',body:'This practice works directly with the nervous system\'s overwhelm response, where everything feels urgent, nothing feels manageable, and your body has been running on threat-response for too long. It moves you from activation back to ground, through breath, movement, and regulation. Ten minutes to start. The change is physiological, not cognitive.',price:'$17',link:'https://innerbalance101.com/overwhelm-10min.html'}
+function awarenessLabel(r){
+  if(r>=23) return 'Deeply In Tune';
+  if(r>=14) return 'Building Awareness';
+  return 'Still Finding the Signal';
+}
+function emotionLevel(s){
+  if(s>=7) return 'flagged';
+  if(s>=4) return 'moderate';
+  return 'low';
+}
+
+const AWARENESS_TIERS = {
+  'Still Finding the Signal': {
+    desc: 'Emotions can feel fast, big, or hard to name before they\'ve already shaped your response. The signal is there — it\'s just not coming through clearly yet.',
+    tips: [
+      'Start with the body, not the mind. Before you try to name what you\'re feeling, notice where you feel it first — chest, stomach, jaw, shoulders.',
+      'When something feels off, pause and ask: what am I feeling right now? Not what you\'re thinking — what you\'re actually feeling. That pause is where awareness begins.',
+      'Three slow exhales will tell you more than ten minutes of analysis. Breath is the fastest bridge between your body and your awareness.'
+    ]
   },
-  HA_LL: {
-    eyebrow:'Profile 2 of 4',
-    nameHTML:'You\'re more regulated than you think.<br><em>Now make it a discipline.</em>',
-    desc:'You have a strong capacity for self-awareness, and your emotional load right now is manageable. That\'s a genuinely good place to be, and it\'s also the right moment to build a practice, before the next season asks more of you. Most people wait until they\'re overloaded to invest in this work. That\'s reactive. You have the chance to be ahead of it.',
-    bodySignal:'The physical awareness you brought to the start of this assessment is your foundation. That signal is already there. The practice is learning to trust it.',
-    bodyBlind:'Even at a lower load, there\'s room to deepen your body connection. The somatic channel is the one that holds most reliably under pressure.',
-    aLabel:'High', lLabel:'Moderate',
-    insights:[
-      'Calm seasons are when the practice gets built, not when you\'re already in crisis. The people who stay grounded under real pressure built their tools before they urgently needed them.',
-      'Your nervous system has room right now. New habits embed more easily when you\'re not already running on fumes.',
-      'The question worth sitting with: what happens to you when the pressure intensifies? Do you have something that reliably brings you back? If the honest answer is no, this is the work.'
-    ],
-    emailSubject:'Your Emotional Load Assessment results: Profile 2',
-    emailProfile:'High Awareness, Moderate Load',
-    emailSummary:'You\'re more regulated than most. Your emotional load is manageable and your self-awareness is strong. This is the right moment to build a practice, before the next season demands it.',
-    emailNextStep:'The Pressure Practice is built for where you are. It addresses the persistent background hum of pressure that high-achievers carry even in regulated seasons, building a felt sense of capacity from the inside.',
-    practice:{name:'The Pressure Practice',transformation:'Pressure → Self-Assurance',body:'This practice is for the persistent background hum of pressure that high-achievers carry even when things are going well: the constant proving, the performing, the sense that you need to be more. It builds a felt sense of capacity from the inside. Not confidence from achievement. Assurance from being grounded in yourself.',price:'$17',link:'https://innerbalance101.com/pressure-10min.html'}
+  'Building Awareness': {
+    desc: 'You notice the pattern. You can catch what\'s happening — but the loop still wins sometimes, and the feeling has often built momentum before you can work with it.',
+    tips: [
+      'You\'re catching the pattern. The next step is closing the gap between noticing and responding — before the feeling has already made the decision for you.',
+      'When a difficult feeling comes up, ask: what thought is sitting behind this? The thought creates the feeling. Naming the thought gives you a choice point.',
+      'Your body is already sending signals you\'re learning to read. Trust the first signal — not the one that arrives after the emotion has built momentum.'
+    ]
   },
-  LA_HL: {
-    eyebrow:'Profile 3 of 4',
-    nameHTML:'Your body has been signalling for a while.<br><em>You\'ve been too busy to hear it.</em>',
-    desc:'Your emotional load is high, and your connection to your inner experience is limited right now. This is a common combination: you\'ve learned to move fast, stay productive, push through. The cost of that is a growing disconnect from what your body is actually telling you. The signals are there. They\'re just not getting through.',
-    bodySignal:'What you felt at the start of this assessment, even if it surprised you, is the beginning of the signal. That\'s your body trying to communicate. The practice is learning to hear it before it has to shout.',
-    bodyBlind:'The fact that you felt nothing, or weren\'t sure, while carrying a high emotional load is itself the signal. This disconnect is one of the most important things to work with.',
-    aLabel:'Developing', lLabel:'High',
-    insights:[
-      'High load and limited awareness means there\'s a real gap between what your nervous system is carrying and what you\'re consciously registering. That\'s not a character flaw, it\'s what happens after years of training yourself to push past discomfort in service of getting things done.',
-      'The risk is that the load doesn\'t disappear just because you don\'t notice it. It accumulates. It shows up as irritability, physical symptoms, a growing flatness, even when things look fine from the outside.',
-      'The work doesn\'t have to be dramatic. It starts with ten minutes and one question: what am I actually feeling right now? Not what am I thinking. What am I feeling. In my body.'
-    ],
-    emailSubject:'Your Emotional Load Assessment results: Profile 3',
-    emailProfile:'Developing Awareness, High Load',
-    emailSummary:'Your emotional load is high and your connection to your inner experience is limited. You\'ve trained yourself to push through, and the cost is a growing disconnect from what your nervous system is actually carrying.',
-    emailNextStep:'The Self-Doubt Practice is where to start. It rebuilds the internal signal that high-achievers override, starting in the body where self-trust actually lives, and moving toward cognitive clarity.',
-    practice:{name:'The Self-Doubt Practice',transformation:'Self-Doubt → Self-Trust',body:'This practice rebuilds the internal signal that high-achievers often override, the quiet knowing that sits beneath the constant mental noise of proving and justifying. It starts in the body, where self-trust actually lives, and moves from somatic signal to cognitive clarity. Ten minutes. Repeatable. Transformative over 21 days.',price:'$17',link:'https://innerbalance101.com/self-doubt-10min.html'}
-  },
-  LA_LL: {
-    eyebrow:'Profile 4 of 4',
-    nameHTML:'You\'re at the beginning.<br><em>That\'s a good place to start.</em>',
-    desc:'Your emotional load is moderate and your inner awareness is still developing. This often belongs to someone who\'s functioning well on the surface and hasn\'t had reason to look deeper yet, or someone who\'s been coping so effectively that they\'ve learned not to notice. Either way, this is the moment to build the practice, before the load gets heavier.',
-    bodySignal:'The body awareness you\'re beginning to develop is the foundation everything else builds on. Start there.',
-    bodyBlind:'The fact that you\'re not yet reading your body clearly is the starting point, not a problem. It\'s a skill. This work teaches it.',
-    aLabel:'Developing', lLabel:'Moderate',
-    insights:[
-      'The people who most need this work are often the ones who feel the least urgency around it. When things are manageable, the case for going deeper feels thin. But this isn\'t crisis management, it\'s building real inner capacity before the next hard season.',
-      'What you\'re building is the ability to stay grounded when the pressure rises, to trust your instincts when the stakes are high, and to know what you\'re actually feeling before it starts driving your decisions.',
-      'The entry point is small. Ten minutes. One practice. Twenty-one days. The shift is quiet at first, and then it really isn\'t.'
-    ],
-    emailSubject:'Your Emotional Load Assessment results: Profile 4',
-    emailProfile:'Developing Awareness, Moderate Load',
-    emailSummary:'You\'re functioning well and your load is manageable. The work now is building inner capacity before the pressure rises, not as crisis management, but as discipline.',
-    emailNextStep:'The Overwhelm Practice is the best entry point. Structured, science-backed, and ten minutes. It introduces the body-based approach that produces real physiological change.',
-    practice:{name:'The Overwhelm Practice',transformation:'Overwhelm → Grounded',body:'This is the best place to start if you\'re new to somatic practice. Structured, science-backed, and ten minutes. It introduces you to the body-based approach, the one that produces real physiological change, not just new ways of thinking. One practice. One transformation. A clear before and after.',price:'$17',link:'https://innerbalance101.com/overwhelm-10min.html'}
+  'Deeply In Tune': {
+    desc: 'You catch it early. You can name what you\'re feeling, trace it to a thought, and stay present with it without being consumed. That\'s rare.',
+    tips: [
+      'You catch it early. The next depth is staying present with what you\'re feeling without needing it to change — the witness position, not just the observer.',
+      'Explore what happens when you\'re fully present with a difficult emotion — not analysing it, not moving it, just being with it. That\'s where the deepest processing happens.',
+      'Your capacity for awareness is a resource for the people around you. Notice how your groundedness creates space for others, even when you\'re not aware of it.'
+    ]
   }
 };
 
-function loadLabel(r){const p=r/40;return p>=0.75?'Very High':p>=0.5?'High':p>=0.3?'Moderate':'Low'}
-function awarenessLabel(r){const p=r/15;return p>=0.7?'High':p>=0.45?'Developing':'Limited'}
+const GUIDES = {
+  overwhelm: {
+    name:'The Overwhelm Practice',
+    transformation:'Overwhelm → Grounded',
+    body:'Built for the nervous system\'s overwhelm response — where everything feels urgent and nothing feels manageable. Ten minutes, physiological change, repeatable.',
+    price:'$17',
+    link:'https://innerbalance101.com/overwhelm-10min.html'
+  },
+  pressure: {
+    name:'The Pressure Practice',
+    transformation:'Pressure → Self-Assurance',
+    body:'For the persistent background hum of pressure that high-achievers carry even when things are going well. Builds a felt sense of capacity from the inside.',
+    price:'$17',
+    link:'https://innerbalance101.com/pressure-10min.html'
+  },
+  guilt: {
+    name:'The Guilt Practice',
+    transformation:'Guilt → Self-Compassion',
+    body:'For the weight of responsibility you carry for others, and the low-level sense of not having done enough. Moves from obligation to genuine self-compassion.',
+    price:'$17',
+    link:'https://innerbalance101.com/guilt-10min.html'
+  },
+  selfDoubt: {
+    name:'The Self-Doubt Practice',
+    transformation:'Self-Doubt → Self-Trust',
+    body:'Rebuilds the internal signal that high-achievers override — the quiet knowing beneath the constant noise of proving and justifying. Starts in the body, where self-trust actually lives.',
+    price:'$17',
+    link:'https://innerbalance101.com/self-doubt-10min.html'
+  },
+  uncertainty: {
+    name:'The Uncertainty Practice',
+    transformation:'Uncertainty → Clarity',
+    body:'For the mental hum of open loops and unmade decisions. Builds a felt sense of inner stability that doesn\'t depend on external resolution.',
+    price:'$17',
+    link:'https://innerbalance101.com/uncertainty-10min.html'
+  }
+};
+
+const EMOTION_COPY = {
+  overwhelm:   { label:'Overwhelm',   flagged:'Overwhelm is active — depletion and an inability to fully switch off are showing up consistently.',                                          moderate:'Overwhelm is present — signs of depletion and difficulty switching off, but not yet the dominant pattern.',         low:'Overwhelm isn\'t a primary load right now.' },
+  pressure:    { label:'Pressure',    flagged:'Pressure is active — an unexplained background hum and the weight of needing to get things right are both showing up.',                    moderate:'Pressure is present — the background hum is there, even if it\'s not yet overwhelming.',                          low:'Pressure isn\'t a primary load right now.' },
+  guilt:       { label:'Guilt',       flagged:'Guilt is active — showing up as responsibility for others\' feelings and a persistent sense of not having done enough.',                   moderate:'Guilt is present — some sense of responsibility or not-enoughness, but it\'s not running the show.',              low:'Guilt isn\'t a primary load right now.' },
+  selfDoubt:   { label:'Self-Doubt',  flagged:'Self-Doubt is active — replaying past decisions and holding back from future ones.',                                                        moderate:'Self-Doubt is present — some hesitation and second-guessing, but not the dominant pattern.',                      low:'Self-Doubt isn\'t a primary load right now.' },
+  uncertainty: { label:'Uncertainty', flagged:'Uncertainty is active — open loops and unknown outcomes are taking up significant mental space.',                                           moderate:'Uncertainty is present — open loops create noise, but it\'s still manageable.',                                  low:'Uncertainty isn\'t a primary load right now.' }
+};
 
 // Kit form ID — single form, profile passed as custom field
 const KIT_FORM_ID = '9180408';
 
-function sendToKit(email, name, profileKey, loadScore, loadLbl, awarenessScore, awarenessLbl) {
+function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
   try {
     const fd = new FormData();
     fd.append('email_address', email);
     if(name) fd.append('first_name', name);
-    if(profileKey) fd.append('fields[profile]', profileKey);
-    if(loadScore !== undefined && loadLbl) fd.append('fields[load_score]', loadScore + '/40 — ' + loadLbl);
-    if(awarenessScore !== undefined && awarenessLbl) fd.append('fields[awareness_score]', awarenessScore + '/15 — ' + awarenessLbl);
+    if(awarenessTier) fd.append('fields[profile]', awarenessTier);
+    if(flaggedEmotions) fd.append('fields[load_score]', flaggedEmotions);
+    if(topGuide) fd.append('fields[awareness_score]', topGuide);
     fetch('https://app.kit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
       method: 'POST', body: fd, mode: 'no-cors'
     }).catch(()=>{});
   } catch(e){}
 }
 
-function sendMyResults() {
-  const btn = document.getElementById('srBtn');
-  const successEl = document.getElementById('srSuccess');
-  if(!btn || btn.disabled) return;
+function renderResults(aRaw, emotions, hasBody, bodyBlind){
+  const tier = awarenessLabel(aRaw);
+  const tierData = AWARENESS_TIERS[tier];
 
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
+  const emotionKeys = ['overwhelm','pressure','guilt','selfDoubt','uncertainty'];
+  const sorted = [...emotionKeys].sort((a,b)=>emotions[b]-emotions[a]);
+  const flagged = sorted.filter(k=>emotionLevel(emotions[k])==='flagged');
+  const moderate = sorted.filter(k=>emotionLevel(emotions[k])==='moderate');
 
-  sendToKit(state.gateEmail, state.gateName, state.profileKey, state.loadScore, state.loadLabel, state.awarenessScore, state.awarenessLabel);
+  // Send to Kit
+  const flaggedLabels = flagged.map(k=>EMOTION_COPY[k].label).join(', ') || 'None flagged';
+  const topGuide = flagged.length>0 ? GUIDES[flagged[0]].name : (moderate.length>0 ? GUIDES[moderate[0]].name : 'None flagged');
+  sendToKit(state.gateEmail, state.gateName, tier, flaggedLabels, topGuide);
 
-  setTimeout(()=>{
-    btn.style.display = 'none';
-    successEl.classList.add('show');
-  }, 900);
-}
-
-function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
-  const key=(highA?'HA':'LA')+'_'+(highL?'HL':'LL');
-  state.profileKey = key;
-  state.loadScore = lRaw;
-  state.awarenessScore = aRaw;
-  state.loadLabel = loadLabel(lRaw);
-  state.awarenessLabel = awarenessLabel(aRaw);
-  const p=PROFILES[key];
-  const bodyText = bodyBlind ? p.bodyBlind : p.bodySignal;
-  sendToKit(state.gateEmail, state.gateName, key, lRaw, loadLabel(lRaw), aRaw, awarenessLabel(aRaw));
-
+  // Block 1: Awareness Level
   document.getElementById('rProfile').innerHTML=`
     <div class="result-hero">
-      <div class="result-eyebrow">${p.eyebrow}</div>
-      <h2 class="result-name">${p.nameHTML}</h2>
-      <p class="result-desc">${p.desc}</p>
-      <p class="result-body-signal">${bodyText}</p>
+      <div class="result-eyebrow">Your Awareness Level</div>
+      <h2 class="result-name"><em>${tier}</em></h2>
+      <p class="result-desc">${tierData.desc}</p>
+    </div>
+    <div class="insight-section" style="margin-top:28px;margin-bottom:0">
+      <div class="insight-title">Where to focus</div>
+      ${tierData.tips.map(t=>`<p>${t}</p>`).join('')}
     </div>`;
+
+  // Block 2: Emotional Load Profile
+  const profileRows = emotionKeys.map(k=>{
+    const lvl = emotionLevel(emotions[k]);
+    const copy = EMOTION_COPY[k];
+    const dotColor = lvl==='flagged' ? 'var(--clay-deep)' : lvl==='moderate' ? 'var(--clay-light)' : 'rgba(196,168,130,0.3)';
+    return `<div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(196,168,130,0.15)">
+      <div style="width:10px;height:10px;border-radius:50%;background:${dotColor};flex-shrink:0;margin-top:5px"></div>
+      <div>
+        <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:4px">${copy.label}</div>
+        <div style="font-size:0.92rem;font-weight:300;color:var(--mid);line-height:1.75">${copy[lvl]}</div>
+      </div>
+    </div>`;
+  }).join('');
 
   document.getElementById('rScores').innerHTML=`
-    <div class="score-card">
-      <div class="score-lbl">Emotional Load</div>
-      <div class="score-val">${lRaw}<span style="font-size:1rem;color:var(--soft)">/40</span></div>
-      <div class="score-desc-text">${loadLabel(lRaw)}</div>
-    </div>
-    <div class="score-card">
-      <div class="score-lbl">Self-Awareness</div>
-      <div class="score-val">${aRaw}<span style="font-size:1rem;color:var(--soft)">/15</span></div>
-      <div class="score-desc-text">${awarenessLabel(aRaw)}</div>
+    <div style="width:100%">
+      <div class="insight-title" style="margin-bottom:4px">Your Emotional Load Profile</div>
+      ${profileRows}
     </div>`;
 
-  document.getElementById('rInsight').innerHTML=`
-    <div class="insight-title">What this means for you</div>
-    ${p.insights.map(i=>`<p>${i}</p>`).join('')}`;
+  // Clear old insight section (now embedded in rProfile)
+  document.getElementById('rInsight').innerHTML='';
 
-  // Send results block — shown after insights, before recommendation
+  // Send results block
   document.getElementById('rSendResults').innerHTML=`
     <div class="send-results-block">
       <div class="sr-eyebrow">Your results</div>
@@ -749,18 +817,42 @@ function renderResults(highA,highL,aRaw,lRaw,hasBody,bodyBlind){
       </div>
     </div>`;
 
-  document.getElementById('rRec').innerHTML=`
-    <div class="rec-block">
-      <div class="rec-lbl">Recommended for your profile</div>
-      <div class="rec-name">${p.practice.name}</div>
-      <div class="rec-transformation">${p.practice.transformation}</div>
-      <p class="rec-body">${p.practice.body}</p>
-      <p class="rec-price">Downloadable PDF guide &nbsp;&middot;&nbsp; <strong>${p.practice.price}</strong></p>
+  // Block 3: Where to Start
+  let recHtml = '';
+  if(flagged.length===0 && moderate.length===0){
+    recHtml=`<div class="rec-block">
+      <div class="rec-lbl">Where to start</div>
+      <p style="font-size:0.95rem;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:24px">Your load across all five areas is low right now. This is a good time to build a foundation practice before the next season asks more of you.</p>
       <div class="btn-row">
-        <a href="${p.practice.link}" target="_blank" class="btn-clay">Get the practice for ${p.practice.price}</a>
-        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="btn-secondary">View full library</a>
+        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="btn-clay">View full library</a>
       </div>
     </div>`;
+  } else {
+    const guidesToShow = flagged.length>0 ? flagged : moderate.slice(0,2);
+    const introText = flagged.length>0
+      ? 'These are the areas carrying the most weight right now. Each guide is 10 minutes and built for exactly this.'
+      : 'These areas are worth paying attention to. Each guide is 10 minutes and built for exactly this.';
+    const guideBlocks = guidesToShow.map((k,i)=>{
+      const g = GUIDES[k];
+      const lbl = guidesToShow.length>1 ? 'Recommended — '+EMOTION_COPY[k].label : 'Recommended for you';
+      return `<div class="rec-block"${i>0?' style="margin-top:16px"':''}>
+        <div class="rec-lbl">${lbl}</div>
+        <div class="rec-name">${g.name}</div>
+        <div class="rec-transformation">${g.transformation}</div>
+        <p class="rec-body">${g.body}</p>
+        <p class="rec-price">Downloadable PDF guide &nbsp;&middot;&nbsp; <strong>${g.price}</strong></p>
+        <div class="btn-row">
+          <a href="${g.link}" target="_blank" class="btn-clay">Get the practice for ${g.price}</a>
+          <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="btn-secondary">View full library</a>
+        </div>
+      </div>`;
+    }).join('');
+    recHtml=`<div style="margin-bottom:20px">
+      <div class="insight-title">Where to start</div>
+      <p style="font-size:0.92rem;font-weight:300;color:var(--mid);line-height:1.85;margin-top:8px">${introText}</p>
+    </div>${guideBlocks}`;
+  }
+  document.getElementById('rRec').innerHTML=recHtml;
 }
 
 // ── EMAIL GATE ──
