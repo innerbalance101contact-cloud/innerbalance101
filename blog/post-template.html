@@ -161,7 +161,10 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
 .social-link:hover{color:var(--clay);border-color:rgba(196,168,130,0.4)}
 .social-link svg{width:15px;height:15px;fill:currentColor}
 
-@media(max-width:860px){
+.article-hero-img{width:100%;max-height:480px;object-fit:cover;display:block}
+.article-img{width:100%;margin:36px 0;display:block}
+.article-img img{width:100%;display:block}
+.article-img figcaption{font-size:0.72rem;font-weight:300;color:var(--soft);margin-top:10px;font-style:italic;letter-spacing:0.04em}
   nav{padding:0 24px}
   .nav-links{display:none}
   .article-header{padding:48px 24px 44px}
@@ -195,6 +198,12 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
   <div class="article-meta">26 March 2026 <span>·</span> 6 min read</div>  <!-- ← EDIT date and read time -->
 </header>
 
+<!-- ════ EDIT: HERO IMAGE (optional) ════
+     Drop an image here to show it full-width between the header and the article.
+     If you don't want one, delete this block.  ← EDIT src and alt -->
+<img src="/images/your-image.jpg" alt="Describe the image" class="article-hero-img">
+<!-- ════ END HERO IMAGE ════ -->
+
 <main class="article-wrap">
   <article class="article-body">
 
@@ -202,16 +211,22 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
          WRITING THE POST
 
          Available elements:
-         <p>          — paragraph
-         <h2>         — main section heading
-         <h3>         — sub-heading
-         <blockquote> — pull quote (italic, left border)
-         <ul><li>     — bullet list (auto-styled with —)
-         <ol><li>     — numbered list
-         <strong>     — bold
-         <em>         — italic (clay colour)
-         <hr>         — horizontal divider between sections
-         <a href="">  — inline link
+         <p>              — paragraph
+         <h2>             — main section heading
+         <h3>             — sub-heading
+         <blockquote>     — pull quote (italic, left border)
+         <ul><li>         — bullet list (auto-styled with —)
+         <ol><li>         — numbered list
+         <strong>         — bold
+         <em>             — italic (clay colour)
+         <hr>             — horizontal divider between sections
+         <a href="">      — inline link
+
+         IMAGES (inline, within the article body):
+         <figure class="article-img">
+           <img src="/images/your-image.jpg" alt="Describe the image">
+           <figcaption>Optional caption text</figcaption>
+         </figure>
          ════════════════════════════════════════════════════════ -->
 
     <p>Your opening paragraph goes here. Lead with the insight or tension — don't warm up slowly. The first sentence should make the reader feel seen.</p>
