@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://innerbalance101.com/sitemap.xml
