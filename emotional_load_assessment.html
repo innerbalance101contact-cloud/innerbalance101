@@ -135,7 +135,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 .egate-privacy{font-size:0.72rem;font-weight:300;color:var(--soft);line-height:1.6;letter-spacing:0.04em}
 
 /* ═══════════════════════════════════════
-   RESULTS DASHBOARD — rebuilt
+   RESULTS DASHBOARD
    ═══════════════════════════════════════ */
 
 .results-screen{max-width:700px}
@@ -219,15 +219,31 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 .r-rec-card-secondary .r-rec-btn:hover{background:var(--mid)}
 
 /* Bundle section */
-.r-bundle{background:var(--warm-white);border:1.5px solid var(--clay);padding:32px 36px;text-align:center;margin:28px 0 48px;position:relative}
+.r-bundle{background:var(--warm-white);border:1.5px solid var(--clay);padding:32px 36px;text-align:center;margin:28px 0 0;position:relative}
 .r-bundle::before{content:'COMPLETE LIBRARY';position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:0.58rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);background:var(--warm-white);padding:0 14px}
 .r-bundle-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--deep);margin-bottom:8px}
 .r-bundle-desc{font-size:0.85rem;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:6px}
 .r-bundle-price{font-size:0.85rem;font-weight:300;color:var(--soft);margin-bottom:20px}
 .r-bundle-price strong{color:var(--deep);font-weight:500;font-size:1.05rem}
-.r-bundle-price s{color:var(--soft);font-weight:300}
 .r-bundle-btn{display:inline-block;background:var(--deep);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.74rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:16px 40px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;text-decoration:none}
 .r-bundle-btn:hover{background:var(--mid);transform:translateY(-1px)}
+
+/* Share section */
+.r-share-section{margin:36px 0 8px;padding:32px 0;border-top:1px solid rgba(196,168,130,0.18)}
+.r-share-card{background:var(--linen);padding:28px 32px;text-align:center}
+.r-share-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--deep);margin-bottom:8px}
+.r-share-desc{font-size:0.82rem;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:22px}
+.r-share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.r-share-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:12px 22px;border:1.5px solid var(--clay-light);color:var(--mid);background:var(--warm-white);cursor:pointer;transition:all 0.2s;text-decoration:none}
+.r-share-btn:hover{border-color:var(--clay);color:var(--clay-deep);background:rgba(196,168,130,0.06)}
+.r-share-btn svg{width:16px;height:16px;flex-shrink:0}
+.r-share-copied{font-size:0.72rem;font-weight:400;color:var(--clay-deep);margin-top:12px;opacity:0;transition:opacity 0.3s;height:20px}
+.r-share-copied.show{opacity:1}
+
+/* Retake */
+.r-retake{text-align:center;padding:24px 0 48px}
+.r-retake-btn{background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft);transition:color 0.2s;padding:8px 0}
+.r-retake-btn:hover{color:var(--clay-deep)}
 
 .assessment-footer{text-align:center;padding:32px 40px;border-top:1px solid rgba(196,168,130,0.15);margin-top:auto;width:100%}
 .assessment-footer p{font-size:0.72rem;font-weight:300;color:var(--soft);letter-spacing:0.04em}
@@ -253,6 +269,8 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
   .r-awareness-card{padding:22px 20px}
   .egate-input{font-size:0.95rem;padding:12px 16px}
   .email-gate-form{gap:16px}
+  .r-share-btns{flex-direction:column;align-items:stretch}
+  .r-share-btn{justify-content:center}
 }
 </style>
 </head>
@@ -381,68 +399,32 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <div id="awarenessQs">
       <div class="q-block">
         <div class="q-text">"I can usually name what I'm feeling before it affects my decisions or behaviour."</div>
-        <div class="scale-row" id="aq1">
-          <div class="scale-opt" onclick="selAQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selAQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selAQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selAQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selAQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
+        <div class="scale-row" id="aq1"><div class="scale-opt" onclick="selAQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
         <div class="q-text">"I notice physical tension in my body before I notice the emotion behind it."</div>
-        <div class="scale-row" id="aq2">
-          <div class="scale-opt" onclick="selAQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selAQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selAQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selAQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selAQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
+        <div class="scale-row" id="aq2"><div class="scale-opt" onclick="selAQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
         <div class="q-text">"After a difficult interaction or setback, I know what I need to feel settled again."</div>
-        <div class="scale-row" id="aq3">
-          <div class="scale-opt" onclick="selAQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selAQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selAQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selAQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selAQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
+        <div class="scale-row" id="aq3"><div class="scale-opt" onclick="selAQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
         <div class="q-text">"When I'm stuck in a difficult feeling, I can trace it back to a specific thought I'm having."</div>
-        <div class="scale-row" id="aq4">
-          <div class="scale-opt" onclick="selAQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selAQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selAQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selAQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selAQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
+        <div class="scale-row" id="aq4"><div class="scale-opt" onclick="selAQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
         <div class="q-text">"I tend to push through emotions rather than pause and notice them."</div>
-        <div class="scale-row" id="aq5">
-          <div class="scale-opt" onclick="selAQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selAQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selAQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selAQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selAQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
+        <div class="scale-row" id="aq5"><div class="scale-opt" onclick="selAQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
         <div class="q-text">"I can observe what I'm feeling without being completely consumed by it."</div>
-        <div class="scale-row" id="aq6">
-          <div class="scale-opt" onclick="selAQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selAQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selAQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selAQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selAQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
+        <div class="scale-row" id="aq6"><div class="scale-opt" onclick="selAQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
     </div>
@@ -462,126 +444,16 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <p class="screen-sub">Rate each one honestly — not how you want to feel, but how you actually feel, most days.</p>
 
     <div id="loadQs">
-      <div class="q-block">
-        <div class="q-num">01</div>
-        <div class="q-text">I end most days feeling depleted, even when I haven't done anything physically demanding.</div>
-        <div class="scale-row" id="lq1">
-          <div class="scale-opt" onclick="selLQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">02</div>
-        <div class="q-text">I find it difficult to fully switch off, even in situations where I'm supposed to be relaxing.</div>
-        <div class="scale-row" id="lq2">
-          <div class="scale-opt" onclick="selLQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">03</div>
-        <div class="q-text">I often feel pressure that I can't fully explain. It's there even when things are going well.</div>
-        <div class="scale-row" id="lq3">
-          <div class="scale-opt" onclick="selLQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">04</div>
-        <div class="q-text">I feel like I have to get things right, and when I don't, something important is at stake.</div>
-        <div class="scale-row" id="lq4">
-          <div class="scale-opt" onclick="selLQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">05</div>
-        <div class="q-text">I feel responsible for managing how others feel around me, and their reactions are part of what I'm monitoring.</div>
-        <div class="scale-row" id="lq5">
-          <div class="scale-opt" onclick="selLQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">06</div>
-        <div class="q-text">I carry a low-level sense that I haven't done enough, or that I've let someone down.</div>
-        <div class="scale-row" id="lq6">
-          <div class="scale-opt" onclick="selLQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">07</div>
-        <div class="q-text">I second-guess decisions I've already made, often replaying what I could have done differently.</div>
-        <div class="scale-row" id="lq7">
-          <div class="scale-opt" onclick="selLQ(7,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(7,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(7,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(7,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(7,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">08</div>
-        <div class="q-text">I hold back or hesitate because I'm not sure I'm ready or capable enough.</div>
-        <div class="scale-row" id="lq8">
-          <div class="scale-opt" onclick="selLQ(8,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(8,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(8,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(8,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(8,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">09</div>
-        <div class="q-text">Open loops, unmade decisions, and unclear outcomes take up far more mental space than they should.</div>
-        <div class="scale-row" id="lq9">
-          <div class="scale-opt" onclick="selLQ(9,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(9,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(9,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(9,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(9,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-num">10</div>
-        <div class="q-text">Not knowing how something will turn out creates a persistent low hum of anxiety.</div>
-        <div class="scale-row" id="lq10">
-          <div class="scale-opt" onclick="selLQ(10,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div>
-          <div class="scale-opt" onclick="selLQ(10,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div>
-          <div class="scale-opt" onclick="selLQ(10,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div>
-          <div class="scale-opt" onclick="selLQ(10,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div>
-          <div class="scale-opt" onclick="selLQ(10,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div>
-        </div>
-        <div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div>
-      </div>
+      <div class="q-block"><div class="q-num">01</div><div class="q-text">I end most days feeling depleted, even when I haven't done anything physically demanding.</div><div class="scale-row" id="lq1"><div class="scale-opt" onclick="selLQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">02</div><div class="q-text">I find it difficult to fully switch off, even in situations where I'm supposed to be relaxing.</div><div class="scale-row" id="lq2"><div class="scale-opt" onclick="selLQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">03</div><div class="q-text">I often feel pressure that I can't fully explain. It's there even when things are going well.</div><div class="scale-row" id="lq3"><div class="scale-opt" onclick="selLQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">04</div><div class="q-text">I feel like I have to get things right, and when I don't, something important is at stake.</div><div class="scale-row" id="lq4"><div class="scale-opt" onclick="selLQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">05</div><div class="q-text">I feel responsible for managing how others feel around me, and their reactions are part of what I'm monitoring.</div><div class="scale-row" id="lq5"><div class="scale-opt" onclick="selLQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">06</div><div class="q-text">I carry a low-level sense that I haven't done enough, or that I've let someone down.</div><div class="scale-row" id="lq6"><div class="scale-opt" onclick="selLQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">07</div><div class="q-text">I second-guess decisions I've already made, often replaying what I could have done differently.</div><div class="scale-row" id="lq7"><div class="scale-opt" onclick="selLQ(7,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(7,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(7,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(7,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(7,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">08</div><div class="q-text">I hold back or hesitate because I'm not sure I'm ready or capable enough.</div><div class="scale-row" id="lq8"><div class="scale-opt" onclick="selLQ(8,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(8,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(8,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(8,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(8,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">09</div><div class="q-text">Open loops, unmade decisions, and unclear outcomes take up far more mental space than they should.</div><div class="scale-row" id="lq9"><div class="scale-opt" onclick="selLQ(9,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(9,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(9,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(9,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(9,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">10</div><div class="q-text">Not knowing how something will turn out creates a persistent low hum of anxiety.</div><div class="scale-row" id="lq10"><div class="scale-opt" onclick="selLQ(10,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(10,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(10,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(10,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(10,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
     </div>
 
     <p class="val-msg" id="loadVal">Please answer all ten questions to see your results.</p>
@@ -592,7 +464,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     </div>
   </div>
 
-  <!-- SCREEN 4: RESULTS — rebuilt as visual dashboard -->
+  <!-- SCREEN 4: RESULTS -->
   <div class="screen results-screen" id="s-results">
     <div id="rHero"></div>
     <div id="rDashboard"></div>
@@ -600,16 +472,17 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <div id="rAwareness"></div>
     <div id="rRec"></div>
     <div id="rBundle"></div>
+    <div id="rShare"></div>
+    <div id="rRetake"></div>
   </div>
 
 </main>
 
 <footer class="assessment-footer">
   <p style="margin-bottom:10px">This assessment is for self-reflection and educational purposes only. It is not a clinical tool and does not constitute medical or psychological advice, diagnosis, or treatment. If you are experiencing significant emotional distress, please reach out to a qualified healthcare professional.</p>
-  <p>&copy; 2025 innerbalance101 &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#3d545353584f5f5c515c535e580c0d0c135e5253495c5e497d5a505c5451135e5250"><span class="__cf_email__" data-cfemail="5f3631313a2d3d3e333e313c3a6e6f6e713c30312b3e3c2b1f38323e3633713c3032">[email&#160;protected]</span></a></p>
+  <p>&copy; 2025 innerbalance101 &middot; innerbalance101.contact@gmail.com</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
 const state = {
   zones: new Set(),
@@ -651,7 +524,7 @@ function toggleChip(el){
   } else {
     ['nothing','unsure'].forEach(s=>{
       state.chips.delete(s);
-      document.querySelector(`[data-s="${s}"]`)?.classList.remove('selected');
+      document.querySelector('[data-s="'+s+'"]')?.classList.remove('selected');
     });
     el.classList.toggle('selected');
     el.classList.contains('selected') ? state.chips.add(v) : state.chips.delete(v);
@@ -668,13 +541,13 @@ function nextBody(){
 
 function selAQ(q,v){
   state.aq[q]=v;
-  document.getElementById('aq'+q).querySelectorAll('.scale-opt').forEach((o,i)=>{
+  document.getElementById('aq'+q).querySelectorAll('.scale-opt').forEach(function(o,i){
     o.classList.toggle('sel', i+1===v);
   });
 }
 
 function nextAwareness(){
-  if([1,2,3,4,5,6].some(q=>!state.aq[q])){
+  if([1,2,3,4,5,6].some(function(q){return !state.aq[q]})){
     document.getElementById('awarenessVal').classList.add('show'); return;
   }
   document.getElementById('awarenessVal').classList.remove('show');
@@ -683,13 +556,13 @@ function nextAwareness(){
 
 function selLQ(q,v){
   state.lq[q]=v;
-  document.getElementById('lq'+q).querySelectorAll('.scale-opt').forEach((o,i)=>{
+  document.getElementById('lq'+q).querySelectorAll('.scale-opt').forEach(function(o,i){
     o.classList.toggle('sel', i+1===v);
   });
 }
 
 /* ═══════════════════════════════════════
-   DATA — scores, labels, copy, guides
+   DATA
    ═══════════════════════════════════════ */
 
 function awarenessLabel(r){
@@ -709,43 +582,47 @@ function loadTotalLabel(total){
   return 'Low';
 }
 
-const AWARENESS_TIERS = {
+var AWARENESS_TIERS = {
   'Still Finding the Signal': {
-    desc: 'Emotions can feel fast, big, or hard to name before they\'ve already shaped your response. The signal is there. It\'s just not coming through clearly yet.',
+    desc: "Emotions can feel fast, big, or hard to name before they've already shaped your response. The signal is there. It's just not coming through clearly yet.",
     tips: [
-      'Start with the body, not the mind. Before you try to name what you\'re feeling, notice where you feel it first.',
-      'When something feels off, pause and ask: what am I feeling right now? Not what you\'re thinking. What you\'re actually feeling. That pause is where awareness begins.',
-      'Three slow exhales will tell you more than ten minutes of analysis. Breath is the fastest bridge between your body and your awareness.'
+      "Start with the body, not the mind. Before you try to name what you're feeling, notice where you feel it first.",
+      "When something feels off, pause and ask: what am I feeling right now? Not what you're thinking. What you're actually feeling. That pause is where awareness begins.",
+      "Three slow exhales will tell you more than ten minutes of analysis. Breath is the fastest bridge between your body and your awareness."
     ]
   },
   'Building Awareness': {
-    desc: 'You notice the pattern. You can catch what\'s happening. But the loop still wins sometimes, and the feeling has often built momentum before you can work with it.',
+    desc: "You notice the pattern. You can catch what's happening. But the loop still wins sometimes, and the feeling has often built momentum before you can work with it.",
     tips: [
-      'You\'re catching the pattern. The next step is closing the gap between noticing and responding, before the feeling has already made the decision for you.',
-      'When a difficult feeling comes up, ask: what thought is sitting behind this? The thought creates the feeling. Naming the thought gives you a choice point.',
-      'Your body is already sending signals you\'re learning to read. Trust the first signal, not the one that arrives after the emotion has built momentum.'
+      "You're catching the pattern. The next step is closing the gap between noticing and responding, before the feeling has already made the decision for you.",
+      "When a difficult feeling comes up, ask: what thought is sitting behind this? The thought creates the feeling. Naming the thought gives you a choice point.",
+      "Your body is already sending signals you're learning to read. Trust the first signal, not the one that arrives after the emotion has built momentum."
     ]
   },
   'Deeply In Tune': {
-    desc: 'You catch it early. You can name what you\'re feeling, trace it to a thought, and stay present with it without being consumed. That\'s rare.',
+    desc: "You catch it early. You can name what you're feeling, trace it to a thought, and stay present with it without being consumed. That's rare.",
     tips: [
-      'You catch it early. The next depth is staying present with what you\'re feeling without needing it to change. The witness position, not just the observer.',
-      'Explore what happens when you\'re fully present with a difficult emotion. Not analysing it, not moving it, just being with it. That\'s where the deepest processing happens.',
-      'Your capacity for awareness is a resource for the people around you. Notice how your groundedness creates space for others, even when you\'re not aware of it.'
+      "You catch it early. The next depth is staying present with what you're feeling without needing it to change. The witness position, not just the observer.",
+      "Explore what happens when you're fully present with a difficult emotion. Not analysing it, not moving it, just being with it. That's where the deepest processing happens.",
+      "Your capacity for awareness is a resource for the people around you. Notice how your groundedness creates space for others, even when you're not aware of it."
     ]
   }
 };
 
-const STORE_LINK = 'https://stan.store/innerbalance101/innerbalance101_store/page/4531304';
+/* ── PRODUCT LINKS ──
+   UPDATE THESE with your actual individual Stan product URLs.
+   Each product should have its own direct link so buyers land
+   on the specific product page, not the general store. */
+var STORE_LINK = 'https://stan.store/innerbalance101/innerbalance101_store/page/4531304';
 
-const GUIDES = {
+var GUIDES = {
   overwhelm: {
     name:'The Grounded Professional',
     from:'Overwhelm', to:'Grounded',
     transformation:'Overwhelm \u2192 Grounded',
     body:'Built for the nervous system\'s overwhelm response. Where everything feels urgent and nothing feels manageable. Ten minutes. Physiological change. Repeatable.',
     price:'$17',
-    link: STORE_LINK
+    link: STORE_LINK  /* Replace with: https://stan.store/innerbalance101/p/overwhelm */
   },
   pressure: {
     name:'The Pressure Reset',
@@ -753,7 +630,7 @@ const GUIDES = {
     transformation:'Pressure \u2192 Self-Assurance',
     body:'For the persistent background hum of pressure that high-achievers carry even when things are going well. Builds a felt sense of capacity from the inside.',
     price:'$17',
-    link: STORE_LINK
+    link: STORE_LINK  /* Replace with: https://stan.store/innerbalance101/p/pressure */
   },
   guilt: {
     name:'The Guilt Release System',
@@ -761,7 +638,7 @@ const GUIDES = {
     transformation:'Guilt \u2192 Release',
     body:'For the weight of responsibility you carry for others. The low-level sense of not having done enough. Moves from obligation to release.',
     price:'$17',
-    link: STORE_LINK
+    link: STORE_LINK  /* Replace with: https://stan.store/innerbalance101/p/guilt */
   },
   selfDoubt: {
     name:'The Self-Trust Protocol',
@@ -769,7 +646,7 @@ const GUIDES = {
     transformation:'Self-Doubt \u2192 Self-Trust',
     body:'Rebuilds the internal signal that high-achievers override. The quiet knowing beneath the constant noise of proving and justifying. Starts in the body, where self-trust actually lives.',
     price:'$17',
-    link: STORE_LINK
+    link: STORE_LINK  /* Replace with: https://stan.store/innerbalance101/p/self-doubt */
   },
   uncertainty: {
     name:'The Clarity Reset',
@@ -777,11 +654,11 @@ const GUIDES = {
     transformation:'Uncertainty \u2192 Grounded Presence',
     body:'For the mental hum of open loops and unmade decisions. Builds a felt sense of inner stability that doesn\'t depend on external resolution.',
     price:'$17',
-    link: STORE_LINK
+    link: STORE_LINK  /* Replace with: https://stan.store/innerbalance101/p/uncertainty */
   }
 };
 
-const EMOTION_COPY = {
+var EMOTION_COPY = {
   overwhelm:   { label:'Overwhelm',   flagged:'Depletion and an inability to fully switch off are showing up consistently. Your nervous system is running on a threat response that hasn\'t stopped.',   moderate:'Signs of depletion and difficulty switching off. Present but not yet the dominant pattern.', low:'Not a primary load right now.' },
   pressure:    { label:'Pressure',    flagged:'An unexplained background hum and the weight of needing to get things right are both showing up. The pressure is internal, not just external.',               moderate:'The background hum is there, even if it\'s not yet overwhelming.',                          low:'Not a primary load right now.' },
   guilt:       { label:'Guilt',       flagged:'Responsibility for others\' feelings and a persistent sense of not having done enough. This is active weight, not background noise.',                          moderate:'Some sense of responsibility or not-enoughness. Present but not running the show.',         low:'Not a primary load right now.' },
@@ -789,12 +666,19 @@ const EMOTION_COPY = {
   uncertainty: { label:'Uncertainty', flagged:'Open loops and unknown outcomes are taking up significant mental space. The need for resolution is creating constant low-level activation.',                   moderate:'Open loops create noise. Manageable, but taking more space than it should.',               low:'Not a primary load right now.' }
 };
 
-// Kit form ID — single form, profile passed as custom field
-const KIT_FORM_ID = '9180408';
+/* Map chip labels to readable body signal descriptions */
+var CHIP_LABELS = {
+  jaw:'jaw tension', chest:'tight chest', shoulders:'heavy shoulders',
+  gut:'stomach knot', breath:'shallow breath', throat:'throat constriction',
+  legs:'restless legs', hands:'clenched hands', head:'head pressure',
+  numb:'numbness', nothing:'nothing specific', unsure:'uncertainty'
+};
+
+var KIT_FORM_ID = '9180408';
 
 function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
   try {
-    const fd = new FormData();
+    var fd = new FormData();
     fd.append('email_address', email);
     if(name) fd.append('first_name', name);
     if(awarenessTier) fd.append('fields[profile]', awarenessTier);
@@ -802,23 +686,31 @@ function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
     if(topGuide) fd.append('fields[awareness_score]', topGuide);
     fetch('https://app.kit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
       method: 'POST', body: fd, mode: 'no-cors'
-    }).catch(()=>{});
+    }).catch(function(){});
   } catch(e){}
 }
 
 /* ═══════════════════════════════════════
-   RESULTS RENDER — visual dashboard
+   RESULTS RENDER
    ═══════════════════════════════════════ */
 
+function getBodySignals(){
+  var signals = [];
+  state.chips.forEach(function(c){
+    if(c !== 'nothing' && c !== 'unsure' && CHIP_LABELS[c]) signals.push(CHIP_LABELS[c]);
+  });
+  return signals;
+}
+
 function calcResults(){
-  if([1,2,3,4,5,6,7,8,9,10].some(q=>!state.lq[q])){
+  if([1,2,3,4,5,6,7,8,9,10].some(function(q){return !state.lq[q]})){
     document.getElementById('loadVal').classList.add('show'); return;
   }
   document.getElementById('loadVal').classList.remove('show');
 
-  const aRaw = [1,2,3,4,6].reduce((s,q)=>s+state.aq[q],0) + (6 - state.aq[5]);
+  var aRaw = [1,2,3,4,6].reduce(function(s,q){return s+state.aq[q]},0) + (6 - state.aq[5]);
 
-  const emotions = {
+  var emotions = {
     overwhelm:   state.lq[1]  + state.lq[2],
     pressure:    state.lq[3]  + state.lq[4],
     guilt:       state.lq[5]  + state.lq[6],
@@ -826,176 +718,234 @@ function calcResults(){
     uncertainty: state.lq[9]  + state.lq[10]
   };
 
-  const loadTotal = Object.values(emotions).reduce((a,b)=>a+b,0);
-  const hasBodySignal = state.zones.size>0 || ([...state.chips].some(s=>s!=='nothing'&&s!=='unsure'));
+  var loadTotal = Object.values(emotions).reduce(function(a,b){return a+b},0);
+  var hasBodySignal = state.zones.size>0 || ([...state.chips].some(function(s){return s!=='nothing'&&s!=='unsure'}));
 
   renderResults(aRaw, emotions, loadTotal, hasBodySignal);
   go('s-results');
 }
 
 function renderResults(aRaw, emotions, loadTotal, hasBody){
-  const tier = awarenessLabel(aRaw);
-  const tierData = AWARENESS_TIERS[tier];
-  const loadLabel = loadTotalLabel(loadTotal);
+  var tier = awarenessLabel(aRaw);
+  var tierData = AWARENESS_TIERS[tier];
+  var loadLabel = loadTotalLabel(loadTotal);
 
-  const emotionKeys = ['overwhelm','pressure','guilt','selfDoubt','uncertainty'];
-  const sorted = [...emotionKeys].sort((a,b)=>emotions[b]-emotions[a]);
-  const flagged = sorted.filter(k=>emotionLevel(emotions[k])==='flagged');
-  const moderate = sorted.filter(k=>emotionLevel(emotions[k])==='moderate');
+  var emotionKeys = ['overwhelm','pressure','guilt','selfDoubt','uncertainty'];
+  var sorted = emotionKeys.slice().sort(function(a,b){return emotions[b]-emotions[a]});
+  var flagged = sorted.filter(function(k){return emotionLevel(emotions[k])==='flagged'});
+  var moderate = sorted.filter(function(k){return emotionLevel(emotions[k])==='moderate'});
 
-  // Send to Kit (auto-send, no button)
-  const flaggedLabels = flagged.map(k=>EMOTION_COPY[k].label).join(', ') || 'None flagged';
-  const topGuide = flagged.length>0 ? GUIDES[flagged[0]].name : (moderate.length>0 ? GUIDES[moderate[0]].name : 'None flagged');
+  var bodySignals = getBodySignals();
+
+  // Send to Kit
+  var flaggedLabels = flagged.map(function(k){return EMOTION_COPY[k].label}).join(', ') || 'None flagged';
+  var topGuide = flagged.length>0 ? GUIDES[flagged[0]].name : (moderate.length>0 ? GUIDES[moderate[0]].name : 'None flagged');
   sendToKit(state.gateEmail, state.gateName, tier, flaggedLabels, topGuide);
 
   // ── HERO ──
-  const firstName = state.gateName || '';
-  const heroGreeting = firstName ? `${firstName}, here's what you're carrying.` : 'Here\'s what you\'re carrying.';
+  var firstName = state.gateName || '';
+  var heroGreeting = firstName ? firstName+', here\'s what you\'re carrying.' : 'Here\'s what you\'re carrying.';
 
-  document.getElementById('rHero').innerHTML=`
-    <div class="r-hero">
-      <div class="r-hero-eyebrow">Your Results</div>
-      <h2 class="r-hero-title"><em>${heroGreeting}</em></h2>
-      <p class="r-hero-desc">Your emotional load is <strong style="color:var(--clay-light)">${loadLabel.toLowerCase()}</strong> and your self-awareness is at the <strong style="color:var(--clay-light)">${tier.toLowerCase()}</strong> level. ${flagged.length>0 ? flagged.length+' area'+(flagged.length>1?'s are':' is')+' carrying significant weight right now.' : 'No single area is in the red, but that doesn\'t mean there\'s nothing to work with.'}</p>
-      <div class="r-hero-inbox">Results sent to <strong>${state.gateEmail||'your inbox'}</strong></div>
-    </div>`;
+  document.getElementById('rHero').innerHTML =
+    '<div class="r-hero">'+
+      '<div class="r-hero-eyebrow">Your Results</div>'+
+      '<h2 class="r-hero-title"><em>'+heroGreeting+'</em></h2>'+
+      '<p class="r-hero-desc">Your emotional load is <strong style="color:var(--clay-light)">'+loadLabel.toLowerCase()+'</strong> and your self-awareness is at the <strong style="color:var(--clay-light)">'+tier.toLowerCase()+'</strong> level. '+(flagged.length>0 ? flagged.length+' area'+(flagged.length>1?'s are':' is')+' carrying significant weight right now.' : 'No single area is in the red, but that doesn\'t mean there\'s nothing to work with.')+'</p>'+
+      '<div class="r-hero-inbox">Your full results have been sent to <strong>'+(state.gateEmail||'your inbox')+'</strong></div>'+
+    '</div>';
 
   // ── DASHBOARD CARDS ──
-  document.getElementById('rDashboard').innerHTML=`
-    <div class="r-dashboard">
-      <div class="r-dash-card">
-        <div class="r-dash-label">Total Load</div>
-        <div class="r-dash-value">${loadTotal}<span style="font-size:0.9rem;color:var(--soft);font-family:'Jost',sans-serif;font-weight:300">/50</span></div>
-        <div class="r-dash-sub">${loadLabel}</div>
-      </div>
-      <div class="r-dash-card">
-        <div class="r-dash-label">Self-Awareness</div>
-        <div class="r-dash-value">${aRaw}<span style="font-size:0.9rem;color:var(--soft);font-family:'Jost',sans-serif;font-weight:300">/30</span></div>
-        <div class="r-dash-sub">${tier}</div>
-      </div>
-      <div class="r-dash-card">
-        <div class="r-dash-label">Areas Flagged</div>
-        <div class="r-dash-value">${flagged.length}</div>
-        <div class="r-dash-sub">${flagged.length===0 ? 'None in the red' : flagged.map(k=>EMOTION_COPY[k].label).join(', ')}</div>
-      </div>
-      <div class="r-dash-card">
-        <div class="r-dash-label">Body Connection</div>
-        <div class="r-dash-value" style="font-size:1.4rem;line-height:1.4">${hasBody ? 'Signal detected' : 'Still developing'}</div>
-        <div class="r-dash-sub">${hasBody ? 'You noticed something. That\'s data.' : 'The body channel is available to build.'}</div>
-      </div>
-    </div>`;
+  document.getElementById('rDashboard').innerHTML =
+    '<div class="r-dashboard">'+
+      '<div class="r-dash-card"><div class="r-dash-label">Total Load</div><div class="r-dash-value">'+loadTotal+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/50</span></div><div class="r-dash-sub">'+loadLabel+'</div></div>'+
+      '<div class="r-dash-card"><div class="r-dash-label">Self-Awareness</div><div class="r-dash-value">'+aRaw+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/30</span></div><div class="r-dash-sub">'+tier+'</div></div>'+
+      '<div class="r-dash-card"><div class="r-dash-label">Areas Flagged</div><div class="r-dash-value">'+flagged.length+'</div><div class="r-dash-sub">'+(flagged.length===0 ? 'None in the red' : flagged.map(function(k){return EMOTION_COPY[k].label}).join(', '))+'</div></div>'+
+      '<div class="r-dash-card"><div class="r-dash-label">Body Connection</div><div class="r-dash-value" style="font-size:1.4rem;line-height:1.4">'+(hasBody ? 'Signal detected' : 'Still developing')+'</div><div class="r-dash-sub">'+(hasBody ? 'You noticed something. That\'s data.' : 'The body channel is available to build.')+'</div></div>'+
+    '</div>';
 
   // ── LOAD BARS ──
-  const barRows = sorted.map(k=>{
-    const lvl = emotionLevel(emotions[k]);
-    const pct = Math.round((emotions[k]/10)*100);
-    const copy = EMOTION_COPY[k];
-    const tagHtml = lvl==='flagged' ? '<span class="r-emotion-tag flagged">Flagged</span>' : lvl==='moderate' ? '<span class="r-emotion-tag moderate">Watch</span>' : '';
-    return `<div class="r-emotion-row">
-      <div class="r-emotion-label">${copy.label}</div>
-      <div class="r-emotion-bar-wrap"><div class="r-emotion-bar ${lvl}" style="width:${pct}%"></div></div>
-      <div class="r-emotion-score">${emotions[k]}${tagHtml}</div>
-    </div>
-    <div class="r-emotion-detail">${copy[lvl]}</div>`;
+  var barRows = sorted.map(function(k){
+    var lvl = emotionLevel(emotions[k]);
+    var pct = Math.round((emotions[k]/10)*100);
+    var copy = EMOTION_COPY[k];
+    var tagHtml = lvl==='flagged' ? '<span class="r-emotion-tag flagged">Flagged</span>' : lvl==='moderate' ? '<span class="r-emotion-tag moderate">Watch</span>' : '';
+    return '<div class="r-emotion-row">'+
+      '<div class="r-emotion-label">'+copy.label+'</div>'+
+      '<div class="r-emotion-bar-wrap"><div class="r-emotion-bar '+lvl+'" style="width:'+pct+'%"></div></div>'+
+      '<div class="r-emotion-score">'+emotions[k]+tagHtml+'</div>'+
+    '</div>'+
+    '<div class="r-emotion-detail">'+copy[lvl]+'</div>';
   }).join('');
 
-  document.getElementById('rLoadBars').innerHTML=`
-    <div class="r-load-section">
-      <div class="r-section-title">Your Emotional Load Breakdown</div>
-      ${barRows}
-    </div>`;
+  document.getElementById('rLoadBars').innerHTML =
+    '<div class="r-load-section">'+
+      '<div class="r-section-title">Your Emotional Load Breakdown</div>'+
+      barRows+
+    '</div>';
 
   // ── AWARENESS ──
-  document.getElementById('rAwareness').innerHTML=`
-    <div class="r-awareness-section">
-      <div class="r-section-title">Your Awareness Level</div>
-      <div class="r-awareness-card">
-        <div class="r-awareness-tier">${tier}</div>
-        <div class="r-awareness-desc">${tierData.desc}</div>
-        <ul class="r-awareness-tips">
-          ${tierData.tips.map(t=>`<li>${t}</li>`).join('')}
-        </ul>
-      </div>
-    </div>`;
+  document.getElementById('rAwareness').innerHTML =
+    '<div class="r-awareness-section">'+
+      '<div class="r-section-title">Your Awareness Level</div>'+
+      '<div class="r-awareness-card">'+
+        '<div class="r-awareness-tier">'+tier+'</div>'+
+        '<div class="r-awareness-desc">'+tierData.desc+'</div>'+
+        '<ul class="r-awareness-tips">'+tierData.tips.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>'+
+      '</div>'+
+    '</div>';
 
-  // ── RECOMMENDATIONS ──
-  let recHtml = '';
+  // ── RECOMMENDATIONS (personalized with scores and body signals) ──
+  var recHtml = '';
   if(flagged.length===0 && moderate.length===0){
-    recHtml=`<div class="r-rec-section">
-      <div class="r-section-title">Where to Start</div>
-      <div class="r-rec-card">
-        <div class="r-rec-eyebrow">Your starting point</div>
-        <div class="r-rec-name" style="margin-bottom:14px">Your load across all five areas is low right now.</div>
-        <p class="r-rec-body">This is a good time to build a foundation practice before the next season asks more of you. The professionals who hold their ground under sustained pressure built the tools before they needed them urgently.</p>
-        <a href="${STORE_LINK}" target="_blank" class="r-rec-btn">Browse the full library</a>
-      </div>
-    </div>`;
+    recHtml = '<div class="r-rec-section">'+
+      '<div class="r-section-title">Where to Start</div>'+
+      '<div class="r-rec-card">'+
+        '<div class="r-rec-eyebrow">Your starting point</div>'+
+        '<div class="r-rec-name" style="margin-bottom:14px">Your load across all five areas is low right now.</div>'+
+        '<p class="r-rec-body">This is a good time to build a foundation practice before the next season asks more of you. The professionals who hold their ground under sustained pressure built the tools before they needed them urgently.</p>'+
+        '<a href="'+STORE_LINK+'" target="_blank" class="r-rec-btn">Browse the full library</a>'+
+      '</div>'+
+    '</div>';
   } else {
-    const primary = flagged.length>0 ? flagged[0] : moderate[0];
-    const secondary = flagged.length>1 ? flagged.slice(1) : (flagged.length===1 && moderate.length>0 ? moderate.slice(0,1) : moderate.slice(1,2));
-    const g = GUIDES[primary];
+    var primary = flagged.length>0 ? flagged[0] : moderate[0];
+    var secondary = flagged.length>1 ? flagged.slice(1) : (flagged.length===1 && moderate.length>0 ? moderate.slice(0,1) : moderate.slice(1,2));
+    var g = GUIDES[primary];
 
-    recHtml=`<div class="r-rec-section">
-      <div class="r-section-title">Where to Start</div>
-      <div class="r-rec-card">
-        <div class="r-rec-eyebrow">${flagged.length>0 ? 'Your highest-load area' : 'Recommended for you'}</div>
-        <div class="r-rec-name">${g.name}</div>
-        <div class="r-rec-transform">
-          <span class="r-rec-from">${g.from}</span>
-          <div class="r-rec-arrow"></div>
-          <span class="r-rec-to">${g.to}</span>
-        </div>
-        <p class="r-rec-body">${g.body}</p>
-        <p class="r-rec-price">Downloadable PDF guide &middot; <strong>${g.price}</strong></p>
-        <a href="${g.link}" target="_blank" class="r-rec-btn">Get ${g.name} &mdash; ${g.price}</a>
-      </div>`;
+    // Build personalized intro based on their score and body signals
+    var personalLine = '';
+    var score = emotions[primary];
+    if(bodySignals.length > 0){
+      var bodyList = bodySignals.slice(0,3).join(', ');
+      personalLine = 'You scored '+score+' out of 10 on '+EMOTION_COPY[primary].label.toLowerCase()+' and reported '+bodyList+'. This practice starts exactly there.';
+    } else {
+      personalLine = 'You scored '+score+' out of 10 on '+EMOTION_COPY[primary].label.toLowerCase()+'. This practice is built for that specific pattern.';
+    }
 
-    // Secondary recommendations
-    secondary.forEach(k=>{
-      const sg = GUIDES[k];
-      recHtml+=`<div class="r-rec-card-secondary">
-        <div class="r-rec-eyebrow">Also flagged &mdash; ${EMOTION_COPY[k].label}</div>
-        <div class="r-rec-name">${sg.name}</div>
-        <div class="r-rec-transform">
-          <span class="r-rec-from">${sg.from}</span>
-          <div class="r-rec-arrow"></div>
-          <span class="r-rec-to">${sg.to}</span>
-        </div>
-        <p class="r-rec-body">${sg.body}</p>
-        <p class="r-rec-price">Downloadable PDF guide &middot; <strong>${sg.price}</strong></p>
-        <a href="${sg.link}" target="_blank" class="r-rec-btn">Get ${sg.name} &mdash; ${sg.price}</a>
-      </div>`;
+    recHtml = '<div class="r-rec-section">'+
+      '<div class="r-section-title">Where to Start</div>'+
+      '<div class="r-rec-card">'+
+        '<div class="r-rec-eyebrow">'+(flagged.length>0 ? 'Your highest-load area' : 'Recommended for you')+'</div>'+
+        '<div class="r-rec-name">'+g.name+'</div>'+
+        '<div class="r-rec-transform">'+
+          '<span class="r-rec-from">'+g.from+'</span>'+
+          '<div class="r-rec-arrow"></div>'+
+          '<span class="r-rec-to">'+g.to+'</span>'+
+        '</div>'+
+        '<p class="r-rec-body" style="color:rgba(250,247,242,0.75);margin-bottom:14px">'+personalLine+'</p>'+
+        '<p class="r-rec-body">'+g.body+'</p>'+
+        '<p class="r-rec-price">Downloadable practice guide &middot; <strong>'+g.price+'</strong></p>'+
+        '<a href="'+g.link+'" target="_blank" class="r-rec-btn">Get '+g.name+' &mdash; '+g.price+'</a>'+
+      '</div>';
+
+    secondary.forEach(function(k){
+      var sg = GUIDES[k];
+      var secScore = emotions[k];
+      var secPersonal = 'You scored '+secScore+' out of 10 here.';
+      recHtml += '<div class="r-rec-card-secondary">'+
+        '<div class="r-rec-eyebrow">Also flagged &mdash; '+EMOTION_COPY[k].label+'</div>'+
+        '<div class="r-rec-name">'+sg.name+'</div>'+
+        '<div class="r-rec-transform">'+
+          '<span class="r-rec-from">'+sg.from+'</span>'+
+          '<div class="r-rec-arrow"></div>'+
+          '<span class="r-rec-to">'+sg.to+'</span>'+
+        '</div>'+
+        '<p class="r-rec-body" style="margin-bottom:10px">'+secPersonal+'</p>'+
+        '<p class="r-rec-body">'+sg.body+'</p>'+
+        '<p class="r-rec-price">Downloadable practice guide &middot; <strong>'+sg.price+'</strong></p>'+
+        '<a href="'+sg.link+'" target="_blank" class="r-rec-btn">Get '+sg.name+' &mdash; '+sg.price+'</a>'+
+      '</div>';
     });
 
-    recHtml+=`</div>`;
+    recHtml += '</div>';
   }
-  document.getElementById('rRec').innerHTML=recHtml;
+  document.getElementById('rRec').innerHTML = recHtml;
 
-  // ── BUNDLE ──
-  document.getElementById('rBundle').innerHTML=`
-    <div class="r-bundle">
-      <div class="r-bundle-title">The Full Library Bundle</div>
-      <div class="r-bundle-desc">All 5 practices. Every transformation. One purchase.</div>
-      <div class="r-bundle-price"><s>$85</s> &nbsp; <strong>$57</strong></div>
-      <a href="${STORE_LINK}" target="_blank" class="r-bundle-btn">Get the full library &mdash; $57</a>
-    </div>`;
+  // ── BUNDLE (no strikethrough pricing) ──
+  document.getElementById('rBundle').innerHTML =
+    '<div class="r-bundle">'+
+      '<div class="r-bundle-title">The Full Library Bundle</div>'+
+      '<div class="r-bundle-desc">All 5 practices. Every transformation. One purchase.</div>'+
+      '<div class="r-bundle-price">5 practices &middot; <strong>$57</strong></div>'+
+      '<a href="'+STORE_LINK+'" target="_blank" class="r-bundle-btn">Get the full library &mdash; $57</a>'+
+    '</div>';
+
+  // ── SHARE ──
+  var shareText = 'I just measured my emotional load. 8 minutes, no fluff, surprisingly honest. If you\'re a high-achiever carrying more than you show, this one\'s worth your time.';
+  var shareUrl = 'https://innerbalance101.com/emotional_load_assessment.html';
+  var linkedinShareUrl = 'https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(shareUrl);
+  var twitterShareUrl = 'https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText)+' '+encodeURIComponent(shareUrl);
+
+  document.getElementById('rShare').innerHTML =
+    '<div class="r-share-section">'+
+      '<div class="r-share-card">'+
+        '<div class="r-share-title">Know someone who needs this?</div>'+
+        '<div class="r-share-desc">Share the assessment with a colleague. No scores are shared. Just the invitation.</div>'+
+        '<div class="r-share-btns">'+
+          '<a href="'+linkedinShareUrl+'" target="_blank" class="r-share-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Share on LinkedIn</a>'+
+          '<a href="'+twitterShareUrl+'" target="_blank" class="r-share-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Share on X</a>'+
+          '<button class="r-share-btn" onclick="copyShareLink()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy link</button>'+
+        '</div>'+
+        '<div class="r-share-copied" id="shareCopied">Link copied to clipboard</div>'+
+      '</div>'+
+    '</div>';
+
+  // ── RETAKE ──
+  document.getElementById('rRetake').innerHTML =
+    '<div class="r-retake">'+
+      '<button class="r-retake-btn" onclick="retakeAssessment()">Retake the assessment</button>'+
+    '</div>';
 
   // Animate bars after a short delay
-  setTimeout(()=>{
-    document.querySelectorAll('.r-emotion-bar').forEach(bar=>{
-      const w = bar.style.width;
+  setTimeout(function(){
+    document.querySelectorAll('.r-emotion-bar').forEach(function(bar){
+      var w = bar.style.width;
       bar.style.width = '0%';
-      requestAnimationFrame(()=>{ bar.style.width = w; });
+      requestAnimationFrame(function(){ bar.style.width = w; });
     });
   }, 200);
 }
 
+// ── SHARE ──
+function copyShareLink(){
+  var url = 'https://innerbalance101.com/emotional_load_assessment.html';
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(function(){
+      document.getElementById('shareCopied').classList.add('show');
+      setTimeout(function(){ document.getElementById('shareCopied').classList.remove('show'); }, 2500);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    document.getElementById('shareCopied').classList.add('show');
+    setTimeout(function(){ document.getElementById('shareCopied').classList.remove('show'); }, 2500);
+  }
+}
+
+// ── RETAKE ──
+function retakeAssessment(){
+  state.zones.clear();
+  state.chips.clear();
+  state.aq = {};
+  state.lq = {};
+  document.querySelectorAll('.zone.selected').forEach(function(z){ z.classList.remove('selected'); });
+  document.querySelectorAll('.chip.selected').forEach(function(c){ c.classList.remove('selected'); });
+  document.querySelectorAll('.scale-opt.sel').forEach(function(o){ o.classList.remove('sel'); });
+  ['rHero','rDashboard','rLoadBars','rAwareness','rRec','rBundle','rShare','rRetake'].forEach(function(id){
+    document.getElementById(id).innerHTML = '';
+  });
+  go('s-body');
+}
+
 // ── EMAIL GATE ──
-let gateSubmitted = false;
+var gateSubmitted = false;
 function submitGateEmail(){
-  const name = document.getElementById('gateName').value.trim();
-  const email = document.getElementById('gateEmail').value.trim();
-  const valMsg = document.getElementById('emailGateVal');
+  var name = document.getElementById('gateName').value.trim();
+  var email = document.getElementById('gateEmail').value.trim();
+  var valMsg = document.getElementById('emailGateVal');
   if(!email || !email.includes('@')){
     valMsg.classList.add('show');
     document.getElementById('gateEmail').style.borderColor='#b94040';
