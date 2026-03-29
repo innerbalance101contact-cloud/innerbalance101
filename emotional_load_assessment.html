@@ -124,42 +124,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 .val-msg{font-size:0.78rem;color:#b94040;margin-top:-12px;margin-bottom:20px;display:none}
 .val-msg.show{display:block}
 
-/* Results */
-.results-screen{max-width:700px}
-.result-hero{background:var(--deep);padding:48px 48px 40px;margin-bottom:36px;position:relative;overflow:hidden}
-.result-hero::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(196,168,130,0.1)}
-.result-hero::after{content:'';position:absolute;top:-15px;right:-15px;width:130px;height:130px;border-radius:50%;border:1px solid rgba(196,168,130,0.07)}
-.result-eyebrow{font-size:0.63rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:18px;display:flex;align-items:center;gap:10px}
-.result-eyebrow::before{content:'';width:18px;height:1px;background:var(--clay)}
-.result-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:300;line-height:1.15;color:var(--warm-white);margin-bottom:20px}
-.result-name em{font-style:italic;color:var(--clay-light)}
-.result-desc{font-size:0.95rem;font-weight:300;line-height:1.9;color:rgba(250,247,242,0.72);margin-bottom:24px}
-.result-body-signal{border-left:2px solid var(--clay);padding-left:16px;font-size:0.88rem;font-weight:300;color:rgba(250,247,242,0.55);line-height:1.7;font-style:italic}
-
-.scores-row{display:flex;gap:20px;margin-bottom:36px;flex-wrap:wrap}
-.score-card{flex:1;min-width:140px;background:var(--linen);padding:20px 24px;border-left:3px solid var(--clay)}
-.score-lbl{font-size:0.63rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
-.score-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--deep);margin-bottom:4px}
-.score-desc-text{font-size:0.78rem;font-weight:300;color:var(--mid)}
-
-.insight-section{margin-bottom:36px}
-.insight-title{font-size:0.68rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:16px}
-.insight-section p{font-size:0.95rem;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:14px}
-.insight-section p:last-child{margin-bottom:0}
-
-/* Send results block */
-.send-results-block{background:var(--deep);padding:36px 40px;margin-bottom:28px}
-.send-results-block .sr-eyebrow{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:14px}
-.send-results-block .sr-headline{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:var(--warm-white);line-height:1.3;margin-bottom:8px}
-.send-results-block .sr-sub{font-size:0.85rem;font-weight:300;color:rgba(250,247,242,0.55);line-height:1.75;margin-bottom:22px}
-.sr-btn{display:inline-block;background:var(--clay);color:var(--deep);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:16px 36px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;width:100%;text-align:center}
-.sr-btn:hover{background:var(--clay-light);transform:translateY(-1px)}
-.sr-btn:disabled{opacity:0.5;cursor:default;transform:none}
-.sr-success{display:none;padding:16px 0 0}
-.sr-success.show{display:block}
-.sr-success p{font-size:0.88rem;font-weight:300;color:rgba(250,247,242,0.65);line-height:1.8}
-.sr-success strong{color:var(--clay-light)}
-
+/* Email gate */
 .email-gate-form{display:flex;flex-direction:column;gap:20px;margin-top:8px}
 .egate-field{display:flex;flex-direction:column;gap:8px}
 .egate-label{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid)}
@@ -169,19 +134,100 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 .egate-btn{width:100%;display:block;text-align:center}
 .egate-privacy{font-size:0.72rem;font-weight:300;color:var(--soft);line-height:1.6;letter-spacing:0.04em}
 
-.rec-block{background:var(--linen);padding:36px 40px;margin-bottom:28px;border-top:3px solid var(--clay)}
-.rec-lbl{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:12px}
-.rec-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--deep);margin-bottom:6px}
-.rec-transformation{font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:16px}
-.rec-body{font-size:0.92rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:24px}
-.rec-price{font-size:0.8rem;font-weight:300;color:var(--soft);margin-bottom:22px}
-.rec-price strong{color:var(--deep);font-weight:500}
-.btn-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+/* ═══════════════════════════════════════
+   RESULTS DASHBOARD — rebuilt
+   ═══════════════════════════════════════ */
 
-.bundle-nudge{text-align:center;padding:22px;border:1px solid var(--clay-light);margin-bottom:48px}
-.bundle-nudge p{font-size:0.88rem;font-weight:300;color:var(--mid);line-height:1.7}
-.bundle-nudge a{color:var(--clay-deep);text-decoration:none;font-weight:500}
-.bundle-nudge a:hover{text-decoration:underline}
+.results-screen{max-width:700px}
+
+/* Hero */
+.r-hero{background:var(--deep);padding:48px 44px 44px;position:relative;overflow:hidden}
+.r-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(196,168,130,0.08)}
+.r-hero::after{content:'';position:absolute;bottom:-30px;left:-30px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(196,168,130,0.06)}
+.r-hero-eyebrow{font-size:0.63rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.r-hero-eyebrow::before{content:'';width:18px;height:1px;background:var(--clay)}
+.r-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:300;line-height:1.15;color:var(--warm-white);margin-bottom:16px}
+.r-hero-title em{font-style:italic;color:var(--clay-light)}
+.r-hero-desc{font-size:0.92rem;font-weight:300;line-height:1.85;color:rgba(250,247,242,0.65);margin-bottom:0}
+.r-hero-inbox{margin-top:20px;padding-top:18px;border-top:1px solid rgba(196,168,130,0.15);font-size:0.78rem;font-weight:300;color:rgba(250,247,242,0.4);line-height:1.65}
+.r-hero-inbox strong{color:var(--clay-light);font-weight:400}
+
+/* Dashboard grid */
+.r-dashboard{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:2px 0;background:rgba(196,168,130,0.12)}
+.r-dash-card{background:var(--warm-white);padding:24px 26px}
+.r-dash-label{font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
+.r-dash-value{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--deep);margin-bottom:4px}
+.r-dash-sub{font-size:0.76rem;font-weight:300;color:var(--soft)}
+
+/* Score bars section */
+.r-load-section{padding:36px 0 0}
+.r-section-title{font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.r-section-title::after{content:'';flex:1;height:1px;background:rgba(196,168,130,0.2)}
+
+.r-emotion-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(196,168,130,0.12)}
+.r-emotion-row:last-child{border-bottom:none}
+.r-emotion-label{width:90px;flex-shrink:0;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+.r-emotion-bar-wrap{flex:1;height:8px;background:rgba(196,168,130,0.12);border-radius:99px;overflow:hidden;position:relative}
+.r-emotion-bar{height:100%;border-radius:99px;transition:width 0.8s cubic-bezier(0.4,0,0.2,1);min-width:2px}
+.r-emotion-bar.flagged{background:var(--clay-deep)}
+.r-emotion-bar.moderate{background:var(--clay)}
+.r-emotion-bar.low{background:var(--clay-light)}
+.r-emotion-score{width:40px;flex-shrink:0;text-align:right;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--mid)}
+.r-emotion-tag{display:inline-block;font-size:0.58rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:3px 8px;margin-left:8px;border-radius:2px}
+.r-emotion-tag.flagged{background:rgba(166,139,101,0.15);color:var(--clay-deep)}
+.r-emotion-tag.moderate{background:rgba(196,168,130,0.1);color:var(--soft)}
+
+/* Emotion detail cards */
+.r-emotion-detail{margin-top:8px;font-size:0.85rem;font-weight:300;color:var(--soft);line-height:1.75;padding-left:106px}
+
+/* Awareness section */
+.r-awareness-section{padding:32px 0;margin-top:8px}
+.r-awareness-card{background:var(--linen);padding:28px 32px;border-left:3px solid var(--clay)}
+.r-awareness-tier{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--deep);margin-bottom:8px}
+.r-awareness-desc{font-size:0.88rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px}
+.r-awareness-tips{list-style:none;display:flex;flex-direction:column;gap:12px}
+.r-awareness-tips li{font-size:0.85rem;font-weight:300;color:var(--mid);line-height:1.75;padding-left:18px;position:relative}
+.r-awareness-tips li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--clay)}
+
+/* Recommended practice card */
+.r-rec-section{padding:8px 0 0}
+.r-rec-card{background:var(--deep);padding:36px 40px;position:relative;overflow:hidden;margin-bottom:16px}
+.r-rec-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--clay)}
+.r-rec-eyebrow{font-size:0.6rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:14px}
+.r-rec-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--warm-white);margin-bottom:8px}
+.r-rec-transform{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.r-rec-from{font-size:0.72rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(250,247,242,0.4)}
+.r-rec-arrow{width:28px;height:1px;background:var(--clay);position:relative}
+.r-rec-arrow::after{content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid var(--clay);border-top:1px solid var(--clay);transform:rotate(45deg)}
+.r-rec-to{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--clay-light)}
+.r-rec-body{font-size:0.88rem;font-weight:300;color:rgba(250,247,242,0.6);line-height:1.85;margin-bottom:24px}
+.r-rec-price{font-size:0.76rem;font-weight:300;color:rgba(250,247,242,0.4);margin-bottom:22px}
+.r-rec-price strong{color:var(--warm-white);font-weight:500}
+.r-rec-btn{display:block;background:var(--clay);color:var(--deep);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:18px 44px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;text-decoration:none;text-align:center;width:100%}
+.r-rec-btn:hover{background:var(--clay-light);transform:translateY(-1px)}
+
+/* Secondary rec card (lighter) */
+.r-rec-card-secondary{background:var(--linen);padding:28px 32px;border-top:3px solid var(--clay-light);margin-bottom:16px}
+.r-rec-card-secondary .r-rec-eyebrow{color:var(--soft)}
+.r-rec-card-secondary .r-rec-name{color:var(--deep);font-size:1.3rem}
+.r-rec-card-secondary .r-rec-from{color:var(--soft)}
+.r-rec-card-secondary .r-rec-to{color:var(--clay-deep)}
+.r-rec-card-secondary .r-rec-body{color:var(--mid);font-size:0.85rem}
+.r-rec-card-secondary .r-rec-price{color:var(--soft)}
+.r-rec-card-secondary .r-rec-price strong{color:var(--deep)}
+.r-rec-card-secondary .r-rec-btn{background:var(--deep);color:var(--warm-white)}
+.r-rec-card-secondary .r-rec-btn:hover{background:var(--mid)}
+
+/* Bundle section */
+.r-bundle{background:var(--warm-white);border:1.5px solid var(--clay);padding:32px 36px;text-align:center;margin:28px 0 48px;position:relative}
+.r-bundle::before{content:'COMPLETE LIBRARY';position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:0.58rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);background:var(--warm-white);padding:0 14px}
+.r-bundle-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--deep);margin-bottom:8px}
+.r-bundle-desc{font-size:0.85rem;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:6px}
+.r-bundle-price{font-size:0.85rem;font-weight:300;color:var(--soft);margin-bottom:20px}
+.r-bundle-price strong{color:var(--deep);font-weight:500;font-size:1.05rem}
+.r-bundle-price s{color:var(--soft);font-weight:300}
+.r-bundle-btn{display:inline-block;background:var(--deep);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.74rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:16px 40px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;text-decoration:none}
+.r-bundle-btn:hover{background:var(--mid);transform:translateY(-1px)}
 
 .assessment-footer{text-align:center;padding:32px 40px;border-top:1px solid rgba(196,168,130,0.15);margin-top:auto;width:100%}
 .assessment-footer p{font-size:0.72rem;font-weight:300;color:var(--soft);letter-spacing:0.04em}
@@ -197,13 +243,14 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
   .body-check-wrap{flex-direction:column;gap:28px}
   .chips{gap:8px}
   .chip{font-size:0.76rem;padding:7px 13px}
-  .result-hero{padding:30px 20px 28px}
-  .result-profile-name{font-size:clamp(1.3rem,5.5vw,1.8rem)}
-  .rec-block{padding:24px 20px}
-  .send-results-block{padding:28px 20px}
-  .scores-row{flex-direction:column;gap:12px}
-  .score-card{min-width:unset}
-  .bundle-nudge{padding:20px}
+  .r-hero{padding:32px 22px 28px}
+  .r-dashboard{grid-template-columns:1fr}
+  .r-emotion-detail{padding-left:0;margin-top:10px}
+  .r-emotion-label{width:76px;font-size:0.66rem}
+  .r-rec-card{padding:28px 22px}
+  .r-rec-card-secondary{padding:22px 20px}
+  .r-bundle{padding:26px 20px}
+  .r-awareness-card{padding:22px 20px}
   .egate-input{font-size:0.95rem;padding:12px 16px}
   .email-gate-form{gap:16px}
 }
@@ -545,16 +592,14 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     </div>
   </div>
 
-  <!-- SCREEN 4: RESULTS -->
+  <!-- SCREEN 4: RESULTS — rebuilt as visual dashboard -->
   <div class="screen results-screen" id="s-results">
-    <div id="rProfile"></div>
-    <div class="scores-row" id="rScores"></div>
-    <div class="insight-section" id="rInsight"></div>
-    <div id="rSendResults"></div>
+    <div id="rHero"></div>
+    <div id="rDashboard"></div>
+    <div id="rLoadBars"></div>
+    <div id="rAwareness"></div>
     <div id="rRec"></div>
-    <div class="bundle-nudge">
-      <p>Want the full toolkit? The Library Bundle includes all 5 practices for <strong>$57</strong>, saving $28 on individual prices. <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank">View the full library &rarr;</a></p>
-    </div>
+    <div id="rBundle"></div>
   </div>
 
 </main>
@@ -643,30 +688,9 @@ function selLQ(q,v){
   });
 }
 
-function calcResults(){
-  if([1,2,3,4,5,6,7,8,9,10].some(q=>!state.lq[q])){
-    document.getElementById('loadVal').classList.add('show'); return;
-  }
-  document.getElementById('loadVal').classList.remove('show');
-
-  // Awareness: aq5 is reverse scored (6 - value)
-  const aRaw = [1,2,3,4,6].reduce((s,q)=>s+state.aq[q],0) + (6 - state.aq[5]);
-
-  // Per-emotion scores (2 questions each, range 2–10)
-  const emotions = {
-    overwhelm:   state.lq[1]  + state.lq[2],
-    pressure:    state.lq[3]  + state.lq[4],
-    guilt:       state.lq[5]  + state.lq[6],
-    selfDoubt:   state.lq[7]  + state.lq[8],
-    uncertainty: state.lq[9]  + state.lq[10]
-  };
-
-  const hasBodySignal = state.zones.size>0 || ([...state.chips].some(s=>s!=='nothing'&&s!=='unsure'));
-  const bodyBlind = state.chips.has('nothing')||state.chips.has('unsure');
-
-  renderResults(aRaw, emotions, hasBodySignal, bodyBlind);
-  go('s-results');
-}
+/* ═══════════════════════════════════════
+   DATA — scores, labels, copy, guides
+   ═══════════════════════════════════════ */
 
 function awarenessLabel(r){
   if(r>=23) return 'Deeply In Tune';
@@ -678,78 +702,91 @@ function emotionLevel(s){
   if(s>=4) return 'moderate';
   return 'low';
 }
+function loadTotalLabel(total){
+  if(total>=35) return 'Very High';
+  if(total>=26) return 'High';
+  if(total>=17) return 'Moderate';
+  return 'Low';
+}
 
 const AWARENESS_TIERS = {
   'Still Finding the Signal': {
-    desc: 'Emotions can feel fast, big, or hard to name before they\'ve already shaped your response. The signal is there — it\'s just not coming through clearly yet.',
+    desc: 'Emotions can feel fast, big, or hard to name before they\'ve already shaped your response. The signal is there. It\'s just not coming through clearly yet.',
     tips: [
-      'Start with the body, not the mind. Before you try to name what you\'re feeling, notice where you feel it first — chest, stomach, jaw, shoulders.',
-      'When something feels off, pause and ask: what am I feeling right now? Not what you\'re thinking — what you\'re actually feeling. That pause is where awareness begins.',
+      'Start with the body, not the mind. Before you try to name what you\'re feeling, notice where you feel it first.',
+      'When something feels off, pause and ask: what am I feeling right now? Not what you\'re thinking. What you\'re actually feeling. That pause is where awareness begins.',
       'Three slow exhales will tell you more than ten minutes of analysis. Breath is the fastest bridge between your body and your awareness.'
     ]
   },
   'Building Awareness': {
-    desc: 'You notice the pattern. You can catch what\'s happening — but the loop still wins sometimes, and the feeling has often built momentum before you can work with it.',
+    desc: 'You notice the pattern. You can catch what\'s happening. But the loop still wins sometimes, and the feeling has often built momentum before you can work with it.',
     tips: [
-      'You\'re catching the pattern. The next step is closing the gap between noticing and responding — before the feeling has already made the decision for you.',
+      'You\'re catching the pattern. The next step is closing the gap between noticing and responding, before the feeling has already made the decision for you.',
       'When a difficult feeling comes up, ask: what thought is sitting behind this? The thought creates the feeling. Naming the thought gives you a choice point.',
-      'Your body is already sending signals you\'re learning to read. Trust the first signal — not the one that arrives after the emotion has built momentum.'
+      'Your body is already sending signals you\'re learning to read. Trust the first signal, not the one that arrives after the emotion has built momentum.'
     ]
   },
   'Deeply In Tune': {
     desc: 'You catch it early. You can name what you\'re feeling, trace it to a thought, and stay present with it without being consumed. That\'s rare.',
     tips: [
-      'You catch it early. The next depth is staying present with what you\'re feeling without needing it to change — the witness position, not just the observer.',
-      'Explore what happens when you\'re fully present with a difficult emotion — not analysing it, not moving it, just being with it. That\'s where the deepest processing happens.',
+      'You catch it early. The next depth is staying present with what you\'re feeling without needing it to change. The witness position, not just the observer.',
+      'Explore what happens when you\'re fully present with a difficult emotion. Not analysing it, not moving it, just being with it. That\'s where the deepest processing happens.',
       'Your capacity for awareness is a resource for the people around you. Notice how your groundedness creates space for others, even when you\'re not aware of it.'
     ]
   }
 };
 
+const STORE_LINK = 'https://stan.store/innerbalance101/innerbalance101_store/page/4531304';
+
 const GUIDES = {
   overwhelm: {
     name:'The Grounded Professional',
-    transformation:'Overwhelm → Grounded',
-    body:'Built for the nervous system\'s overwhelm response — where everything feels urgent and nothing feels manageable. Ten minutes, physiological change, repeatable.',
+    from:'Overwhelm', to:'Grounded',
+    transformation:'Overwhelm \u2192 Grounded',
+    body:'Built for the nervous system\'s overwhelm response. Where everything feels urgent and nothing feels manageable. Ten minutes. Physiological change. Repeatable.',
     price:'$17',
-    link:'https://innerbalance101.com/overwhelm-10min.html'
+    link: STORE_LINK
   },
   pressure: {
     name:'The Pressure Reset',
-    transformation:'Pressure → Self-Assurance',
+    from:'Pressure', to:'Self-Assurance',
+    transformation:'Pressure \u2192 Self-Assurance',
     body:'For the persistent background hum of pressure that high-achievers carry even when things are going well. Builds a felt sense of capacity from the inside.',
     price:'$17',
-    link:'https://innerbalance101.com/pressure-10min.html'
+    link: STORE_LINK
   },
   guilt: {
     name:'The Guilt Release System',
-    transformation:'Guilt → Self-Compassion',
-    body:'For the weight of responsibility you carry for others, and the low-level sense of not having done enough. Moves from obligation to genuine self-compassion.',
+    from:'Guilt', to:'Release',
+    transformation:'Guilt \u2192 Release',
+    body:'For the weight of responsibility you carry for others. The low-level sense of not having done enough. Moves from obligation to release.',
     price:'$17',
-    link:'https://innerbalance101.com/guilt-10min.html'
+    link: STORE_LINK
   },
   selfDoubt: {
     name:'The Self-Trust Protocol',
-    transformation:'Self-Doubt → Self-Trust',
-    body:'Rebuilds the internal signal that high-achievers override — the quiet knowing beneath the constant noise of proving and justifying. Starts in the body, where self-trust actually lives.',
+    from:'Self-Doubt', to:'Self-Trust',
+    transformation:'Self-Doubt \u2192 Self-Trust',
+    body:'Rebuilds the internal signal that high-achievers override. The quiet knowing beneath the constant noise of proving and justifying. Starts in the body, where self-trust actually lives.',
     price:'$17',
-    link:'https://innerbalance101.com/self-doubt-10min.html'
+    link: STORE_LINK
   },
   uncertainty: {
     name:'The Clarity Reset',
-    transformation:'Uncertainty → Clarity',
+    from:'Uncertainty', to:'Grounded Presence',
+    transformation:'Uncertainty \u2192 Grounded Presence',
     body:'For the mental hum of open loops and unmade decisions. Builds a felt sense of inner stability that doesn\'t depend on external resolution.',
     price:'$17',
-    link:'https://innerbalance101.com/uncertainty-10min.html'
+    link: STORE_LINK
   }
 };
 
 const EMOTION_COPY = {
-  overwhelm:   { label:'Overwhelm',   flagged:'Overwhelm is active — depletion and an inability to fully switch off are showing up consistently.',                                          moderate:'Overwhelm is present — signs of depletion and difficulty switching off, but not yet the dominant pattern.',         low:'Overwhelm isn\'t a primary load right now.' },
-  pressure:    { label:'Pressure',    flagged:'Pressure is active — an unexplained background hum and the weight of needing to get things right are both showing up.',                    moderate:'Pressure is present — the background hum is there, even if it\'s not yet overwhelming.',                          low:'Pressure isn\'t a primary load right now.' },
-  guilt:       { label:'Guilt',       flagged:'Guilt is active — showing up as responsibility for others\' feelings and a persistent sense of not having done enough.',                   moderate:'Guilt is present — some sense of responsibility or not-enoughness, but it\'s not running the show.',              low:'Guilt isn\'t a primary load right now.' },
-  selfDoubt:   { label:'Self-Doubt',  flagged:'Self-Doubt is active — replaying past decisions and holding back from future ones.',                                                        moderate:'Self-Doubt is present — some hesitation and second-guessing, but not the dominant pattern.',                      low:'Self-Doubt isn\'t a primary load right now.' },
-  uncertainty: { label:'Uncertainty', flagged:'Uncertainty is active — open loops and unknown outcomes are taking up significant mental space.',                                           moderate:'Uncertainty is present — open loops create noise, but it\'s still manageable.',                                  low:'Uncertainty isn\'t a primary load right now.' }
+  overwhelm:   { label:'Overwhelm',   flagged:'Depletion and an inability to fully switch off are showing up consistently. Your nervous system is running on a threat response that hasn\'t stopped.',   moderate:'Signs of depletion and difficulty switching off. Present but not yet the dominant pattern.', low:'Not a primary load right now.' },
+  pressure:    { label:'Pressure',    flagged:'An unexplained background hum and the weight of needing to get things right are both showing up. The pressure is internal, not just external.',               moderate:'The background hum is there, even if it\'s not yet overwhelming.',                          low:'Not a primary load right now.' },
+  guilt:       { label:'Guilt',       flagged:'Responsibility for others\' feelings and a persistent sense of not having done enough. This is active weight, not background noise.',                          moderate:'Some sense of responsibility or not-enoughness. Present but not running the show.',         low:'Not a primary load right now.' },
+  selfDoubt:   { label:'Self-Doubt',  flagged:'Replaying past decisions and holding back from future ones. The internal questioning is loud enough to shape your behaviour.',                                  moderate:'Some hesitation and second-guessing. Present but not the dominant pattern.',                low:'Not a primary load right now.' },
+  uncertainty: { label:'Uncertainty', flagged:'Open loops and unknown outcomes are taking up significant mental space. The need for resolution is creating constant low-level activation.',                   moderate:'Open loops create noise. Manageable, but taking more space than it should.',               low:'Not a primary load right now.' }
 };
 
 // Kit form ID — single form, profile passed as custom field
@@ -769,102 +806,188 @@ function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
   } catch(e){}
 }
 
-function renderResults(aRaw, emotions, hasBody, bodyBlind){
+/* ═══════════════════════════════════════
+   RESULTS RENDER — visual dashboard
+   ═══════════════════════════════════════ */
+
+function calcResults(){
+  if([1,2,3,4,5,6,7,8,9,10].some(q=>!state.lq[q])){
+    document.getElementById('loadVal').classList.add('show'); return;
+  }
+  document.getElementById('loadVal').classList.remove('show');
+
+  const aRaw = [1,2,3,4,6].reduce((s,q)=>s+state.aq[q],0) + (6 - state.aq[5]);
+
+  const emotions = {
+    overwhelm:   state.lq[1]  + state.lq[2],
+    pressure:    state.lq[3]  + state.lq[4],
+    guilt:       state.lq[5]  + state.lq[6],
+    selfDoubt:   state.lq[7]  + state.lq[8],
+    uncertainty: state.lq[9]  + state.lq[10]
+  };
+
+  const loadTotal = Object.values(emotions).reduce((a,b)=>a+b,0);
+  const hasBodySignal = state.zones.size>0 || ([...state.chips].some(s=>s!=='nothing'&&s!=='unsure'));
+
+  renderResults(aRaw, emotions, loadTotal, hasBodySignal);
+  go('s-results');
+}
+
+function renderResults(aRaw, emotions, loadTotal, hasBody){
   const tier = awarenessLabel(aRaw);
   const tierData = AWARENESS_TIERS[tier];
+  const loadLabel = loadTotalLabel(loadTotal);
 
   const emotionKeys = ['overwhelm','pressure','guilt','selfDoubt','uncertainty'];
   const sorted = [...emotionKeys].sort((a,b)=>emotions[b]-emotions[a]);
   const flagged = sorted.filter(k=>emotionLevel(emotions[k])==='flagged');
   const moderate = sorted.filter(k=>emotionLevel(emotions[k])==='moderate');
 
-  // Send to Kit
+  // Send to Kit (auto-send, no button)
   const flaggedLabels = flagged.map(k=>EMOTION_COPY[k].label).join(', ') || 'None flagged';
   const topGuide = flagged.length>0 ? GUIDES[flagged[0]].name : (moderate.length>0 ? GUIDES[moderate[0]].name : 'None flagged');
   sendToKit(state.gateEmail, state.gateName, tier, flaggedLabels, topGuide);
 
-  // Block 1: Awareness Level
-  document.getElementById('rProfile').innerHTML=`
-    <div class="result-hero">
-      <div class="result-eyebrow">Your Awareness Level</div>
-      <h2 class="result-name"><em>${tier}</em></h2>
-      <p class="result-desc">${tierData.desc}</p>
-    </div>
-    <div class="insight-section" style="margin-top:28px;margin-bottom:0">
-      <div class="insight-title">Where to focus</div>
-      ${tierData.tips.map(t=>`<p>${t}</p>`).join('')}
+  // ── HERO ──
+  const firstName = state.gateName || '';
+  const heroGreeting = firstName ? `${firstName}, here's what you're carrying.` : 'Here\'s what you\'re carrying.';
+
+  document.getElementById('rHero').innerHTML=`
+    <div class="r-hero">
+      <div class="r-hero-eyebrow">Your Results</div>
+      <h2 class="r-hero-title"><em>${heroGreeting}</em></h2>
+      <p class="r-hero-desc">Your emotional load is <strong style="color:var(--clay-light)">${loadLabel.toLowerCase()}</strong> and your self-awareness is at the <strong style="color:var(--clay-light)">${tier.toLowerCase()}</strong> level. ${flagged.length>0 ? flagged.length+' area'+(flagged.length>1?'s are':' is')+' carrying significant weight right now.' : 'No single area is in the red, but that doesn\'t mean there\'s nothing to work with.'}</p>
+      <div class="r-hero-inbox">Results sent to <strong>${state.gateEmail||'your inbox'}</strong></div>
     </div>`;
 
-  // Block 2: Emotional Load Profile
-  const profileRows = emotionKeys.map(k=>{
-    const lvl = emotionLevel(emotions[k]);
-    const copy = EMOTION_COPY[k];
-    const dotColor = lvl==='flagged' ? 'var(--clay-deep)' : lvl==='moderate' ? 'var(--clay-light)' : 'rgba(196,168,130,0.3)';
-    return `<div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(196,168,130,0.15)">
-      <div style="width:10px;height:10px;border-radius:50%;background:${dotColor};flex-shrink:0;margin-top:5px"></div>
-      <div>
-        <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:4px">${copy.label}</div>
-        <div style="font-size:0.92rem;font-weight:300;color:var(--mid);line-height:1.75">${copy[lvl]}</div>
+  // ── DASHBOARD CARDS ──
+  document.getElementById('rDashboard').innerHTML=`
+    <div class="r-dashboard">
+      <div class="r-dash-card">
+        <div class="r-dash-label">Total Load</div>
+        <div class="r-dash-value">${loadTotal}<span style="font-size:0.9rem;color:var(--soft);font-family:'Jost',sans-serif;font-weight:300">/50</span></div>
+        <div class="r-dash-sub">${loadLabel}</div>
+      </div>
+      <div class="r-dash-card">
+        <div class="r-dash-label">Self-Awareness</div>
+        <div class="r-dash-value">${aRaw}<span style="font-size:0.9rem;color:var(--soft);font-family:'Jost',sans-serif;font-weight:300">/30</span></div>
+        <div class="r-dash-sub">${tier}</div>
+      </div>
+      <div class="r-dash-card">
+        <div class="r-dash-label">Areas Flagged</div>
+        <div class="r-dash-value">${flagged.length}</div>
+        <div class="r-dash-sub">${flagged.length===0 ? 'None in the red' : flagged.map(k=>EMOTION_COPY[k].label).join(', ')}</div>
+      </div>
+      <div class="r-dash-card">
+        <div class="r-dash-label">Body Connection</div>
+        <div class="r-dash-value" style="font-size:1.4rem;line-height:1.4">${hasBody ? 'Signal detected' : 'Still developing'}</div>
+        <div class="r-dash-sub">${hasBody ? 'You noticed something. That\'s data.' : 'The body channel is available to build.'}</div>
       </div>
     </div>`;
+
+  // ── LOAD BARS ──
+  const barRows = sorted.map(k=>{
+    const lvl = emotionLevel(emotions[k]);
+    const pct = Math.round((emotions[k]/10)*100);
+    const copy = EMOTION_COPY[k];
+    const tagHtml = lvl==='flagged' ? '<span class="r-emotion-tag flagged">Flagged</span>' : lvl==='moderate' ? '<span class="r-emotion-tag moderate">Watch</span>' : '';
+    return `<div class="r-emotion-row">
+      <div class="r-emotion-label">${copy.label}</div>
+      <div class="r-emotion-bar-wrap"><div class="r-emotion-bar ${lvl}" style="width:${pct}%"></div></div>
+      <div class="r-emotion-score">${emotions[k]}${tagHtml}</div>
+    </div>
+    <div class="r-emotion-detail">${copy[lvl]}</div>`;
   }).join('');
 
-  document.getElementById('rScores').innerHTML=`
-    <div style="width:100%">
-      <div class="insight-title" style="margin-bottom:4px">Your Emotional Load Profile</div>
-      ${profileRows}
+  document.getElementById('rLoadBars').innerHTML=`
+    <div class="r-load-section">
+      <div class="r-section-title">Your Emotional Load Breakdown</div>
+      ${barRows}
     </div>`;
 
-  // Clear old insight section (now embedded in rProfile)
-  document.getElementById('rInsight').innerHTML='';
-
-  // Send results block
-  document.getElementById('rSendResults').innerHTML=`
-    <div class="send-results-block">
-      <div class="sr-eyebrow">Your results</div>
-      <div class="sr-headline">Results sent to your inbox</div>
-      <p class="sr-sub">We've sent your scores and a personalised next step to ${state.gateEmail ? `<strong style="color:var(--clay-light)">${state.gateEmail}</strong>` : 'your inbox'}. Check your inbox in a few minutes.</p>
-      <div class="sr-success show" id="srSuccess">
-        <p>On its way. Check your inbox. Your results and recommended practice will arrive within a few minutes.</p>
+  // ── AWARENESS ──
+  document.getElementById('rAwareness').innerHTML=`
+    <div class="r-awareness-section">
+      <div class="r-section-title">Your Awareness Level</div>
+      <div class="r-awareness-card">
+        <div class="r-awareness-tier">${tier}</div>
+        <div class="r-awareness-desc">${tierData.desc}</div>
+        <ul class="r-awareness-tips">
+          ${tierData.tips.map(t=>`<li>${t}</li>`).join('')}
+        </ul>
       </div>
     </div>`;
 
-  // Block 3: Where to Start
+  // ── RECOMMENDATIONS ──
   let recHtml = '';
   if(flagged.length===0 && moderate.length===0){
-    recHtml=`<div class="rec-block">
-      <div class="rec-lbl">Where to start</div>
-      <p style="font-size:0.95rem;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:24px">Your load across all five areas is low right now. This is a good time to build a foundation practice before the next season asks more of you.</p>
-      <div class="btn-row">
-        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="btn-clay">View full library</a>
+    recHtml=`<div class="r-rec-section">
+      <div class="r-section-title">Where to Start</div>
+      <div class="r-rec-card">
+        <div class="r-rec-eyebrow">Your starting point</div>
+        <div class="r-rec-name" style="margin-bottom:14px">Your load across all five areas is low right now.</div>
+        <p class="r-rec-body">This is a good time to build a foundation practice before the next season asks more of you. The professionals who hold their ground under sustained pressure built the tools before they needed them urgently.</p>
+        <a href="${STORE_LINK}" target="_blank" class="r-rec-btn">Browse the full library</a>
       </div>
     </div>`;
   } else {
-    const guidesToShow = flagged.length>0 ? flagged : moderate.slice(0,2);
-    const introText = flagged.length>0
-      ? 'These are the areas carrying the most weight right now. Each guide is 10 minutes and built for exactly this.'
-      : 'These areas are worth paying attention to. Each guide is 10 minutes and built for exactly this.';
-    const guideBlocks = guidesToShow.map((k,i)=>{
-      const g = GUIDES[k];
-      const lbl = guidesToShow.length>1 ? 'Recommended — '+EMOTION_COPY[k].label : 'Recommended for you';
-      return `<div class="rec-block"${i>0?' style="margin-top:16px"':''}>
-        <div class="rec-lbl">${lbl}</div>
-        <div class="rec-name">${g.name}</div>
-        <div class="rec-transformation">${g.transformation}</div>
-        <p class="rec-body">${g.body}</p>
-        <p class="rec-price">Downloadable PDF guide &nbsp;&middot;&nbsp; <strong>${g.price}</strong></p>
-        <div class="btn-row">
-          <a href="${g.link}" target="_blank" class="btn-clay">Get the practice for ${g.price}</a>
-          <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="btn-secondary">View full library</a>
+    const primary = flagged.length>0 ? flagged[0] : moderate[0];
+    const secondary = flagged.length>1 ? flagged.slice(1) : (flagged.length===1 && moderate.length>0 ? moderate.slice(0,1) : moderate.slice(1,2));
+    const g = GUIDES[primary];
+
+    recHtml=`<div class="r-rec-section">
+      <div class="r-section-title">Where to Start</div>
+      <div class="r-rec-card">
+        <div class="r-rec-eyebrow">${flagged.length>0 ? 'Your highest-load area' : 'Recommended for you'}</div>
+        <div class="r-rec-name">${g.name}</div>
+        <div class="r-rec-transform">
+          <span class="r-rec-from">${g.from}</span>
+          <div class="r-rec-arrow"></div>
+          <span class="r-rec-to">${g.to}</span>
         </div>
+        <p class="r-rec-body">${g.body}</p>
+        <p class="r-rec-price">Downloadable PDF guide &middot; <strong>${g.price}</strong></p>
+        <a href="${g.link}" target="_blank" class="r-rec-btn">Get ${g.name} &mdash; ${g.price}</a>
       </div>`;
-    }).join('');
-    recHtml=`<div style="margin-bottom:20px">
-      <div class="insight-title">Where to start</div>
-      <p style="font-size:0.92rem;font-weight:300;color:var(--mid);line-height:1.85;margin-top:8px">${introText}</p>
-    </div>${guideBlocks}`;
+
+    // Secondary recommendations
+    secondary.forEach(k=>{
+      const sg = GUIDES[k];
+      recHtml+=`<div class="r-rec-card-secondary">
+        <div class="r-rec-eyebrow">Also flagged &mdash; ${EMOTION_COPY[k].label}</div>
+        <div class="r-rec-name">${sg.name}</div>
+        <div class="r-rec-transform">
+          <span class="r-rec-from">${sg.from}</span>
+          <div class="r-rec-arrow"></div>
+          <span class="r-rec-to">${sg.to}</span>
+        </div>
+        <p class="r-rec-body">${sg.body}</p>
+        <p class="r-rec-price">Downloadable PDF guide &middot; <strong>${sg.price}</strong></p>
+        <a href="${sg.link}" target="_blank" class="r-rec-btn">Get ${sg.name} &mdash; ${sg.price}</a>
+      </div>`;
+    });
+
+    recHtml+=`</div>`;
   }
   document.getElementById('rRec').innerHTML=recHtml;
+
+  // ── BUNDLE ──
+  document.getElementById('rBundle').innerHTML=`
+    <div class="r-bundle">
+      <div class="r-bundle-title">The Full Library Bundle</div>
+      <div class="r-bundle-desc">All 5 practices. Every transformation. One purchase.</div>
+      <div class="r-bundle-price"><s>$85</s> &nbsp; <strong>$57</strong></div>
+      <a href="${STORE_LINK}" target="_blank" class="r-bundle-btn">Get the full library &mdash; $57</a>
+    </div>`;
+
+  // Animate bars after a short delay
+  setTimeout(()=>{
+    document.querySelectorAll('.r-emotion-bar').forEach(bar=>{
+      const w = bar.style.width;
+      bar.style.width = '0%';
+      requestAnimationFrame(()=>{ bar.style.width = w; });
+    });
+  }, 200);
 }
 
 // ── EMAIL GATE ──
