@@ -675,14 +675,14 @@ var KIT_FORM_ID = '9180408';
 
 function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
   try {
-    var fd = new FormData();
-    fd.append('email_address', email);
-    if(name) fd.append('first_name', name);
-    if(awarenessTier) fd.append('fields[profile]', awarenessTier);
-    if(flaggedEmotions) fd.append('fields[load_score]', flaggedEmotions);
-    if(topGuide) fd.append('fields[awareness_score]', topGuide);
-    fetch('https://app.kit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
-      method: 'POST', body: fd, mode: 'no-cors'
+    var params = new URLSearchParams();
+    params.append('email_address', email);
+    if(name) params.append('first_name', name);
+    if(awarenessTier) params.append('fields[profile]', awarenessTier);
+    if(flaggedEmotions) params.append('fields[load_score]', flaggedEmotions);
+    if(topGuide) params.append('fields[awareness_score]', topGuide);
+    fetch('https://app.convertkit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
+      method: 'POST', body: params, mode: 'no-cors'
     }).catch(function(){});
   } catch(e){}
 }
