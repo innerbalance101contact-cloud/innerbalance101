@@ -20,6 +20,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // ── EMAILJS CONFIG ──────────────────────────────────────────────
+  // Sign up at https://www.emailjs.com, create a service + template,
+  // then replace the three placeholder values below.
+  var EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // Account > API Keys
+  var EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // Email Services tab
+  var EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // Email Templates tab
+  // ───────────────────────────────────────────────────────────────
+  (function(){ emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); })();
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -687,6 +698,21 @@ function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
   } catch(e){}
 }
 
+function sendResultsEmail(email, name, tier, loadTotal, loadLabel, flaggedLabels, topGuide) {
+  try {
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email:       email,
+      to_name:        name || 'there',
+      awareness_tier: tier,
+      load_total:     loadTotal,
+      load_label:     loadLabel,
+      flagged_areas:  flaggedLabels || 'None flagged',
+      top_guide:      topGuide     || 'None',
+      results_url:    'https://innerbalance101.com/emotional_load_assessment.html'
+    }).catch(function(){});
+  } catch(e){}
+}
+
 /* ═══════════════════════════════════════
    RESULTS RENDER
    ═══════════════════════════════════════ */
@@ -734,10 +760,11 @@ function renderResults(aRaw, emotions, loadTotal, hasBody){
 
   var bodySignals = getBodySignals();
 
-  // Send to Kit
+  // Send to Kit + email results on every completion
   var flaggedLabels = flagged.map(function(k){return EMOTION_COPY[k].label}).join(', ') || 'None flagged';
   var topGuide = flagged.length>0 ? GUIDES[flagged[0]].name : (moderate.length>0 ? GUIDES[moderate[0]].name : 'None flagged');
   sendToKit(state.gateEmail, state.gateName, tier, flaggedLabels, topGuide);
+  sendResultsEmail(state.gateEmail, state.gateName, tier, loadTotal, loadLabel, flaggedLabels, topGuide);
 
   // ── HERO ──
   var firstName = state.gateName || '';
