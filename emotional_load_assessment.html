@@ -673,16 +673,15 @@ var CHIP_LABELS = {
 
 var KIT_FORM_ID = '9180408';
 
-function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
+function sendToKit(email, name) {
   try {
     var params = new URLSearchParams();
     params.append('email_address', email);
-    if(name) params.append('first_name', name);
-    if(awarenessTier) params.append('fields[profile]', awarenessTier);
-    if(flaggedEmotions) params.append('fields[load_score]', flaggedEmotions);
-    if(topGuide) params.append('fields[awareness_score]', topGuide);
+    if (name) params.append('first_name', name);
     fetch('https://app.convertkit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
-      method: 'POST', body: params, mode: 'no-cors'
+      method: 'POST',
+      body: params,
+      mode: 'no-cors'
     }).catch(function(){});
   } catch(e){}
 }
