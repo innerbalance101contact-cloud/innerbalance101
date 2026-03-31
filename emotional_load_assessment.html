@@ -689,20 +689,16 @@ function sendToKit(email, name, awarenessTier, flaggedEmotions, topGuide) {
 
 var MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/j5luxcv9f1i14vvw4thbvek3eho7hd4m';
 
-function sendToMake(email, name, profileCode, flaggedEmotions, topGuide) {
+function sendToMake(payload) {
   try {
     fetch(MAKE_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email:           email,
-        first_name:      name          || '',
-        profile:         profileCode   || '',
-        load_score:      flaggedEmotions || '',
-        awareness_score: topGuide      || ''
-      })
-    }).catch(function(){});
-  } catch(e){}
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){ console.log('Make webhook sent', r.status); })
+    .catch(function(e){ console.error('Make webhook error:', e); });
+  } catch(e){ console.error('Make webhook failed:', e); }
 }
 
 /* ═══════════════════════════════════════
@@ -752,11 +748,23 @@ function renderResults(aRaw, emotions, loadTotal, hasBody){
 
   var bodySignals = getBodySignals();
 
-  // Send to Make webhook — updates profile + re-triggers Kit automation for every completion
-  var flaggedLabels = flagged.map(function(k){return EMOTION_COPY[k].label}).join(', ') || 'None flagged';
-  var topGuide = flagged.length>0 ? GUIDES[flagged[0]].name : (moderate.length>0 ? GUIDES[moderate[0]].name : 'None flagged');
+  // Send to Make webhook — updates subscriber + re-triggers Kit automation for every completion
+  var flaggedLabels = flagged.map(function(k){ return EMOTION_COPY[k].label; }).join(', ') || '';
+  var topGuide = flagged.length>0 ? GUIDES[flagged[0]].name : (moderate.length>0 ? GUIDES[moderate[0]].name : '');
   var profileCode = (tier === 'Still Finding the Signal' ? 'LA' : 'HA') + '_' + (loadTotal >= 17 ? 'HL' : 'LL');
-  sendToMake(state.gateEmail, state.gateName, profileCode, flaggedLabels, topGuide);
+  sendToMake({
+    email:            state.gateEmail || '',
+    first_name:       state.gateName  || '',
+    profile:          profileCode,
+    load_score:       loadTotal,
+    awareness_score:  aRaw,
+    load_level:       loadLabel,
+    awareness_tier:   tier,
+    flagged_emotions: flaggedLabels,
+    top_guide:        topGuide,
+    body_signals:     bodySignals.join(', '),
+    source:           'emotional_load_assessment'
+  });
 
   // ── HERO ──
   var firstName = state.gateName || '';
