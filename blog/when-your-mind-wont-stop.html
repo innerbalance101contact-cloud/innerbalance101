@@ -137,6 +137,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cta-buttons{display:flex;flex-wrap:wrap;gap:14px}.article-cta,.article-cta h2,.article-cta p,.article-cta em{color:#FFFFFF !important}
 .btn-clay{display:inline-block;background:var(--clay);color:var(--deep);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:14px 36px;text-decoration:none;transition:background 0.25s}
 .btn-clay:hover{background:var(--clay-light)}
+/* POST COVER */
+.post-cover{width:100%;background:var(--linen);border-bottom:1px solid rgba(196,168,130,0.15)}
+.post-cover img{display:block;width:100%;max-height:500px;object-fit:cover}
+.post-cover-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;aspect-ratio:1200/630;max-height:460px;background:var(--linen);outline:2px dashed rgba(196,168,130,0.3);outline-offset:-20px}
+.post-cover-placeholder span{font-size:0.63rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(44,36,32,0.28)}
 /* SHARE BAR */
 .share-bar{display:flex;align-items:center;gap:16px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(196,168,130,0.2)}
 .share-label{font-size:0.65rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(44,36,32,0.4)}
@@ -197,6 +202,13 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
   <h1 class="article-title">When your mind won't stop,<br><em>it's not random</em></h1>
   <div class="article-meta">2 April 2026 <span>·</span> 5 min read</div>
 </header>
+
+<!-- POST COVER — swap placeholder for <img src="/images/blog/when-your-mind-wont-stop.png" alt="..."> once ready; update og:image meta tag to match -->
+<div class="post-cover">
+  <div class="post-cover-placeholder">
+    <span>Cover image · 1200 × 630 · used for social sharing</span>
+  </div>
+</div>
 
 <main class="article-wrap">
   <article class="article-body">
