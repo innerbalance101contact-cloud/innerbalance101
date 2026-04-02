@@ -149,6 +149,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .share-btn--linkedin{background:#0A66C2;color:#fff}
 .share-btn--linkedin:hover{background:#004182}
 .share-btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+.share-btn--email{background:var(--deep);color:var(--warm-white)}
+.share-btn--email:hover{background:var(--soft)}
+.share-btn--copy{background:transparent;color:var(--soft);border:1px solid rgba(44,36,32,0.18);cursor:pointer}
+.share-btn--copy:hover,.share-btn--copy.copied{border-color:var(--clay);color:var(--clay-deep)}
 .btn-outline{display:inline-block;border:1px solid rgba(196,168,130,0.35);color:var(--clay-light);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;padding:14px 36px;text-decoration:none;transition:border-color 0.25s,color 0.25s}
 .btn-outline:hover{border-color:var(--clay);color:var(--clay)}
 
@@ -273,6 +277,14 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         Share on LinkedIn
       </a>
+      <a href="mailto:?subject=When%20Your%20Mind%20Won%27t%20Stop%2C%20It%27s%20Not%20Random&body=https%3A%2F%2Finnerbalance101.com%2Fblog%2Fwhen-your-mind-wont-stop.html" class="share-btn share-btn--email" aria-label="Share via email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Email
+      </a>
+      <button onclick="copyPostLink(this,'https://innerbalance101.com/blog/when-your-mind-wont-stop.html')" class="share-btn share-btn--copy" aria-label="Copy link">
+        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy link
+      </button>
     </div>
 
   </article>
@@ -308,3 +320,13 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
   const bar = document.getElementById('progress');
   window.addEventListener('scroll', () => {
     const h = d
+<script>
+function copyPostLink(btn, url) {
+  navigator.clipboard.writeText(url).then(function() {
+    var orig = btn.innerHTML;
+    btn.innerHTML = btn.innerHTML.replace('Copy link', 'Copied!');
+    btn.classList.add('copied');
+    setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
