@@ -322,8 +322,15 @@ footer { background: var(--deep); padding: 56px 60px 0; }
     <span>&copy; 2026 innerbalance101. All rights reserved.</span>
   </div>
 </footer>
-
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const bar = document.getElementById('progress');
   window.addEventListener('scroll', () => {
-    const h = d
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    bar.style.width = `${Math.min(progress, 100)}%`;
+  });
+</script>
+
+</body>
+</html>
