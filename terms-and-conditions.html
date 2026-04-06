@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | innerbalance101</title>
-  <link rel="canonical" href="https://innerbalance101.com/contact.html">
+  <title>Terms and Conditions | innerbalance101</title>
+  <link rel="canonical" href="https://innerbalance101.com/terms-and-conditions.html">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -67,39 +67,28 @@
     .hero-sub { font-weight: 300; font-size: 1.05rem; color: var(--soft); max-width: 520px; margin: 0 auto; line-height: 1.75; position: relative; }
 
     /* ── MAIN ── */
-    .container { max-width: 960px; margin: 0 auto; padding: 72px 24px 100px; }
+    .container { max-width: 760px; margin: 0 auto; padding: 72px 24px 100px; }
 
-    /* ── USE CASES ── */
-    .use-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--clay-light); border: 1px solid var(--clay-light); margin-bottom: 72px; }
-    .use-case { background: var(--warm-white); padding: 32px 28px; }
-    .use-case-num { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); margin-bottom: 10px; }
-    .use-case-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--deep); margin-bottom: 6px; line-height: 1.2; }
-    .use-case-desc { font-size: 0.85rem; font-weight: 300; color: var(--soft); line-height: 1.65; }
+    /* ── TERMS CONTENT ── */
+    .terms-date { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 56px; }
 
-    /* ── SECTION LABEL ── */
-    .section-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--clay-deep); display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .section-label::before { content: ''; width: 24px; height: 1px; background: var(--clay); }
-
-    /* ── SOCIAL ── */
-    .social-section { }
-    .social-heading { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--deep); margin-bottom: 10px; line-height: 1.2; }
-    .social-desc { font-size: 1rem; color: var(--soft); font-weight: 300; margin-bottom: 36px; line-height: 1.75; max-width: 540px; }
-    .social-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .social-card { display: flex; align-items: center; gap: 18px; padding: 26px 28px; background: var(--warm-white); border: 1px solid var(--clay-light); text-decoration: none; color: inherit; transition: all 0.28s ease; position: relative; overflow: hidden; }
-    .social-card::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.28s; }
-    .social-card.linkedin::before { background: linear-gradient(135deg, #F0E8DC, #e8ddd0); }
-    .social-card.instagram::before { background: linear-gradient(135deg, #F0E8DC, #f5e8d8); }
-    .social-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(44,36,32,0.1); border-color: transparent; }
-    .social-card:hover::before { opacity: 1; }
-    .social-icon-wrap { position: relative; width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .linkedin .social-icon-wrap { background: #0A66C2; }
-    .instagram .social-icon-wrap { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-    .social-icon-wrap svg { width: 22px; height: 22px; fill: white; position: relative; }
-    .social-text { position: relative; }
-    .social-platform { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); font-weight: 400; margin-bottom: 3px; }
-    .social-cta { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; color: var(--deep); }
-    .social-arrow { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--clay-light); transition: all 0.2s; }
-    .social-card:hover .social-arrow { color: var(--clay); right: 18px; }
+    .terms-section { margin-bottom: 52px; }
+    .terms-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.55rem;
+      color: var(--deep);
+      margin-bottom: 16px;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .terms-section h2::before { content: ''; width: 20px; height: 1px; background: var(--clay); flex-shrink: 0; }
+    .terms-section p { font-size: 0.96rem; font-weight: 300; color: var(--soft); line-height: 1.85; margin-bottom: 14px; }
+    .terms-section p:last-child { margin-bottom: 0; }
+    .terms-section a { color: var(--clay-deep); text-decoration: none; border-bottom: 1px solid rgba(166,139,101,0.4); transition: border-color 0.2s, color 0.2s; }
+    .terms-section a:hover { color: var(--deep); border-color: var(--deep); }
 
     /* ── FOOTER ── */
     footer { background: var(--deep); padding: 56px 60px 0; }
@@ -126,8 +115,7 @@
     /* ── ANIMATIONS ── */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .hero { animation: fadeUp 0.6s ease both; }
-    .use-cases { animation: fadeUp 0.6s ease 0.1s both; }
-    .social-section { animation: fadeUp 0.6s ease 0.2s both; }
+    .container { animation: fadeUp 0.6s ease 0.1s both; }
 
     /* ── MOBILE ── */
     @media (max-width: 960px) {
@@ -135,7 +123,6 @@
       footer { padding: 48px 24px 0; }
       .footer-inner { flex-direction: column; gap: 36px; }
       .footer-nav { gap: 32px; }
-      .use-cases { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
@@ -158,70 +145,79 @@
     <a href="https://innerbalance101.com/#library" class="nav-link">Library</a>
     <a href="https://innerbalance101.com/emotional_load_assessment.html" class="nav-link">Assessment</a>
     <a href="https://innerbalance101.com/blog/" class="nav-link">Blog</a>
-    <a href="/contact.html" class="nav-link active">Contact</a>
+    <a href="/contact.html" class="nav-link">Contact</a>
   </div>
   <a href="https://innerbalance101.com/emotional_load_assessment.html" class="nav-cta">Free Assessment</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Get in touch</p>
-  <h1>We'd love to <em>hear</em><br>from you.</h1>
-  <p class="hero-sub">Whether you have a question, a collaboration idea, or just want to say hello. Reach out. We read everything.</p>
+  <p class="hero-eyebrow">Legal</p>
+  <h1>Terms &amp; <em>Conditions</em></h1>
+  <p class="hero-sub">Please read these terms carefully before using the site or making a purchase.</p>
 </section>
 
 <!-- MAIN -->
 <main class="container">
 
-  <!-- USE CASES -->
-  <div class="use-cases">
-    <div class="use-case">
-      <div class="use-case-num">01</div>
-      <div class="use-case-title">Enquiries</div>
-      <div class="use-case-desc">Questions about the Practices, the Assessment, or anything on the site.</div>
-    </div>
-    <div class="use-case">
-      <div class="use-case-num">02</div>
-      <div class="use-case-title">Collaboration</div>
-      <div class="use-case-desc">Partnerships, press, podcast features, or creative opportunities.</div>
-    </div>
-    <div class="use-case">
-      <div class="use-case-num">03</div>
-      <div class="use-case-title">Help</div>
-      <div class="use-case-desc">Support with your order, access to your download, or anything else.</div>
-    </div>
+  <p class="terms-date">Last updated: April 2026</p>
+
+  <div class="terms-section">
+    <h2>Overview</h2>
+    <p>These terms govern your use of innerbalance101.com and any purchases made through it. By using this site or purchasing a Practice, you agree to these terms. If you do not agree, please do not use the site or make a purchase.</p>
+    <p>innerbalance101 is operated by Naomi Lucia.</p>
   </div>
 
-  <!-- SOCIAL -->
-  <section class="social-section">
-    <div class="section-label">Find us</div>
-    <h2 class="social-heading">Reach us directly<br>on social media.</h2>
-    <p class="social-desc">Send us a DM on LinkedIn or Instagram and we'll get back to you. It's the fastest way to reach us.</p>
+  <div class="terms-section">
+    <h2>Digital products</h2>
+    <p>innerbalance101 sells downloadable digital practice guides. All purchases are made through Stan Store, a third-party platform. By completing a purchase, you agree to Stan Store's terms and conditions in addition to these.</p>
+    <p>Upon purchase, you receive a personal, non-transferable licence to use the guide for your own private use. You do not own the content. Ownership remains with innerbalance101.</p>
+    <p>You may not reproduce, share, resell, distribute, or use any part of the guides for commercial purposes. This applies to the content, structure, and format of the practices.</p>
+  </div>
 
-    <div class="social-cards">
-      <a href="https://www.linkedin.com/company/innerbalance101" target="_blank" rel="noopener" class="social-card linkedin">
-        <div class="social-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </div>
-        <div class="social-text">
-          <p class="social-platform">Message us on</p>
-          <p class="social-cta">LinkedIn</p>
-        </div>
-        <span class="social-arrow">→</span>
-      </a>
+  <div class="terms-section">
+    <h2>No refund policy</h2>
+    <p>All sales are final. Because these are digital products delivered immediately upon purchase, no refunds are offered once access has been granted. By completing your purchase, you confirm that you understand and accept this.</p>
+    <p>If you experience a technical issue with your download, contact innerbalance101 through the <a href="/contact.html">contact page</a> and it will be resolved.</p>
+  </div>
 
-      <a href="https://www.instagram.com/innerbalance101" target="_blank" rel="noopener" class="social-card instagram">
-        <div class="social-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </div>
-        <div class="social-text">
-          <p class="social-platform">Message us on</p>
-          <p class="social-cta">Instagram</p>
-        </div>
-        <span class="social-arrow">→</span>
-      </a>
-    </div>
-  </section>
+  <div class="terms-section">
+    <h2>Not professional advice</h2>
+    <p>The practices and content within innerbalance101 are for personal development and self-guided emotional regulation only. They are not therapy. They are not medical or psychological advice. They are not a substitute for clinical mental health support.</p>
+    <p>Nothing on this site or within any of the guides should be interpreted as a diagnosis, treatment recommendation, or professional consultation of any kind.</p>
+    <p>If you are experiencing a mental health crisis or require clinical support, please contact a qualified mental health professional. innerbalance101 is not equipped to provide that support and does not claim to.</p>
+  </div>
+
+  <div class="terms-section">
+    <h2>Limitation of liability</h2>
+    <p>innerbalance101 is not liable for any outcomes, direct or indirect, resulting from your use of the practices or any content on this site. You take full responsibility for your own wellbeing and for how you engage with the material.</p>
+    <p>The total liability of innerbalance101 in any circumstances is limited to the amount you paid for the product in question.</p>
+  </div>
+
+  <div class="terms-section">
+    <h2>Intellectual property</h2>
+    <p>All content on this site — including text, practice frameworks, illustrations, and design — is the intellectual property of innerbalance101. It may not be copied, reproduced, or used without written permission.</p>
+  </div>
+
+  <div class="terms-section">
+    <h2>Email communications</h2>
+    <p>By submitting your email address through this site, you consent to receiving communications from innerbalance101. You can unsubscribe at any time using the link in any email. Unsubscribing does not affect any purchases you have made.</p>
+  </div>
+
+  <div class="terms-section">
+    <h2>Third-party platforms</h2>
+    <p>This site links to Stan Store and other external platforms. innerbalance101 is not responsible for the content, practices, or policies of those platforms. Their own terms and conditions apply once you leave this site.</p>
+  </div>
+
+  <div class="terms-section">
+    <h2>Changes to these terms</h2>
+    <p>These terms may be updated from time to time. The date at the top of this page reflects the most recent revision. Continued use of the site after changes are posted constitutes acceptance of the updated terms.</p>
+  </div>
+
+  <div class="terms-section">
+    <h2>Questions</h2>
+    <p>If you have any questions about these terms, reach out through the <a href="/contact.html">contact page</a>.</p>
+  </div>
 
 </main>
 
