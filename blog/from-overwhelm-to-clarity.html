@@ -22,6 +22,17 @@
   --warm-white:#FAF7F2;--linen:#F0E8DC;--deep:#2C2420;
   --soft:#6B5B4E;--nav-h:64px;
 }
+
+ /* PREVENT HORIZONTAL SCROLL ON ALL DEVICES */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+} 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);overflow-x:hidden;line-height:1.7}
