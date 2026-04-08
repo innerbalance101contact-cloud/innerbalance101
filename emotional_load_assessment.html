@@ -35,6 +35,18 @@
   --mid:#2C2420;
   --deep:#2C2420;
 }
+
+  /* PREVENT HORIZONTAL SCROLL ON ALL DEVICES */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+  
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);font-size:18px;line-height:1.6;min-height:100vh}
 
