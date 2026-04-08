@@ -90,6 +90,18 @@
   --deep:#2C2420;
   --nav-h:64px;
 }
+
+  /* PREVENT HORIZONTAL SCROLL ON ALL DEVICES */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+  
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);line-height:1.6;-webkit-font-smoothing:antialiased}
 
