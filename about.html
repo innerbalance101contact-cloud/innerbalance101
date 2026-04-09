@@ -153,6 +153,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cta-btn{display:inline-block;background:var(--clay);color:var(--deep);font-family:'Jost',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:18px 48px;text-decoration:none;transition:background 0.25s}
 .cta-btn:hover{background:var(--clay-light)}
 .cta-note{font-size:0.72rem;font-weight:300;color:rgba(250,247,242,0.35);margin-top:16px;letter-spacing:0.06em}
+.hero-mobile-cta{display:none}
+@media(max-width:960px){
+  .hero-mobile-cta{display:inline-block;margin-top:28px;font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--deep);background:var(--clay);padding:15px 32px;text-decoration:none;transition:background 0.3s}
+}
 
 /* FOOTER */
 footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:1px solid rgba(196,168,130,0.1)}
@@ -272,6 +276,7 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
   <div class="hero-label">About innerbalance101</div>
   <h1>Built for the gap between<br><em>performing fine</em><br>and actually being fine.</h1>
   <p class="page-hero-sub">A digital library of science-backed emotional regulation practices. Not therapy. Not coaching. Something you can use on an ordinary Tuesday, inside a real life, without stopping everything to feel better.</p>
+  <a href="https://innerbalance101.com/emotional_load_assessment.html" class="hero-mobile-cta">Free Assessment</a>
 </header>
 
 <!-- OPENING QUOTE -->
