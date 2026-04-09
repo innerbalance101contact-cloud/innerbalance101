@@ -508,6 +508,12 @@
   .social-link svg { width:16px; height:16px; fill:currentColor; }
 
   /* ─── ANIMATIONS ──────────────────────────────────────────────── */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+  .hamburger span{display:block;width:22px;height:1.5px;background:var(--deep);transition:all 0.3s}
+  .mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(250,247,242,0.98);backdrop-filter:blur(12px);padding:24px;flex-direction:column;gap:0;border-bottom:1px solid rgba(196,168,130,0.2);z-index:99}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-size:0.85rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(196,168,130,0.12)}
+  .mobile-menu a:last-child{border-bottom:none;background:var(--deep);color:var(--warm-white);text-align:center;padding:14px;margin-top:8px}
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
   /* ─── MOBILE ──────────────────────────────────────────────────── */
@@ -576,6 +582,8 @@
 /* NAV */
 nav { padding:0 20px; }
 .nav-links { display:none; }
+.hamburger { display:flex; }
+.nav-cta { display:none; }
 
 /* HERO */
 .hero { grid-template-columns:1fr; }
@@ -696,8 +704,19 @@ nav { padding:0 20px; }
     <a href="/blog/" class="footer-link" style="color:var(--soft); font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:color 0.3s;">Blog</a>
     <a href="/contact.html" class="footer-link" style="color:var(--soft); font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:color 0.3s;">Contact</a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <a href="https://innerbalance101.com/emotional_load_assessment.html" class="nav-cta">Free Assessment</a>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/library.html">Library</a>
+  <a href="/about.html">About</a>
+  <a href="/blog/">Blog</a>
+  <a href="/contact.html">Contact</a>
+  <a href="https://innerbalance101.com/emotional_load_assessment.html">Free Assessment →</a>
+</div>
 
 <section class="hero">
   <div class="hero-left">
@@ -1103,7 +1122,16 @@ nav { padding:0 20px; }
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-  function toggleTab(btn) {
+
+    function toggleMenu(){
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('nav')&&!e.target.closest('.mobile-menu')){
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+  });
+    function toggleTab(btn) {
     const tab = btn.closest('.evidence-tab');
     if (!tab) return;
     const isOpen = tab.classList.contains('open');
