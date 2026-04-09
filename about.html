@@ -47,6 +47,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-link:hover,.nav-link.active{color:var(--clay-deep)}
 .nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-white);background:var(--deep);padding:10px 24px;text-decoration:none;transition:background 0.3s;white-space:nowrap}
 .nav-cta:hover{background:var(--clay-deep)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--deep);transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(250,247,242,0.98);backdrop-filter:blur(12px);padding:24px;flex-direction:column;gap:20px;border-bottom:1px solid rgba(196,168,130,0.2);z-index:99}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:0.85rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(196,168,130,0.15)}
+.mobile-menu a:last-child{border-bottom:none}
 
 /* PAGE HERO */
 .page-hero{margin-top:var(--nav-h);background:var(--deep);padding:100px 60px 80px;position:relative;overflow:hidden}
@@ -171,7 +177,9 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
 
 /* RESPONSIVE */
 @media(max-width:960px){
-  nav{padding:0 24px}
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
   .nav-links{display:none}
   .page-hero{padding:64px 24px 56px}
   .opening{padding:56px 24px}
@@ -203,7 +211,7 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
 /* NOT FOR / FOR */
 .not-for { padding:48px 20px; }
 .not-for-inner { grid-template-columns:1fr; gap:40px; }
-.for-section { padding:0; background:transparent; }
+.for-section { padding:20px; background:var(--linen); }
 .for-inner { padding:32px 0 0; }
 .for-item { display:flex; flex-direction:row; align-items:flex-start; }
 
@@ -246,9 +254,19 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="/contact.html" class="nav-link">Contact</a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <a href="https://innerbalance101.com/emotional_load_assessment.html" class="nav-cta">Free Assessment</a>
 </nav>
-
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/library.html">Library</a>
+  <a href="/about.html">About</a>
+  <a href="/blog/">Blog</a>
+  <a href="/contact.html">Contact</a>
+  <a href="https://innerbalance101.com/emotional_load_assessment.html">Free Assessment</a>
+</div>
+  
 <!-- PAGE HERO -->
 <header class="page-hero">
   <div class="hero-label">About innerbalance101</div>
@@ -421,6 +439,16 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+document.addEventListener('click', function(e){
+  const menu = document.getElementById('mobileMenu');
+  if(!e.target.closest('nav') && !e.target.closest('.mobile-menu')){
+    menu.classList.remove('open');
+  }
+});
 </script>
 </body>
 </html>
