@@ -265,10 +265,11 @@
   .for-who-text { font-size:1.05rem; font-weight:300; line-height:1.75; color:var(--deep); max-width:none; }
   .for-who-text strong { color:var(--deep); font-weight:500; }
   .for-who-not { background:var(--linen); padding:36px; border-left:3px solid var(--clay-light); }
-  .for-who-not-label { font-size:0.7rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--soft); margin-bottom:16px; }
-  .for-who-not-item { font-size:0.95rem; font-weight:300; line-height:1.7; color:var(--soft); padding:10px 0; border-bottom:1px solid rgba(196,168,130,0.2); display:flex; gap:12px; max-width:none; margin-bottom:0; }
-  .for-who-not-item:last-child { border-bottom:none; padding-bottom:0; }
-  .for-who-not-item::before { content:'\00d7'; color:var(--clay-light); font-size:1rem; flex-shrink:0; line-height:1.7; }
+  .for-who-not-label { font-size:0.7rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--soft); margin-bottom:18px; }
+  .for-who-not-copy { display:flex; flex-direction:column; gap:20px; }
+  .for-who-not-copy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--soft); margin:0; max-width:none; }
+  .for-who-not-copy strong { color:var(--deep); font-weight:500; }
+  .for-who-not-emphasis { font-size:1.5rem; font-family:'Cormorant Garamond', serif; line-height:1.2; color:var(--deep); padding-top:4px; }
 
   /* ─── ASSESSMENT PRIMARY ─── */
   .assessment-primary { background:var(--deep); }
@@ -813,14 +814,16 @@
       </div>
     </div>
     <div>
-      <div class="section-label" style="margin-bottom:20px;">Who It&rsquo;s Not For</div>
+      <div class="section-label" style="margin-bottom:20px;">What This Is Not</div>
       <div class="for-who-not">
-        <div class="for-who-not-label">This won&rsquo;t be the right fit if you&rsquo;re looking for</div>
-        <div class="for-who-not-item">A therapist or clinical mental health treatment</div>
-        <div class="for-who-not-item">A community, coaching program, or accountability group</div>
-        <div class="for-who-not-item">A structured course with a fixed timeline</div>
-        <div class="for-who-not-item">A quick fix or a single solution to complex mental health challenges</div>
-        <div class="for-who-not-item">Spiritual or faith-based approaches to emotional wellness</div>
+        <div class="for-who-not-label">A clearer way to say it</div>
+        <div class="for-who-not-copy">
+          <p><strong>innerbalance101 is not therapy but it is therapeutic.</strong> It is not a coaching program, a course, or a community but it is a serious tool for serious people.</p>
+          <p>It is a self-guided practice library. Grounded in science. Designed for real life. Built to ease the analytical mind and develop your own inner wisdom and intuition over time.</p>
+          <p>If you are in crisis or need clinical support, please reach out to a qualified mental health professional. That is not what we are here to replace.</p>
+          <p>What we are here for is everything in between. The space between formal support, the daily boardroom, and the persistent depletion nobody around you can see.</p>
+          <p class="for-who-not-emphasis">That is exactly what these Practices are built for.</p>
+        </div>
       </div>
       <div style="margin-top:36px; padding:28px; background:var(--deep);">
         <div style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--clay); margin-bottom:12px;">Not sure where you are?</div>
