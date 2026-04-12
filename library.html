@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Library — innerbalance101</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --warm-white: #FAF7F2;
+      --linen: #F0E8DC;
+      --clay: #C4A882;
+      --clay-light: #DDD0BE;
+      --clay-deep: #A68B65;
+      --soft: #9C8575;
+      --mid: #6B5B4E;
+      --espresso: #2C2420;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--espresso);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      padding: 0 60px;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--espresso);
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--clay);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--espresso); }
+
+    .nav-cta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--espresso);
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { background: var(--clay-deep); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--espresso);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0; right: 0;
+      background: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(12px);
+      padding: 24px;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(196, 168, 130, 0.12);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+      background: var(--espresso);
+      color: var(--warm-white);
+      text-align: center;
+      padding: 14px;
+      margin-top: 8px;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 3rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s ease forwards 0.2s;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--espresso);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease forwards 0.35s;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--clay-deep);
+    }
+
+    .hero-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--mid);
+      max-width: 540px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease forwards 0.5s;
+    }
+
+    .hero-actions {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease forwards 0.65s;
+    }
+
+    .hero-browse {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--clay-light);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .hero-browse:hover { border-color: var(--clay-deep); }
+
+    .hero-assess {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--espresso);
+      text-decoration: none;
+      padding: 0.85rem 1.8rem;
+      transition: background 0.2s;
+    }
+    .hero-assess:hover { background: var(--mid); }
+
+    .hero-rule {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 40vh;
+      background: linear-gradient(to bottom, transparent, var(--clay-light), transparent);
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards 0.8s;
+    }
+
+    /* ─── SECTION SHELL ───────────────────────────────── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 3.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 48px;
+      background: var(--clay-light);
+    }
+
+    /* ─── RECOGNITION STRIP ───────────────────────────── */
+    .recognition-section {
+      border-top: 1px solid var(--clay-light);
+      border-bottom: 1px solid var(--clay-light);
+      padding: 5rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .recognition-section .section-label {
+      margin-bottom: 3rem;
+    }
+
+    .recognition-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--clay-light);
+    }
+
+    .recognition-item {
+      padding: 2.25rem 2.5rem;
+      border-right: 1px solid var(--clay-light);
+      border-bottom: 1px solid var(--clay-light);
+    }
+
+    .recognition-item:nth-child(even) {
+      border-right: none;
+    }
+
+    .recognition-item:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .recognition-line {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    .recognition-line strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--espresso);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ─── ATHLETES ────────────────────────────────────── */
+    .athletes-intro {
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 620px;
+      margin-bottom: 4rem;
+    }
+
+    .athletes {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--clay-light);
+    }
+
+    .athlete-card {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 3rem;
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--clay-light);
+      align-items: start;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .athlete-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .athlete-name-block {
+      padding-top: 0.2rem;
+    }
+
+    .athlete-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .athlete-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--clay);
+      text-transform: uppercase;
+    }
+
+    .athlete-body p {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .athlete-body p:last-of-type { margin-bottom: 1.5rem; }
+
+    blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--espresso);
+      line-height: 1.55;
+      border-left: 2px solid var(--clay);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0 1.75rem;
+    }
+
+    .athlete-link {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--clay-light);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .athlete-link:hover { border-color: var(--clay-deep); }
+
+    .video-link-row {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      background: var(--linen);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .video-link-row:hover { background: var(--clay-light); }
+
+    .play-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--clay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .play-icon svg { margin-left: 3px; }
+
+    .video-link-text {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--espresso);
+    }
+
+    .video-link-text span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--soft);
+      margin-top: 0.2rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── DIVIDER ─────────────────────────────────────── */
+    .section-divider {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .section-divider hr {
+      border: none;
+      border-top: 1px solid var(--clay-light);
+    }
+
+    /* ─── BRIDGE ──────────────────────────────────────── */
+    .bridge-section {
+      background: var(--espresso);
+      color: var(--warm-white);
+      padding: 0;
+    }
+
+    .bridge-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 7rem 3rem;
+    }
+
+    .bridge-section .section-label {
+      color: var(--clay);
+    }
+
+    .bridge-section .section-label::after {
+      background: rgba(196, 168, 130, 0.3);
+    }
+
+    .bridge-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--warm-white);
+      margin-bottom: 3rem;
+    }
+
+    .bridge-section h2 em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    .bridge-paras p {
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(250, 247, 242, 0.72);
+      line-height: 1.85;
+      margin-bottom: 1.4rem;
+      max-width: 620px;
+    }
+
+    .bridge-paras p strong {
+      color: var(--warm-white);
+      font-weight: 400;
+    }
+
+    /* ─── LIBRARY CONCEPT ─────────────────────────────── */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .concept-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--espresso);
+      margin-bottom: 2rem;
+    }
+
+    .concept-left h2 em {
+      font-style: italic;
+      color: var(--clay-deep);
+    }
+
+    .concept-right p {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 1.4rem;
+    }
+
+    .concept-pillars {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 1.5rem;
+      background: var(--linen);
+      border-radius: 2px;
+    }
+
+    .pillar-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--clay);
+      line-height: 1;
+      min-width: 28px;
+    }
+
+    .pillar-text {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    .pillar-text strong {
+      display: block;
+      font-weight: 500;
+      color: var(--espresso);
+      margin-bottom: 0.2rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── PRACTICE TIERS ──────────────────────────────── */
+    .tiers-section {
+      background: var(--linen);
+      padding: 0;
+    }
+
+    .tiers-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 7rem 3rem;
+    }
+
+    .tiers-inner .section-label {
+      color: var(--clay-deep);
+    }
+
+    .tiers-inner .section-label::after {
+      background: var(--clay-light);
+    }
+
+    .tiers-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tiers-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--espresso);
+      line-height: 1.2;
+    }
+
+    .tiers-format {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--soft);
+      letter-spacing: 0.06em;
+      align-self: flex-end;
+      padding-bottom: 0.25rem;
+    }
+
+    .tier-block {
+      margin-bottom: 3.5rem;
+    }
+
+    .tier-label-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tier-duration {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--espresso);
+      line-height: 1;
+    }
+
+    .tier-duration span {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--soft);
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    .tier-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--soft);
+      line-height: 1.6;
+      max-width: 340px;
+    }
+
+    .practices-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--clay-light);
+      border: 1px solid var(--clay-light);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .practice-item {
+      background: var(--warm-white);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: background 0.15s;
+      gap: 1rem;
+    }
+
+    .practice-item:hover {
+      background: #f5f0e8;
+    }
+
+    .practice-transformation {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .practice-from {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--espresso);
+    }
+
+    .practice-arrow {
+      color: var(--clay);
+      font-size: 0.8rem;
+    }
+
+    .practice-to {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--clay-deep);
+    }
+
+    .practice-go {
+      font-size: 0.7rem;
+      color: var(--clay-light);
+      flex-shrink: 0;
+    }
+
+    .practice-item:hover .practice-go {
+      color: var(--clay);
+    }
+
+    .tier-coming {
+      border: 1px solid var(--clay-light);
+      border-radius: 2px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+    }
+
+    .coming-soon-badge {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      border: 1px solid var(--clay-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 1px;
+    }
+
+    .coming-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--soft);
+    }
+
+    /* ─── WHAT SEPARATES ──────────────────────────────── */
+    .separates-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--clay-light);
+    }
+
+    .separates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--clay-light);
+      border: 1px solid var(--clay-light);
+      margin-top: 0;
+    }
+
+    .separates-item {
+      background: var(--warm-white);
+      padding: 2.5rem;
+    }
+
+    .separates-item-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 1rem;
+    }
+
+    .separates-item-head {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--espresso);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .separates-item-body {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ─── CTA SECTION ─────────────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 7rem 3rem;
+    }
+
+    .cta-section .section-label {
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-section .section-label::after { display: none; }
+    .cta-section .section-label::before {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 48px;
+      background: var(--clay-light);
+    }
+
+    .cta-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--espresso);
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-section p {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--soft);
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 3rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--espresso);
+      text-decoration: none;
+      padding: 1.1rem 2.8rem;
+      border-radius: 1px;
+      transition: background 0.2s;
+    }
+
+    .cta-button:hover { background: var(--mid); }
+
+    .cta-note {
+      margin-top: 1.25rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--clay-light);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── FAQ ─────────────────────────────────────────── */
+    .faq-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--clay-light);
+    }
+
+    .faq-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--espresso);
+      line-height: 1.25;
+      margin-bottom: 3.5rem;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--clay-light);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--clay-light);
+    }
+
+    .faq-q {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--espresso);
+      padding: 1.75rem 2rem 1.75rem 0;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .faq-q::-webkit-details-marker { display: none; }
+
+    .faq-q::after {
+      content: '+';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--clay);
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      line-height: 1;
+    }
+
+    details[open] .faq-q::after {
+      transform: rotate(45deg);
+    }
+
+    details[open] .faq-q {
+      color: var(--clay-deep);
+    }
+
+    .faq-a {
+      padding: 0 2rem 2rem 0;
+      max-width: 680px;
+    }
+
+    .faq-a p {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--espresso);
+      padding: 40px 60px 28px;
+    }
+
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .footer-left { display: flex; flex-direction: column; gap: 8px; }
+
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+
+    .footer-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--warm-white);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-tagline {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(250, 247, 242, 0.45);
+      font-style: italic;
+      padding-left: 32px;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links { display: flex; gap: 24px; }
+
+    .footer-link {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250, 247, 242, 0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-link:hover { color: var(--clay); }
+
+    .social-links { display: flex; gap: 16px; align-items: center; }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(250, 247, 242, 0.15);
+      color: rgba(250, 247, 242, 0.5);
+      transition: color 0.3s, border-color 0.3s;
+      text-decoration: none;
+    }
+
+    .social-link:hover { color: var(--clay); border-color: var(--clay); }
+    .social-link svg { width: 16px; height: 16px; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 24px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(196, 168, 130, 0.1);
+      text-align: center;
+    }
+
+    .footer-copyright {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(250, 247, 242, 0.25);
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { padding: 0 1.5rem; height: 58px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-cta { display: none; }
+      .mobile-menu { top: 58px; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .hero-rule { display: none; }
+      section { padding: 4rem 1.5rem; }
+
+      .recognition-section { padding: 4rem 1.5rem; }
+      .recognition-grid { grid-template-columns: 1fr; }
+      .recognition-item { border-right: none; }
+      .recognition-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--clay-light); }
+      .recognition-item:last-child { border-bottom: none; }
+
+      .athlete-card {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 2.5rem 0;
+      }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .practices-list {
+        grid-template-columns: 1fr;
+      }
+
+      .separates-section { padding: 4rem 1.5rem; }
+      .separates-grid { grid-template-columns: 1fr; }
+
+      .bridge-inner,
+      .tiers-inner { padding: 5rem 1.5rem; }
+
+      .cta-section { padding: 5rem 1.5rem; }
+
+      footer { padding: 40px 24px 28px; }
+      .footer-top { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .footer-tagline { padding-left: 0; }
+      .footer-right { flex-direction: column; gap: 20px; align-items: flex-start; width: 100%; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+      .footer-link { font-size: 0.72rem; }
+
+      .tiers-header { flex-direction: column; align-items: flex-start; }
+
+      .faq-section { padding: 4rem 1.5rem; }
+      .faq-q { font-size: 0.88rem; padding: 1.5rem 1.5rem 1.5rem 0; }
+      .faq-a { padding: 0 1.5rem 1.75rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 — home">
+      <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
+      <div class="nav-divider"></div>
+      <span class="nav-logo-text">innerbalance101</span>
+    </a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/library.html" style="color:var(--espresso);">Library</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/resources.html">Resources</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="/emotional_load_assessment.html" class="nav-cta">Take the Assessment</a>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/library.html">Library</a>
+    <a href="/about.html">About</a>
+    <a href="/resources.html">Resources</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/emotional_load_assessment.html">Take the Assessment</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">The Library</p>
+    <h1>You're not falling apart.<br>You're running on a system<br>that was never built for<br><em>this much.</em></h1>
+    <p class="hero-sub">These practices exist for the moments between meetings, decisions, and deadlines. Structured. Science-backed. Ten minutes to start.</p>
+    <div class="hero-actions">
+      <a href="#practices" class="hero-browse">Browse the Library ↓</a>
+      <a href="/emotional_load_assessment.html" class="hero-assess">Find Your Starting Point</a>
+    </div>
+    <div class="hero-rule"></div>
+  </div>
+
+  <!-- RECOGNITION STRIP -->
+  <div class="recognition-section">
+    <p class="section-label">What it actually feels like</p>
+    <div class="recognition-grid">
+      <div class="recognition-item">
+        <p class="recognition-line">
+          <strong>"I held it together in the meeting."</strong>
+          Then sat in your car and couldn't move for ten minutes.
+        </p>
+      </div>
+      <div class="recognition-item">
+        <p class="recognition-line">
+          <strong>"I said yes when I meant no."</strong>
+          Again. And felt the weight of it for three days.
+        </p>
+      </div>
+      <div class="recognition-item">
+        <p class="recognition-line">
+          <strong>"I know what I should do."</strong>
+          But something underneath keeps pulling a different direction.
+        </p>
+      </div>
+      <div class="recognition-item">
+        <p class="recognition-line">
+          <strong>"I've won by every measure."</strong>
+          And it still feels like something is quietly wrong.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRIDGE (dark) -->
+  <div class="bridge-section">
+    <div class="bridge-inner">
+      <p class="section-label">The gap</p>
+      <h2>You optimize everything.<br>Your internal state is the one thing<br>you have not been given a<br><em>system for.</em></h2>
+      <div class="bridge-paras">
+        <p>Not because you haven't tried. Therapy takes a slot you never have. Meditation asks you to be calm when you're not. Apps give you breathing reminders at exactly the wrong moment.</p>
+        <p><strong>The problem isn't willpower. It's the absence of a structured practice you can actually do in the conditions your life creates.</strong></p>
+        <p>Ten minutes. Your desk. No appointment, no community, no start date. A specific emotion, a complete three-stage process, and a measurable shift when you come out the other side.</p>
+        <p>Mental strength is trained, not gifted. Awareness of your own thought patterns is a performance advantage. This is where that work happens.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT ELITE PERFORMANCE REVEALS (athletes) -->
+  <section>
+    <p class="section-label">What elite performance reveals</p>
+
+    <p class="athletes-intro">The highest-performing people on the planet treat their internal state as a daily practice. Not a crisis response. Not an optional extra. It is part of how they prepare to perform.</p>
+
+    <div class="athletes">
+
+      <div class="athlete-card">
+        <div class="athlete-name-block">
+          <p class="athlete-name">Novak<br>Djokovic</p>
+          <p class="athlete-title">24 Grand Slams</p>
+        </div>
+        <div class="athlete-body">
+          <p>24 Grand Slams. When asked what separates him, he does not point to his serve.</p>
+          <blockquote>"It's not a gift. It's something that comes with work."</blockquote>
+          <p>His daily practice: breathing, visualization, meditation. Scheduled. Not reactive. Not optional.</p>
+          <a href="https://www.hellomagazine.com/healthandbeauty/health-and-fitness/497030/novak-djokovic-disciplined-fitness-routine/" target="_blank" rel="noopener" class="athlete-link">Read the interview →</a>
+        </div>
+      </div>
+
+      <div class="athlete-card">
+        <div class="athlete-name-block">
+          <p class="athlete-name">Simone<br>Biles</p>
+          <p class="athlete-title">Most decorated gymnast of all time</p>
+        </div>
+        <div class="athlete-body">
+          <p>On the morning of the individual all-around final at the 2024 Paris Olympics, she had a therapy session before she competed. She won gold.</p>
+          <blockquote>"Now it's a daily part of my routine."</blockquote>
+          <p>Not a crisis response. Part of how she prepares to compete.</p>
+          <a href="https://www.si.com/onsi/athlete-lifestyle/posts/simone-biles-shares-olympic-morning-routine-mental-health-hoda-kotb" target="_blank" rel="noopener" class="athlete-link">Read the interview →</a>
+        </div>
+      </div>
+
+      <div class="athlete-card">
+        <div class="athlete-name-block">
+          <p class="athlete-name">Naomi<br>Osaka</p>
+          <p class="athlete-title">4 Grand Slam titles</p>
+        </div>
+        <div class="athlete-body">
+          <p>She walked away from the French Open at her peak, rebuilt her daily practice, and came back. The practice came before the return.</p>
+          <blockquote>"If I start my day with meditation, even if it's really brief, it helps ground me for what's to come in the day."</blockquote>
+          <p>It was not the talent that brought her back. It was the work she did first.</p>
+          <a href="https://www.wondermind.com/article/naomi-osaka-meditation/" target="_blank" rel="noopener" class="athlete-link">Read the interview →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="https://youtu.be/QoAoefT3VJc" target="_blank" rel="noopener" class="video-link-row">
+      <div class="play-icon">
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L11 7L1 13V1Z" fill="none" stroke="#A68B65" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="video-link-text">
+        Watch: Athletes on mental health and daily practice
+        <span>innerbalance101 · YouTube</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- LIBRARY CONCEPT -->
+  <div class="section-divider"><hr></div>
+
+  <section>
+    <p class="section-label">The system</p>
+    <div class="concept-grid">
+      <div class="concept-left">
+        <h2>A library built for<br>people who perform<br>at a <em>high level.</em></h2>
+      </div>
+      <div class="concept-right">
+        <p>Not therapy, not a meditation app, nothing with a start date or a group to join.</p>
+        <p>A library. Something you return to when a specific emotion is making it hard to think clearly, make a call, or walk into a room ready.</p>
+        <p>Each practice runs three stages: the thought driving the emotion, the body holding it, the reset that follows. The complete cycle, not a surface fix.</p>
+        <p>You cannot separate your internal state from your output. This is the practice that bridges them.</p>
+
+        <div class="concept-pillars">
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <div class="pillar-text">
+              <strong>Thought Work</strong>
+              Find the belief driving the emotion. Question it.
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <div class="pillar-text">
+              <strong>Somatic Release</strong>
+              Move the body to discharge what the mind is holding.
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <div class="pillar-text">
+              <strong>Inner Reset</strong>
+              Reconnect to your own signal before you move on.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT SEPARATES THIS -->
+  <div class="separates-section">
+    <p class="section-label">Why this works when other things haven't</p>
+    <div class="separates-grid">
+      <div class="separates-item">
+        <p class="separates-item-label">vs. Therapy</p>
+        <p class="separates-item-head">No appointment. No waiting room.</p>
+        <p class="separates-item-body">Therapy is a relationship with a trained professional. These practices are what you do at 11pm on a Tuesday when something is still sitting in your chest and the next session is three weeks away.</p>
+      </div>
+      <div class="separates-item">
+        <p class="separates-item-label">vs. Meditation apps</p>
+        <p class="separates-item-head">Outcome-mapped, not just calm.</p>
+        <p class="separates-item-body">Apps ask you to observe. These practices ask you to move through. Each one targets a specific emotional transformation. You know exactly what you are doing and what changes when you come out.</p>
+      </div>
+      <div class="separates-item">
+        <p class="separates-item-label">vs. Free content</p>
+        <p class="separates-item-head">Structured practice, not more information.</p>
+        <p class="separates-item-body">Knowing about emotional regulation is not the same as doing it. Free content gives you concepts. This gives you a step-by-step protocol you work through on your own, at your own pace.</p>
+      </div>
+      <div class="separates-item">
+        <p class="separates-item-label">vs. Coaching</p>
+        <p class="separates-item-head">A discipline, not a dependency.</p>
+        <p class="separates-item-body">Coaching is relationship-dependent. These practices are a daily self-directed system. No check-ins required. You build the skill, not the reliance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE TIERS -->
+  <div class="tiers-section" id="practices">
+    <div class="tiers-inner">
+      <p class="section-label">The practices</p>
+
+      <div class="tiers-header">
+        <h2>Ten minutes to start.<br>Deeper when you are ready.</h2>
+        <p class="tiers-format">Each practice is a downloadable PDF guide.</p>
+      </div>
+
+      <!-- 10 MIN -->
+      <div class="tier-block">
+        <div class="tier-label-row">
+          <p class="tier-duration">10<span>min</span></p>
+          <p class="tier-desc">For when you need it now. At your desk, between calls, or before you walk into a room.</p>
+        </div>
+        <div class="practices-list">
+          <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener" class="practice-item">
+            <div class="practice-transformation">
+              <span class="practice-from">Overwhelm</span>
+              <span class="practice-arrow">→</span>
+              <span class="practice-to">Grounded</span>
+            </div>
+            <span class="practice-go">↗</span>
+          </a>
+          <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener" class="practice-item">
+            <div class="practice-transformation">
+              <span class="practice-from">Pressure</span>
+              <span class="practice-arrow">→</span>
+              <span class="practice-to">Self-Assurance</span>
+            </div>
+            <span class="practice-go">↗</span>
+          </a>
+          <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener" class="practice-item">
+            <div class="practice-transformation">
+              <span class="practice-from">Self-Doubt</span>
+              <span class="practice-arrow">→</span>
+              <span class="practice-to">Self-Trust</span>
+            </div>
+            <span class="practice-go">↗</span>
+          </a>
+          <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener" class="practice-item">
+            <div class="practice-transformation">
+              <span class="practice-from">Guilt</span>
+              <span class="practice-arrow">→</span>
+              <span class="practice-to">Release</span>
+            </div>
+            <span class="practice-go">↗</span>
+          </a>
+          <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener" class="practice-item">
+            <div class="practice-transformation">
+              <span class="practice-from">Uncertainty</span>
+              <span class="practice-arrow">→</span>
+              <span class="practice-to">Grounded Presence</span>
+            </div>
+            <span class="practice-go">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 30 MIN -->
+      <div class="tier-block">
+        <div class="tier-label-row">
+          <p class="tier-duration">30<span>min</span></p>
+          <p class="tier-desc">A deeper session for when you have space to go further.</p>
+        </div>
+        <div class="tier-coming">
+          <p class="coming-desc">Expanding the library. More practices, more depth.</p>
+          <span class="coming-soon-badge">Coming soon</span>
+        </div>
+      </div>
+
+      <!-- 60 MIN -->
+      <div class="tier-block">
+        <div class="tier-label-row">
+          <p class="tier-duration">60<span>min</span></p>
+          <p class="tier-desc">The full practice for when you are ready to go all the way in.</p>
+        </div>
+        <div class="tier-coming">
+          <p class="coming-desc">The complete session. For when you are ready.</p>
+          <span class="coming-soon-badge">Coming soon</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <p class="section-label">Where to begin</p>
+    <h2>Not sure which practice<br>is right for you?</h2>
+    <p>The Emotional Load Assessment takes 8 minutes. It identifies which emotion is carrying the most charge right now, and maps you to the practice that addresses it directly.</p>
+    <a href="/emotional_load_assessment.html" class="cta-button">Take the Assessment</a>
+    <p class="cta-note">8 minutes &nbsp;·&nbsp; No sign-up required to begin</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <p class="section-label">Common questions</p>
+    <h2 class="faq-heading">What you might be wondering.</h2>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">What exactly is a practice guide?</summary>
+        <div class="faq-a">
+          <p>A downloadable PDF you work through on your own. Each guide targets one specific emotion and runs through three stages: finding the thought driving it, using the body to discharge it, and resetting before you move on. It is structured like a protocol, not a worksheet. You read, pause, and do. Whatever room you are in, whenever it works.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">How is this different from meditation or journaling?</summary>
+        <div class="faq-a">
+          <p>Meditation asks you to observe. Journaling asks you to reflect. These practices ask you to move through. Sitting with an emotion without a method to discharge it often makes it louder. The three-stage cycle completes something. Thought work addresses the cognitive layer, somatic release addresses what the body is holding, and the inner reset closes the loop. You come out different, not just calmer.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Do I need to do them every day?</summary>
+        <div class="faq-a">
+          <p>The 10-minute practices are designed to be daily. Not because there is a rule, but because consistency is what builds the skill. You can also reach for one on demand: before a difficult conversation, after a hard meeting, when something surfaces that you do not have time to spiral into. Both uses are valid. Daily practice builds the baseline. On-demand is what makes it useful in the real moments.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Which practice should I start with?</summary>
+        <div class="faq-a">
+          <p>Start with what is loudest. Pressure at work, a decision you keep circling, guilt you cannot set down. If you know what it is, go there. If nothing is obviously loud right now, the Emotional Load Assessment will identify where the most charge is sitting. It takes 8 minutes.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What is the library, exactly? Is it a subscription?</summary>
+        <div class="faq-a">
+          <p>No subscription. The library is a growing collection of individual practice guides, each targeting a different emotion and its transformation. You buy the ones you need. The 10-minute practices are available now. Deeper 30-minute and 60-minute sessions are being added. New emotions, new depths. It grows alongside you rather than being a one-time purchase that goes stale.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">I am skeptical. I have tried things like this before and they did not work.</summary>
+        <div class="faq-a">
+          <p>Most wellness tools are either too vague to do anything with, or too demanding to sustain. These are short, structured, and built around a complete three-stage cycle rather than a single technique. The 10-minute starting point exists because trust has to be earned. Start with one. See what happens.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">I already do therapy. Is this redundant?</summary>
+        <div class="faq-a">
+          <p>No. Therapy is a relationship with a trained professional. These practices are a daily self-directed discipline you do between sessions. Or instead of scheduling another one for something you can work through on your own. They are built for the moments therapy cannot reach: the Wednesday at 11pm, the five minutes before a difficult call, the car ride home when something is still sitting in your chest.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#FAF7F2"/></svg>
+          <span class="footer-logo-text">innerbalance101</span>
+        </div>
+        <div class="footer-tagline">From performing fine to actually being fine.</div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="/terms-and-conditions.html" class="footer-link">Terms and Conditions</a>
+          <a href="/contact.html" class="footer-link">Contact</a>
+          <a href="/sitemap.xml" class="footer-link">Sitemap</a>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.instagram.com/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">© 2026 innerbalance101. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
+        document.getElementById('mobileMenu').classList.remove('open');
+      }
+    });
+
+    // Scroll-triggered reveal for athlete cards
+    const cards = document.querySelectorAll('.athlete-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+</html>
