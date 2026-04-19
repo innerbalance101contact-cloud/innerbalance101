@@ -659,6 +659,103 @@
   .proof-label { font-size:0.75rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,247,242,0.55); margin-bottom:6px; }
   .proof-sublabel { font-size:0.82rem; font-weight:300; color:rgba(250,247,242,0.5); letter-spacing:0.04em; line-height:1.5; max-width:none; margin-bottom:0; }
 
+  /* ─── INNER BALANCE FEEL ─────────────────────────────────────── */
+  .inner-balance-feel {
+    background:var(--linen);
+    padding:92px 60px;
+    border-top:1px solid rgba(196,168,130,0.2);
+    border-bottom:1px solid rgba(196,168,130,0.2);
+  }
+  .inner-balance-feel-inner {
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap:0;
+    background:var(--warm-white);
+    border:1px solid rgba(196,168,130,0.24);
+  }
+  .ibf-photo {
+    position:relative;
+    min-height:620px;
+    overflow:hidden;
+    background:#2c2420;
+  }
+  .ibf-photo picture { display:block; height:100%; }
+  .ibf-photo img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 25%;
+    filter:saturate(0.76) contrast(1.04) brightness(0.9);
+    transform:scale(1.02);
+  }
+  .ibf-photo::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(0deg, rgba(44,36,32,0.28) 0%, rgba(44,36,32,0.04) 48%, rgba(44,36,32,0.22) 100%),
+      radial-gradient(circle at 82% 18%, rgba(196,168,130,0.22), transparent 46%);
+    pointer-events:none;
+  }
+  .ibf-photo-note {
+    position:absolute;
+    left:28px;
+    bottom:26px;
+    z-index:2;
+    font-size:0.62rem;
+    font-weight:500;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:rgba(250,247,242,0.9);
+    padding:8px 10px;
+    border:1px solid rgba(250,247,242,0.35);
+    background:rgba(44,36,32,0.35);
+    backdrop-filter:blur(2px);
+  }
+  .ibf-copy {
+    padding:68px 56px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .ibf-kicker {
+    font-size:0.7rem;
+    font-weight:500;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--clay-deep);
+    margin-bottom:14px;
+  }
+  .ibf-headline {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2rem,3.2vw,3rem);
+    font-weight:400;
+    line-height:1.13;
+    color:var(--deep);
+    margin-bottom:18px;
+  }
+  .ibf-body {
+    font-size:1rem;
+    font-weight:300;
+    line-height:1.84;
+    color:var(--deep);
+    max-width:none;
+    margin-bottom:14px;
+  }
+  .ibf-quote {
+    margin-top:18px;
+    padding:20px 22px;
+    border-left:2px solid var(--clay);
+    background:rgba(196,168,130,0.1);
+    font-size:0.93rem;
+    font-weight:300;
+    line-height:1.7;
+    color:var(--deep);
+    font-style:italic;
+  }
+
   /* ─── LEAD MAGNET ─────────────────────────────────────────────── */
   .lead-magnet { padding:0; }
   .lead-magnet-inner { display:grid; grid-template-columns:1fr 1fr; }
@@ -755,6 +852,11 @@
     .proof-strip { grid-template-columns:1fr; gap:0; padding:40px 24px; }
     .proof-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.15); }
     .proof-item:last-child { border-bottom:none; padding-bottom:0; }
+    .inner-balance-feel { padding:56px 24px; }
+    .inner-balance-feel-inner { grid-template-columns:1fr; }
+    .ibf-photo { min-height:64vw; max-height:76vw; }
+    .ibf-copy { padding:40px 24px 44px; }
+    .ibf-headline { margin-bottom:14px; }
     .lead-magnet-inner { grid-template-columns:1fr; }
     .lm-image { min-height:52vw; max-height:64vw; }
     .lm-img-content { padding:32px 24px; }
@@ -1216,6 +1318,26 @@
 <section class="proof-strip">
   <div class="proof-item"><div class="proof-num">3</div><div class="proof-label">guided stages</div><div class="proof-sublabel">A clear path back to yourself.</div></div>
   <div class="proof-item"><div class="proof-num">21 x 3</div><div class="proof-label">days to feel stronger, calmer, and clearer</div><div class="proof-sublabel">Small enough to commit to. Powerful enough to change you.</div></div>
+</section>
+
+<section class="inner-balance-feel" aria-labelledby="inner-balance-feel-title">
+  <div class="inner-balance-feel-inner">
+    <div class="ibf-photo">
+      <picture>
+        <source srcset="images/naomi-inner-balance.heic" type="image/heic">
+        <img src="images/naomi.jpg" alt="Naomi, founder of innerbalance101" loading="lazy">
+      </picture>
+      <div class="ibf-photo-note">Founder perspective</div>
+    </div>
+    <div class="ibf-copy">
+      <div class="ibf-kicker">What Inner Balance Feels Like</div>
+      <h2 class="ibf-headline" id="inner-balance-feel-title">You are still in a full life. You are just no longer at war with it.</h2>
+      <p class="ibf-body">Inner Balance does not feel like perfection. It feels like steadiness. The same meetings, same pressure, same responsibilities, but your body is not in constant alarm and your mind is not spinning all day trying to outrun itself.</p>
+      <p class="ibf-body">You recover faster. You make clearer decisions. You notice what is happening before it becomes a full internal storm. You do not need to numb out, overwork, or overthink just to get through your day.</p>
+      <p class="ibf-body">You still feel things deeply, but you are grounded while you feel them. You lead from a place that is regulated, self-aware, and true to you.</p>
+      <div class="ibf-quote">This is not about becoming a different person. It is about finally feeling like yourself while your life stays ambitious.</div>
+    </div>
+  </div>
 </section>
 
 <section class="lead-magnet">
