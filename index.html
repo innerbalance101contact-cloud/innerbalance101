@@ -366,6 +366,48 @@
   .how-img-overlay { position:absolute; inset:0; background:linear-gradient(to left,rgba(250,247,242,0.15) 0%,transparent 50%); }
   .how-content { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; }
 
+  /* ─── HOW DIAGRAM ─────────────────────────────────────────────── */
+  .how-diagram {
+    background:var(--linen);
+    position:static !important;
+    overflow:visible !important;
+    display:flex; align-items:center; justify-content:center;
+    padding:60px 40px;
+    min-height:600px;
+  }
+  .how-diagram-inner { width:100%; max-width:520px; }
+  .how-diagram-kicker {
+    font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--clay-deep); margin-bottom:20px;
+  }
+  .how-diagram-svg { display:block; width:100%; height:auto; margin-bottom:18px; }
+  .how-diagram-axis {
+    font-family:'Jost',sans-serif; font-size:0.62rem; font-weight:500;
+    letter-spacing:0.14em; text-transform:uppercase; fill:var(--soft);
+  }
+  .how-diagram-day {
+    font-family:'Jost',sans-serif; font-size:0.58rem;
+    fill:var(--clay-deep); letter-spacing:0.06em;
+  }
+  .how-diagram-ylabel {
+    font-family:'Jost',sans-serif; font-size:0.58rem;
+    fill:rgba(44,36,32,0.3); letter-spacing:0.05em;
+  }
+  .how-diagram-legend { display:flex; gap:24px; margin-bottom:14px; flex-wrap:wrap; }
+  .how-diagram-legend-item { display:flex; align-items:center; gap:10px; }
+  .how-diagram-legend-line {
+    display:inline-block; width:24px; height:2.5px; border-radius:2px; flex-shrink:0;
+  }
+  .how-diagram-legend-line--load { background:#A55C54; }
+  .how-diagram-legend-line--stability { background:#C4A882; }
+  .how-diagram-legend-text {
+    font-size:0.72rem; font-weight:300; color:var(--soft); letter-spacing:0.04em;
+  }
+  .how-diagram-note {
+    font-size:0.78rem; font-weight:300; color:var(--soft); font-style:italic;
+    max-width:none; margin-bottom:0;
+  }
+
   /* ─── SHARED SECTION PARTS ────────────────────────────────────── */
   .section-label { font-size:0.75rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay-deep); margin-bottom:20px; display:flex; align-items:center; gap:12px; }
   .section-label::before { content:''; width:24px; height:1px; background:var(--clay); }
@@ -1018,13 +1060,12 @@
     </div>
     <div class="how-content">
       <div class="section-label">How It Works</div>
-      <h2 class="section-headline">What you see once you sign up.</h2>
-      <p class="section-body">The system is designed as a 21-day commitment inside each stage. You are not left guessing what to do next. You move through a clear progression that helps you stabilise first, deepen second, and build true resilience third.</p>
-      <p class="section-body" style="margin-top:-20px;">The structure of the practice stays the same across every stage. What changes is the depth of the prompts, the emotional work, and what you are ready to see inside yourself.</p>
+      <h2 class="section-headline">Three stages. Each one builds on the last.</h2>
+      <p class="section-body">You move through 63 days in order. What becomes available to you changes as your nervous system settles, your self-awareness expands, and your inner world becomes a place you can actually stand in.</p>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-content-label">Part 1</div><div class="step-content-title">Journalling and thought work</div><div class="step-content-desc">This is where you arrive exactly as you are and name what is happening. The journalling and thought work live together here, helping you see the emotional pattern, the reaction, and the story underneath it with more honesty and awareness.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-content-label">Part 2</div><div class="step-content-title">Emotional body release</div><div class="step-content-desc">The second part works at the body level through somatic therapy and emotional release. This is where the nervous system gets support, stored stress begins to move, and what felt stuck starts to soften.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-content-label">Part 3</div><div class="step-content-title">The closing</div><div class="step-content-desc">Every practice ends with a closing that may include meditation, affirmations, or both, depending on the practice. You do not just calm down. You leave with a more grounded internal state to carry back into your day.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-content-label">Stage 1 &middot; Days 1&ndash;21</div><div class="step-content-title">SOS</div><div class="step-content-desc">It has taken a long time to push your nervous system to this point. These 21 days are not about fixing anything fast. They are about helping it come back out of high alert gradually, so you can start to feel that you can perform &mdash; actually perform &mdash; without the quiet drowning feeling underneath it all.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div><div class="step-content-label">Stage 2 &middot; Days 22&ndash;42</div><div class="step-content-title">Clarity</div><div class="step-content-desc">Your nervous system is calmer. The things that used to set you off are starting to irritate you less. This stage is where self-awareness begins to open up &mdash; more self-discovery, deeper somatic practices, and a growing ability to notice your own patterns before they run you.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div><div class="step-content-label">Stage 3 &middot; Days 43&ndash;63</div><div class="step-content-title">Inner Balance</div><div class="step-content-desc">This is where you go deep into why you perform the way you do. With more ground under you and more clarity about yourself, you begin to shape your inner world with intention. You create from alignment, not urgency. You perform from a place that feels grounded and genuinely self-assured.</div></div></div>
       </div>
     </div>
   </div>
