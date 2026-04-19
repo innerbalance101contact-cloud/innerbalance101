@@ -454,7 +454,99 @@
 
   /* ─── SYSTEM ─────────────────────────────────────────────────── */
   .system { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
-  .system-header { margin-bottom:56px; }
+  .system-header {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(260px,0.78fr);
+    gap:56px;
+    align-items:start;
+    margin-bottom:56px;
+  }
+
+  /* ─── THOUGHT JOURNEY ─────────────────────────────────────────── */
+  .thought-journey {
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .thought-journey-kicker {
+    font-size:0.62rem;
+    font-weight:500;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--clay-deep);
+    margin-bottom:16px;
+  }
+  .tj-stage { display:flex; flex-direction:column; gap:10px; }
+  .tj-stage-header {
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .tj-icon {
+    width:30px; height:30px;
+    border:1px solid rgba(196,168,130,0.35);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    background:var(--warm-white);
+  }
+  .tj-icon svg {
+    width:14px; height:14px;
+    fill:none; stroke-width:1.7;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
+  .tj-icon--sos svg   { stroke:#A55C54; }
+  .tj-icon--clarity svg { stroke:var(--clay-deep); }
+  .tj-icon--balance svg { stroke:var(--deep); }
+  .tj-stage-name {
+    font-size:0.65rem;
+    font-weight:500;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--soft);
+  }
+  .tj-bubble {
+    background:var(--warm-white);
+    border:1px solid rgba(196,168,130,0.32);
+    border-radius:10px;
+    padding:14px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+    box-shadow:0 4px 16px rgba(44,36,32,0.05);
+  }
+  .tj-bubble p {
+    font-family:'Cormorant Garamond',serif;
+    font-size:0.97rem;
+    font-style:italic;
+    font-weight:400;
+    line-height:1.45;
+    color:var(--deep);
+    margin:0;
+    max-width:none;
+    padding-left:12px;
+    border-left:2px solid rgba(196,168,130,0.35);
+  }
+  .tj-connector {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-left:14px;
+    gap:0;
+    margin:6px 0;
+  }
+  .tj-connector-line {
+    width:1px;
+    height:18px;
+    background:rgba(196,168,130,0.45);
+  }
+  .tj-connector-arrow {
+    width:0; height:0;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:5px solid rgba(196,168,130,0.55);
+    margin-left:-3.5px;
+  }
 
   .system-header .section-label { color:var(--clay-deep); }
   .system-header .section-label::before { background:var(--clay); }
@@ -899,6 +991,7 @@
     .system { padding:56px 24px; }
     .system-header,
     .system-grid { grid-template-columns:1fr; gap:28px; }
+    .thought-journey { margin-top:8px; }
     .system-cta { flex-direction:column; align-items:flex-start; padding:24px; }
     .system-cta-price { flex-direction:row; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); padding-right:0; padding-bottom:16px; width:100%; }
     .system-stages,
@@ -1113,9 +1206,61 @@
 
 <section class="system" id="system">
   <div class="system-header">
-    <div class="section-label">The System</div>
-    <h2 class="section-headline">3 stages to feeling in inner balance.</h2>
-    <p class="section-body">Three stages. 21 days each. Built for people who are tired of looking fine on the outside while feeling off inside. You move through SOS, Clarity, and Inner Balance in order, with guided check-ins and practical support that help you keep showing up. That's 63 days. One stage at a time.</p>
+    <div>
+      <div class="section-label">The System</div>
+      <h2 class="section-headline">3 stages to feeling in inner balance.</h2>
+      <p class="section-body">Three stages. 21 days each. Built for people who are tired of looking fine on the outside while feeling off inside. You move through SOS, Clarity, and Inner Balance in order, with guided check-ins and practical support that help you keep showing up. That's 63 days. One stage at a time.</p>
+    </div>
+
+    <div class="thought-journey" aria-label="How your inner voice shifts across the three stages">
+      <div class="thought-journey-kicker">The inner voice — before &amp; after</div>
+
+      <div class="tj-stage">
+        <div class="tj-stage-header">
+          <div class="tj-icon tj-icon--sos" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 12c2.2-4.6 13.8-4.6 16 0"/><path d="M7 12v3.2c0 1.8 1.4 3.2 3.2 3.2h3.6c1.8 0 3.2-1.4 3.2-3.2V12"/><path d="M9.5 12v2.2"/><path d="M14.5 12v2.2"/></svg>
+          </div>
+          <span class="tj-stage-name">Stage 1 &middot; SOS</span>
+        </div>
+        <div class="tj-bubble">
+          <p>I have so much to do.</p>
+          <p>I&rsquo;m always behind.</p>
+          <p>I don&rsquo;t have time.</p>
+        </div>
+      </div>
+
+      <div class="tj-connector"><div class="tj-connector-line"></div><div class="tj-connector-arrow"></div></div>
+
+      <div class="tj-stage">
+        <div class="tj-stage-header">
+          <div class="tj-icon tj-icon--clarity" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M3.8 12c2.3-4 5-6 8.2-6s5.9 2 8.2 6c-2.3 4-5 6-8.2 6s-5.9-2-8.2-6Z"/></svg>
+          </div>
+          <span class="tj-stage-name">Stage 2 &middot; Clarity</span>
+        </div>
+        <div class="tj-bubble">
+          <p>It&rsquo;s busy, but I can handle it.</p>
+          <p>I&rsquo;ve gotten through this before.</p>
+          <p>I&rsquo;ve got this.</p>
+        </div>
+      </div>
+
+      <div class="tj-connector"><div class="tj-connector-line"></div><div class="tj-connector-arrow"></div></div>
+
+      <div class="tj-stage">
+        <div class="tj-stage-header">
+          <div class="tj-icon tj-icon--balance" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.6"/><circle cx="12" cy="12" r="2.4"/><path d="M12 3.5v2.1"/><path d="M12 18.4v2.1"/><path d="M3.5 12h2.1"/><path d="M18.4 12h2.1"/></svg>
+          </div>
+          <span class="tj-stage-name">Stage 3 &middot; Inner Balance</span>
+        </div>
+        <div class="tj-bubble">
+          <p>I know what matters. I work on that.</p>
+          <p>What I can&rsquo;t control no longer runs me.</p>
+          <p>I&rsquo;m grounded in who I am.</p>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="system-grid">
     <div class="system-stages">
