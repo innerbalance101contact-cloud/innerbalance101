@@ -497,111 +497,103 @@
   .lib-idea-visual::after {
     content:'';
     position:absolute;
-    bottom:24px;
-    width:72%;
-    height:56px;
+    bottom:42px;
+    width:84%;
+    height:76px;
     border-radius:50%;
     background:radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 72%);
     filter:blur(3px);
     z-index:0;
   }
-  .lib-idea-stack {
-    width:min(100%, 430px);
-    height:100%;
-    position:relative;
-    z-index:1;
-  }
-  .lib-idea-practice-card {
+  .lib-idea-cards-preview { position:relative; width:420px; height:500px; z-index:1; }
+  .lib-idea-hcp-card {
     position:absolute;
-    left:50%;
-    bottom:36px;
-    width:min(304px, 74%);
-    height:448px;
-    border-radius:30px;
-    background:rgba(250,247,242,0.92);
-    border:10px solid rgba(17,12,9,0.74);
-    box-shadow:0 18px 32px rgba(0,0,0,0.28);
-    transform-origin:bottom center;
-    overflow:hidden;
+    width:210px;
+    background:#1a1410;
+    border-radius:20px;
+    padding:9px;
+    box-shadow:0 20px 60px rgba(44,36,32,0.34), 0 6px 18px rgba(44,36,32,0.2);
+    transition:transform 0.35s ease;
   }
-  .lib-idea-practice-card.card-back-left {
-    transform:translateX(-70%) rotate(-11deg);
-    opacity:0.48;
-  }
-  .lib-idea-practice-card.card-back-right {
-    transform:translateX(-30%) rotate(11deg);
-    opacity:0.48;
-  }
-  .lib-idea-practice-card.card-front {
-    transform:translateX(-50%);
-    border-color:#16100d;
-    opacity:1;
-    z-index:2;
-  }
-  .lib-idea-practice-card-body {
-    padding:34px 28px 24px;
-    color:var(--deep);
-    height:100%;
+  .lib-idea-hcp-inner {
+    background:var(--warm-white);
+    border-radius:12px;
+    padding:22px 15px 14px;
     display:flex;
     flex-direction:column;
+    min-height:286px;
+    position:relative;
+    overflow:hidden;
   }
-  .lib-idea-practice-topline {
-    font-size:0.62rem;
-    font-weight:500;
-    letter-spacing:0.12em;
-    color:rgba(63,52,45,0.82);
+  .lib-idea-hcp-brand {
+    font-family:'Jost',sans-serif;
+    font-size:0.43rem;
+    letter-spacing:0.1em;
     text-transform:uppercase;
+    color:var(--soft);
+    margin-bottom:6px;
   }
-  .lib-idea-practice-index {
-    align-self:flex-end;
+  .lib-idea-hcp-num {
     font-family:'Cormorant Garamond',serif;
-    font-size:3.1rem;
-    line-height:0.8;
-    color:rgba(196,168,130,0.25);
-    margin-top:-8px;
-    margin-bottom:8px;
+    font-size:2.5rem;
+    font-weight:300;
+    color:var(--clay-light);
+    line-height:1;
+    position:absolute;
+    right:10px;
+    top:14px;
+    opacity:0.3;
   }
-  .lib-idea-practice-lead {
+  .lib-idea-hcp-the {
     font-family:'Cormorant Garamond',serif;
-    font-size:2rem;
-    font-weight:500;
-    line-height:1.05;
-    margin:4px 0 14px;
-    color:#2c2420;
-  }
-  .lib-idea-practice-line {
-    width:44px;
-    height:1px;
-    background:rgba(196,168,130,0.85);
-    margin-bottom:14px;
-  }
-  .lib-idea-practice-shift {
-    font-size:1rem;
-    font-family:'Cormorant Garamond',serif;
+    font-size:0.74rem;
+    font-weight:300;
     font-style:italic;
-    color:#2c2420;
-    margin-bottom:18px;
-  }
-  .lib-idea-practice-shift strong {
-    font-style:normal;
-    font-weight:500;
-    color:var(--clay-deep);
-    margin-right:6px;
-  }
-  .lib-idea-practice-btn {
+    color:var(--soft);
     margin-top:auto;
-    align-self:stretch;
-    border-radius:8px;
-    background:var(--clay);
-    color:var(--deep);
-    border:1px solid rgba(0,0,0,0.06);
-    text-align:center;
-    padding:12px 16px;
-    font-size:0.72rem;
-    font-weight:600;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
+    padding-top:24px;
   }
+  .lib-idea-hcp-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.25rem;
+    font-weight:500;
+    color:var(--deep);
+    line-height:1.06;
+    margin-bottom:2px;
+  }
+  .lib-idea-hcp-rule { width:24px; height:1px; background:var(--clay); margin-bottom:8px; }
+  .lib-idea-hcp-arrow {
+    font-family:'Jost',sans-serif;
+    font-size:0.46rem;
+    color:var(--clay-deep);
+    letter-spacing:0.06em;
+    margin-bottom:2px;
+  }
+  .lib-idea-hcp-dest {
+    font-family:'Cormorant Garamond',serif;
+    font-size:0.88rem;
+    font-weight:500;
+    font-style:italic;
+    color:var(--deep);
+    margin-bottom:10px;
+  }
+  .lib-idea-hcp-cta {
+    background:var(--clay);
+    padding:7px 9px;
+    text-align:center;
+    border-radius:3px;
+    font-family:'Jost',sans-serif;
+    font-size:0.47rem;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--deep);
+  }
+  .lib-idea-hcp-card--1 { left:10px; top:150px; transform:rotate(-13deg); z-index:1; opacity:0.62; }
+  .lib-idea-hcp-card--2 { left:56px; top:92px; transform:rotate(-6.5deg); z-index:2; opacity:0.84; }
+  .lib-idea-hcp-card--3 { left:108px; top:44px; transform:rotate(0deg); z-index:5; }
+  .lib-idea-hcp-card--4 { left:160px; top:92px; transform:rotate(6.5deg); z-index:2; opacity:0.84; }
+  .lib-idea-hcp-card--5 { left:206px; top:150px; transform:rotate(13deg); z-index:1; opacity:0.62; }
 
   /* ─── METHOD ─── */
   .lib-method { background:var(--warm-white); padding:104px 60px; }
@@ -738,32 +730,122 @@
   .lib-practice-card.coming .lib-practice-title { color:var(--soft); }
   .lib-practice-card.is-hidden { display:none; }
 
-  /* ─── PRACTICE COVER COLORS ─── */
-  .practice-cover--pressure   { background:linear-gradient(135deg, #8B4A43 0%, #A55C54 100%); }
-  .practice-cover--doubt      { background:linear-gradient(135deg, #6B5B4E 0%, #8B6F5E 100%); }
-  .practice-cover--overwhelm  { background:linear-gradient(135deg, #4A6B6B 0%, #5E8B8B 100%); }
-  .practice-cover--uncertainty{ background:linear-gradient(135deg, #6B6B4A 0%, #8B8B5E 100%); }
-  .practice-cover--guilt      { background:linear-gradient(135deg, #5B4E6B 0%, #7A6B8B 100%); }
-  .practice-cover--mindfulness{ background:linear-gradient(135deg, #A68B65 0%, #C4A882 100%); }
-
-  .lib-practice-cover-mini {
-    min-height:132px;
-    border-radius:8px;
-    padding:16px;
+  .lib-practice-cover-phone {
     margin-bottom:18px;
-    color:var(--warm-white);
-    display:flex; flex-direction:column; justify-content:space-between;
-    box-shadow:inset 0 0 0 1px rgba(250,247,242,0.16);
+    display:flex;
+    justify-content:center;
   }
-  .lib-practice-cover-mini-title {
+  .lib-practice-device {
+    background:#1a1410;
+    border-radius:14px;
+    padding:7px;
+    width:min(228px, 100%);
+    box-shadow:0 14px 40px rgba(0,0,0,0.35), 0 6px 14px rgba(0,0,0,0.22);
+    position:relative;
+  }
+  .lib-practice-device::before {
+    content:'';
+    position:absolute;
+    top:7px;
+    left:50%;
+    transform:translateX(-50%);
+    width:40px;
+    height:5px;
+    background:#0d0d0d;
+    border-radius:3px;
+    z-index:2;
+  }
+  .lib-practice-screen {
+    background:var(--warm-white);
+    border-radius:8px;
+    overflow:hidden;
+    aspect-ratio:9/16;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    padding:20px 14px 14px;
+  }
+  .lib-practice-screen-header {
+    display:flex;
+    align-items:center;
+    gap:5px;
+    margin-bottom:10px;
+  }
+  .lib-practice-screen-brand {
+    font-family:'Jost',sans-serif;
+    font-size:0.42rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--soft);
+  }
+  .lib-practice-screen-num {
     font-family:'Cormorant Garamond',serif;
-    font-size:1.18rem; font-weight:500; line-height:1.08;
-    max-width:150px;
+    font-size:2.4rem;
+    font-weight:300;
+    color:var(--clay-light);
+    line-height:1;
+    position:absolute;
+    right:10px;
+    top:16px;
+    opacity:0.4;
   }
-  .lib-practice-cover-mini-meta {
-    display:flex; justify-content:space-between; gap:12px;
-    font-size:0.66rem; font-weight:400; color:rgba(250,247,242,0.82);
-    text-transform:uppercase; letter-spacing:0.08em;
+  .lib-practice-screen-the {
+    font-family:'Cormorant Garamond',serif;
+    font-size:0.7rem;
+    font-weight:300;
+    font-style:italic;
+    color:var(--soft);
+    margin-bottom:1px;
+    margin-top:auto;
+    padding-top:32px;
+  }
+  .lib-practice-screen-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem;
+    font-weight:500;
+    color:var(--deep);
+    line-height:1.1;
+    margin-bottom:1px;
+  }
+  .lib-practice-screen-divider { width:20px; height:1px; background:var(--clay); margin-bottom:8px; }
+  .lib-practice-screen-transform {
+    font-family:'Jost',sans-serif;
+    font-size:0.46rem;
+    font-weight:400;
+    letter-spacing:0.08em;
+    color:var(--clay-deep);
+    margin-bottom:2px;
+  }
+  .lib-practice-screen-destination {
+    font-family:'Cormorant Garamond',serif;
+    font-size:0.78rem;
+    font-weight:500;
+    color:var(--deep);
+    margin-bottom:8px;
+    font-style:italic;
+  }
+  .lib-practice-screen-cta {
+    margin-top:10px;
+    background:var(--clay);
+    padding:7px 10px;
+    text-align:center;
+    border-radius:3px;
+  }
+  .lib-practice-screen-cta-text {
+    font-family:'Jost',sans-serif;
+    font-size:0.48rem;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--deep);
+  }
+  .lib-practice-screen-duration {
+    font-family:'Jost',sans-serif;
+    font-size:0.44rem;
+    font-weight:300;
+    color:var(--soft);
+    text-align:center;
+    margin-top:6px;
   }
   .lib-practice-coming-note { font-size:0.72rem; font-weight:500; color:var(--clay-deep); font-style:italic; letter-spacing:0.08em; text-transform:uppercase; align-self:flex-start; }
 
@@ -964,11 +1046,14 @@
       gap:36px;
     }
     .lib-idea-visual { height:500px; }
-    .lib-idea-stack { width:min(100%, 390px); }
-    .lib-idea-practice-card {
-      width:min(284px, 74%);
-      height:418px;
-    }
+    .lib-idea-cards-preview { width:360px; height:460px; }
+    .lib-idea-hcp-card { width:184px; border-radius:18px; padding:8px; }
+    .lib-idea-hcp-inner { min-height:258px; padding:20px 14px 13px; border-radius:11px; }
+    .lib-idea-hcp-card--1 { left:2px; top:142px; }
+    .lib-idea-hcp-card--2 { left:38px; top:88px; }
+    .lib-idea-hcp-card--3 { left:80px; top:44px; }
+    .lib-idea-hcp-card--4 { left:122px; top:88px; }
+    .lib-idea-hcp-card--5 { left:158px; top:142px; }
   }
 
   @media (max-width: 960px) {
@@ -1002,11 +1087,21 @@
       height:430px;
       justify-self:end;
     }
-    .lib-idea-stack { width:min(100%, 360px); }
-    .lib-idea-practice-card {
-      width:min(260px, 74%);
-      height:382px;
-    }
+    .lib-idea-cards-preview { width:320px; height:410px; }
+    .lib-idea-hcp-card { width:160px; border-radius:16px; padding:7px; }
+    .lib-idea-hcp-inner { min-height:228px; padding:17px 12px 11px; border-radius:10px; }
+    .lib-idea-hcp-brand { font-size:0.39rem; }
+    .lib-idea-hcp-num { font-size:2.1rem; top:12px; right:8px; }
+    .lib-idea-hcp-the { font-size:0.66rem; padding-top:18px; }
+    .lib-idea-hcp-title { font-size:1.02rem; }
+    .lib-idea-hcp-arrow { font-size:0.42rem; }
+    .lib-idea-hcp-dest { font-size:0.76rem; }
+    .lib-idea-hcp-cta { font-size:0.42rem; padding:6px 8px; }
+    .lib-idea-hcp-card--1 { left:4px; top:124px; }
+    .lib-idea-hcp-card--2 { left:36px; top:74px; }
+    .lib-idea-hcp-card--3 { left:72px; top:34px; }
+    .lib-idea-hcp-card--4 { left:108px; top:74px; }
+    .lib-idea-hcp-card--5 { left:140px; top:124px; }
     .lib-preview { padding-top:0; }
     .lib-preview-grid { grid-template-columns:1fr; }
     .lib-library-tools { grid-template-columns:1fr 1fr; }
@@ -1079,24 +1174,27 @@
     }
     .lib-idea-layout { grid-template-columns:1fr; gap:32px; }
     .lib-idea-visual {
-      height:390px;
+      height:360px;
       justify-content:center;
       align-items:center;
       justify-self:center;
     }
-    .lib-idea-practice-card {
-      border-width:8px;
-      border-radius:24px;
-      height:352px;
-    }
-    .lib-idea-practice-card-body { padding:24px 20px 18px; }
-    .lib-idea-practice-lead { font-size:1.65rem; margin-bottom:10px; }
-    .lib-idea-practice-shift { font-size:0.92rem; margin-bottom:12px; }
-    .lib-idea-practice-btn {
-      padding:10px 12px;
-      font-size:0.64rem;
-      letter-spacing:0.09em;
-    }
+    .lib-idea-cards-preview { width:260px; height:340px; }
+    .lib-idea-hcp-card { width:126px; border-radius:13px; padding:6px; }
+    .lib-idea-hcp-inner { min-height:184px; padding:13px 10px 9px; border-radius:8px; }
+    .lib-idea-hcp-brand { font-size:0.34rem; }
+    .lib-idea-hcp-num { font-size:1.78rem; top:9px; right:7px; }
+    .lib-idea-hcp-the { font-size:0.6rem; padding-top:14px; }
+    .lib-idea-hcp-title { font-size:0.86rem; }
+    .lib-idea-hcp-rule { width:16px; margin-bottom:6px; }
+    .lib-idea-hcp-arrow { font-size:0.37rem; }
+    .lib-idea-hcp-dest { font-size:0.66rem; margin-bottom:7px; }
+    .lib-idea-hcp-cta { font-size:0.35rem; padding:5px 6px; }
+    .lib-idea-hcp-card--1 { left:2px; top:102px; }
+    .lib-idea-hcp-card--2 { left:27px; top:62px; }
+    .lib-idea-hcp-card--3 { left:56px; top:28px; }
+    .lib-idea-hcp-card--4 { left:85px; top:62px; }
+    .lib-idea-hcp-card--5 { left:110px; top:102px; }
     .lib-preview { padding-top:0; }
     .lib-hero-headline { font-size:2.5rem; }
     .lib-hero-mark-count { font-size:3.8rem; }
@@ -1105,6 +1203,7 @@
     .lib-practices-grid { grid-template-columns:1fr; }
     .lib-reminder { padding:60px 20px; }
     .lib-practice-card { padding:28px 22px 24px; }
+    .lib-practice-device { width:min(200px, 100%); }
     .lib-practice-title {
       font-size:1.42rem;
       overflow-wrap:anywhere;
@@ -1270,19 +1369,67 @@
         <p class="lib-idea-body">You open a practice. You move through it. You come back to yourself.</p>
       </div>
       <div class="lib-idea-visual" aria-hidden="true">
-        <div class="lib-idea-stack">
-          <article class="lib-idea-practice-card card-back-left"></article>
-          <article class="lib-idea-practice-card card-back-right"></article>
-          <article class="lib-idea-practice-card card-front">
-            <div class="lib-idea-practice-card-body">
-              <div class="lib-idea-practice-topline">innerbalance101</div>
-              <div class="lib-idea-practice-index">03</div>
-              <h3 class="lib-idea-practice-lead">The<br>Self-Trust<br>Protocol</h3>
-              <div class="lib-idea-practice-line"></div>
-              <div class="lib-idea-practice-shift"><strong>Self-Doubt</strong> to Self-Trust</div>
-              <div class="lib-idea-practice-btn">Start Practising</div>
+        <div class="lib-idea-cards-preview">
+          <div class="lib-idea-hcp-card lib-idea-hcp-card--1">
+            <div class="lib-idea-hcp-inner">
+              <div class="lib-idea-hcp-brand">innerbalance101</div>
+              <div class="lib-idea-hcp-num">01</div>
+              <div class="lib-idea-hcp-the">The</div>
+              <div class="lib-idea-hcp-title">Grounded Professional</div>
+              <div class="lib-idea-hcp-rule"></div>
+              <div class="lib-idea-hcp-arrow">Overwhelm &rarr;</div>
+              <div class="lib-idea-hcp-dest">Grounded</div>
+              <div class="lib-idea-hcp-cta">Start Practising</div>
             </div>
-          </article>
+          </div>
+          <div class="lib-idea-hcp-card lib-idea-hcp-card--2">
+            <div class="lib-idea-hcp-inner">
+              <div class="lib-idea-hcp-brand">innerbalance101</div>
+              <div class="lib-idea-hcp-num">02</div>
+              <div class="lib-idea-hcp-the">The</div>
+              <div class="lib-idea-hcp-title">Pressure Reset</div>
+              <div class="lib-idea-hcp-rule"></div>
+              <div class="lib-idea-hcp-arrow">Pressure &rarr;</div>
+              <div class="lib-idea-hcp-dest">Self-Assurance</div>
+              <div class="lib-idea-hcp-cta">Start Practising</div>
+            </div>
+          </div>
+          <div class="lib-idea-hcp-card lib-idea-hcp-card--3">
+            <div class="lib-idea-hcp-inner">
+              <div class="lib-idea-hcp-brand">innerbalance101</div>
+              <div class="lib-idea-hcp-num">03</div>
+              <div class="lib-idea-hcp-the">The</div>
+              <div class="lib-idea-hcp-title">Self-Trust Protocol</div>
+              <div class="lib-idea-hcp-rule"></div>
+              <div class="lib-idea-hcp-arrow">Self-Doubt &rarr;</div>
+              <div class="lib-idea-hcp-dest">Self-Trust</div>
+              <div class="lib-idea-hcp-cta">Start Practising</div>
+            </div>
+          </div>
+          <div class="lib-idea-hcp-card lib-idea-hcp-card--4">
+            <div class="lib-idea-hcp-inner">
+              <div class="lib-idea-hcp-brand">innerbalance101</div>
+              <div class="lib-idea-hcp-num">04</div>
+              <div class="lib-idea-hcp-the">The</div>
+              <div class="lib-idea-hcp-title">Clarity Reset</div>
+              <div class="lib-idea-hcp-rule"></div>
+              <div class="lib-idea-hcp-arrow">Uncertainty &rarr;</div>
+              <div class="lib-idea-hcp-dest">Presence</div>
+              <div class="lib-idea-hcp-cta">Start Practising</div>
+            </div>
+          </div>
+          <div class="lib-idea-hcp-card lib-idea-hcp-card--5">
+            <div class="lib-idea-hcp-inner">
+              <div class="lib-idea-hcp-brand">innerbalance101</div>
+              <div class="lib-idea-hcp-num">05</div>
+              <div class="lib-idea-hcp-the">The</div>
+              <div class="lib-idea-hcp-title">Guilt Release System</div>
+              <div class="lib-idea-hcp-rule"></div>
+              <div class="lib-idea-hcp-arrow">Guilt &rarr;</div>
+              <div class="lib-idea-hcp-dest">Release</div>
+              <div class="lib-idea-hcp-cta">Start Practising</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1391,12 +1538,22 @@
 
       <article class="lib-practice-card" data-title="Self-Assurance Practice" data-emotion="pressure" data-event="before-a-meeting decision-making" data-length="medium" data-type="somatic thoughtwork" data-search="pressure self-assurance performance before a meeting decision making">
         <div class="lib-practice-index">Practice / 01</div>
-        <div class="lib-practice-cover-mini practice-cover--pressure">
-          <div class="practice-cover-kicker">Pressure</div>
-          <div class="lib-practice-cover-mini-title">Self-Assurance Practice</div>
-          <div class="lib-practice-cover-mini-meta">
-            <span>10 min</span>
-            <span>Meeting reset</span>
+        <div class="lib-practice-cover-phone">
+          <div class="lib-practice-device">
+            <div class="lib-practice-screen">
+              <div class="lib-practice-screen-header">
+                <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg>
+                <span class="lib-practice-screen-brand">innerbalance101</span>
+              </div>
+              <div class="lib-practice-screen-num">02</div>
+              <div class="lib-practice-screen-the">The</div>
+              <div class="lib-practice-screen-title">Pressure Reset</div>
+              <div class="lib-practice-screen-divider"></div>
+              <div class="lib-practice-screen-transform">Pressure &rarr;</div>
+              <div class="lib-practice-screen-destination">Self-Assurance</div>
+              <div class="lib-practice-screen-cta"><div class="lib-practice-screen-cta-text">Start Practising</div></div>
+              <div class="lib-practice-screen-duration">10 minute practice</div>
+            </div>
           </div>
         </div>
         <h3 class="lib-practice-title">The Self-Assurance Practice</h3>
@@ -1416,12 +1573,22 @@
 
       <article class="lib-practice-card" data-title="Self-Trust Practice" data-emotion="self-doubt" data-event="decision-making after-a-conversation" data-length="medium" data-type="thoughtwork mindfulness" data-search="self-doubt self-trust decision making after a conversation second guessing mindfulness">
         <div class="lib-practice-index">Practice / 02</div>
-        <div class="lib-practice-cover-mini practice-cover--doubt">
-          <div class="practice-cover-kicker">Self-doubt</div>
-          <div class="lib-practice-cover-mini-title">Self-Trust Practice</div>
-          <div class="lib-practice-cover-mini-meta">
-            <span>12 min</span>
-            <span>Signal reset</span>
+        <div class="lib-practice-cover-phone">
+          <div class="lib-practice-device">
+            <div class="lib-practice-screen">
+              <div class="lib-practice-screen-header">
+                <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg>
+                <span class="lib-practice-screen-brand">innerbalance101</span>
+              </div>
+              <div class="lib-practice-screen-num">03</div>
+              <div class="lib-practice-screen-the">The</div>
+              <div class="lib-practice-screen-title">Self-Trust Protocol</div>
+              <div class="lib-practice-screen-divider"></div>
+              <div class="lib-practice-screen-transform">Self-Doubt &rarr;</div>
+              <div class="lib-practice-screen-destination">Self-Trust</div>
+              <div class="lib-practice-screen-cta"><div class="lib-practice-screen-cta-text">Start Practising</div></div>
+              <div class="lib-practice-screen-duration">12 minute practice</div>
+            </div>
           </div>
         </div>
         <h3 class="lib-practice-title">The Self-Trust Practice</h3>
@@ -1442,12 +1609,22 @@
 
       <article class="lib-practice-card" data-title="Grounded Practice" data-emotion="overwhelm" data-event="end-of-day before-a-meeting" data-length="short" data-type="somatic mindfulness" data-search="overwhelm grounded urgent overloaded end of day before a meeting mindfulness">
         <div class="lib-practice-index">Practice / 03</div>
-        <div class="lib-practice-cover-mini practice-cover--overwhelm">
-          <div class="practice-cover-kicker">Overwhelm</div>
-          <div class="lib-practice-cover-mini-title">Grounded Practice</div>
-          <div class="lib-practice-cover-mini-meta">
-            <span>9 min</span>
-            <span>System downshift</span>
+        <div class="lib-practice-cover-phone">
+          <div class="lib-practice-device">
+            <div class="lib-practice-screen">
+              <div class="lib-practice-screen-header">
+                <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg>
+                <span class="lib-practice-screen-brand">innerbalance101</span>
+              </div>
+              <div class="lib-practice-screen-num">01</div>
+              <div class="lib-practice-screen-the">The</div>
+              <div class="lib-practice-screen-title">Grounded Professional</div>
+              <div class="lib-practice-screen-divider"></div>
+              <div class="lib-practice-screen-transform">Overwhelm &rarr;</div>
+              <div class="lib-practice-screen-destination">Grounded</div>
+              <div class="lib-practice-screen-cta"><div class="lib-practice-screen-cta-text">Start Practising</div></div>
+              <div class="lib-practice-screen-duration">10 minute practice</div>
+            </div>
           </div>
         </div>
         <h3 class="lib-practice-title">The Grounded Practice</h3>
@@ -1468,12 +1645,22 @@
 
       <article class="lib-practice-card" data-title="Clarity Practice" data-emotion="uncertainty" data-event="decision-making" data-length="short" data-type="mindfulness thoughtwork" data-search="uncertainty clarity decisions discernment pause mindfulness">
         <div class="lib-practice-index">Practice / 04</div>
-        <div class="lib-practice-cover-mini practice-cover--uncertainty">
-          <div class="practice-cover-kicker">Uncertainty</div>
-          <div class="lib-practice-cover-mini-title">Clarity Practice</div>
-          <div class="lib-practice-cover-mini-meta">
-            <span>8 min</span>
-            <span>Decision clarity</span>
+        <div class="lib-practice-cover-phone">
+          <div class="lib-practice-device">
+            <div class="lib-practice-screen">
+              <div class="lib-practice-screen-header">
+                <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg>
+                <span class="lib-practice-screen-brand">innerbalance101</span>
+              </div>
+              <div class="lib-practice-screen-num">04</div>
+              <div class="lib-practice-screen-the">The</div>
+              <div class="lib-practice-screen-title">Clarity Reset</div>
+              <div class="lib-practice-screen-divider"></div>
+              <div class="lib-practice-screen-transform">Uncertainty &rarr;</div>
+              <div class="lib-practice-screen-destination">Grounded Presence</div>
+              <div class="lib-practice-screen-cta"><div class="lib-practice-screen-cta-text">Start Practising</div></div>
+              <div class="lib-practice-screen-duration">12 minute practice</div>
+            </div>
           </div>
         </div>
         <h3 class="lib-practice-title">The Clarity Practice</h3>
@@ -1494,12 +1681,22 @@
 
       <article class="lib-practice-card" data-title="Release Practice" data-emotion="guilt" data-event="after-a-conversation end-of-day" data-length="medium" data-type="thoughtwork somatic" data-search="guilt release after a conversation end of day repair self-punishment">
         <div class="lib-practice-index">Practice / 05</div>
-        <div class="lib-practice-cover-mini practice-cover--guilt">
-          <div class="practice-cover-kicker">Guilt</div>
-          <div class="lib-practice-cover-mini-title">Release Practice</div>
-          <div class="lib-practice-cover-mini-meta">
-            <span>11 min</span>
-            <span>Repair and release</span>
+        <div class="lib-practice-cover-phone">
+          <div class="lib-practice-device">
+            <div class="lib-practice-screen">
+              <div class="lib-practice-screen-header">
+                <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg>
+                <span class="lib-practice-screen-brand">innerbalance101</span>
+              </div>
+              <div class="lib-practice-screen-num">05</div>
+              <div class="lib-practice-screen-the">The</div>
+              <div class="lib-practice-screen-title">Guilt Release System</div>
+              <div class="lib-practice-screen-divider"></div>
+              <div class="lib-practice-screen-transform">Guilt &rarr;</div>
+              <div class="lib-practice-screen-destination">Release</div>
+              <div class="lib-practice-screen-cta"><div class="lib-practice-screen-cta-text">Start Practising</div></div>
+              <div class="lib-practice-screen-duration">10 minute practice</div>
+            </div>
           </div>
         </div>
         <h3 class="lib-practice-title">The Release Practice</h3>
@@ -1519,12 +1716,22 @@
 
       <article class="lib-practice-card coming" data-title="Reset Practice" data-emotion="mindfulness" data-event="mindfulness-reset end-of-day before-a-meeting" data-length="short" data-type="mindfulness" data-search="mindfulness reset daily practice expanding library breath awareness focus">
         <div class="lib-practice-index">Practice / 06</div>
-        <div class="lib-practice-cover-mini practice-cover--mindfulness">
-          <div class="practice-cover-kicker">Mindfulness</div>
-          <div class="lib-practice-cover-mini-title">Reset Practice</div>
-          <div class="lib-practice-cover-mini-meta">
-            <span>6 min</span>
-            <span>Daily reset</span>
+        <div class="lib-practice-cover-phone">
+          <div class="lib-practice-device">
+            <div class="lib-practice-screen">
+              <div class="lib-practice-screen-header">
+                <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg>
+                <span class="lib-practice-screen-brand">innerbalance101</span>
+              </div>
+              <div class="lib-practice-screen-num" style="opacity:0.25;">06</div>
+              <div class="lib-practice-screen-the">The</div>
+              <div class="lib-practice-screen-title">Disappointment</div>
+              <div class="lib-practice-screen-divider"></div>
+              <div class="lib-practice-screen-transform" style="color:var(--clay-light);">&rarr; Leads to</div>
+              <div class="lib-practice-screen-destination" style="color:var(--soft);">Acceptance</div>
+              <div class="lib-practice-screen-cta" style="background:rgba(196,168,130,0.25);"><div class="lib-practice-screen-cta-text" style="color:var(--soft);">Coming soon</div></div>
+              <div class="lib-practice-screen-duration">minute practice</div>
+            </div>
           </div>
         </div>
         <h3 class="lib-practice-title">Mindfulness Reset Practice</h3>
