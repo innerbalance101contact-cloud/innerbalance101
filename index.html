@@ -456,51 +456,6 @@
   .system { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
   .system-header { margin-bottom:56px; }
 
-  /* ─── OFFER BRIDGE ────────────────────────────────────────────── */
-  .offer-bridge {
-    background:var(--deep);
-    padding:40px 60px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:40px;
-  }
-  .offer-bridge-price-kicker {
-    font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase;
-    color:var(--clay); margin-bottom:8px;
-  }
-  .offer-bridge-price-main {
-    font-family:'Cormorant Garamond',serif;
-    font-size:3rem; line-height:0.95; color:var(--warm-white); margin-bottom:8px;
-  }
-  .offer-bridge-price-sub {
-    font-size:0.95rem; font-weight:300; line-height:1.7;
-    color:rgba(250,247,242,0.65); margin:0; max-width:none;
-  }
-  .offer-bridge-actions {
-    display:flex; flex-direction:column; align-items:flex-end; gap:10px; flex-shrink:0;
-  }
-  .offer-bridge-note {
-    font-size:0.72rem; font-weight:300;
-    color:rgba(250,247,242,0.38); text-align:right;
-    letter-spacing:0.03em; max-width:none; margin:0;
-  }
-  .btn-offer {
-    font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--deep); background:var(--clay);
-    padding:16px 36px; text-decoration:none;
-    transition:background 0.3s,transform 0.2s; display:inline-block; white-space:nowrap;
-  }
-  .btn-offer:hover { background:var(--clay-light); transform:translateY(-1px); }
-  @media (max-width:960px) {
-    .offer-bridge { flex-direction:column; align-items:flex-start; padding:40px 24px; gap:28px; }
-    .offer-bridge-actions { align-items:flex-start; }
-    .offer-bridge-note { text-align:left; }
-  }
-  @media (max-width:480px) {
-    .offer-bridge { padding:32px 20px; }
-    .btn-offer { width:100%; text-align:center; }
-  }
   .system-header .section-label { color:var(--clay-deep); }
   .system-header .section-label::before { background:var(--clay); }
   .system-header .section-headline { color:var(--deep); margin-bottom:18px; }
@@ -548,6 +503,29 @@
     align-items:center;
     justify-content:space-between;
     gap:24px;
+  }
+  .system-cta-price {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    flex-shrink:0;
+    border-right:1px solid rgba(196,168,130,0.18);
+    padding-right:28px;
+  }
+  .system-cta-price-amount {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.4rem;
+    line-height:1;
+    color:var(--clay);
+    margin-bottom:4px;
+  }
+  .system-cta-price-note {
+    font-size:0.62rem;
+    font-weight:500;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:rgba(250,247,242,0.38);
+    white-space:nowrap;
   }
   .system-cta-copy {
     font-size:0.95rem;
@@ -922,6 +900,7 @@
     .system-header,
     .system-grid { grid-template-columns:1fr; gap:28px; }
     .system-cta { flex-direction:column; align-items:flex-start; padding:24px; }
+    .system-cta-price { flex-direction:row; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); padding-right:0; padding-bottom:16px; width:100%; }
     .system-stages,
     .system-stage-feature { padding:24px; }
     .system-stage { grid-template-columns:1fr; gap:10px; }
@@ -1131,17 +1110,6 @@
   </div>
 </section>
 
-<div class="offer-bridge">
-  <div>
-    <div class="offer-bridge-price-kicker">The offer</div>
-    <div class="offer-bridge-price-main">$97</div>
-    <p class="offer-bridge-price-sub">Three stages. 21 days each. One clear path back to yourself.</p>
-  </div>
-  <div class="offer-bridge-actions">
-    <a href="https://stan.store/innerbalance101/p/the-inner-balance-system-3-stages-21-days-each-3f4sd" class="btn-offer">Join the system</a>
-    <p class="offer-bridge-note">or keep reading to see how the three stages work &#8595;</p>
-  </div>
-</div>
 
 <section class="system" id="system">
   <div class="system-header">
@@ -1227,6 +1195,10 @@
     </div>
   </div>
   <div class="system-cta">
+    <div class="system-cta-price">
+      <div class="system-cta-price-amount">$97</div>
+      <div class="system-cta-price-note">One payment. All three stages.</div>
+    </div>
     <p class="system-cta-copy"><strong>Ready To Begin?</strong>Join all three stages now and start your guided system today.</p>
     <a href="https://stan.store/innerbalance101/p/the-inner-balance-system-3-stages-21-days-each-3f4sd" class="btn-primary">Join the system</a>
   </div>
