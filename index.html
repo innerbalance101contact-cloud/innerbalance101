@@ -739,7 +739,7 @@
     .assessment-img-badge { top:20px; left:20px; padding:8px 14px; }
     .assessment-content { padding:48px 24px 56px; }
     .how-inner { grid-template-columns:1fr; }
-    .how-image { min-height:52vw; max-height:64vw; }
+    .how-diagram { min-height:auto; padding:48px 24px; }
     .how-content { padding:52px 24px; }
     .evidence { padding:56px 24px; }
     .evidence-inner { grid-template-columns:1fr; gap:40px; }
@@ -1063,9 +1063,85 @@
 
 <section class="how" id="how">
   <div class="how-inner">
-    <div class="how-image">
-      <img class="how-img" src="images/Naomi journalling.png" alt="Naomi journalling" loading="lazy">
-      <div class="how-img-overlay"></div>
+    <div class="how-diagram" aria-label="Evolution of change through Stage 1, Stage 2, and Stage 3">
+      <div class="how-diagram-inner">
+        <div class="how-diagram-kicker">Evolution Across 63 Days</div>
+        <svg class="how-diagram-svg" viewBox="0 0 560 380" role="img" aria-labelledby="evolution-title evolution-desc">
+          <title id="evolution-title">Stage evolution from SOS to Inner Balance</title>
+          <desc id="evolution-desc">Emotional load decreases while inner stability increases from days 1 to 63 across three stages.</desc>
+
+          <line x1="138" y1="22" x2="458" y2="22" stroke="rgba(196,168,130,0.32)" stroke-width="1.2" stroke-dasharray="4 6"/>
+
+          <g transform="translate(138 22)">
+            <circle cx="0" cy="0" r="15" fill="#FAF7F2" stroke="#A55C54" stroke-width="1.3"/>
+            <g transform="translate(-12 -12)" stroke="#A55C54" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12c2.2-4.6 13.8-4.6 16 0"/>
+              <path d="M7 12v3.2c0 1.8 1.4 3.2 3.2 3.2h3.6c1.8 0 3.2-1.4 3.2-3.2V12"/>
+              <path d="M9.5 12v2.2"/>
+              <path d="M14.5 12v2.2"/>
+            </g>
+          </g>
+
+          <g transform="translate(298 22)">
+            <circle cx="0" cy="0" r="15" fill="#FAF7F2" stroke="#9D8465" stroke-width="1.3"/>
+            <g transform="translate(-12 -12)" stroke="#9D8465" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2.2"/>
+              <path d="M3.8 12c2.3-4 5-6 8.2-6s5.9 2 8.2 6c-2.3 4-5 6-8.2 6s-5.9-2-8.2-6Z"/>
+            </g>
+          </g>
+
+          <g transform="translate(458 22)">
+            <circle cx="0" cy="0" r="15" fill="#FAF7F2" stroke="#2C2420" stroke-width="1.3"/>
+            <g transform="translate(-12 -12)" stroke="#2C2420" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="6.6"/>
+              <circle cx="12" cy="12" r="2.4"/>
+              <path d="M12 3.5v2.1"/>
+              <path d="M12 18.4v2.1"/>
+              <path d="M3.5 12h2.1"/>
+              <path d="M18.4 12h2.1"/>
+            </g>
+          </g>
+
+          <line x1="58" y1="30" x2="58" y2="318" stroke="rgba(44,36,32,0.28)" stroke-width="1.4"/>
+          <line x1="58" y1="318" x2="538" y2="318" stroke="rgba(44,36,32,0.28)" stroke-width="1.4"/>
+
+          <line x1="218" y1="30" x2="218" y2="318" stroke="rgba(196,168,130,0.28)" stroke-width="1.2" stroke-dasharray="4 6"/>
+          <line x1="378" y1="30" x2="378" y2="318" stroke="rgba(196,168,130,0.28)" stroke-width="1.2" stroke-dasharray="4 6"/>
+
+          <text class="how-diagram-ylabel" x="30" y="58" text-anchor="middle" transform="rotate(-90 30 58)">HIGH</text>
+          <text class="how-diagram-ylabel" x="30" y="180" text-anchor="middle" transform="rotate(-90 30 180)">CHANGE</text>
+          <text class="how-diagram-ylabel" x="30" y="302" text-anchor="middle" transform="rotate(-90 30 302)">LOW</text>
+
+          <path d="M58 78 C110 88, 162 118, 218 152 C270 182, 324 206, 378 226 C430 242, 482 256, 538 268"
+                fill="none" stroke="#A55C54" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M58 272 C110 262, 162 238, 218 206 C270 176, 324 140, 378 108 C430 84, 482 68, 538 56"
+                fill="none" stroke="#C4A882" stroke-width="3.5" stroke-linecap="round"/>
+
+          <circle cx="58" cy="78" r="4.5" fill="#A55C54"/>
+          <circle cx="218" cy="152" r="4.5" fill="#A55C54"/>
+          <circle cx="378" cy="226" r="4.5" fill="#A55C54"/>
+          <circle cx="538" cy="268" r="4.5" fill="#A55C54"/>
+
+          <circle cx="58" cy="272" r="4.5" fill="#C4A882"/>
+          <circle cx="218" cy="206" r="4.5" fill="#C4A882"/>
+          <circle cx="378" cy="108" r="4.5" fill="#C4A882"/>
+          <circle cx="538" cy="56" r="4.5" fill="#C4A882"/>
+
+          <text class="how-diagram-day" x="58" y="342" text-anchor="middle">DAY 1</text>
+          <text class="how-diagram-day" x="218" y="342" text-anchor="middle">DAY 21</text>
+          <text class="how-diagram-day" x="378" y="342" text-anchor="middle">DAY 42</text>
+          <text class="how-diagram-day" x="538" y="342" text-anchor="middle">DAY 63</text>
+
+          <text class="how-diagram-day" x="138" y="366" text-anchor="middle">STAGE 1 · SOS</text>
+          <text class="how-diagram-day" x="298" y="366" text-anchor="middle">STAGE 2 · CLARITY</text>
+          <text class="how-diagram-day" x="458" y="366" text-anchor="middle">STAGE 3 · INNER BALANCE</text>
+        </svg>
+        <div class="how-diagram-legend" aria-hidden="true">
+          <div class="how-diagram-legend-item"><span class="how-diagram-legend-line how-diagram-legend-line--load"></span><span class="how-diagram-legend-text">Emotional load</span></div>
+          <div class="how-diagram-legend-item"><span class="how-diagram-legend-line how-diagram-legend-line--stability"></span><span class="how-diagram-legend-text">Inner stability</span></div>
+        </div>
+        <p class="how-diagram-note">The shift is progressive, not instant. Stage by stage, the nervous system settles and self-trust grows.</p>
+      </div>
     </div>
     <div class="how-content">
       <div class="section-label">How It Works</div>
