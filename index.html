@@ -422,10 +422,18 @@
 
   /* ─── EVIDENCE ────────────────────────────────────────────────── */
   .evidence { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
-  .evidence-header { max-width:720px; margin-bottom:56px; }
+  .evidence-inner {
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap:72px;
+    align-items:start;
+  }
+  .evidence-header { max-width:none; margin-bottom:0; }
   .evidence-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; color:var(--deep); margin-bottom:20px; margin-top:20px; }
   .evidence-intro { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--deep); max-width:680px; }
-  .evidence-accordion { max-width:720px; display:flex; flex-direction:column; }
+  .evidence-accordion { max-width:none; display:flex; flex-direction:column; }
   .evidence-tab { border-top:1px solid rgba(196,168,130,0.35); }
   .evidence-tab:last-child { border-bottom:1px solid rgba(196,168,130,0.35); }
   .evidence-tab-btn { width:100%; background:none; border:none; cursor:pointer; padding:24px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:24px; text-align:left; }
@@ -734,6 +742,7 @@
     .how-image { min-height:52vw; max-height:64vw; }
     .how-content { padding:52px 24px; }
     .evidence { padding:56px 24px; }
+    .evidence-inner { grid-template-columns:1fr; gap:40px; }
     .evidence-analogy { padding:24px; }
     .system { padding:56px 24px; }
     .system-header,
@@ -1072,55 +1081,57 @@
 </section>
 
 <section class="evidence">
-  <div class="evidence-header">
-    <div class="section-label">The Science</div>
-    <h2 class="evidence-headline" id="science">Why this works. And why logic alone doesn&rsquo;t.</h2>
-    <p class="evidence-intro">The Practices in this system are built on established research in neuroscience, somatic psychology, and nervous system regulation. This is not wellness culture. It is applied science.</p>
-    <div class="evidence-analogy">
-      <p>Most high achievers already go to the gym. They drink water. They think carefully about what they eat. They understand that the body requires consistent, structured care to perform.</p>
-      <p>The mind is no different. These Practices are that structure. Not a remedy for a bad week. A discipline for the long game.</p>
-      <p>You just have to show up.</p>
-    </div>
-  </div>
-  <div class="evidence-accordion">
-    <div class="evidence-tab">
-      <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left"><div class="evidence-tab-field">Polyvagal Theory</div><div class="evidence-tab-claim">Your body, not your mind, sets the state.</div></div>
-        <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
-      </button>
-      <div class="evidence-tab-body">
-        <p>Dr Stephen Porges&rsquo; polyvagal theory established that the autonomic nervous system governs our capacity for emotional regulation, connection, and sound judgment. When it is dysregulated, the prefrontal cortex (the part of the brain responsible for executive function) becomes inaccessible. Rational effort alone cannot override this. The nervous system must be addressed at the body level first.</p>
-        <p class="evidence-tab-cite">Porges, S.W. (2011). The Polyvagal Theory. W.W. Norton. &nbsp; Dana, D. (2018). The Polyvagal Theory in Therapy. W.W. Norton.</p>
+  <div class="evidence-inner">
+    <div class="evidence-header">
+      <div class="section-label">The Science</div>
+      <h2 class="evidence-headline" id="science">Why this works. And why logic alone doesn&rsquo;t.</h2>
+      <p class="evidence-intro">The Practices in this system are built on established research in neuroscience, somatic psychology, and nervous system regulation. This is not wellness culture. It is applied science.</p>
+      <div class="evidence-analogy">
+        <p>Most high achievers already go to the gym. They drink water. They think carefully about what they eat. They understand that the body requires consistent, structured care to perform.</p>
+        <p>The mind is no different. These Practices are that structure. Not a remedy for a bad week. A discipline for the long game.</p>
+        <p>You just have to show up.</p>
       </div>
     </div>
-    <div class="evidence-tab">
-      <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left"><div class="evidence-tab-field">Somatic Processing</div><div class="evidence-tab-claim">Thinking your way out doesn&rsquo;t reach this layer.</div></div>
-        <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
-      </button>
-      <div class="evidence-tab-body">
-        <p>Research by Dr Bessel van der Kolk and Peter Levine demonstrates that unprocessed emotional experiences are held in the body as physical tension, posture, and autonomic patterns. Purely cognitive interventions cannot access this layer. Somatic movement, breathwork, and body-based practices activate the vagus nerve and facilitate genuine discharge rather than suppression.</p>
-        <p class="evidence-tab-cite">van der Kolk, B. (2014). The Body Keeps the Score. Viking. &nbsp; Levine, P. (1997). Waking the Tiger. North Atlantic Books.</p>
+    <div class="evidence-accordion">
+      <div class="evidence-tab">
+        <button class="evidence-tab-btn" onclick="toggleTab(this)">
+          <div class="evidence-tab-left"><div class="evidence-tab-field">Polyvagal Theory</div><div class="evidence-tab-claim">Your body, not your mind, sets the state.</div></div>
+          <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
+        </button>
+        <div class="evidence-tab-body">
+          <p>Dr Stephen Porges&rsquo; polyvagal theory established that the autonomic nervous system governs our capacity for emotional regulation, connection, and sound judgment. When it is dysregulated, the prefrontal cortex (the part of the brain responsible for executive function) becomes inaccessible. Rational effort alone cannot override this. The nervous system must be addressed at the body level first.</p>
+          <p class="evidence-tab-cite">Porges, S.W. (2011). The Polyvagal Theory. W.W. Norton. &nbsp; Dana, D. (2018). The Polyvagal Theory in Therapy. W.W. Norton.</p>
+        </div>
       </div>
-    </div>
-    <div class="evidence-tab">
-      <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left"><div class="evidence-tab-field">EFT Tapping</div><div class="evidence-tab-claim">The effect is measurable. Not metaphorical.</div></div>
-        <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
-      </button>
-      <div class="evidence-tab-body">
-        <p>Multiple randomised controlled trials have found that Emotional Freedom Techniques (EFT) tapping significantly reduces cortisol levels, anxiety, and psychological distress. A 2012 study published in the Journal of Nervous and Mental Disease showed a 24% cortisol reduction in EFT participants versus controls. The mechanism involves stimulating meridian endpoints that send calming signals to the amygdala, interrupting the stress response at its source.</p>
-        <p class="evidence-tab-cite">Church, D. et al. (2012). Journal of Nervous and Mental Disease, 200(10). &nbsp; Clond, M. (2016). Journal of Nervous and Mental Disease, 204(5).</p>
+      <div class="evidence-tab">
+        <button class="evidence-tab-btn" onclick="toggleTab(this)">
+          <div class="evidence-tab-left"><div class="evidence-tab-field">Somatic Processing</div><div class="evidence-tab-claim">Thinking your way out doesn&rsquo;t reach this layer.</div></div>
+          <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
+        </button>
+        <div class="evidence-tab-body">
+          <p>Research by Dr Bessel van der Kolk and Peter Levine demonstrates that unprocessed emotional experiences are held in the body as physical tension, posture, and autonomic patterns. Purely cognitive interventions cannot access this layer. Somatic movement, breathwork, and body-based practices activate the vagus nerve and facilitate genuine discharge rather than suppression.</p>
+          <p class="evidence-tab-cite">van der Kolk, B. (2014). The Body Keeps the Score. Viking. &nbsp; Levine, P. (1997). Waking the Tiger. North Atlantic Books.</p>
+        </div>
       </div>
-    </div>
-    <div class="evidence-tab">
-      <button class="evidence-tab-btn" onclick="toggleTab(this)">
-        <div class="evidence-tab-left"><div class="evidence-tab-field">Breathwork and HRV</div><div class="evidence-tab-claim">The shift begins within 90 seconds.</div></div>
-        <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
-      </button>
-      <div class="evidence-tab-body">
-        <p>Breathing at approximately six breaths per minute has been shown to increase heart rate variability (HRV), the leading physiological marker of stress resilience and emotional regulation capacity. This directly activates the parasympathetic nervous system, shifting the body from a threat state to a grounded, regulated one. The effect is measurable, repeatable, and begins within 90 seconds.</p>
-        <p class="evidence-tab-cite">Lehrer, P. &amp; Gevirtz, R. (2014). Frontiers in Psychology. &nbsp; Zaccaro, A. et al. (2018). Frontiers in Human Neuroscience.</p>
+      <div class="evidence-tab">
+        <button class="evidence-tab-btn" onclick="toggleTab(this)">
+          <div class="evidence-tab-left"><div class="evidence-tab-field">EFT Tapping</div><div class="evidence-tab-claim">The effect is measurable. Not metaphorical.</div></div>
+          <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
+        </button>
+        <div class="evidence-tab-body">
+          <p>Multiple randomised controlled trials have found that Emotional Freedom Techniques (EFT) tapping significantly reduces cortisol levels, anxiety, and psychological distress. A 2012 study published in the Journal of Nervous and Mental Disease showed a 24% cortisol reduction in EFT participants versus controls. The mechanism involves stimulating meridian endpoints that send calming signals to the amygdala, interrupting the stress response at its source.</p>
+          <p class="evidence-tab-cite">Church, D. et al. (2012). Journal of Nervous and Mental Disease, 200(10). &nbsp; Clond, M. (2016). Journal of Nervous and Mental Disease, 204(5).</p>
+        </div>
+      </div>
+      <div class="evidence-tab">
+        <button class="evidence-tab-btn" onclick="toggleTab(this)">
+          <div class="evidence-tab-left"><div class="evidence-tab-field">Breathwork and HRV</div><div class="evidence-tab-claim">The shift begins within 90 seconds.</div></div>
+          <span class="evidence-tab-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#C4A882" stroke-width="1.5"><line x1="1" y1="5" x2="9" y2="5"/><line class="tab-plus-v" x1="5" y1="1" x2="5" y2="9"/></svg></span>
+        </button>
+        <div class="evidence-tab-body">
+          <p>Breathing at approximately six breaths per minute has been shown to increase heart rate variability (HRV), the leading physiological marker of stress resilience and emotional regulation capacity. This directly activates the parasympathetic nervous system, shifting the body from a threat state to a grounded, regulated one. The effect is measurable, repeatable, and begins within 90 seconds.</p>
+          <p class="evidence-tab-cite">Lehrer, P. &amp; Gevirtz, R. (2014). Frontiers in Psychology. &nbsp; Zaccaro, A. et al. (2018). Frontiers in Human Neuroscience.</p>
+        </div>
       </div>
     </div>
   </div>
