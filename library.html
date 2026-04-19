@@ -459,8 +459,23 @@
   }
 
   /* ─── THE IDEA ─── */
-  .lib-idea { background:var(--deep); color:var(--warm-white); padding:88px 60px; }
-  .lib-idea-inner { max-width:880px; margin:0 auto; }
+  .lib-idea {
+    background:var(--deep);
+    color:var(--warm-white);
+    padding:88px 60px;
+    overflow:hidden;
+  }
+  .lib-idea-inner { max-width:1180px; margin:0 auto; }
+  .lib-idea-layout {
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) minmax(360px, 430px);
+    gap:clamp(32px, 5vw, 76px);
+    align-items:center;
+  }
+  .lib-idea-copy {
+    max-width:700px;
+    padding-top:8px;
+  }
   .lib-idea-kicker { font-size:0.7rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay); margin-bottom:20px; display:flex; align-items:center; gap:12px; }
   .lib-idea-kicker::before { content:''; width:28px; height:1px; background:var(--clay); }
   .lib-idea-headline {
@@ -471,6 +486,122 @@
   .lib-idea-headline em { font-style:italic; color:var(--clay); }
   .lib-idea-body { font-size:1.02rem; font-weight:300; line-height:1.85; color:rgba(250,247,242,0.82); max-width:640px; margin-bottom:14px; }
   .lib-idea-body:last-child { margin-bottom:0; }
+  .lib-idea-visual {
+    position:relative;
+    height:540px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    justify-self:end;
+  }
+  .lib-idea-visual::after {
+    content:'';
+    position:absolute;
+    bottom:24px;
+    width:72%;
+    height:56px;
+    border-radius:50%;
+    background:radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 72%);
+    filter:blur(3px);
+    z-index:0;
+  }
+  .lib-idea-stack {
+    width:min(100%, 430px);
+    height:100%;
+    position:relative;
+    z-index:1;
+  }
+  .lib-idea-practice-card {
+    position:absolute;
+    left:50%;
+    bottom:36px;
+    width:min(304px, 74%);
+    height:448px;
+    border-radius:30px;
+    background:rgba(250,247,242,0.92);
+    border:10px solid rgba(17,12,9,0.74);
+    box-shadow:0 18px 32px rgba(0,0,0,0.28);
+    transform-origin:bottom center;
+    overflow:hidden;
+  }
+  .lib-idea-practice-card.card-back-left {
+    transform:translateX(-70%) rotate(-11deg);
+    opacity:0.48;
+  }
+  .lib-idea-practice-card.card-back-right {
+    transform:translateX(-30%) rotate(11deg);
+    opacity:0.48;
+  }
+  .lib-idea-practice-card.card-front {
+    transform:translateX(-50%);
+    border-color:#16100d;
+    opacity:1;
+    z-index:2;
+  }
+  .lib-idea-practice-card-body {
+    padding:34px 28px 24px;
+    color:var(--deep);
+    height:100%;
+    display:flex;
+    flex-direction:column;
+  }
+  .lib-idea-practice-topline {
+    font-size:0.62rem;
+    font-weight:500;
+    letter-spacing:0.12em;
+    color:rgba(63,52,45,0.82);
+    text-transform:uppercase;
+  }
+  .lib-idea-practice-index {
+    align-self:flex-end;
+    font-family:'Cormorant Garamond',serif;
+    font-size:3.1rem;
+    line-height:0.8;
+    color:rgba(196,168,130,0.25);
+    margin-top:-8px;
+    margin-bottom:8px;
+  }
+  .lib-idea-practice-lead {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    font-weight:500;
+    line-height:1.05;
+    margin:4px 0 14px;
+    color:#2c2420;
+  }
+  .lib-idea-practice-line {
+    width:44px;
+    height:1px;
+    background:rgba(196,168,130,0.85);
+    margin-bottom:14px;
+  }
+  .lib-idea-practice-shift {
+    font-size:1rem;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:#2c2420;
+    margin-bottom:18px;
+  }
+  .lib-idea-practice-shift strong {
+    font-style:normal;
+    font-weight:500;
+    color:var(--clay-deep);
+    margin-right:6px;
+  }
+  .lib-idea-practice-btn {
+    margin-top:auto;
+    align-self:stretch;
+    border-radius:8px;
+    background:var(--clay);
+    color:var(--deep);
+    border:1px solid rgba(0,0,0,0.06);
+    text-align:center;
+    padding:12px 16px;
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+  }
 
   /* ─── METHOD ─── */
   .lib-method { background:var(--warm-white); padding:104px 60px; }
@@ -827,6 +958,19 @@
   }
 
   /* ─── RESPONSIVE ─── */
+  @media (max-width: 1140px) and (min-width: 961px) {
+    .lib-idea-layout {
+      grid-template-columns:minmax(0, 1fr) minmax(320px, 390px);
+      gap:36px;
+    }
+    .lib-idea-visual { height:500px; }
+    .lib-idea-stack { width:min(100%, 390px); }
+    .lib-idea-practice-card {
+      width:min(284px, 74%);
+      height:418px;
+    }
+  }
+
   @media (max-width: 960px) {
     nav {
       padding:0 24px;
@@ -847,6 +991,21 @@
     .lib-hero { padding:72px 28px 72px; }
     .lib-preview, .lib-idea, .lib-method, .lib-practices, .lib-when, .lib-foundation, .lib-access, .lib-close {
       padding-left:28px; padding-right:28px; padding-top:76px; padding-bottom:76px;
+    }
+    .lib-idea-layout {
+      grid-template-columns:minmax(0, 1fr) minmax(280px, 360px);
+      gap:30px;
+      align-items:start;
+    }
+    .lib-idea-copy { max-width:none; }
+    .lib-idea-visual {
+      height:430px;
+      justify-self:end;
+    }
+    .lib-idea-stack { width:min(100%, 360px); }
+    .lib-idea-practice-card {
+      width:min(260px, 74%);
+      height:382px;
     }
     .lib-preview { padding-top:0; }
     .lib-preview-grid { grid-template-columns:1fr; }
@@ -917,6 +1076,26 @@
     .lib-hero { padding:56px 20px 52px; }
     .lib-preview, .lib-idea, .lib-method, .lib-practices, .lib-when, .lib-foundation, .lib-access, .lib-close {
       padding-left:20px; padding-right:20px; padding-top:60px; padding-bottom:60px;
+    }
+    .lib-idea-layout { grid-template-columns:1fr; gap:32px; }
+    .lib-idea-visual {
+      height:390px;
+      justify-content:center;
+      align-items:center;
+      justify-self:center;
+    }
+    .lib-idea-practice-card {
+      border-width:8px;
+      border-radius:24px;
+      height:352px;
+    }
+    .lib-idea-practice-card-body { padding:24px 20px 18px; }
+    .lib-idea-practice-lead { font-size:1.65rem; margin-bottom:10px; }
+    .lib-idea-practice-shift { font-size:0.92rem; margin-bottom:12px; }
+    .lib-idea-practice-btn {
+      padding:10px 12px;
+      font-size:0.64rem;
+      letter-spacing:0.09em;
     }
     .lib-preview { padding-top:0; }
     .lib-hero-headline { font-size:2.5rem; }
@@ -1083,10 +1262,30 @@
 <!-- ─── IDEA ─── -->
 <section class="lib-idea">
   <div class="lib-idea-inner">
-    <div class="lib-idea-kicker">The idea</div>
-    <h2 class="lib-idea-headline">You do not need more information. <em>You need something you can use.</em></h2>
-    <p class="lib-idea-body">The library is where the work lives day to day. Not in theory. In real life. Pressure before a meeting. A reaction you cannot shake. A spiral you can feel starting before it takes hold.</p>
-    <p class="lib-idea-body">You open a practice. You move through it. You come back to yourself.</p>
+    <div class="lib-idea-layout">
+      <div class="lib-idea-copy">
+        <div class="lib-idea-kicker">The Difference</div>
+        <h2 class="lib-idea-headline">You do not need more information. <em>You need something you can use.</em></h2>
+        <p class="lib-idea-body">The library is where the work lives day to day. Not in theory. In real life. Pressure before a meeting. A reaction you cannot shake. A spiral you can feel starting before it takes hold.</p>
+        <p class="lib-idea-body">You open a practice. You move through it. You come back to yourself.</p>
+      </div>
+      <div class="lib-idea-visual" aria-hidden="true">
+        <div class="lib-idea-stack">
+          <article class="lib-idea-practice-card card-back-left"></article>
+          <article class="lib-idea-practice-card card-back-right"></article>
+          <article class="lib-idea-practice-card card-front">
+            <div class="lib-idea-practice-card-body">
+              <div class="lib-idea-practice-topline">innerbalance101</div>
+              <div class="lib-idea-practice-index">03</div>
+              <h3 class="lib-idea-practice-lead">The<br>Self-Trust<br>Protocol</h3>
+              <div class="lib-idea-practice-line"></div>
+              <div class="lib-idea-practice-shift"><strong>Self-Doubt</strong> to Self-Trust</div>
+              <div class="lib-idea-practice-btn">Start Practising</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
