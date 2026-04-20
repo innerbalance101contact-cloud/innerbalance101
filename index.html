@@ -455,18 +455,16 @@
   /* ─── SYSTEM ─────────────────────────────────────────────────── */
   .system { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
   .system-header {
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(260px,0.78fr);
-    gap:56px;
-    align-items:start;
-    margin-bottom:56px;
+    max-width:820px;
+    margin-bottom:28px;
   }
 
   /* ─── THOUGHT JOURNEY ─────────────────────────────────────────── */
   .thought-journey {
-    display:flex;
-    flex-direction:column;
-    gap:0;
+    margin-bottom:34px;
+    background:var(--warm-white);
+    border:1px solid rgba(196,168,130,0.2);
+    padding:24px;
   }
   .thought-journey-kicker {
     font-size:0.62rem;
@@ -475,6 +473,12 @@
     text-transform:uppercase;
     color:var(--clay-deep);
     margin-bottom:16px;
+  }
+  .thought-journey-track {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+    gap:14px;
+    align-items:start;
   }
   .tj-stage { display:flex; flex-direction:column; gap:10px; }
   .tj-stage-header {
@@ -514,6 +518,8 @@
     flex-direction:column;
     gap:7px;
     box-shadow:0 4px 16px rgba(44,36,32,0.05);
+    width:100%;
+    min-height:100%;
   }
   .tj-bubble p {
     font-family:'Cormorant Garamond',serif;
@@ -529,23 +535,25 @@
   }
   .tj-connector {
     display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    padding-left:14px;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    align-self:stretch;
     gap:0;
-    margin:6px 0;
+    margin:0;
+    padding-top:52px;
   }
   .tj-connector-line {
-    width:1px;
-    height:18px;
+    width:30px;
+    height:1px;
     background:rgba(196,168,130,0.45);
   }
   .tj-connector-arrow {
     width:0; height:0;
-    border-left:4px solid transparent;
-    border-right:4px solid transparent;
-    border-top:5px solid rgba(196,168,130,0.55);
-    margin-left:-3.5px;
+    border-top:4px solid transparent;
+    border-bottom:4px solid transparent;
+    border-left:5px solid rgba(196,168,130,0.55);
+    margin-left:0;
   }
 
   .system-header .section-label { color:var(--clay-deep); }
@@ -619,6 +627,14 @@
     color:rgba(250,247,242,0.38);
     white-space:nowrap;
   }
+  .system-cta-price-day {
+    margin-top:8px;
+    font-size:0.78rem;
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:rgba(250,247,242,0.72);
+  }
   .system-cta-copy {
     font-size:0.95rem;
     font-weight:300;
@@ -635,6 +651,13 @@
     font-size:0.72rem;
     display:block;
     margin-bottom:8px;
+  }
+  .system-cta-compare {
+    display:block;
+    margin-top:8px;
+    font-size:0.86rem;
+    line-height:1.65;
+    color:rgba(250,247,242,0.62);
   }
   .system-cta .btn-primary {
     white-space:nowrap;
@@ -751,7 +774,7 @@
     padding:32px;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    justify-content:flex-start;
   }
   .system-stage-feature .system-stage-label { color:var(--clay-deep); }
   .system-stage-feature h3 {
@@ -989,11 +1012,33 @@
     .evidence-inner { grid-template-columns:1fr; gap:40px; }
     .evidence-analogy { padding:24px; }
     .system { padding:56px 24px; }
-    .system-header,
     .system-grid { grid-template-columns:1fr; gap:28px; }
-    .thought-journey { margin-top:8px; }
+    .system-header { max-width:none; margin-bottom:24px; }
+    .thought-journey { margin-bottom:24px; padding:20px; }
+    .thought-journey-track { grid-template-columns:1fr; gap:10px; }
+    .tj-connector {
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-start;
+      align-self:auto;
+      padding-top:0;
+      padding-left:14px;
+      margin:6px 0;
+    }
+    .tj-connector-line {
+      width:1px;
+      height:18px;
+    }
+    .tj-connector-arrow {
+      border-left:4px solid transparent;
+      border-right:4px solid transparent;
+      border-top:5px solid rgba(196,168,130,0.55);
+      border-bottom:none;
+      margin-left:-3.5px;
+    }
     .system-cta { flex-direction:column; align-items:flex-start; padding:24px; }
-    .system-cta-price { flex-direction:row; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); padding-right:0; padding-bottom:16px; width:100%; }
+    .system-cta-price { flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); padding-right:0; padding-bottom:16px; width:100%; }
+    .system-cta-price-day { width:100%; margin-top:0; }
     .system-stages,
     .system-stage-feature { padding:24px; }
     .system-stage { grid-template-columns:1fr; gap:10px; }
@@ -1064,6 +1109,7 @@
     .system-price-card,
     .system-stages,
     .system-stage-feature { padding:20px; }
+    .thought-journey { padding:18px; }
     .system-cta { padding:20px; }
     .system-stage-icon { width:38px; height:38px; }
     .system-stage-icon svg { width:18px; height:18px; }
@@ -1211,14 +1257,17 @@
       <h2 class="section-headline">3 stages to feeling in inner balance.</h2>
       <p class="section-body">Three stages. 21 days each. Built for people who are tired of looking fine on the outside while feeling off inside. You move through SOS, Clarity, and Inner Balance in order, with guided check-ins and practical support that help you keep showing up. That's 63 days. One stage at a time.</p>
     </div>
-
-    <div class="thought-journey" aria-label="How your inner voice shifts across the three stages">
-      <div class="thought-journey-kicker">The inner voice — before &amp; after</div>
-
+  </div>
+  <div class="thought-journey" aria-label="How your inner voice shifts across the three stages">
+    <div class="thought-journey-kicker">The inner voice — before &amp; after</div>
+    <div class="thought-journey-track">
       <div class="tj-stage">
         <div class="tj-stage-header">
           <div class="tj-icon tj-icon--sos" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 12c2.2-4.6 13.8-4.6 16 0"/><path d="M7 12v3.2c0 1.8 1.4 3.2 3.2 3.2h3.6c1.8 0 3.2-1.4 3.2-3.2V12"/><path d="M9.5 12v2.2"/><path d="M14.5 12v2.2"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5.5v8.4"/>
+              <circle cx="12" cy="17.4" r="1.25"/>
+            </svg>
           </div>
           <span class="tj-stage-name">Stage 1 &middot; SOS</span>
         </div>
@@ -1234,7 +1283,10 @@
       <div class="tj-stage">
         <div class="tj-stage-header">
           <div class="tj-icon tj-icon--clarity" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M3.8 12c2.3-4 5-6 8.2-6s5.9 2 8.2 6c-2.3 4-5 6-8.2 6s-5.9-2-8.2-6Z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="5.8"/>
+              <path d="M15.2 15.2 20 20"/>
+            </svg>
           </div>
           <span class="tj-stage-name">Stage 2 &middot; Clarity</span>
         </div>
@@ -1250,7 +1302,13 @@
       <div class="tj-stage">
         <div class="tj-stage-header">
           <div class="tj-icon tj-icon--balance" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.6"/><circle cx="12" cy="12" r="2.4"/><path d="M12 3.5v2.1"/><path d="M12 18.4v2.1"/><path d="M3.5 12h2.1"/><path d="M18.4 12h2.1"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5v12.4"/>
+              <path d="M6 8.2h12"/>
+              <path d="M8.1 8.2 6 12h4.2z"/>
+              <path d="M17.9 8.2 15.8 12H20z"/>
+              <path d="M8.2 18.4h7.6"/>
+            </svg>
           </div>
           <span class="tj-stage-name">Stage 3 &middot; Inner Balance</span>
         </div>
@@ -1271,10 +1329,8 @@
           <div class="system-stage-heading">
             <div class="system-stage-icon system-stage-icon--sos" aria-hidden="true">
               <svg viewBox="0 0 24 24">
-                <path d="M4 12c2.2-4.6 13.8-4.6 16 0"/>
-                <path d="M7 12v3.2c0 1.8 1.4 3.2 3.2 3.2h3.6c1.8 0 3.2-1.4 3.2-3.2V12"/>
-                <path d="M9.5 12v2.2"/>
-                <path d="M14.5 12v2.2"/>
+                <path d="M12 5.2v8.6"/>
+                <circle cx="12" cy="17.6" r="1.25"/>
               </svg>
             </div>
             <div class="system-stage-card-title">SOS</div>
@@ -1295,8 +1351,8 @@
           <div class="system-stage-heading">
             <div class="system-stage-icon system-stage-icon--clarity" aria-hidden="true">
               <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="2.2"/>
-                <path d="M3.8 12c2.3-4 5-6 8.2-6s5.9 2 8.2 6c-2.3 4-5 6-8.2 6s-5.9-2-8.2-6Z"/>
+                <circle cx="11" cy="11" r="5.8"/>
+                <path d="M15.2 15.2 20 20"/>
               </svg>
             </div>
             <div class="system-stage-card-title">Clarity</div>
@@ -1313,38 +1369,38 @@
       </div>
     </div>
     <div class="system-stage-feature">
-      <div class="system-stage-label">Stage 3</div>
-      <div>
-        <div class="system-stage-heading">
-          <div class="system-stage-icon system-stage-icon--balance" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="6.6"/>
-              <circle cx="12" cy="12" r="2.4"/>
-              <path d="M12 3.5v2.1"/>
-              <path d="M12 18.4v2.1"/>
-              <path d="M3.5 12h2.1"/>
-              <path d="M18.4 12h2.1"/>
-            </svg>
+        <div class="system-stage-label">Stage 3</div>
+        <div>
+          <div class="system-stage-heading">
+            <div class="system-stage-icon system-stage-icon--balance" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 5v12.4"/>
+                <path d="M6 8.2h12"/>
+                <path d="M8.1 8.2 6 12h4.2z"/>
+                <path d="M17.9 8.2 15.8 12H20z"/>
+                <path d="M8.2 18.4h7.6"/>
+              </svg>
+            </div>
+            <div class="system-stage-card-title">Inner Balance</div>
           </div>
-          <div class="system-stage-card-title">Inner Balance</div>
-        </div>
-        <div class="system-stage-card-subtitle">Create and perform at your peak. Feel steady while you do.</div>
-        <p class="system-stage-card-copy">This is the deepest stage. You question more clearly, respond more intentionally, and build an inner world that does not get pulled apart by every external situation. You are still human. The pressure still exists. It simply no longer runs you.</p>
-        <div class="system-stage-points">
-          <span class="system-stage-point">21 days</span>
-          <span class="system-stage-point">Deeper practices</span>
-          <span class="system-stage-point">Semi-daily check-ins</span>
-          <span class="system-stage-point">Inner coherence</span>
+          <div class="system-stage-card-subtitle">Create and perform at your peak. Feel steady while you do.</div>
+          <p class="system-stage-card-copy">This is the deepest stage. You question more clearly, respond more intentionally, and build an inner world that does not get pulled apart by every external situation. You are still human. The pressure still exists. It simply no longer runs you.</p>
+          <div class="system-stage-points">
+            <span class="system-stage-point">21 days</span>
+            <span class="system-stage-point">Deeper practices</span>
+            <span class="system-stage-point">Semi-daily check-ins</span>
+            <span class="system-stage-point">Inner coherence</span>
+          </div>
         </div>
       </div>
-    </div>
   </div>
   <div class="system-cta">
     <div class="system-cta-price">
       <div class="system-cta-price-amount">$97</div>
       <div class="system-cta-price-note">One payment. All three stages.</div>
+      <div class="system-cta-price-day">About $1.54/day for 63 days</div>
     </div>
-    <p class="system-cta-copy"><strong>Ready To Begin?</strong>Join all three stages now and start your guided system today.</p>
+    <p class="system-cta-copy"><strong>Ready to feel grounded again?</strong>Join all three stages now and start your guided system today.<span class="system-cta-compare">That is less than a typical daily coffee, and far less than the daily cost of feeling overwhelmed, reactive, and out of control. You are also saving years of study and trial-and-error.</span></p>
     <a href="https://stan.store/innerbalance101/p/the-inner-balance-system-3-stages-21-days-each-3f4sd" class="btn-primary">Join the system</a>
   </div>
 </section>
