@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 2 — Clarity | innerbalance101</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-white: #FAF7F2;
+    --linen: #F0E8DC;
+    --clay: #C4A882;
+    --clay-light: #DDD0BE;
+    --clay-deep: #A68B65;
+    --deep: #2C2420;
+    --nav-h: 64px;
+    --soft: #9C8575;
+    --mid: #6B5B4E;
+    --espresso: #2C2420;
+
+    --fear-bg: #E8D5C0;
+    --fear-text: #5C3D2A;
+    --fear-header: #C4A882;
+    --surprise-bg: #D8CFC4;
+    --surprise-text: #4A3B2F;
+    --surprise-header: #B8A48A;
+    --happiness-bg: #E6DCCA;
+    --happiness-text: #4A3820;
+    --happiness-header: #C9A96E;
+    --anger-bg: #D9C4BE;
+    --anger-text: #4A2A25;
+    --anger-header: #B89090;
+    --disgust-bg: #D0CDD0;
+    --disgust-text: #3A3040;
+    --disgust-header: #A09AAA;
+    --sadness-bg: #C8CCDA;
+    --sadness-text: #2A3050;
+    --sadness-header: #8A90B0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--espresso);
+    font-family: 'Jost', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── GLOBAL NAV (MATCH INDEX) ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-h);
+    padding: 0 60px;
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--deep);
+  }
+  .nav-divider { width: 1px; height: 24px; background: var(--clay); }
+  .nav-cta {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--deep);
+    padding: 10px 24px;
+    text-decoration: none;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--clay-deep); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6B5B4E;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--clay-deep); }
+  .nav-mobile-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(196, 168, 130, 0.3);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--deep);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-mobile-toggle svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+  }
+
+  /* ── SYSTEM BANNER ── */
+  .system-banner {
+    margin-top: var(--nav-h);
+    background: var(--espresso);
+    padding: 10px 24px;
+    text-align: center;
+  }
+  .system-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay-light);
+  }
+  .banner-stage {
+    padding: 2px 14px;
+    color: var(--clay-light);
+    opacity: 0.5;
+  }
+  .banner-stage.active {
+    color: var(--clay);
+    opacity: 1;
+    font-weight: 500;
+  }
+  .banner-sep {
+    color: var(--clay-deep);
+    opacity: 0.4;
+    font-size: 8px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 52px 24px 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--clay-light);
+    background: var(--warm-white);
+  }
+  .brand-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .stage-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(34px, 6vw, 58px);
+    color: var(--espresso);
+    line-height: 1.05;
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+  .page-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--soft);
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .meta-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--clay-deep);
+    line-height: 1;
+  }
+  .meta-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+  .meta-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--clay-light);
+    align-self: center;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .page-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── SECTION BLOCKS ── */
+  .section {
+    padding: 52px 0 0;
+  }
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--espresso);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--clay-deep);
+  }
+  .body-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 14px;
+  }
+  .body-text strong {
+    font-weight: 500;
+    color: var(--espresso);
+  }
+
+  /* ── DIVIDER ── */
+  .ornament {
+    text-align: center;
+    color: var(--clay-light);
+    font-size: 16px;
+    letter-spacing: 0.6em;
+    margin: 44px 0 0;
+  }
+
+  /* ── WHEN TO DO IT CARDS ── */
+  .timing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .timing-card {
+    background: var(--linen);
+    border-radius: 3px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .timing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--clay);
+  }
+  .timing-icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .timing-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 10px;
+  }
+  .timing-body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  /* ── PRACTICE STRUCTURE STRIP ── */
+  .structure-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 28px;
+    background: var(--clay-light);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .strip-part {
+    background: var(--linen);
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .strip-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .strip-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 4px;
+  }
+  .strip-time {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: var(--soft);
+  }
+
+  /* ── PRACTICE STEPS ── */
+  .practice-step {
+    margin-top: 40px;
+    background: var(--linen);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--clay-light);
+    background: rgba(196,168,130,0.10);
+  }
+  .step-num-large {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .step-title-block {}
+  .step-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 4px;
+  }
+  .step-title-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--espresso);
+  }
+  .step-duration {
+    margin-left: auto;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--soft);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .step-body {
+    padding: 24px 28px;
+  }
+  .step-body .body-text {
+    margin-bottom: 10px;
+  }
+  .step-body .body-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── THOUGHT WORK PROMPTS ── */
+  .prompt-list {
+    list-style: none;
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .prompt-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .prompt-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--clay);
+    flex-shrink: 0;
+    line-height: 1.4;
+    min-width: 18px;
+  }
+  .prompt-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--espresso);
+  }
+  .prompt-note {
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--soft);
+    margin-top: 4px;
+    display: block;
+  }
+  .prompt-line {
+    margin-top: 8px;
+    border-bottom: 1px solid var(--clay-light);
+    min-height: 32px;
+  }
+
+  /* ── SOMATIC SPLIT ── */
+  .somatic-context {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 18px;
+  }
+  .somatic-col {
+    padding: 22px;
+    background: rgba(250,247,242,0.6);
+  }
+  .somatic-col-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--clay-light);
+  }
+  .somatic-col .body-text {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  /* ── EFT POINTS ── */
+  .eft-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .eft-point {
+    background: rgba(196,168,130,0.15);
+    border: 1px solid var(--clay-light);
+    border-radius: 2px;
+    padding: 4px 10px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: var(--mid);
+  }
+
+  /* ── EMOTION PRACTICE CARDS ── */
+  .emotion-practices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .emotion-practice-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 2px;
+  }
+  .ep-family {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    min-width: 90px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .ep-body {
+    flex: 1;
+  }
+  .ep-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--espresso);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .ep-link {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: var(--clay-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--clay-light);
+    letter-spacing: 0.04em;
+  }
+  .ep-link:hover { border-color: var(--clay-deep); }
+  .ep-desc {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--soft);
+    line-height: 1.6;
+    margin-top: 6px;
+  }
+
+  .ep-fear { background: rgba(232,213,192,0.3); }
+  .ep-fear .ep-family { color: var(--fear-text); }
+  .ep-anger { background: rgba(217,196,190,0.3); }
+  .ep-anger .ep-family { color: var(--anger-text); }
+  .ep-sadness { background: rgba(200,204,218,0.3); }
+  .ep-sadness .ep-family { color: var(--sadness-text); }
+  .ep-fallback { background: rgba(221,208,190,0.2); }
+  .ep-fallback .ep-family { color: var(--soft); }
+
+  /* ── INTUITION CALLOUT ── */
+  .intuition-callout {
+    background: var(--espresso);
+    color: var(--linen);
+    border-radius: 3px;
+    padding: 28px 32px;
+    margin-top: 18px;
+  }
+  .intuition-callout p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.5vw, 21px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--linen);
+  }
+  .intuition-callout strong {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--clay);
+  }
+
+  /* ── CHART SECTION ── */
+  .chart-section {
+    margin-top: 60px;
+    padding-top: 52px;
+    border-top: 1px solid var(--clay-light);
+  }
+  .chart-section.chart-inline {
+    margin-top: 24px;
+    margin-bottom: 30px;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .chart-section-intro {
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+  .chart-section.chart-inline .chart-section-intro {
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
+
+  /* CHART (embedded) */
+  .chart-wrapper {
+    background: var(--linen);
+    border-radius: 4px;
+    border: 1px solid rgba(166, 139, 101, 0.22);
+    padding: 22px 20px;
+    box-shadow: 0 2px 24px rgba(44,36,32,0.07);
+  }
+  .chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 8px 14px;
+    background: rgba(196,168,130,0.08);
+    border-radius: 3px;
+    flex-wrap: wrap;
+  }
+  .legend-intro {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--soft);
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+  .legend-block {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .legend-block.main { background: var(--clay); color: var(--espresso); }
+  .legend-block.sub { background: var(--linen); border: 1px solid var(--clay-light); color: var(--mid); }
+  .legend-block.sensation { background: rgba(250,247,242,0.7); border: 1px dashed var(--clay-light); color: var(--soft); }
+  .legend-arrow { color: var(--clay-light); font-size: 14px; line-height: 1; }
+  .legend-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .emotion-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(250,247,242,0.72);
+    border: 1px solid rgba(166, 139, 101, 0.16);
+    border-radius: 4px;
+    padding: 6px;
+  }
+  .group-header { display: flex; align-items: center; justify-content: center; padding: 9px 6px; border-radius: 3px; min-height: 40px; }
+  .group-header-text { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(13px, 2vw, 17px); letter-spacing: 0.22em; text-transform: uppercase; color: var(--espresso); }
+  .emotion-row { display: grid; grid-template-columns: minmax(108px, 1fr) minmax(108px, 1fr); gap: 6px; }
+  .emotion-name { display: flex; align-items: center; justify-content: center; padding: 8px 6px; font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(10px, 1.15vw, 12px); letter-spacing: 0.06em; text-align: center; text-transform: uppercase; line-height: 1.3; border-radius: 2px; }
+  .sensation-pair { display: flex; flex-direction: column; gap: 6px; }
+  .sensation { display: flex; align-items: center; justify-content: center; padding: 5px 7px; font-family: 'Jost', sans-serif; font-weight: 300; font-size: clamp(9px, 1.05vw, 11px); text-align: center; color: var(--espresso); background: rgba(250,247,242,0.7); border-radius: 2px; flex: 1; line-height: 1.25; }
+  .fear .group-header { background: var(--fear-header); }
+  .fear .emotion-name { background: var(--fear-bg); color: var(--fear-text); }
+  .fear .sensation { background: rgba(232,213,192,0.35); }
+  .surprise .group-header { background: var(--surprise-header); }
+  .surprise .emotion-name { background: var(--surprise-bg); color: var(--surprise-text); }
+  .surprise .sensation { background: rgba(216,207,196,0.35); }
+  .happiness .group-header { background: var(--happiness-header); }
+  .happiness .emotion-name { background: var(--happiness-bg); color: var(--happiness-text); }
+  .happiness .sensation { background: rgba(230,220,202,0.35); }
+  .anger .group-header { background: var(--anger-header); }
+  .anger .emotion-name { background: var(--anger-bg); color: var(--anger-text); }
+  .anger .sensation { background: rgba(217,196,190,0.35); }
+  .disgust .group-header { background: var(--disgust-header); }
+  .disgust .emotion-name { background: var(--disgust-bg); color: var(--disgust-text); }
+  .disgust .sensation { background: rgba(208,205,208,0.35); }
+  .sadness .group-header { background: var(--sadness-header); }
+  .sadness .emotion-name { background: var(--sadness-bg); color: var(--sadness-text); }
+  .sadness .sensation { background: rgba(200,204,218,0.35); }
+
+  /* ── CLOSING SECTION ── */
+  .closing-section {
+    margin-top: 60px;
+    padding: 44px 40px;
+    background: var(--linen);
+    border-radius: 3px;
+    text-align: center;
+  }
+  .closing-section .section-label { margin-bottom: 14px; }
+  .closing-section .section-title { margin-bottom: 18px; }
+  .closing-section .body-text { max-width: 560px; margin: 0 auto 10px; text-align: left; }
+
+  /* ── FOOTER (MATCH INDEX) ── */
+  footer { background: var(--deep); padding: 48px 60px 28px; margin-top: 60px; }
+  .footer-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .footer-bottom { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(196,168,130,0.1); text-align: center; }
+  .footer-copyright { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 300; letter-spacing: 0.08em; color: rgba(250,247,242,0.25); }
+  .footer-left { display: flex; flex-direction: column; gap: 8px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--warm-white); letter-spacing: 0.06em; }
+  .footer-tagline { font-size: 0.88rem; font-weight: 300; color: rgba(250,247,242,0.45); font-style: italic; padding-left: 32px; margin-top: 0; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-link { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,247,242,0.5); text-decoration: none; transition: color 0.3s; }
+  .footer-link:hover { color: var(--clay); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .structure-strip { grid-template-columns: repeat(2, 1fr); }
+    .somatic-context { grid-template-columns: 1fr; }
+    .chart-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .header-meta { gap: 20px; }
+    .closing-section { padding: 32px 24px; }
+    .step-header { flex-wrap: wrap; gap: 10px; }
+    .step-duration { margin-left: 0; }
+  }
+  @media (max-width: 960px) {
+    :root { --nav-h: 58px; }
+    nav { padding: 0 24px; }
+    .nav-logo-text { font-size: 1.1rem; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 0.68rem; letter-spacing: 0.08em; }
+    footer { padding: 40px 24px 28px; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 28px; }
+    .footer-tagline { padding-left: 0; }
+    .footer-right { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; width: 100%; }
+    .footer-links { flex-wrap: wrap; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-mobile-toggle { display: inline-flex; }
+    nav.nav-open {
+      height: auto;
+      min-height: var(--nav-h);
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0 24px 14px;
+    }
+    nav.nav-open .nav-links {
+      display: flex;
+      width: 100%;
+      order: 3;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding-top: 8px;
+    }
+    nav.nav-open .nav-cta {
+      display: inline-block;
+      order: 4;
+      margin-top: 8px;
+    }
+  }
+  @media (max-width: 440px) {
+    .chart-grid { grid-template-columns: 1fr; }
+    .chart-wrapper { padding: 16px 14px; }
+    .emotion-row { grid-template-columns: 1fr; }
+    .timing-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    :root { --nav-h: 54px; }
+    .nav-logo-text { font-size: 1rem; }
+    .nav-cta { font-size: 0.68rem; padding: 9px 16px; letter-spacing: 0.08em; }
+  }
+
+  @media print {
+    nav { display: none; }
+    .system-banner { display: none; }
+    body { background: white; }
+    .practice-step, .chart-wrapper { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 — home">
+    <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
+    <div class="nav-divider"></div>
+    <span class="nav-logo-text">innerbalance101</span>
+  </a>
+  <button class="nav-mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  </button>
+  <div class="nav-links" id="site-nav-links">
+    <a href="/library.html">Library</a>
+    <a href="/about.html">About</a>
+    <a href="/resources.html">Resources</a>
+    <a href="https://innerbalance101.com/blog/">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+  <a href="https://innerbalance101.com/emotional_load_assessment.html" class="nav-cta">Free assessment</a>
+</nav>
+
+<!-- ── SYSTEM BANNER ── -->
+<div class="system-banner">
+  <div class="system-banner-inner">
+    <span class="banner-stage">01 &nbsp;The SOS</span>
+    <span class="banner-sep">›</span>
+    <span class="banner-stage active">02 &nbsp;Clarity</span>
+    <span class="banner-sep">›</span>
+    <span class="banner-stage">03 &nbsp;Inner Balance</span>
+    <span class="banner-sep">›</span>
+    <span class="banner-stage">04 &nbsp;The Library</span>
+  </div>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<header class="page-header">
+  <span class="brand-label">innerbalance101</span>
+  <span class="stage-label">Stage 02 of 03</span>
+  <h1 class="page-title">Clarity</h1>
+  <p class="page-subtitle">Name it. Notice it. Create space between the trigger and the response.</p>
+  <div class="header-meta">
+    <div class="meta-item">
+      <span class="meta-value">21</span>
+      <span class="meta-label">Days</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-value">20</span>
+      <span class="meta-label">Min daily</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-value">Mon–Fri</span>
+      <span class="meta-label">Weekends optional</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-value">Day 22</span>
+      <span class="meta-label">Unlocks here</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── BODY ── -->
+<div class="page-body">
+
+  <!-- WHAT THIS STAGE IS -->
+  <section class="section">
+    <span class="section-label">What this stage is</span>
+    <h2 class="section-title">Stage 1 gave you ground.<br><em>This is where you find out what was underneath.</em></h2>
+    <p class="body-text">Overwhelm is almost never just overwhelm. It is the surface. Underneath it, one or several emotions have been running quietly — shaping your reactions, driving your decisions, and costing more energy than you can see.</p>
+    <p class="body-text">This stage is where you learn to see that clearly.</p>
+    <p class="body-text">Over 21 days you practice noticing which emotions tend to show up for you, where they live in your body, what tends to activate them, and what thought is usually driving them. Then you begin to create space between the thing that activates you and the moment you respond to it.</p>
+    <p class="body-text"><strong>Every day is different.</strong> Situations change. What you feel on Monday will not be what you feel on Thursday. That is not a problem — that is the practice. You are not following a script. You are building a muscle. The process stays the same. What you bring to it changes every single day.</p>
+  </section>
+
+  <!-- WHEN TO DO IT -->
+  <section class="section">
+    <span class="section-label">When to do it</span>
+    <h2 class="section-title">Three windows. Each one does something different.</h2>
+    <div class="timing-grid">
+      <div class="timing-card">
+        <span class="timing-icon">◎</span>
+        <div class="timing-name">Morning</div>
+        <p class="timing-body">You have not yet entered the day's noise. Your nervous system is rested. The practice shapes the quality of your attention before anything external competes for it. You prime the mind before the day loads it.</p>
+      </div>
+      <div class="timing-card">
+        <span class="timing-icon">◑</span>
+        <div class="timing-name">Lunchtime</div>
+        <p class="timing-body">You have already lived half the day. Your body has information. A midday practice lets you process what has already accumulated rather than carry it into the afternoon. There is real material to work with.</p>
+      </div>
+      <div class="timing-card">
+        <span class="timing-icon">◉</span>
+        <div class="timing-name">Before bed</div>
+        <p class="timing-body">The practice becomes a way to leave the day behind. You are not replaying or planning. You are naming what the day activated, moving it through the body, and setting it down. What you do not process before sleep, your nervous system continues to hold through the night.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRUCTURE STRIP -->
+  <section class="section">
+    <span class="section-label">The daily structure</span>
+    <h2 class="section-title">Four parts. Same every day.<br><em>What you bring to them changes.</em></h2>
+    <p class="body-text">The method does not change across the 21 days. The depth does. In Stage 1 the focus was relief — settling the nervous system, creating ground. Here the focus is recognition. You are naming what is there, tracing it, and beginning to understand what drives it.</p>
+    <div class="structure-strip">
+      <div class="strip-part">
+        <div class="strip-num">01</div>
+        <div class="strip-name">Body check-in</div>
+        <div class="strip-time">2 min</div>
+      </div>
+      <div class="strip-part">
+        <div class="strip-num">02</div>
+        <div class="strip-name">Thought work</div>
+        <div class="strip-time">5 min</div>
+      </div>
+      <div class="strip-part">
+        <div class="strip-num">03</div>
+        <div class="strip-name">Somatic release</div>
+        <div class="strip-time">10 min</div>
+      </div>
+      <div class="strip-part">
+        <div class="strip-num">04</div>
+        <div class="strip-name">Fostering intuition</div>
+        <div class="strip-time">3 min</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 01: BODY CHECK-IN -->
+  <div class="practice-step" id="body-checkin-step">
+    <div class="step-header">
+      <div class="step-num-large">01</div>
+      <div class="step-title-block">
+        <div class="step-name">Body check-in</div>
+        <div class="step-title-text">Start with what is actually there</div>
+      </div>
+      <div class="step-duration">2 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="body-text">Sit with both feet on the floor. Close your eyes if that feels comfortable.</p>
+      <p class="body-text">Scan slowly from your feet to the top of your head. You are not looking for what is wrong. You are looking for where something is.</p>
+      <p class="body-text">Any tension? Any heaviness? Anywhere you are holding something that has not released?</p>
+      <p class="body-text"><strong>That is your starting point today. Work with what is actually there.</strong></p>
+    </div>
+  </div>
+
+  <!-- STEP 02: THOUGHT WORK -->
+  <div class="practice-step">
+    <div class="step-header">
+      <div class="step-num-large">02</div>
+      <div class="step-title-block">
+        <div class="step-name">Thought work</div>
+        <div class="step-title-text">Name it before you try to change it</div>
+      </div>
+      <div class="step-duration">5 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="body-text">Write short answers. First instinct. No editing.</p>
+      <ol class="prompt-list">
+        <li class="prompt-item">
+          <span class="prompt-num">1.</span>
+          <div>
+            <span class="prompt-text">What am I aware of in my body right now?</span>
+            <span class="prompt-note">If you cannot name the emotion, describe the sensation. Tight. Heavy. Restless. That is enough to start.</span>
+            <div class="prompt-line"></div>
+          </div>
+        </li>
+        <li class="prompt-item">
+          <span class="prompt-num">2.</span>
+          <div>
+            <span class="prompt-text">Which emotion family does this belong to?</span>
+            <span class="prompt-note">Fear &nbsp;·&nbsp; Anger &nbsp;·&nbsp; Sadness &nbsp;·&nbsp; Disgust &nbsp;·&nbsp; Surprise &nbsp;·&nbsp; Happiness &nbsp;·&nbsp; It can be more than one. Use the chart above as your reference.</span>
+            <div class="prompt-line"></div>
+          </div>
+        </li>
+        <li class="prompt-item">
+          <span class="prompt-num">3.</span>
+          <div>
+            <span class="prompt-text">What thought am I believing right now that might be driving this?</span>
+            <div class="prompt-line"></div>
+          </div>
+        </li>
+        <li class="prompt-item">
+          <span class="prompt-num">4.</span>
+          <div>
+            <span class="prompt-text">Is that thought a fact, or a story I am telling myself about a fact?</span>
+            <div class="prompt-line"></div>
+          </div>
+        </li>
+        <li class="prompt-item">
+          <span class="prompt-num">5.</span>
+          <div>
+            <span class="prompt-text">What would I do differently today if I were not being run by this?</span>
+            <div class="prompt-line"></div>
+          </div>
+        </li>
+      </ol>
+      <p class="body-text" style="margin-top: 18px;">You do not need to fix the thought. You only need to name it. That naming creates the first moment of space between you and it.</p>
+    </div>
+  </div>
+
+  <!-- STEP 03: SOMATIC RELEASE -->
+  <div class="practice-step">
+    <div class="step-header">
+      <div class="step-num-large">03</div>
+      <div class="step-title-block">
+        <div class="step-name">Somatic release</div>
+        <div class="step-title-text">Move the emotion through the body</div>
+      </div>
+      <div class="step-duration">10 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="body-text">Once you have named the emotion family, move the body accordingly. Choose the option that fits where you are right now.</p>
+
+      <div class="somatic-context">
+        <div class="somatic-col">
+          <div class="somatic-col-label">At work</div>
+          <p class="body-text">EFT (Emotional Freedom Technique) works at your desk, quietly, without requiring you to stand or move around. It targets the acupressure points connected to the body's stress response.</p>
+          <p class="body-text">Tap gently and continuously on each point for five to seven seconds. Move through the sequence three times. While tapping, acknowledge what you are feeling. Silently is fine.</p>
+          <p class="body-text"><em style="color: var(--soft); font-size: 12px;">"This anxiety." "This frustration." "This weight in my chest."</em></p>
+          <p class="body-text">Naming the emotion while tapping is what moves it through the nervous system rather than holding it in place.</p>
+          <div class="eft-points">
+            <span class="eft-point">Karate chop</span>
+            <span class="eft-point">Top of head</span>
+            <span class="eft-point">Inner eyebrow</span>
+            <span class="eft-point">Side of eye</span>
+            <span class="eft-point">Under the eye</span>
+            <span class="eft-point">Under the nose</span>
+            <span class="eft-point">Chin</span>
+            <span class="eft-point">Collarbone</span>
+            <span class="eft-point">Under the arm</span>
+          </div>
+        </div>
+        <div class="somatic-col">
+          <div class="somatic-col-label">At home</div>
+          <p class="body-text">Choose the practice that matches what is alive for you today. If you feel multiple things, use the EFT sequence — it works across all states.</p>
+
+          <div class="emotion-practices">
+            <div class="emotion-practice-row ep-fear">
+              <span class="ep-family">Fear &amp; Anxiety</span>
+              <div class="ep-body">
+                <div class="ep-name">Qi Gong for stress and anxiety release</div>
+                <a href="https://youtu.be/se0JgHi7nQM?si=nRr5F8WeulZHcuA5" target="_blank" rel="noopener" class="ep-link">Watch on YouTube →</a>
+                <p class="ep-desc">Gentle, grounding movements that slow the nervous system's threat response and bring the body back into a felt sense of safety.</p>
+              </div>
+            </div>
+            <div class="emotion-practice-row ep-anger">
+              <span class="ep-family">Anger &amp; Frustration</span>
+              <div class="ep-body">
+                <div class="ep-name">Yoga for anger release</div>
+                <a href="https://youtu.be/d4S4twjeWTs?si=c_4dHIsx1Bj7fdyj" target="_blank" rel="noopener" class="ep-link">Watch on YouTube →</a>
+                <p class="ep-desc">Anger needs somewhere to go. This practice channels it through the body with intention rather than suppressing it or directing it outward.</p>
+              </div>
+            </div>
+            <div class="emotion-practice-row ep-sadness">
+              <span class="ep-family">Sadness &amp; Disconnection</span>
+              <div class="ep-body">
+                <div class="ep-name">Breath of Joy — 5 min, followed by 5 min of stillness</div>
+                <p class="ep-desc">Stand with feet hip-width apart. Inhale in three short sniffs while sweeping the arms forward, out to the sides, then overhead. Exhale fully with a "ha" sound as the arms drop and the body folds forward. Repeat for 5 minutes. Sit still for 5 minutes and let the body settle into what shifted.</p>
+              </div>
+            </div>
+            <div class="emotion-practice-row ep-fallback">
+              <span class="ep-family">Not sure</span>
+              <div class="ep-body">
+                <div class="ep-name">Use the EFT sequence</div>
+                <p class="ep-desc">You do not need a precise name to begin. The tapping sequence works across all emotion families.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 04: FOSTERING INTUITION -->
+  <div class="practice-step">
+    <div class="step-header">
+      <div class="step-num-large">04</div>
+      <div class="step-title-block">
+        <div class="step-name">Fostering intuition</div>
+        <div class="step-title-text">Let the answer arrive without forcing it</div>
+      </div>
+      <div class="step-duration">3 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="body-text">Come back to stillness. Close your eyes.</p>
+      <p class="body-text">Ask yourself one question:</p>
+      <div class="intuition-callout">
+        <p><strong>What did that emotion want me to notice?</strong></p>
+      </div>
+      <p class="body-text" style="margin-top: 18px;">Wait. Do not force an answer. Let it arrive. If nothing comes, the question has still done its work.</p>
+      <p class="body-text">Write whatever came up. One sentence is enough. That sentence is your insight for today.</p>
+      <ol class="prompt-list">
+        <li class="prompt-item">
+          <span class="prompt-num"></span>
+          <div style="flex: 1;">
+            <span class="prompt-text">Today's insight</span>
+            <div class="prompt-line"></div>
+            <div class="prompt-line" style="margin-top: 12px;"></div>
+          </div>
+        </li>
+      </ol>
+      <p class="body-text" style="margin-top: 16px;">As the days accumulate, these sentences become worth reading back. They are a record of what the practice is building.</p>
+    </div>
+  </div>
+
+  <!-- INTRADAY PRACTICE -->
+  <section class="section">
+    <span class="section-label">In the moment</span>
+    <h2 class="section-title">When something activates you<br>during the day</h2>
+    <p class="body-text">You do not need to wait for your next session. When something activates — a conversation, a decision, a message that lands wrong — use this. Two minutes.</p>
+
+    <div class="practice-step" style="margin-top: 20px;">
+      <div class="step-body" style="padding: 28px;">
+        <ol class="prompt-list">
+          <li class="prompt-item">
+            <span class="prompt-num">→</span>
+            <span class="prompt-text">Stop. One slow exhale, longer than the inhale.</span>
+          </li>
+          <li class="prompt-item" style="margin-top: 8px;">
+            <span class="prompt-num">→</span>
+            <span class="prompt-text">What am I feeling right now?</span>
+          </li>
+          <li class="prompt-item" style="margin-top: 8px;">
+            <span class="prompt-num">→</span>
+            <span class="prompt-text">What thought is driving this?</span>
+          </li>
+          <li class="prompt-item" style="margin-top: 8px;">
+            <span class="prompt-num">→</span>
+            <span class="prompt-text">Do I want to respond from that thought, or from what is underneath it?</span>
+          </li>
+        </ol>
+        <p class="body-text" style="margin-top: 20px;">You do not need a perfect answer. The pause is the point. The pause is what 21 days of this practice builds.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- EMOTIONS CHART SECTION -->
+  <div class="chart-section">
+    <div class="chart-section-intro">
+      <span class="section-label">Your reference map</span>
+      <h2 class="section-title">The Emotions &amp; Sensations Chart</h2>
+      <p class="body-text">Use this to identify which emotion family you are working with in Step 02. Start with what you feel in the body. Find the sensation. Move left to the emotion name. Move left again to the family. That family tells you which somatic practice to use in Step 03.</p>
+    </div>
+
+    <div class="chart-wrapper">
+      <div class="chart-legend">
+        <span class="legend-intro">How to read this chart:</span>
+        <div class="legend-block main"><span class="legend-dot" style="background:var(--espresso);"></span> Main Emotion</div>
+        <span class="legend-arrow">→</span>
+        <div class="legend-block sub"><span class="legend-dot" style="background:var(--clay-deep);"></span> Sub-Emotion</div>
+        <span class="legend-arrow">→</span>
+        <div class="legend-block sensation"><span class="legend-dot" style="background:var(--clay-light);"></span> Body Sensation</div>
+      </div>
+
+      <div class="chart-grid">
+
+        <!-- FEAR -->
+        <div class="emotion-group fear">
+          <div class="group-header"><span class="group-header-text">Fear</span></div>
+          <div class="emotion-row"><div class="emotion-name">Embarrassed</div><div class="sensation-pair"><div class="sensation">Tender</div><div class="sensation">Blushing</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Unwanted</div><div class="sensation-pair"><div class="sensation">Unsteady</div><div class="sensation">Cold</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Insecure</div><div class="sensation-pair"><div class="sensation">Tense</div><div class="sensation">Frozen or Shut Down</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Inferior</div><div class="sensation-pair"><div class="sensation">Quiet</div><div class="sensation">Heart Racing</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Anxious</div><div class="sensation-pair"><div class="sensation">Foot Tapping</div><div class="sensation">Fidgety</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Scared</div><div class="sensation-pair"><div class="sensation">Numbness</div><div class="sensation">Trembling</div></div></div>
+        </div>
+
+        <!-- SURPRISE -->
+        <div class="emotion-group surprise">
+          <div class="group-header"><span class="group-header-text">Surprise</span></div>
+          <div class="emotion-row"><div class="emotion-name">Shocked</div><div class="sensation-pair"><div class="sensation">Jumpy</div><div class="sensation">Sweaty Palms</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Confused</div><div class="sensation-pair"><div class="sensation">Breathless</div><div class="sensation">Speechless</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Amazed</div><div class="sensation-pair"><div class="sensation">Jaw Dropped</div><div class="sensation">Eyebrows Up</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Excited</div><div class="sensation-pair"><div class="sensation">Electrified</div><div class="sensation">Full of Energy</div></div></div>
+        </div>
+
+        <!-- HAPPINESS -->
+        <div class="emotion-group happiness">
+          <div class="group-header"><span class="group-header-text">Happiness</span></div>
+          <div class="emotion-row"><div class="emotion-name">Joyful</div><div class="sensation-pair"><div class="sensation">Open</div><div class="sensation">Energetic</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Curious</div><div class="sensation-pair"><div class="sensation">Awake</div><div class="sensation">Brow Furrowed</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Proud</div><div class="sensation-pair"><div class="sensation">Inflated</div><div class="sensation">Standing Tall</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Satisfied</div><div class="sensation-pair"><div class="sensation">Soft</div><div class="sensation">Calm</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Courageous</div><div class="sensation-pair"><div class="sensation">Steady</div><div class="sensation">Jaw Set</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Peaceful</div><div class="sensation-pair"><div class="sensation">Relaxed</div><div class="sensation">Still</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Intimate</div><div class="sensation-pair"><div class="sensation">Sensitive</div><div class="sensation">Warm</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Optimistic</div><div class="sensation-pair"><div class="sensation">Light</div><div class="sensation">Buzzing</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Powerful</div><div class="sensation-pair"><div class="sensation">Tense</div><div class="sensation">Impulsive</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Accepted</div><div class="sensation-pair"><div class="sensation">Calm</div><div class="sensation">Relaxed</div></div></div>
+        </div>
+
+        <!-- ANGER -->
+        <div class="emotion-group anger">
+          <div class="group-header"><span class="group-header-text">Anger</span></div>
+          <div class="emotion-row"><div class="emotion-name">Hurt</div><div class="sensation-pair"><div class="sensation">Lip Tremble</div><div class="sensation">Limp</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Insecure</div><div class="sensation-pair"><div class="sensation">Hiding</div><div class="sensation">Hot</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Hateful</div><div class="sensation-pair"><div class="sensation">Scowl</div><div class="sensation">Turning Away</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Mad</div><div class="sensation-pair"><div class="sensation">Loud Words</div><div class="sensation">Flushed</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Aggressive</div><div class="sensation-pair"><div class="sensation">Heart Racing</div><div class="sensation">Clenching</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Frustrated</div><div class="sensation-pair"><div class="sensation">Hot</div><div class="sensation">Tense</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Distant</div><div class="sensation-pair"><div class="sensation">Gut Turning</div><div class="sensation">Negative</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Critical</div><div class="sensation-pair"><div class="sensation">Feeling Hot</div><div class="sensation">Lip Curled</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Irritated</div><div class="sensation-pair"><div class="sensation">Headache</div><div class="sensation">Numbness</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Offended</div><div class="sensation-pair"><div class="sensation">Taken Aback</div><div class="sensation">Solemn</div></div></div>
+        </div>
+
+        <!-- DISGUST -->
+        <div class="emotion-group disgust">
+          <div class="group-header"><span class="group-header-text">Disgust</span></div>
+          <div class="emotion-row"><div class="emotion-name">Disapproval</div><div class="sensation-pair"><div class="sensation">Shuddering</div><div class="sensation">Writhing</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Disappointed</div><div class="sensation-pair"><div class="sensation">Need to Move</div><div class="sensation">Face Scrunched</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Awful</div><div class="sensation-pair"><div class="sensation">Nausea</div><div class="sensation">Lump in Throat</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Avoidant</div><div class="sensation-pair"><div class="sensation">Queasy</div><div class="sensation">Turned Away</div></div></div>
+        </div>
+
+        <!-- SADNESS -->
+        <div class="emotion-group sadness">
+          <div class="group-header"><span class="group-header-text">Sadness</span></div>
+          <div class="emotion-row"><div class="emotion-name">Apathetic</div><div class="sensation-pair"><div class="sensation">Eye Rolls</div><div class="sensation">Weakness</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Lonely</div><div class="sensation-pair"><div class="sensation">Heaviness</div><div class="sensation">Slow Heartrate</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Despair</div><div class="sensation-pair"><div class="sensation">Crying</div><div class="sensation">Body Aches</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Depressed</div><div class="sensation-pair"><div class="sensation">Tiredness</div><div class="sensation">Hollow Feeling</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Abandoned</div><div class="sensation-pair"><div class="sensation">Curling Up</div><div class="sensation">Slouching</div></div></div>
+          <div class="emotion-row"><div class="emotion-name">Guilt</div><div class="sensation-pair"><div class="sensation">Looking Down</div><div class="sensation">Feeling Empty</div></div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing-section">
+    <span class="section-label">After 21 days</span>
+    <h2 class="section-title">What changes by Day 42</h2>
+    <p class="body-text">After 21 days of this, something specific is different. You know what your body signals before your thoughts have caught up. You recognize which emotions tend to run your patterns. You have practiced, repeatedly, creating a pause between what activates you and how you respond.</p>
+    <p class="body-text">That pause is not nothing. It is the most important skill you take into Stage 3.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-left">
+      <div class="footer-logo">
+        <svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#FAF7F2"/></svg>
+        <span class="footer-logo-text">innerbalance101</span>
+      </div>
+      <div class="footer-tagline">From performing fine to actually being fine.</div>
+    </div>
+    <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:20px;">
+      <div class="footer-links">
+        <a href="/about.html" class="footer-link">About</a>
+        <a href="/terms-and-conditions.html" class="footer-link">Terms and Conditions</a>
+        <a href="/contact.html" class="footer-link">Contact</a>
+        <a href="/sitemap.xml" class="footer-link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copyright">© 2026 innerbalance101. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var navEl = document.querySelector('nav');
+    var navToggle = document.querySelector('.nav-mobile-toggle');
+    var bodyCheckinStep = document.getElementById('body-checkin-step');
+    var emotionsChart = document.querySelector('.chart-section');
+
+    if (navEl && navToggle) {
+      navToggle.addEventListener('click', function() {
+        var isOpen = navEl.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.querySelectorAll('#site-nav-links a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navEl.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    if (bodyCheckinStep && emotionsChart) {
+      emotionsChart.classList.add('chart-inline');
+      bodyCheckinStep.insertAdjacentElement('afterend', emotionsChart);
+    }
+  });
+</script>
+
+</body>
+</html>
