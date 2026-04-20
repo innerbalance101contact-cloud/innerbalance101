@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Emotions & Sensations Chart — innerbalance101</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-white: #FAF7F2;
+    --linen: #F0E8DC;
+    --clay: #C4A882;
+    --clay-light: #DDD0BE;
+    --clay-deep: #A68B65;
+    --soft: #9C8575;
+    --mid: #6B5B4E;
+    --espresso: #2C2420;
+
+    /* Emotion category colors — warm, desaturated, on-brand */
+    --fear-bg: #E8D5C0;
+    --fear-text: #5C3D2A;
+    --fear-header: #C4A882;
+
+    --surprise-bg: #D8CFC4;
+    --surprise-text: #4A3B2F;
+    --surprise-header: #B8A48A;
+
+    --happiness-bg: #E6DCCA;
+    --happiness-text: #4A3820;
+    --happiness-header: #C9A96E;
+
+    --anger-bg: #D9C4BE;
+    --anger-text: #4A2A25;
+    --anger-header: #B89090;
+
+    --disgust-bg: #D0CDD0;
+    --disgust-text: #3A3040;
+    --disgust-header: #A09AAA;
+
+    --sadness-bg: #C8CCDA;
+    --sadness-text: #2A3050;
+    --sadness-header: #8A90B0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--warm-white);
+    color: var(--espresso);
+    font-family: 'Jost', sans-serif;
+    min-height: 100vh;
+    padding: 40px 24px 60px;
+  }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .brand-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 5vw, 48px);
+    color: var(--espresso);
+    line-height: 1.1;
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+
+  .page-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--soft);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── CHART WRAPPER ─── */
+  .chart-wrapper {
+    max-width: 1100px;
+    margin: 0 auto 48px;
+    background: var(--linen);
+    border-radius: 4px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 24px rgba(44,36,32,0.07);
+  }
+
+  /* ─── GLOBAL LEGEND ─── */
+  .chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 8px 14px;
+    background: rgba(196,168,130,0.08);
+    border-radius: 3px;
+    flex-wrap: wrap;
+  }
+
+  .legend-intro {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--soft);
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+
+  .legend-block {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .legend-block.main {
+    background: var(--clay);
+    color: var(--espresso);
+  }
+
+  .legend-block.sub {
+    background: var(--linen);
+    border: 1px solid var(--clay-light);
+    color: var(--mid);
+  }
+
+  .legend-block.sensation {
+    background: rgba(250,247,242,0.7);
+    border: 1px dashed var(--clay-light);
+    color: var(--soft);
+  }
+
+  .legend-arrow {
+    color: var(--clay-light);
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .legend-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* ─── CHART GRID ─── */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  /* ─── EMOTION GROUP ─── */
+  .emotion-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .group-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 6px;
+    border-radius: 3px 3px 0 0;
+    min-height: 48px;
+  }
+
+  .group-header-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(13px, 2vw, 17px);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    writing-mode: horizontal-tb;
+    color: var(--espresso);
+  }
+
+  /* ─── EMOTION ROWS ─── */
+  .emotion-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    min-height: 52px;
+  }
+
+  .emotion-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 6px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: clamp(9px, 1.2vw, 12px);
+    letter-spacing: 0.07em;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.3;
+    border-radius: 2px;
+  }
+
+  .sensation-pair {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sensation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 6px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(8px, 1.1vw, 11px);
+    text-align: center;
+    color: var(--espresso);
+    background: rgba(250,247,242,0.55);
+    border-radius: 2px;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  /* ─── GROUP COLOR VARIANTS ─── */
+  .fear .group-header    { background: var(--fear-header); }
+  .fear .emotion-name    { background: var(--fear-bg); color: var(--fear-text); }
+  .fear .sensation       { background: rgba(232,213,192,0.35); }
+
+  .surprise .group-header { background: var(--surprise-header); }
+  .surprise .emotion-name { background: var(--surprise-bg); color: var(--surprise-text); }
+  .surprise .sensation    { background: rgba(216,207,196,0.35); }
+
+  .happiness .group-header { background: var(--happiness-header); }
+  .happiness .emotion-name { background: var(--happiness-bg); color: var(--happiness-text); }
+  .happiness .sensation    { background: rgba(230,220,202,0.35); }
+
+  .anger .group-header   { background: var(--anger-header); }
+  .anger .emotion-name   { background: var(--anger-bg); color: var(--anger-text); }
+  .anger .sensation      { background: rgba(217,196,190,0.35); }
+
+  .disgust .group-header { background: var(--disgust-header); }
+  .disgust .emotion-name { background: var(--disgust-bg); color: var(--disgust-text); }
+  .disgust .sensation    { background: rgba(208,205,208,0.35); }
+
+  .sadness .group-header { background: var(--sadness-header); }
+  .sadness .emotion-name { background: var(--sadness-bg); color: var(--sadness-text); }
+  .sadness .sensation    { background: rgba(200,204,218,0.35); }
+
+  /* ─── HOW TO USE ─── */
+  .how-to-use {
+    max-width: 860px;
+    margin: 0 auto 52px;
+    padding: 0 8px;
+  }
+
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .how-to-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 400;
+    color: var(--espresso);
+    margin-bottom: 28px;
+    line-height: 1.2;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .step-card {
+    background: var(--linen);
+    border-left: 2px solid var(--clay);
+    padding: 20px 20px 20px 18px;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .step-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 8px;
+  }
+
+  .step-body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--soft);
+    line-height: 1.65;
+  }
+
+  .callout-box {
+    background: var(--linen);
+    border: 1px solid var(--clay-light);
+    border-radius: 3px;
+    padding: 24px 28px;
+    margin-bottom: 0;
+  }
+
+  .callout-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(15px, 2.2vw, 19px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .callout-box strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+
+  /* ─── FOOTER ─── */
+  .page-footer {
+    text-align: center;
+    border-top: 1px solid var(--clay-light);
+    padding-top: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-brand {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+  }
+
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--clay);
+    margin-top: 4px;
+  }
+
+  /* ─── DIVIDER ─── */
+  .ornament-divider {
+    text-align: center;
+    color: var(--clay-light);
+    font-size: 18px;
+    letter-spacing: 0.5em;
+    margin: 32px 0;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    .chart-grid, .column-labels {
+      grid-template-columns: 1fr 1fr;
+    }
+    .chart-wrapper { padding: 16px 10px; }
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 440px) {
+    .chart-grid, .column-labels { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── PAGE HEADER ─── -->
+<header class="page-header">
+  <span class="brand-label">innerbalance101</span>
+  <h1 class="page-title">The Emotions &amp; Sensations Chart</h1>
+  <p class="page-subtitle">Name what you feel. Locate it in the body. Begin there.</p>
+</header>
+
+<!-- ─── CHART ─── -->
+<div class="chart-wrapper">
+  <!-- ─── GLOBAL LEGEND ─── -->
+  <div class="chart-legend">
+    <span class="legend-intro">How to read this chart:</span>
+    <div class="legend-block main"><span class="legend-dot" style="background:var(--espresso);"></span> Main Emotion</div>
+    <span class="legend-arrow">→</span>
+    <div class="legend-block sub"><span class="legend-dot" style="background:var(--clay-deep);"></span> Sub-Emotion</div>
+    <span class="legend-arrow">→</span>
+    <div class="legend-block sensation"><span class="legend-dot" style="background:var(--clay-light);"></span> Body Sensation</div>
+  </div>
+
+  <div class="chart-grid">
+
+    <!-- FEAR -->
+    <div class="emotion-group fear">
+      <div class="group-header"><span class="group-header-text">Fear</span></div>
+
+      <div class="emotion-row">
+        <div class="emotion-name">Embarrassed</div>
+        <div class="sensation-pair">
+          <div class="sensation">Tender</div>
+          <div class="sensation">Blushing</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Unwanted</div>
+        <div class="sensation-pair">
+          <div class="sensation">Unsteady</div>
+          <div class="sensation">Cold</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Insecure</div>
+        <div class="sensation-pair">
+          <div class="sensation">Tense</div>
+          <div class="sensation">Frozen or Shut Down</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Inferior</div>
+        <div class="sensation-pair">
+          <div class="sensation">Quiet</div>
+          <div class="sensation">Heart Racing</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Anxious</div>
+        <div class="sensation-pair">
+          <div class="sensation">Foot Tapping</div>
+          <div class="sensation">Fidgety</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Scared</div>
+        <div class="sensation-pair">
+          <div class="sensation">Numbness</div>
+          <div class="sensation">Trembling</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SURPRISE -->
+    <div class="emotion-group surprise">
+      <div class="group-header"><span class="group-header-text">Surprise</span></div>
+
+      <div class="emotion-row">
+        <div class="emotion-name">Shocked</div>
+        <div class="sensation-pair">
+          <div class="sensation">Jumpy</div>
+          <div class="sensation">Sweaty Palms</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Confused</div>
+        <div class="sensation-pair">
+          <div class="sensation">Breathless</div>
+          <div class="sensation">Speechless</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Amazed</div>
+        <div class="sensation-pair">
+          <div class="sensation">Jaw Dropped</div>
+          <div class="sensation">Eyebrows Up</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Excited</div>
+        <div class="sensation-pair">
+          <div class="sensation">Electrified</div>
+          <div class="sensation">Full of Energy</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAPPINESS -->
+    <div class="emotion-group happiness">
+      <div class="group-header"><span class="group-header-text">Happiness</span></div>
+
+      <div class="emotion-row">
+        <div class="emotion-name">Joyful</div>
+        <div class="sensation-pair">
+          <div class="sensation">Open</div>
+          <div class="sensation">Energetic</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Curious</div>
+        <div class="sensation-pair">
+          <div class="sensation">Awake</div>
+          <div class="sensation">Brow Furrowed</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Proud</div>
+        <div class="sensation-pair">
+          <div class="sensation">Inflated</div>
+          <div class="sensation">Standing Tall</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Satisfied</div>
+        <div class="sensation-pair">
+          <div class="sensation">Soft</div>
+          <div class="sensation">Calm</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Courageous</div>
+        <div class="sensation-pair">
+          <div class="sensation">Steady</div>
+          <div class="sensation">Jaw Set</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Peaceful</div>
+        <div class="sensation-pair">
+          <div class="sensation">Relaxed</div>
+          <div class="sensation">Still</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Intimate</div>
+        <div class="sensation-pair">
+          <div class="sensation">Sensitive</div>
+          <div class="sensation">Warm</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Optimistic</div>
+        <div class="sensation-pair">
+          <div class="sensation">Light</div>
+          <div class="sensation">Buzzing</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Powerful</div>
+        <div class="sensation-pair">
+          <div class="sensation">Tense</div>
+          <div class="sensation">Impulsive</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Accepted</div>
+        <div class="sensation-pair">
+          <div class="sensation">Calm</div>
+          <div class="sensation">Relaxed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANGER -->
+    <div class="emotion-group anger">
+      <div class="group-header"><span class="group-header-text">Anger</span></div>
+
+      <div class="emotion-row">
+        <div class="emotion-name">Hurt</div>
+        <div class="sensation-pair">
+          <div class="sensation">Lip Tremble</div>
+          <div class="sensation">Limp</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Insecure</div>
+        <div class="sensation-pair">
+          <div class="sensation">Hiding</div>
+          <div class="sensation">Hot</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Hateful</div>
+        <div class="sensation-pair">
+          <div class="sensation">Scowl</div>
+          <div class="sensation">Turning Away</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Mad</div>
+        <div class="sensation-pair">
+          <div class="sensation">Loud Words</div>
+          <div class="sensation">Flushed</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Aggressive</div>
+        <div class="sensation-pair">
+          <div class="sensation">Heart Racing</div>
+          <div class="sensation">Clenching</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Frustrated</div>
+        <div class="sensation-pair">
+          <div class="sensation">Hot</div>
+          <div class="sensation">Tense</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Distant</div>
+        <div class="sensation-pair">
+          <div class="sensation">Gut Turning</div>
+          <div class="sensation">Negative</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Critical</div>
+        <div class="sensation-pair">
+          <div class="sensation">Feeling Hot</div>
+          <div class="sensation">Lip Curled</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Irritated</div>
+        <div class="sensation-pair">
+          <div class="sensation">Headache</div>
+          <div class="sensation">Numbness</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Offended</div>
+        <div class="sensation-pair">
+          <div class="sensation">Taken Aback</div>
+          <div class="sensation">Solemn</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISGUST -->
+    <div class="emotion-group disgust">
+      <div class="group-header"><span class="group-header-text">Disgust</span></div>
+
+      <div class="emotion-row">
+        <div class="emotion-name">Disapproval</div>
+        <div class="sensation-pair">
+          <div class="sensation">Shuddering</div>
+          <div class="sensation">Writhing</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Disappointed</div>
+        <div class="sensation-pair">
+          <div class="sensation">Need to Move</div>
+          <div class="sensation">Face Scrunched</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Awful</div>
+        <div class="sensation-pair">
+          <div class="sensation">Nausea</div>
+          <div class="sensation">Lump in Throat</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Avoidant</div>
+        <div class="sensation-pair">
+          <div class="sensation">Queasy</div>
+          <div class="sensation">Turned Away</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SADNESS -->
+    <div class="emotion-group sadness">
+      <div class="group-header"><span class="group-header-text">Sadness</span></div>
+
+      <div class="emotion-row">
+        <div class="emotion-name">Apathetic</div>
+        <div class="sensation-pair">
+          <div class="sensation">Eye Rolls</div>
+          <div class="sensation">Weakness</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Lonely</div>
+        <div class="sensation-pair">
+          <div class="sensation">Heaviness</div>
+          <div class="sensation">Slow Heartrate</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Despair</div>
+        <div class="sensation-pair">
+          <div class="sensation">Crying</div>
+          <div class="sensation">Body Aches</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Depressed</div>
+        <div class="sensation-pair">
+          <div class="sensation">Tiredness</div>
+          <div class="sensation">Hollow Feeling</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Abandoned</div>
+        <div class="sensation-pair">
+          <div class="sensation">Curling Up</div>
+          <div class="sensation">Slouching</div>
+        </div>
+      </div>
+      <div class="emotion-row">
+        <div class="emotion-name">Guilt</div>
+        <div class="sensation-pair">
+          <div class="sensation">Looking Down</div>
+          <div class="sensation">Feeling Empty</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .chart-grid -->
+</div><!-- end .chart-wrapper -->
+
+<!-- ─── HOW TO USE ─── -->
+<div class="how-to-use">
+  <span class="section-label">How to use this chart</span>
+  <h2 class="how-to-title">Your body speaks before your mind does.<br>This chart helps you listen.</h2>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">01</div>
+      <div class="step-title">Notice the sensation first</div>
+      <p class="step-body">Something feels off — but you can't name it yet. Start with what you notice in the body. Tight chest. Jaw clenched. Heart racing. The sensation is the signal.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">02</div>
+      <div class="step-title">Find your sensation in the chart</div>
+      <p class="step-body">Scan the right-hand column of each category. Match what you feel physically to a sensation listed. This tells you which emotional family you're in.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">03</div>
+      <div class="step-title">Name the specific emotion</div>
+      <p class="step-body">Once you've found the sensation, move left to the emotion name. "Anxious" and "scared" both race your heart — but they need different things. Precision matters.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">04</div>
+      <div class="step-title">Stay with it — don't fix it</div>
+      <p class="step-body">Naming an emotion is not the same as resolving it. Sit with the name for a moment. Research shows that labelling an emotional experience measurably reduces its intensity on its own.</p>
+    </div>
+  </div>
+
+  <div class="callout-box">
+    <p>Most people skip straight to <strong>thinking about how they feel</strong> and miss the feeling entirely. This chart teaches you to reverse that sequence. Body first. Name second. Then — and only then — does the work begin.</p>
+  </div>
+</div>
+
+<div class="ornament-divider">· · ·</div>
+
+<!-- ─── FOOTER ─── -->
+<footer class="page-footer">
+  <div class="footer-brand">innerbalance101</div>
+  <div class="footer-tagline">From performing fine to actually being fine.</div>
+</footer>
+
+</body>
+</html>
