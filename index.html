@@ -103,9 +103,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --clay: #C4A882; --clay-light: #DDD0BE; --clay-deep: #A68B65;
+    --pine: #4F6861; --mist: #D9E1DE; --pine-deep: #3F5751;
+    --rose: #B67C7C; --blue: #6E8397; --blue-light: #AFC1CF;
+    --clay: var(--pine); --clay-light: var(--mist); --clay-deep: var(--pine-deep);
     --warm-white: #FAF7F2; --linen: #F0E8DC; --deep: #2C2420;
-    --mid: #2C2420; --soft: #6B5B4E; --accent: #8B6F5E;
+    --mid: #2C2420; --soft: #6B5B4E; --accent: var(--clay-deep);
+    --accent-on-dark: var(--warm-white);
     --nav-h: 64px;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -151,7 +154,7 @@
     padding:0 60px;
     background:rgba(250,247,242,0.95);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(196,168,130,0.2);
+    border-bottom:1px solid rgba(79,104,97,0.2);
   }
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
   .nav-logo-text { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:500; letter-spacing:0.08em; color:var(--deep); }
@@ -178,7 +181,7 @@
     align-items:center;
     justify-content:center;
     width:42px; height:42px;
-    border:1px solid rgba(196,168,130,0.3);
+    border:1px solid rgba(79,104,97,0.3);
     border-radius:8px;
     background:transparent;
     color:var(--deep);
@@ -244,7 +247,7 @@
   }
   .hero-graph-frame {
     background:rgba(250,247,242,0.72);
-    border:1px solid rgba(196,168,130,0.35);
+    border:1px solid rgba(79,104,97,0.35);
     padding:20px 20px 14px;
     box-shadow:0 24px 60px rgba(44,36,32,0.12);
   }
@@ -308,10 +311,10 @@
 
   /* ─── WHAT YOU GET ────────────────────────────────────────────── */
   .what-you-get { background:var(--deep); padding:60px 60px; display:grid; grid-template-columns:repeat(3,1fr); }
-  .wyg-item { padding:0 44px; border-right:1px solid rgba(196,168,130,0.18); }
+  .wyg-item { padding:0 44px; border-right:1px solid rgba(79,104,97,0.18); }
   .wyg-item:first-child { padding-left:0; }
   .wyg-item:last-child { border-right:none; }
-  .wyg-num { font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--clay); margin-bottom:12px; }
+  .wyg-num { font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-on-dark); margin-bottom:12px; }
   .wyg-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--warm-white); margin-bottom:8px; line-height:1.25; }
   .wyg-body { font-size:0.87rem; font-weight:300; color:rgba(250,247,242,0.75); line-height:1.72; max-width:none; }
 
@@ -319,7 +322,7 @@
   .recognition { background:var(--linen); padding:80px 60px; }
   .recognition-intro { font-family:'Cormorant Garamond',serif; font-size:clamp(1.6rem,2.5vw,2.4rem); font-weight:300; font-style:italic; color:var(--deep); max-width:760px; margin:0 auto 56px; line-height:1.4; text-align:center; }
   .recognition-grid { display:grid; grid-template-columns:repeat(3,1fr); max-width:960px; margin:0 auto; }
-  .recog-item { padding:40px 32px; border-right:1px solid rgba(196,168,130,0.3); }
+  .recog-item { padding:40px 32px; border-right:1px solid rgba(79,104,97,0.3); }
   .recog-item:last-child { border-right:none; }
   .recog-icon { font-size:1.4rem; margin-bottom:16px; opacity:0.7; }
   .recog-text { font-size:1.05rem; font-weight:300; line-height:1.75; color:var(--deep); max-width:none; }
@@ -347,15 +350,15 @@
   .assessment-image { position:relative; overflow:hidden; min-height:600px; }
   .assessment-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.65) brightness(0.88); }
   .assessment-img-overlay { position:absolute; inset:0; background:rgba(44,36,32,0.45); }
-  .assessment-img-badge { position:absolute; top:40px; left:40px; background:var(--clay); padding:10px 18px; display:flex; align-items:center; gap:10px; }
+  .assessment-img-badge { position:absolute; top:40px; left:40px; background:var(--warm-white); padding:10px 18px; display:flex; align-items:center; gap:10px; }
   .assessment-img-badge-text { font-size:0.68rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--deep); }
   .assessment-content { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; background:var(--deep); }
-  .assessment-label { font-size:0.7rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-  .assessment-label::before { content:''; width:24px; height:1px; background:var(--clay); }
+  .assessment-label { font-size:0.7rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-on-dark); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+  .assessment-label::before { content:''; width:24px; height:1px; background:var(--accent-on-dark); }
   .assessment-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.2vw,3rem); font-weight:300; line-height:1.2; color:var(--warm-white); margin-bottom:20px; }
   .assessment-subtext { font-size:1rem; font-weight:300; line-height:1.8; color:rgba(250,247,242,0.8); margin-bottom:32px; max-width:480px; }
-  .btn-assessment { font-size:0.8rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--deep); background:var(--clay); padding:17px 40px; text-decoration:none; display:inline-block; transition:background 0.3s,transform 0.2s; align-self:flex-start; }
-  .btn-assessment:hover { background:var(--clay-light); transform:translateY(-1px); }
+  .btn-assessment { font-size:0.8rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--deep); background:var(--warm-white); padding:17px 40px; text-decoration:none; display:inline-block; transition:background 0.3s,transform 0.2s; align-self:flex-start; }
+  .btn-assessment:hover { background:var(--linen); transform:translateY(-1px); }
   .assessment-note { font-size:0.72rem; font-weight:300; color:rgba(250,247,242,0.45); margin-top:12px; letter-spacing:0.04em; }
 
   /* ─── HOW IT WORKS ────────────────────────────────────────────── */
@@ -398,7 +401,7 @@
   .how-diagram-legend-line {
     display:inline-block; width:24px; height:2.5px; border-radius:2px; flex-shrink:0;
   }
-  .how-diagram-legend-line--load { background:#A55C54; }
+  .how-diagram-legend-line--load { background:var(--rose); }
   .how-diagram-legend-line--stability { background:#C4A882; }
   .how-diagram-legend-text {
     font-size:0.72rem; font-weight:300; color:var(--soft); letter-spacing:0.04em;
@@ -421,7 +424,7 @@
   .step-content-desc { font-size:0.96rem; font-weight:300; line-height:1.7; color:var(--soft); max-width:none; margin-bottom:0; }
 
   /* ─── EVIDENCE ────────────────────────────────────────────────── */
-  .evidence { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
+  .evidence { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(79,104,97,0.25); border-bottom:1px solid rgba(79,104,97,0.25); }
   .evidence-inner {
     max-width:1240px;
     margin:0 auto;
@@ -434,8 +437,8 @@
   .evidence-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; color:var(--deep); margin-bottom:20px; margin-top:20px; }
   .evidence-intro { font-size:1.05rem; font-weight:300; line-height:1.85; color:var(--deep); max-width:680px; }
   .evidence-accordion { max-width:none; display:flex; flex-direction:column; }
-  .evidence-tab { border-top:1px solid rgba(196,168,130,0.35); }
-  .evidence-tab:last-child { border-bottom:1px solid rgba(196,168,130,0.35); }
+  .evidence-tab { border-top:1px solid rgba(79,104,97,0.35); }
+  .evidence-tab:last-child { border-bottom:1px solid rgba(79,104,97,0.35); }
   .evidence-tab-btn { width:100%; background:none; border:none; cursor:pointer; padding:24px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:24px; text-align:left; }
   .evidence-tab-btn:hover .evidence-tab-claim { color:var(--clay-deep); }
   .evidence-tab-left { display:flex; flex-direction:column; gap:6px; }
@@ -453,7 +456,7 @@
   .evidence-analogy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--deep); max-width:640px; }
 
   /* ─── SYSTEM ─────────────────────────────────────────────────── */
-  .system { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
+  .system { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(79,104,97,0.25); border-bottom:1px solid rgba(79,104,97,0.25); }
   .system-header {
     max-width:820px;
     margin-bottom:28px;
@@ -463,7 +466,7 @@
   .thought-journey {
     margin-bottom:34px;
     background:var(--warm-white);
-    border:1px solid rgba(196,168,130,0.2);
+    border:1px solid rgba(79,104,97,0.2);
     padding:24px;
   }
   .thought-journey-kicker {
@@ -474,6 +477,14 @@
     color:var(--clay-deep);
     margin-bottom:16px;
   }
+  .thought-journey-intro {
+    font-size:0.94rem;
+    font-weight:300;
+    line-height:1.7;
+    color:var(--soft);
+    max-width:760px;
+    margin:0 0 18px;
+  }
   .thought-journey-track {
     display:grid;
     grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
@@ -483,12 +494,24 @@
   .tj-stage { display:flex; flex-direction:column; gap:10px; }
   .tj-stage-header {
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     gap:10px;
+  }
+  .tj-stage-meta {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .tj-state-label {
+    font-size:0.58rem;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--clay-deep);
   }
   .tj-icon {
     width:30px; height:30px;
-    border:1px solid rgba(196,168,130,0.35);
+    border:1px solid rgba(79,104,97,0.35);
     border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
@@ -499,19 +522,19 @@
     fill:none; stroke-width:1.7;
     stroke-linecap:round; stroke-linejoin:round;
   }
-  .tj-icon--sos svg   { stroke:#A55C54; }
+  .tj-icon--sos svg   { stroke:var(--rose); }
   .tj-icon--clarity svg { stroke:var(--clay-deep); }
   .tj-icon--balance svg { stroke:var(--deep); }
   .tj-stage-name {
-    font-size:0.65rem;
+    font-size:0.62rem;
     font-weight:500;
-    letter-spacing:0.16em;
+    letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--soft);
   }
   .tj-bubble {
     background:var(--warm-white);
-    border:1px solid rgba(196,168,130,0.32);
+    border:1px solid rgba(79,104,97,0.32);
     border-radius:10px;
     padding:14px 18px;
     display:flex;
@@ -531,7 +554,7 @@
     margin:0;
     max-width:none;
     padding-left:12px;
-    border-left:2px solid rgba(196,168,130,0.35);
+    border-left:2px solid rgba(79,104,97,0.35);
   }
   .tj-connector {
     display:flex;
@@ -546,13 +569,13 @@
   .tj-connector-line {
     width:30px;
     height:1px;
-    background:rgba(196,168,130,0.45);
+    background:rgba(79,104,97,0.45);
   }
   .tj-connector-arrow {
     width:0; height:0;
     border-top:4px solid transparent;
     border-bottom:4px solid transparent;
-    border-left:5px solid rgba(196,168,130,0.55);
+    border-left:5px solid rgba(79,104,97,0.55);
     margin-left:0;
   }
 
@@ -562,7 +585,7 @@
   .system-header .section-body { color:var(--deep); margin-bottom:0; max-width:680px; }
   .system-price-card {
     background:var(--warm-white);
-    border:1px solid rgba(196,168,130,0.24);
+    border:1px solid rgba(79,104,97,0.24);
     padding:28px;
   }
   .system-price-kicker {
@@ -597,7 +620,7 @@
   .system-cta {
     margin-top:28px;
     background:var(--deep);
-    border:1px solid rgba(196,168,130,0.22);
+    border:1px solid rgba(79,104,97,0.22);
     padding:28px 30px;
     display:flex;
     align-items:center;
@@ -609,14 +632,14 @@
     flex-direction:column;
     align-items:center;
     flex-shrink:0;
-    border-right:1px solid rgba(196,168,130,0.18);
+    border-right:1px solid rgba(79,104,97,0.18);
     padding-right:28px;
   }
   .system-cta-price-amount {
     font-family:'Cormorant Garamond',serif;
     font-size:2.4rem;
     line-height:1;
-    color:var(--clay);
+    color:var(--accent-on-dark);
     margin-bottom:4px;
   }
   .system-cta-price-note {
@@ -665,7 +688,7 @@
   }
   .system-stages {
     background:var(--warm-white);
-    border:1px solid rgba(196,168,130,0.18);
+    border:1px solid rgba(79,104,97,0.18);
     padding:32px;
     display:flex;
     flex-direction:column;
@@ -685,7 +708,7 @@
     gap:22px;
     align-items:start;
     padding-top:22px;
-    border-top:1px solid rgba(196,168,130,0.16);
+    border-top:1px solid rgba(79,104,97,0.16);
   }
   .system-stage:first-of-type { border-top:none; padding-top:0; }
   .system-stage-label {
@@ -705,13 +728,13 @@
   .system-stage-icon {
     width:42px;
     height:42px;
-    border:1px solid rgba(196,168,130,0.3);
+    border:1px solid rgba(79,104,97,0.3);
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
     flex-shrink:0;
-    background:linear-gradient(180deg, rgba(250,247,242,0.95) 0%, rgba(244,237,226,0.92) 100%);
+    background:linear-gradient(180deg, rgba(250,247,242,0.95) 0%, rgba(217,225,222,0.72) 100%);
     box-shadow:0 8px 18px rgba(44,36,32,0.05);
   }
   .system-stage-icon svg {
@@ -723,7 +746,7 @@
     stroke-linecap:round;
     stroke-linejoin:round;
   }
-  .system-stage-icon--sos svg { stroke:#A55C54; }
+  .system-stage-icon--sos svg { stroke:var(--rose); }
   .system-stage-icon--clarity svg { stroke:var(--clay-deep); }
   .system-stage-icon--balance svg { stroke:var(--deep); }
   .system-stage-heading .system-stage-card-title,
@@ -766,7 +789,7 @@
     letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--clay);
-    border:1px solid rgba(196,168,130,0.24);
+    border:1px solid rgba(79,104,97,0.24);
     padding:6px 10px;
   }
   .system-stage-feature {
@@ -822,10 +845,10 @@
 
   /* ─── PROOF STRIP ─────────────────────────────────────────────── */
   .proof-strip { background:var(--deep); padding:64px 60px; display:grid; grid-template-columns:repeat(2,1fr); }
-  .proof-item { padding:0 48px; border-right:1px solid rgba(196,168,130,0.2); }
+  .proof-item { padding:0 48px; border-right:1px solid rgba(79,104,97,0.2); }
   .proof-item:first-child { padding-left:0; }
   .proof-item:last-child { border-right:none; }
-  .proof-num { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:300; color:var(--clay); line-height:1; margin-bottom:8px; }
+  .proof-num { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:300; color:var(--accent-on-dark); line-height:1; margin-bottom:8px; }
   .proof-label { font-size:0.75rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,247,242,0.55); margin-bottom:6px; }
   .proof-sublabel { font-size:0.82rem; font-weight:300; color:rgba(250,247,242,0.5); letter-spacing:0.04em; line-height:1.5; max-width:none; margin-bottom:0; }
 
@@ -833,8 +856,8 @@
   .inner-balance-feel {
     background:var(--linen);
     padding:92px 60px;
-    border-top:1px solid rgba(196,168,130,0.2);
-    border-bottom:1px solid rgba(196,168,130,0.2);
+    border-top:1px solid rgba(79,104,97,0.2);
+    border-bottom:1px solid rgba(79,104,97,0.2);
   }
   .inner-balance-feel-inner {
     max-width:1240px;
@@ -843,7 +866,7 @@
     grid-template-columns:minmax(0, 0.95fr) minmax(0, 1.05fr);
     gap:0;
     background:var(--warm-white);
-    border:1px solid rgba(196,168,130,0.24);
+    border:1px solid rgba(79,104,97,0.24);
   }
   .ibf-photo {
     position:relative;
@@ -866,7 +889,7 @@
     inset:0;
     background:
       linear-gradient(0deg, rgba(44,36,32,0.28) 0%, rgba(44,36,32,0.04) 48%, rgba(44,36,32,0.22) 100%),
-      radial-gradient(circle at 82% 18%, rgba(196,168,130,0.22), transparent 46%);
+      radial-gradient(circle at 82% 18%, rgba(79,104,97,0.22), transparent 46%);
     pointer-events:none;
   }
   .ibf-photo-note {
@@ -918,7 +941,7 @@
     margin-top:18px;
     padding:20px 22px;
     border-left:2px solid var(--clay);
-    background:rgba(196,168,130,0.1);
+    background:rgba(79,104,97,0.1);
     font-size:0.93rem;
     font-weight:300;
     line-height:1.7;
@@ -933,17 +956,17 @@
   .lm-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.65) brightness(0.92); }
   .lm-img-overlay { position:absolute; inset:0; background:rgba(44,36,32,0.45); }
   .lm-img-content { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:60px 48px; }
-  .lm-img-label { font-size:0.6rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay); margin-bottom:16px; }
+  .lm-img-label { font-size:0.6rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-on-dark); margin-bottom:16px; }
   .lm-img-title { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:300; color:var(--warm-white); line-height:1.2; margin-bottom:12px; max-width:none; }
   .lm-img-sub { font-size:0.92rem; font-weight:300; color:rgba(250,247,242,0.75); margin-bottom:32px; max-width:none; }
   .lm-items { display:flex; flex-direction:column; gap:12px; }
   .lm-item { font-size:0.92rem; font-weight:300; color:rgba(250,247,242,0.85); display:flex; align-items:flex-start; gap:12px; line-height:1.5; max-width:none; margin-bottom:0; }
-  .lm-item::before { content:'\2013'; color:var(--clay); flex-shrink:0; margin-top:1px; }
+  .lm-item::before { content:'\2013'; color:var(--accent-on-dark); flex-shrink:0; margin-top:1px; }
   .lm-form-side { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; background:var(--linen); }
   .lm-form-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); font-weight:300; color:var(--deep); margin-bottom:16px; line-height:1.2; }
   .lm-form-sub { font-size:1rem; font-weight:300; line-height:1.7; color:var(--deep); margin-bottom:36px; max-width:480px; }
   .form-row { display:flex; flex-direction:column; gap:12px; }
-  .form-input { font-family:'Jost',sans-serif; font-size:1rem; font-weight:300; background:var(--warm-white); color:var(--deep); border:1px solid rgba(196,168,130,0.4); padding:14px 18px; outline:none; width:100%; transition:border-color 0.3s; }
+  .form-input { font-family:'Jost',sans-serif; font-size:1rem; font-weight:300; background:var(--warm-white); color:var(--deep); border:1px solid rgba(79,104,97,0.4); padding:14px 18px; outline:none; width:100%; transition:border-color 0.3s; }
   .form-input::placeholder { color:var(--soft); }
   .form-input:focus { border-color:var(--clay); }
   .form-submit { font-family:'Jost',sans-serif; font-size:0.85rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; background:var(--deep); color:var(--warm-white); border:none; padding:16px; cursor:pointer; width:100%; transition:background 0.3s; }
@@ -954,7 +977,7 @@
   /* ─── FOOTER ──────────────────────────────────────────────────── */
   footer { background:var(--deep); padding:48px 60px 28px; }
   .footer-top { display:flex; justify-content:space-between; align-items:center; gap:24px; }
-  .footer-bottom { margin-top:24px; padding-top:20px; border-top:1px solid rgba(196,168,130,0.1); text-align:center; }
+  .footer-bottom { margin-top:24px; padding-top:20px; border-top:1px solid rgba(79,104,97,0.1); text-align:center; }
   .footer-copyright { font-family:'Jost',sans-serif; font-size:0.68rem; font-weight:300; letter-spacing:0.08em; color:rgba(250,247,242,0.25); }
   .footer-left { display:flex; flex-direction:column; gap:8px; }
   .footer-logo { display:flex; align-items:center; gap:10px; }
@@ -962,10 +985,10 @@
   .footer-tagline { font-size:0.88rem; font-weight:300; color:rgba(250,247,242,0.45); font-style:italic; padding-left:32px; }
   .footer-links { display:flex; gap:24px; }
   .footer-link { font-size:0.78rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,247,242,0.5); text-decoration:none; transition:color 0.3s; }
-  .footer-link:hover { color:var(--clay); }
+  .footer-link:hover { color:var(--accent-on-dark); }
   .social-links { display:flex; gap:16px; align-items:center; }
   .social-link { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid rgba(250,247,242,0.15); color:rgba(250,247,242,0.5); transition:color 0.3s,border-color 0.3s; text-decoration:none; }
-  .social-link:hover { color:var(--clay); border-color:var(--clay); }
+  .social-link:hover { color:var(--accent-on-dark); border-color:var(--accent-on-dark); }
   .social-link svg { width:16px; height:16px; fill:currentColor; }
 
   /* ─── ANIMATIONS ──────────────────────────────────────────────── */
@@ -992,12 +1015,12 @@
     .hero-headline { font-size:clamp(2.4rem,8vw,3.4rem); margin-bottom:24px; }
     .btn-primary { padding:15px 28px; font-size:0.78rem; }
     .what-you-get { grid-template-columns:1fr; padding:40px 24px; gap:0; }
-    .wyg-item { padding:24px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); }
+    .wyg-item { padding:24px 0; border-right:none; border-bottom:1px solid rgba(79,104,97,0.18); }
     .wyg-item:last-child { border-bottom:none; padding-bottom:0; }
     .recognition { padding:56px 24px; }
     .recognition-intro { font-size:clamp(1.4rem,5vw,1.9rem); margin-bottom:40px; }
     .recognition-grid { grid-template-columns:1fr; }
-    .recog-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.2); }
+    .recog-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(79,104,97,0.2); }
     .recog-item:last-child { border-bottom:none; }
     .for-who { padding:56px 24px; }
     .for-who-inner { grid-template-columns:1fr; gap:40px; }
@@ -1032,12 +1055,12 @@
     .tj-connector-arrow {
       border-left:4px solid transparent;
       border-right:4px solid transparent;
-      border-top:5px solid rgba(196,168,130,0.55);
+      border-top:5px solid rgba(79,104,97,0.55);
       border-bottom:none;
       margin-left:-3.5px;
     }
     .system-cta { flex-direction:column; align-items:flex-start; padding:24px; }
-    .system-cta-price { flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(196,168,130,0.18); padding-right:0; padding-bottom:16px; width:100%; }
+    .system-cta-price { flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(79,104,97,0.18); padding-right:0; padding-bottom:16px; width:100%; }
     .system-cta-price-day { width:100%; margin-top:0; }
     .system-stages,
     .system-stage-feature { padding:24px; }
@@ -1045,7 +1068,7 @@
     .system-stage-heading,
     .system-stage-feature-heading { gap:12px; }
     .proof-strip { grid-template-columns:1fr; gap:0; padding:40px 24px; }
-    .proof-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(196,168,130,0.15); }
+    .proof-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(79,104,97,0.15); }
     .proof-item:last-child { border-bottom:none; padding-bottom:0; }
     .inner-balance-feel { padding:56px 24px; }
     .inner-balance-feel-inner { grid-template-columns:1fr; }
@@ -1180,17 +1203,17 @@
           <desc id="graph-desc">A graph showing SOS beginning high and volatile, then lowering by the end of the stage, followed by steadier Clarity and resilient Inner Balance.</desc>
           <line x1="44" y1="26" x2="44" y2="236" stroke="rgba(44,36,32,0.2)" stroke-width="1"/>
           <line x1="44" y1="236" x2="488" y2="236" stroke="rgba(44,36,32,0.2)" stroke-width="1"/>
-          <line x1="180" y1="34" x2="180" y2="236" stroke="rgba(196,168,130,0.4)" stroke-width="1" stroke-dasharray="4 6"/>
-          <line x1="330" y1="34" x2="330" y2="236" stroke="rgba(196,168,130,0.4)" stroke-width="1" stroke-dasharray="4 6"/>
+          <line x1="180" y1="34" x2="180" y2="236" stroke="rgba(79,104,97,0.4)" stroke-width="1" stroke-dasharray="4 6"/>
+          <line x1="330" y1="34" x2="330" y2="236" stroke="rgba(79,104,97,0.4)" stroke-width="1" stroke-dasharray="4 6"/>
           <text x="22" y="144" class="hero-graph-axis" transform="rotate(-90 22 144)">Emotional load</text>
           <text x="94" y="256" class="hero-graph-axis">SOS</text>
           <text x="220" y="256" class="hero-graph-axis">Clarity</text>
           <text x="390" y="256" class="hero-graph-axis">Inner Balance</text>
           <text x="390" y="278" class="hero-graph-axis">Day 1 &rarr; Day 63</text>
-          <path d="M52 34 C60 4, 74 138, 90 56 S116 146, 134 72 S152 132, 168 90 S178 110, 186 102" fill="none" stroke="#A55C54" stroke-width="4" stroke-linecap="round"/>
+          <path d="M52 34 C60 4, 74 138, 90 56 S116 146, 134 72 S152 132, 168 90 S178 110, 186 102" fill="none" stroke="#B67C7C" stroke-width="4" stroke-linecap="round"/>
           <path d="M186 102 C204 88, 220 132, 238 110 S264 136, 282 116 S306 132, 330 118" fill="none" stroke="#C4A882" stroke-width="4" stroke-linecap="round"/>
           <path d="M330 118 C348 106, 364 124, 382 112 S408 126, 430 114 S454 122, 480 110" fill="none" stroke="#2C2420" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="52" cy="34" r="4" fill="#A55C54"/>
+          <circle cx="52" cy="34" r="4" fill="#B67C7C"/>
           <circle cx="186" cy="102" r="4" fill="#C4A882"/>
           <circle cx="330" cy="118" r="4" fill="#C4A882"/>
           <circle cx="480" cy="110" r="4" fill="#2C2420"/>
@@ -1255,11 +1278,12 @@
     <div>
       <div class="section-label">The System</div>
       <h2 class="section-headline">3 stages to feeling in inner balance.</h2>
-      <p class="section-body">Three stages. 21 days each. Built for people who are tired of looking fine on the outside while feeling off inside. You move through SOS, Clarity, and Inner Balance in order, with guided check-ins and practical support that help you keep showing up. That's 63 days. One stage at a time.</p>
+      <p class="section-body">Three stages. 21 days each. Built for people who are tired of looking fine on the outside while feeling off inside. You move through SOS, Clarity, and Inner Balance in order, with guided check-ins and practical support that help you keep showing up. One stage at a time, at a pace that feels doable.</p>
     </div>
   </div>
   <div class="thought-journey" aria-label="How your inner voice shifts across the three stages">
     <div class="thought-journey-kicker">The inner voice — before &amp; after</div>
+    <p class="thought-journey-intro">This is the shift in what your inner world sounds like: from pressure and internal urgency, through steadier ground, into a calmer relationship with yourself.</p>
     <div class="thought-journey-track">
       <div class="tj-stage">
         <div class="tj-stage-header">
@@ -1269,7 +1293,10 @@
               <circle cx="12" cy="17.4" r="1.25"/>
             </svg>
           </div>
-          <span class="tj-stage-name">Stage 1 &middot; SOS</span>
+          <div class="tj-stage-meta">
+            <span class="tj-state-label">Before</span>
+            <span class="tj-stage-name">Stage 1 &middot; SOS</span>
+          </div>
         </div>
         <div class="tj-bubble">
           <p>I have so much to do.</p>
@@ -1288,7 +1315,10 @@
               <path d="M15.2 15.2 20 20"/>
             </svg>
           </div>
-          <span class="tj-stage-name">Stage 2 &middot; Clarity</span>
+          <div class="tj-stage-meta">
+            <span class="tj-state-label">The shift</span>
+            <span class="tj-stage-name">Stage 2 &middot; Clarity</span>
+          </div>
         </div>
         <div class="tj-bubble">
           <p>It&rsquo;s busy, but I can handle it.</p>
@@ -1310,7 +1340,10 @@
               <path d="M8.2 18.4h7.6"/>
             </svg>
           </div>
-          <span class="tj-stage-name">Stage 3 &middot; Inner Balance</span>
+          <div class="tj-stage-meta">
+            <span class="tj-state-label">After</span>
+            <span class="tj-stage-name">Stage 3 &middot; Inner Balance</span>
+          </div>
         </div>
         <div class="tj-bubble">
           <p>I know what matters. I work on that.</p>
@@ -1398,7 +1431,7 @@
     <div class="system-cta-price">
       <div class="system-cta-price-amount">$97</div>
       <div class="system-cta-price-note">One payment. All three stages.</div>
-      <div class="system-cta-price-day">About $1.54/day for 63 days</div>
+      <div class="system-cta-price-day">About $1.54/day. One stage at a time.</div>
     </div>
     <p class="system-cta-copy"><strong>Ready to feel grounded again?</strong>Join all three stages now and start your guided system today.<span class="system-cta-compare">That is less than a typical daily coffee, and far less than the daily cost of feeling overwhelmed, reactive, and out of control. You are also saving years of study and trial-and-error.</span></p>
     <a href="https://stan.store/innerbalance101/p/the-inner-balance-system-3-stages-21-days-each-3f4sd" class="btn-primary">Join the system</a>
@@ -1434,11 +1467,11 @@
           <title id="evolution-title">Stage evolution from SOS to Inner Balance</title>
           <desc id="evolution-desc">Emotional load decreases while inner stability increases from days 1 to 63 across three stages.</desc>
 
-          <line x1="138" y1="22" x2="458" y2="22" stroke="rgba(196,168,130,0.32)" stroke-width="1.2" stroke-dasharray="4 6"/>
+          <line x1="138" y1="22" x2="458" y2="22" stroke="rgba(79,104,97,0.32)" stroke-width="1.2" stroke-dasharray="4 6"/>
 
           <g transform="translate(138 22)">
-            <circle cx="0" cy="0" r="15" fill="#FAF7F2" stroke="#A55C54" stroke-width="1.3"/>
-            <g transform="translate(-12 -12)" stroke="#A55C54" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="0" cy="0" r="15" fill="#FAF7F2" stroke="#B67C7C" stroke-width="1.3"/>
+            <g transform="translate(-12 -12)" stroke="#B67C7C" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 12c2.2-4.6 13.8-4.6 16 0"/>
               <path d="M7 12v3.2c0 1.8 1.4 3.2 3.2 3.2h3.6c1.8 0 3.2-1.4 3.2-3.2V12"/>
               <path d="M9.5 12v2.2"/>
@@ -1469,22 +1502,22 @@
           <line x1="58" y1="30" x2="58" y2="318" stroke="rgba(44,36,32,0.28)" stroke-width="1.4"/>
           <line x1="58" y1="318" x2="538" y2="318" stroke="rgba(44,36,32,0.28)" stroke-width="1.4"/>
 
-          <line x1="218" y1="30" x2="218" y2="318" stroke="rgba(196,168,130,0.28)" stroke-width="1.2" stroke-dasharray="4 6"/>
-          <line x1="378" y1="30" x2="378" y2="318" stroke="rgba(196,168,130,0.28)" stroke-width="1.2" stroke-dasharray="4 6"/>
+          <line x1="218" y1="30" x2="218" y2="318" stroke="rgba(79,104,97,0.28)" stroke-width="1.2" stroke-dasharray="4 6"/>
+          <line x1="378" y1="30" x2="378" y2="318" stroke="rgba(79,104,97,0.28)" stroke-width="1.2" stroke-dasharray="4 6"/>
 
           <text class="how-diagram-ylabel" x="30" y="58" text-anchor="middle" transform="rotate(-90 30 58)">HIGH</text>
           <text class="how-diagram-ylabel" x="30" y="180" text-anchor="middle" transform="rotate(-90 30 180)">CHANGE</text>
           <text class="how-diagram-ylabel" x="30" y="302" text-anchor="middle" transform="rotate(-90 30 302)">LOW</text>
 
           <path d="M58 78 C110 88, 162 118, 218 152 C270 182, 324 206, 378 226 C430 242, 482 256, 538 268"
-                fill="none" stroke="#A55C54" stroke-width="3.5" stroke-linecap="round"/>
+                fill="none" stroke="#B67C7C" stroke-width="3.5" stroke-linecap="round"/>
           <path d="M58 272 C110 262, 162 238, 218 206 C270 176, 324 140, 378 108 C430 84, 482 68, 538 56"
                 fill="none" stroke="#C4A882" stroke-width="3.5" stroke-linecap="round"/>
 
-          <circle cx="58" cy="78" r="4.5" fill="#A55C54"/>
-          <circle cx="218" cy="152" r="4.5" fill="#A55C54"/>
-          <circle cx="378" cy="226" r="4.5" fill="#A55C54"/>
-          <circle cx="538" cy="268" r="4.5" fill="#A55C54"/>
+          <circle cx="58" cy="78" r="4.5" fill="#B67C7C"/>
+          <circle cx="218" cy="152" r="4.5" fill="#B67C7C"/>
+          <circle cx="378" cy="226" r="4.5" fill="#B67C7C"/>
+          <circle cx="538" cy="268" r="4.5" fill="#B67C7C"/>
 
           <circle cx="58" cy="272" r="4.5" fill="#C4A882"/>
           <circle cx="218" cy="206" r="4.5" fill="#C4A882"/>
@@ -1640,10 +1673,10 @@
     </div>
     <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:20px;">
       <div class="footer-links">
+        <a href="/library.html" class="footer-link">Library</a>
         <a href="/about.html" class="footer-link">About</a>
-        <a href="/terms-and-conditions.html" class="footer-link">Terms and Conditions</a>
+        <a href="https://innerbalance101.com/blog/" class="footer-link">Blog</a>
         <a href="/contact.html" class="footer-link">Contact</a>
-        <a href="/sitemap.xml" class="footer-link">Sitemap</a>
       </div>
     </div>
   </div>
