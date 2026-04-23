@@ -375,6 +375,13 @@
   .how-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.75); }
   .how-img-overlay { position:absolute; inset:0; background:linear-gradient(to left,rgba(250,247,242,0.15) 0%,transparent 50%); }
   .how-content { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; }
+  .how-inside { margin-bottom:40px; }
+  .how-inside-label { font-size:0.7rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--clay-deep); margin-bottom:16px; }
+  .how-inside-p { font-size:0.98rem; font-weight:300; line-height:1.85; color:var(--deep); margin-bottom:14px; max-width:580px; }
+  .how-inside-p:last-child { margin-bottom:0; }
+  .step-kit { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .step-kit-item { display:flex; align-items:center; gap:6px; padding:6px 11px; background:var(--linen); border:1px solid rgba(196,168,130,0.35); font-size:0.68rem; font-weight:400; letter-spacing:0.05em; color:var(--mid); white-space:nowrap; }
+  .step-kit-item svg { color:var(--clay); flex-shrink:0; }
 
   /* ─── HOW DIAGRAM ─────────────────────────────────────────────── */
   .how-diagram {
@@ -461,6 +468,47 @@
   .evidence-tab-cite { font-size:0.72rem; color:var(--soft); font-style:italic; }
   .evidence-analogy { margin-top:28px; display:flex; flex-direction:column; gap:14px; padding:32px 36px; background:var(--warm-white); border-left:3px solid var(--clay); margin-bottom:0; }
   .evidence-analogy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--deep); max-width:640px; }
+  .science-cta {
+    background:var(--linen);
+    padding:56px 60px;
+    border-bottom:1px solid rgba(79,104,97,0.25);
+  }
+  .science-cta-inner {
+    max-width:1240px;
+    margin:0 auto;
+    padding:32px 36px;
+    background:var(--warm-white);
+    border:1px solid rgba(79,104,97,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .science-cta-copy {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .science-cta-label {
+    font-size:0.66rem;
+    font-weight:500;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--clay-deep);
+  }
+  .science-cta-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    line-height:1.1;
+    color:var(--deep);
+  }
+  .science-cta-text {
+    font-size:0.95rem;
+    line-height:1.75;
+    color:var(--soft);
+    max-width:580px;
+    margin:0;
+  }
 
   /* ─── SYSTEM ─────────────────────────────────────────────────── */
   .system { background:var(--linen); padding:100px 60px; border-top:1px solid rgba(79,104,97,0.25); border-bottom:1px solid rgba(79,104,97,0.25); }
@@ -865,44 +913,59 @@
     background:var(--warm-white);
     border:1px solid rgba(79,104,97,0.24);
   }
-  .ibf-photo {
-    position:relative;
-    min-height:620px;
-    overflow:hidden;
-    background:#2c2420;
-  }
-  .ibf-photo picture { display:block; height:100%; }
-  .ibf-photo img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 25%;
-    filter:saturate(0.76) contrast(1.04) brightness(0.9);
-    transform:scale(1.02);
-  }
-  .ibf-photo::after {
-    content:'';
-    position:absolute;
-    inset:0;
+  .ibf-visual {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:44px 36px;
     background:
-      linear-gradient(0deg, rgba(44,36,32,0.28) 0%, rgba(44,36,32,0.04) 48%, rgba(44,36,32,0.22) 100%),
-      radial-gradient(circle at 82% 18%, rgba(79,104,97,0.22), transparent 46%);
-    pointer-events:none;
+      radial-gradient(circle at 18% 14%, rgba(196,168,130,0.14), transparent 30%),
+      linear-gradient(180deg, rgba(250,247,242,0.98), rgba(244,239,231,0.94));
+    border-right:1px solid rgba(79,104,97,0.18);
   }
-  .ibf-photo-note {
-    position:absolute;
-    left:28px;
-    bottom:26px;
-    z-index:2;
-    font-size:0.62rem;
+  .ibf-graph-card {
+    width:100%;
+    padding:30px 28px 24px;
+    border:1px solid rgba(79,104,97,0.22);
+    background:rgba(250,247,242,0.9);
+    box-shadow:0 18px 42px rgba(44,36,32,0.08);
+  }
+  .ibf-graph-kicker {
+    font-size:0.72rem;
     font-weight:500;
-    letter-spacing:0.18em;
+    letter-spacing:0.2em;
     text-transform:uppercase;
-    color:rgba(250,247,242,0.9);
-    padding:8px 10px;
-    border:1px solid rgba(250,247,242,0.35);
-    background:rgba(44,36,32,0.35);
-    backdrop-filter:blur(2px);
+    color:var(--clay-deep);
+    margin-bottom:18px;
+  }
+  .ibf-graph-svg {
+    display:block;
+    width:100%;
+    height:auto;
+    margin-bottom:0;
+  }
+  .ibf-axis-label {
+    font-family:'Jost',sans-serif;
+    font-size:0.64rem;
+    font-weight:500;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    fill:var(--soft);
+  }
+  .ibf-stage-label {
+    font-family:'Jost',sans-serif;
+    font-size:0.7rem;
+    font-weight:500;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    fill:var(--clay-deep);
+  }
+  .ibf-stage-sub {
+    font-family:'Jost',sans-serif;
+    font-size:0.58rem;
+    font-weight:400;
+    letter-spacing:0.08em;
+    fill:var(--soft);
   }
   .ibf-copy {
     padding:68px 56px;
@@ -1031,6 +1094,8 @@
     .evidence { padding:56px 24px; }
     .evidence-inner { grid-template-columns:1fr; gap:40px; }
     .evidence-analogy { padding:24px; }
+    .science-cta { padding:44px 24px; }
+    .science-cta-inner { flex-direction:column; align-items:flex-start; padding:24px; }
     .system { padding:56px 24px; }
     .system-grid { grid-template-columns:1fr; gap:28px; }
     .system-header { max-width:none; margin-bottom:24px; }
@@ -1060,6 +1125,7 @@
     .system-cta { flex-direction:column; align-items:flex-start; padding:24px; }
     .system-cta-price { flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(79,104,97,0.18); padding-right:0; padding-bottom:16px; width:100%; }
     .system-cta-price-day { width:100%; margin-top:0; }
+    .system-cta-copy { max-width:none; }
     .system-stages,
     .system-stage-feature { padding:24px; }
     .system-stage { grid-template-columns:1fr; gap:10px; }
@@ -1070,7 +1136,8 @@
     .proof-item:last-child { border-bottom:none; padding-bottom:0; }
     .inner-balance-feel { padding:56px 24px; }
     .inner-balance-feel-inner { grid-template-columns:1fr; }
-    .ibf-photo { min-height:64vw; max-height:76vw; }
+    .ibf-visual { padding:28px 24px; border-right:none; border-bottom:1px solid rgba(79,104,97,0.18); }
+    .ibf-graph-card { padding:24px 20px 20px; }
     .ibf-copy { padding:40px 24px 44px; }
     .ibf-headline { margin-bottom:14px; }
     .lead-magnet-inner { grid-template-columns:1fr; }
@@ -1425,11 +1492,13 @@
     <div class="for-who-not">
       <div class="for-who-not-label">A clearer way to say it</div>
       <div class="for-who-not-copy">
-        <p><strong>innerbalance101 is not therapy but it is therapeutic.</strong> It is not a coaching program, a course, or a community but it is a serious tool for serious people.</p>
-        <p>It is a guided system of practices. Grounded in science. Designed for real life. Built to ease the analytical mind and develop your own inner wisdom and intuition over time.</p>
-        <p>If you are in crisis or need clinical support, please reach out to a qualified mental health professional. That is not what we are here to replace.</p>
-        <p>What we are here for is everything in between. The space between formal support, the daily boardroom, and the persistent depletion nobody around you can see.</p>
-        <p class="for-who-not-emphasis">That is exactly what these Practices are built for.</p>
+        <p><strong>innerbalance101 is not therapy, but it is therapeutic.</strong> It is not a coaching program you have to book, a course you have to study, or a community you have to keep up with.</p>
+        <p>It is a structured tool for high performers who recognise they are spiralling and know there is a different way to show up to life.</p>
+        <p>It is a guided system of practices. A proven method to build self-awareness, emotional intelligence, and real inner confidence. Grounded in science. Designed for real life. Built to work with an analytical mind while helping you develop your own inner awareness over time.</p>
+        <p>If you are in crisis or need clinical support, reach out to a qualified mental health professional. Therapy is valuable for understanding what is happening. This supports you in integrating it, daily.</p>
+        <p>We are not here to replace therapy.</p>
+        <p>We are here for everything in between. The space between formal support, the daily boardroom, and the quiet depletion no one around you can see.</p>
+        <p class="for-who-not-emphasis">This is exactly what these Practices are built for.</p>
       </div>
     </div>
   </div>
@@ -1541,10 +1610,43 @@
       <div class="section-label">How It Works</div>
       <h2 class="section-headline">Three stages. Each one builds on the last.</h2>
       <p class="section-body">You move through three stages in order. What becomes available to you changes as your nervous system settles, your self-awareness expands, and your inner world becomes a place you can actually stand in.</p>
+      <div class="how-inside">
+        <div class="how-inside-label">What&rsquo;s inside</div>
+        <p class="how-inside-p">Each stage is built around one daily 10-minute practice. Video and audio format. Step-by-step guidance so you always know what to do next, and why.</p>
+        <p class="how-inside-p">This is not about adding more to your plate. It is about showing your nervous system that it can settle. Even while the rest of your life keeps moving. Ten minutes. Same time. Twenty-one days.</p>
+        <p class="how-inside-p">You can also opt in to a reminder every two days, sent to your phone. A prompt to come back to yourself, with a short mindfulness tip to carry into your day.</p>
+      </div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-content-label">Stage 1 &middot; Days 1&ndash;21</div><div class="step-content-title">SOS</div><div class="step-content-desc">It has taken a long time to push your nervous system to this point. These 21 days are not about fixing anything fast. They are about helping it come back out of high alert gradually, so you can start to feel that you can perform &mdash; actually perform &mdash; without the quiet drowning feeling underneath it all.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-content-label">Stage 2 &middot; Days 22&ndash;42</div><div class="step-content-title">Clarity</div><div class="step-content-desc">Your nervous system is calmer. The things that used to set you off are starting to irritate you less. This stage is where self-awareness begins to open up &mdash; more self-discovery, deeper somatic practices, and a growing ability to notice your own patterns before they run you.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-content-label">Stage 3 &middot; Days 43&ndash;63</div><div class="step-content-title">Inner Balance</div><div class="step-content-desc">This is where you go deep into why you perform the way you do. With more ground under you and more clarity about yourself, you begin to shape your inner world with intention. You create from alignment, not urgency. You perform from a place that feels grounded and genuinely self-assured.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-content-label">Stage 1 &middot; Days 1&ndash;21</div><div class="step-content-title">SOS</div><div class="step-content-desc">It has taken a long time to push your nervous system to this point. These 21 days are not about fixing anything fast. They are about helping it come back out of high alert gradually, so you can start to feel that you can perform. Actually perform. Without the quiet drowning feeling underneath it all.</div>
+          <div class="step-kit">
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Daily journal</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2s-1.5 2-1.5 3.5S12 7 12 7s1.5-1.5 1.5-3.5S12 2 12 2z"/><rect x="8" y="7" width="8" height="13" rx="1"/></svg>Candle</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>10-min video guide</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Audio practice</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/></svg>Reminders</div>
+          </div>
+        </div></div>
+        <div class="step"><div class="step-num">2</div><div><div class="step-content-label">Stage 2 &middot; Days 22&ndash;42</div><div class="step-content-title">Clarity</div><div class="step-content-desc">Your nervous system is calmer. The things that used to set you off are starting to irritate you less. This stage is where self-awareness begins to open up. More self-discovery, deeper somatic practices, and a growing ability to notice your own patterns before they run you.</div>
+          <div class="step-kit">
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Daily journal</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2s-1.5 2-1.5 3.5S12 7 12 7s1.5-1.5 1.5-3.5S12 2 12 2z"/><rect x="8" y="7" width="8" height="13" rx="1"/></svg>Candle</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>Meditation audio</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>Video guide</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Audio practice</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/></svg>Reminders</div>
+          </div>
+        </div></div>
+        <div class="step"><div class="step-num">3</div><div><div class="step-content-label">Stage 3 &middot; Days 43&ndash;63</div><div class="step-content-title">Inner Balance</div><div class="step-content-desc">This is where you go deep into why you perform the way you do. With more ground under you and more clarity about yourself, you begin to shape your inner world with intention. You create from alignment, not urgency. You perform from a place that feels grounded and genuinely self-assured.</div>
+          <div class="step-kit">
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Daily journal</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2s-1.5 2-1.5 3.5S12 7 12 7s1.5-1.5 1.5-3.5S12 2 12 2z"/><rect x="8" y="7" width="8" height="13" rx="1"/></svg>Candle</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v3l2 3v11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V9l2-3V3z"/><line x1="9" y1="3" x2="15" y2="3"/></svg>Essential oils</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>Meditation audio</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>Video guide</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Audio practice</div>
+            <div class="step-kit-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/></svg>Reminders</div>
+          </div>
+        </div></div>
       </div>
     </div>
   </div>
@@ -1607,6 +1709,17 @@
   </div>
 </section>
 
+<section class="science-cta" aria-label="Join the system">
+  <div class="science-cta-inner">
+    <div class="science-cta-copy">
+      <div class="science-cta-label">Join The System</div>
+      <div class="science-cta-title">If this resonates, begin the full practice.</div>
+      <p class="science-cta-text">You do not need more information. You need a structure you can actually return to. Join the full 3-stage system and start with the first 10-minute practice.</p>
+    </div>
+    <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="btn-primary">Join the system</a>
+  </div>
+</section>
+
 <section class="proof-strip">
   <div class="proof-item"><div class="proof-num">3</div><div class="proof-label">guided stages</div><div class="proof-sublabel">A clear path back to yourself. One stage at a time.</div></div>
   <div class="proof-item"><div class="proof-num">21</div><div class="proof-label">days per stage</div><div class="proof-sublabel">Small enough to commit to. Powerful enough to change you.</div></div>
@@ -1614,12 +1727,35 @@
 
 <section class="inner-balance-feel" aria-labelledby="inner-balance-feel-title">
   <div class="inner-balance-feel-inner">
-    <div class="ibf-photo">
-      <picture>
-        <source srcset="images/naomi-inner-balance.heic" type="image/heic">
-        <img src="images/naomi.jpg" alt="Naomi, founder of innerbalance101" loading="lazy">
-      </picture>
-      <div class="ibf-photo-note">Founder perspective</div>
+    <div class="ibf-visual">
+      <div class="ibf-graph-card" aria-label="Three-stage emotional load graph highlighting Inner Balance">
+        <div class="ibf-graph-kicker">Three stages · 21 days each</div>
+        <svg class="ibf-graph-svg" viewBox="0 0 560 290" role="img" aria-labelledby="ibf-graph-title ibf-graph-desc">
+          <title id="ibf-graph-title">Emotional load settling into Inner Balance</title>
+          <desc id="ibf-graph-desc">A three-stage graph ending in a steady Inner Balance segment, highlighted beneath the chart.</desc>
+          <line x1="58" y1="40" x2="58" y2="230" stroke="rgba(44,36,32,0.2)" stroke-width="1.2"/>
+          <line x1="58" y1="230" x2="520" y2="230" stroke="rgba(44,36,32,0.2)" stroke-width="1.2"/>
+          <line x1="205" y1="40" x2="205" y2="230" stroke="rgba(79,104,97,0.22)" stroke-width="1.1" stroke-dasharray="5 7"/>
+          <line x1="362" y1="40" x2="362" y2="230" stroke="rgba(79,104,97,0.22)" stroke-width="1.1" stroke-dasharray="5 7"/>
+
+          <text class="ibf-axis-label" x="26" y="140" text-anchor="middle" transform="rotate(-90 26 140)">Emotional Load</text>
+
+          <path d="M70 52 C82 30, 99 116, 116 110 C133 104, 141 36, 158 54 C175 72, 176 140, 192 122 C203 110, 207 92, 214 126"
+                fill="none" stroke="#B67C7C" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M214 126 C230 118, 246 146, 264 144 C282 142, 289 118, 307 132 C325 146, 336 150, 351 140 C357 136, 360 134, 362 132"
+                fill="none" stroke="#C4A882" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M362 132 C380 122, 398 136, 417 128 C436 120, 446 140, 466 130 C486 120, 497 130, 512 124"
+                fill="none" stroke="#2C2420" stroke-width="4.5" stroke-linecap="round"/>
+
+          <circle cx="70" cy="52" r="5" fill="#B67C7C"/>
+          <circle cx="214" cy="126" r="5" fill="#C4A882"/>
+          <circle cx="362" cy="132" r="5" fill="#2C2420"/>
+          <circle cx="512" cy="124" r="5.5" fill="#2C2420"/>
+
+          <rect x="378" y="246" width="134" height="28" rx="14" fill="rgba(44,36,32,0.08)"/>
+          <text class="ibf-stage-label" x="445" y="264" text-anchor="middle">Inner Balance</text>
+        </svg>
+      </div>
     </div>
     <div class="ibf-copy">
       <div class="ibf-kicker">What Inner Balance Feels Like</div>

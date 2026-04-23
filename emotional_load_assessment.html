@@ -5,19 +5,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Emotional Load Assessment — innerbalance101</title>
-<meta name="description" content="An 8-minute assessment to measure your emotional load and self-regulation capacity.">
+<meta name="description" content="A 5-minute assessment to measure your emotional load and self-regulation capacity.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://innerbalance101.com/emotional_load_assessment.html">
 <link rel="canonical" href="https://innerbalance101.com/emotional_load_assessment.html">
 <meta property="og:title" content="The Emotional Load Assessment — innerbalance101">
-<meta property="og:description" content="An 8-minute assessment to measure your emotional load and self-regulation capacity. Get a personalised result and recommended practice.">
+<meta property="og:description" content="A 5-minute assessment to measure your emotional load and self-regulation capacity. Get a personalised result and your next step.">
 <meta property="og:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="innerbalance101 logo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Emotional Load Assessment — innerbalance101">
-<meta name="twitter:description" content="An 8-minute assessment to measure your emotional load and self-regulation capacity. Get a personalised result and recommended practice.">
+<meta name="twitter:description" content="A 5-minute assessment to measure your emotional load and self-regulation capacity. Get a personalised result and your next step.">
 <meta name="twitter:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png">
 <meta name="twitter:image:alt" content="innerbalance101 logo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,18 +35,6 @@
   --mid:#2C2420;
   --deep:#2C2420;
 }
-
-  /* PREVENT HORIZONTAL SCROLL ON ALL DEVICES */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-  
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);font-size:18px;line-height:1.6;min-height:100vh}
 
@@ -235,7 +223,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
 /* Bundle section */
 .r-bundle{background:var(--warm-white);border:1.5px solid var(--clay);padding:32px 36px;text-align:center;margin:28px 0 0;position:relative}
-.r-bundle::before{content:'COMPLETE LIBRARY';position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:0.58rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);background:var(--warm-white);padding:0 14px}
+.r-bundle::before{content:'INNER BALANCE SYSTEM';position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:0.58rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);background:var(--warm-white);padding:0 14px}
 .r-bundle-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--deep);margin-bottom:8px}
 .r-bundle-desc{font-size:0.85rem;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:6px}
 .r-bundle-price{font-size:0.85rem;font-weight:300;color:var(--soft);margin-bottom:20px}
@@ -332,14 +320,13 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <h1 class="intro-headline">Before you can regulate,<br>you need to know<br><em>what you're carrying.</em></h1>
     <p class="intro-body">You can probably name your goals, your KPIs, your next move. What's harder to name, with any real precision, is what's actually happening inside you while you do it all.</p>
     <p class="intro-body">This one works differently. It doesn't start with a questionnaire. It starts with your body. Then it looks at how connected you are to your inner experience. Then it maps your emotional load.</p>
-    <blockquote class="intro-note">This takes around 8 minutes. There are no right answers. The most useful thing you can do is slow down enough to answer honestly.</blockquote>
+    <blockquote class="intro-note">This takes around 5 minutes. There are no right answers. The most useful thing you can do is slow down enough to answer honestly.</blockquote>
     <div class="what-youll-get">
       <div class="wyg-title">What you'll leave with</div>
       <ul class="wyg-list">
-        <li>A clear read of your current emotional load level</li>
-        <li>An honest look at your self-awareness and somatic connection</li>
-        <li>A personalised result profile, not a generic score</li>
-        <li>One specific practice recommended for where you actually are</li>
+        <li>You will understand what you are carrying</li>
+        <li>You will see your internal pattern clearly</li>
+        <li>You will know where to start</li>
       </ul>
     </div>
     <a href="javascript:void(0)" class="btn-primary" onclick="go('s-email')">Begin the assessment</a>
@@ -349,7 +336,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
   <div class="screen" id="s-email">
     <div class="intro-eyebrow">One thing first</div>
     <h2 class="screen-headline">Where should we send<br><em>your results?</em></h2>
-    <p class="screen-sub">Pop in your details below. We'll send your personalised result and recommended next step to your inbox when you're done.</p>
+    <p class="screen-sub">Pop in your details below. We'll send your personalised result and your recommended next step to your inbox when you're done.</p>
     <div class="email-gate-form">
       <div class="egate-field">
         <label class="egate-label" for="gateName">First name</label>
@@ -807,7 +794,6 @@ function calcResults(){
 
 function renderResults(aRaw, emotions, loadTotal, hasBody){
   var tier = awarenessLabel(aRaw);
-  var tierData = AWARENESS_TIERS[tier];
   var loadLabel = loadTotalLabel(loadTotal);
 
   var emotionKeys = ['overwhelm','pressure','guilt','selfDoubt','uncertainty'];
@@ -843,127 +829,110 @@ function renderResults(aRaw, emotions, loadTotal, hasBody){
     '<div class="r-hero">'+
       '<div class="r-hero-eyebrow">Your Results</div>'+
       '<h2 class="r-hero-title"><em>'+heroGreeting+'</em></h2>'+
-      '<p class="r-hero-desc">Your emotional load is <strong style="color:var(--clay-light)">'+loadLabel.toLowerCase()+'</strong> and your self-awareness is at the <strong style="color:var(--clay-light)">'+tier.toLowerCase()+'</strong> level. '+(flagged.length>0 ? flagged.length+' area'+(flagged.length>1?'s are':' is')+' carrying significant weight right now.' : 'No single area is in the red, but that doesn\'t mean there\'s nothing to work with.')+'</p>'+
+      '<p class="r-hero-desc">Your result shows how much you are carrying and how clearly you can see your internal pattern right now. The point is not more information. It is seeing what your system needs next.</p>'+
       '<div class="r-hero-inbox">Your full results have been sent to <strong>'+(state.gateEmail||'your inbox')+'</strong></div>'+
     '</div>';
 
-  // ── DASHBOARD CARDS ──
+  // ── SCORES ──
   document.getElementById('rDashboard').innerHTML =
     '<div class="r-dashboard">'+
       '<div class="r-dash-card"><div class="r-dash-label">Total Load</div><div class="r-dash-value">'+loadTotal+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/50</span></div><div class="r-dash-sub">'+loadLabel+'</div></div>'+
       '<div class="r-dash-card"><div class="r-dash-label">Self-Awareness</div><div class="r-dash-value">'+aRaw+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/30</span></div><div class="r-dash-sub">'+tier+'</div></div>'+
-      '<div class="r-dash-card"><div class="r-dash-label">Areas Flagged</div><div class="r-dash-value">'+flagged.length+'</div><div class="r-dash-sub">'+(flagged.length===0 ? 'None in the red' : flagged.map(function(k){return EMOTION_COPY[k].label}).join(', '))+'</div></div>'+
-      '<div class="r-dash-card"><div class="r-dash-label">Body Connection</div><div class="r-dash-value" style="font-size:1.4rem;line-height:1.4">'+(hasBody ? 'Signal detected' : 'Still developing')+'</div><div class="r-dash-sub">'+(hasBody ? 'You noticed something. That\'s data.' : 'The body channel is available to build.')+'</div></div>'+
     '</div>';
 
-  // ── LOAD BARS ──
-  var barRows = sorted.map(function(k){
-    var lvl = emotionLevel(emotions[k]);
-    var pct = Math.round((emotions[k]/10)*100);
-    var copy = EMOTION_COPY[k];
-    var tagHtml = lvl==='flagged' ? '<span class="r-emotion-tag flagged">Flagged</span>' : lvl==='moderate' ? '<span class="r-emotion-tag moderate">Watch</span>' : '';
-    return '<div class="r-emotion-row">'+
-      '<div class="r-emotion-label">'+copy.label+'</div>'+
-      '<div class="r-emotion-bar-wrap"><div class="r-emotion-bar '+lvl+'" style="width:'+pct+'%"></div></div>'+
-      '<div class="r-emotion-score">'+emotions[k]+tagHtml+'</div>'+
-    '</div>'+
-    '<div class="r-emotion-detail">'+copy[lvl]+'</div>';
-  }).join('');
+  document.getElementById('rLoadBars').innerHTML = '';
+  document.getElementById('rAwareness').innerHTML = '';
 
-  document.getElementById('rLoadBars').innerHTML =
-    '<div class="r-load-section">'+
-      '<div class="r-section-title">Your Emotional Load Breakdown</div>'+
-      barRows+
-    '</div>';
-
-  // ── AWARENESS ──
-  document.getElementById('rAwareness').innerHTML =
-    '<div class="r-awareness-section">'+
-      '<div class="r-section-title">Your Awareness Level</div>'+
-      '<div class="r-awareness-card">'+
-        '<div class="r-awareness-tier">'+tier+'</div>'+
-        '<div class="r-awareness-desc">'+tierData.desc+'</div>'+
-        '<ul class="r-awareness-tips">'+tierData.tips.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>'+
-      '</div>'+
-    '</div>';
-
-  // ── RECOMMENDATIONS (personalized with scores and body signals) ──
-  var recHtml = '';
-  if(flagged.length===0 && moderate.length===0){
-    recHtml = '<div class="r-rec-section">'+
-      '<div class="r-section-title">Where to Start</div>'+
-      '<div class="r-rec-card">'+
-        '<div class="r-rec-eyebrow">Your starting point</div>'+
-        '<div class="r-rec-name" style="margin-bottom:14px">Your load across all five areas is low right now.</div>'+
-        '<p class="r-rec-body">This is a good time to build a foundation practice before the next season asks more of you. The professionals who hold their ground under sustained pressure built the tools before they needed them urgently.</p>'+
-        '<a href="'+STORE_LINK+'" target="_blank" class="r-rec-btn">Browse the full library</a>'+
-      '</div>'+
-    '</div>';
-  } else {
-    var primary = flagged.length>0 ? flagged[0] : moderate[0];
-    var secondary = flagged.length>1 ? flagged.slice(1) : (flagged.length===1 && moderate.length>0 ? moderate.slice(0,1) : moderate.slice(1,2));
-    var g = GUIDES[primary];
-
-    // Build personalized intro based on their score and body signals
-    var personalLine = '';
-    var score = emotions[primary];
-    if(bodySignals.length > 0){
-      var bodyList = bodySignals.slice(0,3).join(', ');
-      personalLine = 'You scored '+score+' out of 10 on '+EMOTION_COPY[primary].label.toLowerCase()+' and reported '+bodyList+'. This practice starts exactly there.';
-    } else {
-      personalLine = 'You scored '+score+' out of 10 on '+EMOTION_COPY[primary].label.toLowerCase()+'. This practice is built for that specific pattern.';
+  // ── PROFILE RESULT + GAP + SYSTEM BRIDGE ──
+  var isHighLoad = loadTotal >= 17;
+  var isHighAwareness = tier !== 'Still Finding the Signal';
+  var profileKey = (isHighLoad ? 'highLoad' : 'lowLoad') + '_' + (isHighAwareness ? 'highAwareness' : 'lowAwareness');
+  var profileMap = {
+    highLoad_lowAwareness: {
+      title: 'Running on Internal Overload',
+      feels: 'In real life, this can feel like irritability, mental noise, low patience, uneven energy, and reacting before you fully understand what is happening.',
+      why: 'Your system is carrying more than it has space to process, while your internal signals are still hard to catch in real time.',
+      stuck: 'It is not resolving because the load keeps shaping your day before you can see it clearly enough to respond differently.'
+    },
+    highLoad_highAwareness: {
+      title: 'Aware but Still Carrying Too Much',
+      feels: 'In real life, this can feel like knowing exactly what is happening inside you, but still feeling the weight in your body, mood, and decision-making.',
+      why: 'You can see the pattern clearly, but the load itself has not moved. Insight is present, but capacity has not caught up.',
+      stuck: 'It is not resolving because awareness alone does not change patterns when your system is still carrying too much.'
+    },
+    lowLoad_lowAwareness: {
+      title: 'Stable, but Not Fully Connected',
+      feels: 'In real life, this can feel mostly manageable on the surface, while your inner signals stay faint, delayed, or easy to override.',
+      why: 'Your load is not especially high right now, but your connection to what is happening internally is not yet strong or consistent.',
+      stuck: 'It is not resolving because without a clear inner signal, you are more likely to miss the pattern until life gets louder.'
+    },
+    lowLoad_highAwareness: {
+      title: 'Ready to Deepen the Practice',
+      feels: 'In real life, this can feel steady, reflective, and self-aware, but still dependent on having enough space to stay connected.',
+      why: 'You already notice your inner world. What is needed now is consistency, so awareness becomes a lived way of responding.',
+      stuck: 'It is not resolving because insight without a repeatable structure can stay situational instead of becoming how you actually live.'
     }
+  };
+  var profile = profileMap[profileKey];
+  var systemLink = STORE_LINK;
+  var libraryLink = 'https://stan.store/innerbalance101';
 
-    recHtml = '<div class="r-rec-section">'+
-      '<div class="r-section-title">Where to Start</div>'+
-      '<div class="r-rec-card">'+
-        '<div class="r-rec-eyebrow">'+(flagged.length>0 ? 'Your highest-load area' : 'Recommended for you')+'</div>'+
-        '<div class="r-rec-name">'+g.name+'</div>'+
-        '<div class="r-rec-transform">'+
-          '<span class="r-rec-from">'+g.from+'</span>'+
-          '<div class="r-rec-arrow"></div>'+
-          '<span class="r-rec-to">'+g.to+'</span>'+
-        '</div>'+
-        '<p class="r-rec-body" style="color:rgba(250,247,242,0.75);margin-bottom:14px">'+personalLine+'</p>'+
-        '<p class="r-rec-body">'+g.body+'</p>'+
-        '<p class="r-rec-price">Downloadable practice guide &middot; <strong>'+g.price+'</strong></p>'+
-        '<a href="'+g.link+'" target="_blank" class="r-rec-btn">Get '+g.name+' &mdash; '+g.price+'</a>'+
-      '</div>';
-
-    secondary.forEach(function(k){
-      var sg = GUIDES[k];
-      var secScore = emotions[k];
-      var secPersonal = 'You scored '+secScore+' out of 10 here.';
-      recHtml += '<div class="r-rec-card-secondary">'+
-        '<div class="r-rec-eyebrow">Also flagged &mdash; '+EMOTION_COPY[k].label+'</div>'+
-        '<div class="r-rec-name">'+sg.name+'</div>'+
-        '<div class="r-rec-transform">'+
-          '<span class="r-rec-from">'+sg.from+'</span>'+
-          '<div class="r-rec-arrow"></div>'+
-          '<span class="r-rec-to">'+sg.to+'</span>'+
-        '</div>'+
-        '<p class="r-rec-body" style="margin-bottom:10px">'+secPersonal+'</p>'+
-        '<p class="r-rec-body">'+sg.body+'</p>'+
-        '<p class="r-rec-price">Downloadable practice guide &middot; <strong>'+sg.price+'</strong></p>'+
-        '<a href="'+sg.link+'" target="_blank" class="r-rec-btn">Get '+sg.name+' &mdash; '+sg.price+'</a>'+
-      '</div>';
-    });
-
-    recHtml += '</div>';
+  var personalLine = 'Your emotional load score is '+loadTotal+' out of 50, and your self-awareness score is '+aRaw+' out of 30.';
+  if(bodySignals.length > 0){
+    personalLine += ' You also noticed '+bodySignals.slice(0,3).join(', ')+'.';
+  } else if(hasBody) {
+    personalLine += ' You picked up a body signal, even if it was hard to name clearly.';
+  } else {
+    personalLine += ' Your body check-in suggests this signal is still hard to access clearly.';
   }
+
+  var recHtml = '<div class="r-rec-section">'+
+    '<div class="r-section-title">Your Profile</div>'+
+    '<div class="r-rec-card">'+
+      '<div class="r-rec-eyebrow">Your pattern</div>'+
+      '<div class="r-rec-name">'+profile.title+'</div>'+
+      '<p class="r-rec-body" style="color:rgba(250,247,242,0.75);margin-bottom:14px">'+personalLine+'</p>'+
+      '<p class="r-rec-body"><strong style="color:var(--warm-white);font-weight:400">What this feels like in real life:</strong> '+profile.feels+'</p>'+
+      '<p class="r-rec-body"><strong style="color:var(--warm-white);font-weight:400">Why it is happening:</strong> '+profile.why+'</p>'+
+      '<p class="r-rec-body"><strong style="color:var(--warm-white);font-weight:400">Why it is not resolving:</strong> '+profile.stuck+'</p>'+
+    '</div>'+
+    '<div class="r-rec-card-secondary">'+
+      '<div class="r-rec-eyebrow">What this means</div>'+
+      '<p class="r-rec-body">This result is not a diagnosis. It is a snapshot of how much you are carrying and how clearly you can notice it.</p>'+
+      '<p class="r-rec-body">High achievers often try to solve overload by thinking harder, pushing longer, or waiting until life calms down. But inner balance is not built by waiting. It is built through practice.</p>'+
+    '</div>'+
+    '<div class="r-rec-card-secondary">'+
+      '<div class="r-rec-eyebrow">Why this is not resolving</div>'+
+      '<p class="r-rec-body">You are either carrying too much, not seeing it clearly, or both.</p>'+
+      '<p class="r-rec-body">Awareness alone does not change patterns. If there is no repeatable way to work with what is happening in your body and thoughts, the same internal loop keeps shaping the day.</p>'+
+    '</div>'+
+  '</div>';
   document.getElementById('rRec').innerHTML = recHtml;
 
-  // ── BUNDLE (no strikethrough pricing) ──
+  // ── NEXT STEP ──
   document.getElementById('rBundle').innerHTML =
     '<div class="r-bundle">'+
-      '<div class="r-bundle-title">The Full Library Bundle</div>'+
-      '<div class="r-bundle-desc">All 5 practices. Every transformation. One purchase.</div>'+
-      '<div class="r-bundle-price">5 practices &middot; <strong>$57</strong></div>'+
-      '<a href="'+STORE_LINK+'" target="_blank" class="r-bundle-btn">Get the full library &mdash; $57</a>'+
+      '<div class="r-bundle-title">What actually changes this</div>'+
+      '<div class="r-bundle-desc" style="margin-bottom:14px">You do not need more insight.</div>'+
+      '<div class="r-bundle-desc" style="margin-bottom:12px">You need a way to clear the noise, understand what is happening in real time, and respond differently inside your day.</div>'+
+      '<div class="r-bundle-desc" style="margin-bottom:18px">This is not a one-time practice. This is a system.</div>'+
+      '<div class="r-section-title" style="margin-bottom:16px">The Inner Balance System works in 3 stages</div>'+
+      '<div class="r-awareness-card" style="text-align:left;background:var(--linen);padding:24px 26px;border-left:3px solid var(--clay);margin-bottom:22px">'+
+        '<ul class="r-awareness-tips">'+
+          '<li><strong style="font-weight:500">SOS</strong> clears the noise and stabilizes your system.</li>'+
+          '<li><strong style="font-weight:500">Clarity</strong> helps you understand patterns before they take over.</li>'+
+          '<li><strong style="font-weight:500">Inner Balance</strong> builds the capacity to respond differently in real life.</li>'+
+        '</ul>'+
+      '</div>'+
+      '<div class="r-bundle-price">This is the foundation before the full practice library.</div>'+
+      '<a href="'+systemLink+'" target="_blank" class="r-bundle-btn">Start the Inner Balance System</a>'+
+      '<div style="margin-top:18px">'+
+        '<a href="'+libraryLink+'" target="_blank" class="btn-secondary" style="font-size:0.72rem;padding:14px 28px">Browse the library</a>'+
+      '</div>'+
     '</div>';
 
   // ── SHARE ──
-  var shareText = 'I just measured my emotional load. 8 minutes, no fluff, surprisingly honest. If you\'re a high-achiever carrying more than you show, this one\'s worth your time.';
+  var shareText = 'I just measured my emotional load. 5 minutes, no fluff, surprisingly honest. If you\'re a high-achiever carrying more than you show, this one\'s worth your time.';
   var shareUrl = 'https://innerbalance101.com/emotional_load_assessment.html';
   var linkedinShareUrl = 'https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(shareUrl);
   var twitterShareUrl = 'https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText)+' '+encodeURIComponent(shareUrl);
@@ -987,15 +956,6 @@ function renderResults(aRaw, emotions, loadTotal, hasBody){
     '<div class="r-retake">'+
       '<button class="r-retake-btn" onclick="retakeAssessment()">Retake the assessment</button>'+
     '</div>';
-
-  // Animate bars after a short delay
-  setTimeout(function(){
-    document.querySelectorAll('.r-emotion-bar').forEach(function(bar){
-      var w = bar.style.width;
-      bar.style.width = '0%';
-      requestAnimationFrame(function(){ bar.style.width = w; });
-    });
-  }, 200);
 }
 
 // ── SHARE ──
