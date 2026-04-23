@@ -905,67 +905,25 @@
     border-bottom:1px solid rgba(79,104,97,0.2);
   }
   .inner-balance-feel-inner {
-    max-width:1240px;
+    max-width:1200px;
     margin:0 auto;
     display:grid;
-    grid-template-columns:minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap:0;
-    background:var(--warm-white);
-    border:1px solid rgba(79,104,97,0.24);
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:start;
   }
   .ibf-visual {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:44px 36px;
-    background:
-      radial-gradient(circle at 18% 14%, rgba(196,168,130,0.14), transparent 30%),
-      linear-gradient(180deg, rgba(250,247,242,0.98), rgba(244,239,231,0.94));
-    border-right:1px solid rgba(79,104,97,0.18);
+    position:relative;
+    min-height:500px;
+    overflow:hidden;
+    background:var(--warm-white);
   }
-  .ibf-graph-card {
-    width:100%;
-    padding:30px 28px 24px;
-    border:1px solid rgba(79,104,97,0.22);
-    background:rgba(250,247,242,0.9);
-    box-shadow:0 18px 42px rgba(44,36,32,0.08);
-  }
-  .ibf-graph-kicker {
-    font-size:0.72rem;
-    font-weight:500;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--clay-deep);
-    margin-bottom:18px;
-  }
-  .ibf-graph-svg {
+  .ibf-visual-image {
     display:block;
     width:100%;
-    height:auto;
-    margin-bottom:0;
-  }
-  .ibf-axis-label {
-    font-family:'Jost',sans-serif;
-    font-size:0.64rem;
-    font-weight:500;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    fill:var(--soft);
-  }
-  .ibf-stage-label {
-    font-family:'Jost',sans-serif;
-    font-size:0.7rem;
-    font-weight:500;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    fill:var(--clay-deep);
-  }
-  .ibf-stage-sub {
-    font-family:'Jost',sans-serif;
-    font-size:0.58rem;
-    font-weight:400;
-    letter-spacing:0.08em;
-    fill:var(--soft);
+    height:100%;
+    object-fit:cover;
+    object-position:center;
   }
   .ibf-copy {
     padding:68px 56px;
@@ -1135,9 +1093,8 @@
     .proof-item { padding:28px 0; border-right:none; border-bottom:1px solid rgba(79,104,97,0.15); }
     .proof-item:last-child { border-bottom:none; padding-bottom:0; }
     .inner-balance-feel { padding:56px 24px; }
-    .inner-balance-feel-inner { grid-template-columns:1fr; }
-    .ibf-visual { padding:28px 24px; border-right:none; border-bottom:1px solid rgba(79,104,97,0.18); }
-    .ibf-graph-card { padding:24px 20px 20px; }
+    .inner-balance-feel-inner { grid-template-columns:1fr; gap:40px; }
+    .ibf-visual { min-height:64vw; max-height:76vw; }
     .ibf-copy { padding:40px 24px 44px; }
     .ibf-headline { margin-bottom:14px; }
     .lead-magnet-inner { grid-template-columns:1fr; }
@@ -1728,34 +1685,7 @@
 <section class="inner-balance-feel" aria-labelledby="inner-balance-feel-title">
   <div class="inner-balance-feel-inner">
     <div class="ibf-visual">
-      <div class="ibf-graph-card" aria-label="Three-stage emotional load graph highlighting Inner Balance">
-        <div class="ibf-graph-kicker">Three stages · 21 days each</div>
-        <svg class="ibf-graph-svg" viewBox="0 0 560 290" role="img" aria-labelledby="ibf-graph-title ibf-graph-desc">
-          <title id="ibf-graph-title">Emotional load settling into Inner Balance</title>
-          <desc id="ibf-graph-desc">A three-stage graph ending in a steady Inner Balance segment, highlighted beneath the chart.</desc>
-          <line x1="58" y1="40" x2="58" y2="230" stroke="rgba(44,36,32,0.2)" stroke-width="1.2"/>
-          <line x1="58" y1="230" x2="520" y2="230" stroke="rgba(44,36,32,0.2)" stroke-width="1.2"/>
-          <line x1="205" y1="40" x2="205" y2="230" stroke="rgba(79,104,97,0.22)" stroke-width="1.1" stroke-dasharray="5 7"/>
-          <line x1="362" y1="40" x2="362" y2="230" stroke="rgba(79,104,97,0.22)" stroke-width="1.1" stroke-dasharray="5 7"/>
-
-          <text class="ibf-axis-label" x="26" y="140" text-anchor="middle" transform="rotate(-90 26 140)">Emotional Load</text>
-
-          <path d="M70 52 C82 30, 99 116, 116 110 C133 104, 141 36, 158 54 C175 72, 176 140, 192 122 C203 110, 207 92, 214 126"
-                fill="none" stroke="#B67C7C" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M214 126 C230 118, 246 146, 264 144 C282 142, 289 118, 307 132 C325 146, 336 150, 351 140 C357 136, 360 134, 362 132"
-                fill="none" stroke="#C4A882" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M362 132 C380 122, 398 136, 417 128 C436 120, 446 140, 466 130 C486 120, 497 130, 512 124"
-                fill="none" stroke="#2C2420" stroke-width="4.5" stroke-linecap="round"/>
-
-          <circle cx="70" cy="52" r="5" fill="#B67C7C"/>
-          <circle cx="214" cy="126" r="5" fill="#C4A882"/>
-          <circle cx="362" cy="132" r="5" fill="#2C2420"/>
-          <circle cx="512" cy="124" r="5.5" fill="#2C2420"/>
-
-          <rect x="378" y="246" width="134" height="28" rx="14" fill="rgba(44,36,32,0.08)"/>
-          <text class="ibf-stage-label" x="445" y="264" text-anchor="middle">Inner Balance</text>
-        </svg>
-      </div>
+      <img class="ibf-visual-image" src="images/Innerbalance_working.jpg" alt="Inner Balance working visual" loading="lazy">
     </div>
     <div class="ibf-copy">
       <div class="ibf-kicker">What Inner Balance Feels Like</div>
