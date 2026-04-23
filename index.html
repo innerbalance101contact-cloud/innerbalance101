@@ -343,6 +343,13 @@
   .for-who-not-copy p { font-size:1rem; font-weight:300; line-height:1.8; color:var(--soft); margin:0; max-width:none; }
   .for-who-not-copy strong { color:var(--deep); font-weight:500; }
   .for-who-not-emphasis { font-size:1.5rem; font-family:'Cormorant Garamond', serif; line-height:1.2; color:var(--deep); padding-top:4px; }
+  .for-who-image-panel { position:relative; min-height:500px; overflow:hidden; }
+  .for-who-image-panel img { width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* ─── WHAT THIS IS NOT ────────────────────────────────────────── */
+  .what-this-is-not { background:var(--linen); padding:80px 60px; border-top:1px solid rgba(79,104,97,0.25); }
+  .wtin-inner { max-width:760px; margin:0 auto; }
+  .wtin-inner .for-who-not { margin-top:24px; }
 
   /* ─── ASSESSMENT PRIMARY ──────────────────────────────────────── */
   .assessment-primary { background:var(--deep); }
@@ -612,8 +619,13 @@
     margin:0;
   }
   .system-grid {
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .system-stages-row {
     display:grid;
-    grid-template-columns:1.2fr 0.8fr;
+    grid-template-columns:1fr 1fr;
     gap:24px;
     align-items:stretch;
   }
@@ -626,6 +638,8 @@
     align-items:center;
     justify-content:space-between;
     gap:24px;
+    text-decoration:none;
+    cursor:pointer;
   }
   .system-cta-price {
     display:flex;
@@ -692,25 +706,8 @@
     padding:32px;
     display:flex;
     flex-direction:column;
-    gap:22px;
+    gap:16px;
   }
-  .system-stage-group-label {
-    font-size:0.68rem;
-    font-weight:500;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--soft);
-    margin-bottom:4px;
-  }
-  .system-stage {
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:22px;
-    align-items:start;
-    padding-top:22px;
-    border-top:1px solid rgba(79,104,97,0.16);
-  }
-  .system-stage:first-of-type { border-top:none; padding-top:0; }
   .system-stage-label {
     font-size:0.66rem;
     font-weight:500;
@@ -1059,6 +1056,7 @@
       border-bottom:none;
       margin-left:-3.5px;
     }
+    .system-stages-row { grid-template-columns:1fr; }
     .system-cta { flex-direction:column; align-items:flex-start; padding:24px; }
     .system-cta-price { flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:12px; border-right:none; border-bottom:1px solid rgba(79,104,97,0.18); padding-right:0; padding-bottom:16px; width:100%; }
     .system-cta-price-day { width:100%; margin-top:0; }
@@ -1218,7 +1216,7 @@
           <circle cx="330" cy="118" r="4" fill="#C4A882"/>
           <circle cx="480" cy="110" r="4" fill="#2C2420"/>
         </svg>
-        <div class="hero-graph-note">Still human. Still up and down. No longer run by every high-pressure moment.</div>
+        <div class="hero-graph-note">You arrive overwhelmed, anxious and out of control. You finish empowered, grounded, and knowing that life is enjoyable.</div>
       </div>
     </div>
   </div>
@@ -1228,17 +1226,17 @@
   <div class="wyg-item">
     <div class="wyg-num">What it is</div>
     <div class="wyg-title">Three guided 21-day stages back to yourself</div>
-    <div class="wyg-body">A simple path designed to move you from overwhelm to inner balance with structure, accountability, and emotional clarity.</div>
+    <div class="wyg-body">A simple path designed to move you from overwhelm to inner balance with structured daily practices, gentle accountability support, and a proven method to emotional clarity.</div>
   </div>
   <div class="wyg-item">
     <div class="wyg-num">How it works</div>
     <div class="wyg-title">One 21-day stage at a time</div>
-    <div class="wyg-body">You move through SOS, Clarity, and Inner Balance with guided check-ins, practical support, and one clear focus in each stage.</div>
+    <div class="wyg-body">You move through SOS, Clarity, and Inner Balance with step by step guides, check-ins, practical support, and one clear outcome in each stage. Reduce your emotional load from high to manageable.</div>
   </div>
   <div class="wyg-item">
     <div class="wyg-num">The result</div>
     <div class="wyg-title">You feel great again and know how to stay there</div>
-    <div class="wyg-body">More space between trigger and reaction. More self-awareness. More resilience. A stronger inner world that is not shaken by every external demand.</div>
+    <div class="wyg-body">You gain self-confidence in your ability to support yourself through everyday life — and you know how to stay there.</div>
   </div>
 </section>
 
@@ -1256,22 +1254,11 @@
         <div class="for-who-item"><div class="for-who-check"></div><div class="for-who-text">You know something is off. From the outside, everything looks fine. <strong>So you keep going. Because stopping feels like failing.</strong></div></div>
       </div>
     </div>
-    <div>
-      <div class="section-label" style="margin-bottom:20px;">What This Is Not</div>
-      <div class="for-who-not">
-        <div class="for-who-not-label">A clearer way to say it</div>
-        <div class="for-who-not-copy">
-          <p><strong>innerbalance101 is not therapy but it is therapeutic.</strong> It is not a coaching program, a course, or a community but it is a serious tool for serious people.</p>
-          <p>It is a guided system of practices. Grounded in science. Designed for real life. Built to ease the analytical mind and develop your own inner wisdom and intuition over time.</p>
-          <p>If you are in crisis or need clinical support, please reach out to a qualified mental health professional. That is not what we are here to replace.</p>
-          <p>What we are here for is everything in between. The space between formal support, the daily boardroom, and the persistent depletion nobody around you can see.</p>
-          <p class="for-who-not-emphasis">That is exactly what these Practices are built for.</p>
-        </div>
-      </div>
+    <div class="for-who-image-panel">
+      <img src="images/Hustle culture.jpg" alt="High-achieving professional working late — the cost of hustle culture" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
   </div>
 </section>
-
 
 <section class="system" id="system">
   <div class="system-header">
@@ -1281,6 +1268,78 @@
       <p class="section-body">Three stages. 21 days each. Built for people who are tired of looking fine on the outside while feeling off inside. You move through SOS, Clarity, and Inner Balance in order, with guided check-ins and practical support that help you keep showing up. One stage at a time, at a pace that feels doable.</p>
     </div>
   </div>
+  <div class="system-grid">
+    <!-- Row 1: Stage 1 + Stage 2 side by side -->
+    <div class="system-stages-row">
+      <div class="system-stages">
+        <div class="system-stage-label">Stage 1</div>
+        <div class="system-stage-heading">
+          <div class="system-stage-icon system-stage-icon--sos" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5.2v8.6"/>
+              <circle cx="12" cy="17.6" r="1.25"/>
+            </svg>
+          </div>
+          <div class="system-stage-card-title">SOS</div>
+        </div>
+        <div class="system-stage-card-subtitle">Put your own oxygen mask on first</div>
+        <p class="system-stage-card-copy">The SOS stage is where you arrive overwhelmed, overloaded, and in high alert. For 21 days you focus on one practice, receive guided check-ins, and get simple support that helps you understand why you feel like this. This is the stage that gets you out of constant internal emergency and into moments of real inner peace.</p>
+        <div class="system-stage-points">
+          <span class="system-stage-point">21 days</span>
+          <span class="system-stage-point">One core practice</span>
+          <span class="system-stage-point">Guided check-ins</span>
+          <span class="system-stage-point">Practical support</span>
+        </div>
+      </div>
+      <div class="system-stages">
+        <div class="system-stage-label">Stage 2</div>
+        <div class="system-stage-heading">
+          <div class="system-stage-icon system-stage-icon--clarity" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="5.8"/>
+              <path d="M15.2 15.2 20 20"/>
+            </svg>
+          </div>
+          <div class="system-stage-card-title">Clarity</div>
+        </div>
+        <div class="system-stage-card-subtitle">Broaden self-awareness and settle the system</div>
+        <p class="system-stage-card-copy">By the time you enter Clarity, your nervous system is no longer living in such high alert. This stage broadens self-awareness through mindfulness, reflection, and self-discovery. You begin noticing your patterns earlier, creating a real gap between the situation and the reaction, and understanding yourself more deeply.</p>
+        <div class="system-stage-points">
+          <span class="system-stage-point">21 days</span>
+          <span class="system-stage-point">Mindfulness</span>
+          <span class="system-stage-point">Self-discovery</span>
+          <span class="system-stage-point">More awareness</span>
+        </div>
+      </div>
+    </div>
+    <!-- Row 2: Stage 3 full width -->
+    <div class="system-stage-feature">
+      <div class="system-stage-label">Stage 3</div>
+      <div>
+        <div class="system-stage-heading">
+          <div class="system-stage-icon system-stage-icon--balance" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5v12.4"/>
+              <path d="M6 8.2h12"/>
+              <path d="M8.1 8.2 6 12h4.2z"/>
+              <path d="M17.9 8.2 15.8 12H20z"/>
+              <path d="M8.2 18.4h7.6"/>
+            </svg>
+          </div>
+          <div class="system-stage-card-title">Inner Balance</div>
+        </div>
+        <div class="system-stage-card-subtitle">Create and perform at your peak. Feel steady while you do.</div>
+        <p class="system-stage-card-copy">This is the deepest stage. You question more clearly, respond more intentionally, and build an inner world that does not get pulled apart by every external situation. You are still human. The pressure still exists. It simply no longer runs you.</p>
+        <div class="system-stage-points">
+          <span class="system-stage-point">21 days</span>
+          <span class="system-stage-point">Deeper practices</span>
+          <span class="system-stage-point">Semi-daily check-ins</span>
+          <span class="system-stage-point">Inner coherence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Inner voice: moved after the stages -->
   <div class="thought-journey" aria-label="How your inner voice shifts across the three stages">
     <div class="thought-journey-kicker">The inner voice — before &amp; after</div>
     <p class="thought-journey-intro">This is the shift in what your inner world sounds like: from pressure and internal urgency, through steadier ground, into a calmer relationship with yourself.</p>
@@ -1304,9 +1363,7 @@
           <p>I don&rsquo;t have time.</p>
         </div>
       </div>
-
       <div class="tj-connector"><div class="tj-connector-line"></div><div class="tj-connector-arrow"></div></div>
-
       <div class="tj-stage">
         <div class="tj-stage-header">
           <div class="tj-icon tj-icon--clarity" aria-hidden="true">
@@ -1326,9 +1383,7 @@
           <p>I&rsquo;ve got this.</p>
         </div>
       </div>
-
       <div class="tj-connector"><div class="tj-connector-line"></div><div class="tj-connector-arrow"></div></div>
-
       <div class="tj-stage">
         <div class="tj-stage-header">
           <div class="tj-icon tj-icon--balance" aria-hidden="true">
@@ -1353,88 +1408,30 @@
       </div>
     </div>
   </div>
-  <div class="system-grid">
-    <div class="system-stages">
-      <div class="system-stage-group-label">Stages 1 and 2 build the ground under you</div>
-      <div class="system-stage">
-        <div class="system-stage-label">Stage 1</div>
-        <div>
-          <div class="system-stage-heading">
-            <div class="system-stage-icon system-stage-icon--sos" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 5.2v8.6"/>
-                <circle cx="12" cy="17.6" r="1.25"/>
-              </svg>
-            </div>
-            <div class="system-stage-card-title">SOS</div>
-          </div>
-          <div class="system-stage-card-subtitle">Put your own oxygen mask on first</div>
-          <p class="system-stage-card-copy">The SOS stage is where you arrive overwhelmed, overloaded, and in high alert. For 21 days you focus on one practice, receive guided check-ins, and get simple support that helps you understand why you feel like this. This is the stage that gets you out of constant internal emergency and into moments of real inner peace.</p>
-          <div class="system-stage-points">
-            <span class="system-stage-point">21 days</span>
-            <span class="system-stage-point">One core practice</span>
-            <span class="system-stage-point">Guided check-ins</span>
-            <span class="system-stage-point">Practical support</span>
-          </div>
-        </div>
-      </div>
-      <div class="system-stage">
-        <div class="system-stage-label">Stage 2</div>
-        <div>
-          <div class="system-stage-heading">
-            <div class="system-stage-icon system-stage-icon--clarity" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="5.8"/>
-                <path d="M15.2 15.2 20 20"/>
-              </svg>
-            </div>
-            <div class="system-stage-card-title">Clarity</div>
-          </div>
-          <div class="system-stage-card-subtitle">Broaden self-awareness and settle the system</div>
-          <p class="system-stage-card-copy">By the time you enter Clarity, your nervous system is no longer living in such high alert. This stage broadens self-awareness through mindfulness, reflection, and self-discovery. You begin noticing your patterns earlier, creating a real gap between the situation and the reaction, and understanding yourself more deeply.</p>
-          <div class="system-stage-points">
-            <span class="system-stage-point">21 days</span>
-            <span class="system-stage-point">Mindfulness</span>
-            <span class="system-stage-point">Self-discovery</span>
-            <span class="system-stage-point">More awareness</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="system-stage-feature">
-        <div class="system-stage-label">Stage 3</div>
-        <div>
-          <div class="system-stage-heading">
-            <div class="system-stage-icon system-stage-icon--balance" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 5v12.4"/>
-                <path d="M6 8.2h12"/>
-                <path d="M8.1 8.2 6 12h4.2z"/>
-                <path d="M17.9 8.2 15.8 12H20z"/>
-                <path d="M8.2 18.4h7.6"/>
-              </svg>
-            </div>
-            <div class="system-stage-card-title">Inner Balance</div>
-          </div>
-          <div class="system-stage-card-subtitle">Create and perform at your peak. Feel steady while you do.</div>
-          <p class="system-stage-card-copy">This is the deepest stage. You question more clearly, respond more intentionally, and build an inner world that does not get pulled apart by every external situation. You are still human. The pressure still exists. It simply no longer runs you.</p>
-          <div class="system-stage-points">
-            <span class="system-stage-point">21 days</span>
-            <span class="system-stage-point">Deeper practices</span>
-            <span class="system-stage-point">Semi-daily check-ins</span>
-            <span class="system-stage-point">Inner coherence</span>
-          </div>
-        </div>
-      </div>
-  </div>
-  <div class="system-cta">
+  <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="system-cta">
     <div class="system-cta-price">
       <div class="system-cta-price-amount">$97</div>
       <div class="system-cta-price-note">One payment. All three stages.</div>
       <div class="system-cta-price-day">About $1.54/day. One stage at a time.</div>
     </div>
-    <p class="system-cta-copy"><strong>Ready to feel grounded again?</strong>Join all three stages now and start your guided system today.<span class="system-cta-compare">That is less than a typical daily coffee, and far less than the daily cost of feeling overwhelmed, reactive, and out of control. You are also saving years of study and trial-and-error.</span></p>
-    <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="btn-primary">Join the system</a>
+    <p class="system-cta-copy"><strong>The full system.</strong>You already know pushing harder is not fixing it. It is just getting heavier. This is where you learn how to shift what you feel. One day at a time, 10 minutes to start.<span class="system-cta-compare">That is less than a typical daily coffee, and far less than the daily cost of feeling overwhelmed, reactive, and out of control. You are also saving years of study and trial-and-error.</span></p>
+    <span class="btn-primary">This is what I need</span>
+  </a>
+</section>
+
+<section class="what-this-is-not" id="what-this-is-not">
+  <div class="wtin-inner">
+    <div class="section-label">What This Is Not</div>
+    <div class="for-who-not">
+      <div class="for-who-not-label">A clearer way to say it</div>
+      <div class="for-who-not-copy">
+        <p><strong>innerbalance101 is not therapy but it is therapeutic.</strong> It is not a coaching program, a course, or a community but it is a serious tool for serious people.</p>
+        <p>It is a guided system of practices. Grounded in science. Designed for real life. Built to ease the analytical mind and develop your own inner wisdom and intuition over time.</p>
+        <p>If you are in crisis or need clinical support, please reach out to a qualified mental health professional. That is not what we are here to replace.</p>
+        <p>What we are here for is everything in between. The space between formal support, the daily boardroom, and the persistent depletion nobody around you can see.</p>
+        <p class="for-who-not-emphasis">That is exactly what these Practices are built for.</p>
+      </div>
+    </div>
   </div>
 </section>
 
