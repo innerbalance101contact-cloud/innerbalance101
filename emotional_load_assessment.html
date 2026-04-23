@@ -10,14 +10,14 @@
 <meta property="og:url" content="https://innerbalance101.com/emotional_load_assessment.html">
 <link rel="canonical" href="https://innerbalance101.com/emotional_load_assessment.html">
 <meta property="og:title" content="The Emotional Load Assessment — innerbalance101">
-<meta property="og:description" content="A 5-minute assessment to measure your emotional load and self-regulation capacity. Get a personalised result and your next step.">
+<meta property="og:description" content="A 5-minute assessment to measure your emotional load and self-regulation capacity. Get a personalized result and your next step.">
 <meta property="og:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="innerbalance101 logo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Emotional Load Assessment — innerbalance101">
-<meta name="twitter:description" content="A 5-minute assessment to measure your emotional load and self-regulation capacity. Get a personalised result and your next step.">
+<meta name="twitter:description" content="A 5-minute assessment to measure your emotional load and self-regulation capacity. Get a personalized result and your next step.">
 <meta name="twitter:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png">
 <meta name="twitter:image:alt" content="innerbalance101 logo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -325,18 +325,18 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
       <div class="wyg-title">What you'll leave with</div>
       <ul class="wyg-list">
         <li>You will understand what you are carrying</li>
-        <li>You will see your internal pattern clearly</li>
+        <li>You will see which emotions are driving the most noise</li>
         <li>You will know where to start</li>
       </ul>
     </div>
-    <a href="javascript:void(0)" class="btn-primary" onclick="go('s-email')">Begin the assessment</a>
+    <a href="javascript:void(0)" class="btn-primary" onclick="go('s-body')">Begin the assessment</a>
   </div>
 
-  <!-- SCREEN 0b: EMAIL GATE -->
+  <!-- SCREEN 0b: EMAIL GATE (pre-results) -->
   <div class="screen" id="s-email">
-    <div class="intro-eyebrow">One thing first</div>
+    <div class="intro-eyebrow">One last thing</div>
     <h2 class="screen-headline">Where should we send<br><em>your results?</em></h2>
-    <p class="screen-sub">Pop in your details below. We'll send your personalised result and your recommended next step to your inbox when you're done.</p>
+    <p class="screen-sub">Enter your details and your personalized results will be waiting for you. We'll also send them to your inbox so you can come back to them.</p>
     <div class="email-gate-form">
       <div class="egate-field">
         <label class="egate-label" for="gateName">First name</label>
@@ -347,8 +347,11 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
         <input type="email" class="egate-input" id="gateEmail" placeholder="Your email address" autocomplete="email">
       </div>
       <p class="val-msg" id="emailGateVal">Please enter a valid email address to continue.</p>
-      <button class="btn-primary egate-btn" type="button" onclick="submitGateEmail()">Continue to assessment &rarr;</button>
-      <p class="egate-privacy">Your details are used only to send your results and add you to the innerbalance101 mailing list. No spam. Unsubscribe any time. We don't share or sell your data.</p>
+      <button class="btn-primary egate-btn" type="button" onclick="submitGateEmail()">See my results &rarr;</button>
+      <p class="egate-privacy">Your details are used only to send your results and add you to innerbalance101 updates. No spam. Unsubscribe any time. We don't share or sell your data.</p>
+    </div>
+    <div class="screen-nav" style="margin-top:24px">
+      <button class="btn-back-step" onclick="go('s-load')">Back to load questions</button>
     </div>
   </div>
 
@@ -483,7 +486,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
     <div class="screen-nav">
       <button class="btn-back-step" onclick="go('s-awareness')">Awareness audit</button>
-      <button class="btn-primary" onclick="calcResults()">See my results</button>
+      <button class="btn-primary" onclick="goToEmailGate()">See my results</button>
     </div>
   </div>
 
@@ -551,10 +554,10 @@ const state = {
 const SCREENS = ['s-intro','s-email','s-body','s-awareness','s-load','s-results'];
 const PROG = {
   's-intro':    {pct:0,   label:'Introduction'},
-  's-email':    {pct:10,  label:'Your details'},
-  's-body':     {pct:25,  label:'Phase 1: Body Check-In'},
-  's-awareness':{pct:55,  label:'Phase 2: Awareness Audit'},
+  's-body':     {pct:20,  label:'Phase 1: Body Check-In'},
+  's-awareness':{pct:50,  label:'Phase 2: Awareness Audit'},
   's-load':     {pct:78,  label:'Phase 3: Emotional Load'},
+  's-email':    {pct:90,  label:'Almost there'},
   's-results':  {pct:100, label:'Your Results'}
 };
 
@@ -770,11 +773,6 @@ function getBodySignals(){
 }
 
 function calcResults(){
-  if([1,2,3,4,5,6,7,8,9,10].some(function(q){return !state.lq[q]})){
-    document.getElementById('loadVal').classList.add('show'); return;
-  }
-  document.getElementById('loadVal').classList.remove('show');
-
   var aRaw = [1,2,3,4,6].reduce(function(s,q){return s+state.aq[q]},0) + (6 - state.aq[5]);
 
   var emotions = {
@@ -995,6 +993,13 @@ function retakeAssessment(){
 
 // ── EMAIL GATE ──
 var gateSubmitted = false;
+function goToEmailGate(){
+  if([1,2,3,4,5,6,7,8,9,10].some(function(q){return !state.lq[q]})){
+    document.getElementById('loadVal').classList.add('show'); return;
+  }
+  document.getElementById('loadVal').classList.remove('show');
+  go('s-email');
+}
 function submitGateEmail(){
   var name = document.getElementById('gateName').value.trim();
   var email = document.getElementById('gateEmail').value.trim();
@@ -1010,7 +1015,7 @@ function submitGateEmail(){
   state.gateEmail = email;
   gateSubmitted = true;
   sendToKit(email, name);
-  go('s-body');
+  calcResults();
 }
 </script>
 </body>
