@@ -16,7 +16,7 @@
 
 <!-- PRIMARY META -->
 <title>The Practice Library — Emotional Transformation Practices for High Achievers | innerbalance101</title>
-<meta name="description" content="The Practice Library is the fourth layer of the Inner Balance system. Science-backed practices for pressure, self-doubt, overwhelm, uncertainty, and guilt. One method, applied to whatever is active right now.">
+<meta name="description" content="The Practice Library is your ongoing practice layer after the Inner Balance system — and available independently if you already have a foundation. Guided practices for pressure, self-doubt, overwhelm, uncertainty, and guilt. Open one when something is active.">
 <meta name="keywords" content="emotional transformation, emotional regulation, somatic practice, high achievers, nervous system, inner balance, thought work, self-doubt practice, overwhelm practice, pressure practice, guilt practice, uncertainty practice">
 <meta name="author" content="Naomi Lucia">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://innerbalance101.com/library.html">
 <meta property="og:site_name" content="innerbalance101">
 <meta property="og:title" content="The Practice Library | innerbalance101">
-<meta property="og:description" content="The fourth layer of the Inner Balance system. Science-backed practices for what is actually happening right now. Pressure. Self-doubt. Overwhelm. Uncertainty. Guilt.">
+<meta property="og:description" content="Your ongoing practice layer after the Inner Balance system. Also available independently. Science-backed practices for pressure, self-doubt, overwhelm, uncertainty, and guilt.">
 <meta property="og:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -274,6 +274,63 @@
   }
   .btn-ghost:hover { color:var(--clay-deep); border-color:var(--clay-deep); }
 
+  /* ─── FOR WHO ─── */
+  .lib-for-who {
+    background:var(--linen);
+    border-bottom:1px solid rgba(196,168,130,0.25);
+    padding:44px 60px;
+  }
+  .lib-for-who-inner {
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:48px;
+    align-items:start;
+  }
+  .lib-for-who-left { display:flex; flex-direction:column; gap:0; }
+  .lib-for-who-left .section-label { margin-bottom:20px; }
+  .lib-for-who-primary {
+    font-size:1.05rem; font-weight:400; line-height:1.75; color:var(--deep);
+    margin:0; max-width:none;
+  }
+  .lib-for-who-secondary {
+    font-size:0.96rem; font-weight:300; line-height:1.75; color:var(--soft);
+    margin:0; max-width:none;
+    padding-left:48px;
+    border-left:1px solid rgba(196,168,130,0.35);
+  }
+  .lib-for-who-secondary a { color:var(--clay-deep); text-decoration:none; border-bottom:1px solid var(--clay-light); transition:color 0.3s; }
+  .lib-for-who-secondary a:hover { color:var(--clay-deep); }
+
+  /* ─── HOW TO USE ─── */
+  .lib-howto {
+    background:var(--warm-white);
+    padding:80px 60px;
+    border-bottom:1px solid rgba(196,168,130,0.2);
+  }
+  .lib-howto-inner { max-width:1180px; margin:0 auto; }
+  .lib-howto-header { margin-bottom:48px; }
+  .lib-howto-steps {
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:0;
+    border-top:1px solid rgba(196,168,130,0.3);
+  }
+  .lib-howto-step {
+    padding:36px 32px 36px 0;
+    border-right:1px solid rgba(196,168,130,0.2);
+  }
+  .lib-howto-step:not(:first-child) { padding-left:32px; }
+  .lib-howto-step:last-child { border-right:none; padding-right:0; }
+  .lib-howto-step-num {
+    font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300;
+    color:var(--clay); line-height:1; margin-bottom:14px;
+  }
+  .lib-howto-step-title {
+    font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500;
+    color:var(--deep); margin-bottom:10px; line-height:1.25;
+  }
+  .lib-howto-step-desc {
+    font-size:0.9rem; font-weight:300; line-height:1.72; color:var(--soft);
+    margin:0; max-width:none;
+  }
+
   /* ─── SYSTEM STRIP ─── */
   .lib-system-strip {
     margin-top:var(--nav-h);
@@ -351,30 +408,133 @@
   }
   .lib-hero-actions { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
 
+  /* ─── HERO CARDS VISUAL ─── */
   .lib-hero-right { animation:fadeUp 0.7s ease 0.35s both; }
-  .lib-hero-mark {
-    background:var(--linen);
-    border:1px solid rgba(196,168,130,0.3);
-    padding:40px 34px 34px;
+  .lib-hero-cards-visual {
+    background:var(--deep);
+    border-radius:28px;
+    padding:56px 40px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:480px;
+    position:relative;
   }
-  .lib-hero-mark-kicker { font-size:0.64rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--soft); margin-bottom:16px; }
-  .lib-hero-mark-count { font-family:'Cormorant Garamond',serif; font-size:3.6rem; font-weight:300; line-height:0.95; color:var(--deep); margin-bottom:8px; letter-spacing:0; }
-  .lib-hero-mark-count-sub { font-size:0.92rem; font-weight:400; color:var(--clay-deep); letter-spacing:0.02em; margin-bottom:22px; line-height:1.5; }
-  .lib-hero-mark-list {
-    list-style:none; padding:22px 0 0; margin:0;
-    display:flex; flex-direction:column; gap:8px;
-    border-top:1px solid rgba(196,168,130,0.3);
+  .lib-hero-cards-visual::after {
+    content:'';
+    position:absolute;
+    bottom:36px;
+    left:50%;
+    transform:translateX(-50%);
+    width:70%;
+    height:60px;
+    border-radius:50%;
+    background:radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 72%);
+    filter:blur(4px);
+    z-index:0;
   }
-  .lib-hero-mark-list li {
-    font-size:0.86rem; font-weight:300; color:var(--soft); letter-spacing:0.02em;
-    display:flex; align-items:center; gap:10px;
+  .lib-hero-cards-wrap {
+    position:relative;
+    width:260px;
+    height:400px;
+    z-index:1;
   }
-  .lib-hero-mark-list li::before { content:''; width:5px; height:5px; background:var(--clay); border-radius:50%; }
+  .lib-hero-card {
+    position:absolute;
+    width:200px;
+    background:#1a1410;
+    border-radius:18px;
+    padding:8px;
+    box-shadow:0 24px 64px rgba(0,0,0,0.45), 0 6px 18px rgba(0,0,0,0.28);
+    transition:transform 0.35s ease;
+    top:50%;
+    left:50%;
+  }
+  .lib-hero-card-inner {
+    background:var(--warm-white);
+    border-radius:12px;
+    padding:20px 14px 14px;
+    display:flex;
+    flex-direction:column;
+    min-height:260px;
+    position:relative;
+    overflow:hidden;
+  }
+  .lib-hero-card-brand {
+    font-family:'Jost',sans-serif;
+    font-size:0.42rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--soft);
+    margin-bottom:4px;
+  }
+  .lib-hero-card-num {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.2rem;
+    font-weight:300;
+    color:var(--clay-light);
+    line-height:1;
+    position:absolute;
+    right:10px;
+    top:12px;
+    opacity:0.28;
+  }
+  .lib-hero-card-the {
+    font-family:'Cormorant Garamond',serif;
+    font-size:0.72rem;
+    font-weight:300;
+    font-style:italic;
+    color:var(--soft);
+    margin-top:auto;
+    padding-top:22px;
+  }
+  .lib-hero-card-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem;
+    font-weight:500;
+    color:var(--deep);
+    line-height:1.1;
+    margin-bottom:2px;
+  }
+  .lib-hero-card-rule { width:22px; height:1px; background:var(--clay); margin-bottom:8px; }
+  .lib-hero-card-arrow {
+    font-family:'Jost',sans-serif;
+    font-size:0.44rem;
+    color:var(--clay-deep);
+    letter-spacing:0.06em;
+    margin-bottom:2px;
+  }
+  .lib-hero-card-dest {
+    font-family:'Cormorant Garamond',serif;
+    font-size:0.85rem;
+    font-weight:500;
+    font-style:italic;
+    color:var(--deep);
+    margin-bottom:10px;
+  }
+  .lib-hero-card-cta {
+    background:var(--clay);
+    padding:7px 9px;
+    text-align:center;
+    border-radius:3px;
+    font-family:'Jost',sans-serif;
+    font-size:0.44rem;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--deep);
+  }
+  /* Fan positions — front card centred, others fanned behind */
+  .lib-hero-card--5 { transform:translate(-50%, -50%) rotate(0deg);   z-index:5; }
+  .lib-hero-card--4 { transform:translate(-68%, -54%) rotate(-7deg);  z-index:4; opacity:0.82; }
+  .lib-hero-card--3 { transform:translate(-32%, -54%) rotate(7deg);   z-index:4; opacity:0.82; }
+  .lib-hero-card--2 { transform:translate(-82%, -58%) rotate(-14deg); z-index:3; opacity:0.6; }
+  .lib-hero-card--1 { transform:translate(-18%, -58%) rotate(14deg);  z-index:3; opacity:0.6; }
 
   /* ─── VALUE SECTION ─── */
   .lib-preview {
     background:var(--warm-white);
-    padding:0 60px 104px;
+    padding:96px 60px 104px;
     border-bottom:1px solid rgba(196,168,130,0.2);
   }
   .lib-preview-inner {
@@ -611,12 +771,80 @@
   }
   .lib-method-step:not(:first-child) { padding-left:36px; }
   .lib-method-step:last-child { border-right:none; padding-right:0; }
-  .lib-method-step-header { display:flex; align-items:baseline; gap:14px; margin-bottom:16px; }
-  .lib-method-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--clay); line-height:1; }
+  .lib-method-step-icon {
+    width:40px; height:40px; margin-bottom:20px; flex-shrink:0;
+  }
+  .lib-method-step-icon svg {
+    width:40px; height:40px;
+    stroke:var(--clay-deep); fill:none;
+    stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round;
+  }
+  .lib-method-step-header { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+  .lib-method-num { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:400; color:var(--clay); line-height:1; opacity:0.6; }
   .lib-method-label { font-size:0.7rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); }
   .lib-method-title { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:500; color:var(--deep); margin-bottom:12px; line-height:1.2; }
-  .lib-method-desc { font-size:0.96rem; font-weight:300; line-height:1.72; color:var(--soft); max-width:none; margin-bottom:0; }
+  .lib-method-desc { font-size:0.96rem; font-weight:300; line-height:1.72; color:var(--soft); max-width:none; margin-bottom:20px; }
+  .lib-method-detail {
+    list-style:none; padding:0; margin:0;
+    display:flex; flex-direction:column; gap:10px;
+    margin-top:auto; padding-top:20px;
+    border-top:1px solid rgba(196,168,130,0.22);
+  }
+  .lib-method-detail li {
+    font-size:0.88rem; font-weight:300; line-height:1.6; color:var(--soft);
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  .lib-method-detail li::before {
+    content:''; width:4px; height:4px; background:var(--clay);
+    border-radius:50%; margin-top:7px; flex-shrink:0;
+  }
   .lib-method-footer { margin-top:32px; font-size:0.92rem; font-weight:300; color:var(--soft); font-style:italic; max-width:none; }
+
+  .lib-practice-card--coming {
+    pointer-events:none;
+    position:relative;
+    overflow:hidden;
+    background:var(--linen);
+    border-style:dashed;
+    border-color:rgba(196,168,130,0.3);
+  }
+  .lib-practice-coming-overlay {
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:28px 28px 32px;
+    background:linear-gradient(to bottom, rgba(250,247,242,0) 0%, rgba(250,247,242,0.96) 38%, rgba(250,247,242,1) 100%);
+  }
+  .lib-practice-coming-badge {
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:500;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--clay-deep);
+    border:1px solid rgba(196,168,130,0.45);
+    padding:5px 10px;
+    border-radius:2px;
+    margin-bottom:14px;
+    width:fit-content;
+  }
+  .lib-practice-coming-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3rem;
+    font-weight:500;
+    color:var(--deep);
+    margin-bottom:10px;
+    line-height:1.2;
+  }
+  .lib-practice-coming-desc {
+    font-size:0.9rem;
+    font-weight:300;
+    line-height:1.68;
+    color:var(--soft);
+    margin:0;
+  }
 
   /* ─── PRACTICES ─── */
   .lib-practices { padding:112px 60px; background:var(--linen); border-top:1px solid rgba(196,168,130,0.25); border-bottom:1px solid rgba(196,168,130,0.25); }
@@ -973,8 +1201,10 @@
   .lib-access-inner { max-width:1100px; margin:0 auto; }
   .lib-access-header { max-width:720px; margin-bottom:48px; }
   .lib-access-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .lib-access-grid--single { grid-template-columns:1fr 1fr; }
   .lib-access-card { background:var(--warm-white); border:1px solid rgba(196,168,130,0.3); padding:40px 36px 36px; display:flex; flex-direction:column; }
   .lib-access-card--full { background:var(--deep); border-color:var(--deep); color:var(--warm-white); }
+  .lib-access-card--assess { background:var(--linen); border-color:rgba(196,168,130,0.3); }
   .lib-access-kicker { font-size:0.66rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--clay-deep); margin-bottom:14px; }
   .lib-access-card--full .lib-access-kicker { color:var(--clay); }
   .lib-access-title { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:500; color:var(--deep); margin-bottom:14px; line-height:1.2; }
@@ -1197,7 +1427,17 @@
     .lib-idea-hcp-card--5 { left:110px; top:102px; }
     .lib-preview { padding-top:0; }
     .lib-hero-headline { font-size:2.5rem; }
-    .lib-hero-mark-count { font-size:3.8rem; }
+    .lib-hero-cards-visual { min-height:340px; padding:40px 20px 36px; border-radius:20px; }
+    .lib-hero-cards-wrap { width:200px; height:320px; }
+    .lib-hero-card { width:160px; }
+    .lib-hero-card-inner { min-height:210px; }
+    .lib-for-who { padding:40px 20px; }
+    .lib-for-who-inner { grid-template-columns:1fr; gap:24px; }
+    .lib-for-who-secondary { padding-left:0; border-left:none; border-top:1px solid rgba(196,168,130,0.3); padding-top:24px; }
+    .lib-howto { padding:60px 20px; }
+    .lib-howto-steps { grid-template-columns:1fr 1fr; }
+    .lib-howto-step { padding:28px 20px 28px 0; }
+    .lib-howto-step:not(:first-child) { padding-left:20px; }
     .lib-library-tools { grid-template-columns:1fr; }
     .lib-library-meta { align-items:flex-start; }
     .lib-practices-grid { grid-template-columns:1fr; }
@@ -1252,34 +1492,22 @@
 </nav>
 
 <!-- ─── SYSTEM STRIP ─── -->
-<section class="lib-system-strip" aria-label="Where the library sits in the Inner Balance system">
+<section class="lib-system-strip" aria-label="About The Practice Library">
   <div class="lib-system-strip-inner">
     <div class="lib-system-strip-left">
-      <span class="lib-system-strip-label">The Inner Balance System</span>
+      <span class="lib-system-strip-label">The Practice Library</span>
       <span class="lib-system-strip-divider" aria-hidden="true"></span>
       <div class="lib-system-strip-path">
-        <span class="lib-system-strip-step">
-          <span class="lib-system-strip-step-num">01</span>
-          <span class="lib-system-strip-step-label">SOS</span>
-        </span>
-        <span class="lib-system-strip-arrow" aria-hidden="true">&rarr;</span>
-        <span class="lib-system-strip-step">
-          <span class="lib-system-strip-step-num">02</span>
-          <span class="lib-system-strip-step-label">Clarity</span>
-        </span>
-        <span class="lib-system-strip-arrow" aria-hidden="true">&rarr;</span>
-        <span class="lib-system-strip-step">
-          <span class="lib-system-strip-step-num">03</span>
-          <span class="lib-system-strip-step-label">Inner Balance</span>
-        </span>
-        <span class="lib-system-strip-arrow" aria-hidden="true">&rarr;</span>
         <span class="lib-system-strip-step current">
-          <span class="lib-system-strip-step-num">04</span>
-          <span class="lib-system-strip-step-label">Daily practice library for maintaining inner balance</span>
+          <span class="lib-system-strip-step-label">Your ongoing practice layer after the system</span>
+        </span>
+        <span class="lib-system-strip-arrow" aria-hidden="true">&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        <span class="lib-system-strip-step">
+          <span class="lib-system-strip-step-label">Also available independently if you already have a foundation</span>
         </span>
       </div>
     </div>
-    <a href="https://innerbalance101.com/#system" class="lib-system-strip-link">See the system &rarr;</a>
+    <a href="https://innerbalance101.com/#system" class="lib-system-strip-link">New here? See the system &rarr;</a>
   </div>
 </section>
 
@@ -1290,25 +1518,90 @@
     <div class="lib-hero-left">
       <div class="lib-hero-kicker">The Practice Library</div>
       <h1 class="lib-hero-headline">Practices for <em>what is<br>actually happening</em><br>right now.</h1>
-      <p class="lib-hero-lede">Maintain inner balance with a daily practice. Transform what you feel every day, and find what you need when you need it.</p>
-      <p class="lib-hero-note">Choose by what you are feeling, what just happened, or how much time you have. Open the practice that fits the moment and come back to yourself.</p>
+      <p class="lib-hero-lede">Something is active right now. A feeling you cannot shake, a spiral starting, a state you know too well. There is a practice for that.</p>
+      <p class="lib-hero-note">Choose by what you are feeling, what just happened, or how much time you have. Open the one that fits and come back to yourself.</p>
       <div class="lib-hero-actions">
         <a href="#practices" class="btn-primary">See the practices</a>
         <a href="#method" class="btn-ghost">How it works &rarr;</a>
       </div>
     </div>
     <div class="lib-hero-right">
-      <div class="lib-hero-mark">
-        <div class="lib-hero-mark-kicker">In the library</div>
-        <div class="lib-hero-mark-count">5 live</div>
-        <div class="lib-hero-mark-count-sub">Five guided practices for the emotional states that throw you off most often.</div>
-        <ul class="lib-hero-mark-list">
-          <li>8 to 12 minutes to start</li>
-          <li>Choose by feeling, moment, or time available</li>
-          <li>Start with the assessment if you are not sure where to begin</li>
-        </ul>
+      <div class="lib-hero-cards-visual">
+        <div class="lib-hero-cards-wrap">
+          <div class="lib-hero-card lib-hero-card--1">
+            <div class="lib-hero-card-inner">
+              <div class="lib-hero-card-brand">innerbalance101</div>
+              <div class="lib-hero-card-num">05</div>
+              <div class="lib-hero-card-the">The</div>
+              <div class="lib-hero-card-title">Guilt Release Practice</div>
+              <div class="lib-hero-card-rule"></div>
+              <div class="lib-hero-card-arrow">Guilt &rarr;</div>
+              <div class="lib-hero-card-dest">Release</div>
+              <div class="lib-hero-card-cta">Start Practising</div>
+            </div>
+          </div>
+          <div class="lib-hero-card lib-hero-card--2">
+            <div class="lib-hero-card-inner">
+              <div class="lib-hero-card-brand">innerbalance101</div>
+              <div class="lib-hero-card-num">04</div>
+              <div class="lib-hero-card-the">The</div>
+              <div class="lib-hero-card-title">Uncertainty Reset</div>
+              <div class="lib-hero-card-rule"></div>
+              <div class="lib-hero-card-arrow">Uncertainty &rarr;</div>
+              <div class="lib-hero-card-dest">Discernment</div>
+              <div class="lib-hero-card-cta">Start Practising</div>
+            </div>
+          </div>
+          <div class="lib-hero-card lib-hero-card--3">
+            <div class="lib-hero-card-inner">
+              <div class="lib-hero-card-brand">innerbalance101</div>
+              <div class="lib-hero-card-num">03</div>
+              <div class="lib-hero-card-the">The</div>
+              <div class="lib-hero-card-title">Self-Trust Protocol</div>
+              <div class="lib-hero-card-rule"></div>
+              <div class="lib-hero-card-arrow">Self-Doubt &rarr;</div>
+              <div class="lib-hero-card-dest">Self-Trust</div>
+              <div class="lib-hero-card-cta">Start Practising</div>
+            </div>
+          </div>
+          <div class="lib-hero-card lib-hero-card--4">
+            <div class="lib-hero-card-inner">
+              <div class="lib-hero-card-brand">innerbalance101</div>
+              <div class="lib-hero-card-num">02</div>
+              <div class="lib-hero-card-the">The</div>
+              <div class="lib-hero-card-title">Pressure Reset</div>
+              <div class="lib-hero-card-rule"></div>
+              <div class="lib-hero-card-arrow">Pressure &rarr;</div>
+              <div class="lib-hero-card-dest">Self-Assurance</div>
+              <div class="lib-hero-card-cta">Start Practising</div>
+            </div>
+          </div>
+          <div class="lib-hero-card lib-hero-card--5">
+            <div class="lib-hero-card-inner">
+              <div class="lib-hero-card-brand">innerbalance101</div>
+              <div class="lib-hero-card-num">01</div>
+              <div class="lib-hero-card-the">The</div>
+              <div class="lib-hero-card-title">Grounded Professional</div>
+              <div class="lib-hero-card-rule"></div>
+              <div class="lib-hero-card-arrow">Overwhelm &rarr;</div>
+              <div class="lib-hero-card-dest">Grounded</div>
+              <div class="lib-hero-card-cta">Start Practising</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ─── FOR WHO ─── -->
+<section class="lib-for-who" aria-label="Who the library is for">
+  <div class="lib-for-who-inner">
+    <div class="lib-for-who-left">
+      <div class="section-label">Who this is for</div>
+      <p class="lib-for-who-primary">This library is for two kinds of people. Those who have been through the Inner Balance system and want something to work with day to day. And those who arrive independently. They can name what they are feeling. And they want to do something useful with it.</p>
+    </div>
+    <p class="lib-for-who-secondary">If you are not sure what you are feeling, or you are in the middle of something difficult with no ground under you yet, the <a href="https://innerbalance101.com/#system">Inner Balance system</a> is the better starting point. It builds what these practices depend on.</p>
   </div>
 </section>
 
@@ -1318,36 +1611,36 @@
     <div class="lib-preview-header">
       <div class="lib-preview-copy">
         <div class="section-label">Inside The Library</div>
-        <h2 class="section-headline">A clear way to work with what you are carrying.</h2>
-        <p class="section-body">Each practice is built for a specific emotional state and guides you through a complete shift. You do not need to figure it out alone or piece together what to do next.</p>
+        <h2 class="section-headline">Here is what happens when you open one.</h2>
+        <p class="section-body">You start with a little context about the emotional state you are in, and how it tends to show up for high performers specifically. You are not just told what the feeling is. You start to recognise it. And something shifts almost immediately, because you are no longer alone with it.</p>
       </div>
-      <p class="lib-preview-note">Choose the state that feels most active, follow the practice all the way through, and leave with more clarity, steadiness, and direction than you had before.</p>
+      <p class="lib-preview-note">Then comes thought work, which helps you see what is underneath the feeling. Then the body gets to release its share of it. And in the closing, you gather what shifted and step back into your day as yourself again.</p>
     </div>
     <div class="lib-preview-grid">
       <article class="lib-preview-card">
         <div class="lib-preview-card-kicker">Guided</div>
-        <h3 class="lib-preview-card-title">A full practice you can actually follow.</h3>
-        <p class="lib-preview-card-body">Each one leads you step by step through the emotional state you are in, so you are not left trying to decide what to do while you are already dysregulated.</p>
+        <h3 class="lib-preview-card-title">Step by step. You just follow it.</h3>
+        <p class="lib-preview-card-body">Each practice walks you through the state you are in without asking you to figure anything out while you are already in it. You open it. You follow. You end up somewhere different.</p>
         <ul class="lib-preview-card-list">
-          <li>Self-guided and easy to return to</li>
-          <li>Designed for real moments, not theory</li>
-          <li>Simple to open when you need it</li>
+          <li>No prior experience needed</li>
+          <li>Built for real moments, not ideal conditions</li>
+          <li>Easy to return to when that feeling comes back</li>
         </ul>
       </article>
       <article class="lib-preview-card">
         <div class="lib-preview-card-kicker">Structured</div>
-        <h3 class="lib-preview-card-title">Thought work and somatic practice together.</h3>
-        <p class="lib-preview-card-body">You name what is happening, work with it through the body, and come back to a steadier internal state instead of just pushing through.</p>
+        <h3 class="lib-preview-card-title">Thought work and somatic practice. Together.</h3>
+        <p class="lib-preview-card-body">Thought work is the practice of finding the specific thought behind an emotion, and working with it directly. Most people have never been taught to do this. The practices guide you through it, paired with the right body-based tool so the shift happens at both levels at once.</p>
         <ul class="lib-preview-card-list">
-          <li>Thought work, breathwork, tapping, or movement</li>
-          <li>One method repeated across practices</li>
-          <li>Simple enough to use under pressure</li>
+          <li>Example thoughts written for how high performers actually think</li>
+          <li>Somatic tools matched to the state: breathwork, tapping, or movement</li>
+          <li>Simple enough to use when you are already under pressure</li>
         </ul>
       </article>
       <article class="lib-preview-card">
         <div class="lib-preview-card-kicker">Transformative</div>
-        <h3 class="lib-preview-card-title">Each practice is designed for a specific shift.</h3>
-        <p class="lib-preview-card-body">You are not opening something generic. You are choosing the change you need most in the moment and working directly toward it.</p>
+        <h3 class="lib-preview-card-title">Each practice is built for a specific shift.</h3>
+        <p class="lib-preview-card-body">You are not opening something generic. You are choosing the exact change you need right now and working toward it. Through the mind and the body, not just one or the other.</p>
         <ul class="lib-preview-card-list">
           <li>Pressure to self-assurance</li>
           <li>Overwhelm to grounded</li>
@@ -1440,37 +1733,116 @@
 <section class="lib-method" id="method">
   <div class="lib-method-inner">
     <div class="lib-method-header">
-      <div class="section-label">The Method</div>
-      <h2 class="section-headline">One method. Three stages. Every practice.</h2>
-      <p class="section-body">Every practice follows the same structure, so once you learn the rhythm, it becomes easier to return to the right support when you need it.</p>
+      <div class="section-label">Inside each practice</div>
+      <h2 class="section-headline">What happens when you open one.</h2>
+      <p class="section-body">Every practice follows the same three-step sequence. Once you know the rhythm, it is easier to move through it and easier to return to it when you need it again.</p>
     </div>
     <div class="lib-method-grid">
+
       <div class="lib-method-step">
+        <div class="lib-method-step-icon">
+          <!-- Icon: Eye / awareness — name what is underneath -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20 C9 11, 31 11, 36 20 C31 29, 9 29, 4 20Z"/>
+            <circle cx="20" cy="20" r="5"/>
+            <circle cx="20" cy="20" r="2" fill="var(--clay-deep)" stroke="none"/>
+          </svg>
+        </div>
         <div class="lib-method-step-header">
-          <div class="lib-method-num">1</div>
+          <div class="lib-method-num">01</div>
           <div class="lib-method-label">Thought work</div>
         </div>
         <div class="lib-method-title">Understand what is happening.</div>
-        <p class="lib-method-desc">You name the thought underneath the feeling. You see the belief driving the reaction. Once you can see it clearly, the moment stops running you.</p>
+        <p class="lib-method-desc">We can generate up to 90,000 thoughts a day and are aware of only a fraction. Thoughts create emotions. Most of them are running quietly in the background, producing feelings we cannot quite explain. The practices bring the specific thought driving what you are feeling into view. That is what stops it operating on you from somewhere you cannot see.</p>
+        <ul class="lib-method-detail">
+          <li>Guided journal with prompts tailored to the emotional state you are in</li>
+          <li>Example thoughts written for how high performers actually think. You will recognise yourself in them</li>
+          <li>The transformative thought. Not a forced positive. One that is genuinely true and creates actual relief</li>
+        </ul>
       </div>
+
       <div class="lib-method-step">
+        <div class="lib-method-step-icon">
+          <!-- Icon: Waves / breath / body movement -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 14 Q10 8, 16 14 Q22 20, 28 14 Q34 8, 38 12" stroke-opacity="0.35"/>
+            <path d="M4 22 Q10 16, 16 22 Q22 28, 28 22 Q34 16, 38 20"/>
+            <path d="M4 30 Q10 24, 16 30 Q22 36, 28 30 Q34 24, 38 28" stroke-opacity="0.55"/>
+          </svg>
+        </div>
         <div class="lib-method-step-header">
-          <div class="lib-method-num">2</div>
+          <div class="lib-method-num">02</div>
           <div class="lib-method-label">Somatic release</div>
         </div>
         <div class="lib-method-title">Move it through the body.</div>
-        <p class="lib-method-desc">Thinking does not reach this layer. Movement, breath, and body-based work discharge what is held so the nervous system stops replaying it.</p>
+        <p class="lib-method-desc">There are hundreds of emotional release exercises out there. Breathwork, tapping, movement, progressive release. No obvious way to know which one fits what you are feeling, or how long you have. Each practice already has the right tool selected. You do not have to research it, understand it, or decide anything. You just do it.</p>
+        <ul class="lib-method-detail">
+          <li>No expertise required. You do not need to know the technique before you start</li>
+          <li>The tool has been chosen and tested for this state and this time window</li>
+          <li>You get the benefit without needing the theory behind it</li>
+        </ul>
       </div>
+
       <div class="lib-method-step">
+        <div class="lib-method-step-icon">
+          <!-- Icon: Compass / return to direction -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="14"/>
+            <line x1="20" y1="20" x2="20" y2="9" stroke-width="1.8"/>
+            <line x1="20" y1="20" x2="27" y2="28" stroke-opacity="0.4"/>
+            <circle cx="20" cy="20" r="2.2" fill="var(--clay-deep)" stroke="none"/>
+            <line x1="20" y1="6" x2="20" y2="4" stroke-width="1.2"/>
+            <line x1="34" y1="20" x2="36" y2="20" stroke-width="1.2"/>
+            <line x1="6" y1="20" x2="4" y2="20" stroke-width="1.2"/>
+          </svg>
+        </div>
         <div class="lib-method-step-header">
-          <div class="lib-method-num">3</div>
+          <div class="lib-method-num">03</div>
           <div class="lib-method-label">Closing</div>
         </div>
         <div class="lib-method-title">Return to clarity and direction.</div>
-        <p class="lib-method-desc">You do not just calm down. You leave with a more grounded internal state, and you carry that into what comes next.</p>
+        <p class="lib-method-desc">This is the step people underestimate. Not a wind-down. A deliberate close that makes the shift stick. You carry it forward instead of feeling it briefly and sliding back within the hour.</p>
+        <ul class="lib-method-detail">
+          <li>Designed to make the internal shift portable. It goes with you into what comes next</li>
+          <li>You do not leave open. You leave oriented. There is a real difference</li>
+          <li>Short and precise. The ground you just found is worth keeping</li>
+        </ul>
       </div>
+
     </div>
     <p class="lib-method-footer">This is emotional transformation, not emotional regulation. The body goes first. The thought is addressed where it actually lives.</p>
+  </div>
+</section>
+
+<!-- ─── HOW TO USE ─── -->
+<section class="lib-howto" aria-label="How to use the library">
+  <div class="lib-howto-inner">
+    <div class="lib-howto-header">
+      <div class="section-label">How to use it</div>
+      <h2 class="section-headline">Open it when something is active. That is all.</h2>
+    </div>
+    <div class="lib-howto-steps">
+      <div class="lib-howto-step">
+        <div class="lib-howto-step-num">1</div>
+        <div class="lib-howto-step-title">Notice what you are feeling</div>
+        <p class="lib-howto-step-desc">Pressure before a meeting. Guilt after a conversation. Overwhelm at the end of the day. Start with whatever is loudest right now.</p>
+      </div>
+      <div class="lib-howto-step">
+        <div class="lib-howto-step-num">2</div>
+        <div class="lib-howto-step-title">Pick the matching practice</div>
+        <p class="lib-howto-step-desc">Each practice is built for a specific emotional state. Choose by what you are feeling, what just happened, or how much time you have.</p>
+      </div>
+      <div class="lib-howto-step">
+        <div class="lib-howto-step-num">3</div>
+        <div class="lib-howto-step-title">Open the link on any device</div>
+        <p class="lib-howto-step-desc">You receive a direct URL immediately after purchase. Open it in your browser or download it. No app. No login. Available wherever you are.</p>
+      </div>
+      <div class="lib-howto-step">
+        <div class="lib-howto-step-num">4</div>
+        <div class="lib-howto-step-title">Follow it all the way through.</div>
+        <p class="lib-howto-step-desc">Practices vary in length. Choose by how much time you have. The filters above the practice grid help you find the right one. Come back to the same practice whenever that state returns.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1714,57 +2086,32 @@
         <a href="https://library.innerbalance101.com/shop/guiltpracticeaccess" class="lib-practice-cta">Open the practice &rarr;</a>
       </article>
 
-      <article class="lib-practice-card coming" data-title="In Development" data-emotion="mindfulness" data-event="mindfulness-reset end-of-day before-a-meeting" data-length="short" data-type="mindfulness" data-search="mindfulness reset daily practice expanding library breath awareness focus">
-        <div class="lib-practice-index">Practice / 06</div>
-        <div class="lib-practice-cover-phone">
+      <article class="lib-practice-card lib-practice-card--coming" data-title="In Development" data-emotion="mindfulness" data-event="mindfulness-reset end-of-day before-a-meeting" data-length="short" data-type="mindfulness" data-search="mindfulness reset daily practice expanding library breath awareness focus" aria-disabled="true">
+        <div class="lib-practice-index" style="opacity:0.4;">More coming</div>
+        <div class="lib-practice-cover-phone" style="opacity:0.38; pointer-events:none; filter:blur(0.5px);">
           <div class="lib-practice-device">
             <div class="lib-practice-screen">
               <div class="lib-practice-screen-header">
                 <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.6" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.8"/><circle cx="19" cy="32" r="3" fill="#C4A882"/><circle cx="45" cy="32" r="3" fill="#C4A882"/></svg>
                 <span class="lib-practice-screen-brand">innerbalance101</span>
               </div>
-              <div class="lib-practice-screen-num" style="opacity:0.25;">06</div>
+              <div class="lib-practice-screen-num" style="opacity:0.2;">06</div>
               <div class="lib-practice-screen-the">The</div>
-              <div class="lib-practice-screen-title" style="color:var(--soft);">In Development</div>
+              <div class="lib-practice-screen-title" style="color:var(--soft);">Next Practice</div>
               <div class="lib-practice-screen-divider"></div>
-              <div class="lib-practice-screen-transform" style="color:var(--clay-light);">A new practice</div>
+              <div class="lib-practice-screen-transform" style="color:var(--clay-light);">In development</div>
               <div class="lib-practice-screen-destination" style="color:var(--soft);">Arriving soon</div>
-              <div class="lib-practice-screen-cta" style="background:rgba(196,168,130,0.25);"><div class="lib-practice-screen-cta-text" style="color:var(--soft);">Under development</div></div>
-              <div class="lib-practice-screen-duration">Details to follow</div>
+              <div class="lib-practice-screen-cta" style="background:rgba(196,168,130,0.18);"><div class="lib-practice-screen-cta-text" style="color:var(--soft); opacity:0.5;">Coming soon</div></div>
             </div>
           </div>
         </div>
-        <h3 class="lib-practice-title">Practice under development</h3>
-        <div class="lib-practice-badges">
-          <span class="lib-practice-badge">In development</span>
-          <span class="lib-practice-badge">Coming next</span>
+        <div class="lib-practice-coming-overlay">
+          <div class="lib-practice-coming-badge">More practices on the way</div>
+          <h3 class="lib-practice-coming-title">The library keeps growing.</h3>
+          <p class="lib-practice-coming-desc">New practices are added as the library expands. Each one targets a specific emotional state, follows the same method, and slots in wherever you need it.</p>
         </div>
-        <div class="lib-practice-shift">
-          <span class="lib-practice-shift-from">In progress</span>
-          <span class="lib-practice-shift-arrow">&rarr;</span>
-          <span class="lib-practice-shift-to">Launching soon</span>
-        </div>
-        <p class="lib-practice-desc">This practice is still being developed. Final focus, length, and cover design will be announced when it is ready to join the library.</p>
-        <span class="lib-practice-coming-note">Under development</span>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- ─── MIDWAY REMINDER ─── -->
-<section class="lib-reminder">
-  <div class="lib-reminder-inner">
-    <div>
-      <div class="lib-reminder-kicker">A gentle reminder</div>
-      <h2 class="lib-reminder-headline">If this library feels overwhelming, start with the system.</h2>
-      <p class="lib-reminder-body">The library works best for people who already have some familiarity with emotional regulation and emotional transformation, and want the right practice for a specific moment.</p>
-      <p class="lib-reminder-body">If you are not yet sure what you are feeling, where to begin, or how to stay with the process, the Inner Balance system will give you the structure and guidance this library assumes you already have.</p>
-    </div>
-    <div class="lib-reminder-note">
-      <div class="lib-reminder-note-title">Start here instead</div>
-      <p>Begin with the system if you want a steadier path, clearer support, and a guided way into this work before choosing individual practices.</p>
-      <a href="https://innerbalance101.com/#system" class="lib-reminder-link">See the Inner Balance system &rarr;</a>
     </div>
   </div>
 </section>
@@ -1809,11 +2156,11 @@
       </svg>
     </div>
     <div>
-      <div class="lib-foundation-kicker">Worth saying plainly</div>
-      <h2 class="lib-foundation-headline">Each practice stands on its own. None of them work without a foundation underneath.</h2>
-      <p class="lib-foundation-body">If you are already clear about what you are feeling and have some ground under you, open a practice and use it. That is what the library is for.</p>
-      <p class="lib-foundation-body">If you are far enough into survival mode that you cannot feel what is actually happening, a single practice is not the place to start. The 63-day Inner Balance system is. It builds the capacity these practices assume you already have.</p>
-      <a href="https://innerbalance101.com/#system" class="lib-foundation-link">See the 63-day system &rarr;</a>
+      <div class="lib-foundation-kicker">How the library fits</div>
+      <h2 class="lib-foundation-headline">The Inner Balance system builds what you need. The library is how you use it.</h2>
+      <p class="lib-foundation-body">The system (SOS, Clarity, and Inner Balance) is a three-stage process that develops the emotional awareness and self-knowledge these practices draw on. The library is not a fourth stage. It is what sits alongside, or comes after, when you need to work with something specific right now.</p>
+      <p class="lib-foundation-body">You can use it à la carte. Open one practice for what is most present. Come back when you need it again. No particular order.</p>
+      <a href="https://innerbalance101.com/#system" class="lib-foundation-link">Learn about the system &rarr;</a>
     </div>
   </div>
 </section>
@@ -1823,35 +2170,33 @@
   <div class="lib-access-inner">
     <div class="lib-access-header">
       <div class="section-label">The Digital Library</div>
-      <h2 class="section-headline">Use one practice now, or keep the full library close.</h2>
-      <p class="section-body">Start with one practice for the state that is most active right now, or keep the full library close if you want support across the full emotional range.</p>
+      <h2 class="section-headline">Start with the one that fits right now.</h2>
+      <p class="section-body">Each practice is available on its own. Choose by what you are feeling, what just happened, or how much time you have. Open it when you need it. Come back when it comes back.</p>
     </div>
-    <div class="lib-access-grid">
+    <div class="lib-access-grid lib-access-grid--single">
 
       <div class="lib-access-card">
         <div class="lib-access-kicker">Individual practice</div>
         <h3 class="lib-access-title">$17 each</h3>
-        <p class="lib-access-desc">Start with the emotional state that is loudest right now. One clear practice. One specific shift. Easy to open again when the same pattern comes back.</p>
+        <p class="lib-access-desc">Start with whatever is loudest right now. One practice. One shift. Keep it and return to it when that pattern shows up again.</p>
         <ul class="lib-access-list">
           <li>Choose by feeling, event, or time available</li>
-          <li>Instant access</li>
-          <li>Use when that state is active again</li>
-          <li>Keep the practice and return to it anytime</li>
+          <li>Instant access via link. Open in browser or download</li>
+          <li>No app, no login, no subscription</li>
         </ul>
-        <a href="https://stan.store/innerbalance101" class="lib-access-cta">Browse practices &rarr;</a>
+        <a href="https://stan.store/innerbalance101" class="lib-access-cta">Browse the practices &rarr;</a>
       </div>
 
-      <div class="lib-access-card lib-access-card--full">
-        <div class="lib-access-kicker">Best value</div>
-        <h3 class="lib-access-title">Full library bundle for $57</h3>
-        <p class="lib-access-desc">For the work you keep doing, not the one problem you are solving. One place for the practices you need now and the ones you will reach for later.</p>
+      <div class="lib-access-card lib-access-card--assess">
+        <div class="lib-access-kicker">Not sure where to start?</div>
+        <h3 class="lib-access-title">Take the free assessment.</h3>
+        <p class="lib-access-desc">The Emotional Load Assessment takes 8 minutes and tells you which emotional states are most active for you right now, so you know exactly which practice to open first.</p>
         <ul class="lib-access-list">
-          <li>Every current practice</li>
-          <li>$85 individually, $57 as a bundle</li>
-          <li>Keep the whole emotional range close</li>
-          <li>Room for future mindfulness and contextual additions</li>
+          <li>8 minutes</li>
+          <li>4 profiles. Results delivered immediately</li>
+          <li>Free, no purchase required</li>
         </ul>
-        <a href="https://stan.store/innerbalance101" class="lib-access-cta">Get full access &rarr;</a>
+        <a href="https://innerbalance101.com/emotional_load_assessment.html" class="lib-access-cta">Take the assessment &rarr;</a>
       </div>
 
     </div>
@@ -1906,7 +2251,7 @@
       }
     });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.lib-preview,.lib-idea,.lib-method,.lib-practices,.lib-when,.lib-foundation,.lib-access,.lib-close').forEach(el => {
+  document.querySelectorAll('.lib-for-who,.lib-howto,.lib-preview,.lib-idea,.lib-method,.lib-practices,.lib-when,.lib-foundation,.lib-access,.lib-close').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     observer.observe(el);
