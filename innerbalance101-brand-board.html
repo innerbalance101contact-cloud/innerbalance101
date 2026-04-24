@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>innerbalance101 — Brand Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-white:  #FAF7F2;
+    --linen:       #F0E8DC;
+    --clay:        #C4A882;
+    --clay-light:  #DDD0BE;
+    --clay-deep:   #A68B65;
+    --soft:        #9C8575;
+    --mid:         #6B5B4E;
+    --espresso:    #2C2420;
+    --pine:        #4F6861;
+    --dusty-rose:  #B67C7C;
+    --storm-blue:  #6E8397;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--espresso);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── UTILITIES ── */
+  .label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+  }
+
+  .serif { font-family: 'Cormorant Garamond', serif; }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    position: relative;
+    padding: 80px 60px 70px;
+    border-bottom: 1px solid var(--clay-light);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid var(--clay-light);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .page-header::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1px solid var(--clay-light);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .header-left { max-width: 480px; }
+
+  .header-eyebrow {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.0;
+    color: var(--espresso);
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+
+  .header-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--clay-deep);
+  }
+
+  .header-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--soft);
+    letter-spacing: 0.02em;
+  }
+
+  .header-meta {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .header-meta .label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .version-pill {
+    display: inline-block;
+    border: 1px solid var(--clay-light);
+    color: var(--mid);
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 72px 60px;
+    border-bottom: 1px solid var(--clay-light);
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .section-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--clay);
+    letter-spacing: 0.15em;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 400;
+    color: var(--espresso);
+    letter-spacing: 0.01em;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--clay-light);
+    margin-bottom: 4px;
+  }
+
+  /* ── LOGO SECTION ── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  .logo-cell {
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+    border-radius: 3px;
+    min-height: 260px;
+  }
+
+  .logo-cell.bg-warm  { background: var(--warm-white); border: 1px solid var(--clay-light); }
+  .logo-cell.bg-linen { background: var(--linen); }
+  .logo-cell.bg-dark  { background: var(--espresso); }
+
+  .logo-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.22em;
+    text-transform: lowercase;
+  }
+
+  .logo-name.light { color: var(--espresso); }
+  .logo-name.on-dark { color: var(--clay-light); }
+
+  .logo-caption {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--soft);
+    position: absolute;
+    bottom: 16px;
+    left: 0; right: 0;
+    text-align: center;
+  }
+
+  .logo-caption.on-dark { color: var(--clay-deep); }
+
+  /* Equilibrium Mark SVG */
+  .eq-mark { display: block; }
+
+  /* ── COLOR SECTION ── */
+  .color-system { display: flex; flex-direction: column; gap: 40px; }
+
+  .color-group-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--clay-light);
+  }
+
+  .swatches {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+  }
+
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .swatch-block {
+    width: 100%;
+    aspect-ratio: 1 / 1.1;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .swatch-block::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+  }
+
+  .swatch-block.warm-white { background: var(--warm-white); border: 1px solid var(--clay-light); }
+  .swatch-block.linen      { background: var(--linen); }
+  .swatch-block.clay       { background: var(--clay); }
+  .swatch-block.clay-light { background: var(--clay-light); }
+  .swatch-block.clay-deep  { background: var(--clay-deep); }
+  .swatch-block.soft       { background: var(--soft); }
+  .swatch-block.mid        { background: var(--mid); }
+  .swatch-block.espresso   { background: var(--espresso); }
+  .swatch-block.pine       { background: var(--pine); }
+  .swatch-block.dusty-rose { background: var(--dusty-rose); }
+  .swatch-block.storm-blue { background: var(--storm-blue); }
+
+  .swatch-name {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--espresso);
+    letter-spacing: 0.04em;
+  }
+
+  .swatch-hex {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--soft);
+    letter-spacing: 0.08em;
+    margin-top: -6px;
+  }
+
+  .swatch-role {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--clay-deep);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+
+  /* highlight tag */
+  .highlight-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  .tag-pine       { background: rgba(79,104,97,0.12); color: var(--pine); }
+  .tag-rose       { background: rgba(182,124,124,0.12); color: var(--dusty-rose); }
+  .tag-storm      { background: rgba(110,131,151,0.12); color: var(--storm-blue); }
+
+  /* ── TYPOGRAPHY SECTION ── */
+  .type-specimens { display: flex; flex-direction: column; gap: 56px; }
+
+  .type-specimen {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(196,168,130,0.2);
+  }
+
+  .type-specimen:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .type-meta { padding-top: 6px; }
+
+  .type-meta-name {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--espresso);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .type-meta-detail {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--soft);
+    line-height: 2;
+  }
+
+  .type-meta-detail strong {
+    color: var(--mid);
+    font-weight: 400;
+  }
+
+  .type-use-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid var(--clay-light);
+    color: var(--clay-deep);
+    border-radius: 20px;
+  }
+
+  .type-display { flex: 1; }
+
+  /* Cormorant specimens */
+  .specimen-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--espresso);
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+
+  .specimen-display-italic {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5.5vw, 80px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--clay-deep);
+    margin-bottom: 20px;
+  }
+
+  .specimen-weights {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(196,168,130,0.2);
+  }
+
+  .specimen-weight-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .weight-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    width: 60px;
+    flex-shrink: 0;
+  }
+
+  .weight-sample-cg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--espresso);
+    line-height: 1;
+  }
+
+  .weight-sample-j {
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    color: var(--espresso);
+    line-height: 1;
+  }
+
+  /* Jost specimens */
+  .specimen-jost-hero {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .specimen-jost-body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 560px;
+    margin-bottom: 20px;
+  }
+
+  /* ── VOICE SECTION ── */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 40px;
+  }
+
+  .voice-cell {
+    padding: 40px 36px;
+    border-radius: 3px;
+  }
+
+  .voice-cell.yes { background: var(--linen); }
+  .voice-cell.no  { background: rgba(196,168,130,0.08); }
+
+  .voice-cell-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .voice-indicator {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .ind-yes { background: var(--pine); color: #fff; }
+  .ind-no  { background: rgba(182,124,124,0.2); color: var(--dusty-rose); }
+
+  .voice-cell-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .voice-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .voice-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--espresso);
+    line-height: 1.4;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .voice-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 5px; height: 1px;
+    background: var(--clay);
+  }
+
+  .voice-list.no-list li { color: var(--soft); font-style: italic; }
+  .voice-list.no-list li::before { background: rgba(182,124,124,0.4); }
+
+  /* ── TAGLINE BLOCK ── */
+  .tagline-block {
+    padding: 80px 60px;
+    background: var(--espresso);
+    text-align: center;
+  }
+
+  .tagline-block .label { color: var(--clay-deep); margin-bottom: 24px; display: block; }
+
+  .tagline-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4.5vw, 56px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--clay-light);
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    max-width: 700px;
+    margin: 0 auto 28px;
+  }
+
+  .tagline-brand {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    text-transform: lowercase;
+    color: var(--clay-deep);
+  }
+
+  /* ── USAGE NOTES ── */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .rule-card {
+    padding: 32px 28px;
+    background: var(--linen);
+    border-radius: 3px;
+  }
+
+  .rule-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .rule-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 10px;
+  }
+
+  .rule-body {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--soft);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--clay-light);
+  }
+
+  .footer-brand {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    text-transform: lowercase;
+    color: var(--clay-deep);
+  }
+
+  .footer-info {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--clay-light);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .page-header { padding: 48px 32px 40px; flex-direction: column; align-items: flex-start; }
+    .section { padding: 48px 32px; }
+    .logo-grid { grid-template-columns: 1fr 1fr; }
+    .voice-grid { grid-template-columns: 1fr; }
+    .rules-grid { grid-template-columns: 1fr 1fr; }
+    .type-specimen { grid-template-columns: 1fr; }
+    .page-footer { padding: 32px; flex-direction: column; gap: 12px; text-align: center; }
+    .tagline-block { padding: 60px 32px; }
+  }
+
+  @media (max-width: 600px) {
+    .logo-grid { grid-template-columns: 1fr; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .swatches { flex-wrap: wrap; }
+    .swatch { min-width: 80px; }
+    .header-meta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── PAGE HEADER ── -->
+<header class="page-header">
+  <div class="header-left">
+    <span class="label header-eyebrow">Brand Reference Document</span>
+    <h1 class="header-title">inner<em>balance</em><br>101</h1>
+    <p class="header-tagline">From performing fine to actually being fine.</p>
+  </div>
+  <div class="header-meta">
+    <span class="label">Version</span>
+    <span class="version-pill">April 2026</span>
+  </div>
+</header>
+
+<!-- ── 01. LOGO & MARK ── -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Logo &amp; The Equilibrium Mark</h2>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="logo-grid">
+
+    <!-- Warm White -->
+    <div class="logo-cell bg-warm">
+      <svg class="eq-mark" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="28" stroke="#C4A882" stroke-width="1.2"/>
+        <line x1="12" y1="32" x2="52" y2="32" stroke="#2C2420" stroke-width="1.2"/>
+        <circle cx="24" cy="32" r="3" fill="#C4A882"/>
+        <circle cx="40" cy="32" r="3" fill="#C4A882"/>
+        <line x1="32" y1="8" x2="32" y2="56" stroke="#C4A882" stroke-width="0.8" stroke-dasharray="2 4"/>
+      </svg>
+      <span class="logo-name light">innerbalance101</span>
+      <span class="logo-caption">On White — Primary Usage</span>
+    </div>
+
+    <!-- Linen -->
+    <div class="logo-cell bg-linen">
+      <svg class="eq-mark" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="28" stroke="#A68B65" stroke-width="1.2"/>
+        <line x1="12" y1="32" x2="52" y2="32" stroke="#2C2420" stroke-width="1.2"/>
+        <circle cx="24" cy="32" r="3" fill="#A68B65"/>
+        <circle cx="40" cy="32" r="3" fill="#A68B65"/>
+        <line x1="32" y1="8" x2="32" y2="56" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="2 4"/>
+      </svg>
+      <span class="logo-name light">innerbalance101</span>
+      <span class="logo-caption">On Linen — Secondary Usage</span>
+    </div>
+
+    <!-- Dark -->
+    <div class="logo-cell bg-dark">
+      <svg class="eq-mark" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="28" stroke="#C4A882" stroke-width="1.2"/>
+        <line x1="12" y1="32" x2="52" y2="32" stroke="#DDD0BE" stroke-width="1.2"/>
+        <circle cx="24" cy="32" r="3" fill="#C4A882"/>
+        <circle cx="40" cy="32" r="3" fill="#C4A882"/>
+        <line x1="32" y1="8" x2="32" y2="56" stroke="#C4A882" stroke-width="0.8" stroke-dasharray="2 4"/>
+      </svg>
+      <span class="logo-name on-dark">innerbalance101</span>
+      <span class="logo-caption on-dark">On Espresso — Dark Usage</span>
+    </div>
+
+  </div>
+
+  <!-- Mark usage note -->
+  <div style="margin-top: 28px; padding: 24px 28px; border: 1px solid var(--clay-light); border-radius: 3px; display: flex; align-items: flex-start; gap: 16px;">
+    <div style="width: 3px; align-self: stretch; background: var(--pine); border-radius: 2px; flex-shrink: 0;"></div>
+    <div>
+      <p class="label" style="margin-bottom: 8px;">The Equilibrium Mark — Usage Rules</p>
+      <p style="font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300; color: var(--soft); line-height: 1.7;">Circle with horizontal balance line. Two clay dots. Dashed vertical axis. Never stretch, recolour, rotate, or add effects. The mark represents internal equilibrium — stable, measured, and in balance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02. COLOR SYSTEM ── -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Color System</h2>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="color-system">
+
+    <!-- Base Palette -->
+    <div>
+      <p class="color-group-label">Base Palette — Foundation neutrals. Warm, editorial, grounded.</p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-block warm-white"></div>
+          <div>
+            <p class="swatch-name">Warm White</p>
+            <p class="swatch-hex">#FAF7F2</p>
+            <p class="swatch-role">Page background. Softest neutral.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block linen"></div>
+          <div>
+            <p class="swatch-name">Linen</p>
+            <p class="swatch-hex">#F0E8DC</p>
+            <p class="swatch-role">Section banding. Cards &amp; panels.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block clay-light"></div>
+          <div>
+            <p class="swatch-name">Clay Light</p>
+            <p class="swatch-hex">#DDD0BE</p>
+            <p class="swatch-role">Borders, dividers, subtle UI.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block clay"></div>
+          <div>
+            <p class="swatch-name">Clay</p>
+            <p class="swatch-hex">#C4A882</p>
+            <p class="swatch-role">Signature warm highlight. CTAs &amp; labels.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block clay-deep"></div>
+          <div>
+            <p class="swatch-name">Clay Deep</p>
+            <p class="swatch-hex">#A68B65</p>
+            <p class="swatch-role">Small headings &amp; metadata.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block soft"></div>
+          <div>
+            <p class="swatch-name">Soft</p>
+            <p class="swatch-hex">#9C8575</p>
+            <p class="swatch-role">Supporting body text.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block mid"></div>
+          <div>
+            <p class="swatch-name">Mid</p>
+            <p class="swatch-hex">#6B5B4E</p>
+            <p class="swatch-role">Secondary text &amp; detail.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block espresso"></div>
+          <div>
+            <p class="swatch-name">Deep Espresso</p>
+            <p class="swatch-hex">#2C2420</p>
+            <p class="swatch-role">Primary type. Dark sections. Contrast anchor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlight Palette -->
+    <div>
+      <p class="color-group-label">Highlight Palette — Accents that support the base. They do not replace it.</p>
+      <div class="swatches">
+        <div class="swatch" style="max-width: 220px;">
+          <div class="swatch-block pine" style="aspect-ratio: 1 / 0.75;"></div>
+          <div>
+            <p class="swatch-name">Pine</p>
+            <p class="swatch-hex">#4F6861</p>
+            <p class="swatch-role">Main highlight. Credibility, structure, stronger emphasis.</p>
+            <span class="highlight-tag tag-pine">Primary Highlight</span>
+          </div>
+        </div>
+        <div class="swatch" style="max-width: 220px;">
+          <div class="swatch-block dusty-rose" style="aspect-ratio: 1 / 0.75;"></div>
+          <div>
+            <p class="swatch-name">Dusty Rose</p>
+            <p class="swatch-hex">#B67C7C</p>
+            <p class="swatch-role">Rare emotional accent. Pull quotes &amp; human moments only.</p>
+            <span class="highlight-tag tag-rose">Use Rarely</span>
+          </div>
+        </div>
+        <div class="swatch" style="max-width: 220px;">
+          <div class="swatch-block storm-blue" style="aspect-ratio: 1 / 0.75;"></div>
+          <div>
+            <p class="swatch-name">Storm Blue</p>
+            <p class="swatch-hex">#6E8397</p>
+            <p class="swatch-role">Restrained support. Trust, diagrams &amp; structural detail.</p>
+            <span class="highlight-tag tag-storm">Use Sparingly</span>
+          </div>
+        </div>
+        <div style="flex: 3; padding: 28px 24px; background: var(--linen); border-radius: 3px; display: flex; flex-direction: column; justify-content: center;">
+          <p class="label" style="margin-bottom: 10px;">Hierarchy Principle</p>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:var(--espresso); line-height:1.5; margin-bottom: 8px;">Pine leads. Dusty Rose is rare. Storm Blue supports.</p>
+          <p style="font-family:'Jost',sans-serif; font-size:12px; font-weight:300; color:var(--soft); line-height:1.7;">Highlights support the base neutrals. They do not replace them. The brand reads as grounded authority first, emotional honesty second, intelligent structure in support.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 03. TYPOGRAPHY ── -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Typography</h2>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="type-specimens">
+
+    <!-- Cormorant Garamond -->
+    <div class="type-specimen">
+      <div class="type-meta">
+        <p class="type-meta-name">Cormorant Garamond</p>
+        <p class="type-meta-detail">
+          <strong>Role</strong><br>Display &amp; serif<br><br>
+          <strong>Weights</strong><br>300 · 400 · 500 · 600<br><br>
+          <strong>Styles</strong><br>Regular · Italic<br><br>
+          <strong>Source</strong><br>Google Fonts
+        </p>
+        <span class="type-use-tag">Headlines · Quotes · Display</span>
+      </div>
+      <div class="type-display">
+        <div class="specimen-display">Aa</div>
+        <div class="specimen-display-italic">Grounded clarity.</div>
+        <div class="specimen-weights">
+          <div class="specimen-weight-row">
+            <span class="weight-label">Light 300</span>
+            <span class="weight-sample-cg" style="font-weight:300;">The inner world you carry</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Regular 400</span>
+            <span class="weight-sample-cg" style="font-weight:400;">The inner world you carry</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Medium 500</span>
+            <span class="weight-sample-cg" style="font-weight:500;">The inner world you carry</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Semi 600</span>
+            <span class="weight-sample-cg" style="font-weight:600;">The inner world you carry</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Italic</span>
+            <span class="weight-sample-cg" style="font-style:italic;">From performing fine to actually being fine.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jost -->
+    <div class="type-specimen">
+      <div class="type-meta">
+        <p class="type-meta-name">Jost</p>
+        <p class="type-meta-detail">
+          <strong>Role</strong><br>Body &amp; UI<br><br>
+          <strong>Weights</strong><br>200 · 300 · 400 · 500 · 600<br><br>
+          <strong>Styles</strong><br>Regular only<br><br>
+          <strong>Source</strong><br>Google Fonts
+        </p>
+        <span class="type-use-tag">Body · Labels · Navigation · UI</span>
+      </div>
+      <div class="type-display">
+        <div class="specimen-jost-hero">innerbalance101</div>
+        <div class="specimen-jost-body">
+          Mental strength is trained, not gifted. The high-achieving professional carries more internally than they show externally. This system gives them a structured path back to themselves.
+        </div>
+        <div class="specimen-weights">
+          <div class="specimen-weight-row">
+            <span class="weight-label">Thin 200</span>
+            <span class="weight-sample-j" style="font-weight:200; font-family:'Jost',sans-serif;">INNERBALANCE101</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Light 300</span>
+            <span class="weight-sample-j" style="font-weight:300; font-family:'Jost',sans-serif;">You are not broken. You are overloaded.</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Regular 400</span>
+            <span class="weight-sample-j" style="font-weight:400; font-family:'Jost',sans-serif;">A structured system, not a content library.</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Medium 500</span>
+            <span class="weight-sample-j" style="font-weight:500; font-family:'Jost',sans-serif;">Stage 1 — SOS</span>
+          </div>
+          <div class="specimen-weight-row">
+            <span class="weight-label">Semi 600</span>
+            <span class="weight-sample-j" style="font-weight:600; font-family:'Jost',sans-serif; letter-spacing:0.15em; text-transform:uppercase; font-size:12px;">Begin the Assessment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pairing note -->
+    <div style="background: var(--espresso); border-radius: 3px; padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+      <div>
+        <p class="label" style="color: var(--clay-deep); margin-bottom: 20px;">Type Pairing in Use</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3vw,34px); font-weight:300; font-style:italic; color:var(--clay-light); line-height:1.3; margin-bottom:16px;">You are not broken.</p>
+        <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; letter-spacing:0.12em; text-transform:uppercase; color:var(--clay-deep);">The Inner Balance System</p>
+      </div>
+      <div>
+        <p style="font-family:'Jost',sans-serif; font-size:12px; font-weight:300; color:var(--soft); line-height:1.9; margin-bottom:16px;">
+          Cormorant Garamond carries the emotional register — the recognition, the insight, the humanity of the work.<br><br>
+          Jost carries the system — structure, science, labels, navigation.
+        </p>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--clay); line-height:1.5;">
+          Together they signal: intelligent and human. Structured and felt.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 04. VOICE ── -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Brand Voice</h2>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="voice-grid">
+    <div class="voice-cell yes">
+      <div class="voice-cell-head">
+        <div class="voice-indicator ind-yes">✓</div>
+        <span class="voice-cell-title">The brand says</span>
+      </div>
+      <ul class="voice-list">
+        <li>You are not broken. You are overloaded.</li>
+        <li>Come back to yourself.</li>
+        <li>Not a remedy. A discipline.</li>
+        <li>Mental strength is trained, not gifted.</li>
+        <li>Recognition before solution.</li>
+        <li>The system builds the foundation. The library sustains it.</li>
+      </ul>
+    </div>
+    <div class="voice-cell no">
+      <div class="voice-cell-head">
+        <div class="voice-indicator ind-no">✕</div>
+        <span class="voice-cell-title">The brand never says</span>
+      </div>
+      <ul class="voice-list no-list">
+        <li>Trust the universe.</li>
+        <li>Healing journey.</li>
+        <li>Manifest your best self.</li>
+        <li>High vibe only.</li>
+        <li>Feel the magic.</li>
+        <li>You deserve to thrive.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-number">01</div>
+      <p class="rule-title">No exclamation marks</p>
+      <p class="rule-body">Anywhere. In any copy. The brand is grounded, not excitable. Conviction needs no punctuation to perform.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">02</div>
+      <p class="rule-title">Short sentences</p>
+      <p class="rule-body">Declarative. Direct. One idea per sentence. The reader is already carrying a lot. Make it easy to receive.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">03</div>
+      <p class="rule-title">No em dashes in body</p>
+      <p class="rule-body">Resolve with a full stop or new sentence. Em dashes interrupt the calm register the brand holds.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">04</div>
+      <p class="rule-title">Lead with recognition</p>
+      <p class="rule-body">Open with what the reader feels before offering the solution. They need to feel seen before they can receive anything.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">05</div>
+      <p class="rule-title">Specific transformations</p>
+      <p class="rule-body">Overwhelm → Grounded. Pressure → Self-assurance. Sell the destination, not the emotion. Never "feel better."</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">06</div>
+      <p class="rule-title">Two voices, never mixed</p>
+      <p class="rule-body">Brand voice (80%): smart, structured, science-forward. Founder's Mirror (20%): raw, soul-level, personal. Keep them distinct.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TAGLINE BLOCK ── -->
+<div class="tagline-block">
+  <span class="label">The Brand in One Line</span>
+  <p class="tagline-text">"From performing fine<br>to actually being fine."</p>
+  <p class="tagline-brand">innerbalance101</p>
+</div>
+
+<!-- ── PAGE FOOTER ── -->
+<footer class="page-footer">
+  <span class="footer-brand">innerbalance101</span>
+  <span class="footer-info">innerbalance101.com · hello@innerbalance101.com · Brand Reference April 2026</span>
+</footer>
+
+</body>
+</html>
