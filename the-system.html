@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Inner Balance System — Three Stages. 21 Days at a Time. | innerbalance101</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://innerbalance101.com/the-system.html">
+<meta name="description" content="The three-stage emotional transformation system for high-achieving professionals. The SOS, The Clarity, and Inner Balance. 21 days each. 10 minutes a day to start.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-white: #FAF7F2;
+    --linen: #F0E8DC;
+    --clay: #C4A882;
+    --clay-light: #DDD0BE;
+    --clay-deep: #A68B65;
+    --soft: #9C8575;
+    --mid: #6B5B4E;
+    --espresso: #2C2420;
+    --pine: #4F6861;
+    --pine-light: rgba(79,104,97,0.08);
+    --pine-border: rgba(79,104,97,0.25);
+    --nav-h: 64px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--espresso); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; height: var(--nav-h); padding: 0 60px; background: rgba(250,247,242,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196,168,130,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; letter-spacing: 0.08em; color: var(--espresso); }
+  .nav-divider { width: 1px; height: 24px; background: var(--clay); }
+  .nav-cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--espresso); padding: 10px 24px; text-decoration: none; transition: background 0.3s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--clay-deep); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--clay-deep); }
+  .nav-mobile-toggle { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(196,168,130,0.3); border-radius: 8px; background: transparent; color: var(--espresso); cursor: pointer; flex-shrink: 0; }
+  .nav-mobile-toggle svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; }
+
+  /* ── HERO ── */
+  .hero {
+    margin-top: var(--nav-h);
+    padding: 88px 24px 80px;
+    text-align: center;
+    background: var(--espresso);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,130,0.06);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,130,0.04);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--clay);
+    display: block;
+    margin-bottom: 22px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 6vw, 68px);
+    color: var(--warm-white);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    margin-bottom: 22px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--clay-light);
+  }
+  .hero-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(250,247,242,0.55);
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+    max-width: 540px;
+    margin: 0 auto 36px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .hero-meta-item {
+    flex: 1;
+    min-width: 120px;
+    padding: 18px 16px;
+    border: 1px solid rgba(196,168,130,0.15);
+    position: relative;
+  }
+  .hero-meta-item + .hero-meta-item { border-left: none; }
+  .hero-meta-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .hero-meta-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.35);
+    display: block;
+  }
+
+  /* ── GLOBAL LAYOUT ── */
+  .page-body { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ── SECTION BASE ── */
+  .section { padding: 52px 0 0; }
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--clay); flex-shrink: 0; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 40px);
+    color: var(--espresso);
+    line-height: 1.12;
+    margin-bottom: 22px;
+  }
+  .section-title em { font-style: italic; color: var(--clay-deep); }
+  .body-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--mid);
+    margin-bottom: 14px;
+    max-width: 680px;
+  }
+  .body-text strong { font-weight: 500; color: var(--espresso); }
+  .ornament { text-align: center; color: var(--clay-light); font-size: 16px; letter-spacing: 0.6em; margin: 36px 0 0; }
+
+  /* ── DESTINATION RESULTS ── */
+  .results-grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--clay-light);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .result-item {
+    background: var(--warm-white);
+    padding: 28px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .result-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .result-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--espresso);
+    padding-top: 6px;
+  }
+  @media (max-width: 600px) {
+    .results-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── VIDEO EMBED ── */
+  .video-container {
+    margin-top: 48px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  /* ── WHY 21 DAYS STRIP ── */
+  .why-strip {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--clay-light);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .why-cell {
+    background: var(--linen);
+    padding: 24px 22px;
+  }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .why-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    margin-bottom: 10px;
+  }
+  .why-body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--mid);
+  }
+
+  /* ── STAGE ICONS ── */
+  .stage-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+  }
+  .stage-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .stage-icon--sos { background: rgba(196,168,130,0.14); }
+  .stage-icon--sos svg { stroke: var(--clay-deep); }
+  .stage-icon--clarity { background: rgba(166,139,101,0.14); }
+  .stage-icon--clarity svg { stroke: var(--clay-deep); }
+  .stage-icon--balance { background: rgba(44,36,32,0.08); }
+  .stage-icon--balance svg { stroke: var(--espresso); }
+
+  /* Flow header name + icon row */
+  .flow-name-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .flow-name-row .stage-icon { margin-bottom: 0; }
+  .flow-name-row .flow-stage-name { margin-bottom: 0; }
+
+  /* ── FITNESS ANALOGY ── */
+  .analogy-grid {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--clay-light);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .analogy-cell {
+    background: var(--warm-white);
+    padding: 28px 24px 30px;
+  }
+  .analogy-gym {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .analogy-stage-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--espresso);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .analogy-body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+  .analogy-divider {
+    width: 28px;
+    height: 1px;
+    background: var(--clay-light);
+    margin-bottom: 16px;
+  }
+  .analogy-practice {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.75;
+    color: var(--espresso);
+  }
+  @media (max-width: 700px) {
+    .analogy-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── STAGE FLOW TIMELINE ── */
+  .stage-flow {
+    margin-top: 52px;
+    position: relative;
+  }
+  .stage-flow-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(26px, 4vw, 40px);
+    color: var(--espresso);
+    line-height: 1.12;
+    margin-bottom: 8px;
+  }
+  .stage-flow-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--soft);
+    letter-spacing: 0.04em;
+    margin-bottom: 52px;
+  }
+
+  /* The vertical spine */
+  .flow-spine {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .flow-spine::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 18px;
+    bottom: 18px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--clay-light), var(--clay), var(--clay-light));
+  }
+
+  .flow-stage {
+    display: flex;
+    gap: 36px;
+    position: relative;
+    padding-bottom: 60px;
+  }
+  .flow-stage:last-child { padding-bottom: 0; }
+
+  .flow-node {
+    flex-shrink: 0;
+    width: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6px;
+  }
+  .flow-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--warm-white);
+    border: 2px solid var(--clay);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    transition: background 0.3s;
+  }
+  .flow-stage.sos .flow-dot { border-color: var(--clay); }
+  .flow-stage.clarity .flow-dot { border-color: var(--clay-deep); background: var(--clay-light); }
+  .flow-stage.balance .flow-dot { background: var(--espresso); border-color: var(--espresso); }
+
+  .flow-content {
+    flex: 1;
+    background: var(--linen);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .flow-header {
+    padding: 28px 32px 22px;
+    border-bottom: 1px solid rgba(196,168,130,0.3);
+    position: relative;
+  }
+  .flow-stage-num {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--soft);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .flow-stage-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(26px, 3.5vw, 38px);
+    color: var(--espresso);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .flow-stage-tagline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--soft);
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  /* Accent strip on left edge */
+  .flow-content::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+  }
+  .flow-stage.sos .flow-content::before { background: var(--clay); }
+  .flow-stage.clarity .flow-content::before { background: var(--clay-deep); }
+  .flow-stage.balance .flow-content::before { background: var(--espresso); }
+
+  .flow-stats {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(196,168,130,0.2);
+  }
+  .flow-stat {
+    flex: 1;
+    padding: 16px 20px;
+    border-right: 1px solid rgba(196,168,130,0.2);
+  }
+  .flow-stat:last-child { border-right: none; }
+  .flow-stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--clay-deep);
+    line-height: 1;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .flow-stat-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+
+  .flow-body {
+    padding: 26px 32px 30px;
+  }
+  .flow-body .body-text { max-width: 100%; margin-bottom: 12px; }
+  .flow-body .body-text:last-child { margin-bottom: 0; }
+
+  /* What you gain */
+  .gain-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(196,168,130,0.2);
+  }
+  .gain-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 9px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 4px;
+  }
+  .gain-items {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .gain-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .gain-bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--clay);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .gain-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  /* Time note (Stage 3 special) */
+  .time-note {
+    margin-top: 18px;
+    padding: 18px 22px;
+    background: rgba(44,36,32,0.05);
+    border-left: 2px solid var(--espresso);
+  }
+  .time-note p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--espresso);
+    line-height: 1.6;
+  }
+  .time-note p strong {
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* CTA arrow between stages */
+  .stage-connector {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 0 0 80px;
+    margin: -16px 0;
+    position: relative;
+    z-index: 3;
+  }
+  .connector-line {
+    width: 1px;
+    height: 32px;
+    background: var(--clay-light);
+  }
+  .connector-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--clay-light);
+  }
+
+  /* ── TRANSFORMATION CALLOUT ── */
+  .transformation-block {
+    margin-top: 52px;
+    background: var(--espresso);
+    padding: 52px 52px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .transformation-block::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,130,0.06);
+  }
+  .transformation-block .section-label { color: var(--clay); }
+  .transformation-block .section-label::before { background: var(--clay-deep); }
+  .transformation-block .section-title { color: var(--warm-white); margin-bottom: 16px; }
+  .transformation-block .section-title em { color: var(--clay-light); }
+  .transformation-block .body-text { color: rgba(250,247,242,0.55); max-width: 580px; }
+  .transformation-block .body-text strong { color: var(--clay-light); font-weight: 400; }
+
+  .transformation-arc {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 0;
+    max-width: 600px;
+  }
+  .arc-state {
+    text-align: center;
+    padding: 18px 14px;
+    border: 1px solid rgba(196,168,130,0.12);
+  }
+  .arc-state-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(196,168,130,0.5);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .arc-state-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--warm-white);
+    line-height: 1.2;
+  }
+  .arc-state.destination .arc-state-name { color: var(--clay); }
+  .arc-arrow {
+    padding: 0 10px;
+    font-size: 12px;
+    color: rgba(196,168,130,0.3);
+    font-family: 'Jost', sans-serif;
+  }
+
+  /* ── SCIENCE PANEL ── */
+  .science-panel {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .science-cell {
+    background: rgba(250,247,242,0.04);
+    border: 1px solid rgba(196,168,130,0.1);
+    padding: 22px 24px;
+  }
+  .science-cell-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 10px;
+  }
+  .science-cell p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(250,247,242,0.45);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* ── ENTRY ASK ── */
+  .entry-block {
+    margin-top: 52px;
+    text-align: center;
+    padding: 60px 40px;
+    background: var(--linen);
+    border-radius: 2px;
+  }
+  .entry-block .section-label { justify-content: center; }
+  .entry-block .section-label::before { display: none; }
+  .entry-block .section-title { max-width: 560px; margin-left: auto; margin-right: auto; }
+  .entry-block .body-text { margin-left: auto; margin-right: auto; text-align: left; }
+  .entry-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    background: var(--espresso);
+    color: var(--warm-white);
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .entry-cta:hover { background: var(--clay-deep); }
+  .entry-sub {
+    display: block;
+    margin-top: 14px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: var(--soft);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── MID-PAGE SIGNUP CTA ── */
+  .signup-block {
+    margin-top: 48px;
+    background: var(--espresso);
+    padding: 48px 52px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .signup-block::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,130,0.05);
+    pointer-events: none;
+  }
+  .signup-price-col {
+    flex-shrink: 0;
+    text-align: center;
+    padding-right: 40px;
+    border-right: 1px solid rgba(196,168,130,0.15);
+  }
+  .signup-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    display: block;
+  }
+  .signup-price-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.3);
+    display: block;
+    margin-top: 8px;
+  }
+  .signup-copy-col {
+    flex: 1;
+    min-width: 240px;
+  }
+  .signup-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 3vw, 30px);
+    color: var(--warm-white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .signup-headline em { font-style: italic; color: var(--clay-light); }
+  .signup-body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: rgba(250,247,242,0.5);
+    line-height: 1.8;
+    margin-bottom: 22px;
+    max-width: 420px;
+  }
+  .signup-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--clay);
+    color: var(--espresso);
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .signup-cta:hover { background: var(--clay-light); }
+  .signup-note {
+    display: block;
+    margin-top: 12px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: rgba(250,247,242,0.28);
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 700px) {
+    .signup-block { flex-direction: column; gap: 28px; padding: 36px 28px; }
+    .signup-price-col { border-right: none; border-bottom: 1px solid rgba(196,168,130,0.15); padding-right: 0; padding-bottom: 24px; width: 100%; }
+  }
+
+  /* ── SPLIT ENTRY CTA ── */
+  .entry-cta-row {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .entry-cta-row .entry-cta,
+  .entry-cta-row .entry-cta-secondary {
+    margin-top: 0;
+    min-height: 52px;
+    padding: 0 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .entry-cta-secondary {
+    background: transparent;
+    color: var(--espresso);
+    border: 1px solid rgba(44,36,32,0.25);
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .entry-cta-secondary:hover { border-color: var(--clay-deep); color: var(--clay-deep); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--espresso); padding: 48px 60px 28px; margin-top: 60px; }
+  .footer-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .footer-bottom { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(196,168,130,0.1); text-align: center; }
+  .footer-copyright { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 300; letter-spacing: 0.08em; color: rgba(250,247,242,0.25); }
+  .footer-left { display: flex; flex-direction: column; gap: 8px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--warm-white); letter-spacing: 0.06em; }
+  .footer-tagline { font-size: 0.88rem; font-weight: 300; color: rgba(250,247,242,0.45); font-style: italic; padding-left: 32px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-link { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,247,242,0.5); text-decoration: none; transition: color 0.3s; }
+  .footer-link:hover { color: var(--warm-white); }
+  .social-links { display: flex; gap: 16px; align-items: center; }
+  .social-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(250,247,242,0.15); color: rgba(250,247,242,0.5); transition: color 0.3s, border-color 0.3s; text-decoration: none; }
+  .social-link:hover { color: var(--warm-white); border-color: var(--warm-white); }
+  .social-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    :root { --nav-h: 58px; }
+    nav { padding: 0 24px; }
+    .nav-links { gap: 16px; }
+    footer { padding: 40px 24px 28px; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .footer-right { align-items: flex-start; }
+    .footer-tagline { padding-left: 0; }
+    .transformation-block { padding: 40px 28px; }
+  }
+  @media (max-width: 700px) {
+    .why-strip { grid-template-columns: 1fr; }
+    .flow-stats { flex-wrap: wrap; }
+    .flow-stat { min-width: 50%; }
+    .flow-header { padding: 22px 22px 18px; }
+    .flow-body { padding: 20px 22px 24px; }
+    .transformation-arc { grid-template-columns: 1fr; }
+    .arc-arrow { transform: rotate(90deg); padding: 6px 0; }
+    .science-panel { grid-template-columns: 1fr; }
+    .flow-spine::before { left: 16px; }
+    .flow-node { width: 32px; }
+    .flow-dot { width: 14px; height: 14px; }
+    .flow-stage { gap: 20px; }
+    .stage-connector { padding-left: 52px; }
+    .entry-block { padding: 40px 22px; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-mobile-toggle { display: inline-flex; }
+    nav.nav-open { height: auto; flex-wrap: wrap; padding-bottom: 14px; }
+    nav.nav-open .nav-links { display: flex; width: 100%; order: 3; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 8px; }
+    nav.nav-open .nav-cta { display: inline-block; order: 4; margin-top: 6px; }
+    .hero { padding: 64px 22px 60px; }
+    .hero-meta { flex-direction: column; max-width: 220px; }
+    .hero-meta-item + .hero-meta-item { border-left: 1px solid rgba(196,168,130,0.15); border-top: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 — home">
+    <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
+    <div class="nav-divider"></div>
+    <span class="nav-logo-text">innerbalance101</span>
+  </a>
+  <button class="nav-mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <div class="nav-links" id="site-nav-links">
+    <a href="/library.html">Library</a>
+    <a href="/about.html">About</a>
+    <a href="https://innerbalance101.com/blog/">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+  <a href="https://innerbalance101.com/emotional_load_assessment.html" class="nav-cta">Free assessment</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <span class="hero-eyebrow">innerbalance101 — The System</span>
+  <h1 class="hero-title">Three stages.<br><em>One transformation.</em></h1>
+  <p class="hero-sub">You already know that taking care of your body matters. This is the path to taking care of your mind. So you can perform from actual steadiness and inner peace. Not the version you put on for other people.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-value">3</span>
+      <span class="hero-meta-label">Stages</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-value">21</span>
+      <span class="hero-meta-label">Days per stage</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-value">10</span>
+      <span class="hero-meta-label">Min to start</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BODY ── -->
+<div class="page-body">
+
+  <!-- RESULTS — DESTINATION FIRST -->
+  <section class="section">
+    <span class="section-label">Where this takes you</span>
+    <h2 class="section-title">The results.<br><em>Before you take the first step.</em></h2>
+    <div class="results-grid">
+      <div class="result-item">
+        <span class="result-num">01</span>
+        <p class="result-text">Mental stamina. The capacity to stay regulated under sustained pressure.</p>
+      </div>
+      <div class="result-item">
+        <span class="result-num">02</span>
+        <p class="result-text">Genuine focus, not performed calm.</p>
+      </div>
+      <div class="result-item">
+        <span class="result-num">03</span>
+        <p class="result-text">Rebuilt access to intuition. The signal your body has been sending that logic kept overriding.</p>
+      </div>
+      <div class="result-item">
+        <span class="result-num">04</span>
+        <p class="result-text">A daily practice that belongs to you, directed by you.</p>
+      </div>
+    </div>
+    <div class="video-container">
+      <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1190853970?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="The Inner Balance System video"></iframe></div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+  </section>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- HOW THE SYSTEM WORKS -->
+  <section class="section">
+    <span class="section-label">How it works</span>
+    <h2 class="section-title">This is a system.<br><em>Not a collection of practices.</em></h2>
+    <p class="body-text">In any system, when one part shifts, the rest shift with it. The thought work changes how the body holds tension. The body work changes how thoughts land. The two operate together. This is what makes it therapeutic, not supplementary.</p>
+    <p class="body-text">You will feel the difference within the first 21 days. Not at the end of them. From the start.</p>
+  </section>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- STAGE FLOW -->
+  <div class="stage-flow">
+    <span class="section-label">The three stages</span>
+    <h2 class="stage-flow-title">Stage by stage.<br>The sequence is the method.</h2>
+    <p class="stage-flow-sub">What Stage 1 builds, Stage 2 needs. What Stage 2 clears, Stage 3 uses. You cannot shortcut this.</p>
+
+    <div class="flow-spine">
+
+      <!-- STAGE 1: SOS -->
+      <div class="flow-stage sos">
+        <div class="flow-node"><div class="flow-dot"></div></div>
+        <div class="flow-content">
+          <div class="flow-header">
+            <span class="flow-stage-num">Stage 01</span>
+            <div class="flow-name-row">
+              <div class="stage-icon stage-icon--sos" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5.2v8.6"/><circle cx="12" cy="17.6" r="1.25"/></svg></div>
+              <div class="flow-stage-name">The SOS</div>
+            </div>
+            <p class="flow-stage-tagline">Stop the spiral. This is where you find out the practice works.</p>
+          </div>
+          <div class="flow-stats">
+            <div class="flow-stat"><span class="flow-stat-value">21</span><span class="flow-stat-label">Days</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">10 min</span><span class="flow-stat-label">Daily practice</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">Day 1</span><span class="flow-stat-label">Starts here</span></div>
+          </div>
+          <div class="flow-body">
+            <p class="body-text">The pressure is building. The overwhelm is louder than it should be for someone who handles everything. You know something is off and you do not have the space to figure it out.</p>
+            <p class="body-text">Ten minutes a day. A body check-in, a thought work prompt, a somatic practice to discharge what has accumulated. When you are overloaded, the barrier to entry has to be low enough to actually cross. This is low enough.</p>
+            <div class="gain-row">
+              <span class="gain-label">What 21 days builds</span>
+              <div class="gain-items">
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">The ability to stop a spiral before it takes over</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">A daily structure your nervous system begins to anticipate and trust</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">The first evidence that your internal state is something you can work with</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 2: CLARITY -->
+      <div class="flow-stage clarity">
+        <div class="flow-node"><div class="flow-dot"></div></div>
+        <div class="flow-content">
+          <div class="flow-header">
+            <span class="flow-stage-num">Stage 02</span>
+            <div class="flow-name-row">
+              <div class="stage-icon stage-icon--clarity" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="5.8"/><path d="M15.2 15.2 20 20"/></svg></div>
+              <div class="flow-stage-name">The Clarity</div>
+            </div>
+            <p class="flow-stage-tagline">Go beneath the surface. Start to see what has actually been driving you.</p>
+          </div>
+          <div class="flow-stats">
+            <div class="flow-stat"><span class="flow-stat-value">21</span><span class="flow-stat-label">Days</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">Up to 20 min</span><span class="flow-stat-label">Daily practice</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">Day 22</span><span class="flow-stat-label">Unlocks here</span></div>
+          </div>
+          <div class="flow-body">
+            <p class="body-text">Stage 1 gave you relief. Stage 2 gives you the map.</p>
+            <p class="body-text">Overwhelm is almost never just overwhelm. It is what sits underneath it. The pattern, the belief, the emotion that has been quietly running the reactions you thought were just stress. This is where you start to see that clearly.</p>
+            <p class="body-text">The thought work now traces the belief beneath the thought. The body needs longer to discharge what the mind has named. Up to 20 minutes. What Stage 1 installed, Stage 2 consolidates.</p>
+            <div class="gain-row">
+              <span class="gain-label">What 21 days builds</span>
+              <div class="gain-items">
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">The ability to name an emotion before it becomes a reaction</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">Awareness of which thoughts tend to run your emotional states</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">A practiced pause between what activates you and how you respond</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 3: INNER BALANCE -->
+      <div class="flow-stage balance">
+        <div class="flow-node"><div class="flow-dot"></div></div>
+        <div class="flow-content">
+          <div class="flow-header">
+            <span class="flow-stage-num">Stage 03</span>
+            <div class="flow-name-row">
+              <div class="stage-icon stage-icon--balance" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v12.4"/><path d="M6 8.2h12"/><path d="M8.1 8.2 6 12h4.2z"/><path d="M17.9 8.2 15.8 12H20z"/><path d="M8.2 18.4h7.6"/></svg></div>
+              <div class="flow-stage-name">Inner Balance</div>
+            </div>
+            <p class="flow-stage-tagline">No script. No assigned emotion. You direct this one.</p>
+          </div>
+          <div class="flow-stats">
+            <div class="flow-stat"><span class="flow-stat-value">21</span><span class="flow-stat-label">Days</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">No ceiling</span><span class="flow-stat-label">Daily practice</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">Day 43</span><span class="flow-stat-label">Unlocks here</span></div>
+          </div>
+          <div class="flow-body">
+            <p class="body-text">For 42 days you have been building a foundation. You know what it feels like to be grounded. Stage 3 returns the practice to you. You bring what is real today and you know what to do with it.</p>
+            <p class="body-text">The thought work reaches the belief, not just the thought. The somatic practices are longer. A period of stillness after the practice is where you begin listening to what you already know. This is how intuition comes back after years of being overridden by logic.</p>
+            <div class="time-note">
+              <p>Stage 3 does not have a time limit. <strong>This is not about discipline. It is about what the practice becomes.</strong> When the nervous system is regulated and the body is settled, the practice stops feeling like effort. It feels like coming home. What begins as 30 minutes may extend to 45, or 60. Not because it is required. Because you do not want to leave the state you are in. That is flow. That is what inner balance actually feels like.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- $97 SIGNUP CTA -->
+  <div class="signup-block">
+    <div class="signup-price-col">
+      <span class="signup-price">$97</span>
+      <span class="signup-price-label">One-time. All three stages.</span>
+    </div>
+    <div class="signup-copy-col">
+      <h2 class="signup-headline">Your personal coach.<br><em>At your fingertips.</em></h2>
+      <p class="signup-body">Less than a cup of coffee a day. The complete three-stage system in one investment. No appointments, no waiting for a slot, no ongoing subscription. The SOS, The Clarity, and Inner Balance — all three, at your own pace, starting today.</p>
+      <a href="https://stan.store/innerbalance101" class="signup-cta">Get the full system — $97</a>
+      <span class="signup-note">Instant access. Self-paced. 21 days at a time.</span>
+    </div>
+  </div>
+
+  <!-- FITNESS ANALOGY -->
+  <section class="section">
+    <span class="section-label">What you already understand</span>
+    <h2 class="section-title">The mind responds to training.<br><em>The same way the body does.</em></h2>
+    <p class="body-text">Physical fitness made sense before anyone explained the science. The body responds to consistent practice. Capacity builds over time. The starting point is always lower than the destination. This system works by the same logic. The only difference is what is being trained.</p>
+
+    <div class="analogy-grid">
+      <div class="analogy-cell">
+        <span class="analogy-gym">↳ First session at the gym</span>
+        <div class="stage-icon stage-icon--sos" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5.2v8.6"/><circle cx="12" cy="17.6" r="1.25"/></svg></div>
+        <div class="analogy-stage-name">The SOS</div>
+        <p class="analogy-body">You are not fit yet. The weight is light and the time is short. That is the design. You are building the habit before the result arrives. The first 21 days are about showing up consistently enough that the practice becomes real.</p>
+        <div class="analogy-divider"></div>
+        <p class="analogy-practice">10 minutes. A body check-in, a thought prompt, a somatic reset. The barrier is low because it has to be. That is not a compromise. It is how the entry works.</p>
+      </div>
+      <div class="analogy-cell">
+        <span class="analogy-gym">↳ Building endurance</span>
+        <div class="stage-icon stage-icon--clarity" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="5.8"/><path d="M15.2 15.2 20 20"/></svg></div>
+        <div class="analogy-stage-name">The Clarity</div>
+        <p class="analogy-body">You are past the beginning. The sessions get longer because the capacity is there. You are not forcing it. The body is asking for more. This is what progress feels like before it looks like anything.</p>
+        <div class="analogy-divider"></div>
+        <p class="analogy-practice">Up to 20 minutes. The thought work goes deeper. What Stage 1 installed, Stage 2 consolidates.</p>
+      </div>
+      <div class="analogy-cell">
+        <span class="analogy-gym">↳ Training for a marathon</span>
+        <div class="stage-icon stage-icon--balance" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v12.4"/><path d="M6 8.2h12"/><path d="M8.1 8.2 6 12h4.2z"/><path d="M17.9 8.2 15.8 12H20z"/><path d="M8.2 18.4h7.6"/></svg></div>
+        <div class="analogy-stage-name">Inner Balance</div>
+        <p class="analogy-body">You know your body now. The baseline is built. You train with intention, targeting what matters. The practice has become sophisticated because you have become capable of more.</p>
+        <div class="analogy-divider"></div>
+        <p class="analogy-practice">No time ceiling. You bring what is real today. The practice stops feeling like discipline. That is not motivation. That is a trained baseline.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- TRANSFORMATION BLOCK -->
+  <div class="transformation-block">
+    <span class="section-label">The transformation</span>
+    <h2 class="section-title">What changes.<br><em>And why it stays.</em></h2>
+    <p class="body-text">Most people manage their emotional state from the outside. Through wins, through activity, through keeping busy. The moment the external structure pauses, the internal noise returns. Because nothing was ever done with it. It was only managed around.</p>
+    <p class="body-text"><strong>The system does the other thing.</strong> It builds the internal structure that does not depend on circumstances to hold. Ground does not require a good day. Steady does not require the pressure to ease first. You have practised being steady while the pressure was there. That is what makes it real.</p>
+
+    <div class="transformation-arc">
+      <div class="arc-state">
+        <span class="arc-state-label">You start here</span>
+        <span class="arc-state-name">Performing fine</span>
+      </div>
+      <div class="arc-arrow">›</div>
+      <div class="arc-state">
+        <span class="arc-state-label">21 days at a time</span>
+        <span class="arc-state-name">Building ground</span>
+      </div>
+      <div class="arc-arrow">›</div>
+      <div class="arc-state destination">
+        <span class="arc-state-label">You arrive here</span>
+        <span class="arc-state-name">Actually being fine</span>
+      </div>
+    </div>
+
+    <div class="science-panel" style="margin-top: 32px;">
+      <div class="science-cell">
+        <div class="science-cell-title">Why the nervous system</div>
+        <p>Chronic stress takes the prefrontal cortex offline. This is the part of the brain responsible for clear judgment and decision-making. The somatic practices in this system are designed to complete the stress response cycle the body has been stuck in, so those functions come back online.</p>
+      </div>
+      <div class="science-cell">
+        <div class="science-cell-title">Why thought work</div>
+        <p>An unexamined thought is a closed loop. It generates an emotion, which generates a behaviour, which confirms the thought. The thought work in this system interrupts that loop. Not by replacing the thought with a positive one. By creating enough space between the thought and the response that choice becomes possible.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY 21 DAYS — MOVED TO END -->
+  <section class="section">
+    <span class="section-label">The structure</span>
+    <h2 class="section-title">Why 21 days.<br><em>And why it is not arbitrary.</em></h2>
+    <p class="body-text">The nervous system does not change because you read something useful. It changes through repetition. Specifically, through repeated activation of new neural pathways until the brain begins to route automatically through them, rather than defaulting back to the old ones.</p>
+    <p class="body-text">21 days is the minimum window for this process to begin. Not complete. Begin. Each stage builds on what the previous one installed. You cannot get to Stage 3 without having done Stage 1.</p>
+
+    <div class="why-strip">
+      <div class="why-cell">
+        <span class="why-num">01</span>
+        <div class="why-title">Create the pathway</div>
+        <p class="why-body">Days 1–7: you are doing something new. The brain is working harder than it will later. It does not feel automatic yet. That is normal. It is evidence the work is active.</p>
+      </div>
+      <div class="why-cell">
+        <span class="why-num">02</span>
+        <div class="why-title">Consolidate it</div>
+        <p class="why-body">Days 8–14: the pattern begins to stabilise. The practice starts to feel familiar. The body begins to know what comes next. The nervous system is beginning to trust the structure.</p>
+      </div>
+      <div class="why-cell">
+        <span class="why-num">03</span>
+        <div class="why-title">Anchor it</div>
+        <p class="why-body">Days 15–21: what was effortful becomes practiced. The brain has begun to route differently. This is when the change stops being a discipline and starts being a baseline.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- ENTRY ASK — SPLIT CTA -->
+  <div class="entry-block">
+    <span class="section-label">Two ways to start</span>
+    <h2 class="section-title">Not sure where you fit?<br><em>The assessment tells you.</em></h2>
+    <p class="body-text" style="margin-left: auto; margin-right: auto; text-align: center; max-width: 480px;">8 minutes. It identifies where you are carrying the most load and maps you directly to the right stage. Or if you already know, skip ahead and get the full system.</p>
+    <div class="entry-cta-row">
+      <a href="https://innerbalance101.com/emotional_load_assessment.html" class="entry-cta-secondary">Take the free assessment</a>
+      <a href="https://stan.store/innerbalance101" class="entry-cta">Get the system — $97</a>
+    </div>
+    <span class="entry-sub">One-time payment. Instant access. All three stages.</span>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-left">
+      <div class="footer-logo">
+        <svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#FAF7F2"/></svg>
+        <span class="footer-logo-text">innerbalance101</span>
+      </div>
+      <div class="footer-tagline">From performing fine to actually being fine.</div>
+    </div>
+    <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:20px;">
+      <div class="footer-links">
+        <a href="/library.html" class="footer-link">Library</a>
+        <a href="/about.html" class="footer-link">About</a>
+        <a href="https://innerbalance101.com/blog/" class="footer-link">Blog</a>
+        <a href="/contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.83v2.19h.05c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.14V24h-4v-7.2c0-1.72-.03-3.93-2.39-3.93-2.39 0-2.76 1.87-2.76 3.8V24h-4V8z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copyright">© 2026 innerbalance101. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  var navEl = document.querySelector('nav');
+  var navToggle = document.querySelector('.nav-mobile-toggle');
+  if (navEl && navToggle) {
+    navToggle.addEventListener('click', function() {
+      var isOpen = navEl.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.querySelectorAll('#site-nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navEl.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+</body>
+</html>
