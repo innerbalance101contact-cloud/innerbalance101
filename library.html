@@ -54,7 +54,7 @@
   "sameAs": [
     "https://www.instagram.com/innerbalance101",
     "https://www.linkedin.com/company/innerbalance101",
-    "https://library.innerbalance101.com"
+    "https://stan.store/innerbalance101"
   ]
 }
 </script>
@@ -1077,6 +1077,144 @@
   }
   .lib-practice-coming-note { font-size:0.72rem; font-weight:500; color:var(--clay-deep); font-style:italic; letter-spacing:0.08em; text-transform:uppercase; align-self:flex-start; }
 
+  /* ─── PRACTICE PRICE TAG ─── */
+  .lib-practice-price {
+    display:flex; align-items:baseline; gap:8px;
+    margin-bottom:16px;
+    padding-top:18px;
+    border-top:1px solid rgba(196,168,130,0.22);
+  }
+  .lib-practice-price-amount {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.5rem; font-weight:500; color:var(--deep);
+    line-height:1;
+  }
+  .lib-practice-price-note {
+    font-size:0.65rem; font-weight:500; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--clay-deep);
+  }
+
+  /* ─── SUBSCRIPTION SECTION ─── */
+  .lib-subscription {
+    background:var(--linen);
+    padding:104px 60px;
+    border-top:1px solid rgba(196,168,130,0.2);
+  }
+  .lib-subscription-inner { max-width:900px; margin:0 auto; }
+  .lib-subscription-header { max-width:620px; margin-bottom:52px; }
+  .lib-subscription-headline {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.9rem,3.2vw,2.8rem); font-weight:300;
+    color:var(--deep); line-height:1.2; margin-bottom:18px;
+  }
+  .lib-subscription-body {
+    font-size:0.97rem; font-weight:300; line-height:1.8;
+    color:var(--soft); max-width:none; margin-bottom:0;
+  }
+
+  /* cards wrapper — no outer border; each card has its own */
+  .lib-subscription-cards {
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    margin-bottom:28px;
+    box-shadow:0 18px 52px rgba(44,36,32,0.1);
+  }
+
+  /* ── monthly card (light) ── */
+  .lib-sub-card {
+    padding:48px 44px; position:relative;
+    display:flex; flex-direction:column;
+    background:var(--warm-white);
+    border:1px solid rgba(196,168,130,0.3);
+  }
+
+  /* ── annual card (dark) ── */
+  .lib-sub-card--featured {
+    background:var(--deep);
+    border:1px solid var(--deep);
+    border-left:none;
+  }
+
+  /* overrides for dark card text */
+  .lib-sub-card--featured .lib-sub-card-label { color:rgba(250,247,242,0.5); }
+  .lib-sub-card--featured .lib-sub-amount { color:var(--warm-white); }
+  .lib-sub-card--featured .lib-sub-per { color:rgba(250,247,242,0.5); }
+  .lib-sub-card--featured .lib-sub-save { color:var(--clay); }
+  .lib-sub-card--featured .lib-sub-divider { background:rgba(196,168,130,0.2); }
+  .lib-sub-card--featured .lib-sub-features-label { color:var(--clay); }
+  .lib-sub-card--featured .lib-sub-features li { color:rgba(250,247,242,0.82); }
+  .lib-sub-card--featured .lib-sub-features li::before { color:var(--clay); }
+
+  .lib-sub-best-value {
+    position:absolute; top:0; right:0;
+    background:var(--clay); color:var(--deep);
+    font-size:0.58rem; font-weight:700;
+    letter-spacing:0.22em; text-transform:uppercase;
+    padding:8px 16px;
+  }
+  .lib-sub-card-label {
+    font-size:0.64rem; font-weight:500;
+    letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--soft); margin-bottom:22px;
+  }
+  .lib-sub-price { display:flex; align-items:baseline; gap:7px; margin-bottom:6px; }
+  .lib-sub-amount {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.6rem,4.5vw,3.6rem); font-weight:300;
+    color:var(--deep); line-height:1;
+  }
+  .lib-sub-per { font-size:0.9rem; font-weight:300; color:var(--soft); }
+  .lib-sub-save {
+    font-size:0.78rem; font-weight:400;
+    color:var(--clay-deep); margin-bottom:0;
+    letter-spacing:0.02em;
+  }
+  .lib-sub-divider {
+    height:1px;
+    background:rgba(196,168,130,0.28);
+    margin:28px 0;
+  }
+  .lib-sub-features-label {
+    font-size:0.59rem; font-weight:600;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--clay-deep); margin-bottom:20px;
+  }
+  .lib-sub-features {
+    list-style:none; padding:0; margin:0 0 40px 0;
+    display:flex; flex-direction:column; gap:13px; flex:1;
+  }
+  .lib-sub-features li {
+    font-size:0.88rem; font-weight:300; line-height:1.6;
+    color:var(--deep); padding-left:18px; position:relative;
+  }
+  .lib-sub-features li::before {
+    content:'·'; position:absolute; left:3px;
+    color:var(--clay); font-size:1.3rem; line-height:1; top:1px;
+  }
+  .lib-sub-cta {
+    display:block; text-align:center;
+    font-size:0.67rem; font-weight:500;
+    letter-spacing:0.2em; text-transform:uppercase;
+    text-decoration:none; padding:18px 24px;
+    transition:background 0.3s, color 0.3s, border-color 0.3s;
+    margin-top:auto;
+  }
+  /* monthly — outline button */
+  .lib-sub-cta--outline {
+    border:1px solid var(--deep); color:var(--deep); background:transparent;
+  }
+  .lib-sub-cta--outline:hover { background:var(--deep); color:var(--warm-white); }
+  /* annual — clay fill button */
+  .lib-sub-cta--filled {
+    background:var(--clay); color:var(--deep);
+    border:1px solid var(--clay);
+  }
+  .lib-sub-cta--filled:hover { background:var(--clay-deep); border-color:var(--clay-deep); color:var(--warm-white); }
+
+  .lib-subscription-note {
+    font-size:0.75rem; font-weight:300; font-style:italic;
+    color:var(--soft); text-align:center; max-width:none; margin-bottom:0;
+  }
+
   /* ─── WHEN ─── */
   .lib-when { background:var(--warm-white); padding:104px 60px; }
   .lib-when-inner { max-width:1100px; margin:0 auto; }
@@ -1466,6 +1604,11 @@
     footer { padding:36px 20px 24px; }
     .footer-links { gap:16px; }
     .footer-link { font-size:0.72rem; }
+    /* subscription responsive */
+    .lib-subscription { padding:60px 20px; }
+    .lib-subscription-cards { grid-template-columns:1fr; box-shadow:none; }
+    .lib-sub-card { padding:36px 28px; border:1px solid rgba(196,168,130,0.3); }
+    .lib-sub-card--featured { border:1px solid var(--deep); border-top:none; }
   }
 </style>
 </head>
@@ -1940,6 +2083,7 @@
           <span class="lib-practice-shift-to">Self-assurance</span>
         </div>
         <p class="lib-practice-desc">For the moments where the weight of performing is heavier than the thing you are actually doing. Returns you to the part of yourself that does not need the outcome to feel solid.</p>
+        <div class="lib-practice-price"><span class="lib-practice-price-amount">$17</span><span class="lib-practice-price-note">individual practice</span></div>
         <a href="https://library.innerbalance101.com/shop/SelfAssurancePracticeaccess" class="lib-practice-cta">Open the practice &rarr;</a>
       </article>
 
@@ -1976,6 +2120,7 @@
           <span class="lib-practice-shift-to">Self-trust</span>
         </div>
         <p class="lib-practice-desc">For the loop where you already know what you think, and something keeps making you question it. Moves you back to your own signal instead of second-guessing it.</p>
+        <div class="lib-practice-price"><span class="lib-practice-price-amount">$17</span><span class="lib-practice-price-note">individual practice</span></div>
         <a href="https://library.innerbalance101.com/shop/SelfTrustPracticeaccess" class="lib-practice-cta">Open the practice &rarr;</a>
       </article>
 
@@ -2012,6 +2157,7 @@
           <span class="lib-practice-shift-to">Grounded</span>
         </div>
         <p class="lib-practice-desc">For the state where everything feels equally urgent and nothing feels finishable. Brings you out of emergency mode so you can see what is actually in front of you.</p>
+        <div class="lib-practice-price"><span class="lib-practice-price-amount">$17</span><span class="lib-practice-price-note">individual practice</span></div>
         <a href="https://library.innerbalance101.com/shop/GroundedPracticeaccess" class="lib-practice-cta">Open the practice &rarr;</a>
       </article>
 
@@ -2048,6 +2194,7 @@
           <span class="lib-practice-shift-to">Discernment</span>
         </div>
         <p class="lib-practice-desc">For decisions that cannot be logic-ed into a clean answer. Settles you enough that your own discernment can speak louder than the noise.</p>
+        <div class="lib-practice-price"><span class="lib-practice-price-amount">$17</span><span class="lib-practice-price-note">individual practice</span></div>
         <a href="https://library.innerbalance101.com/shop/UncertaintyResetaccess" class="lib-practice-cta">Open the practice &rarr;</a>
       </article>
 
@@ -2083,6 +2230,7 @@
           <span class="lib-practice-shift-to">Release</span>
         </div>
         <p class="lib-practice-desc">For the weight you carry for choices that were already the right ones. Separates the signal of actual repair from the habit of self-punishment.</p>
+        <div class="lib-practice-price"><span class="lib-practice-price-amount">$17</span><span class="lib-practice-price-note">individual practice</span></div>
         <a href="https://library.innerbalance101.com/shop/guiltpracticeaccess" class="lib-practice-cta">Open the practice &rarr;</a>
       </article>
 
@@ -2113,6 +2261,59 @@
       </article>
 
     </div>
+  </div>
+</section>
+
+<!-- ─── SUBSCRIPTION ─── -->
+<section class="lib-subscription" id="subscription">
+  <div class="lib-subscription-inner">
+    <div class="lib-subscription-header">
+      <div class="section-label">The Subscription</div>
+      <h2 class="lib-subscription-headline">Access every practice. As more arrive.</h2>
+      <p class="lib-subscription-body">The subscription adds monthly themed content, new practices as they are released, seasonal drops, and weekly WhatsApp prompts that keep the practice alive between sessions. One question. No selling.</p>
+    </div>
+    <div class="lib-subscription-cards">
+      <div class="lib-sub-card">
+        <div class="lib-sub-card-label">Monthly</div>
+        <div class="lib-sub-price">
+          <span class="lib-sub-amount">$19</span>
+          <span class="lib-sub-per">/ month</span>
+        </div>
+        <div class="lib-sub-divider"></div>
+        <div class="lib-sub-features-label">What&rsquo;s included</div>
+        <ul class="lib-sub-features">
+          <li>Full access to all current practice guides</li>
+          <li>New practices as they are released</li>
+          <li>Monthly themed practice content</li>
+          <li>Seasonal practice drops (4 per year)</li>
+          <li>Weekly WhatsApp prompts &mdash; one question, no selling</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener noreferrer" class="lib-sub-cta lib-sub-cta--outline">Start Monthly &rarr;</a>
+      </div>
+      <div class="lib-sub-card lib-sub-card--featured">
+        <div class="lib-sub-best-value">Best Value</div>
+        <div class="lib-sub-card-label">Annual</div>
+        <div class="lib-sub-price">
+          <span class="lib-sub-amount">$189</span>
+          <span class="lib-sub-per">/ year</span>
+        </div>
+        <p class="lib-sub-save">Two months free &mdash; save $39</p>
+        <div class="lib-sub-divider"></div>
+        <div class="lib-sub-features-label">Everything in monthly, plus</div>
+        <ul class="lib-sub-features">
+          <li>Full access to all current practice guides</li>
+          <li>New practices as they are released</li>
+          <li>Monthly themed practice content</li>
+          <li>Seasonal practice drops (4 per year)</li>
+          <li>Weekly WhatsApp prompts &mdash; one question, no selling</li>
+          <li>Priority access to new practices before public release</li>
+          <li>Annual inner coherence review practice</li>
+        </ul>
+        <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener noreferrer" class="lib-sub-cta lib-sub-cta--filled">Start Annual &rarr;</a>
+      </div>
+    </div>
+    <p class="lib-subscription-note">Individual practices are also available without a subscription. Browse the full library at stan.store/innerbalance101</p>
   </div>
 </section>
 
@@ -2184,7 +2385,7 @@
           <li>Instant access via link. Open in browser or download</li>
           <li>No app, no login, no subscription</li>
         </ul>
-        <a href="https://library.innerbalance101.com" class="lib-access-cta">Browse the practices &rarr;</a>
+        <a href="https://stan.store/innerbalance101" class="lib-access-cta">Browse the practices &rarr;</a>
       </div>
 
       <div class="lib-access-card lib-access-card--assess">
