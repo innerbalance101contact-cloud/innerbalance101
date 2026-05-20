@@ -1,23 +1,40 @@
 /**
  * innerbalance101 — Firebase Auth Module
  * ─────────────────────────────────────
- * Import this script on any page that needs authentication.
+ * Modular Firebase SDK (v10) loaded via CDN — no build step required.
  *
- * Usage:
+ * Usage on any page:
  *   <script type="module" src="/js/auth.js"></script>
  *
- * Exports (via window.IB101Auth for non-module pages):
+ * Named exports (ES module consumers):
  *   signUp(email, password, displayName)
  *   signIn(email, password)
  *   signInWithGoogle()
  *   signOut()
- *   getCurrentUser()   → Firebase User object or null
- *   getUserProfile()   → Firestore profile doc
- *   onAuthChange(cb)   → cb(user) called on every auth state change
- *   requireAuth()      → redirects to /login.html if not signed in
+ *   getCurrentUser()        → Firebase User object or null
+ *   getUserProfile()        → Firestore profile doc data or null
+ *   onAuthChange(callback)  → callback(user | null); returns unsubscribe fn
+ *   requireAuth()           → redirects to /login.html if not signed in
+ *   resetPassword(email)
+ *   updateUserProfile(data) → merge arbitrary fields into users/{uid}
+ *
+ * Non-module pages can also use: window.IB101Auth.<method>
+ *
+ * Firestore document written to users/{uid} on every login:
+ *   { uid, email, displayName, photoURL, provider,
+ *     createdAt (first login only), lastSeen, purchases, progress, assessment }
+ *
+ * ── SETUP ────────────────────────────────────────────────────────────────────
+ * 1. Go to Firebase Console → Project Settings → Your apps → Web app
+ * 2. Copy the firebaseConfig object and paste it below.
+ * 3. In Firebase Console → Authentication → Sign-in method, enable:
+ *      • Email/Password
+ *      • Google
+ * 4. In Firestore → Rules, make sure users/{uid} is writable by the owner.
  */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+// ── Firebase SDK (modular, CDN) ───────────────────────────────────────────────
+import { initializeApp }                       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -28,7 +45,7 @@ import {
   onAuthStateChanged,
   updateProfile,
   sendPasswordResetEmail,
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+}                                              from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
   getFirestore,
   doc,
@@ -36,11 +53,11 @@ import {
   setDoc,
   updateDoc,
   serverTimestamp,
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+}                                              from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ─── CONFIG ──────────────────────────────────────────────────────────────────
-// Replace these values with your Firebase project config.
-// Get them from: Firebase Console → Project Settings → Your apps → SDK setup
+// ── Firebase config ───────────────────────────────────────────────────────────
+// Paste your project's config object here.
+// Firebase Console → Project Settings → Your apps → SDK setup & configuration
 const firebaseConfig = {
   apiKey:            "YOUR_API_KEY",
   authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
@@ -58,25 +75,51 @@ const googleProvider = new GoogleAuthProvider();
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 
-/** Create or update the user's Firestore profile document */
+/**
+ * Resolve the sign-in provider label from Firebase providerData.
+ * Returns "google" | "password" | the raw providerId string.
+ */
+function resolveProvider(user) {
+  const id = user.providerData?.[0]?.providerId ?? "unknown";
+  if (id === "google.com") return "google";
+  if (id === "password")   return "password";
+  return id;
+}
+
+/**
+ * Create or update the user's Firestore document at users/{uid}.
+ * Fields written on first login: uid, email, displayName, photoURL,
+ *   provider, createdAt, purchases, progress, assessment.
+ * Fields updated on every login: email, displayName, provider, lastSeen.
+ */
 async function upsertUserProfile(user, extras = {}) {
-  const ref = doc(db, "users", user.uid);
-  const snap = await getDoc(ref);
+  const ref      = doc(db, "users", user.uid);
+  const snap     = await getDoc(ref);
+  const provider = resolveProvider(user);
+
   if (!snap.exists()) {
+    // ── First login: create the full document ─────────────────────────────
     await setDoc(ref, {
       uid:         user.uid,
       email:       user.email,
       displayName: user.displayName || extras.displayName || "",
       photoURL:    user.photoURL    || "",
+      provider,
       createdAt:   serverTimestamp(),
+      lastSeen:    serverTimestamp(),
       purchases:   [],
       progress:    {},
       assessment:  null,
       ...extras,
     });
   } else {
-    // Keep email in sync in case it was changed
-    await updateDoc(ref, { email: user.email, lastSeen: serverTimestamp() });
+    // ── Returning user: sync mutable fields ───────────────────────────────
+    await updateDoc(ref, {
+      email:       user.email,
+      displayName: user.displayName || snap.data().displayName || "",
+      provider,                        // update in case they switched methods
+      lastSeen:    serverTimestamp(),
+    });
   }
   return getDoc(ref);
 }
