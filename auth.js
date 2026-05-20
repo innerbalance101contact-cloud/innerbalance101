@@ -59,12 +59,13 @@ import {
 // Paste your project's config object here.
 // Firebase Console → Project Settings → Your apps → SDK setup & configuration
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId:             "YOUR_APP_ID",
+  apiKey:            "AIzaSyBZj4uFW0LSG8WTLqLuH0_rzij28-1A51U",
+  authDomain:        "innerbalance101-33628.firebaseapp.com",
+  projectId:         "innerbalance101-33628",
+  storageBucket:     "innerbalance101-33628.firebasestorage.app",
+  messagingSenderId: "682049993683",
+  appId:             "1:682049993683:web:59ca5209a0039f86208d26",
+  measurementId:     "G-GKSZK29P8Q",
 };
 
 // ─── INITIALISE ───────────────────────────────────────────────────────────────
