@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard | innerbalance101</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#4F6861;--mist:#D9E1DE;--pine-deep:#3F5751;
+    --clay:var(--pine);--clay-light:var(--mist);--clay-deep:var(--pine-deep);
+    --warm-white:#FAF7F2;--linen:#F0E8DC;--deep:#2C2420;--soft:#6B5B4E;
+    --nav-h:64px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);min-height:100vh;}
+
+  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--warm-white);border-bottom:1px solid rgba(196,168,130,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100;}
+  .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .nav-logo-img{height:28px;width:auto;}
+  .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;letter-spacing:0.08em;color:var(--deep);}
+  .nav-right{display:flex;align-items:center;gap:24px;}
+  .nav-user{font-size:0.78rem;font-weight:300;color:var(--soft);}
+  .nav-signout{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft);background:none;border:none;cursor:pointer;transition:color 0.2s;padding:0;}
+  .nav-signout:hover{color:var(--clay-deep);}
+
+  /* ── LAYOUT ── */
+  .page{max-width:1100px;margin:0 auto;padding:calc(var(--nav-h) + 56px) 48px 80px;}
+
+  /* ── HEADER ── */
+  .dash-header{margin-bottom:56px;}
+  .dash-eyebrow{font-size:0.66rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:10px;}
+  .dash-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;line-height:1.15;color:var(--deep);margin-bottom:8px;}
+  .dash-subtitle{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.6;}
+
+  /* ── LOADING ── */
+  #loadingState{text-align:center;padding:80px 0;font-size:0.88rem;color:var(--soft);font-weight:300;letter-spacing:0.05em;}
+
+  /* ── SECTIONS ── */
+  .section{margin-bottom:56px;}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--deep);margin-bottom:4px;}
+  .section-sub{font-size:0.8rem;font-weight:300;color:var(--soft);margin-bottom:24px;}
+  .section-divider{border:none;border-top:1px solid rgba(196,168,130,0.25);margin-bottom:28px;}
+
+  /* ── ASSESSMENT RESULT ── */
+  .assessment-card{background:var(--linen);border:1px solid rgba(196,168,130,0.3);padding:32px 36px;display:flex;gap:40px;align-items:flex-start;}
+  .assessment-score{flex-shrink:0;text-align:center;}
+  .assessment-score-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--clay-deep);line-height:1;}
+  .assessment-score-label{font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--soft);margin-top:4px;}
+  .assessment-details h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--deep);margin-bottom:8px;}
+  .assessment-details p{font-size:0.88rem;font-weight:300;color:var(--soft);line-height:1.65;max-width:560px;}
+  .retake-link{display:inline-block;margin-top:14px;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--clay);text-decoration:none;transition:color 0.2s;}
+  .retake-link:hover{color:var(--clay-deep);}
+  .no-assessment{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.65;}
+  .no-assessment a{color:var(--clay);text-decoration:none;font-weight:400;}
+  .no-assessment a:hover{color:var(--clay-deep);}
+
+  /* ── CONTENT GRID ── */
+  .content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .content-card{background:var(--warm-white);border:1px solid rgba(196,168,130,0.3);padding:28px 28px 24px;display:flex;flex-direction:column;}
+  .content-card--locked{opacity:0.55;pointer-events:none;}
+  .content-card--featured{background:var(--deep);border-color:var(--deep);color:var(--warm-white);}
+  .content-kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:10px;}
+  .content-card--featured .content-kicker{color:rgba(217,225,222,0.8);}
+  .content-card--locked .content-kicker::after{content:' · locked';}
+  .content-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--deep);line-height:1.25;margin-bottom:8px;}
+  .content-card--featured .content-name{color:var(--warm-white);}
+  .content-desc{font-size:0.82rem;font-weight:300;color:var(--soft);line-height:1.6;flex:1;margin-bottom:20px;}
+  .content-card--featured .content-desc{color:rgba(250,247,242,0.7);}
+  .content-cta{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--deep);text-decoration:none;padding:10px 18px;border:1px solid rgba(196,168,130,0.4);transition:background 0.2s,border-color 0.2s;align-self:flex-start;}
+  .content-cta:hover{background:var(--linen);border-color:var(--clay);}
+  .content-card--featured .content-cta{color:var(--warm-white);border-color:rgba(217,225,222,0.4);}
+  .content-card--featured .content-cta:hover{background:rgba(255,255,255,0.08);}
+  .btn-buy{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-white);background:var(--clay);border:none;padding:10px 18px;cursor:pointer;transition:background 0.2s;align-self:flex-start;}
+  .btn-buy:hover{background:var(--clay-deep);}
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap{margin-bottom:10px;}
+  .progress-label{display:flex;justify-content:space-between;font-size:0.72rem;font-weight:300;color:var(--soft);margin-bottom:6px;}
+  .progress-bar{height:3px;background:rgba(196,168,130,0.2);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--clay);border-radius:2px;transition:width 0.5s ease;}
+
+  /* ── SUBSCRIPTION ── */
+  .sub-card{background:var(--warm-white);border:1px solid rgba(196,168,130,0.3);padding:28px 32px;}
+  .sub-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .sub-info h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--deep);margin-bottom:4px;}
+  .sub-info p{font-size:0.82rem;font-weight:300;color:var(--soft);line-height:1.6;}
+  .sub-badge{font-size:0.65rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:5px 12px;border-radius:2px;background:var(--mist);color:var(--pine-deep);}
+  .sub-badge.active{background:#E8F0ED;color:#2A4A41;}
+  .sub-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-outline{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:9px 18px;border:1px solid rgba(196,168,130,0.4);background:none;color:var(--deep);cursor:pointer;transition:background 0.2s,border-color 0.2s;}
+  .btn-outline:hover{background:var(--linen);border-color:var(--clay);}
+
+  /* ── EMPTY STATE ── */
+  .empty-state{background:var(--linen);padding:40px 36px;text-align:center;}
+  .empty-state p{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.65;max-width:420px;margin:0 auto 20px;}
+  .btn-cta{display:inline-block;font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--warm-white);background:var(--deep);padding:12px 24px;text-decoration:none;transition:background 0.2s;}
+  .btn-cta:hover{background:var(--clay-deep);}
+
+  @media(max-width:860px){
+    .page{padding:calc(var(--nav-h)+40px) 28px 60px;}
+    .content-grid{grid-template-columns:1fr 1fr;}
+    .assessment-card{flex-direction:column;gap:20px;}
+    nav{padding:0 24px;}
+  }
+  @media(max-width:560px){
+    .content-grid{grid-template-columns:1fr;}
+    .dash-title{font-size:2rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/images/Logo IB101-1.png" alt="innerbalance101" class="nav-logo-img">
+    <span class="nav-logo-text">innerbalance101</span>
+  </a>
+  <div class="nav-right">
+    <span class="nav-user" id="navUserName"></span>
+    <button class="nav-signout" onclick="handleSignOut()">Sign out</button>
+  </div>
+</nav>
+
+<main class="page" id="mainContent" style="display:none;">
+
+  <!-- HEADER -->
+  <div class="dash-header">
+    <p class="dash-eyebrow">Your dashboard</p>
+    <h1 class="dash-title" id="dashGreeting">Welcome back.</h1>
+    <p class="dash-subtitle">Your practices, progress, and account — all in one place.</p>
+  </div>
+
+  <!-- ASSESSMENT RESULT -->
+  <section class="section">
+    <h2 class="section-title">Emotional Load Assessment</h2>
+    <p class="section-sub">Your most recent result</p>
+    <hr class="section-divider">
+    <div id="assessmentContent">
+      <p class="no-assessment">You haven't completed the assessment yet. <a href="/emotional_load_assessment.html">Take it now — it takes 5 minutes.</a></p>
+    </div>
+  </section>
+
+  <!-- PURCHASED CONTENT -->
+  <section class="section">
+    <h2 class="section-title">Your Practices</h2>
+    <p class="section-sub">Content you have access to</p>
+    <hr class="section-divider">
+    <div id="practicesContent"></div>
+  </section>
+
+  <!-- THE INNER BALANCE SYSTEM -->
+  <section class="section" id="systemSection" style="display:none;">
+    <h2 class="section-title">The Inner Balance System</h2>
+    <p class="section-sub">Your three-stage journey</p>
+    <hr class="section-divider">
+    <div id="systemContent"></div>
+  </section>
+
+  <!-- SUBSCRIPTION / ACCOUNT -->
+  <section class="section">
+    <h2 class="section-title">Account</h2>
+    <p class="section-sub">Billing and access</p>
+    <hr class="section-divider">
+    <div id="accountContent"></div>
+  </section>
+
+</main>
+
+<div id="loadingState">Loading your dashboard…</div>
+
+<script type="module">
+  import { requireAuth, getUserProfile, signOut, onAuthChange } from '/js/auth.js';
+  import { checkout, hasPurchased, showPurchaseToast } from '/js/stripe.js';
+
+  // All five standalone guides
+  const GUIDES = [
+    { slug:'overwhelm-guide',   label:'Overwhelm',   href:'/overwhelm-10min.html'  },
+    { slug:'pressure-guide',    label:'Pressure',    href:'/pressure-10min.html'   },
+    { slug:'self-doubt-guide',  label:'Self-Doubt',  href:'/self-doubt-10min.html' },
+    { slug:'uncertainty-guide', label:'Uncertainty', href:'/uncertainty-10min.html'},
+    { slug:'guilt-guide',       label:'Guilt',       href:'/guilt-10min.html'      },
+  ];
+
+  const STAGES = [
+    { slug:'stage-1', label:'Stage 1 — SOS',           href:'/stage1-sos.html',          desc:'Immediate regulation. 21 days.'          },
+    { slug:'stage-2', label:'Stage 2 — Clarity',       href:'/stage2-clarity.html',      desc:'Understanding the pattern. 21 days.'     },
+    { slug:'stage-3', label:'Stage 3 — Inner Balance', href:'/stage3-inner-balance.html',desc:'Sustainable inner world. 21 days.'        },
+  ];
+
+  // ── check for post-purchase redirect ────────────────────────────────────────
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchase') === 'success') {
+    showPurchaseToast('Purchase complete — your content is now unlocked.');
+    window.history.replaceState({}, '', '/dashboard.html');
+  }
+
+  // ── require auth (redirects to /login.html if not signed in) ───────────────
+  const user = await requireAuth();
+
+  // ── load profile ────────────────────────────────────────────────────────────
+  const profile = await getUserProfile();
+
+  // ── update nav ──────────────────────────────────────────────────────────────
+  const firstName = (profile?.displayName || user.displayName || 'there').split(' ')[0];
+  document.getElementById('navUserName').textContent = user.email;
+  document.getElementById('dashGreeting').textContent = `Welcome back, ${firstName}.`;
+
+  // ── show page ────────────────────────────────────────────────────────────────
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('mainContent').style.display  = 'block';
+
+  const purchases = profile?.purchases || [];
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // ASSESSMENT RESULT
+  // ────────────────────────────────────────────────────────────────────────────
+  const assessment = profile?.assessment;
+  if (assessment) {
+    document.getElementById('assessmentContent').innerHTML = `
+      <div class="assessment-card">
+        <div class="assessment-score">
+          <div class="assessment-score-num">${assessment.score ?? '—'}</div>
+          <div class="assessment-score-label">/ ${assessment.maxScore ?? 100}</div>
+        </div>
+        <div class="assessment-details">
+          <h3>${assessment.category || 'Your result'}</h3>
+          <p>${assessment.summary || ''}</p>
+          <a href="/emotional_load_assessment.html" class="retake-link">Retake assessment →</a>
+        </div>
+      </div>`;
+  }
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // PRACTICES
+  // ────────────────────────────────────────────────────────────────────────────
+  const hasBundleOrSystem = hasPurchased(purchases, 'practice-bundle')
+                         || hasPurchased(purchases, 'inner-balance-system');
+
+  const practiceCards = GUIDES.map(g => {
+    const owned = hasBundleOrSystem || hasPurchased(purchases, g.slug);
+    if (owned) {
+      return `
+        <div class="content-card">
+          <p class="content-kicker">10-min practice</p>
+          <h3 class="content-name">${g.label}</h3>
+          <p class="content-desc">Your somatic practice guide for ${g.label.toLowerCase()}.</p>
+          <a href="${g.href}" class="content-cta">Open practice →</a>
+        </div>`;
+    } else {
+      return `
+        <div class="content-card content-card--locked">
+          <p class="content-kicker">10-min practice</p>
+          <h3 class="content-name">${g.label}</h3>
+          <p class="content-desc">Your somatic practice guide for ${g.label.toLowerCase()}.</p>
+          <button class="btn-buy" onclick="IB101Stripe.checkout('${g.slug}','${user.email}','${user.uid}')">Unlock →</button>
+        </div>`;
+    }
+  }).join('');
+
+  const hasPurchasedAnything = purchases.length > 0;
+
+  document.getElementById('practicesContent').innerHTML = hasPurchasedAnything || true
+    ? `<div class="content-grid">${practiceCards}</div>`
+    : `<div class="empty-state">
+        <p>You don't have any practices yet. The Practice Bundle gives you all five guides.</p>
+        <button class="btn-cta" onclick="IB101Stripe.checkout('practice-bundle','${user.email}','${user.uid}')">Get the Practice Bundle</button>
+       </div>`;
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // INNER BALANCE SYSTEM (only show if purchased)
+  // ────────────────────────────────────────────────────────────────────────────
+  if (hasPurchased(purchases, 'inner-balance-system')) {
+    document.getElementById('systemSection').style.display = 'block';
+    const progress = profile?.progress || {};
+
+    const stageCards = STAGES.map((s, i) => {
+      const pct = progress[s.slug] ?? 0;
+      const isCurrent = i === 0 || progress[STAGES[i - 1]?.slug] >= 100;
+      return `
+        <div class="content-card${i === 0 ? ' content-card--featured' : ''}">
+          <p class="content-kicker">Stage ${i + 1} · ${pct}% complete</p>
+          <h3 class="content-name">${s.label}</h3>
+          <p class="content-desc">${s.desc}</p>
+          <div class="progress-wrap">
+            <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+          </div>
+          <a href="${s.href}" class="content-cta">Continue →</a>
+        </div>`;
+    }).join('');
+
+    document.getElementById('systemContent').innerHTML =
+      `<div class="content-grid">${stageCards}</div>`;
+  }
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // ACCOUNT / SUBSCRIPTION
+  // ────────────────────────────────────────────────────────────────────────────
+  const purchaseList = purchases.length
+    ? purchases.map(p => `<li style="font-size:0.85rem;font-weight:300;color:var(--soft);padding:4px 0;">${p.replace(/-/g,' ')}</li>`).join('')
+    : '<li style="font-size:0.85rem;font-weight:300;color:var(--soft);">No purchases yet</li>';
+
+  document.getElementById('accountContent').innerHTML = `
+    <div class="sub-card">
+      <div class="sub-row">
+        <div class="sub-info">
+          <h3>${user.email}</h3>
+          <p>Member since ${profile?.createdAt?.toDate?.()?.toLocaleDateString('en-GB', {month:'long',year:'numeric'}) || 'recently'}</p>
+          <ul style="list-style:none;margin-top:12px;">${purchaseList}</ul>
+        </div>
+        <div class="sub-actions">
+          <button class="btn-outline" onclick="window.location.href='mailto:hello@innerbalance101.com?subject=Account%20query'">Contact support</button>
+        </div>
+      </div>
+    </div>`;
+
+  // ── sign out ─────────────────────────────────────────────────────────────────
+  window.handleSignOut = async function() {
+    await signOut();
+    window.location.href = '/';
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In | innerbalance101</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pine:#4F6861; --mist:#D9E1DE; --pine-deep:#3F5751;
+    --clay:var(--pine); --clay-light:var(--mist); --clay-deep:var(--pine-deep);
+    --warm-white:#FAF7F2; --linen:#F0E8DC; --deep:#2C2420;
+    --soft:#6B5B4E; --nav-h:64px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);min-height:100vh;display:flex;flex-direction:column;}
+
+  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--warm-white);border-bottom:1px solid rgba(196,168,130,0.2);display:flex;align-items:center;padding:0 48px;z-index:100;}
+  .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .nav-logo-img{height:28px;width:auto;}
+  .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;letter-spacing:0.08em;color:var(--deep);}
+
+  /* ── MAIN ── */
+  .page{flex:1;display:flex;align-items:center;justify-content:center;padding:calc(var(--nav-h) + 48px) 24px 80px;}
+  .card{width:100%;max-width:460px;}
+
+  .card-eyebrow{font-size:0.66rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
+  .card-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;line-height:1.15;color:var(--deep);margin-bottom:8px;}
+  .card-subtitle{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.6;margin-bottom:36px;}
+
+  /* ── TABS ── */
+  .tabs{display:flex;gap:0;border-bottom:1px solid rgba(196,168,130,0.3);margin-bottom:32px;}
+  .tab-btn{flex:1;padding:10px 0;background:none;border:none;font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color 0.2s,border-color 0.2s;}
+  .tab-btn.active{color:var(--clay-deep);border-bottom-color:var(--clay);}
+
+  /* ── FORM ── */
+  .form-panel{display:none;}
+  .form-panel.active{display:block;}
+  .form-group{margin-bottom:20px;}
+  label{display:block;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft);margin-bottom:8px;}
+  input[type="text"],input[type="email"],input[type="password"]{
+    width:100%;padding:12px 16px;border:1px solid rgba(196,168,130,0.4);
+    background:var(--warm-white);color:var(--deep);font-family:'Jost',sans-serif;
+    font-size:0.95rem;font-weight:300;border-radius:2px;
+    transition:border-color 0.2s;outline:none;
+  }
+  input:focus{border-color:var(--clay);}
+  input::placeholder{color:rgba(107,91,78,0.45);}
+
+  .btn-primary{
+    width:100%;padding:14px;background:var(--deep);color:var(--warm-white);
+    border:none;font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;
+    letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;
+    transition:background 0.2s,transform 0.15s;margin-top:4px;
+  }
+  .btn-primary:hover{background:var(--clay-deep);transform:translateY(-1px);}
+  .btn-primary:disabled{opacity:0.55;cursor:not-allowed;transform:none;}
+
+  .btn-google{
+    width:100%;padding:13px;background:var(--warm-white);color:var(--deep);
+    border:1px solid rgba(196,168,130,0.5);font-family:'Jost',sans-serif;
+    font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+    cursor:pointer;border-radius:2px;display:flex;align-items:center;justify-content:center;
+    gap:10px;transition:background 0.2s,border-color 0.2s;margin-top:12px;
+  }
+  .btn-google:hover{background:var(--linen);border-color:var(--clay);}
+  .btn-google svg{width:18px;height:18px;flex-shrink:0;}
+
+  .divider{display:flex;align-items:center;gap:12px;margin:24px 0;}
+  .divider-line{flex:1;height:1px;background:rgba(196,168,130,0.25);}
+  .divider-text{font-size:0.7rem;color:var(--soft);font-weight:300;letter-spacing:0.08em;text-transform:uppercase;}
+
+  .forgot-link{display:block;text-align:right;font-size:0.78rem;color:var(--soft);text-decoration:none;margin-top:-10px;margin-bottom:20px;transition:color 0.2s;}
+  .forgot-link:hover{color:var(--clay-deep);}
+
+  /* ── STATUS ── */
+  .status{font-size:0.85rem;font-weight:300;padding:12px 16px;border-radius:2px;margin-bottom:18px;display:none;}
+  .status.error{background:#F5EAEA;color:#8B2020;border-left:3px solid #C87070;display:block;}
+  .status.success{background:#EAF0EE;color:#2A4A41;border-left:3px solid var(--clay);display:block;}
+
+  /* ── RESET PANEL ── */
+  .reset-panel{display:none;}
+  .back-link{font-size:0.78rem;color:var(--soft);cursor:pointer;text-decoration:underline;display:inline-block;margin-bottom:20px;}
+  .back-link:hover{color:var(--clay-deep);}
+
+  /* ── FOOTER ── */
+  footer{padding:24px 48px;text-align:center;font-size:0.72rem;color:var(--soft);font-weight:300;border-top:1px solid rgba(196,168,130,0.15);}
+  footer a{color:var(--soft);text-decoration:none;}
+  footer a:hover{color:var(--clay-deep);}
+
+  @media(max-width:480px){
+    nav{padding:0 24px;}
+    .card-title{font-size:2rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/images/Logo IB101-1.png" alt="innerbalance101" class="nav-logo-img">
+    <span class="nav-logo-text">innerbalance101</span>
+  </a>
+</nav>
+
+<main class="page">
+  <div class="card">
+    <p class="card-eyebrow">Your account</p>
+    <h1 class="card-title">Welcome back.</h1>
+    <p class="card-subtitle">Sign in to access your practices, track your progress, and continue your work.</p>
+
+    <!-- AUTH TABS -->
+    <div class="tabs" id="authTabs">
+      <button class="tab-btn active" onclick="switchTab('signin')">Sign in</button>
+      <button class="tab-btn" onclick="switchTab('signup')">Create account</button>
+    </div>
+
+    <!-- STATUS MESSAGE -->
+    <div class="status" id="statusMsg"></div>
+
+    <!-- SIGN IN PANEL -->
+    <div class="form-panel active" id="signinPanel">
+      <form id="signinForm" onsubmit="handleSignIn(event)">
+        <div class="form-group">
+          <label for="siEmail">Email</label>
+          <input type="email" id="siEmail" placeholder="you@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="siPassword">Password</label>
+          <input type="password" id="siPassword" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <a class="forgot-link" onclick="showReset()">Forgot password?</a>
+        <button type="submit" class="btn-primary" id="signinBtn">Sign in</button>
+      </form>
+      <div class="divider"><div class="divider-line"></div><span class="divider-text">or</span><div class="divider-line"></div></div>
+      <button class="btn-google" onclick="handleGoogle()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        Continue with Google
+      </button>
+    </div>
+
+    <!-- SIGN UP PANEL -->
+    <div class="form-panel" id="signupPanel">
+      <form id="signupForm" onsubmit="handleSignUp(event)">
+        <div class="form-group">
+          <label for="suName">Your first name</label>
+          <input type="text" id="suName" placeholder="First name" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label for="suEmail">Email</label>
+          <input type="email" id="suEmail" placeholder="you@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="suPassword">Password</label>
+          <input type="password" id="suPassword" placeholder="At least 8 characters" required autocomplete="new-password" minlength="8">
+        </div>
+        <button type="submit" class="btn-primary" id="signupBtn">Create account</button>
+      </form>
+      <div class="divider"><div class="divider-line"></div><span class="divider-text">or</span><div class="divider-line"></div></div>
+      <button class="btn-google" onclick="handleGoogle()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        Continue with Google
+      </button>
+    </div>
+
+    <!-- PASSWORD RESET PANEL -->
+    <div class="reset-panel" id="resetPanel">
+      <span class="back-link" onclick="showSignIn()">← Back to sign in</span>
+      <div class="form-group">
+        <label for="resetEmail">Your email address</label>
+        <input type="email" id="resetEmail" placeholder="you@email.com" autocomplete="email">
+      </div>
+      <button class="btn-primary" onclick="handleReset()">Send reset link</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="/terms-and-conditions.html">Terms & Conditions</a> &nbsp;·&nbsp;
+  <a href="/contact.html">Contact</a> &nbsp;·&nbsp;
+  &copy; 2025 innerbalance101
+</footer>
+
+<script type="module">
+  import {
+    signUp, signIn, signInWithGoogle,
+    onAuthChange, resetPassword
+  } from '/js/auth.js';
+
+  // ── redirect if already signed in ──────────────────────────────────────────
+  onAuthChange((user) => {
+    if (user) {
+      const params = new URLSearchParams(window.location.search);
+      window.location.href = params.get('next') || '/dashboard.html';
+    }
+  });
+
+  // ── status helper ──────────────────────────────────────────────────────────
+  function showStatus(msg, type = 'error') {
+    const el = document.getElementById('statusMsg');
+    el.textContent = msg;
+    el.className = 'status ' + type;
+  }
+  function clearStatus() {
+    const el = document.getElementById('statusMsg');
+    el.textContent = '';
+    el.className = 'status';
+  }
+
+  // ── tab switching ──────────────────────────────────────────────────────────
+  window.switchTab = function(tab) {
+    clearStatus();
+    document.getElementById('resetPanel').style.display = 'none';
+    document.getElementById('authTabs').style.display = 'flex';
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', (tab === 'signin' && i === 0) || (tab === 'signup' && i === 1));
+    });
+    document.getElementById('signinPanel').classList.toggle('active', tab === 'signin');
+    document.getElementById('signupPanel').classList.toggle('active', tab === 'signup');
+  };
+
+  window.showReset = function() {
+    clearStatus();
+    document.getElementById('signinPanel').classList.remove('active');
+    document.getElementById('signupPanel').classList.remove('active');
+    document.getElementById('authTabs').style.display = 'none';
+    document.getElementById('resetPanel').style.display = 'block';
+  };
+
+  window.showSignIn = function() {
+    document.getElementById('resetPanel').style.display = 'none';
+    document.getElementById('authTabs').style.display = 'flex';
+    switchTab('signin');
+  };
+
+  // ── sign in ────────────────────────────────────────────────────────────────
+  window.handleSignIn = async function(e) {
+    e.preventDefault();
+    clearStatus();
+    const btn = document.getElementById('signinBtn');
+    btn.disabled = true;
+    btn.textContent = 'Signing in…';
+    try {
+      await signIn(
+        document.getElementById('siEmail').value.trim(),
+        document.getElementById('siPassword').value
+      );
+      // onAuthChange will redirect
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Sign in';
+      showStatus(friendlyError(err));
+    }
+  };
+
+  // ── sign up ────────────────────────────────────────────────────────────────
+  window.handleSignUp = async function(e) {
+    e.preventDefault();
+    clearStatus();
+    const btn = document.getElementById('signupBtn');
+    btn.disabled = true;
+    btn.textContent = 'Creating account…';
+    try {
+      await signUp(
+        document.getElementById('suEmail').value.trim(),
+        document.getElementById('suPassword').value,
+        document.getElementById('suName').value.trim()
+      );
+      // onAuthChange will redirect
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Create account';
+      showStatus(friendlyError(err));
+    }
+  };
+
+  // ── google ─────────────────────────────────────────────────────────────────
+  window.handleGoogle = async function() {
+    clearStatus();
+    try {
+      await signInWithGoogle();
+      // onAuthChange will redirect
+    } catch (err) {
+      showStatus(friendlyError(err));
+    }
+  };
+
+  // ── password reset ─────────────────────────────────────────────────────────
+  window.handleReset = async function() {
+    const email = document.getElementById('resetEmail').value.trim();
+    if (!email) { showStatus('Please enter your email address.'); return; }
+    try {
+      await resetPassword(email);
+      showStatus('Reset link sent — check your inbox.', 'success');
+    } catch (err) {
+      showStatus(friendlyError(err));
+    }
+  };
+
+  // ── friendly error messages ────────────────────────────────────────────────
+  function friendlyError(err) {
+    const code = err.code || '';
+    if (code.includes('user-not-found') || code.includes('wrong-password') || code.includes('invalid-credential'))
+      return 'Email or password is incorrect. Please try again.';
+    if (code.includes('email-already-in-use'))
+      return 'An account with this email already exists. Try signing in instead.';
+    if (code.includes('weak-password'))
+      return 'Password must be at least 8 characters.';
+    if (code.includes('too-many-requests'))
+      return 'Too many attempts. Please wait a few minutes and try again.';
+    if (code.includes('popup-closed'))
+      return 'Sign-in window was closed. Please try again.';
+    return err.message || 'Something went wrong. Please try again.';
+  }
+</script>
+</body>
+</html>
