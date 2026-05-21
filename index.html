@@ -379,7 +379,7 @@
 
   /* ─── HOW IT WORKS ────────────────────────────────────────────── */
   .how { padding:0; }
-  .how-inner { display:grid; grid-template-columns:1fr 1fr; }
+  .how-inner { display:grid; grid-template-columns:1fr 1fr; align-items:start; }
   .how-image { position:relative; overflow:hidden; min-height:600px; }
   .how-img { width:100%; height:100%; object-fit:cover; filter:saturate(0.75); }
   .how-img-overlay { position:absolute; inset:0; background:linear-gradient(to left,rgba(250,247,242,0.15) 0%,transparent 50%); }
@@ -395,11 +395,12 @@
   /* ─── HOW DIAGRAM ─────────────────────────────────────────────── */
   .how-diagram {
     background:var(--linen);
-    position:static !important;
+    position:sticky !important;
+    top:var(--nav-h);
     overflow:visible !important;
     display:flex; align-items:center; justify-content:center;
     padding:60px 40px;
-    min-height:600px;
+    min-height:100vh;
   }
   .how-diagram-inner { width:100%; max-width:520px; }
   .how-diagram-kicker {
@@ -1057,7 +1058,7 @@
     .assessment-img-badge { top:20px; left:20px; padding:8px 14px; }
     .assessment-content { padding:48px 24px 56px; }
     .how-inner { grid-template-columns:1fr; }
-    .how-diagram { min-height:auto; padding:48px 24px; }
+    .how-diagram { position:static !important; min-height:auto; padding:48px 24px; }
     .how-content { padding:52px 24px; }
     .evidence { padding:56px 24px; }
     .evidence-inner { grid-template-columns:1fr; gap:40px; }
@@ -1181,8 +1182,55 @@
   }
 
   /* ─── INTRO VIDEO ─────────────────────────────────────────────── */
-  .intro-video { background:var(--linen); padding:60px; }
+  .intro-video { background:var(--linen); padding:80px 60px; }
   .intro-video-inner { max-width:900px; margin:0 auto; }
+  .intro-video-header {
+    text-align:center;
+    margin-bottom:40px;
+  }
+  .intro-video-header .section-label {
+    justify-content:center;
+    margin-bottom:16px;
+  }
+  .intro-video-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2rem,3.5vw,3.2rem);
+    font-weight:300;
+    line-height:1.15;
+    color:var(--deep);
+    margin-bottom:16px;
+  }
+  .intro-video-title em { font-style:italic; color:var(--clay-deep); }
+  .intro-video-sub {
+    font-size:1rem;
+    font-weight:300;
+    line-height:1.75;
+    color:var(--soft);
+    max-width:580px;
+    margin:0 auto;
+  }
+  .intro-video-footer {
+    margin-top:32px;
+    text-align:center;
+  }
+  .intro-video-scroll-btn {
+    display:inline-block;
+    font-size:0.8rem;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--deep);
+    background:transparent;
+    border:1px solid rgba(44,36,32,0.35);
+    padding:14px 36px;
+    text-decoration:none;
+    transition:background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .intro-video-scroll-btn:hover {
+    background:var(--deep);
+    color:var(--warm-white);
+    border-color:var(--deep);
+  }
   .intro-video-embed {
     position:relative; padding-top:56.25%;
     overflow:hidden; background:var(--deep);
@@ -1229,7 +1277,9 @@
   }
   .veo-replay:hover { color:rgba(250,247,242,0.75); }
   @media(max-width:768px){
-    .intro-video { padding:40px 20px; }
+    .intro-video { padding:52px 20px; }
+    .intro-video-title { font-size:clamp(1.7rem,7vw,2.4rem); }
+    .intro-video-sub { font-size:0.95rem; }
   }
 </style>
 </head>
@@ -1258,7 +1308,6 @@
   <div class="hero-left">
     <div class="hero-clarity">
       <p>A guided path from overwhelm to inner balance for high-achieving professionals who want to feel strong inside again.</p>
-      <p style="margin-top:10px; font-size:0.85rem; color:var(--soft);">Three stages. 21 days each. Simple structure that helps you stay with it.</p>
     </div>
     <h1 class="hero-headline">From performing<br><em>fine</em> to actually<br>being fine.</h1>
     <div class="hero-actions">
@@ -1310,6 +1359,11 @@
 <!-- ─── INTRO VIDEO ──────────────────────────────────────────────── -->
 <section class="intro-video" aria-label="Introduction video">
   <div class="intro-video-inner">
+    <div class="intro-video-header">
+      <div class="section-label" style="justify-content:center;">The System</div>
+      <h2 class="intro-video-title">You look fine.<br>You just don&rsquo;t <em>feel</em> it.</h2>
+      <p class="intro-video-sub">This is for high-performing women who are carrying more than they let on. Watch to understand what the innerbalance101 system is and why it works.</p>
+    </div>
     <div class="intro-video-embed">
       <iframe id="intro-vimeo" src="https://player.vimeo.com/video/1190861523?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0&amp;sidedock=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Introduction to innerbalance101"></iframe>
       <div class="video-end-overlay" id="video-end-overlay">
@@ -1323,6 +1377,9 @@
           <button class="veo-replay" id="veo-replay-btn">Watch again</button>
         </div>
       </div>
+    </div>
+    <div class="intro-video-footer">
+      <a href="#system" class="intro-video-scroll-btn">See the three-stage system &#8595;</a>
     </div>
   </div>
 </section>
