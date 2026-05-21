@@ -99,6 +99,7 @@
 }
 </script>
 
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -1524,15 +1525,18 @@
   <div style="text-align:center; padding:12px 0 28px;">
     <a href="/the-system.html" class="btn-ghost">Read the full system breakdown before you decide &rarr;</a>
   </div>
-  <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="system-cta">
+  <div class="system-cta">
     <div class="system-cta-price">
       <div class="system-cta-price-amount">$97</div>
       <div class="system-cta-price-note">One payment. All three stages.</div>
       <div class="system-cta-price-day">About $1.54/day. One stage at a time.</div>
     </div>
     <p class="system-cta-copy"><strong>The full system.</strong>You already know pushing harder is not fixing it. It is just getting heavier. This is where you learn how to shift what you feel. One day at a time, 10 minutes to start.<span class="system-cta-compare">Less than a daily coffee. Far less than the daily cost of staying in this state.</span></p>
-    <span class="btn-primary">This is what I need</span>
-  </a>
+    <stripe-buy-button
+      buy-button-id="buy_btn_1TZMtSPMGEziGSIuzZ8bKMC0"
+      publishable-key="pk_live_51TSPMLPMGEziGSIuSuTrTuz0dAFmnNzh6wlaQgGng9BbS7NmlvU2AoXg4fgiPOfy11corL3QSZaG56R1vPjtmQFD00KzgNGRBe"
+    ></stripe-buy-button>
+  </div>
 </section>
 
 <section class="what-this-is-not" id="what-this-is-not">
@@ -1765,7 +1769,10 @@
       <div class="science-cta-title">If this is what you need, begin the full practice.</div>
       <p class="science-cta-text">You do not need more information. You need a structure you can actually return to. Start with the first 10-minute practice.</p>
     </div>
-    <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="btn-primary">Join the system</a>
+    <stripe-buy-button
+      buy-button-id="buy_btn_1TZMtSPMGEziGSIuzZ8bKMC0"
+      publishable-key="pk_live_51TSPMLPMGEziGSIuSuTrTuz0dAFmnNzh6wlaQgGng9BbS7NmlvU2AoXg4fgiPOfy11corL3QSZaG56R1vPjtmQFD00KzgNGRBe"
+    ></stripe-buy-button>
   </div>
 </section>
 
