@@ -15,53 +15,61 @@
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 // Replace STRIPE_PUBLISHABLE_KEY with your key from:
 //   Stripe Dashboard → Developers → API Keys → Publishable key (starts with pk_)
-const STRIPE_PUBLISHABLE_KEY = "YOUR_STRIPE_PUBLISHABLE_KEY";
+const STRIPE_PUBLISHABLE_KEY = "pk_live_51TSPMLPMGEziGSIuSuTrTuz0dAFmnNzh6wlaQgGng9BbS7NmlvU2AoXg4fgiPOfy11corL3QSZaG56R1vPjtmQFD00KzgNGRBe";
 
 // Map product slugs → Stripe Price IDs
-// Create prices in: Stripe Dashboard → Products → Add product
-// Each price ID starts with "price_"
 const PRODUCTS = {
-  // One-time purchases
+  // ── One-time: full system ──────────────────────────────────────────────────
   "inner-balance-system": {
-    priceId:     "price_REPLACE_WITH_INNER_BALANCE_SYSTEM_PRICE_ID",
+    priceId:     "price_1TZMXCPMGEziGSIualVsX2qW",
     name:        "The Inner Balance System",
-    description: "Three-stage emotional regulation programme — 21 days each stage",
+    description: "Three-stage emotional transformation system — 21 days each stage, 10 minutes a day",
     type:        "one_time",
   },
-  "practice-bundle": {
-    priceId:     "price_REPLACE_WITH_BUNDLE_PRICE_ID",
-    name:        "The Practice Bundle",
-    description: "All five 10-minute practice guides (PDF + audio)",
+
+  // ── Subscriptions: Library Maintenance ────────────────────────────────────
+  "inner-balance-maintenance-monthly": {
+    priceId:     "price_1TZMbPPMGEziGSIuQAodDFRh",
+    name:        "The Inner Balance Maintenance — Monthly",
+    description: "Ongoing access to the full Library of practices. $17 / month, cancel anytime.",
+    type:        "recurring",
+  },
+  "inner-balance-maintenance-annual": {
+    priceId:     "price_1TZMbPPMGEziGSIujYl8Hp9k",
+    name:        "The Inner Balance Maintenance — Annual",
+    description: "Ongoing access to the full Library of practices. $147 / year — save $57.",
+    type:        "recurring",
+  },
+
+  // ── One-time: individual practices (add price IDs as created in Stripe) ───
+  "self-assurance-practice": {
+    priceId:     "price_REPLACE_SELF_ASSURANCE",
+    name:        "The Self-Assurance Practice",
+    description: "Pressure → Self-assurance. 10-minute practice.",
     type:        "one_time",
   },
-  "self-doubt-guide": {
-    priceId:     "price_REPLACE_WITH_SELF_DOUBT_PRICE_ID",
-    name:        "Self-Doubt Practice Guide",
-    description: "10-minute somatic practice for self-doubt",
+  "self-trust-practice": {
+    priceId:     "price_REPLACE_SELF_TRUST",
+    name:        "The Self-Trust Practice",
+    description: "Self-doubt → Self-trust. 12-minute practice.",
     type:        "one_time",
   },
-  "overwhelm-guide": {
-    priceId:     "price_REPLACE_WITH_OVERWHELM_PRICE_ID",
-    name:        "Overwhelm Practice Guide",
-    description: "10-minute somatic practice for overwhelm",
+  "grounded-practice": {
+    priceId:     "price_REPLACE_GROUNDED",
+    name:        "The Grounded Practice",
+    description: "Overwhelm → Grounded. 9-minute practice.",
     type:        "one_time",
   },
-  "pressure-guide": {
-    priceId:     "price_REPLACE_WITH_PRESSURE_PRICE_ID",
-    name:        "Pressure Practice Guide",
-    description: "10-minute somatic practice for pressure",
+  "uncertainty-reset": {
+    priceId:     "price_REPLACE_UNCERTAINTY",
+    name:        "The Uncertainty Reset",
+    description: "Uncertainty → Clarity. Individual practice.",
     type:        "one_time",
   },
-  "guilt-guide": {
-    priceId:     "price_REPLACE_WITH_GUILT_PRICE_ID",
-    name:        "Guilt Practice Guide",
-    description: "10-minute somatic practice for guilt",
-    type:        "one_time",
-  },
-  "uncertainty-guide": {
-    priceId:     "price_REPLACE_WITH_UNCERTAINTY_PRICE_ID",
-    name:        "Uncertainty Practice Guide",
-    description: "10-minute somatic practice for uncertainty",
+  "guilt-practice": {
+    priceId:     "price_REPLACE_GUILT",
+    name:        "The Guilt Practice",
+    description: "Guilt → Grounded. Individual practice.",
     type:        "one_time",
   },
 };
