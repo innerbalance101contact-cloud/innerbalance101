@@ -179,6 +179,7 @@
 }
 </script>
 
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -2276,7 +2277,7 @@
       <div class="lib-sub-card">
         <div class="lib-sub-card-label">Monthly</div>
         <div class="lib-sub-price">
-          <span class="lib-sub-amount">$19</span>
+          <span class="lib-sub-amount">$17</span>
           <span class="lib-sub-per">/ month</span>
         </div>
         <div class="lib-sub-divider"></div>
@@ -2289,16 +2290,19 @@
           <li>Weekly WhatsApp prompts &mdash; one question, no selling</li>
           <li>Cancel anytime</li>
         </ul>
-        <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener noreferrer" class="lib-sub-cta lib-sub-cta--outline">Start Monthly &rarr;</a>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1TZN1sPMGEziGSIu8mCaKXp3"
+          publishable-key="pk_live_51TSPMLPMGEziGSIuSuTrTuz0dAFmnNzh6wlaQgGng9BbS7NmlvU2AoXg4fgiPOfy11corL3QSZaG56R1vPjtmQFD00KzgNGRBe"
+        ></stripe-buy-button>
       </div>
       <div class="lib-sub-card lib-sub-card--featured">
         <div class="lib-sub-best-value">Best Value</div>
         <div class="lib-sub-card-label">Annual</div>
         <div class="lib-sub-price">
-          <span class="lib-sub-amount">$189</span>
+          <span class="lib-sub-amount">$147</span>
           <span class="lib-sub-per">/ year</span>
         </div>
-        <p class="lib-sub-save">Two months free &mdash; save $39</p>
+        <p class="lib-sub-save">Save $57 &mdash; over three months free</p>
         <div class="lib-sub-divider"></div>
         <div class="lib-sub-features-label">Everything in monthly, plus</div>
         <ul class="lib-sub-features">
@@ -2310,10 +2314,13 @@
           <li>Priority access to new practices before public release</li>
           <li>Annual inner coherence review practice</li>
         </ul>
-        <a href="https://stan.store/innerbalance101" target="_blank" rel="noopener noreferrer" class="lib-sub-cta lib-sub-cta--filled">Start Annual &rarr;</a>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1TZN5ZPMGEziGSIu1o5j9uiz"
+          publishable-key="pk_live_51TSPMLPMGEziGSIuSuTrTuz0dAFmnNzh6wlaQgGng9BbS7NmlvU2AoXg4fgiPOfy11corL3QSZaG56R1vPjtmQFD00KzgNGRBe"
+        ></stripe-buy-button>
       </div>
     </div>
-    <p class="lib-subscription-note">Individual practices are also available without a subscription. Browse the full library at stan.store/innerbalance101</p>
+    <p class="lib-subscription-note">Individual practices are also available without a subscription.</p>
   </div>
 </section>
 
