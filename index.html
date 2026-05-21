@@ -99,7 +99,6 @@
 }
 </script>
 
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -302,6 +301,15 @@
     transition:background 0.3s,transform 0.2s; display:inline-block;
   }
   .btn-primary:hover { background:var(--clay-deep); transform:translateY(-1px); }
+  .btn-buy {
+    font-size:0.88rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+    color:#2C2420; background:#C4A882;
+    padding:20px 44px; text-decoration:none;
+    transition:background 0.3s,transform 0.2s,box-shadow 0.2s; display:inline-block;
+    box-shadow:0 2px 20px rgba(196,168,130,0.45);
+    border:none;
+  }
+  .btn-buy:hover { background:#A68B65; color:#2C2420; transform:translateY(-2px); box-shadow:0 5px 28px rgba(196,168,130,0.55); }
   .btn-ghost {
     font-size:0.8rem; font-weight:400; letter-spacing:0.06em;
     color:var(--soft); text-decoration:none;
@@ -745,7 +753,8 @@
     line-height:1.65;
     color:rgba(250,247,242,0.62);
   }
-  .system-cta .btn-primary {
+  .system-cta .btn-primary,
+  .system-cta .btn-buy {
     white-space:nowrap;
     margin:0;
   }
@@ -1236,7 +1245,7 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
   </button>
   <div class="nav-links" id="site-nav-links">
-    <a href="/library.html">Library</a>
+    <a href="/the-system.html">The System</a>
     <a href="/about.html">About</a>
     <a href="https://innerbalance101.com/blog/">Blog</a>
     <a href="/contact.html">Contact</a>
@@ -1523,7 +1532,7 @@
     </div>
   </div>
   <div style="text-align:center; padding:12px 0 28px;">
-    <a href="/the-system.html" class="btn-ghost">Read the full system breakdown before you decide &rarr;</a>
+    <a href="/the-system.html" class="btn-ghost" style="font-size:0.85rem; letter-spacing:0.09em; color:var(--clay-deep); border-bottom-color:var(--clay);">Want the full breakdown first? Read about The System &rarr;</a>
   </div>
   <div class="system-cta">
     <div class="system-cta-price">
@@ -1532,10 +1541,7 @@
       <div class="system-cta-price-day">About $1.54/day. One stage at a time.</div>
     </div>
     <p class="system-cta-copy"><strong>The full system.</strong>You already know pushing harder is not fixing it. It is just getting heavier. This is where you learn how to shift what you feel. One day at a time, 10 minutes to start.<span class="system-cta-compare">Less than a daily coffee. Far less than the daily cost of staying in this state.</span></p>
-    <stripe-buy-button
-      buy-button-id="buy_btn_1TZMtSPMGEziGSIuzZ8bKMC0"
-      publishable-key="pk_live_51TSPMLPMGEziGSIuSuTrTuz0dAFmnNzh6wlaQgGng9BbS7NmlvU2AoXg4fgiPOfy11corL3QSZaG56R1vPjtmQFD00KzgNGRBe"
-    ></stripe-buy-button>
+    <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" target="_blank" rel="noopener" style="display:inline-block; background:#C4A882; color:#2C2420; font-family:'Jost',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; padding:18px 40px; cursor:pointer; transition:background 0.25s, transform 0.2s; box-shadow:0 3px 20px rgba(196,168,130,0.5);" onmouseover="this.style.background='#A68B65';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#C4A882';this.style.transform='translateY(0)'">This is what I need →</a>
   </div>
 </section>
 
@@ -1769,10 +1775,10 @@
       <div class="science-cta-title">If this is what you need, begin the full practice.</div>
       <p class="science-cta-text">You do not need more information. You need a structure you can actually return to. Start with the first 10-minute practice.</p>
     </div>
-    <stripe-buy-button
-      buy-button-id="buy_btn_1TZMtSPMGEziGSIuzZ8bKMC0"
-      publishable-key="pk_live_51TSPMLPMGEziGSIuSuTrTuz0dAFmnNzh6wlaQgGng9BbS7NmlvU2AoXg4fgiPOfy11corL3QSZaG56R1vPjtmQFD00KzgNGRBe"
-    ></stripe-buy-button>
+    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:14px;">
+      <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" target="_blank" rel="noopener" style="display:inline-block; background:#C4A882; color:#2C2420; font-family:'Jost',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; padding:18px 40px; cursor:pointer; box-shadow:0 3px 20px rgba(196,168,130,0.5);" onmouseover="this.style.background='#A68B65'" onmouseout="this.style.background='#C4A882'">This is what I need →</a>
+      <a href="/the-system.html" class="btn-ghost" style="text-align:right;">Read the full system breakdown first →</a>
+    </div>
   </div>
 </section>
 
@@ -1835,7 +1841,7 @@
     </div>
     <div class="footer-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:20px;">
       <div class="footer-links">
-        <a href="/library.html" class="footer-link">Library</a>
+        <a href="/the-system.html" class="footer-link">The System</a>
         <a href="/about.html" class="footer-link">About</a>
         <a href="https://innerbalance101.com/blog/" class="footer-link">Blog</a>
         <a href="/contact.html" class="footer-link">Contact</a>
