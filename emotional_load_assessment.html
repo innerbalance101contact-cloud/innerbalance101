@@ -67,6 +67,19 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 .wyg-list li{font-size:0.9rem;font-weight:300;color:var(--mid);display:flex;align-items:flex-start;gap:12px;line-height:1.6}
 .wyg-list li::before{content:'→';color:var(--clay);font-size:0.85rem;margin-top:2px;flex-shrink:0}
 
+/* Intro visuals */
+.intro-visual-wrap{margin-bottom:44px}
+.phase-journey{width:100%;display:flex;align-items:flex-start;justify-content:center;gap:0;position:relative}
+.phase-journey::before{content:'';position:absolute;top:22px;left:15%;right:15%;height:1px;background:rgba(196,168,130,0.25);z-index:0}
+.phase-step{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;position:relative;z-index:1;max-width:160px}
+.phase-step-icon{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--clay-light);background:var(--warm-white);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.phase-step-icon svg{width:20px;height:20px}
+.phase-step-num{font-size:0.58rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:2px}
+.phase-step-label{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:400;color:var(--deep);text-align:center;line-height:1.3}
+.phase-step-sub{font-size:0.7rem;font-weight:300;color:var(--soft);text-align:center;line-height:1.55;max-width:120px}
+.phase-connector{width:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding-top:22px}
+.phase-connector svg{opacity:0.35}
+
 /* Buttons */
 .btn-primary{display:inline-block;background:var(--deep);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:18px 44px;cursor:pointer;border:none;transition:background 0.25s,transform 0.2s;text-decoration:none}
 .btn-primary:hover{background:var(--mid);transform:translateY(-1px)}
@@ -182,6 +195,34 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
 /* Emotion detail cards */
 .r-emotion-detail{margin-top:8px;font-size:0.85rem;font-weight:300;color:var(--soft);line-height:1.75;padding-left:106px}
+
+/* Rich emotion cards */
+.r-emotion-card{background:var(--warm-white);border:1px solid rgba(196,168,130,0.2);margin:0 0 14px;overflow:hidden}
+.r-emotion-card.flagged{border-left:3px solid var(--clay-deep)}
+.r-emotion-card.moderate{border-left:3px solid var(--clay)}
+.r-emotion-card-header{padding:20px 24px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;user-select:none}
+.r-emotion-card-header:hover .r-emotion-card-name{color:var(--clay-deep)}
+.r-emotion-card-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--deep);line-height:1.2}
+.r-emotion-card-meta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.r-emotion-card-score{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--mid)}
+.r-emotion-card-chevron{width:16px;height:16px;color:var(--soft);transition:transform 0.25s;flex-shrink:0}
+.r-emotion-card.open .r-emotion-card-chevron{transform:rotate(180deg)}
+.r-emotion-card-body{display:none;padding:0 24px 24px;border-top:1px solid rgba(196,168,130,0.12)}
+.r-emotion-card.open .r-emotion-card-body{display:block}
+.r-ec-row{padding:16px 0;border-bottom:1px solid rgba(196,168,130,0.1)}
+.r-ec-row:last-child{border-bottom:none;padding-bottom:0}
+.r-ec-label{font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:6px}
+.r-ec-text{font-size:0.88rem;font-weight:300;color:var(--mid);line-height:1.8}
+.r-missing-pill{display:inline-block;background:rgba(196,168,130,0.12);border:1px solid rgba(196,168,130,0.3);color:var(--clay-deep);font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;margin-top:8px}
+.r-body-signal-note{background:var(--linen);padding:10px 14px;font-size:0.8rem;font-weight:300;color:var(--soft);line-height:1.65;font-style:italic;margin-top:10px;border-left:2px solid var(--clay-light)}
+
+/* Awareness expanded */
+.r-awareness-scores{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:20px;background:rgba(196,168,130,0.12)}
+.r-as-cell{background:var(--warm-white);padding:20px 22px}
+.r-as-label{font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
+.r-as-value{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--deep);margin-bottom:3px}
+.r-as-sub{font-size:0.76rem;font-weight:300;color:var(--soft)}
+.r-awareness-body-note{font-size:0.88rem;font-weight:300;color:var(--mid);line-height:1.85;margin:16px 0;font-style:italic;border-left:2px solid var(--clay-light);padding-left:16px}
 
 /* Awareness section */
 .r-awareness-section{padding:32px 0;margin-top:8px}
@@ -313,6 +354,67 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
   <!-- SCREEN 0: INTRO -->
   <div class="screen active" id="s-intro">
     <div class="intro-eyebrow">The Emotional Load Assessment</div>
+
+    <!-- Step journey graphic -->
+    <div class="intro-visual-wrap">
+      <div class="phase-journey">
+
+        <div class="phase-step">
+          <div class="phase-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="12" cy="6" rx="4" ry="5" stroke="var(--clay)" stroke-width="1.3"/>
+              <path d="M8.5 10.5 C6 13 6 18 7 20.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M15.5 10.5 C18 13 18 18 17 20.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M8.5 10.5 C10 12 14 12 15.5 10.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M9 15.5 L15 15.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="phase-step-num">Step 1</div>
+          <div class="phase-step-label">Emotional Body</div>
+          <div class="phase-step-sub">Map where tension and sensation live in your body</div>
+        </div>
+
+        <div class="phase-connector">
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="phase-step">
+          <div class="phase-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="7.5" stroke="var(--clay)" stroke-width="1.3"/>
+              <circle cx="12" cy="12" r="3.5" stroke="var(--clay)" stroke-width="1.3"/>
+              <circle cx="12" cy="12" r="1" fill="var(--clay)"/>
+              <line x1="12" y1="4" x2="12" y2="2" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="12" y1="22" x2="12" y2="20" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="4" y1="12" x2="2" y2="12" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="22" y1="12" x2="20" y2="12" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="phase-step-num">Step 2</div>
+          <div class="phase-step-label">Awareness Audit</div>
+          <div class="phase-step-sub">Rate how connected you are to your inner experience</div>
+        </div>
+
+        <div class="phase-connector">
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="phase-step">
+          <div class="phase-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="14" width="4" height="6" rx="1" stroke="var(--clay)" stroke-width="1.3"/>
+              <rect x="10" y="10" width="4" height="10" rx="1" stroke="var(--clay)" stroke-width="1.3"/>
+              <rect x="16" y="6" width="4" height="14" rx="1" stroke="var(--clay)" stroke-width="1.3"/>
+            </svg>
+          </div>
+          <div class="phase-step-num">Step 3</div>
+          <div class="phase-step-label">Results &amp; Next Steps</div>
+          <div class="phase-step-sub">See what you're carrying and where to start</div>
+        </div>
+
+      </div>
+    </div>
+
     <h1 class="intro-headline">Before you can regulate,<br>you need to know<br><em>what you're carrying.</em></h1>
     <p class="intro-body">You can probably name your goals, your KPIs, your next move. What's harder to name, with any real precision, is what's actually happening inside you while you do it all.</p>
     <p class="intro-body">This one works differently. It doesn't start with a questionnaire. It starts with your body. Then it looks at how connected you are to your inner experience. Then it maps your emotional load.</p>
@@ -353,7 +455,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
   <!-- SCREEN 1: BODY CHECK-IN -->
   <div class="screen" id="s-body">
-    <div class="phase-tag"><span class="phase-dot"></span>Phase 1 of 3: Body Check-In</div>
+    <div class="phase-tag"><span class="phase-dot"></span>Step 1 of 3: Emotional Body</div>
     <h2 class="screen-headline">Right now, where do you feel tension <em>in your body?</em></h2>
     <p class="screen-sub">Before you answer anything with your mind, pause for a moment. Take a breath. Then notice: not what you're thinking, but what you're actually feeling in your body. There's no right answer here. Even not knowing is data.</p>
 
@@ -414,7 +516,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
   <!-- SCREEN 2: AWARENESS AUDIT -->
   <div class="screen" id="s-awareness">
-    <div class="phase-tag"><span class="phase-dot"></span>Phase 2 of 3: Awareness Audit</div>
+    <div class="phase-tag"><span class="phase-dot"></span>Step 2 of 3: Awareness Audit</div>
     <h2 class="screen-headline">How connected are you to your <em>inner experience?</em></h2>
     <p class="screen-sub">For each statement, rate yourself honestly. 1 means it rarely applies. 5 means it almost always does. There's no score to aim for, just the truth of where you actually are right now.</p>
 
@@ -461,7 +563,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
   <!-- SCREEN 3: LOAD QUESTIONS -->
   <div class="screen" id="s-load">
-    <div class="phase-tag"><span class="phase-dot"></span>Phase 3 of 3: Emotional Load</div>
+    <div class="phase-tag"><span class="phase-dot"></span>Step 3 of 3: Emotional Load</div>
     <h2 class="screen-headline">How much are you <em>actually carrying?</em></h2>
     <p class="screen-sub">Rate each one honestly — not how you want to feel, but how you actually feel, most days.</p>
 
@@ -542,9 +644,9 @@ const state = {
 const SCREENS = ['s-intro','s-email','s-body','s-awareness','s-load','s-results'];
 const PROG = {
   's-intro':    {pct:0,   label:'Introduction'},
-  's-body':     {pct:20,  label:'Phase 1: Body Check-In'},
-  's-awareness':{pct:50,  label:'Phase 2: Awareness Audit'},
-  's-load':     {pct:78,  label:'Phase 3: Emotional Load'},
+  's-body':     {pct:20,  label:'Step 1: Emotional Body'},
+  's-awareness':{pct:50,  label:'Step 2: Awareness Audit'},
+  's-load':     {pct:78,  label:'Step 3: Emotional Load'},
   's-email':    {pct:90,  label:'Almost there'},
   's-results':  {pct:100, label:'Your Results'}
 };
@@ -704,11 +806,81 @@ var GUIDES = {
 };
 
 var EMOTION_COPY = {
-  overwhelm:   { label:'Overwhelm',   flagged:'Depletion and an inability to fully switch off are showing up consistently. Your nervous system is running on a threat response that hasn\'t stopped.',   moderate:'Signs of depletion and difficulty switching off. Present but not yet the dominant pattern.', low:'Not a primary load right now.' },
-  pressure:    { label:'Pressure',    flagged:'An unexplained background hum and the weight of needing to get things right are both showing up. The pressure is internal, not just external.',               moderate:'The background hum is there, even if it\'s not yet overwhelming.',                          low:'Not a primary load right now.' },
-  guilt:       { label:'Guilt',       flagged:'Responsibility for others\' feelings and a persistent sense of not having done enough. This is active weight, not background noise.',                          moderate:'Some sense of responsibility or not-enoughness. Present but not running the show.',         low:'Not a primary load right now.' },
-  selfDoubt:   { label:'Self-Doubt',  flagged:'Replaying past decisions and holding back from future ones. The internal questioning is loud enough to shape your behaviour.',                                  moderate:'Some hesitation and second-guessing. Present but not the dominant pattern.',                low:'Not a primary load right now.' },
-  uncertainty: { label:'Uncertainty', flagged:'Open loops and unknown outcomes are taking up significant mental space. The need for resolution is creating constant low-level activation.',                   moderate:'Open loops create noise. Manageable, but taking more space than it should.',               low:'Not a primary load right now.' }
+  overwhelm: {
+    label: 'Overwhelm',
+    missing: 'Groundedness',
+    flagged: {
+      summary: 'Depletion and an inability to fully switch off are showing up consistently. Your nervous system is running on a threat response that hasn\'t stopped.',
+      inBody: 'In the body, overwhelm lives as tightness in the chest, shallow breathing, heaviness across the shoulders, and a low-level bracing — like you\'re waiting for the next thing before the current thing is done.',
+      thoughtPattern: 'The thought underneath this is often some version of "I can\'t stop." Not because you\'re lazy or uncommitted — but because stopping feels more dangerous than keeping going. The mind reads rest as risk.',
+      costs: 'What this costs you: decision-making becomes reactive, patience thins, and your capacity for the people and things that actually matter shrinks — not because you care less, but because there is simply nothing left.',
+      missingDesc: 'What\'s not available right now: a felt sense of groundedness — the quiet knowing that you can stop, breathe, and still be okay. That it won\'t fall apart if you pause.'
+    },
+    moderate: {
+      summary: 'Signs of depletion and difficulty switching off are present, but not yet the dominant pattern. Worth watching — moderate often becomes flagged gradually.'
+    },
+    low: { summary: 'Not a primary load right now.' }
+  },
+  pressure: {
+    label: 'Pressure',
+    missing: 'Self-Assurance',
+    flagged: {
+      summary: 'An unexplained background hum and the weight of needing to get things right are both showing up. The pressure is internal, not just external.',
+      inBody: 'Pressure shows up in the body as jaw clenching, a tight throat, tension across the upper back, and a kind of held-in breath — like you\'re always in a mild state of bracing for evaluation.',
+      thoughtPattern: 'The thought driving this is: "Something important is at stake." Even when the moment doesn\'t call for it. High-achievers often carry pressure as a default setting — not because of what\'s happening, but because it has become the only register they know how to perform in.',
+      costs: 'What this costs you: the ability to do things without proving something. The pressure turns presence into performance. It replaces enjoyment with assessment, and good enough with never quite.',
+      missingDesc: 'What\'s not available right now: self-assurance — an internal sense of sufficiency that doesn\'t depend on output, outcome, or how someone else receives you.'
+    },
+    moderate: {
+      summary: 'The background hum is present, even if it\'s not yet overwhelming. You\'re managing it — but managing it is still costing you something.'
+    },
+    low: { summary: 'Not a primary load right now.' }
+  },
+  guilt: {
+    label: 'Guilt',
+    missing: 'Ease',
+    flagged: {
+      summary: 'Responsibility for others\' feelings and a persistent sense of not having done enough are both showing up. This is active weight, not background noise.',
+      inBody: 'Guilt sits in the gut — a low, heavy sensation that doesn\'t announce itself loudly but never fully leaves. It can also show up as a tightness behind the sternum, a kind of low-grade grief or obligation that colours even neutral moments.',
+      thoughtPattern: 'The thought underneath guilt is often: "I should have done more." Or: "I\'m responsible for how this went." Even when you weren\'t. Even when it wasn\'t yours to carry. The pattern is quiet but constant — monitoring, reviewing, re-adjusting.',
+      costs: 'What this costs you: genuine rest. Because guilt won\'t let you stop monitoring. It turns your off-time into obligation time, and turns kindness toward yourself into something that first has to be earned.',
+      missingDesc: 'What\'s not available right now: ease — the felt sense that you\'ve done enough, that you don\'t owe anyone the version of you that\'s always giving more.'
+    },
+    moderate: {
+      summary: 'Some sense of responsibility or not-enoughness is present. It\'s not running the show yet — but it\'s creating drag.'
+    },
+    low: { summary: 'Not a primary load right now.' }
+  },
+  selfDoubt: {
+    label: 'Self-Doubt',
+    missing: 'Self-Trust',
+    flagged: {
+      summary: 'Replaying past decisions and holding back from future ones. The internal questioning is loud enough to shape your behaviour.',
+      inBody: 'Self-doubt shows up in the body as hesitation — a catch in the breath before you speak, tension in the hands, a shrinking in posture. Physically, it can feel like a quiet pulling-back even when nothing outwardly says you should.',
+      thoughtPattern: 'The thought driving this is: "I\'m not sure I\'m good enough for this." Not loudly — it often surfaces as over-preparation, perfectionism, or waiting until you feel "ready." But the readiness never quite arrives, because the doubt is doing the evaluating.',
+      costs: 'What this costs you: momentum. Self-doubt turns options into obstacles, and slows down decisions that your gut already knows the answer to. It makes you louder inside and quieter outside.',
+      missingDesc: 'What\'s not available right now: self-trust — the quiet inner signal that you can handle what comes, even before you know exactly how. The knowing beneath the noise.'
+    },
+    moderate: {
+      summary: 'Some hesitation and second-guessing is present. You\'re functioning — but there\'s an internal tax being charged on most of your decisions.'
+    },
+    low: { summary: 'Not a primary load right now.' }
+  },
+  uncertainty: {
+    label: 'Uncertainty',
+    missing: 'Grounded Presence',
+    flagged: {
+      summary: 'Open loops and unknown outcomes are taking up significant mental space. The need for resolution is creating constant low-level activation.',
+      inBody: 'Uncertainty lives in the mind first, but the body carries it as restlessness — difficulty settling, a scanning quality of attention, tension behind the eyes. It can feel like you\'re always slightly on alert for information that hasn\'t arrived yet.',
+      thoughtPattern: 'The thought underneath this is: "I need to know how this ends." The mind treats unresolved outcomes as open threats. So it keeps running simulations — planning, predicting, preparing — as a substitute for the resolution it can\'t yet have.',
+      costs: 'What this costs you: presence. When the mind is running futures, you\'re not here. Not in conversations, not in decisions, not in your own body. Uncertainty doesn\'t just create anxiety — it removes you from the moment you\'re actually in.',
+      missingDesc: 'What\'s not available right now: grounded presence — the ability to stay stable inside the not-knowing, without needing resolution in order to feel okay.'
+    },
+    moderate: {
+      summary: 'Open loops are creating noise. You\'re managing the uncertainty — but it\'s taking more mental bandwidth than it should.'
+    },
+    low: { summary: 'Not a primary load right now.' }
+  }
 };
 
 /* Map chip labels to readable body signal descriptions */
@@ -778,6 +950,105 @@ function calcResults(){
   go('s-results');
 }
 
+function buildEmotionCards(emotions, bodySignals){
+  var emotionKeys = ['overwhelm','pressure','guilt','selfDoubt','uncertainty'];
+  var sorted = emotionKeys.slice().sort(function(a,b){return emotions[b]-emotions[a]});
+
+  // Body signal → emotion affinity map (which body signals hint at which emotion)
+  var BODY_EMOTION_MAP = {
+    jaw:      ['pressure','selfDoubt'],
+    chest:    ['overwhelm','pressure'],
+    shoulders:['overwhelm','guilt'],
+    gut:      ['guilt','uncertainty'],
+    breath:   ['overwhelm','pressure'],
+    throat:   ['selfDoubt','pressure'],
+    legs:     ['uncertainty','overwhelm'],
+    hands:    ['pressure','selfDoubt'],
+    head:     ['uncertainty','overwhelm'],
+    numb:     ['overwhelm','selfDoubt']
+  };
+
+  function getBodyHintForEmotion(ek, bodySignals){
+    var matched = [];
+    bodySignals.forEach(function(s){
+      if(BODY_EMOTION_MAP[s] && BODY_EMOTION_MAP[s].indexOf(ek) !== -1) matched.push(CHIP_LABELS[s]);
+    });
+    return matched;
+  }
+
+  var html = '';
+  sorted.forEach(function(ek, idx){
+    var score = emotions[ek];
+    var level = emotionLevel(score);
+    var copy = EMOTION_COPY[ek];
+    var pct = Math.round((score / 10) * 100);
+
+    // Score bar
+    var barHtml = '<div class="r-emotion-bar-wrap" style="height:6px;background:rgba(196,168,130,0.12);border-radius:99px;overflow:hidden;width:64px;display:inline-block;vertical-align:middle;margin-right:8px"><div class="r-emotion-bar '+level+'" style="width:'+pct+'%;height:100%;border-radius:99px;background:'+(level==='flagged'?'var(--clay-deep)':(level==='moderate'?'var(--clay)':'var(--clay-light)'))+';transition:width 0.8s"></div></div>';
+
+    if(level === 'flagged'){
+      var bodyHints = getBodyHintForEmotion(ek, bodySignals);
+      var bodyNoteHtml = '';
+      if(bodyHints.length > 0){
+        bodyNoteHtml = '<div class="r-body-signal-note">Your body check-in noted '+bodyHints.join(' and ')+' — this is consistent with where '+copy.label.toLowerCase()+' tends to land in the body.</div>';
+      }
+      html +=
+        '<div class="r-emotion-card flagged'+(idx===0?' open':'')+'" id="ec-'+ek+'">'+
+          '<div class="r-emotion-card-header" onclick="toggleCard(\'ec-'+ek+'\')">'+
+            '<div>'+
+              '<div class="r-emotion-card-name">'+copy.label+'</div>'+
+            '</div>'+
+            '<div class="r-emotion-card-meta">'+
+              barHtml+
+              '<span class="r-emotion-tag flagged">High</span>'+
+              '<svg class="r-emotion-card-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4"/></svg>'+
+            '</div>'+
+          '</div>'+
+          '<div class="r-emotion-card-body">'+
+            '<div class="r-ec-row"><div class="r-ec-label">What you\'re feeling</div><div class="r-ec-text">'+copy.flagged.summary+'</div></div>'+
+            '<div class="r-ec-row"><div class="r-ec-label">Where it lives in the body</div><div class="r-ec-text">'+copy.flagged.inBody+'</div>'+bodyNoteHtml+'</div>'+
+            '<div class="r-ec-row"><div class="r-ec-label">The thought pattern driving it</div><div class="r-ec-text">'+copy.flagged.thoughtPattern+'</div></div>'+
+            '<div class="r-ec-row"><div class="r-ec-label">What it\'s costing you</div><div class="r-ec-text">'+copy.flagged.costs+'</div></div>'+
+            '<div class="r-ec-row"><div class="r-ec-label">What\'s missing</div><div class="r-ec-text">'+copy.flagged.missingDesc+'</div><div class="r-missing-pill">↑ '+copy.missing+'</div></div>'+
+          '</div>'+
+        '</div>';
+    } else if(level === 'moderate'){
+      html +=
+        '<div class="r-emotion-card moderate" id="ec-'+ek+'">'+
+          '<div class="r-emotion-card-header" onclick="toggleCard(\'ec-'+ek+'\')">'+
+            '<div>'+
+              '<div class="r-emotion-card-name">'+copy.label+'</div>'+
+            '</div>'+
+            '<div class="r-emotion-card-meta">'+
+              barHtml+
+              '<span class="r-emotion-tag moderate">Present</span>'+
+              '<svg class="r-emotion-card-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4"/></svg>'+
+            '</div>'+
+          '</div>'+
+          '<div class="r-emotion-card-body">'+
+            '<div class="r-ec-row"><div class="r-ec-label">What you\'re feeling</div><div class="r-ec-text">'+copy.moderate.summary+'</div></div>'+
+            '<div class="r-ec-row"><div class="r-ec-label">What\'s missing</div><div class="r-ec-text" style="font-style:italic;color:var(--soft)">'+copy.missing+' — not yet fully available, but the capacity is closer than it feels.</div><div class="r-missing-pill">↑ '+copy.missing+'</div></div>'+
+          '</div>'+
+        '</div>';
+    } else {
+      html +=
+        '<div class="r-emotion-card" style="opacity:0.6" id="ec-'+ek+'">'+
+          '<div class="r-emotion-card-header">'+
+            '<div><div class="r-emotion-card-name" style="color:var(--soft)">'+copy.label+'</div></div>'+
+            '<div class="r-emotion-card-meta">'+barHtml+'<span style="font-size:0.72rem;font-weight:300;color:var(--soft)">Low</span></div>'+
+          '</div>'+
+        '</div>';
+    }
+  });
+  return html;
+}
+
+function toggleCard(id){
+  var card = document.getElementById(id);
+  if(!card) return;
+  card.classList.toggle('open');
+}
+
 function renderResults(aRaw, emotions, loadTotal, hasBody){
   var tier = awarenessLabel(aRaw);
   var loadLabel = loadTotalLabel(loadTotal);
@@ -819,15 +1090,64 @@ function renderResults(aRaw, emotions, loadTotal, hasBody){
       '<div class="r-hero-inbox">Your full results have been sent to <strong>'+(state.gateEmail||'your inbox')+'</strong></div>'+
     '</div>';
 
-  // ── SCORES ──
-  document.getElementById('rDashboard').innerHTML =
-    '<div class="r-dashboard">'+
-      '<div class="r-dash-card"><div class="r-dash-label">Total Load</div><div class="r-dash-value">'+loadTotal+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/50</span></div><div class="r-dash-sub">'+loadLabel+'</div></div>'+
-      '<div class="r-dash-card"><div class="r-dash-label">Self-Awareness</div><div class="r-dash-value">'+aRaw+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/30</span></div><div class="r-dash-sub">'+tier+'</div></div>'+
+  // Scores are now rendered inside the awareness section — clear dashboard placeholder
+  document.getElementById('rDashboard').innerHTML = '';
+
+  // ── EMOTIONAL LOAD BREAKDOWN ──
+  var emotionCardsHtml = buildEmotionCards(emotions, bodySignals);
+  var emotionKeys2 = ['overwhelm','pressure','guilt','selfDoubt','uncertainty'];
+  var flaggedCount = emotionKeys2.filter(function(k){return emotionLevel(emotions[k])==='flagged'}).length;
+  var moderateCount = emotionKeys2.filter(function(k){return emotionLevel(emotions[k])==='moderate'}).length;
+
+  var loadIntroLine = '';
+  if(flaggedCount >= 3){
+    loadIntroLine = 'Multiple areas are running at high load. This is not a single pattern — it is a system under pressure.';
+  } else if(flaggedCount === 2){
+    loadIntroLine = 'Two areas are running at high load. They are likely feeding each other.';
+  } else if(flaggedCount === 1){
+    loadIntroLine = 'One area is carrying most of the load. The others are present, but this is the pattern to work with first.';
+  } else if(moderateCount >= 2){
+    loadIntroLine = 'Nothing is at high load right now, but several patterns are present. That kind of distributed weight adds up.';
+  } else {
+    loadIntroLine = 'Your load is relatively contained right now. Worth knowing what you\'re doing to keep it that way.';
+  }
+
+  document.getElementById('rLoadBars').innerHTML =
+    '<div class="r-load-section">'+
+      '<div class="r-section-title">Your Emotional Load Breakdown</div>'+
+      '<p style="font-size:0.88rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px">'+loadIntroLine+' Select any emotion below to see what it feels like, what\'s driving it, and what\'s missing.</p>'+
+      emotionCardsHtml+
     '</div>';
 
-  document.getElementById('rLoadBars').innerHTML = '';
-  document.getElementById('rAwareness').innerHTML = '';
+  // ── AWARENESS SECTION ──
+  var awarenessData = AWARENESS_TIERS[tier];
+  var bodyAwarenessNote = '';
+  if(bodySignals.length >= 3){
+    bodyAwarenessNote = 'You came in with clear body awareness — noting '+bodySignals.slice(0,3).join(', ')+'. That\'s already significant. Many people can\'t access this signal at all.';
+  } else if(bodySignals.length > 0){
+    bodyAwarenessNote = 'You noted '+bodySignals.join(' and ')+' in your body check-in. That kind of signal is the beginning of the connection you\'re building.';
+  } else if(hasBody){
+    bodyAwarenessNote = 'Your body check-in picked something up, even if it was hard to name precisely. The signal is there. Naming it more clearly is part of what this work builds.';
+  } else {
+    bodyAwarenessNote = 'Your body check-in didn\'t surface a clear signal. That\'s not unusual — for many high-achievers, the connection to physical cues has been overridden for so long it takes practice to rebuild.';
+  }
+
+  document.getElementById('rAwareness').innerHTML =
+    '<div class="r-awareness-section">'+
+      '<div class="r-section-title">Your Awareness Pattern</div>'+
+      '<div class="r-awareness-scores">'+
+        '<div class="r-as-cell"><div class="r-as-label">Emotional Load</div><div class="r-as-value">'+loadTotal+'<span style="font-size:0.85rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/50</span></div><div class="r-as-sub">'+loadLabel+'</div></div>'+
+        '<div class="r-as-cell"><div class="r-as-label">Self-Awareness</div><div class="r-as-value">'+aRaw+'<span style="font-size:0.85rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/30</span></div><div class="r-as-sub">'+tier+'</div></div>'+
+      '</div>'+
+      '<div class="r-awareness-card">'+
+        '<div class="r-awareness-tier">'+tier+'</div>'+
+        '<div class="r-awareness-desc">'+awarenessData.desc+'</div>'+
+        (bodyAwarenessNote ? '<div class="r-awareness-body-note">'+bodyAwarenessNote+'</div>' : '')+
+        '<ul class="r-awareness-tips">'+
+          awarenessData.tips.map(function(t){return '<li>'+t+'</li>'}).join('')+
+        '</ul>'+
+      '</div>'+
+    '</div>';
 
   // ── PROFILE RESULT + GAP + SYSTEM BRIDGE ──
   var isHighLoad = loadTotal >= 17;
