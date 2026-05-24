@@ -823,24 +823,18 @@ var CHIP_LABELS = {
   numb:'numbness', nothing:'nothing specific', unsure:'uncertainty'
 };
 
-var KIT_FORM_ID = '9180408';
-
 function sendToKit(payload) {
   try {
-    var params = new URLSearchParams();
-    params.append('email_address', payload.email);
-    if (payload.first_name) params.append('first_name', payload.first_name);
-
-    Object.keys(payload.fields || {}).forEach(function(key){
-      params.append('fields[' + key + ']', payload.fields[key]);
-    });
-
-    fetch('https://app.convertkit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
+    fetch('/kit-assessment-subscribe', {
       method: 'POST',
-      body: params,
-      mode: 'no-cors'
-    }).catch(function(){});
-  } catch(e){}
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(error){
+      console.error('Kit assessment submit failed:', error);
+    });
+  } catch(e){
+    console.error('Kit assessment submit failed:', e);
+  }
 }
 
 /* ═══════════════════════════════════════
@@ -959,8 +953,8 @@ function renderResults(aRaw, dims, discScore, hasBody){
     email:      state.gateEmail || '',
     first_name: state.gateName  || '',
     fields: {
-      profile:                profileCode,
-      disconnection_score:    discScore,
+      Profile:                profileCode,
+      load_score:             discScore,
       awareness_score:        aRaw,
       disconnection_level:    discLabelText,
       awareness_tier:         tier,
