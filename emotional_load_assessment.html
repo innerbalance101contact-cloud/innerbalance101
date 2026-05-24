@@ -825,31 +825,22 @@ var CHIP_LABELS = {
 
 var KIT_FORM_ID = '9180408';
 
-function sendToKit(email, name) {
+function sendToKit(payload) {
   try {
     var params = new URLSearchParams();
-    params.append('email_address', email);
-    if (name) params.append('first_name', name);
+    params.append('email_address', payload.email);
+    if (payload.first_name) params.append('first_name', payload.first_name);
+
+    Object.keys(payload.fields || {}).forEach(function(key){
+      params.append('fields[' + key + ']', payload.fields[key]);
+    });
+
     fetch('https://app.convertkit.com/forms/' + KIT_FORM_ID + '/subscriptions', {
       method: 'POST',
       body: params,
       mode: 'no-cors'
     }).catch(function(){});
   } catch(e){}
-}
-
-var MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/j5luxcv9f1i14vvw4thbvek3eho7hd4m';
-
-function sendToMake(payload) {
-  try {
-    fetch(MAKE_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(r){ console.log('Make webhook sent', r.status); })
-    .catch(function(e){ console.error('Make webhook error:', e); });
-  } catch(e){ console.error('Make webhook failed:', e); }
 }
 
 /* ═══════════════════════════════════════
@@ -964,18 +955,21 @@ function renderResults(aRaw, dims, discScore, hasBody){
   var dimKeys = ['presence','recognition','authority','authenticity','recovery'];
   var topDim = dimKeys.slice().sort(function(a,b){ return dims[b]-dims[a]; })[0];
 
-  sendToMake({
-    email:                state.gateEmail || '',
-    first_name:           state.gateName  || '',
-    profile:              profileCode,
-    disconnection_score:  discScore,
-    awareness_score:      aRaw,
-    disconnection_level:  discLabelText,
-    awareness_tier:       tier,
-    disconnection_profile: profile.title,
-    top_dimension:        DIM_COPY[topDim].label,
-    body_signals:         bodySignals.join(', '),
-    source:               'emotional_load_assessment'
+  sendToKit({
+    email:      state.gateEmail || '',
+    first_name: state.gateName  || '',
+    fields: {
+      profile:                profileCode,
+      disconnection_score:    discScore,
+      awareness_score:        aRaw,
+      disconnection_level:    discLabelText,
+      awareness_tier:         tier,
+      disconnection_profile:  profile.title,
+      top_dimension:          DIM_COPY[topDim].label,
+      body_signals:           bodySignals.join(', '),
+      source:                 'emotional_load_assessment',
+      assessment_completed:   'yes'
+    }
   });
 
   // ── HERO ──
@@ -1189,7 +1183,6 @@ function submitGateEmail(){
   state.gateName = name;
   state.gateEmail = email;
   gateSubmitted = true;
-  sendToKit(email, name);
   calcResults();
 }
 </script>
