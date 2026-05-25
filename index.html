@@ -1330,26 +1330,119 @@
             <div class="hero-graph-title">Three stages to an unshakable inner world</div>
           </div>
         </div>
-        <svg viewBox="0 0 520 290" aria-labelledby="graph-title graph-desc" role="img">
+        <svg id="hero-graph-svg" viewBox="0 0 520 300" aria-labelledby="graph-title graph-desc" role="img">
           <title id="graph-title">Inner Balance 101 system graph</title>
-          <desc id="graph-desc">A graph showing SOS beginning high and volatile, then lowering by the end of the stage, followed by steadier Clarity and resilient Inner Balance.</desc>
+          <desc id="graph-desc">A graph showing emotional load high and volatile in the SOS stage, steadying through Clarity, and settling into regulated Inner Balance.</desc>
           <line x1="44" y1="26" x2="44" y2="236" stroke="rgba(44,36,32,0.2)" stroke-width="1"/>
           <line x1="44" y1="236" x2="488" y2="236" stroke="rgba(44,36,32,0.2)" stroke-width="1"/>
-          <line x1="180" y1="34" x2="180" y2="236" stroke="rgba(79,104,97,0.4)" stroke-width="1" stroke-dasharray="4 6"/>
-          <line x1="330" y1="34" x2="330" y2="236" stroke="rgba(79,104,97,0.4)" stroke-width="1" stroke-dasharray="4 6"/>
+          <line id="hg-div1" x1="180" y1="34" x2="180" y2="236" stroke="rgba(79,104,97,0.4)" stroke-width="1" stroke-dasharray="4 6" opacity="0"/>
+          <line id="hg-div2" x1="330" y1="34" x2="330" y2="236" stroke="rgba(79,104,97,0.4)" stroke-width="1" stroke-dasharray="4 6" opacity="0"/>
           <text x="22" y="144" class="hero-graph-axis" transform="rotate(-90 22 144)">Emotional load</text>
-          <text x="94" y="256" class="hero-graph-axis">SOS</text>
-          <text x="220" y="256" class="hero-graph-axis">Clarity</text>
-          <text x="390" y="256" class="hero-graph-axis">Inner Balance</text>
-          <text x="390" y="278" class="hero-graph-axis">Day 1 &rarr; Day 63</text>
-          <path d="M52 34 C60 4, 74 138, 90 56 S116 146, 134 72 S152 132, 168 90 S178 110, 186 102" fill="none" stroke="#B67C7C" stroke-width="4" stroke-linecap="round"/>
-          <path d="M186 102 C204 88, 220 132, 238 110 S264 136, 282 116 S306 132, 330 118" fill="none" stroke="#C4A882" stroke-width="4" stroke-linecap="round"/>
-          <path d="M330 118 C348 106, 364 124, 382 112 S408 126, 430 114 S454 122, 480 110" fill="none" stroke="#2C2420" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="52" cy="34" r="4" fill="#B67C7C"/>
-          <circle cx="186" cy="102" r="4" fill="#C4A882"/>
-          <circle cx="330" cy="118" r="4" fill="#C4A882"/>
-          <circle cx="480" cy="110" r="4" fill="#2C2420"/>
+          <text x="94" y="254" class="hero-graph-axis">Reactive<tspan x="94" dy="13" style="text-transform:none;letter-spacing:0.06em;opacity:0.65">(SOS)</tspan></text>
+          <text x="200" y="254" class="hero-graph-axis">Transitional<tspan x="200" dy="13" style="text-transform:none;letter-spacing:0.06em;opacity:0.65">(Clarity)</tspan></text>
+          <text x="348" y="254" class="hero-graph-axis">Inner Balance<tspan x="348" dy="13" style="text-transform:none;letter-spacing:0.06em;opacity:0.65">(Regulated)</tspan></text>
+          <path id="hg-p1" d="M52 34 C60 4, 74 138, 90 56 S116 146, 134 72 S152 132, 168 90 S178 110, 186 102" fill="none" stroke="#B67C7C" stroke-width="4" stroke-linecap="round"/>
+          <path id="hg-p2" d="M186 102 C204 88, 220 132, 238 110 S264 136, 282 116 S306 132, 330 118" fill="none" stroke="#C4A882" stroke-width="4" stroke-linecap="round"/>
+          <path id="hg-p3" d="M330 118 C348 106, 364 124, 382 112 S408 126, 430 114 S454 122, 480 110" fill="none" stroke="#2C2420" stroke-width="4" stroke-linecap="round"/>
+          <circle id="hg-dot0" cx="52" cy="34" r="4" fill="#B67C7C" opacity="0"/>
+          <circle id="hg-dot1" cx="186" cy="102" r="4" fill="#C4A882" opacity="0"/>
+          <circle id="hg-dot2" cx="330" cy="118" r="4" fill="#C4A882" opacity="0"/>
+          <circle id="hg-dot3" cx="480" cy="110" r="4" fill="#2C2420" opacity="0"/>
         </svg>
+        <script>
+        (function(){
+          var svg = document.getElementById('hero-graph-svg');
+          if (!svg) return;
+
+          var isInView = false;
+          var animEpoch = 0;
+
+          function resetAnim() {
+            ['hg-p1','hg-p2','hg-p3'].forEach(function(id){
+              var el = document.getElementById(id);
+              el.style.transition = 'none';
+              var len = el.getTotalLength();
+              el.style.strokeDasharray = len;
+              el.style.strokeDashoffset = len;
+              void el.getBoundingClientRect(); // force reflow
+            });
+            ['hg-dot0','hg-dot1','hg-dot2','hg-dot3','hg-div1','hg-div2'].forEach(function(id){
+              var el = document.getElementById(id);
+              el.style.transition = 'none';
+              el.style.opacity = 0;
+            });
+          }
+
+          function runAnim(epoch) {
+            if (!isInView || epoch !== animEpoch) return;
+            var segs = [
+              {id:'hg-p1', delay:0,    dur:1.6},
+              {id:'hg-p2', delay:1650, dur:1.2},
+              {id:'hg-p3', delay:2950, dur:1.2}
+            ];
+            function fadeEl(id, delay, val) {
+              setTimeout(function(){
+                if (epoch !== animEpoch) return;
+                var el = document.getElementById(id);
+                el.style.transition = 'opacity 0.35s ease';
+                el.style.opacity = val !== undefined ? val : 1;
+              }, delay);
+            }
+            fadeEl('hg-dot0', 80);
+            segs.forEach(function(s){
+              setTimeout(function(){
+                if (epoch !== animEpoch) return;
+                var el = document.getElementById(s.id);
+                el.style.transition = 'stroke-dashoffset '+s.dur+'s cubic-bezier(0.4,0,0.2,1)';
+                el.style.strokeDashoffset = 0;
+              }, s.delay + 80);
+            });
+            fadeEl('hg-div1', 1550);
+            fadeEl('hg-dot1', 1650);
+            fadeEl('hg-div2', 2850);
+            fadeEl('hg-dot2', 2950);
+            fadeEl('hg-dot3', 4050);
+            // Loop: after animation + pause, restart if still in view
+            setTimeout(function(){
+              if (epoch !== animEpoch || !isInView) return;
+              resetAnim();
+              setTimeout(function(){
+                if (epoch !== animEpoch || !isInView) return;
+                runAnim(epoch);
+              }, 200);
+            }, 5500);
+          }
+
+          function startLoop() {
+            animEpoch++;
+            var ep = animEpoch;
+            resetAnim();
+            setTimeout(function(){ runAnim(ep); }, 200);
+          }
+
+          function stopLoop() {
+            animEpoch++; // invalidates all pending callbacks
+          }
+
+          if ('IntersectionObserver' in window) {
+            var obs = new IntersectionObserver(function(entries){
+              entries.forEach(function(e){
+                if (e.isIntersecting && !isInView) {
+                  isInView = true;
+                  startLoop();
+                } else if (!e.isIntersecting && isInView) {
+                  isInView = false;
+                  stopLoop();
+                }
+              });
+            }, {threshold: 0.35});
+            obs.observe(svg);
+          } else {
+            isInView = true;
+            startLoop();
+          }
+        })();
+        </script>
         <div class="hero-graph-note">You arrive overwhelmed, anxious and out of control. You finish empowered, grounded, and knowing that life is enjoyable.</div>
       </div>
     </div>
