@@ -733,12 +733,12 @@
   .signup-block {
     margin-top: 48px;
     background: var(--espresso);
-    padding: 48px 52px;
+    padding: 28px 40px;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: 32px;
     flex-wrap: wrap;
   }
   .signup-block::before {
@@ -758,7 +758,7 @@
   }
   .signup-price {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 72px;
+    font-size: 52px;
     font-weight: 300;
     color: var(--clay);
     line-height: 1;
@@ -790,11 +790,11 @@
   .signup-body {
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 0.95rem;
-    color: rgba(250,247,242,0.6);
-    line-height: 1.8;
-    margin-bottom: 22px;
-    max-width: 420px;
+    font-size: 0.88rem;
+    color: rgba(250,247,242,0.55);
+    line-height: 1.75;
+    margin-bottom: 16px;
+    max-width: 400px;
   }
   .signup-cta {
     display: inline-flex;
@@ -807,12 +807,11 @@
     font-size: 0.8rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    padding: 20px 40px;
+    padding: 14px 28px;
     text-decoration: none;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 18px rgba(196,168,130,0.3);
+    transition: background 0.3s, transform 0.2s;
   }
-  .signup-cta:hover { background: var(--clay-deep); transform: translateY(-2px); box-shadow: 0 4px 24px rgba(196,168,130,0.45); }
+  .signup-cta:hover { background: var(--clay-deep); transform: translateY(-1px); }
   .signup-note {
     display: block;
     margin-top: 12px;
@@ -822,9 +821,57 @@
     color: rgba(250,247,242,0.35);
     letter-spacing: 0.06em;
   }
+  /* ── STRIP CTA ── */
+  .strip-cta {
+    margin-top: 52px;
+    padding: 30px 40px;
+    background: var(--linen);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .strip-cta-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--espresso);
+  }
+  .strip-cta-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .strip-cta-primary {
+    background: var(--espresso);
+    color: var(--warm-white);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 13px 26px;
+    text-decoration: none;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+  .strip-cta-primary:hover { background: var(--clay-deep); }
+  .strip-cta-ghost {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(156,133,117,0.35);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+    white-space: nowrap;
+  }
+  .strip-cta-ghost:hover { color: var(--clay-deep); border-color: var(--clay-deep); }
   @media (max-width: 700px) {
-    .signup-block { flex-direction: column; gap: 28px; padding: 36px 28px; }
-    .signup-price-col { border-right: none; border-bottom: 1px solid rgba(196,168,130,0.15); padding-right: 0; padding-bottom: 24px; width: 100%; }
+    .signup-block { flex-direction: column; gap: 22px; padding: 26px 24px; }
+    .signup-price-col { border-right: none; border-bottom: 1px solid rgba(196,168,130,0.15); padding-right: 0; padding-bottom: 18px; width: 100%; }
+    .strip-cta { flex-direction: column; align-items: flex-start; gap: 18px; padding: 26px 24px; }
   }
 
   /* ── SPLIT ENTRY CTA ── */
@@ -941,7 +988,7 @@
 <section class="hero">
   <span class="hero-eyebrow">innerbalance101 — The System</span>
   <h1 class="hero-title">Three stages.<br><em>One transformation.</em></h1>
-  <p class="hero-sub">You already know that taking care of your body matters. This is the path to taking care of your mind. So you can perform from actual steadiness and inner peace. Not the version you put on for other people.</p>
+  <p class="hero-sub">You already apply this logic to your body. Consistent practice, over time, builds capacity. This is the same discipline applied to what is actually running you. So you can build the kind of inner peace that holds while the pressure is still there. Not the kind you find at a spa and leave behind. The kind that travels with you.</p>
   <div class="hero-meta">
     <div class="hero-meta-item">
       <span class="hero-meta-value">3</span>
@@ -964,23 +1011,23 @@
   <!-- RESULTS — DESTINATION FIRST -->
   <section class="section">
     <span class="section-label">Where this takes you</span>
-    <h2 class="section-title">The results.<br><em>Before you take the first step.</em></h2>
+    <h2 class="section-title">The results.<br><em>Know them before you begin.</em></h2>
     <div class="results-grid">
       <div class="result-item">
         <span class="result-num">01</span>
-        <p class="result-text">Mental stamina. The capacity to stay regulated under sustained pressure.</p>
-      </div>
-      <div class="result-item">
-        <span class="result-num">02</span>
         <p class="result-text">Genuine focus, not performed calm.</p>
       </div>
       <div class="result-item">
+        <span class="result-num">02</span>
+        <p class="result-text">Precise language for what you have been carrying. The thing you could feel but could not name.</p>
+      </div>
+      <div class="result-item">
         <span class="result-num">03</span>
-        <p class="result-text">Rebuilt access to intuition. The signal your body has been sending that logic kept overriding.</p>
+        <p class="result-text">Mental stamina. The capacity to stay regulated under sustained pressure.</p>
       </div>
       <div class="result-item">
         <span class="result-num">04</span>
-        <p class="result-text">A daily practice that belongs to you, directed by you.</p>
+        <p class="result-text">Rebuilt access to intuition. The signal your body has been sending that logic kept overriding.</p>
       </div>
     </div>
     <div class="video-container">
@@ -995,8 +1042,230 @@
   <section class="section">
     <span class="section-label">How it works</span>
     <h2 class="section-title">This is a system.<br><em>Not a collection of practices.</em></h2>
-    <p class="body-text">In any system, when one part shifts, the rest shift with it. The thought work changes how the body holds tension. The body work changes how thoughts land. The two operate together. This is what makes it therapeutic, not supplementary.</p>
-    <p class="body-text">You will feel the difference within the first 21 days. Not at the end of them. From the start.</p>
+    <div class="how-split">
+      <div class="how-split-text">
+        <p class="body-text">Every day, new thoughts arrive. Thoughts create emotion. Emotion accumulates.</p>
+        <p class="body-text">By the time you notice something is off, the cup has been filling for weeks.</p>
+        <p class="body-text">Ten minutes a day opens the bottom. The practice processes what has built up. You start each morning with more room than the day before.</p>
+        <p class="body-text">That is the difference between managing how you feel and actually changing it.</p>
+      </div>
+      <div class="how-split-cup">
+        <canvas id="ib-cup-canvas"></canvas>
+      </div>
+    </div>
+    <p class="body-text" style="margin-top: 32px;">You will feel the difference within the first 21 days. Not at the end of them. From the start.</p>
+
+    <style>
+      .how-split {
+        display: flex;
+        gap: 52px;
+        align-items: center;
+        margin-top: 32px;
+      }
+      .how-split-text {
+        flex: 1;
+      }
+      .how-split-text .body-text {
+        max-width: 100%;
+      }
+      .how-split-cup {
+        flex-shrink: 0;
+      }
+      #ib-cup-canvas {
+        width: 200px;
+        height: 310px;
+        display: block;
+      }
+      @media (max-width: 640px) {
+        .how-split {
+          flex-direction: column;
+          gap: 32px;
+        }
+        .how-split-cup {
+          align-self: center;
+        }
+      }
+    </style>
+
+    <script>
+    (function(){
+      var canvas = document.getElementById('ib-cup-canvas');
+      var ctx = canvas.getContext('2d');
+      var dpr = window.devicePixelRatio || 1;
+      var W = 200, H = 310;
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      ctx.scale(dpr, dpr);
+
+      var CX = W / 2;
+      var TOP_Y = 45, BOT_Y = 255;
+      var TOP_HW = 76, BOT_HW = 38;
+      var CUP_H = BOT_Y - TOP_Y;
+
+      var CLAY = '#C4A882', CLAY_D = '#A68B65', CLAY_L = '#DDD0BE';
+      var ESP = '#2C2420', SOFT = '#9C8575';
+
+      var fillLevel = 0.08;
+      var phase = 'filling';
+      var phaseTimer = 0;
+      var waveT = 0;
+      var drainOpen = 0;
+      var particles = [];
+      var lastTs = null;
+
+      var PHASE_DUR = { filling: 3200, full: 900, draining: 2800, empty: 700 };
+      var ORDER = ['filling','full','draining','empty'];
+
+      function ease(t){ return t < 0.5 ? 2*t*t : -1 + (4-2*t)*t; }
+
+      function spawnDrop(kind) {
+        if (kind === 'in') {
+          particles.push({
+            kind:'in', x: CX + (Math.random()-0.5)*TOP_HW*1.3,
+            y: TOP_Y - 15 - Math.random()*40,
+            vy: 1.4 + Math.random()*1.8,
+            r: 2.2 + Math.random()*2.2,
+            alpha: 0.75,
+            col: [CLAY, CLAY_L, CLAY_D, SOFT][Math.floor(Math.random()*4)]
+          });
+        } else {
+          particles.push({
+            kind:'out', x: CX + (Math.random()-0.5)*7,
+            y: BOT_Y + 2,
+            vy: 2.2 + Math.random()*2,
+            vx: (Math.random()-0.5)*0.5,
+            r: 1.5 + Math.random()*1.8,
+            alpha: 0.65,
+            col: [CLAY, CLAY_D, CLAY_L][Math.floor(Math.random()*3)]
+          });
+        }
+      }
+
+      function update(dt) {
+        phaseTimer += dt;
+        waveT += dt * 0.0014;
+        var dur = PHASE_DUR[phase];
+        var t = Math.min(phaseTimer / dur, 1);
+
+        if (phase === 'filling') {
+          drainOpen = Math.max(drainOpen - dt * 0.006, 0);
+          fillLevel += (0.08 + 0.67 * ease(t) - fillLevel) * 0.025;
+          if (Math.random() < 0.09) spawnDrop('in');
+        } else if (phase === 'full') {
+          fillLevel += (0.75 - fillLevel) * 0.06;
+          drainOpen = 0;
+        } else if (phase === 'draining') {
+          drainOpen = Math.min(t * 2.8, 1);
+          fillLevel += (0.75 - 0.67 * ease(t) - fillLevel) * 0.032;
+          if (drainOpen > 0.2 && Math.random() < 0.13) spawnDrop('out');
+        } else {
+          fillLevel += (0.08 - fillLevel) * 0.09;
+          drainOpen = Math.max(drainOpen - dt * 0.005, 0);
+        }
+
+        if (phaseTimer >= dur) {
+          phaseTimer = 0;
+          phase = ORDER[(ORDER.indexOf(phase)+1) % ORDER.length];
+        }
+
+        particles = particles.filter(function(p) {
+          p.y += p.vy;
+          if (p.vx) p.x += p.vx;
+          p.alpha -= 0.0045;
+          if (p.kind === 'in') {
+            var fy = TOP_Y + CUP_H * (1 - fillLevel);
+            if (p.y >= fy - p.r) p.alpha = 0;
+          }
+          return p.alpha > 0 && p.y < H + 20;
+        });
+      }
+
+      function drawFluid() {
+        if (fillLevel < 0.02) return;
+        var fy = TOP_Y + CUP_H * (1 - fillLevel);
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(CX - TOP_HW, TOP_Y);
+        ctx.lineTo(CX + TOP_HW, TOP_Y);
+        ctx.lineTo(CX + BOT_HW, BOT_Y);
+        ctx.lineTo(CX - BOT_HW, BOT_Y);
+        ctx.closePath();
+        ctx.clip();
+        ctx.beginPath();
+        var lx = CX - TOP_HW - 4, rx = CX + TOP_HW + 4;
+        ctx.moveTo(lx, fy);
+        for (var x = lx; x <= rx; x += 2) {
+          var wy = fy + Math.sin((x/48)*Math.PI*2 + waveT*Math.PI*2)*3
+                     + Math.sin((x/30)*Math.PI*2 + waveT*Math.PI*2*1.4)*1.5;
+          ctx.lineTo(x, wy);
+        }
+        ctx.lineTo(rx, BOT_Y + 4);
+        ctx.lineTo(lx, BOT_Y + 4);
+        ctx.closePath();
+        var g = ctx.createLinearGradient(0, fy, 0, BOT_Y);
+        g.addColorStop(0, 'rgba(196,168,130,0.28)');
+        g.addColorStop(0.4, 'rgba(196,168,130,0.44)');
+        g.addColorStop(1, 'rgba(166,139,101,0.58)');
+        ctx.fillStyle = g;
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function drawCup() {
+        ctx.strokeStyle = ESP;
+        ctx.lineWidth = 1.6;
+        ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(CX - TOP_HW, TOP_Y); ctx.lineTo(CX - BOT_HW, BOT_Y); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(CX + TOP_HW, TOP_Y); ctx.lineTo(CX + BOT_HW, BOT_Y); ctx.stroke();
+        var gHW = drainOpen * 7;
+        ctx.beginPath(); ctx.moveTo(CX - BOT_HW, BOT_Y); ctx.lineTo(CX - gHW, BOT_Y); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(CX + gHW, BOT_Y); ctx.lineTo(CX + BOT_HW, BOT_Y); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(CX - TOP_HW - 7, TOP_Y); ctx.lineTo(CX + TOP_HW + 7, TOP_Y); ctx.stroke();
+      }
+
+      function drawDrain() {
+        if (drainOpen < 0.1 || fillLevel < 0.04) return;
+        var sw = 3.5 * drainOpen;
+        var sl = 35 + fillLevel * 25;
+        var g = ctx.createLinearGradient(0, BOT_Y, 0, BOT_Y + sl);
+        g.addColorStop(0, 'rgba(196,168,130,0.45)');
+        g.addColorStop(1, 'rgba(196,168,130,0)');
+        ctx.beginPath();
+        ctx.moveTo(CX - sw/2, BOT_Y); ctx.lineTo(CX + sw/2, BOT_Y);
+        ctx.lineTo(CX + sw/4, BOT_Y + sl); ctx.lineTo(CX - sw/4, BOT_Y + sl);
+        ctx.closePath();
+        ctx.fillStyle = g;
+        ctx.fill();
+      }
+
+      function drawParticles() {
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          ctx.save();
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = p.col;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      function loop(ts) {
+        if (!lastTs) lastTs = ts;
+        var dt = Math.min(ts - lastTs, 50);
+        lastTs = ts;
+        ctx.clearRect(0, 0, W, H);
+        update(dt);
+        drawFluid();
+        drawCup();
+        drawDrain();
+        drawParticles();
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+    })();
+    </script>
   </section>
 
   <div class="ornament">· · ·</div>
@@ -1027,7 +1296,7 @@
             <div class="flow-stat"><span class="flow-stat-value">Day 1</span><span class="flow-stat-label">Starts here</span></div>
           </div>
           <div class="flow-body">
-            <p class="body-text">The pressure is building. The overwhelm is louder than it should be for someone who handles everything. You know something is off and you do not have the space to figure it out.</p>
+            <p class="body-text">The pressure is building. The internal load is heavier than it should be for someone who handles everything. You know something is off and you do not have the space to locate it.</p>
             <p class="body-text">Ten minutes a day. A body check-in, a thought work prompt, a somatic practice to discharge what has accumulated. When you are overloaded, the barrier to entry has to be low enough to actually cross. This is low enough.</p>
             <div class="gain-row">
               <span class="gain-label">What 21 days builds</span>
@@ -1055,18 +1324,18 @@
           </div>
           <div class="flow-stats">
             <div class="flow-stat"><span class="flow-stat-value">21</span><span class="flow-stat-label">Days</span></div>
-            <div class="flow-stat"><span class="flow-stat-value">Up to 20 min</span><span class="flow-stat-label">Daily practice</span></div>
-            <div class="flow-stat"><span class="flow-stat-value">Day 22</span><span class="flow-stat-label">Unlocks here</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">10-20 min</span><span class="flow-stat-label">Whatever you have</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">After Stage 1</span><span class="flow-stat-label">Unlocks here</span></div>
           </div>
           <div class="flow-body">
             <p class="body-text">Stage 1 gave you relief. Stage 2 gives you the map.</p>
-            <p class="body-text">Overwhelm is almost never just overwhelm. It is what sits underneath it. The pattern, the belief, the emotion that has been quietly running the reactions you thought were just stress. This is where you start to see that clearly.</p>
-            <p class="body-text">The thought work now traces the belief beneath the thought. The body needs longer to discharge what the mind has named. Up to 20 minutes. What Stage 1 installed, Stage 2 consolidates.</p>
+            <p class="body-text">With your nervous system no longer in constant alert, you can go wider. This stage moves through the pillars of a full life. Relationships, purpose, energy, meaning. You look at each one with the clarity you could not access before. Guided, structured, one area at a time.</p>
+            <p class="body-text">You do not arrive at the end of Stage 2 just calmer. You arrive knowing what has been quietly draining you, what actually matters, and what you want to build toward. Full. Clear. Energized by what you find.</p>
             <div class="gain-row">
               <span class="gain-label">What 21 days builds</span>
               <div class="gain-items">
-                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">The ability to name an emotion before it becomes a reaction</span></div>
-                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">Awareness of which thoughts tend to run your emotional states</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">A clear view of every area of your life, seen without the noise that was in the way</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">The ability to name what has been quietly draining you — and what actually fills you</span></div>
                 <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">A practiced pause between what activates you and how you respond</span></div>
               </div>
             </div>
@@ -1088,14 +1357,23 @@
           </div>
           <div class="flow-stats">
             <div class="flow-stat"><span class="flow-stat-value">21</span><span class="flow-stat-label">Days</span></div>
-            <div class="flow-stat"><span class="flow-stat-value">No ceiling</span><span class="flow-stat-label">Daily practice</span></div>
-            <div class="flow-stat"><span class="flow-stat-value">Day 43</span><span class="flow-stat-label">Unlocks here</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">10 min</span><span class="flow-stat-label">To start</span></div>
+            <div class="flow-stat"><span class="flow-stat-value">After Stage 2</span><span class="flow-stat-label">Unlocks here</span></div>
           </div>
           <div class="flow-body">
-            <p class="body-text">For 42 days you have been building a foundation. You know what it feels like to be grounded. Stage 3 returns the practice to you. You bring what is real today and you know what to do with it.</p>
-            <p class="body-text">The thought work reaches the belief, not just the thought. The somatic practices are longer. A period of stillness after the practice is where you begin listening to what you already know. This is how intuition comes back after years of being overridden by logic.</p>
+            <p class="body-text">For 42 days you have been building a foundation. Stage 3 is where that foundation becomes yours completely.</p>
+            <p class="body-text">The practice returns to you. No script. You bring what is real today. The pressure, the question, the thing that surfaced in the quiet. You know what to do with it.</p>
+            <p class="body-text">This is where the capacity to question deepens. Not to analyse, but to sit with what is true and let it settle into something you can actually work with. The capacity to accept what you cannot control, without it costing you the rest of the day. The capacity to feel fully in your own skin, grounded in who you are rather than what you have to deliver next. In the stillness after each practice, you begin hearing what you already know. That is how intuition comes back after years of being overridden by logic.</p>
+            <div class="gain-row">
+              <span class="gain-label">What this stage builds</span>
+              <div class="gain-items">
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">The capacity to question, to accept, and to feel fully — without the feeling running you</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">An inner world that does not depend on circumstances to hold</span></div>
+                <div class="gain-item"><div class="gain-bullet"></div><span class="gain-text">The kind of inner peace you carry through the day. Whatever happens, you have your own back.</span></div>
+              </div>
+            </div>
             <div class="time-note">
-              <p>Stage 3 does not have a time limit. <strong>This is not about discipline. It is about what the practice becomes.</strong> When the nervous system is regulated and the body is settled, the practice stops feeling like effort. It feels like coming home. What begins as 30 minutes may extend to 45, or 60. Not because it is required. Because you do not want to leave the state you are in. That is flow. That is what inner balance actually feels like.</p>
+              <p>You start with 10 minutes. Most days you will recognise how long you actually need. <strong>When the nervous system is regulated and the body is settled, the practice stops feeling like effort.</strong> It becomes the part of the day you do not want to leave. The inner peace you carry out of that space, into the meeting, into whatever comes next. That is what this stage is building.</p>
             </div>
           </div>
         </div>
@@ -1111,8 +1389,8 @@
       <span class="signup-price-label">One-time. All three stages.</span>
     </div>
     <div class="signup-copy-col">
-      <h2 class="signup-headline">Your personal coach.<br><em>At your fingertips.</em></h2>
-      <p class="signup-body">Less than a cup of coffee a day. The complete three-stage system in one investment. No appointments, no waiting for a slot, no ongoing subscription. The SOS, The Clarity, and Inner Balance — all three, at your own pace, starting today.</p>
+      <h2 class="signup-headline">The complete system.<br><em>At your own pace.</em></h2>
+      <p class="signup-body">Three stages. One investment. No subscriptions, no appointments, no waiting. Start today.</p>
       <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="signup-cta" target="_blank" rel="noopener">This is what I need →</a>
       <span class="signup-note">Instant access. Self-paced. 21 days at a time.</span>
     </div>
@@ -1160,6 +1438,7 @@
     <h2 class="section-title">What changes.<br><em>And why it stays.</em></h2>
     <p class="body-text">Most people manage their emotional state from the outside. Through wins, through activity, through keeping busy. The moment the external structure pauses, the internal noise returns. Because nothing was ever done with it. It was only managed around.</p>
     <p class="body-text"><strong>The system does the other thing.</strong> It builds the internal structure that does not depend on circumstances to hold. Ground does not require a good day. Steady does not require the pressure to ease first. You have practised being steady while the pressure was there. That is what makes it real.</p>
+    <p class="body-text">That is what real inner peace looks like. Not the kind that requires the noise to stop first. Not what you feel in a yoga class and lose in the car park. The kind that holds while the meeting is still happening, while the inbox is full, while the day has not slowed down. The kind you carry with you rather than going somewhere to find.</p>
 
     <div class="transformation-arc">
       <div class="arc-state">
@@ -1190,6 +1469,15 @@
     </div>
   </div>
 
+  <!-- STRIP CTA -->
+  <div class="strip-cta">
+    <span class="strip-cta-label">You have read enough to know.</span>
+    <div class="strip-cta-actions">
+      <a href="https://innerbalance101.com/emotional_load_assessment.html" class="strip-cta-ghost">Free assessment first</a>
+      <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="strip-cta-primary" target="_blank" rel="noopener">Get the system $97 →</a>
+    </div>
+  </div>
+
   <!-- WHY 21 DAYS — MOVED TO END -->
   <section class="section">
     <span class="section-label">The structure</span>
@@ -1201,17 +1489,17 @@
       <div class="why-cell">
         <span class="why-num">01</span>
         <div class="why-title">Create the pathway</div>
-        <p class="why-body">Days 1–7: you are doing something new. The brain is working harder than it will later. It does not feel automatic yet. That is normal. It is evidence the work is active.</p>
+        <p class="why-body">Days 1-7: you are doing something new. The brain is working harder than it will later. It does not feel automatic yet. That is normal. It is evidence the work is active.</p>
       </div>
       <div class="why-cell">
         <span class="why-num">02</span>
         <div class="why-title">Consolidate it</div>
-        <p class="why-body">Days 8–14: the pattern begins to stabilise. The practice starts to feel familiar. The body begins to know what comes next. The nervous system is beginning to trust the structure.</p>
+        <p class="why-body">Days 8-14: the pattern begins to stabilise. The practice starts to feel familiar. The body begins to know what comes next. The nervous system is beginning to trust the structure.</p>
       </div>
       <div class="why-cell">
         <span class="why-num">03</span>
         <div class="why-title">Anchor it</div>
-        <p class="why-body">Days 15–21: what was effortful becomes practiced. The brain has begun to route differently. This is when the change stops being a discipline and starts being a baseline.</p>
+        <p class="why-body">Days 15-21: what was effortful becomes practiced. The brain has begun to route differently. This is when the change stops being a discipline and starts being a baseline.</p>
       </div>
     </div>
   </section>
