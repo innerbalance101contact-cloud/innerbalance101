@@ -821,6 +821,75 @@
     color: rgba(250,247,242,0.35);
     letter-spacing: 0.06em;
   }
+  /* ── TWO-PRICE GRID ── */
+  .ts-pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .ts-pricing-card {
+    background: rgba(250,247,242,0.04);
+    border: 1px solid rgba(196,168,130,0.15);
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+  .ts-pricing-card--featured { border-color: rgba(196,168,130,0.5); }
+  .ts-pricing-badge {
+    position: absolute;
+    top: -1px; right: 20px;
+    background: var(--clay); color: var(--espresso);
+    font-size: 0.58rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 5px 12px;
+  }
+  .ts-pricing-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem; line-height: 1;
+    color: var(--clay);
+  }
+  .ts-pricing-term {
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(250,247,242,0.38);
+    margin-top: 4px;
+  }
+  .ts-pricing-copy {
+    font-size: 0.93rem; font-weight: 300;
+    line-height: 1.7; color: rgba(250,247,242,0.7);
+    max-width: none; margin: 0; flex: 1;
+  }
+  .ts-pricing-copy strong {
+    color: var(--warm-white); font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    font-size: 0.7rem; display: block; margin-bottom: 8px;
+  }
+  .ts-pricing-btn {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; padding: 14px 28px;
+    cursor: pointer; transition: background 0.25s, transform 0.2s;
+    align-self: flex-start;
+  }
+  .ts-pricing-btn--primary {
+    background: var(--clay); color: var(--espresso);
+    box-shadow: 0 3px 20px rgba(196,168,130,0.4);
+  }
+  .ts-pricing-btn--primary:hover { background: var(--clay-deep); transform: translateY(-2px); }
+  .ts-pricing-btn--ghost {
+    background: transparent; color: var(--warm-white);
+    border: 1px solid rgba(250,247,242,0.3); font-weight: 500;
+  }
+  .ts-pricing-btn--ghost:hover { background: rgba(250,247,242,0.08); transform: translateY(-2px); }
+  @media (max-width: 700px) {
+    .ts-pricing-grid { grid-template-columns: 1fr; }
+  }
+
   /* ── STRIP CTA ── */
   .strip-cta {
     margin-top: 52px;
@@ -1072,7 +1141,7 @@
         flex-shrink: 0;
       }
       #ib-cup-canvas {
-        width: 200px;
+        width: 320px;
         height: 310px;
         display: block;
       }
@@ -1092,12 +1161,12 @@
       var canvas = document.getElementById('ib-cup-canvas');
       var ctx = canvas.getContext('2d');
       var dpr = window.devicePixelRatio || 1;
-      var W = 200, H = 310;
+      var W = 320, H = 310;
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.scale(dpr, dpr);
 
-      var CX = W / 2;
+      var CX = 100; // cup sits in left portion; right portion is label area
       var TOP_Y = 45, BOT_Y = 255;
       var TOP_HW = 76, BOT_HW = 38;
       var CUP_H = BOT_Y - TOP_Y;
@@ -1251,6 +1320,53 @@
         }
       }
 
+      function drawLabels() {
+        var lx = CX + TOP_HW + 18;
+        ctx.save();
+        ctx.textAlign = 'left';
+
+        // ── Emotions label: points to liquid surface ──
+        var fy = TOP_Y + CUP_H * (1 - fillLevel);
+        var ly = Math.min(Math.max(fy + CUP_H * 0.18, TOP_Y + 38), BOT_Y - 72);
+
+        ctx.beginPath();
+        ctx.setLineDash([2.5, 3]);
+        ctx.lineWidth = 0.75;
+        ctx.strokeStyle = 'rgba(156,133,117,0.4)';
+        ctx.moveTo(CX + BOT_HW + 4, ly);
+        ctx.lineTo(lx - 6, ly);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.font = '500 0.6rem Jost, sans-serif';
+        ctx.fillStyle = 'rgba(107,91,78,0.65)';
+        ctx.fillText('EMOTIONS', lx, ly - 3);
+        ctx.font = '300 0.62rem Jost, sans-serif';
+        ctx.fillStyle = 'rgba(107,91,78,0.55)';
+        ctx.fillText('filling the cup', lx, ly + 11);
+
+        // ── Practice label: points to drain opening ──
+        var drainLy = BOT_Y + 22;
+
+        ctx.beginPath();
+        ctx.setLineDash([2.5, 3]);
+        ctx.lineWidth = 0.75;
+        ctx.strokeStyle = 'rgba(166,139,101,0.45)';
+        ctx.moveTo(CX + 5, BOT_Y + 5);
+        ctx.lineTo(lx - 6, drainLy);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.font = '500 0.6rem Jost, sans-serif';
+        ctx.fillStyle = 'rgba(166,139,101,0.85)';
+        ctx.fillText('THE PRACTICE', lx, drainLy - 2);
+        ctx.font = 'italic 300 0.62rem Jost, sans-serif';
+        ctx.fillStyle = 'rgba(166,139,101,0.7)';
+        ctx.fillText('empties this daily', lx, drainLy + 12);
+
+        ctx.restore();
+      }
+
       function loop(ts) {
         if (!lastTs) lastTs = ts;
         var dt = Math.min(ts - lastTs, 50);
@@ -1261,6 +1377,7 @@
         drawCup();
         drawDrain();
         drawParticles();
+        drawLabels();
         requestAnimationFrame(loop);
       }
       requestAnimationFrame(loop);
@@ -1382,18 +1499,32 @@
     </div>
   </div>
 
-  <!-- $97 SIGNUP CTA -->
-  <div class="signup-block">
-    <div class="signup-price-col">
-      <span class="signup-price">$97</span>
-      <span class="signup-price-label">One-time. All three stages.</span>
-    </div>
-    <div class="signup-copy-col">
+  <!-- PRICING CTA -->
+  <div class="signup-block" style="flex-direction:column; align-items:stretch; gap:20px;">
+    <div>
       <h2 class="signup-headline">The complete system.<br><em>At your own pace.</em></h2>
-      <p class="signup-body">Three stages. One investment. No subscriptions, no appointments, no waiting. Start today.</p>
-      <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="signup-cta" target="_blank" rel="noopener">This is what I need →</a>
-      <span class="signup-note">Instant access. Self-paced. 21 days at a time.</span>
+      <p class="signup-body">Three stages. No subscriptions, no appointments, no waiting. Start today.</p>
     </div>
+    <div class="ts-pricing-grid">
+      <div class="ts-pricing-card ts-pricing-card--featured">
+        <span class="ts-pricing-badge">Best Value</span>
+        <div>
+          <div class="ts-pricing-amount">$97</div>
+          <div class="ts-pricing-term">One payment · All three stages</div>
+        </div>
+        <p class="ts-pricing-copy"><strong>Pay once. Keep it forever.</strong>All 63 days of practices for a single payment. About $1.54 a day.</p>
+        <a href="https://innerbalance101.kit.com/products/the-inner-balance-system" class="ts-pricing-btn ts-pricing-btn--primary" target="_blank" rel="noopener">Get started →</a>
+      </div>
+      <div class="ts-pricing-card">
+        <div>
+          <div class="ts-pricing-amount">$39.99<span style="font-size:1.5rem;">/mo</span></div>
+          <div class="ts-pricing-term">$119.97 over 3 months</div>
+        </div>
+        <p class="ts-pricing-copy"><strong>Spread the cost.</strong>Same full access, same three stages — paid over three months.</p>
+        <a href="https://innerbalance101.kit.com/products/the-inner-balance-system-2" class="ts-pricing-btn ts-pricing-btn--ghost" target="_blank" rel="noopener">Start the plan →</a>
+      </div>
+    </div>
+    <span class="signup-note">Instant access. Self-paced. 21 days at a time.</span>
   </div>
 
   <!-- FITNESS ANALOGY -->
@@ -1474,7 +1605,7 @@
     <span class="strip-cta-label">You have read enough to know.</span>
     <div class="strip-cta-actions">
       <a href="https://innerbalance101.com/emotional_load_assessment.html" class="strip-cta-ghost">Free assessment first</a>
-      <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="strip-cta-primary" target="_blank" rel="noopener">Get the system $97 →</a>
+      <a href="https://innerbalance101.kit.com/products/the-inner-balance-system" class="strip-cta-primary" target="_blank" rel="noopener">Get the system $97 →</a>
     </div>
   </div>
 
@@ -1513,9 +1644,9 @@
     <p class="body-text" style="margin-left: auto; margin-right: auto; text-align: center; max-width: 480px;">5 minutes. It identifies where you are carrying the most load and maps you directly to the right stage. Or if you already know, skip ahead and get the full system.</p>
     <div class="entry-cta-row">
       <a href="https://innerbalance101.com/emotional_load_assessment.html" class="entry-cta-secondary">Take the free assessment</a>
-      <a href="https://library.innerbalance101.com/shop/theinnerbalancesystemaccess" class="entry-cta" target="_blank" rel="noopener">This is what I need →</a>
+      <a href="https://innerbalance101.kit.com/products/the-inner-balance-system" class="entry-cta" target="_blank" rel="noopener">Get started — $97 →</a>
     </div>
-    <span class="entry-sub">One-time payment. Instant access. All three stages.</span>
+    <span class="entry-sub">Or <a href="https://innerbalance101.kit.com/products/the-inner-balance-system-2" target="_blank" rel="noopener" style="color:var(--clay-deep); text-decoration:underline; text-underline-offset:3px;">pay $39.99/month over 3 months</a> — same full access.</span>
   </div>
 
 </div>
