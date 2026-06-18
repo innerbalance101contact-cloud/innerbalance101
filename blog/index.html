@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGLT9JMDNP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,7 +16,6 @@
 <title>Blog — Emotional Regulation for High Achievers | innerbalance101</title>
 <meta name="description" content="Practical writing on emotional regulation, self-awareness, and inner work for high-achieving professionals.">
 <link rel="canonical" href="https://innerbalance101.com/blog/">
-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://innerbalance101.com/blog/">
 <meta property="og:title" content="Blog — Emotional Regulation for High Achievers | innerbalance101">
@@ -48,8 +46,6 @@
 }
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);line-height:1.6;-webkit-font-smoothing:antialiased}
-
-/* ─── NAV ─── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;height:var(--nav-h);padding:0 60px;background:rgba(250,247,242,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(79,104,97,0.2)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;letter-spacing:0.08em;color:var(--deep)}
@@ -62,8 +58,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-cta:hover{background:var(--pine)}
 .nav-mobile-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(79,104,97,0.3);border-radius:8px;background:transparent;color:var(--deep);cursor:pointer;flex-shrink:0}
 .nav-mobile-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round}
-
-/* ─── PAGE HEADER ─── */
 .page-header{margin-top:var(--nav-h);background:var(--deep);padding:80px 60px 72px;position:relative;overflow:hidden}
 .page-header::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(79,104,97,0.07);pointer-events:none}
 .header-eyebrow{font-size:0.65rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--mist);margin-bottom:20px;display:flex;align-items:center;gap:12px}
@@ -71,12 +65,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:300;line-height:1.1;color:var(--warm-white);margin-bottom:16px}
 .header-title em{font-style:italic;color:var(--mist)}
 .header-sub{font-size:0.95rem;font-weight:300;color:rgba(250,247,242,0.55);max-width:520px;line-height:1.8}
-
-/* ─── BLOG GRID ─── */
 .blog-wrap{max-width:1120px;margin:0 auto;padding:72px 60px 96px}
 .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-
-/* ─── POST CARD ─── */
 .post-card{background:var(--warm-white);padding:40px;border:1px solid rgba(79,104,97,0.15);display:flex;flex-direction:column;transition:border-color 0.25s}
 .post-card:hover{border-color:var(--clay)}
 .card-category{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:14px;display:flex;align-items:center;gap:8px}
@@ -88,8 +78,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .card-meta span{margin:0 8px;opacity:0.5}
 .card-read{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--deep);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--clay-light);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
 .card-read:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
-
-/* ─── CTA STRIP ─── */
 .cta-strip{background:var(--linen);padding:72px 60px;text-align:center;border-top:1px solid rgba(79,104,97,0.25)}
 .cta-eyebrow{font-size:0.65rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px}
 .cta-eyebrow::before,.cta-eyebrow::after{content:'';width:24px;height:1px;background:var(--clay-deep)}
@@ -98,8 +86,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cta-sub{font-size:0.95rem;font-weight:300;color:var(--soft);margin-bottom:32px;line-height:1.8;max-width:480px;margin-left:auto;margin-right:auto}
 .btn-primary{display:inline-block;background:var(--deep);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:background 0.25s}
 .btn-primary:hover{background:var(--pine)}
-
-/* ─── FOOTER ─── */
 footer{background:var(--deep);padding:48px 60px 28px}
 .footer-top{display:flex;justify-content:space-between;align-items:center;gap:24px}
 .footer-left{display:flex;flex-direction:column;gap:8px}
@@ -116,11 +102,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
 .social-link svg{width:15px;height:15px;fill:currentColor}
 .footer-bottom{margin-top:24px;padding-top:20px;border-top:1px solid rgba(79,104,97,0.15);text-align:center}
 .footer-copyright{font-size:0.68rem;font-weight:300;letter-spacing:0.08em;color:rgba(250,247,242,0.25)}
-
-/* ─── ANIMATIONS ─── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* ─── RESPONSIVE ─── */
 @media(max-width:860px){
   nav{padding:0 24px}
   .nav-links{display:none}
@@ -170,6 +152,15 @@ footer{background:var(--deep);padding:48px 60px 28px}
 <div class="blog-wrap">
   <div class="blog-grid">
 
+    <!-- POST 6 — NEW -->
+    <article class="post-card">
+      <div class="card-category">Burnout</div>
+      <a href="/blog/why-high-achievers-burn-out.html" class="card-title">Why High Achievers Burn Out (Even When They Love Their Work)</a>
+      <p class="card-excerpt">It does not make sense on paper. You care about the work. You have built something you are proud of. And yet some mornings, getting out of bed feels like lifting a weight that was not there last year.</p>
+      <div class="card-meta">19 June 2026 <span>·</span> 7 min read</div>
+      <a href="/blog/why-high-achievers-burn-out.html" class="card-read">Read →</a>
+    </article>
+
     <!-- POST 5 -->
     <article class="post-card">
       <div class="card-category">Understanding</div>
@@ -182,10 +173,10 @@ footer{background:var(--deep);padding:48px 60px 28px}
     <!-- POST 4 -->
     <article class="post-card">
       <div class="card-category">Nervous System</div>
-      <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
+      <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
       <p class="card-excerpt">Exhausted but wired. Snapping at small things. Unable to wind down at night. These are not personality traits — they are physiological patterns. Here is what is actually happening beneath the surface.</p>
       <div class="card-meta">18 June 2026 <span>·</span> 7 min read</div>
-      <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight" class="card-read">Read →</a>
+      <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-read">Read →</a>
     </article>
 
     <!-- POST 3 -->
