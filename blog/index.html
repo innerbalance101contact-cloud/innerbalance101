@@ -67,14 +67,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .header-sub{font-size:0.95rem;font-weight:300;color:rgba(250,247,242,0.55);max-width:520px;line-height:1.8}
 .blog-wrap{max-width:1120px;margin:0 auto;padding:72px 60px 96px}
 .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-.post-card{background:var(--warm-white);padding:40px;border:1px solid rgba(79,104,97,0.15);display:flex;flex-direction:column;transition:border-color 0.25s}
-.post-card:hover{border-color:var(--clay)}
-.card-category{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.card-category::before{content:'';width:16px;height:1px;background:var(--clay)}
-.card-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.85rem);font-weight:400;line-height:1.2;color:var(--deep);margin-bottom:14px;text-decoration:none;display:block}
+.post-card{background:var(--warm-white);border:1px solid rgba(79,104,97,0.15);display:flex;flex-direction:column;transition:border-color 0.25s,box-shadow 0.25s;overflow:hidden}
+.post-card:hover{border-color:var(--clay);box-shadow:0 4px 24px rgba(79,104,97,0.1)}
+.card-img-wrap{position:relative;width:100%;overflow:hidden;background:var(--mist);flex-shrink:0}
+.card-img-wrap img{width:100%;height:220px;object-fit:cover;display:block;transition:transform 0.5s ease}
+.post-card:hover .card-img-wrap img{transform:scale(1.03)}
+.card-img-category{position:absolute;bottom:14px;left:14px;font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-white);background:rgba(44,36,32,0.72);backdrop-filter:blur(6px);padding:5px 12px}
+.card-body{padding:32px 36px 36px;display:flex;flex-direction:column;flex:1}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:400;line-height:1.2;color:var(--deep);margin-bottom:12px;text-decoration:none;display:block}
 .card-title:hover{color:var(--clay-deep)}
-.card-excerpt{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.85;margin-bottom:28px;flex:1}
-.card-meta{font-size:0.68rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft);margin-bottom:20px;opacity:0.6}
+.card-excerpt{font-size:0.88rem;font-weight:300;color:var(--soft);line-height:1.85;margin-bottom:24px;flex:1}
+.card-meta{font-size:0.68rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft);margin-bottom:18px;opacity:0.6}
 .card-meta span{margin:0 8px;opacity:0.5}
 .card-read{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--deep);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--clay-light);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
 .card-read:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
@@ -114,7 +117,8 @@ footer{background:var(--deep);padding:48px 60px 28px}
   .page-header{padding:56px 24px 48px}
   .blog-wrap{padding:48px 24px 72px}
   .blog-grid{grid-template-columns:1fr}
-  .post-card{padding:28px 24px}
+  .card-img-wrap img{height:200px}
+  .card-body{padding:24px 20px 28px}
   .cta-strip{padding:56px 24px}
   footer{padding:40px 24px 28px}
   .footer-top{flex-direction:column;align-items:flex-start;gap:28px}
@@ -154,74 +158,114 @@ footer{background:var(--deep);padding:48px 60px 28px}
 
     <!-- POST 8 — NEW -->
     <article class="post-card">
-      <div class="card-category">Regulation</div>
-      <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-title">How to Regulate Your Nervous System in 5 Minutes</a>
-      <p class="card-excerpt">You do not need an hour. These five techniques work by directly engaging the vagus nerve — no willpower, no mindset shifts. Just the right physiological input at the right moment.</p>
-      <div class="card-meta">19 June 2026 <span>&middot;</span> 7 min read</div>
-      <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-read">Read &rarr;</a>
+      <div class="card-img-wrap">
+        <img src="/images/Innerbalance_working.jpg" alt="Person practising nervous system regulation" loading="lazy">
+        <span class="card-img-category">Regulation</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-title">How to Regulate Your Nervous System in 5 Minutes</a>
+        <p class="card-excerpt">You do not need an hour. These five techniques work by directly engaging the vagus nerve — no willpower, no mindset shifts. Just the right physiological input at the right moment.</p>
+        <div class="card-meta">19 June 2026 <span>&middot;</span> 7 min read</div>
+        <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-read">Read &rarr;</a>
+      </div>
     </article>
 
     <!-- POST 7 — NEW -->
     <article class="post-card">
-      <div class="card-category">Practice</div>
-      <a href="/blog/the-science-of-journalling.html" class="card-title">The Science of Journalling for Stress Release</a>
-      <p class="card-excerpt">Journalling is not vague self-care advice. Done correctly, it is a measurable nervous system intervention with documented effects on stress hormones, emotional regulation, and immune function.</p>
-      <div class="card-meta">19 June 2026 <span>&middot;</span> 6 min read</div>
-      <a href="/blog/the-science-of-journalling.html" class="card-read">Read &rarr;</a>
+      <div class="card-img-wrap">
+        <img src="/images/Naomi journalling.png" alt="Journalling for stress relief" loading="lazy">
+        <span class="card-img-category">Practice</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/the-science-of-journalling.html" class="card-title">The Science of Journalling for Stress Release</a>
+        <p class="card-excerpt">Journalling is not vague self-care advice. Done correctly, it is a measurable nervous system intervention with documented effects on stress hormones, emotional regulation, and immune function.</p>
+        <div class="card-meta">19 June 2026 <span>&middot;</span> 6 min read</div>
+        <a href="/blog/the-science-of-journalling.html" class="card-read">Read &rarr;</a>
+      </div>
     </article>
 
     <!-- POST 6 — NEW -->
     <article class="post-card">
-      <div class="card-category">Burnout</div>
-      <a href="/blog/why-high-achievers-burn-out.html" class="card-title">Why High Achievers Burn Out (Even When They Love Their Work)</a>
-      <p class="card-excerpt">It does not make sense on paper. You care about the work. You have built something you are proud of. And yet some mornings, getting out of bed feels like lifting a weight that was not there last year.</p>
-      <div class="card-meta">19 June 2026 <span>·</span> 7 min read</div>
-      <a href="/blog/why-high-achievers-burn-out.html" class="card-read">Read →</a>
+      <div class="card-img-wrap">
+        <img src="/images/Hustleculture.jpg" alt="High achiever burnout" loading="lazy">
+        <span class="card-img-category">Burnout</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/why-high-achievers-burn-out.html" class="card-title">Why High Achievers Burn Out (Even When They Love Their Work)</a>
+        <p class="card-excerpt">It does not make sense on paper. You care about the work. You have built something you are proud of. And yet some mornings, getting out of bed feels like lifting a weight that was not there last year.</p>
+        <div class="card-meta">19 June 2026 <span>·</span> 7 min read</div>
+        <a href="/blog/why-high-achievers-burn-out.html" class="card-read">Read →</a>
+      </div>
     </article>
 
     <!-- POST 5 -->
     <article class="post-card">
-      <div class="card-category">Understanding</div>
-      <a href="/blog/what-is-the-emotional-load.html" class="card-title">What Is the Emotional Load and Why You Carry Too Much of It</a>
-      <p class="card-excerpt">You are not falling apart. You are full. The emotional load is the cumulative weight of unprocessed emotional experience your nervous system is carrying — and high achievers carry more of it than most.</p>
-      <div class="card-meta">17 June 2026 <span>·</span> 7 min read</div>
-      <a href="/blog/what-is-the-emotional-load.html" class="card-read">Read →</a>
+      <div class="card-img-wrap">
+        <img src="/images/Emotional_load_assessment.png" alt="Understanding the emotional load" loading="lazy">
+        <span class="card-img-category">Understanding</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/what-is-the-emotional-load.html" class="card-title">What Is the Emotional Load and Why You Carry Too Much of It</a>
+        <p class="card-excerpt">You are not falling apart. You are full. The emotional load is the cumulative weight of unprocessed emotional experience your nervous system is carrying — and high achievers carry more of it than most.</p>
+        <div class="card-meta">17 June 2026 <span>·</span> 7 min read</div>
+        <a href="/blog/what-is-the-emotional-load.html" class="card-read">Read →</a>
+      </div>
     </article>
 
     <!-- POST 4 -->
     <article class="post-card">
-      <div class="card-category">Nervous System</div>
-      <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
-      <p class="card-excerpt">Exhausted but wired. Snapping at small things. Unable to wind down at night. These are not personality traits — they are physiological patterns. Here is what is actually happening beneath the surface.</p>
-      <div class="card-meta">18 June 2026 <span>·</span> 7 min read</div>
-      <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-read">Read →</a>
+      <div class="card-img-wrap">
+        <img src="/images/hero banner image.png" alt="Nervous system fight or flight response" loading="lazy">
+        <span class="card-img-category">Nervous System</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
+        <p class="card-excerpt">Exhausted but wired. Snapping at small things. Unable to wind down at night. These are not personality traits — they are physiological patterns. Here is what is actually happening beneath the surface.</p>
+        <div class="card-meta">18 June 2026 <span>·</span> 7 min read</div>
+        <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-read">Read →</a>
+      </div>
     </article>
 
     <!-- POST 3 -->
     <article class="post-card">
-      <div class="card-category">Awareness</div>
-      <a href="/blog/when-your-mind-wont-stop.html" class="card-title">When Your Mind Won't Stop, It's Not Random</a>
-      <p class="card-excerpt">You're exhausted but your brain is still running. You're not anxious about anything specific. You're just on. Here's what's actually happening and what interrupts the loop.</p>
-      <div class="card-meta">2 April 2026 <span>·</span> 5 min read</div>
-      <a href="/blog/when-your-mind-wont-stop.html" class="card-read">Read →</a>
+      <div class="card-img-wrap">
+        <img src="/images/When Your Mind Won't Stop, It's Not Random.png" alt="When your mind won't stop running" loading="lazy">
+        <span class="card-img-category">Awareness</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/when-your-mind-wont-stop.html" class="card-title">When Your Mind Won't Stop, It's Not Random</a>
+        <p class="card-excerpt">You're exhausted but your brain is still running. You're not anxious about anything specific. You're just on. Here's what's actually happening and what interrupts the loop.</p>
+        <div class="card-meta">2 April 2026 <span>·</span> 5 min read</div>
+        <a href="/blog/when-your-mind-wont-stop.html" class="card-read">Read →</a>
+      </div>
     </article>
 
     <!-- POST 2 -->
     <article class="post-card">
-      <div class="card-category">Overwhelm</div>
-      <a href="/blog/nervous-system-reset-10min.html" class="card-title">A Simple 10-Minute Nervous System Reset for Busy Professionals</a>
-      <p class="card-excerpt">When pushing through stops working, it's not a discipline problem. It's overload. Here's a four-step reset you can use anytime, no routine needed.</p>
-      <div class="card-meta">2 April 2026 <span>·</span> 5 min read</div>
-      <a href="/blog/nervous-system-reset-10min.html" class="card-read">Read →</a>
+      <div class="card-img-wrap">
+        <img src="/images/A Simple 10-Minute Nervous System Reset for Busy Professionals.png" alt="10-minute nervous system reset" loading="lazy">
+        <span class="card-img-category">Overwhelm</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/nervous-system-reset-10min.html" class="card-title">A Simple 10-Minute Nervous System Reset for Busy Professionals</a>
+        <p class="card-excerpt">When pushing through stops working, it's not a discipline problem. It's overload. Here's a four-step reset you can use anytime, no routine needed.</p>
+        <div class="card-meta">2 April 2026 <span>·</span> 5 min read</div>
+        <a href="/blog/nervous-system-reset-10min.html" class="card-read">Read →</a>
+      </div>
     </article>
 
     <!-- POST 1 -->
     <article class="post-card">
-      <div class="card-category">Awareness</div>
-      <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-title">Why High Achievers Carry Emotional Weight Without Realising It</a>
-      <p class="card-excerpt">You can hit your targets, handle a full life, and still end the day depleted in a way that sleep doesn't fix. That's not a productivity problem. It's an emotional load problem — and most high achievers don't know they're carrying it.</p>
-      <div class="card-meta">26 March 2026 <span>·</span> 6 min read</div>
-      <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-read">Read →</a>
+      <div class="card-img-wrap">
+        <img src="/images/Why High Achievers Carry Emotional Weight Without Realising It.png" alt="Why high achievers carry emotional weight" loading="lazy">
+        <span class="card-img-category">Awareness</span>
+      </div>
+      <div class="card-body">
+        <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-title">Why High Achievers Carry Emotional Weight Without Realising It</a>
+        <p class="card-excerpt">You can hit your targets, handle a full life, and still end the day depleted in a way that sleep doesn't fix. That's not a productivity problem. It's an emotional load problem — and most high achievers don't know they're carrying it.</p>
+        <div class="card-meta">26 March 2026 <span>·</span> 6 min read</div>
+        <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-read">Read →</a>
+      </div>
     </article>
 
   </div>
