@@ -46,6 +46,8 @@
 }
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ── Nav ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;height:var(--nav-h);padding:0 60px;background:rgba(250,247,242,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(79,104,97,0.2)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;letter-spacing:0.08em;color:var(--deep)}
@@ -58,6 +60,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-cta:hover{background:var(--pine)}
 .nav-mobile-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(79,104,97,0.3);border-radius:8px;background:transparent;color:var(--deep);cursor:pointer;flex-shrink:0}
 .nav-mobile-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round}
+
+/* ── Page header ── */
 .page-header{margin-top:var(--nav-h);background:var(--deep);padding:80px 60px 72px;position:relative;overflow:hidden}
 .page-header::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(79,104,97,0.07);pointer-events:none}
 .header-eyebrow{font-size:0.65rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--mist);margin-bottom:20px;display:flex;align-items:center;gap:12px}
@@ -65,22 +69,69 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:300;line-height:1.1;color:var(--warm-white);margin-bottom:16px}
 .header-title em{font-style:italic;color:var(--mist)}
 .header-sub{font-size:0.95rem;font-weight:300;color:rgba(250,247,242,0.55);max-width:520px;line-height:1.8}
-.blog-wrap{max-width:1120px;margin:0 auto;padding:72px 60px 96px}
-.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-.post-card{background:var(--warm-white);border:1px solid rgba(79,104,97,0.15);display:flex;flex-direction:column;transition:border-color 0.25s,box-shadow 0.25s;overflow:hidden}
-.post-card:hover{border-color:var(--clay);box-shadow:0 4px 24px rgba(79,104,97,0.1)}
-.card-img-wrap{position:relative;width:100%;overflow:hidden;background:var(--mist);flex-shrink:0}
-.card-img-wrap img{width:100%;height:220px;object-fit:cover;display:block;transition:transform 0.5s ease}
-.post-card:hover .card-img-wrap img{transform:scale(1.03)}
-.card-img-category{position:absolute;bottom:14px;left:14px;font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-white);background:rgba(44,36,32,0.72);backdrop-filter:blur(6px);padding:5px 12px}
-.card-body{padding:32px 36px 36px;display:flex;flex-direction:column;flex:1}
-.card-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:400;line-height:1.2;color:var(--deep);margin-bottom:12px;text-decoration:none;display:block}
+
+/* ── Layout: main + sidebar ── */
+.blog-outer{max-width:1200px;margin:0 auto;padding:64px 60px 96px;display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:start}
+
+/* ── Sidebar ── */
+.blog-sidebar{position:sticky;top:calc(var(--nav-h) + 28px)}
+.sidebar-section{margin-bottom:40px}
+.sidebar-label{font-size:0.62rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sidebar-label::after{content:'';flex:1;height:1px;background:rgba(79,104,97,0.2)}
+
+/* Search */
+.search-wrap{position:relative}
+.search-input{width:100%;padding:11px 38px 11px 14px;font-family:'Jost',sans-serif;font-size:0.82rem;font-weight:300;color:var(--deep);background:var(--warm-white);border:1px solid rgba(79,104,97,0.3);border-radius:0;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
+.search-input::placeholder{color:var(--soft);opacity:0.5}
+.search-input:focus{border-color:var(--pine)}
+.search-icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--soft);fill:none;stroke-width:1.8;stroke-linecap:round;opacity:0.5;pointer-events:none}
+.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:20px;height:20px;display:none;align-items:center;justify-content:center;cursor:pointer;color:var(--soft);background:none;border:none;padding:0;font-size:1rem;line-height:1;opacity:0.5}
+.search-clear:hover{opacity:1}
+.search-clear.visible{display:flex}
+.search-clear.visible ~ .search-icon{display:none}
+
+/* Category pills */
+.cat-pills{display:flex;flex-direction:column;gap:4px}
+.cat-pill{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;font-size:0.75rem;font-weight:400;letter-spacing:0.08em;color:var(--soft);background:transparent;border:1px solid transparent;cursor:pointer;text-align:left;transition:background 0.15s,border-color 0.15s,color 0.15s;font-family:'Jost',sans-serif}
+.cat-pill:hover{background:rgba(79,104,97,0.06);border-color:rgba(79,104,97,0.15)}
+.cat-pill.active{background:var(--deep);color:var(--warm-white);border-color:var(--deep)}
+.cat-pill.active .cat-count{opacity:0.5}
+.cat-count{font-size:0.68rem;opacity:0.35}
+
+/* Results count */
+.results-count{font-size:0.72rem;font-weight:300;color:var(--soft);opacity:0.7;margin-top:4px}
+
+/* ── Post list ── */
+.post-list{display:flex;flex-direction:column;gap:2px}
+
+/* Horizontal post card */
+.post-card{display:grid;grid-template-columns:200px 1fr;background:var(--warm-white);border:1px solid rgba(79,104,97,0.15);overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s}
+.post-card:hover{border-color:var(--clay);box-shadow:0 4px 20px rgba(79,104,97,0.09)}
+.post-card[hidden]{display:none}
+
+.card-img-wrap{position:relative;overflow:hidden;background:var(--mist)}
+.card-img-wrap img{width:100%;height:100%;min-height:160px;object-fit:cover;display:block;transition:transform 0.5s ease}
+.post-card:hover .card-img-wrap img{transform:scale(1.04)}
+
+.card-body{padding:28px 32px;display:flex;flex-direction:column}
+.card-category{font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.card-category::before{content:'';width:14px;height:1px;background:var(--clay)}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,1.8vw,1.45rem);font-weight:400;line-height:1.22;color:var(--deep);margin-bottom:10px;text-decoration:none;display:block}
 .card-title:hover{color:var(--clay-deep)}
-.card-excerpt{font-size:0.88rem;font-weight:300;color:var(--soft);line-height:1.85;margin-bottom:24px;flex:1}
-.card-meta{font-size:0.68rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft);margin-bottom:18px;opacity:0.6}
-.card-meta span{margin:0 8px;opacity:0.5}
-.card-read{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--deep);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--clay-light);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+.card-excerpt{font-size:0.83rem;font-weight:300;color:var(--soft);line-height:1.8;margin-bottom:auto;padding-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(79,104,97,0.1);margin-top:auto}
+.card-meta{font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--soft);opacity:0.55}
+.card-meta span{margin:0 6px;opacity:0.5}
+.card-read{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--deep);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--clay-light);padding-bottom:1px;transition:color 0.2s,border-color 0.2s;white-space:nowrap}
 .card-read:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
+
+/* No results */
+.no-results{display:none;padding:48px 0;text-align:center}
+.no-results.visible{display:block}
+.no-results-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--deep);margin-bottom:8px}
+.no-results-sub{font-size:0.85rem;font-weight:300;color:var(--soft)}
+
+/* ── CTA strip ── */
 .cta-strip{background:var(--linen);padding:72px 60px;text-align:center;border-top:1px solid rgba(79,104,97,0.25)}
 .cta-eyebrow{font-size:0.65rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px}
 .cta-eyebrow::before,.cta-eyebrow::after{content:'';width:24px;height:1px;background:var(--clay-deep)}
@@ -89,6 +140,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cta-sub{font-size:0.95rem;font-weight:300;color:var(--soft);margin-bottom:32px;line-height:1.8;max-width:480px;margin-left:auto;margin-right:auto}
 .btn-primary{display:inline-block;background:var(--deep);color:var(--warm-white);font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:background 0.25s}
 .btn-primary:hover{background:var(--pine)}
+
+/* ── Footer ── */
 footer{background:var(--deep);padding:48px 60px 28px}
 .footer-top{display:flex;justify-content:space-between;align-items:center;gap:24px}
 .footer-left{display:flex;flex-direction:column;gap:8px}
@@ -105,7 +158,18 @@ footer{background:var(--deep);padding:48px 60px 28px}
 .social-link svg{width:15px;height:15px;fill:currentColor}
 .footer-bottom{margin-top:24px;padding-top:20px;border-top:1px solid rgba(79,104,97,0.15);text-align:center}
 .footer-copyright{font-size:0.68rem;font-weight:300;letter-spacing:0.08em;color:rgba(250,247,242,0.25)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Mobile filter drawer ── */
+.mobile-filter-toggle{display:none;width:100%;padding:12px 16px;font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--deep);background:var(--warm-white);border:1px solid rgba(79,104,97,0.3);cursor:pointer;text-align:left;align-items:center;justify-content:space-between;margin-bottom:2px}
+.mobile-filter-toggle svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;transition:transform 0.2s}
+.mobile-filter-toggle.open svg{transform:rotate(180deg)}
+
+/* ── Responsive ── */
+@media(max-width:1020px){
+  .blog-outer{grid-template-columns:1fr;gap:0;padding:48px 40px 80px}
+  .blog-sidebar{position:static;margin-bottom:40px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .sidebar-section{margin-bottom:0}
+}
 @media(max-width:860px){
   nav{padding:0 24px}
   .nav-links{display:none}
@@ -115,15 +179,23 @@ footer{background:var(--deep);padding:48px 60px 28px}
   nav.nav-open .nav-links{display:flex;width:100%;order:3;flex-direction:column;align-items:flex-start;gap:12px;padding-top:8px}
   nav.nav-open .nav-cta{display:inline-block;order:4;margin-top:8px}
   .page-header{padding:56px 24px 48px}
-  .blog-wrap{padding:48px 24px 72px}
-  .blog-grid{grid-template-columns:1fr}
-  .card-img-wrap img{height:200px}
-  .card-body{padding:24px 20px 28px}
+  .blog-outer{padding:36px 20px 64px;gap:0}
+  .blog-sidebar{grid-template-columns:1fr;gap:0}
+  .mobile-filter-toggle{display:flex}
+  .sidebar-inner{display:none;padding:20px 0 8px}
+  .sidebar-inner.open{display:block}
+  .post-card{grid-template-columns:140px 1fr}
+  .card-body{padding:20px 20px 20px}
+  .card-excerpt{-webkit-line-clamp:2}
   .cta-strip{padding:56px 24px}
   footer{padding:40px 24px 28px}
   .footer-top{flex-direction:column;align-items:flex-start;gap:28px}
   .footer-right{align-items:flex-start}
   .footer-tagline{padding-left:0}
+}
+@media(max-width:520px){
+  .post-card{grid-template-columns:1fr;grid-template-rows:180px auto}
+  .card-img-wrap img{min-height:180px;height:180px}
 }
 </style>
 </head>
@@ -153,123 +225,186 @@ footer{background:var(--deep);padding:48px 60px 28px}
   <p class="header-sub">For people who are performing fine and want to actually be fine. No fluff. Honest, useful writing about what is happening inside high-achieving people, and what to do with it.</p>
 </header>
 
-<div class="blog-wrap">
-  <div class="blog-grid">
+<div class="blog-outer">
 
-    <!-- POST 8 — NEW -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/Innerbalance_working.jpg" alt="Person practising nervous system regulation" loading="lazy">
-        <span class="card-img-category">Regulation</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-title">How to Regulate Your Nervous System in 5 Minutes</a>
-        <p class="card-excerpt">You do not need an hour. These five techniques work by directly engaging the vagus nerve — no willpower, no mindset shifts. Just the right physiological input at the right moment.</p>
-        <div class="card-meta">19 June 2026 <span>&middot;</span> 7 min read</div>
-        <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-read">Read &rarr;</a>
-      </div>
-    </article>
+  <!-- ── Post list ── -->
+  <main>
+    <div class="post-list" id="post-list">
 
-    <!-- POST 7 — NEW -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/Naomi journalling.png" alt="Journalling for stress relief" loading="lazy">
-        <span class="card-img-category">Practice</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/the-science-of-journalling.html" class="card-title">The Science of Journalling for Stress Release</a>
-        <p class="card-excerpt">Journalling is not vague self-care advice. Done correctly, it is a measurable nervous system intervention with documented effects on stress hormones, emotional regulation, and immune function.</p>
-        <div class="card-meta">19 June 2026 <span>&middot;</span> 6 min read</div>
-        <a href="/blog/the-science-of-journalling.html" class="card-read">Read &rarr;</a>
-      </div>
-    </article>
+      <!-- POST 8 -->
+      <article class="post-card" data-category="regulation" data-search="how to regulate your nervous system in 5 minutes vagus nerve physiological regulation">
+        <div class="card-img-wrap">
+          <img src="/images/Innerbalance_working.jpg" alt="Person practising nervous system regulation" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Regulation</div>
+          <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-title">How to Regulate Your Nervous System in 5 Minutes</a>
+          <p class="card-excerpt">You do not need an hour. These five techniques work by directly engaging the vagus nerve — no willpower, no mindset shifts. Just the right physiological input at the right moment.</p>
+          <div class="card-footer">
+            <div class="card-meta">19 June 2026 <span>&middot;</span> 7 min</div>
+            <a href="/blog/how-to-regulate-your-nervous-system.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
 
-    <!-- POST 6 — NEW -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/Hustleculture.jpg" alt="High achiever burnout" loading="lazy">
-        <span class="card-img-category">Burnout</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/why-high-achievers-burn-out.html" class="card-title">Why High Achievers Burn Out (Even When They Love Their Work)</a>
-        <p class="card-excerpt">It does not make sense on paper. You care about the work. You have built something you are proud of. And yet some mornings, getting out of bed feels like lifting a weight that was not there last year.</p>
-        <div class="card-meta">19 June 2026 <span>·</span> 7 min read</div>
-        <a href="/blog/why-high-achievers-burn-out.html" class="card-read">Read →</a>
-      </div>
-    </article>
+      <!-- POST 7 -->
+      <article class="post-card" data-category="practice" data-search="the science of journalling for stress release stress hormones emotional regulation immune function">
+        <div class="card-img-wrap">
+          <img src="/images/Naomi journalling.png" alt="Journalling for stress relief" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Practice</div>
+          <a href="/blog/the-science-of-journalling.html" class="card-title">The Science of Journalling for Stress Release</a>
+          <p class="card-excerpt">Journalling is not vague self-care advice. Done correctly, it is a measurable nervous system intervention with documented effects on stress hormones, emotional regulation, and immune function.</p>
+          <div class="card-footer">
+            <div class="card-meta">19 June 2026 <span>&middot;</span> 6 min</div>
+            <a href="/blog/the-science-of-journalling.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
 
-    <!-- POST 5 -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/Emotional_load_assessment.png" alt="Understanding the emotional load" loading="lazy">
-        <span class="card-img-category">Understanding</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/what-is-the-emotional-load.html" class="card-title">What Is the Emotional Load and Why You Carry Too Much of It</a>
-        <p class="card-excerpt">You are not falling apart. You are full. The emotional load is the cumulative weight of unprocessed emotional experience your nervous system is carrying — and high achievers carry more of it than most.</p>
-        <div class="card-meta">17 June 2026 <span>·</span> 7 min read</div>
-        <a href="/blog/what-is-the-emotional-load.html" class="card-read">Read →</a>
-      </div>
-    </article>
+      <!-- POST 6 -->
+      <article class="post-card" data-category="burnout" data-search="why high achievers burn out even when they love their work burnout exhaustion">
+        <div class="card-img-wrap">
+          <img src="/images/Hustleculture.jpg" alt="High achiever burnout" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Burnout</div>
+          <a href="/blog/why-high-achievers-burn-out.html" class="card-title">Why High Achievers Burn Out (Even When They Love Their Work)</a>
+          <p class="card-excerpt">It does not make sense on paper. You care about the work. You have built something you are proud of. And yet some mornings, getting out of bed feels like lifting a weight that was not there last year.</p>
+          <div class="card-footer">
+            <div class="card-meta">19 June 2026 <span>&middot;</span> 7 min</div>
+            <a href="/blog/why-high-achievers-burn-out.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
 
-    <!-- POST 4 -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/hero banner image.png" alt="Nervous system fight or flight response" loading="lazy">
-        <span class="card-img-category">Nervous System</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
-        <p class="card-excerpt">Exhausted but wired. Snapping at small things. Unable to wind down at night. These are not personality traits — they are physiological patterns. Here is what is actually happening beneath the surface.</p>
-        <div class="card-meta">18 June 2026 <span>·</span> 7 min read</div>
-        <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-read">Read →</a>
-      </div>
-    </article>
+      <!-- POST 5 -->
+      <article class="post-card" data-category="understanding" data-search="what is the emotional load why you carry too much of it unprocessed emotional experience nervous system">
+        <div class="card-img-wrap">
+          <img src="/images/Emotional_load_assessment.png" alt="Understanding the emotional load" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Understanding</div>
+          <a href="/blog/what-is-the-emotional-load.html" class="card-title">What Is the Emotional Load and Why You Carry Too Much of It</a>
+          <p class="card-excerpt">You are not falling apart. You are full. The emotional load is the cumulative weight of unprocessed emotional experience your nervous system is carrying — and high achievers carry more of it than most.</p>
+          <div class="card-footer">
+            <div class="card-meta">17 June 2026 <span>&middot;</span> 7 min</div>
+            <a href="/blog/what-is-the-emotional-load.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
 
-    <!-- POST 3 -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/When Your Mind Won't Stop, It's Not Random.png" alt="When your mind won't stop running" loading="lazy">
-        <span class="card-img-category">Awareness</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/when-your-mind-wont-stop.html" class="card-title">When Your Mind Won't Stop, It's Not Random</a>
-        <p class="card-excerpt">You're exhausted but your brain is still running. You're not anxious about anything specific. You're just on. Here's what's actually happening and what interrupts the loop.</p>
-        <div class="card-meta">2 April 2026 <span>·</span> 5 min read</div>
-        <a href="/blog/when-your-mind-wont-stop.html" class="card-read">Read →</a>
-      </div>
-    </article>
+      <!-- POST 4 -->
+      <article class="post-card" data-category="nervous-system" data-search="5 signs your nervous system is stuck in fight or flight exhausted wired physiological patterns">
+        <div class="card-img-wrap">
+          <img src="/images/hero banner image.png" alt="Nervous system fight or flight response" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Nervous System</div>
+          <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
+          <p class="card-excerpt">Exhausted but wired. Snapping at small things. Unable to wind down at night. These are not personality traits — they are physiological patterns. Here is what is actually happening beneath the surface.</p>
+          <div class="card-footer">
+            <div class="card-meta">18 June 2026 <span>&middot;</span> 7 min</div>
+            <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
 
-    <!-- POST 2 -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/A Simple 10-Minute Nervous System Reset for Busy Professionals.png" alt="10-minute nervous system reset" loading="lazy">
-        <span class="card-img-category">Overwhelm</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/nervous-system-reset-10min.html" class="card-title">A Simple 10-Minute Nervous System Reset for Busy Professionals</a>
-        <p class="card-excerpt">When pushing through stops working, it's not a discipline problem. It's overload. Here's a four-step reset you can use anytime, no routine needed.</p>
-        <div class="card-meta">2 April 2026 <span>·</span> 5 min read</div>
-        <a href="/blog/nervous-system-reset-10min.html" class="card-read">Read →</a>
-      </div>
-    </article>
+      <!-- POST 3 -->
+      <article class="post-card" data-category="awareness" data-search="when your mind won't stop it's not random overthinking anxiety brain running">
+        <div class="card-img-wrap">
+          <img src="/images/When Your Mind Won't Stop, It's Not Random.png" alt="When your mind won't stop running" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Awareness</div>
+          <a href="/blog/when-your-mind-wont-stop.html" class="card-title">When Your Mind Won't Stop, It's Not Random</a>
+          <p class="card-excerpt">You're exhausted but your brain is still running. You're not anxious about anything specific. You're just on. Here's what's actually happening and what interrupts the loop.</p>
+          <div class="card-footer">
+            <div class="card-meta">2 April 2026 <span>&middot;</span> 5 min</div>
+            <a href="/blog/when-your-mind-wont-stop.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
 
-    <!-- POST 1 -->
-    <article class="post-card">
-      <div class="card-img-wrap">
-        <img src="/images/Why High Achievers Carry Emotional Weight Without Realising It.png" alt="Why high achievers carry emotional weight" loading="lazy">
-        <span class="card-img-category">Awareness</span>
-      </div>
-      <div class="card-body">
-        <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-title">Why High Achievers Carry Emotional Weight Without Realising It</a>
-        <p class="card-excerpt">You can hit your targets, handle a full life, and still end the day depleted in a way that sleep doesn't fix. That's not a productivity problem. It's an emotional load problem — and most high achievers don't know they're carrying it.</p>
-        <div class="card-meta">26 March 2026 <span>·</span> 6 min read</div>
-        <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-read">Read →</a>
-      </div>
-    </article>
+      <!-- POST 2 -->
+      <article class="post-card" data-category="overwhelm" data-search="a simple 10-minute nervous system reset for busy professionals overload four-step reset">
+        <div class="card-img-wrap">
+          <img src="/images/A Simple 10-Minute Nervous System Reset for Busy Professionals.png" alt="10-minute nervous system reset" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Overwhelm</div>
+          <a href="/blog/nervous-system-reset-10min.html" class="card-title">A Simple 10-Minute Nervous System Reset for Busy Professionals</a>
+          <p class="card-excerpt">When pushing through stops working, it's not a discipline problem. It's overload. Here's a four-step reset you can use anytime, no routine needed.</p>
+          <div class="card-footer">
+            <div class="card-meta">2 April 2026 <span>&middot;</span> 5 min</div>
+            <a href="/blog/nervous-system-reset-10min.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
 
-  </div>
-</div>
+      <!-- POST 1 -->
+      <article class="post-card" data-category="awareness" data-search="why high achievers carry emotional weight without realising it depleted emotional load productivity">
+        <div class="card-img-wrap">
+          <img src="/images/Why High Achievers Carry Emotional Weight Without Realising It.png" alt="Why high achievers carry emotional weight" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Awareness</div>
+          <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-title">Why High Achievers Carry Emotional Weight Without Realising It</a>
+          <p class="card-excerpt">You can hit your targets, handle a full life, and still end the day depleted in a way that sleep doesn't fix. That's not a productivity problem. It's an emotional load problem — and most high achievers don't know they're carrying it.</p>
+          <div class="card-footer">
+            <div class="card-meta">26 March 2026 <span>&middot;</span> 6 min</div>
+            <a href="/blog/why-high-achievers-carry-emotional-weight.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /post-list -->
+
+    <div class="no-results" id="no-results" aria-live="polite">
+      <p class="no-results-title">No posts found</p>
+      <p class="no-results-sub">Try a different search term or browse all topics.</p>
+    </div>
+  </main>
+
+  <!-- ── Sidebar ── -->
+  <aside class="blog-sidebar" aria-label="Filter posts">
+
+    <button class="mobile-filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="sidebar-inner">
+      Filter &amp; search
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+
+    <div class="sidebar-inner" id="sidebar-inner">
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Search</div>
+        <div class="search-wrap">
+          <input type="search" class="search-input" id="search-input" placeholder="Burnout, nervous system…" aria-label="Search posts">
+          <button class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </div>
+        <p class="results-count" id="results-count" aria-live="polite"></p>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Topics</div>
+        <div class="cat-pills" role="group" aria-label="Filter by topic">
+          <button class="cat-pill active" data-cat="all">All topics <span class="cat-count" id="count-all">8</span></button>
+          <button class="cat-pill" data-cat="awareness">Awareness <span class="cat-count" id="count-awareness">2</span></button>
+          <button class="cat-pill" data-cat="burnout">Burnout <span class="cat-count" id="count-burnout">1</span></button>
+          <button class="cat-pill" data-cat="nervous-system">Nervous System <span class="cat-count" id="count-nervous-system">1</span></button>
+          <button class="cat-pill" data-cat="overwhelm">Overwhelm <span class="cat-count" id="count-overwhelm">1</span></button>
+          <button class="cat-pill" data-cat="practice">Practice <span class="cat-count" id="count-practice">1</span></button>
+          <button class="cat-pill" data-cat="regulation">Regulation <span class="cat-count" id="count-regulation">1</span></button>
+          <button class="cat-pill" data-cat="understanding">Understanding <span class="cat-count" id="count-understanding">1</span></button>
+        </div>
+      </div>
+
+    </div><!-- /sidebar-inner -->
+  </aside>
+
+</div><!-- /blog-outer -->
 
 <div class="cta-strip">
   <div class="cta-eyebrow">Free Assessment</div>
@@ -310,6 +445,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
 </footer>
 
 <script>
+// ── Nav toggle ──
 const navEl = document.querySelector('nav');
 const navToggle = document.querySelector('.nav-mobile-toggle');
 if (navEl && navToggle) {
@@ -328,6 +464,81 @@ if (navEl && navToggle) {
       navEl.classList.remove('nav-open');
       navToggle.setAttribute('aria-expanded', 'false');
     }
+  });
+}
+
+// ── Mobile filter drawer ──
+const filterToggle = document.getElementById('filter-toggle');
+const sidebarInner = document.getElementById('sidebar-inner');
+if (filterToggle && sidebarInner) {
+  filterToggle.addEventListener('click', () => {
+    const isOpen = sidebarInner.classList.toggle('open');
+    filterToggle.classList.toggle('open', isOpen);
+    filterToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
+
+// ── Filtering logic ──
+const cards = Array.from(document.querySelectorAll('.post-card'));
+const searchInput = document.getElementById('search-input');
+const searchClear = document.getElementById('search-clear');
+const catPills = document.querySelectorAll('.cat-pill');
+const noResults = document.getElementById('no-results');
+const resultsCount = document.getElementById('results-count');
+
+let activeCategory = 'all';
+let searchQuery = '';
+
+function applyFilters() {
+  let visible = 0;
+  cards.forEach(card => {
+    const cat = card.dataset.category;
+    const searchText = card.dataset.search + ' ' + (card.querySelector('.card-title') ? card.querySelector('.card-title').textContent : '');
+    const matchesCat = activeCategory === 'all' || cat === activeCategory;
+    const matchesSearch = searchQuery === '' || searchText.toLowerCase().includes(searchQuery.toLowerCase());
+    const show = matchesCat && matchesSearch;
+    card.hidden = !show;
+    if (show) visible++;
+  });
+
+  // No results state
+  noResults.classList.toggle('visible', visible === 0);
+
+  // Results count (only show when filtering)
+  if (searchQuery !== '' || activeCategory !== 'all') {
+    resultsCount.textContent = visible === 1 ? '1 post' : visible + ' posts';
+  } else {
+    resultsCount.textContent = '';
+  }
+}
+
+// Category pills
+catPills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    catPills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    activeCategory = pill.dataset.cat;
+    applyFilters();
+  });
+});
+
+// Search input
+if (searchInput) {
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value.trim();
+    searchClear.classList.toggle('visible', searchQuery !== '');
+    applyFilters();
+  });
+}
+
+// Clear search
+if (searchClear) {
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    searchQuery = '';
+    searchClear.classList.remove('visible');
+    applyFilters();
+    searchInput.focus();
   });
 }
 </script>
