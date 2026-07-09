@@ -231,6 +231,38 @@ footer{background:var(--deep);padding:48px 60px 28px}
   <main>
     <div class="post-list" id="post-list">
 
+      <!-- POST 10 — newest -->
+      <article class="post-card" data-category="emotional-load" data-search="the four dimensions of emotional load explained emotional suppression relational weight identity pressure somatic accumulation framework">
+        <div class="card-img-wrap">
+          <img src="/images/four-dimensions-of-emotional-load.jpg" alt="Person leaning against a wall, head bowed — the weight of emotional load" loading="eager">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Emotional Load</div>
+          <a href="/blog/four-dimensions-of-emotional-load" class="card-title">The Four Dimensions of Emotional Load, Explained</a>
+          <p class="card-excerpt">Emotional load is not the same as being busy. Here is the framework that breaks it into four measurable dimensions — and why naming them is where regulation begins.</p>
+          <div class="card-footer">
+            <div class="card-meta">18 June 2026 <span>&middot;</span> 6 min</div>
+            <a href="/blog/four-dimensions-of-emotional-load" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 9 -->
+      <article class="post-card" data-category="nervous-system" data-search="5 signs your nervous system is stuck in fight or flight exhausted wired snapping tired physiological patterns HPA axis cortisol">
+        <div class="card-img-wrap">
+          <img src="/images/5-signs-nervous-system-fight-or-flight.jpg" alt="Woman sitting on the floor with arms wrapped around herself, exhausted and tense" loading="eager">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Nervous System</div>
+          <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
+          <p class="card-excerpt">Exhausted but wired. Snapping at small things. Unable to wind down at night. These are not personality traits — they are physiological patterns. Here is what is actually happening beneath the surface.</p>
+          <div class="card-footer">
+            <div class="card-meta">18 June 2026 <span>&middot;</span> 7 min</div>
+            <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
+
       <!-- POST 8 -->
       <article class="post-card" data-category="regulation" data-search="how to regulate your nervous system in 5 minutes vagus nerve physiological regulation">
         <div class="card-img-wrap">
@@ -291,22 +323,6 @@ footer{background:var(--deep);padding:48px 60px 28px}
           <div class="card-footer">
             <div class="card-meta">17 June 2026 <span>&middot;</span> 7 min</div>
             <a href="/blog/what-is-the-emotional-load.html" class="card-read">Read &rarr;</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- POST 4 -->
-      <article class="post-card" data-category="nervous-system" data-search="5 signs your nervous system is stuck in fight or flight exhausted wired physiological patterns">
-        <div class="card-img-wrap">
-          <img src="/images/hero banner image.png" alt="Nervous system fight or flight response" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="card-category">Nervous System</div>
-          <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-title">5 Signs Your Nervous System Is Stuck in Fight-or-Flight</a>
-          <p class="card-excerpt">Exhausted but wired. Snapping at small things. Unable to wind down at night. These are not personality traits — they are physiological patterns. Here is what is actually happening beneath the surface.</p>
-          <div class="card-footer">
-            <div class="card-meta">18 June 2026 <span>&middot;</span> 7 min</div>
-            <a href="/blog/signs-your-nervous-system-is-stuck-in-fight-or-flight.html" class="card-read">Read &rarr;</a>
           </div>
         </div>
       </article>
@@ -390,10 +406,11 @@ footer{background:var(--deep);padding:48px 60px 28px}
       <div class="sidebar-section">
         <div class="sidebar-label">Topics</div>
         <div class="cat-pills" role="group" aria-label="Filter by topic">
-          <button class="cat-pill active" data-cat="all">All topics <span class="cat-count" id="count-all">8</span></button>
+          <button class="cat-pill active" data-cat="all">All topics <span class="cat-count" id="count-all">10</span></button>
           <button class="cat-pill" data-cat="awareness">Awareness <span class="cat-count" id="count-awareness">2</span></button>
           <button class="cat-pill" data-cat="burnout">Burnout <span class="cat-count" id="count-burnout">1</span></button>
-          <button class="cat-pill" data-cat="nervous-system">Nervous System <span class="cat-count" id="count-nervous-system">1</span></button>
+          <button class="cat-pill" data-cat="emotional-load">Emotional Load <span class="cat-count" id="count-emotional-load">1</span></button>
+          <button class="cat-pill" data-cat="nervous-system">Nervous System <span class="cat-count" id="count-nervous-system">2</span></button>
           <button class="cat-pill" data-cat="overwhelm">Overwhelm <span class="cat-count" id="count-overwhelm">1</span></button>
           <button class="cat-pill" data-cat="practice">Practice <span class="cat-count" id="count-practice">1</span></button>
           <button class="cat-pill" data-cat="regulation">Regulation <span class="cat-count" id="count-regulation">1</span></button>
@@ -500,11 +517,7 @@ function applyFilters() {
     card.hidden = !show;
     if (show) visible++;
   });
-
-  // No results state
   noResults.classList.toggle('visible', visible === 0);
-
-  // Results count (only show when filtering)
   if (searchQuery !== '' || activeCategory !== 'all') {
     resultsCount.textContent = visible === 1 ? '1 post' : visible + ' posts';
   } else {
@@ -512,7 +525,6 @@ function applyFilters() {
   }
 }
 
-// Category pills
 catPills.forEach(pill => {
   pill.addEventListener('click', () => {
     catPills.forEach(p => p.classList.remove('active'));
@@ -522,7 +534,6 @@ catPills.forEach(pill => {
   });
 });
 
-// Search input
 if (searchInput) {
   searchInput.addEventListener('input', () => {
     searchQuery = searchInput.value.trim();
@@ -531,7 +542,6 @@ if (searchInput) {
   });
 }
 
-// Clear search
 if (searchClear) {
   searchClear.addEventListener('click', () => {
     searchInput.value = '';
