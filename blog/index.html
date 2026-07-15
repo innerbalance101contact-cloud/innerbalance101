@@ -78,8 +78,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .sidebar-section{margin-bottom:40px}
 .sidebar-label{font-size:0.62rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .sidebar-label::after{content:'';flex:1;height:1px;background:rgba(79,104,97,0.2)}
-
-/* Search */
 .search-wrap{position:relative}
 .search-input{width:100%;padding:11px 38px 11px 14px;font-family:'Jost',sans-serif;font-size:0.82rem;font-weight:300;color:var(--deep);background:var(--warm-white);border:1px solid rgba(79,104,97,0.3);border-radius:0;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
 .search-input::placeholder{color:var(--soft);opacity:0.5}
@@ -89,30 +87,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .search-clear:hover{opacity:1}
 .search-clear.visible{display:flex}
 .search-clear.visible ~ .search-icon{display:none}
-
-/* Category pills */
 .cat-pills{display:flex;flex-direction:column;gap:4px}
 .cat-pill{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;font-size:0.75rem;font-weight:400;letter-spacing:0.08em;color:var(--soft);background:transparent;border:1px solid transparent;cursor:pointer;text-align:left;transition:background 0.15s,border-color 0.15s,color 0.15s;font-family:'Jost',sans-serif}
 .cat-pill:hover{background:rgba(79,104,97,0.06);border-color:rgba(79,104,97,0.15)}
 .cat-pill.active{background:var(--deep);color:var(--warm-white);border-color:var(--deep)}
 .cat-pill.active .cat-count{opacity:0.5}
 .cat-count{font-size:0.68rem;opacity:0.35}
-
-/* Results count */
 .results-count{font-size:0.72rem;font-weight:300;color:var(--soft);opacity:0.7;margin-top:4px}
 
 /* ── Post list ── */
 .post-list{display:flex;flex-direction:column;gap:2px}
-
-/* Horizontal post card */
 .post-card{display:grid;grid-template-columns:200px 1fr;background:var(--warm-white);border:1px solid rgba(79,104,97,0.15);overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s}
 .post-card:hover{border-color:var(--clay);box-shadow:0 4px 20px rgba(79,104,97,0.09)}
 .post-card[hidden]{display:none}
-
 .card-img-wrap{position:relative;overflow:hidden;background:var(--mist)}
 .card-img-wrap img{width:100%;height:100%;min-height:160px;object-fit:cover;display:block;transition:transform 0.5s ease}
 .post-card:hover .card-img-wrap img{transform:scale(1.04)}
-
 .card-body{padding:28px 32px;display:flex;flex-direction:column}
 .card-category{font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:10px;display:flex;align-items:center;gap:7px}
 .card-category::before{content:'';width:14px;height:1px;background:var(--clay)}
@@ -124,8 +114,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .card-meta span{margin:0 6px;opacity:0.5}
 .card-read{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--deep);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--clay-light);padding-bottom:1px;transition:color 0.2s,border-color 0.2s;white-space:nowrap}
 .card-read:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
-
-/* No results */
 .no-results{display:none;padding:48px 0;text-align:center}
 .no-results.visible{display:block}
 .no-results-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--deep);margin-bottom:8px}
@@ -231,7 +219,23 @@ footer{background:var(--deep);padding:48px 60px 28px}
   <main>
     <div class="post-list" id="post-list">
 
-      <!-- POST 10 — newest -->
+      <!-- ★ NEW POST — The Inner Balance System -->
+      <article class="post-card" data-category="the-system" data-search="the inner balance system framework sustainable nervous system regulation awareness regulation integration stages allostatic load">
+        <div class="card-img-wrap">
+          <img src="/images/four-dimensions-of-emotional-load.jpg" alt="The Inner Balance System — a framework for sustainable nervous system regulation" loading="eager">
+        </div>
+        <div class="card-body">
+          <div class="card-category">The System</div>
+          <a href="/blog/the-inner-balance-system.html" class="card-title">The Inner Balance System: A Framework for Sustainable Nervous System Regulation</a>
+          <p class="card-excerpt">Most stress advice tells you to do more. The Inner Balance System is built differently — a three-stage structure that starts with your real load and builds regulation in a sequence your nervous system can actually absorb.</p>
+          <div class="card-footer">
+            <div class="card-meta">9 July 2026 <span>&middot;</span> 6 min</div>
+            <a href="/blog/the-inner-balance-system.html" class="card-read">Read &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST — Four Dimensions -->
       <article class="post-card" data-category="emotional-load" data-search="the four dimensions of emotional load explained emotional suppression relational weight identity pressure somatic accumulation framework">
         <div class="card-img-wrap">
           <img src="/images/four-dimensions-of-emotional-load.jpg" alt="Person leaning against a wall, head bowed — the weight of emotional load" loading="eager">
@@ -406,7 +410,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
       <div class="sidebar-section">
         <div class="sidebar-label">Topics</div>
         <div class="cat-pills" role="group" aria-label="Filter by topic">
-          <button class="cat-pill active" data-cat="all">All topics <span class="cat-count" id="count-all">10</span></button>
+          <button class="cat-pill active" data-cat="all">All topics <span class="cat-count" id="count-all">11</span></button>
           <button class="cat-pill" data-cat="awareness">Awareness <span class="cat-count" id="count-awareness">2</span></button>
           <button class="cat-pill" data-cat="burnout">Burnout <span class="cat-count" id="count-burnout">1</span></button>
           <button class="cat-pill" data-cat="emotional-load">Emotional Load <span class="cat-count" id="count-emotional-load">1</span></button>
@@ -414,6 +418,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
           <button class="cat-pill" data-cat="overwhelm">Overwhelm <span class="cat-count" id="count-overwhelm">1</span></button>
           <button class="cat-pill" data-cat="practice">Practice <span class="cat-count" id="count-practice">1</span></button>
           <button class="cat-pill" data-cat="regulation">Regulation <span class="cat-count" id="count-regulation">1</span></button>
+          <button class="cat-pill" data-cat="the-system">The System <span class="cat-count" id="count-the-system">1</span></button>
           <button class="cat-pill" data-cat="understanding">Understanding <span class="cat-count" id="count-understanding">1</span></button>
         </div>
       </div>
@@ -457,12 +462,12 @@ footer{background:var(--deep);padding:48px 60px 28px}
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copyright">© 2026 innerbalance101. All rights reserved.</span>
+    <span class="footer-copyright">&copy; 2026 innerbalance101. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
-// ── Nav toggle ──
+// Nav toggle
 const navEl = document.querySelector('nav');
 const navToggle = document.querySelector('.nav-mobile-toggle');
 if (navEl && navToggle) {
@@ -484,7 +489,7 @@ if (navEl && navToggle) {
   });
 }
 
-// ── Mobile filter drawer ──
+// Mobile filter drawer
 const filterToggle = document.getElementById('filter-toggle');
 const sidebarInner = document.getElementById('sidebar-inner');
 if (filterToggle && sidebarInner) {
@@ -495,7 +500,7 @@ if (filterToggle && sidebarInner) {
   });
 }
 
-// ── Filtering logic ──
+// Filtering logic
 const cards = Array.from(document.querySelectorAll('.post-card'));
 const searchInput = document.getElementById('search-input');
 const searchClear = document.getElementById('search-clear');
