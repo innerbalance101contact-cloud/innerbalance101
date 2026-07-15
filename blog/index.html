@@ -108,7 +108,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .card-category::before{content:'';width:14px;height:1px;background:var(--clay)}
 .card-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,1.8vw,1.45rem);font-weight:400;line-height:1.22;color:var(--deep);margin-bottom:10px;text-decoration:none;display:block}
 .card-title:hover{color:var(--clay-deep)}
-.card-excerpt{font-size:0.83rem;font-weight:300;color:var(--soft);line-height:1.8;margin-bottom:auto;padding-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-excerpt{font-size:0.83rem;font-weight:300;color:var(--soft)!important;line-height:1.8;margin-bottom:auto;padding-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-excerpt a,.card-excerpt *{color:inherit!important;text-decoration:none!important}
 .card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(79,104,97,0.1);margin-top:auto}
 .card-meta{font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--soft);opacity:0.55}
 .card-meta span{margin:0 6px;opacity:0.5}
