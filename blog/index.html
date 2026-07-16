@@ -115,6 +115,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .card-meta span{margin:0 6px;opacity:0.5}
 .card-read{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--deep);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--clay-light);padding-bottom:1px;transition:color 0.2s,border-color 0.2s;white-space:nowrap}
 .card-read:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
+
+/* ── Pagination ── */
+.pagination{display:flex;align-items:center;justify-content:center;gap:8px;padding:48px 0 0;border-top:1px solid rgba(79,104,97,0.15);margin-top:8px}
+.page-btn{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:40px;padding:0 14px;font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.08em;color:var(--soft);background:transparent;border:1px solid rgba(79,104,97,0.2);cursor:pointer;transition:background 0.15s,border-color 0.15s,color 0.15s;text-decoration:none}
+.page-btn:hover{background:rgba(79,104,97,0.06);border-color:rgba(79,104,97,0.3);color:var(--deep)}
+.page-btn.active{background:var(--deep);color:var(--warm-white);border-color:var(--deep)}
+.page-btn.disabled{opacity:0.3;cursor:default;pointer-events:none}
+.page-arrow{font-size:0.85rem}
+
 .no-results{display:none;padding:48px 0;text-align:center}
 .no-results.visible{display:block}
 .no-results-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--deep);margin-bottom:8px}
@@ -230,7 +239,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
           <a href="/blog/the-inner-balance-system.html" class="card-title">The Inner Balance System: A Framework for Sustainable Nervous System Regulation</a>
           <p class="card-excerpt">Most stress advice tells you to do more. The Inner Balance System is built differently — a three-stage structure that starts with your real load and builds regulation in a sequence your nervous system can actually absorb.</p>
           <div class="card-footer">
-            <div class="card-meta">9 July 2026 <span>&middot;</span> 6 min</div>
+            <div class="card-meta">14 July 2026 <span>&middot;</span> 6 min</div>
             <a href="/blog/the-inner-balance-system.html" class="card-read">Read &rarr;</a>
           </div>
         </div>
@@ -248,7 +257,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
           <a href="/blog/emotional-suppression-at-work.html" class="card-title">Emotional Suppression at Work: The Hidden Cost of Holding It Together</a>
           <p class="card-excerpt">The calm face costs something. Your body is still running the stress response — you have simply stopped it from showing. Learn the difference between suppression and regulation, and why it matters.</p>
           <div class="card-footer">
-            <div class="card-meta">9 July 2026 <span>&middot;</span> 5 min</div>
+            <div class="card-meta">11 July 2026 <span>&middot;</span> 5 min</div>
             <a href="/blog/emotional-suppression-at-work.html" class="card-read">Read &rarr;</a>
           </div>
         </div>
@@ -264,7 +273,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
           <a href="/blog/relational-weight.html" class="card-title">Relational Weight: How Other People's Needs Live in Your Nervous System</a>
           <p class="card-excerpt">Caring for others is not the problem. Never being able to stop is. Relational weight is the invisible load of managing everyone else — and it multiplies every other dimension of stress you carry.</p>
           <div class="card-footer">
-            <div class="card-meta">9 July 2026 <span>&middot;</span> 5 min</div>
+            <div class="card-meta">10 July 2026 <span>&middot;</span> 5 min</div>
             <a href="/blog/relational-weight.html" class="card-read">Read &rarr;</a>
           </div>
         </div>
@@ -328,7 +337,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
           <a href="/blog/the-science-of-journalling.html" class="card-title">The Science of Journalling for Stress Release</a>
           <p class="card-excerpt">Journalling is not vague self-care advice. Done correctly, it is a measurable nervous system intervention with documented effects on stress hormones, emotional regulation, and immune function.</p>
           <div class="card-footer">
-            <div class="card-meta">19 June 2026 <span>&middot;</span> 6 min</div>
+            <div class="card-meta">18 June 2026 <span>&middot;</span> 6 min</div>
             <a href="/blog/the-science-of-journalling.html" class="card-read">Read &rarr;</a>
           </div>
         </div>
@@ -344,7 +353,7 @@ footer{background:var(--deep);padding:48px 60px 28px}
           <a href="/blog/why-high-achievers-burn-out.html" class="card-title">Why High Achievers Burn Out (Even When They Love Their Work)</a>
           <p class="card-excerpt">It does not make sense on paper. You care about the work. You have built something you are proud of. And yet some mornings, getting out of bed feels like lifting a weight that was not there last year.</p>
           <div class="card-footer">
-            <div class="card-meta">19 June 2026 <span>&middot;</span> 7 min</div>
+            <div class="card-meta">17 June 2026 <span>&middot;</span> 7 min</div>
             <a href="/blog/why-high-achievers-burn-out.html" class="card-read">Read &rarr;</a>
           </div>
         </div>
@@ -415,6 +424,9 @@ footer{background:var(--deep);padding:48px 60px 28px}
       </article>
 
     </div><!-- /post-list -->
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination" aria-label="Blog pages"></div>
 
     <div class="no-results" id="no-results" aria-live="polite">
       <p class="no-results-title">No posts found</p>
@@ -536,34 +548,79 @@ if (filterToggle && sidebarInner) {
   });
 }
 
-// Filtering logic
+// ── Pagination + Filtering ──
+const POSTS_PER_PAGE = 10;
 const cards = Array.from(document.querySelectorAll('.post-card'));
 const searchInput = document.getElementById('search-input');
 const searchClear = document.getElementById('search-clear');
 const catPills = document.querySelectorAll('.cat-pill');
 const noResults = document.getElementById('no-results');
 const resultsCount = document.getElementById('results-count');
+const paginationEl = document.getElementById('pagination');
 
 let activeCategory = 'all';
 let searchQuery = '';
+let currentPage = 1;
 
-function applyFilters() {
-  let visible = 0;
-  cards.forEach(card => {
+function getVisibleCards() {
+  return cards.filter(card => {
     const cat = card.dataset.category;
     const searchText = card.dataset.search + ' ' + (card.querySelector('.card-title') ? card.querySelector('.card-title').textContent : '');
     const matchesCat = activeCategory === 'all' || cat === activeCategory;
     const matchesSearch = searchQuery === '' || searchText.toLowerCase().includes(searchQuery.toLowerCase());
-    const show = matchesCat && matchesSearch;
-    card.hidden = !show;
-    if (show) visible++;
+    return matchesCat && matchesSearch;
   });
-  noResults.classList.toggle('visible', visible === 0);
+}
+
+function renderPagination(totalVisible) {
+  const totalPages = Math.ceil(totalVisible / POSTS_PER_PAGE);
+  paginationEl.innerHTML = '';
+  if (totalPages <= 1) return;
+
+  // Prev arrow
+  const prev = document.createElement('button');
+  prev.className = 'page-btn page-arrow' + (currentPage === 1 ? ' disabled' : '');
+  prev.innerHTML = '&larr;';
+  prev.setAttribute('aria-label', 'Previous page');
+  prev.addEventListener('click', () => { if (currentPage > 1) { currentPage--; applyFilters(); window.scrollTo({top: 0, behavior: 'smooth'}); }});
+  paginationEl.appendChild(prev);
+
+  // Page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+    btn.textContent = i;
+    btn.setAttribute('aria-label', 'Page ' + i);
+    btn.addEventListener('click', () => { currentPage = i; applyFilters(); window.scrollTo({top: 0, behavior: 'smooth'}); });
+    paginationEl.appendChild(btn);
+  }
+
+  // Next arrow
+  const next = document.createElement('button');
+  next.className = 'page-btn page-arrow' + (currentPage === totalPages ? ' disabled' : '');
+  next.innerHTML = '&rarr;';
+  next.setAttribute('aria-label', 'Next page');
+  next.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; applyFilters(); window.scrollTo({top: 0, behavior: 'smooth'}); }});
+  paginationEl.appendChild(next);
+}
+
+function applyFilters() {
+  const visible = getVisibleCards();
+  const start = (currentPage - 1) * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
+
+  cards.forEach(card => { card.hidden = true; });
+  visible.forEach((card, i) => { card.hidden = !(i >= start && i < end); });
+
+  noResults.classList.toggle('visible', visible.length === 0);
+
   if (searchQuery !== '' || activeCategory !== 'all') {
-    resultsCount.textContent = visible === 1 ? '1 post' : visible + ' posts';
+    resultsCount.textContent = visible.length === 1 ? '1 post' : visible.length + ' posts';
   } else {
     resultsCount.textContent = '';
   }
+
+  renderPagination(visible.length);
 }
 
 catPills.forEach(pill => {
@@ -571,6 +628,7 @@ catPills.forEach(pill => {
     catPills.forEach(p => p.classList.remove('active'));
     pill.classList.add('active');
     activeCategory = pill.dataset.cat;
+    currentPage = 1;
     applyFilters();
   });
 });
@@ -579,6 +637,7 @@ if (searchInput) {
   searchInput.addEventListener('input', () => {
     searchQuery = searchInput.value.trim();
     searchClear.classList.toggle('visible', searchQuery !== '');
+    currentPage = 1;
     applyFilters();
   });
 }
@@ -588,10 +647,14 @@ if (searchClear) {
     searchInput.value = '';
     searchQuery = '';
     searchClear.classList.remove('visible');
+    currentPage = 1;
     applyFilters();
     searchInput.focus();
   });
 }
+
+// Init
+applyFilters();
 </script>
 
 </body>
