@@ -85,6 +85,9 @@
   .ornament { text-align: center; color: var(--clay-light); font-size: 16px; letter-spacing: 0.6em; margin: 44px 0 0; }
   .stage-video { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin: 6px 0 28px; background: var(--linen); border: 1px solid var(--clay-light); overflow: hidden; }
   .stage-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+  .stage-video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .stage-video-play { display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; border: 1px solid var(--clay); border-radius: 50%; color: var(--clay-deep); font-size: 15px; padding-left: 3px; }
+  .stage-video-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--soft); }
 
   /* CALLOUTS */
   .callout-pine { background: var(--pine-light); border-left: 3px solid var(--pine); padding: 18px 22px; margin: 22px 0; }
@@ -304,8 +307,6 @@
     <span class="banner-stage">02 &nbsp;Clarity</span>
     <span class="banner-sep">›</span>
     <span class="banner-stage active">03 &nbsp;Inner Balance</span>
-    <span class="banner-sep">›</span>
-    <span class="banner-stage">04 &nbsp;The Library · Coming soon</span>
   </div>
 </div>
 
@@ -337,10 +338,12 @@
   <section class="section">
     <span class="section-label">What this stage is</span>
     <div class="stage-video">
-      <!-- Paste your YouTube or Vimeo EMBED url into the iframe src below.
-           YouTube: https://www.youtube.com/embed/VIDEO_ID
-           Vimeo:   https://player.vimeo.com/video/VIDEO_ID -->
-      <iframe src="REPLACE_WITH_VIDEO_EMBED_URL" title="Stage 3 introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <!-- INTRO VIDEO: when ready, replace the placeholder div below with your embed, e.g.:
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Stage 3 introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+      <div class="stage-video-placeholder">
+        <span class="stage-video-play">▶</span>
+        <span class="stage-video-text">Intro video</span>
+      </div>
     </div>
     <p class="body-text">Stage 3 does not add a new tool. It returns the one you have been using, and asks you to run it on your actual life. Not on a prescribed emotion. On what is real and present today.</p>
     <p class="body-text"><strong>This is where the work deepens.</strong> The thought work reaches further, into inherited beliefs, into the areas of life where your patterns show up most. The somatic practices become longer and more specific. And for the first time, the practice includes intuition and integration: learning to sit with what you have found, and let it change how you move through your days.</p>
