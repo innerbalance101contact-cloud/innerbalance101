@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stage 3 — Inner Balance | innerbalance101</title>
+<title>Stage 3: Inner Balance | innerbalance101</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://innerbalance101.com/stage3-inner-balance.html">
 <meta name="description" content="Stage 3 of the Inner Balance System. Self-directed practice for Days 43–63. Deeper thought work, somatic release, and inner coherence through the PERMA framework. innerbalance101." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://innerbalance101.com/stage3-inner-balance.html" />
-<meta property="og:title" content="Stage 3 — Inner Balance | innerbalance101" />
+<meta property="og:title" content="Stage 3: Inner Balance | innerbalance101" />
 <meta property="og:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -83,6 +83,8 @@
   .body-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.85; color: var(--mid); margin-bottom: 14px; }
   .body-text strong { font-weight: 500; color: var(--espresso); }
   .ornament { text-align: center; color: var(--clay-light); font-size: 16px; letter-spacing: 0.6em; margin: 44px 0 0; }
+  .stage-video { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin: 6px 0 28px; background: var(--linen); border: 1px solid var(--clay-light); overflow: hidden; }
+  .stage-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
   /* CALLOUTS */
   .callout-pine { background: var(--pine-light); border-left: 3px solid var(--pine); padding: 18px 22px; margin: 22px 0; }
@@ -94,11 +96,12 @@
   .callout-storm p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--storm); line-height: 1.8; }
 
   /* STRUCTURE STRIP */
-  .structure-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 24px; background: var(--clay-light); border-radius: 2px; overflow: hidden; }
+  .structure-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 24px; background: var(--clay-light); border-radius: 2px; overflow: hidden; }
   .strip-part { background: var(--linen); padding: 16px 14px; text-align: center; }
   .strip-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--clay); line-height: 1; margin-bottom: 5px; }
   .strip-name { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 3px; }
   .strip-time { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; color: var(--soft); }
+  .strip-note { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px; font-style: italic; color: var(--soft); text-align: center; margin-top: 14px; line-height: 1.6; }
 
   /* WEEKLY FOCUS */
   .focus-optional { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--soft); display: inline-block; border: 1px solid var(--clay-light); padding: 4px 12px; margin-bottom: 18px; }
@@ -232,6 +235,17 @@
   .plan-cta-secondary { border: 1px solid var(--clay-light); color: var(--mid); }
   .plan-cta-secondary:hover { border-color: var(--clay); color: var(--espresso); }
   .membership-note { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11.5px; color: var(--soft); text-align: center; margin-top: 14px; line-height: 1.7; }
+  /* COMING SOON */
+  .coming-soon { margin-top: 28px; padding: 30px 32px; border: 1px solid var(--pine-border); background: var(--pine-light); border-radius: 2px; }
+  .coming-soon-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--pine); display: block; margin-bottom: 12px; }
+  .coming-soon-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13.5px; color: var(--mid); line-height: 1.85; margin-bottom: 20px; max-width: 620px; }
+  .coming-soon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .coming-soon-highlight { display: flex; align-items: flex-start; gap: 16px; padding: 18px 20px; background: var(--warm-white); border: 1px solid var(--pine-border); border-radius: 2px; }
+  .cs-badge { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-white); background: var(--pine); padding: 5px 10px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .cs-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--espresso); line-height: 1.2; margin-bottom: 4px; }
+  .cs-desc { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12.5px; color: var(--mid); line-height: 1.7; margin: 0; }
+  @media (max-width: 620px) { .coming-soon-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 440px) { .coming-soon-highlight { flex-direction: column; gap: 10px; } }
 
   /* MON-FRI BADGE */
   .schedule-badge { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 20px 0 4px; }
@@ -247,12 +261,17 @@
   .footer-logo { display: flex; align-items: center; gap: 10px; }
   .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--warm-white); letter-spacing: 0.06em; }
   .footer-tagline { font-size: 0.88rem; font-weight: 300; color: rgba(250,247,242,0.45); font-style: italic; padding-left: 32px; }
+  .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
   .footer-links { display: flex; gap: 24px; }
   .footer-link { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,247,242,0.5); text-decoration: none; transition: color 0.3s; }
   .footer-link:hover { color: var(--clay); }
+  .social-links { display: flex; gap: 10px; }
+  .social-link { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(250,247,242,0.15); color: rgba(250,247,242,0.45); transition: color 0.3s, border-color 0.3s; text-decoration: none; }
+  .social-link:hover { color: var(--clay); border-color: var(--clay); }
+  .social-link svg { width: 15px; height: 15px; fill: currentColor; }
 
   /* RESPONSIVE */
-  @media (max-width: 960px) { :root { --nav-h: 58px; } nav { padding: 0 24px; } .nav-links { gap: 16px; } footer { padding: 40px 24px 28px; } .footer-top { flex-direction: column; align-items: flex-start; gap: 28px; } .footer-tagline { padding-left: 0; } }
+  @media (max-width: 960px) { :root { --nav-h: 58px; } nav { padding: 0 24px; } .nav-links { gap: 16px; } footer { padding: 40px 24px 28px; } .footer-top { flex-direction: column; align-items: flex-start; gap: 28px; } .footer-tagline { padding-left: 0; } .footer-right { align-items: flex-start; width: 100%; } .footer-links { flex-wrap: wrap; } }
   @media (max-width: 640px) { .nav-links { display: none; } .nav-cta { display: none; } .nav-mobile-toggle { display: inline-flex; } nav.nav-open { height: auto; flex-wrap: wrap; padding-bottom: 14px; } nav.nav-open .nav-links { display: flex; width: 100%; order: 3; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 8px; } nav.nav-open .nav-cta { display: inline-block; order: 4; margin-top: 6px; } }
   @media (max-width: 680px) { .structure-strip { grid-template-columns: repeat(2, 1fr); } .belief-split { grid-template-columns: 1fr; } .somatic-grid { grid-template-columns: 1fr; } .membership-plans { grid-template-columns: 1fr; } .focus-grid { grid-template-columns: 1fr 1fr; } .day63-block { padding: 30px 22px; } .perma-body { padding-left: 20px; } }
   @media (max-width: 440px) { .focus-grid { grid-template-columns: 1fr; } .header-meta { gap: 16px; } }
@@ -261,7 +280,7 @@
 <body>
 
 <nav>
-  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 — home">
+  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 home">
     <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
     <div class="nav-divider"></div>
     <span class="nav-logo-text">innerbalance101</span>
@@ -286,7 +305,7 @@
     <span class="banner-sep">›</span>
     <span class="banner-stage active">03 &nbsp;Inner Balance</span>
     <span class="banner-sep">›</span>
-    <span class="banner-stage">04 &nbsp;The Library</span>
+    <span class="banner-stage">04 &nbsp;The Library · Coming soon</span>
   </div>
 </div>
 
@@ -294,19 +313,22 @@
   <span class="brand-label">innerbalance101</span>
   <span class="stage-label">Stage 03 of 03</span>
   <h1 class="page-title">Inner Balance</h1>
-  <p class="page-subtitle">The practice is yours to direct. No prescribed emotion. No assigned script. You bring what is real — and you know what to do with it.</p>
+  <p class="page-subtitle">The practice is yours to direct. No prescribed emotion. No assigned script. You bring what is real, and you know what to do with it.</p>
   <div class="header-meta">
-    <div class="meta-item"><span class="meta-value">21</span><span class="meta-label">Days</span></div>
+    <div class="meta-item">
+      <span class="meta-value">10</span>
+      <span class="meta-label">Min minimum</span>
+    </div>
     <div class="meta-divider"></div>
-    <div class="meta-item"><span class="meta-value">30</span><span class="meta-label">Min daily</span></div>
+    <div class="meta-item">
+      <span class="meta-value">You</span>
+      <span class="meta-label">Decide the length</span>
+    </div>
     <div class="meta-divider"></div>
-    <div class="meta-item"><span class="meta-value">Day 43</span><span class="meta-label">Unlocks here</span></div>
-    <div class="meta-divider"></div>
-    <div class="meta-item"><span class="meta-value">Day 63</span><span class="meta-label">System complete</span></div>
-  </div>
-  <div class="schedule-badge">
-    <span class="schedule-days">Mon–Fri</span>
-    <span class="schedule-note">Weekends optional</span>
+    <div class="meta-item">
+      <span class="meta-value">Mon–Fri</span>
+      <span class="meta-label">Weekends optional</span>
+    </div>
   </div>
 </header>
 
@@ -314,10 +336,14 @@
 
   <section class="section">
     <span class="section-label">What this stage is</span>
-    <h2 class="section-title">Stage 2 gave you awareness.<br><em>This is where you build from it.</em></h2>
-    <p class="body-text">For 42 days you have been learning to see yourself clearly. You can name what is happening in your body before your mind has caught up. You recognise the thoughts that tend to run your emotional states. You have begun to create space between what activates you and how you respond.</p>
-    <p class="body-text">Stage 3 does not add a new tool. It returns the one you have been using — and asks you to run it on your actual life. Not on a prescribed emotion. On what is real and present today.</p>
-    <p class="body-text"><strong>This is where the work deepens.</strong> The thought work reaches further — into inherited beliefs, into the areas of life where your patterns show up most. The somatic practices become longer and more specific. And for the first time, the practice includes intuition and integration: learning to sit with what you have found, and let it change how you move through your days.</p>
+    <div class="stage-video">
+      <!-- Paste your YouTube or Vimeo EMBED url into the iframe src below.
+           YouTube: https://www.youtube.com/embed/VIDEO_ID
+           Vimeo:   https://player.vimeo.com/video/VIDEO_ID -->
+      <iframe src="REPLACE_WITH_VIDEO_EMBED_URL" title="Stage 3 introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <p class="body-text">Stage 3 does not add a new tool. It returns the one you have been using, and asks you to run it on your actual life. Not on a prescribed emotion. On what is real and present today.</p>
+    <p class="body-text"><strong>This is where the work deepens.</strong> The thought work reaches further, into inherited beliefs, into the areas of life where your patterns show up most. The somatic practices become longer and more specific. And for the first time, the practice includes intuition and integration: learning to sit with what you have found, and let it change how you move through your days.</p>
     <div class="callout-rose">
       <p>"You spent 21 days clearing the noise. Then 21 days learning to see. Now you use what you see to build something that lasts."</p>
     </div>
@@ -325,11 +351,11 @@
 
   <section class="section">
     <span class="section-label">Building inner coherence</span>
-    <h2 class="section-title">The PERMA Framework — <em>knowing what you are building toward</em></h2>
-    <p class="body-text">Stage 3 introduces a lens for measuring not just emotional regulation, but genuine wellbeing. The PERMA model identifies five areas that determine whether a person is functioning well — not just performing well. Use it as a weekly reflective tool, not a daily metric. Once a week, take five minutes with one area.</p>
+    <h2 class="section-title">The PERMA Framework: <em>knowing what you are building toward</em></h2>
+    <p class="body-text">Stage 3 introduces a lens for measuring not just emotional regulation, but genuine wellbeing. The PERMA model identifies five areas that determine whether a person is functioning well, not just performing well. Use it as a weekly reflective tool, not a daily metric. Once a week, take five minutes with one area.</p>
 
     <div class="callout-storm">
-      <p>High-achievers frequently score well on Accomplishment while running quiet deficits in Positive Emotions, Relationships, and Meaning. The practice is not to fix this as a project — it is to begin paying attention to what has been quietly neglected.</p>
+      <p>High-achievers frequently score well on Accomplishment while running quiet deficits in Positive Emotions, Relationships, and Meaning. The practice is not to fix this as a project. It is to begin paying attention to what has been quietly neglected.</p>
     </div>
 
     <div class="perma-accordion">
@@ -341,7 +367,7 @@
           <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="perma-body">
-          <p>Not about staying positive. It is about noticing genuine satisfaction, pleasure, and ease when they appear — and not moving past them so quickly they never register. Many high-achievers experience good moments briefly then return immediately to what needs to be done. The practice is to slow down enough to let them land.</p>
+          <p>Not about staying positive. It is about noticing genuine satisfaction, pleasure, and ease when they appear, and not moving past them so quickly they never register. Many high-achievers experience good moments briefly then return immediately to what needs to be done. The practice is to slow down enough to let them land.</p>
           <ul class="perma-prompts">
             <li>What brings me relief, and what brings me real renewal?</li>
             <li>When do I feel simple pleasure without guilt or urgency?</li>
@@ -358,7 +384,7 @@
           <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="perma-body">
-          <p>Engagement is being fully absorbed in something — not just busy, but genuinely present. High-achievers often confuse high-volume activity with engagement. Being stretched and exhausted is not the same as being in flow.</p>
+          <p>Engagement is being fully absorbed in something, not just busy, but genuinely present. High-achievers often confuse high-volume activity with engagement. Being stretched and exhausted is not the same as being in flow.</p>
           <ul class="perma-prompts">
             <li>What activities make me feel more like myself while I am doing them?</li>
             <li>Where have I confused busyness with aliveness?</li>
@@ -375,7 +401,7 @@
           <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="perma-body">
-          <p>Genuine connection — where both people are actually present and honest — is one of the strongest predictors of wellbeing. Many high-achievers are skilled at performing connection while privately feeling disconnected. This area looks at quality, not volume.</p>
+          <p>Genuine connection, where both people are actually present and honest, is one of the strongest predictors of wellbeing. Many high-achievers are skilled at performing connection while privately feeling disconnected. This area looks at quality, not volume.</p>
           <ul class="perma-prompts">
             <li>Who lets me feel most unguarded, and what is different there?</li>
             <li>Where do I over-explain, over-give, or become who I think I need to be?</li>
@@ -392,7 +418,7 @@
           <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="perma-body">
-          <p>Meaning is the sense that what you are doing matters — not just to your metrics, but to something larger than personal achievement. Without it, even significant achievement tends to feel hollow. Go underneath output and image. Ask what gives your life weight in the best sense.</p>
+          <p>Meaning is the sense that what you are doing matters, not just to your metrics, but to something larger than personal achievement. Without it, even significant achievement tends to feel hollow. Go underneath output and image. Ask what gives your life weight in the best sense.</p>
           <ul class="perma-prompts">
             <li>What matters to me even when no one else sees it?</li>
             <li>Where have I built my life around urgency instead of meaning?</li>
@@ -409,7 +435,7 @@
           <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="perma-body">
-          <p>There is a difference between achieving something you chose and achieving something someone else needed you to want. This is not about doing less — it is about doing the right things. Redefine success from the inside instead of inheriting it whole.</p>
+          <p>There is a difference between achieving something you chose and achieving something someone else needed you to want. This is not about doing less. It is about doing the right things. Redefine success from the inside instead of inheriting it whole.</p>
           <ul class="perma-prompts">
             <li>What does success actually mean to me now?</li>
             <li>Which goals feel chosen, and which ones feel inherited, rewarded, or expected?</li>
@@ -424,21 +450,21 @@
 
   <section class="section">
     <span class="section-label">Practice structure</span>
-    <h2 class="section-title">The same sequence. Deeper application.</h2>
-    <p class="body-text">The four-stage format does not change. What changes is the depth at which you enter it. The check-in is now a full inquiry. The thought work reaches the belief, not just the thought. The somatic practices are longer. And the intuition close — new to Stage 3 — asks you to listen to what the practice is telling you.</p>
+    <h2 class="section-title">Three parts. Deeper application.</h2>
+    <p class="body-text">The shape is simple: feel what is here, transform it, then move onward with it. What changes at Stage 3 is the depth. The check-in becomes a full inquiry. The thought work reaches the belief, not just the thought. The somatic release runs longer. And a closing pause, new to Stage 3, asks you to listen to what the practice is telling you before you carry it into your day.</p>
     <div class="structure-strip">
-      <div class="strip-part"><div class="strip-num">1</div><div class="strip-name">Body Check-In</div><div class="strip-time">5 min</div></div>
-      <div class="strip-part"><div class="strip-num">2</div><div class="strip-name">Thought Work</div><div class="strip-time">10 min</div></div>
-      <div class="strip-part"><div class="strip-num">3</div><div class="strip-name">Somatic Release</div><div class="strip-time">10 min</div></div>
-      <div class="strip-part"><div class="strip-num">4</div><div class="strip-name">Intuition / Integration</div><div class="strip-time">5 min</div></div>
+      <div class="strip-part"><div class="strip-num">1</div><div class="strip-name">Feel</div><div class="strip-time">Body Check-In · 5 min</div></div>
+      <div class="strip-part"><div class="strip-num">2</div><div class="strip-name">Transform</div><div class="strip-time">Thought Work + Somatic · 20 min</div></div>
+      <div class="strip-part"><div class="strip-num">3</div><div class="strip-name">Move Onward</div><div class="strip-time">Integrate · 5 min</div></div>
     </div>
+    <p class="strip-note">Times shown are a recommended minimum. Stay longer in any part that needs it.</p>
   </section>
 
   <section class="section">
-    <span class="section-label">Optional — weekly focus</span>
+    <span class="section-label">Optional: weekly focus</span>
     <h2 class="section-title">Choose one area of life to work with this week.</h2>
-    <p class="body-text">The daily practice works on whatever is present. But if you want to go deeper in a specific area — where your patterns show up most, or where you want to build more capacity — you can set a weekly focus. This shapes the thought work prompts for that week.</p>
-    <span class="focus-optional">Optional — select one or leave blank</span>
+    <p class="body-text">The daily practice works on whatever is present. But if you want to go deeper in a specific area, where your patterns show up most, or where you want to build more capacity, you can set a weekly focus. This shapes the thought work prompts for that week.</p>
+    <span class="focus-optional">Optional: select one or leave blank</span>
     <div class="focus-grid">
 
       <div class="focus-card" onclick="toggleFocus(this)">
@@ -451,10 +477,10 @@
           <span class="focus-area-tag">Performance · Achievement · Pressure</span>
           <p>Where are you performing for an audience you have never chosen to perform for? This area looks at the gap between what you do and what you are doing it for.</p>
           <ul class="focus-prompts">
-            <li>What would I do differently this week if no one was watching?</li>
-            <li>Am I working toward something I chose, or something I was supposed to want?</li>
+            <li>Do I actually need to do anything differently this week, if I already have permission and no one is judging me?</li>
+            <li>Do I like, or love, what I do? And if I do, do I love how I do it, and why?</li>
             <li>Where am I measuring my worth by my output?</li>
-            <li>What fear is driving my work right now — and is it actually useful?</li>
+            <li>What fear is driving my work right now, and is it actually useful?</li>
             <li>What would it mean to do good work without needing to prove it?</li>
           </ul>
         </div>
@@ -470,7 +496,7 @@
           <span class="focus-area-tag">Belonging · Presence · Honesty</span>
           <p>Many high-achievers are skilled at the performance of connection while carrying the weight of disconnection privately. This area looks at how you actually show up with people.</p>
           <ul class="focus-prompts">
-            <li>Which connections feed me and which deplete me — and am I honest with myself about that?</li>
+            <li>Which connections feed me and which deplete me, and am I honest with myself about that?</li>
             <li>Am I present with the people who matter, or managing internally while appearing engaged?</li>
             <li>What do I need from others that I have been too capable to ask for?</li>
             <li>Where am I performing composure in a relationship that deserves something more honest?</li>
@@ -489,10 +515,10 @@
           <span class="focus-area-tag">Self-Trust · Beliefs · Who You Are</span>
           <p>The beliefs driving your self-evaluation were mostly installed before you had the capacity to question them. This area looks at the difference between who you are and who you were taught to be.</p>
           <ul class="focus-prompts">
-            <li>When I am most critical of myself, what standard am I applying — and where did it come from?</li>
+            <li>When I am most critical of myself, what standard am I applying, and where did it come from?</li>
             <li>Who would I be if I stopped needing to prove I was enough?</li>
             <li>What parts of myself have I been hiding because they did not fit the acceptable version?</li>
-            <li>What do I actually value — separate from what I have built or been told to value?</li>
+            <li>What do I actually value, separate from what I have built or been told to value?</li>
             <li>What does self-trust feel like in my body? When did I last experience it clearly?</li>
           </ul>
         </div>
@@ -509,7 +535,7 @@
           <p>Most high-achievers treat the body as a vehicle for performance rather than the intelligence guiding it. This area looks at what your body has been telling you that your mind has been overriding.</p>
           <ul class="focus-prompts">
             <li>What signals has my body been sending that I have ignored to keep going?</li>
-            <li>When did I last genuinely rest — not recover to perform again, but rest without agenda?</li>
+            <li>When did I last genuinely rest, not recover to perform again, but rest without agenda?</li>
             <li>What belief is underneath my relationship with rest? Is slowing down dangerous in some way I have not examined?</li>
             <li>What does my energy feel like at the start of the day versus the end? What is creating that gap?</li>
             <li>What one change would protect my energy rather than spend it?</li>
@@ -530,7 +556,7 @@
             <li>What am I doing that connects to something larger than achievement or approval?</li>
             <li>If my performance metrics disappeared tomorrow, what would still feel worth doing?</li>
             <li>What have I been postponing until I have achieved enough to feel it is earned?</li>
-            <li>What version of my life feels most like mine — not the most impressive, but the most true?</li>
+            <li>What version of my life feels most like mine, not the most impressive, but the most true?</li>
             <li>What would I regret not having done or said?</li>
           </ul>
         </div>
@@ -543,8 +569,8 @@
 
   <section class="section">
     <span class="section-label">The practice</span>
-    <h2 class="section-title">30 minutes. Four stages. Every day.</h2>
-    <p class="body-text">Work through the steps in sequence. Do not read ahead before completing the step you are in.</p>
+    <h2 class="section-title">Three parts. About 30 minutes, adjusted as needed.</h2>
+    <p class="body-text">Monday to Friday, and any other time you need it. Work through the three parts in sequence. Do not read ahead before completing the part you are in.</p>
 
     <div class="practice-accordion">
 
@@ -552,37 +578,37 @@
         <button class="step-toggle" onclick="toggleStep(this)" aria-expanded="true">
           <span class="step-num-large">01</span>
           <div class="step-title-block">
-            <div class="step-name">Step One</div>
+            <div class="step-name">Part One · Feel</div>
             <div class="step-title-text">Body Check-In</div>
           </div>
           <span class="step-duration">5 minutes</span>
           <svg class="step-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="step-body">
-          <p class="step-context">Your body knows what is happening before your mind has language for it. The check-in is not a warm-up — it is the foundation of everything that follows. Two minutes here makes the difference between a practice that lands precisely and one that floats over the surface.</p>
+          <p class="step-context">Your body knows what is happening before your mind has language for it. The check-in is not a warm-up, it is the foundation of everything that follows. Two minutes here makes the difference between a practice that lands precisely and one that floats over the surface.</p>
 
           <div class="sub-step">
             <div class="sub-step-header"><span class="sub-step-num">A</span><span class="sub-step-name">Where are you holding it?</span></div>
             <p class="step-context" style="font-size:13px; margin-bottom:12px;">Before you name an emotion, locate it physically. Scan from feet to head. Notice where there is tension, weight, heat, numbness, or constriction.</p>
             <ul class="prompt-list">
-              <li>Jaw, neck, shoulders — the load and the bracing</li>
-              <li>Chest — what is tight, hollow, or heavy here?</li>
-              <li>Stomach and gut — the anxiety lives here before the mind names it</li>
-              <li>Hips and lower back — what have you been carrying without acknowledging?</li>
+              <li>Jaw, neck, shoulders, the load and the bracing</li>
+              <li>Chest, what is tight, hollow, or heavy here?</li>
+              <li>Stomach and gut, the anxiety lives here before the mind names it</li>
+              <li>Hips and lower back, what have you been carrying without acknowledging?</li>
             </ul>
             <div class="write-area"><div class="write-line"></div><div class="write-line"></div></div>
           </div>
 
           <div class="sub-step">
             <div class="sub-step-header"><span class="sub-step-num">B</span><span class="sub-step-name">Name the emotion</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:10px;">Match the sensation to an emotion. Be specific — "anxious" and "scared" both race the heart, but they need different things. Use the Emotions and Sensations Chart if you need it.</p>
+            <p class="step-context" style="font-size:13px; margin-bottom:10px;">Match the sensation to an emotion. Be specific: "anxious" and "scared" both race the heart, but they need different things. Use the <a href="https://innerbalance101.com/stage2-clarity.html#emotions-chart" target="_blank" rel="noopener noreferrer" style="color: var(--clay-deep); text-decoration: underline;">Emotions and Sensations Chart</a> if you need it.</p>
             <div class="write-area"><div class="write-line"></div><div class="write-line"></div></div>
           </div>
 
           <div class="sub-step">
             <div class="sub-step-header"><span class="sub-step-num">C</span><span class="sub-step-name">What thought is running underneath that?</span></div>
             <div class="step-instruction">
-              <p>Write the exact sentence your mind is running. Not the edited version — the real one. One to two lines.</p>
+              <p>Write the exact sentence your mind is running. Not the edited version, the real one. One to two lines.</p>
               <p><strong>Common at Stage 3:</strong> "I've done the work and I still don't trust myself." "I know what to do but I keep choosing the harder way." "Something still feels off and I don't know why."</p>
             </div>
             <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
@@ -594,14 +620,14 @@
         <button class="step-toggle" onclick="toggleStep(this)" aria-expanded="false">
           <span class="step-num-large">02</span>
           <div class="step-title-block">
-            <div class="step-name">Step Two</div>
-            <div class="step-title-text">Thought Work &amp; Journaling</div>
+            <div class="step-name">Part Two · Transform</div>
+            <div class="step-title-text">Thought Work &amp; Somatic Release</div>
           </div>
-          <span class="step-duration">10 minutes</span>
+          <span class="step-duration">20 minutes</span>
           <svg class="step-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="step-body">
-          <p class="step-context">At Stage 3 the thought work goes deeper. You are not just identifying the thought — you are tracing it back to the belief that generates it, and asking the harder question: did you choose this, or was it installed?</p>
+          <p class="step-context">This is where the shift happens. First the thought work, journaling included, takes the thought down to the belief underneath it. Then the somatic release moves what the mind has surfaced through the body. The insight alone is not enough. You need to move it through.</p>
 
           <div class="sub-step">
             <div class="sub-step-header"><span class="sub-step-num">A</span><span class="sub-step-name">Work with the thought</span></div>
@@ -609,7 +635,7 @@
             <ul class="prompt-list">
               <li>What specifically am I afraid will happen if I do not handle this perfectly?</li>
               <li>Is this a fact I am responding to, or a story I have been rehearsing?</li>
-              <li>What am I trying to prove — and who am I proving it to?</li>
+              <li>What am I trying to prove, and who am I proving it to?</li>
               <li>What would I need to believe about myself for this thought to feel true?</li>
               <li>What would I tell someone I love who was carrying this thought right now?</li>
               <li>What does this thought cost me when I act from it?</li>
@@ -622,7 +648,7 @@
             <p class="step-context" style="font-size:13px; margin-bottom:14px;">Most beliefs driving high-achiever behaviour were installed before there was capacity to evaluate them. A parent's standard, a school environment that only rewarded performance, an early experience of conditional approval. The belief was adopted to stay safe, loved, or successful in that context. The question now is whether it still serves the life being built.</p>
             <div class="belief-split">
               <div class="belief-col inherited">
-                <div class="belief-col-label">Inherited — often sounds like</div>
+                <div class="belief-col-label">Inherited: often sounds like</div>
                 <ul class="belief-examples">
                   <li>"I need to do more to be valuable."</li>
                   <li>"Rest means I'm falling behind."</li>
@@ -633,7 +659,7 @@
                 </ul>
               </div>
               <div class="belief-col chosen">
-                <div class="belief-col-label">Chosen — often sounds like</div>
+                <div class="belief-col-label">Chosen: often sounds like</div>
                 <ul class="belief-examples">
                   <li>"I work hard because it matters to me, not to prove anything."</li>
                   <li>"My capacity grows when I recover."</li>
@@ -650,26 +676,13 @@
           </div>
 
           <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">C</span><span class="sub-step-name">If you set a weekly focus — use it here</span></div>
+            <div class="sub-step-header"><span class="sub-step-num">C</span><span class="sub-step-name">If you set a weekly focus, use it here</span></div>
             <p class="step-context" style="font-size:13px; margin-bottom:0;">Return to the focus area you selected above. Use one prompt from that section. Write without editing. This is journaling, not performance.</p>
           </div>
-        </div>
-      </div>
 
-      <div class="practice-step" id="step-3">
-        <button class="step-toggle" onclick="toggleStep(this)" aria-expanded="false">
-          <span class="step-num-large">03</span>
-          <div class="step-title-block">
-            <div class="step-name">Step Three</div>
-            <div class="step-title-text">Somatic Release</div>
-          </div>
-          <span class="step-duration">10 minutes</span>
-          <svg class="step-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="step-body">
-          <p class="step-context">The body holds what the mind has been processing. Thought work creates clarity. Somatic release creates discharge. The insight alone is not enough. You need to move it through.</p>
-          <p class="step-context">At Stage 3 the practices are longer and more specific. Choose the one that matches what you found in Step 1. Let the body confirm the choice — a slight exhale when you read the right option, a pull toward it.</p>
-
+          <div class="sub-step">
+            <div class="sub-step-header"><span class="sub-step-num">D</span><span class="sub-step-name">Somatic Release</span></div>
+            <p class="step-context" style="font-size:13px; margin-bottom:12px;">Thought work creates clarity. Somatic release creates discharge. Choose the one that matches what you found in Part One. Let the body confirm the choice, a slight exhale when you read the right option, a pull toward it.</p>
           <div class="somatic-grid">
             <div class="somatic-card">
               <div class="somatic-card-name">Extended Breathwork</div>
@@ -684,7 +697,7 @@
             <div class="somatic-card">
               <div class="somatic-card-name">Qigong Flow</div>
               <span class="somatic-card-time">7–10 minutes</span>
-              <p>Slow arm swings, spinal waves, weight shifting with breath. The form does not need to be perfect — the intention does. Use for heaviness, disconnection, or when the body needs to move without intensity.</p>
+              <p>Slow arm swings, spinal waves, weight shifting with breath. The form does not need to be perfect, the intention does. Use for heaviness, disconnection, or when the body needs to move without intensity.</p>
             </div>
             <div class="somatic-card">
               <div class="somatic-card-name">Body Scan Meditation</div>
@@ -694,69 +707,50 @@
             <div class="somatic-card">
               <div class="somatic-card-name">Guided Visualisation</div>
               <span class="somatic-card-time">7–10 minutes</span>
-              <p>Close your eyes and build a clear inner resource — a place, a version of yourself, a felt sense of safety. Use specific sensory detail. This trains the nervous system to access a regulated state on demand. Use for uncertainty, self-doubt, or when the future feels threatening.</p>
+              <p>Close your eyes and build a clear inner resource, a place, a version of yourself, a felt sense of safety. Use specific sensory detail. This trains the nervous system to access a regulated state on demand. Use for uncertainty, self-doubt, or when the future feels threatening.</p>
             </div>
             <div class="somatic-card">
               <div class="somatic-card-name">Values-Based Embodiment</div>
               <span class="somatic-card-time">5–7 minutes</span>
-              <p>Choose one value you want to embody today. Stand in a posture that physically represents it — not performed, but genuinely felt. Breathe from that posture for 5 minutes. Use when identity or purpose work needs to move from idea to felt sense.</p>
+              <p>Choose one value you want to embody today. Stand in a posture that physically represents it, not performed, but genuinely felt. Breathe from that posture for 5 minutes. Use when identity or purpose work needs to move from idea to felt sense.</p>
             </div>
           </div>
 
           <div class="callout-pine">
             <p>Duration matters at Stage 3. The practices above take the full time listed. Set the timer and stay in it. <strong>The nervous system shift happens in the sustained practice, not at the beginning.</strong></p>
           </div>
+          </div>
         </div>
       </div>
 
       <div class="practice-step" id="step-4">
         <button class="step-toggle" onclick="toggleStep(this)" aria-expanded="false">
-          <span class="step-num-large">04</span>
+          <span class="step-num-large">03</span>
           <div class="step-title-block">
-            <div class="step-name">Step Four</div>
-            <div class="step-title-text">Intuition &amp; Integration</div>
+            <div class="step-name">Part Three · Move Onward</div>
+            <div class="step-title-text">Reaffirm &amp; Carry It Forward</div>
           </div>
           <span class="step-duration">5 minutes</span>
           <svg class="step-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="step-body">
-          <p class="step-context">This stage does not appear in Stages 1 or 2. It is specific to Stage 3. After thought work and somatic release there is a window — brief but real — where the nervous system is regulated and the mind is quieter than usual. This is where inner signal can be heard. You are not looking for inspiration. You are practising the skill of listening to what you already know.</p>
+          <p class="step-context">You do not add anything new here. This is where you reaffirm the feeling you generated in Part Two, the new belief, the shift you created, so it comes with you into the rest of your day rather than fading the moment you close the practice.</p>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">A</span><span class="sub-step-name">Return to stillness</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:10px;">Sit quietly. Feet on the floor. One hand on your chest if that helps. Three slow unguided breaths. Notice whatever is present without trying to direct it.</p>
+          <div class="step-instruction">
+            <p><strong>Name the new feeling or belief you developed in the work</strong>, the one you want to keep. Then choose one grounded statement below to seal it. Pick the one your body can actually receive, not the most impressive, the most true.</p>
           </div>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">B</span><span class="sub-step-name">Hold one question</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:10px;">Choose one and hold it without reaching for an answer. Let whatever arises arrive in its own time.</p>
-            <ul class="affirmation-list">
-              <li>"What do I actually know about this that I have not been willing to say out loud?"</li>
-              <li>"What is the next honest step — not the safest one, the honest one?"</li>
-              <li>"What is the part of myself I have not been listening to?"</li>
-              <li>"What does my body know that my mind is still arguing with?"</li>
-            </ul>
-          </div>
+          <ul class="affirmation-list">
+            <li>"I don't need to have all the answers right now. I'm on the right path, at the exact moment I'm meant to be in."</li>
+            <li>"I trust what I already know, and that feels amazing."</li>
+            <li>"Slowing down is living, and this life is just that."</li>
+            <li>"I can hold this sense of inner peace, and come back to it again and again."</li>
+            <li>"My worth is mine, and it feels amazing!"</li>
+            <li>"I have built something real. I can feel it, and that makes it real."</li>
+          </ul>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">C</span><span class="sub-step-name">Write what arrived</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:10px;">Do not filter. If nothing arrived, write that too. The practice of listening is worth more than the content of what is heard.</p>
-            <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
-          </div>
-
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">D</span><span class="sub-step-name">One grounded statement. One next step.</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:10px;">Choose the statement your body can actually receive — not the most impressive, the most true.</p>
-            <ul class="affirmation-list">
-              <li>"I can move forward without having all the answers."</li>
-              <li>"I do not need external approval to trust what I already know."</li>
-              <li>"Slowing down is a form of precision, not avoidance."</li>
-              <li>"I can hold the discomfort of this and still act clearly."</li>
-              <li>"My performance is not the measure of my worth."</li>
-              <li>"I have built something real. I can trust it."</li>
-            </ul>
-            <p class="step-context" style="font-size:13px; margin-top:14px; margin-bottom:8px;">Then write your one next step. One concrete action you will take today.</p>
-            <div class="write-area"><div class="write-line"></div></div>
+          <div class="callout-rose">
+            <p>Then smile. A real, physical smile, for having given yourself these minutes.</p>
           </div>
         </div>
       </div>
@@ -765,17 +759,18 @@
   </section>
 
   <div class="day63-block">
-    <span class="day63-label">Day 63</span>
+    <span class="day63-label">System complete</span>
     <h2 class="day63-title">You built an inner world.<br><em>Now comes the work of keeping it.</em></h2>
-    <p class="day63-body">Most people never build what you have built. They manage their emotional states from the outside — through wins, approval, and activity — and they never stop long enough to know what is happening on the inside. You spent 63 days doing the other thing.</p>
-    <p class="day63-body"><strong>What you do not maintain returns to its default.</strong> High alert is the nervous system's natural setting when nothing is being done to override it. Inner balance is not a destination you arrive at — it is the discipline that overrides the default, every day.</p>
-    <p class="day63-body">The library is how you maintain what you built. When a specific state activates — the kind that is familiar, that costs you when left unattended — you open the practice designed for exactly that state. No construction required. The work is already there.</p>
+    <p class="day63-body">Most people never build what you have built. They manage their emotional states from the outside, through wins, approval, and activity, and they never stop long enough to know what is happening on the inside. You did the other thing.</p>
+    <p class="day63-body"><strong>What you do not maintain returns to its default.</strong> High alert is the nervous system's natural setting when nothing is being done to override it. Inner balance is not a destination you arrive at. It is the discipline that overrides the default, every day.</p>
+    <p class="day63-body">What maintains it is the practice itself, now yours to keep. When a familiar state activates, the kind that costs you when it goes unattended, you return to the three parts and move through it. Feel it. Transform it. Move onward. Nothing to construct. You already know the way.</p>
   </div>
 
   <section class="membership-section">
+    <!-- LIBRARY HEADING + PRICING TURNED OFF until launch. To restore, delete this opening comment marker and its closing marker below.
     <span class="section-label">Continue the practice</span>
     <h2 class="section-title">The library. An always-growing collection<br><em>of what the work requires.</em></h2>
-    <p class="body-text">Each practice targets one specific emotional transformation. Overwhelm to grounded. Pressure to self-assurance. Self-doubt to self-trust. Guilt to release. Uncertainty to grounded presence. You open the one that matches what is activated and move through it — no construction required.</p>
+    <p class="body-text">Each practice targets one specific emotional transformation. Overwhelm to grounded. Pressure to self-assurance. Self-doubt to self-trust. Guilt to release. Uncertainty to grounded presence. You open the one that matches what is activated and move through it, no construction required.</p>
     <p class="body-text">The subscription adds monthly themed content, new practices as they are released, seasonal drops, and weekly WhatsApp prompts that keep the practice alive between sessions. One question. No selling.</p>
 
     <div class="membership-plans">
@@ -789,7 +784,7 @@
           <li>New practices as they are released</li>
           <li>Monthly themed practice content</li>
           <li>Seasonal practice drops (4 per year)</li>
-          <li>Weekly WhatsApp prompts — one question, no selling</li>
+          <li>Weekly WhatsApp prompts, one question, no selling</li>
           <li>Cancel anytime</li>
         </ul>
         <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="plan-cta plan-cta-secondary">Start monthly →</a>
@@ -798,21 +793,46 @@
         <div class="plan-badge">Best value</div>
         <div class="plan-type">Annual</div>
         <div class="plan-price">$189<span> / year</span></div>
-        <span class="plan-save">Two months free — save $39</span>
+        <span class="plan-save">Two months free, save $39</span>
         <div class="plan-includes">Everything in monthly, plus</div>
         <ul class="plan-features">
           <li>Full access to all current practice guides</li>
           <li>New practices as they are released</li>
           <li>Monthly themed practice content</li>
           <li>Seasonal practice drops (4 per year)</li>
-          <li>Weekly WhatsApp prompts — one question, no selling</li>
+          <li>Weekly WhatsApp prompts, one question, no selling</li>
           <li>Priority access to new practices before public release</li>
           <li>Annual inner coherence review practice</li>
         </ul>
         <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="plan-cta plan-cta-primary">Start annual →</a>
       </div>
     </div>
+    -->
+
+    <div class="coming-soon">
+      <span class="coming-soon-label">On the horizon</span>
+      <p class="coming-soon-text">This is where the system opens up. Two things are on the way, both built to carry the practice past Stage 3 and keep it alive in real life.</p>
+      <div class="coming-soon-grid">
+        <div class="coming-soon-highlight">
+          <span class="cs-badge">Coming soon</span>
+          <div>
+            <div class="cs-title">The Digital Library</div>
+            <p class="cs-desc">An always-growing collection of practices, each targeting one specific emotional transformation. Open the one that matches what is activated and move through it, no construction required.</p>
+          </div>
+        </div>
+        <div class="coming-soon-highlight">
+          <span class="cs-badge">Coming soon</span>
+          <div>
+            <div class="cs-title">1:1 Coaching</div>
+            <p class="cs-desc">A coaching approach you will not find anywhere else, built on the same system. Personal guidance for the places the self-led practice cannot reach on its own.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--
     <p class="membership-note">Individual practices are also available without a subscription. Browse the full library at stan.store/innerbalance101</p>
+    -->
   </section>
 
 </div>
@@ -826,11 +846,21 @@
       </div>
       <div class="footer-tagline">From performing fine to actually being fine.</div>
     </div>
-    <div class="footer-links">
-      <a href="/the-system.html" class="footer-link">The System</a>
-      <a href="/about.html" class="footer-link">About</a>
-      <a href="https://innerbalance101.com/blog/" class="footer-link">Blog</a>
-      <a href="/contact.html" class="footer-link">Contact</a>
+    <div class="footer-right">
+      <div class="footer-links">
+        <a href="/the-system.html" class="footer-link">The System</a>
+        <a href="/about.html" class="footer-link">About</a>
+        <a href="https://innerbalance101.com/blog/" class="footer-link">Blog</a>
+        <a href="/contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.83v2.19h.05c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.14V24h-4v-7.2c0-1.72-.03-3.93-2.39-3.93-2.39 0-2.76 1.87-2.76 3.8V24h-4V8z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom"><span class="footer-copyright">© 2026 innerbalance101. All rights reserved.</span></div>
@@ -865,5 +895,23 @@
     if (!isActive) card.classList.add('active');
   }
 </script>
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "9631452";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9631452&fmt=gif" />
+</noscript>
 </body>
 </html>
