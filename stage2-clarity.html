@@ -239,6 +239,18 @@
     padding: 0 24px 80px;
   }
 
+  /* ── SMS SUPPORT CTA (secondary brand colour, thin bar) ── */
+  .sms-cta { background: var(--clay); border-radius: 2px; margin: 36px 0 0; overflow: hidden; }
+  .sms-cta-top { display: flex; gap: 9px; align-items: center; padding: 14px 24px 4px; }
+  .sms-cta-icon { width: 15px; height: 15px; flex-shrink: 0; }
+  .sms-cta-icon svg { width: 15px; height: 15px; }
+  .sms-cta-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+  .sms-cta-title { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 13.5px; color: var(--espresso); line-height: 1.4; }
+  .sms-cta-link { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 12.5px; color: var(--espresso); text-decoration: none; border-bottom: 1px solid rgba(44,36,32,0.45); padding-bottom: 1px; white-space: nowrap; }
+  .sms-cta-link:hover { border-color: var(--espresso); }
+  .sms-cta-disclosure { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 10px; line-height: 1.6; color: rgba(44,36,32,0.55); padding: 8px 24px 14px; }
+  @media (max-width: 680px) { .sms-cta-top { padding: 12px 20px 4px; } .sms-cta-disclosure { padding-left: 20px; padding-right: 20px; } }
+
   /* ── SECTION BLOCKS ── */
   .section {
     padding: 52px 0 0;
@@ -869,6 +881,20 @@
 <!-- ── BODY ── -->
 <div class="page-body">
 
+  <!-- SMS SUPPORT CTA -->
+  <div class="sms-cta">
+    <div class="sms-cta-top">
+      <div class="sms-cta-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="sms-cta-heading">
+        <p class="sms-cta-title">Keep your check-ins going.</p>
+        <a href="sms:+17015435900" class="sms-cta-link">Text (701) 543-5900</a>
+      </div>
+    </div>
+    <p class="sms-cta-disclosure">Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to unsubscribe at any time.</p>
+  </div>
+
   <!-- WHAT THIS STAGE IS -->
   <section class="section">
     <span class="section-label">What this stage is</span>
@@ -1145,7 +1171,7 @@
   <div class="ornament">· · ·</div>
 
   <!-- EMOTIONS CHART SECTION -->
-  <div class="chart-section">
+  <div class="chart-section" id="emotions-chart">
     <div class="chart-section-intro">
       <span class="section-label">Your reference map</span>
       <h2 class="section-title">The Emotions &amp; Sensations Chart</h2>
@@ -1306,5 +1332,23 @@
   });
 </script>
 
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "9631452";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9631452&fmt=gif" />
+</noscript>
 </body>
 </html>

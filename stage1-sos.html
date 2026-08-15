@@ -195,6 +195,27 @@
   /* MAIN LAYOUT */
   .page-body { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
 
+  /* SMS SUPPORT CTA (secondary brand colour, collapsible, minimal header) */
+  .sms-cta { background: var(--clay); border-radius: 2px; margin: 36px 0 0; overflow: hidden; }
+  .sms-cta-top { display: flex; gap: 9px; align-items: center; padding: 14px 24px; }
+  .sms-cta-icon { width: 15px; height: 15px; flex-shrink: 0; }
+  .sms-cta-icon svg { width: 15px; height: 15px; }
+  .sms-cta-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+  .sms-cta-title { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 13.5px; color: var(--espresso); line-height: 1.4; }
+  .sms-cta-link { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 12.5px; color: var(--espresso); text-decoration: none; border-bottom: 1px solid rgba(44,36,32,0.45); padding-bottom: 1px; white-space: nowrap; }
+  .sms-cta-link:hover { border-color: var(--espresso); }
+  .sms-cta-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; padding: 10px 24px; background: rgba(44,36,32,0.08); border: none; border-top: 1px solid rgba(44,36,32,0.14); cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--espresso); text-align: left; transition: background 0.2s; }
+  .sms-cta-toggle:hover { background: rgba(44,36,32,0.13); }
+  .sms-cta-chevron { width: 13px; height: 13px; flex-shrink: 0; color: var(--espresso); transition: transform 0.3s; }
+  .sms-cta.open .sms-cta-chevron { transform: rotate(180deg); }
+  .sms-cta-panel { display: none; padding: 18px 24px 20px; }
+  .sms-cta.open .sms-cta-panel { display: block; }
+  .sms-cta-panel p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; line-height: 1.8; color: rgba(44,36,32,0.82); margin-bottom: 10px; }
+  .sms-cta-panel p:last-of-type { margin-bottom: 0; }
+  .sms-cta-panel strong { font-weight: 500; color: var(--espresso); }
+  .sms-cta-panel p.sms-cta-disclosure { font-size: 10px; line-height: 1.6; color: rgba(44,36,32,0.55); margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(44,36,32,0.14); }
+  @media (max-width: 680px) { .sms-cta-top { padding: 12px 20px; } .sms-cta-toggle, .sms-cta-panel { padding-left: 20px; padding-right: 20px; } }
+
   /* SECTIONS */
   .section { padding: 52px 0 0; }
   .section-label {
@@ -442,6 +463,28 @@
 
 <!-- PAGE BODY -->
 <div class="page-body">
+
+  <!-- SMS SUPPORT CTA -->
+  <div class="sms-cta" id="sms-cta">
+    <div class="sms-cta-top">
+      <div class="sms-cta-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="sms-cta-heading">
+        <p class="sms-cta-title">Build mindfulness one text at a time.</p>
+        <a href="sms:+17015435900" class="sms-cta-link">Text (701) 543-5900</a>
+      </div>
+    </div>
+    <button class="sms-cta-toggle" onclick="toggleSmsCta(this)" aria-expanded="false" aria-controls="sms-cta-panel">
+      <span>How it works</span>
+      <svg class="sms-cta-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="sms-cta-panel" id="sms-cta-panel">
+      <p>These are tips. Short exercises to build mindfulness during the day, when the spiral is loudest.</p>
+      <p>You get a text. In the middle of a meeting, with your kids, whatever you're doing. You stop for a split second, follow the exercise, and go back to your day.</p>
+      <p class="sms-cta-disclosure">Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to unsubscribe at any time.</p>
+    </div>
+  </div>
 
   <!-- WHAT THIS STAGE IS -->
   <section class="section">
@@ -766,7 +809,31 @@
       }
     });
   }
+
+  function toggleSmsCta(btn) {
+    const box = document.getElementById('sms-cta');
+    const isOpen = box.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+  }
 </script>
 
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "9631452";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9631452&fmt=gif" />
+</noscript>
 </body>
 </html>
