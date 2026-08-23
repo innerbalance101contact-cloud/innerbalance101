@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stage 3: Inner Balance | innerbalance101</title>
+<title>Stage 3 &#183; Inner Balance | innerbalance101</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://innerbalance101.com/stage3-inner-balance.html">
-<meta name="description" content="Stage 3 of the Inner Balance System. Self-directed practice for Days 43–63. Deeper thought work, somatic release, and inner coherence through the PERMA framework. innerbalance101." />
+<meta name="description" content="Stage 3 of the Inner Balance System. A 21-day guided practice using the expanded Feeling Wheel and deeper thought work to build lasting inner coherence. innerbalance101." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://innerbalance101.com/stage3-inner-balance.html" />
-<meta property="og:title" content="Stage 3: Inner Balance | innerbalance101" />
+<meta property="og:title" content="Stage 3 &#183; Inner Balance | innerbalance101" />
+<meta property="og:description" content="Stage 3 of the Inner Balance System. A 21-day guided practice using the expanded Feeling Wheel and deeper thought work to build lasting inner coherence. innerbalance101." />
 <meta property="og:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root {
     --warm-white: #FAF7F2;
@@ -22,9 +23,10 @@
     --clay: #C4A882;
     --clay-light: #DDD0BE;
     --clay-deep: #A68B65;
+    --deep: #2C2420;
+    --nav-h: 64px;
     --soft: #9C8575;
     --mid: #6B5B4E;
-    --deep: #2C2420;
     --espresso: #2C2420;
     --pine: #4F6861;
     --pine-light: rgba(79,104,97,0.08);
@@ -32,26 +34,40 @@
     --rose: #B67C7C;
     --rose-light: rgba(182,124,124,0.08);
     --rose-border: rgba(182,124,124,0.25);
-    --storm: #6E8397;
-    --storm-light: rgba(110,131,151,0.08);
-    --storm-border: rgba(110,131,151,0.25);
-    --nav-h: 64px;
   }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; font-size: 18px; }
-  body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--deep); font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-  /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; height: var(--nav-h); padding: 0 60px; background: rgba(250,247,242,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196,168,130,0.2); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--espresso);
+    font-family: 'Jost', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* NAV (match index) */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-h);
+    padding: 0 60px;
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+  }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; letter-spacing: 0.08em; color: var(--deep); }
   .nav-divider { width: 1px; height: 24px; background: var(--clay); }
   .nav-cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--deep); padding: 10px 24px; text-decoration: none; transition: background 0.3s; white-space: nowrap; }
   .nav-cta:hover { background: var(--clay-deep); }
   .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); text-decoration: none; transition: color 0.3s; }
+  .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #6B5B4E; text-decoration: none; transition: color 0.3s; }
   .nav-links a:hover { color: var(--clay-deep); }
-  .nav-mobile-toggle { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(196,168,130,0.3); border-radius: 8px; background: transparent; color: var(--deep); cursor: pointer; flex-shrink: 0; }
+  .nav-mobile-toggle { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(196, 168, 130, 0.3); border-radius: 8px; background: transparent; color: var(--deep); cursor: pointer; flex-shrink: 0; }
   .nav-mobile-toggle svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; }
 
   /* SYSTEM BANNER */
@@ -62,21 +78,21 @@
   .banner-sep { color: var(--clay-deep); opacity: 0.4; font-size: 8px; }
 
   /* PAGE HEADER */
-  .page-header { padding: 52px 24px 40px; text-align: center; border-bottom: 1px solid var(--clay-light); }
+  .page-header { padding: 52px 24px 40px; text-align: center; border-bottom: 1px solid var(--clay-light); background: var(--warm-white); }
   .brand-label { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 10px; display: block; }
-  .stage-label { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--pine); margin-bottom: 14px; display: block; }
-  .page-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(34px, 6vw, 56px); color: var(--espresso); line-height: 1.05; margin-bottom: 12px; }
-  .page-subtitle { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--soft); letter-spacing: 0.06em; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+  .stage-label { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; display: block; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(34px, 6vw, 58px); color: var(--espresso); line-height: 1.05; margin-bottom: 14px; letter-spacing: 0.01em; }
+  .page-subtitle { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--soft); letter-spacing: 0.08em; margin-bottom: 28px; }
   .header-meta { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
   .meta-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--clay-deep); line-height: 1; }
   .meta-label { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); }
   .meta-divider { width: 1px; height: 36px; background: var(--clay-light); align-self: center; }
 
-  /* LAYOUT */
-  .page-body { max-width: 860px; margin: 0 auto; padding: 0 24px 100px; }
+  /* MAIN LAYOUT */
+  .page-body { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
 
-  /* SMS SUPPORT CTA (secondary brand colour, thin bar) */
+  /* SMS SUPPORT CTA */
   .sms-cta { background: var(--clay); border-radius: 2px; margin: 36px 0 0; overflow: hidden; }
   .sms-cta-top { display: flex; gap: 9px; align-items: center; padding: 14px 24px 4px; }
   .sms-cta-icon { width: 15px; height: 15px; flex-shrink: 0; }
@@ -88,170 +104,241 @@
   .sms-cta-disclosure { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 10px; line-height: 1.6; color: rgba(44,36,32,0.55); padding: 8px 24px 14px; }
   @media (max-width: 680px) { .sms-cta-top { padding: 12px 20px 4px; } .sms-cta-disclosure { padding-left: 20px; padding-right: 20px; } }
 
+  /* SECTIONS */
   .section { padding: 52px 0 0; }
-  .section-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--clay); }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(24px, 3.8vw, 36px); color: var(--espresso); line-height: 1.15; margin-bottom: 20px; }
+  .section-label { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 18px; display: block; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(24px, 4vw, 36px); color: var(--espresso); line-height: 1.15; margin-bottom: 20px; }
   .section-title em { font-style: italic; color: var(--clay-deep); }
-  .body-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.85; color: var(--mid); margin-bottom: 14px; }
+  .body-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.8; color: var(--mid); margin-bottom: 14px; }
   .body-text strong { font-weight: 500; color: var(--espresso); }
+
   .ornament { text-align: center; color: var(--clay-light); font-size: 16px; letter-spacing: 0.6em; margin: 44px 0 0; }
-  .stage-video { position: relative; width: 100%; padding-bottom: 75%; height: 0; margin: 6px 0 28px; background: var(--linen); border: 1px solid var(--clay-light); overflow: hidden; }
-  .stage-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-  .stage-video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-  .stage-video-play { display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; border: 1px solid var(--clay); border-radius: 50%; color: var(--clay-deep); font-size: 15px; padding-left: 3px; }
-  .stage-video-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--soft); }
 
   /* CALLOUTS */
+  .callout-block { background: var(--espresso); padding: 26px 32px; margin-top: 22px; display: flex; gap: 18px; align-items: flex-start; border-radius: 2px; }
+  .callout-icon { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(196, 168, 130, 0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .callout-icon svg { width: 15px; height: 15px; }
+  .callout-text p { font-size: 13px; font-weight: 300; color: rgba(250,247,242,0.75); line-height: 1.8; }
+  .callout-text p strong { color: var(--clay-light); font-weight: 400; }
+  .callout-rose { background: var(--rose-light); border-left: 3px solid var(--rose); padding: 18px 22px; margin: 22px 0; }
+  .callout-rose p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--rose); line-height: 1.65; }
   .callout-pine { background: var(--pine-light); border-left: 3px solid var(--pine); padding: 18px 22px; margin: 22px 0; }
   .callout-pine p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--pine); line-height: 1.8; }
   .callout-pine p strong { font-weight: 500; }
-  .callout-rose { background: var(--rose-light); border-left: 3px solid var(--rose); padding: 18px 22px; margin: 22px 0; }
-  .callout-rose p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--rose); line-height: 1.65; }
-  .callout-storm { background: var(--storm-light); border: 1px solid var(--storm-border); padding: 18px 22px; margin: 22px 0; border-radius: 2px; }
-  .callout-storm p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--storm); line-height: 1.8; }
+
+  /* TIMING CARDS */
+  .timing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+  .timing-card { background: var(--linen); border-radius: 3px; padding: 24px 22px; position: relative; overflow: hidden; }
+  .timing-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--clay); }
+  .timing-icon { font-size: 20px; margin-bottom: 12px; display: block; }
+  .timing-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 10px; }
+  .timing-body { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; line-height: 1.7; color: var(--mid); }
 
   /* STRUCTURE STRIP */
-  .structure-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 24px; background: var(--clay-light); border-radius: 2px; overflow: hidden; }
+  .structure-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 28px; background: var(--clay-light); border-radius: 3px; overflow: hidden; }
   .strip-part { background: var(--linen); padding: 16px 14px; text-align: center; }
-  .strip-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--clay); line-height: 1; margin-bottom: 5px; }
-  .strip-name { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 3px; }
+  .strip-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--clay); line-height: 1; margin-bottom: 6px; }
+  .strip-name { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
   .strip-time { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; color: var(--soft); }
-  .strip-note { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px; font-style: italic; color: var(--soft); text-align: center; margin-top: 14px; line-height: 1.6; }
 
-  /* WEEKLY FOCUS */
-  .focus-optional { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--soft); display: inline-block; border: 1px solid var(--clay-light); padding: 4px 12px; margin-bottom: 18px; }
-  .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2px; }
-  .focus-card { background: var(--linen); border: 1px solid transparent; cursor: pointer; transition: border-color 0.2s, background 0.2s; overflow: hidden; user-select: none; }
-  .focus-card.active { border-color: var(--pine); background: var(--warm-white); }
-  .focus-card-head { display: flex; align-items: center; gap: 10px; padding: 16px 18px; }
-  .focus-card-icon { font-size: 18px; flex-shrink: 0; }
-  .focus-card-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); flex: 1; line-height: 1.35; }
-  .focus-card.active .focus-card-label { color: var(--pine); }
-  .focus-chevron { width: 13px; height: 13px; flex-shrink: 0; transition: transform 0.3s; color: var(--clay-light); }
-  .focus-card.active .focus-chevron { transform: rotate(180deg); color: var(--pine); }
-  .focus-card-body { display: none; padding: 0 18px 20px; }
-  .focus-card.active .focus-card-body { display: block; }
-  .focus-area-tag { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pine); border: 1px solid var(--pine-border); padding: 3px 9px; display: inline-block; margin-bottom: 10px; }
-  .focus-card-body p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px; color: var(--mid); line-height: 1.8; margin-bottom: 10px; }
-  .focus-prompts { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .focus-prompts li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--clay-deep); line-height: 1.5; padding-left: 16px; position: relative; }
-  .focus-prompts li::before { content: '—'; position: absolute; left: 0; color: var(--clay); font-style: normal; font-size: 11px; top: 3px; }
+  /* COLLAPSIBLE SECTION TOGGLE (When to do it / Daily structure, already familiar from earlier stages) */
+  .collapsible-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; max-width: 420px; margin-top: 20px; padding: 11px 18px; background: var(--linen); border: 1px solid var(--clay-light); border-radius: 3px; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11.5px; letter-spacing: 0.04em; color: var(--espresso); text-align: left; transition: background 0.2s; }
+  .collapsible-toggle:hover { background: var(--clay-light); }
+  .collapsible-chevron { width: 13px; height: 13px; flex-shrink: 0; color: var(--clay-deep); transition: transform 0.3s; }
+  .collapsible-toggle.open .collapsible-chevron { transform: rotate(180deg); }
+  .collapsible-panel { display: none; }
+  .collapsible-panel.open { display: block; }
+  @media (max-width: 560px) { .collapsible-toggle { max-width: none; } }
 
-  /* PRACTICE ACCORDION */
-  .practice-accordion { margin-top: 24px; display: flex; flex-direction: column; gap: 2px; }
-  .practice-step { border: 1px solid var(--clay-light); background: var(--warm-white); overflow: hidden; }
-  .practice-step.open { border-color: var(--clay); }
-  .step-toggle { display: flex; align-items: center; gap: 18px; padding: 20px 26px; cursor: pointer; background: transparent; border: none; width: 100%; text-align: left; transition: background 0.2s; }
-  .step-toggle:hover { background: rgba(196,168,130,0.06); }
-  .practice-step.open .step-toggle { background: rgba(196,168,130,0.1); border-bottom: 1px solid var(--clay-light); }
-  .step-num-large { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--clay-light); line-height: 1; flex-shrink: 0; transition: color 0.2s; }
-  .practice-step.open .step-num-large { color: var(--clay); }
-  .step-title-block { flex: 1; }
-  .step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 3px; }
-  .step-title-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--espresso); line-height: 1.2; }
-  .step-duration { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.1em; color: var(--soft); white-space: nowrap; flex-shrink: 0; }
-  .step-chevron { width: 17px; height: 17px; flex-shrink: 0; transition: transform 0.3s; color: var(--clay-light); }
-  .practice-step.open .step-chevron { transform: rotate(180deg); color: var(--clay); }
-  .step-body { display: none; padding: 26px 26px 30px; }
-  .practice-step.open .step-body { display: block; }
-  .step-context { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13.5px; color: var(--mid); line-height: 1.85; margin-bottom: 18px; }
-  .step-instruction { background: var(--linen); padding: 18px 22px; margin: 14px 0; border-left: 2px solid var(--clay-light); }
-  .step-instruction p { font-size: 13px; font-weight: 300; color: var(--mid); line-height: 1.85; margin-bottom: 8px; }
-  .step-instruction p:last-child { margin-bottom: 0; }
-  .step-instruction strong { font-weight: 500; color: var(--espresso); }
+  /* CYCLE WHEEL (circular, enter at any point) */
+  .cycle-wheel { position: relative; width: 100%; max-width: 460px; aspect-ratio: 1 / 1; margin: 30px auto 8px; }
+  .cycle-wheel-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .cycle-arc { stroke: var(--clay-deep); stroke-width: 2; }
+  .cycle-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 46%; text-align: center; }
+  .cycle-center p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 13px; color: var(--clay-deep); line-height: 1.45; }
+  .cycle-node { position: absolute; transform: translate(-50%, -50%); width: 120px; background: var(--linen); border: 1px solid var(--clay-light); border-radius: 8px; padding: 10px 8px; text-align: center; display: flex; flex-direction: column; gap: 3px; box-shadow: 0 1px 5px rgba(44,36,32,0.06); }
+  .cycle-node.is-belief { background: var(--espresso); border-color: var(--espresso); }
+  .cycle-node.is-belief .cycle-label { color: var(--clay); }
+  .cycle-node.is-belief .cycle-sub { color: rgba(250,247,242,0.55); }
+  .cycle-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay-deep); }
+  .cycle-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9.5px; color: var(--soft); line-height: 1.35; }
+  .cycle-loop-note { text-align: center; font-family: 'Jost', sans-serif; font-weight: 300; font-style: italic; font-size: 12px; color: var(--soft); margin-top: 14px; }
+  @media (max-width: 680px) {
+    .cycle-wheel { max-width: 340px; }
+    .cycle-node { width: 90px; padding: 7px 6px; }
+    .cycle-label { font-size: 9px; }
+    .cycle-sub { font-size: 8px; }
+    .cycle-center p { font-size: 10.5px; }
+  }
+  @media (max-width: 420px) {
+    .cycle-wheel { max-width: 290px; }
+    .cycle-node { width: 74px; padding: 6px 5px; border-radius: 6px; }
+    .cycle-label { font-size: 8px; letter-spacing: 0.05em; }
+    .cycle-sub { display: none; }
+    .cycle-center p { font-size: 9.5px; }
+  }
+
+  /* CYCLE WALKTHROUGH (animated example over the cycle wheel) */
+  .cycle-arc { transition: stroke 0.4s ease, stroke-width 0.4s ease; }
+  .cycle-arc.is-traversed { stroke: var(--pine); stroke-width: 3; }
+  .cycle-node { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+  .cycle-node.is-current { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 3px var(--pine), 0 6px 16px rgba(44,36,32,0.16); z-index: 2; }
+  .cycle-node.is-current .cycle-label { color: var(--pine); }
+  .cycle-node.is-belief.is-current .cycle-label { color: var(--clay); }
+
+  /* CYCLE EXAMPLE PANEL */
+  .cycle-example { margin: 26px 0 8px; border: 1px solid var(--clay-light); border-radius: 6px; background: var(--linen); padding: 22px 24px 20px; }
+  .cycle-example-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+  .cycle-example-eyebrow { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay-deep); }
+  .cycle-example-play { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.04em; color: var(--warm-white); background: var(--pine); border: none; border-radius: 20px; padding: 9px 20px; cursor: pointer; transition: background 0.2s; }
+  .cycle-example-play:hover { background: #3E5851; }
+  .cycle-example-play.is-playing { background: var(--clay-deep); }
+  .cycle-example-card { background: var(--warm-white); border-radius: 4px; padding: 20px 22px; min-height: 92px; }
+  .cycle-example-step { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); margin-bottom: 8px; }
+  .cycle-example-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--pine); margin-bottom: 6px; }
+  .cycle-example-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 15px; color: var(--espresso); line-height: 1.6; }
+  .cycle-example-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 16px; }
+  .cycle-example-nav-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--clay-light); background: var(--warm-white); color: var(--espresso); font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; padding: 0; }
+  .cycle-example-nav-btn:hover { background: var(--clay-light); }
+  .cycle-example-dots { display: flex; align-items: center; gap: 7px; }
+  .cycle-example-dot { width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; background: var(--clay-light); cursor: pointer; transition: background 0.2s, transform 0.2s; }
+  .cycle-example-dot.is-current { background: var(--pine); transform: scale(1.3); }
+  @media (max-width: 560px) {
+    .cycle-example { padding: 18px 18px 16px; }
+    .cycle-example-name { font-size: 19px; }
+  }
+
+  /* PRACTICE STEPS (plain, non-accordion) */
+  .practice-step { margin-top: 40px; background: var(--linen); border-radius: 3px; overflow: hidden; }
+  .step-header { display: flex; align-items: center; gap: 20px; padding: 22px 28px; border-bottom: 1px solid var(--clay-light); background: rgba(196,168,130,0.10); flex-wrap: wrap; }
+  .step-num-large { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--clay); line-height: 1; flex-shrink: 0; }
+  .step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 4px; }
+  .step-title-text { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--espresso); }
+  .step-duration { margin-left: auto; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.12em; color: var(--soft); white-space: nowrap; flex-shrink: 0; }
+  .step-body { padding: 24px 28px; }
+  .step-body .body-text { margin-bottom: 10px; }
+  .step-body .body-text:last-child { margin-bottom: 0; }
+
+  /* SUB-STEPS */
   .sub-step { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(196,168,130,0.2); }
-  .sub-step-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
-  .sub-step-num { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--clay); min-width: 20px; }
-  .sub-step-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); }
-  .write-area { margin: 12px 0 16px; display: flex; flex-direction: column; gap: 13px; }
-  .write-line { border-bottom: 1px solid rgba(196,168,130,0.4); height: 24px; }
-  .prompt-list { list-style: none; margin: 10px 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .prompt-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; color: var(--mid); line-height: 1.65; }
-  .prompt-list li::before { content: '·'; color: var(--clay); flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
-  .affirmation-list { list-style: none; margin: 12px 0; display: flex; flex-direction: column; }
-  .affirmation-list li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; font-weight: 300; color: var(--clay-deep); padding: 10px 0; border-bottom: 1px solid rgba(196,168,130,0.2); line-height: 1.4; }
+  .sub-step-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 12px; }
+
+  /* PROMPTS */
+  .prompt-list { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+  .prompt-item { display: flex; gap: 14px; align-items: flex-start; }
+  .prompt-num { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: var(--clay); flex-shrink: 0; line-height: 1.4; min-width: 18px; }
+  .prompt-text { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 14px; line-height: 1.65; color: var(--espresso); display: block; }
+  .prompt-note { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px; line-height: 1.6; color: var(--soft); display: block; margin-top: 4px; }
+  .prompt-line { margin-top: 8px; border-bottom: 1px solid var(--clay-light); min-height: 32px; }
+
+  /* WRITE LINES */
+  .write-area { margin: 14px 0 18px; display: flex; flex-direction: column; gap: 14px; }
+  .write-line { border-bottom: 1px solid rgba(196,168,130,0.4); height: 26px; }
+
+  /* AFFIRMATION LIST */
+  .affirmation-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; }
+  .affirmation-list li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; font-weight: 300; color: var(--clay-deep); padding: 11px 0; border-bottom: 1px solid rgba(196,168,130,0.2); line-height: 1.4; }
   .affirmation-list li:last-child { border-bottom: none; }
 
-  /* BELIEF SPLIT */
-  .belief-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 18px 0; }
-  .belief-col { padding: 18px 20px; }
-  .belief-col.inherited { background: rgba(182,124,124,0.07); border: 1px solid var(--rose-border); }
-  .belief-col.chosen { background: rgba(79,104,97,0.07); border: 1px solid var(--pine-border); }
-  .belief-col-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.06); }
-  .belief-col.inherited .belief-col-label { color: var(--rose); }
-  .belief-col.chosen .belief-col-label { color: var(--pine); }
-  .belief-examples { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .belief-examples li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13.5px; color: var(--mid); line-height: 1.45; }
+  /* FEELING WHEEL */
+  .wheel-block { margin: 20px 0; }
+  .wheel-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .wheel-legend-item { display: flex; align-items: center; gap: 6px; font-family: 'Jost', sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); background: var(--linen); border: 1px solid var(--clay-light); padding: 4px 10px; border-radius: 2px; }
+  .wheel-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .wheel-wrap { background: var(--linen); border-radius: 3px; padding: 14px; overflow-x: auto; }
+  .wheel-svg { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto; }
+  .wheel-seg { cursor: pointer; transition: opacity 0.15s; }
+  .wheel-seg path { transition: filter 0.15s, stroke 0.15s, stroke-width 0.15s; }
+  .wheel-seg:hover path { filter: brightness(0.94); }
+  .wheel-seg.selected path { stroke: var(--espresso); stroke-width: 3.5; filter: brightness(0.9); }
+  .wheel-seg:focus { outline: none; }
+  .wheel-seg:focus path { stroke: var(--pine); stroke-width: 3; }
+  .wheel-core-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11.5px; letter-spacing: 0.01em; fill: var(--espresso); pointer-events: none; }
+  .wheel-mid-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 12.5px; pointer-events: none; }
+  .wheel-out-label { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 10px; pointer-events: none; }
+  .wheel-hint { font-family: 'Jost', sans-serif; font-weight: 300; font-style: italic; font-size: 12px; color: var(--soft); text-align: center; margin-top: 10px; }
 
-  /* SOMATIC CARDS */
-  .somatic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
-  .somatic-card { background: var(--linen); padding: 18px 20px; position: relative; overflow: hidden; }
-  .somatic-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--pine); }
-  .somatic-card-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pine); margin-bottom: 6px; }
-  .somatic-card-time { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: var(--clay); margin-bottom: 8px; display: block; }
-  .somatic-card p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12px; color: var(--mid); line-height: 1.75; margin: 0; }
+  /* SELECTED EMOTIONS CHIPS */
+  .today-emotions { margin: 16px 0; }
+  .today-emotions-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 10px; display: block; }
+  .today-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .today-chip { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 12px; color: var(--espresso); background: var(--warm-white); border: 1px solid var(--clay); padding: 5px 12px; border-radius: 20px; }
+  .today-chips-empty { font-family: 'Jost', sans-serif; font-weight: 300; font-style: italic; font-size: 12.5px; color: var(--soft); }
 
-  /* PERMA */
-  .perma-accordion { margin-top: 22px; display: flex; flex-direction: column; gap: 2px; }
-  .perma-item { border: 1px solid var(--clay-light); background: var(--warm-white); overflow: hidden; cursor: pointer; }
-  .perma-item.open { border-color: var(--storm); }
-  .perma-toggle { display: flex; align-items: center; gap: 14px; padding: 17px 20px; width: 100%; }
-  .perma-item:hover .perma-toggle { background: rgba(110,131,151,0.04); }
-  .perma-item.open .perma-toggle { background: rgba(110,131,151,0.07); border-bottom: 1px solid var(--storm-border); }
-  .perma-letter { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--clay-light); line-height: 1; width: 32px; flex-shrink: 0; transition: color 0.2s; }
-  .perma-item.open .perma-letter { color: var(--storm); }
-  .perma-title-block { flex: 1; }
-  .perma-name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--storm); margin-bottom: 2px; }
-  .perma-tagline { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 400; color: var(--espresso); }
-  .perma-chevron { width: 15px; height: 15px; flex-shrink: 0; color: var(--clay-light); transition: transform 0.3s; }
-  .perma-item.open .perma-chevron { transform: rotate(180deg); color: var(--storm); }
-  .perma-body { display: none; padding: 20px 20px 24px 66px; }
-  .perma-item.open .perma-body { display: block; }
-  .perma-body p { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--mid); line-height: 1.85; margin-bottom: 14px; }
-  .perma-prompts { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .perma-prompts li { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14.5px; color: var(--clay-deep); line-height: 1.5; padding-left: 16px; position: relative; }
-  .perma-prompts li::before { content: '—'; position: absolute; left: 0; color: var(--clay); font-style: normal; font-size: 11px; top: 3px; }
+  /* FAMILY BADGES (selected emotions, reduced to the 6 core feelings) */
+  .today-families { margin-top: 16px; }
+  .family-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .family-badge { display: flex; align-items: center; gap: 7px; font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--espresso); background: var(--warm-white); border: 1.5px solid var(--clay); padding: 6px 13px; border-radius: 20px; }
+  .family-badge-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 
-  /* WEEK ARC */
-  .week-arc { display: flex; flex-direction: column; gap: 8px; margin: 18px 0; }
-  .week-card { border: 1px solid var(--clay-light); padding: 20px 22px; position: relative; overflow: hidden; }
-  .week-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--clay); }
-  .week-num { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 4px; }
-  .week-days { font-family: 'Cormorant Garamond', serif; font-size: 12px; font-style: italic; color: var(--clay); margin-bottom: 8px; display: block; }
-  .week-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--deep); margin-bottom: 8px; }
-  .week-body { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--mid); line-height: 1.8; margin: 0; }
+  /* SOMATIC BY FAMILY */
+  .somatic-intro { margin-top: 8px; }
+  .emotion-practices { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .emotion-practice-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 18px; border-radius: 2px; transition: opacity 0.2s, box-shadow 0.2s; }
+  .emotion-practices.has-active .emotion-practice-row { opacity: 0.42; }
+  .emotion-practices.has-active .emotion-practice-row.is-active { opacity: 1; box-shadow: 0 0 0 2px var(--clay-deep) inset; }
+  .ep-family { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; min-width: 108px; padding-top: 2px; flex-shrink: 0; }
+  .ep-body { flex: 1; }
+  .ep-name { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 13.5px; color: var(--espresso); margin-bottom: 4px; line-height: 1.4; }
+  .ep-time { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: var(--clay-deep); margin-bottom: 6px; display: inline-block; }
+  .ep-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11.5px; color: var(--pine); text-decoration: none; border-bottom: 1px solid var(--pine-border); letter-spacing: 0.02em; margin-top: 9px; padding-bottom: 1px; }
+  .ep-link:hover { border-color: var(--pine); color: #3E5851; }
+  .ep-link-icon { width: 12px; height: 12px; flex-shrink: 0; }
+  .ep-desc { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12.5px; color: var(--soft); line-height: 1.7; margin-top: 6px; }
+  .ep-fear { background: rgba(232,213,192,0.35); } .ep-fear .ep-family { color: #5C3D2A; }
+  .ep-anger { background: rgba(217,196,190,0.35); } .ep-anger .ep-family { color: #4A2A25; }
+  .ep-sadness { background: rgba(200,204,218,0.35); } .ep-sadness .ep-family { color: #2A3050; }
+  .ep-disgust { background: rgba(208,205,208,0.35); } .ep-disgust .ep-family { color: #3A3040; }
+  .ep-surprise { background: rgba(216,207,196,0.35); } .ep-surprise .ep-family { color: #4A3B2F; }
+  .ep-happiness { background: rgba(230,220,202,0.35); } .ep-happiness .ep-family { color: #4A3820; }
 
-  /* DAY 63 */
-  .day63-block { background: var(--espresso); padding: 40px 44px; margin: 52px 0 0; position: relative; overflow: hidden; }
-  .day63-block::before { content: ''; position: absolute; top: -50px; right: -50px; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(196,168,130,0.05); pointer-events: none; }
-  .day63-label { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--clay); display: block; margin-bottom: 12px; }
-  .day63-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.8vw, 38px); font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 16px; }
-  .day63-title em { font-style: italic; color: var(--clay-light); }
-  .day63-body { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13.5px; color: rgba(250,247,242,0.62); line-height: 1.9; max-width: 560px; margin-bottom: 14px; }
-  .day63-body strong { color: var(--clay-light); font-weight: 400; }
+  /* QUALITIES LIST (deeper thought work lenses) */
+  .qualities-list { display: flex; flex-direction: column; gap: 0; margin-top: 16px; }
+  .quality-row { display: flex; gap: 18px; padding: 16px 0; border-top: 1px solid rgba(196,168,130,0.25); }
+  .quality-row:first-child { border-top: none; }
+  .quality-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; font-weight: 500; color: var(--clay-deep); min-width: 118px; flex-shrink: 0; }
+  .quality-body { flex: 1; }
+  .quality-def { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 6px; }
+  .quality-prompt { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 13px; color: var(--espresso); line-height: 1.6; }
+  @media (max-width: 560px) { .quality-row { flex-direction: column; gap: 6px; } .quality-name { min-width: 0; } }
 
-  /* MEMBERSHIP */
+  /* PATTERN EXAMPLE (thought creates emotion creates action) */
+  .pattern-example { margin: 22px 0 26px; }
+  .pattern-block { border: 1px solid var(--clay-light); border-radius: 6px; padding: 22px 24px; background: var(--warm-white); }
+  .pattern-block.is-old { border-color: rgba(184,144,144,0.4); }
+  .pattern-block.is-new { border-color: rgba(122,150,128,0.45); background: var(--linen); }
+  .pattern-block-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+  .pattern-block.is-new .pattern-block-label { color: var(--pine); }
+  .pattern-chain { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+  .pattern-link { flex: 1; min-width: 150px; padding: 0 16px; }
+  .pattern-link:first-child { padding-left: 0; }
+  .pattern-link:last-child { padding-right: 0; }
+  .pattern-link-tag { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 6px; }
+  .pattern-link-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--espresso); line-height: 1.4; }
+  .pattern-arrow { display: flex; align-items: center; justify-content: center; padding: 0 6px; color: var(--clay); font-size: 18px; flex-shrink: 0; }
+  .pattern-transform { display: flex; align-items: center; gap: 14px; margin: 18px 0; padding: 14px 18px; background: var(--espresso); border-radius: 6px; }
+  .pattern-transform-icon { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--clay); flex-shrink: 0; }
+  .pattern-transform-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; color: rgba(250,247,242,0.88); line-height: 1.6; }
+  .pattern-transform-text strong { font-weight: 500; color: var(--warm-white); }
+  @media (max-width: 640px) { .pattern-chain { flex-direction: column; gap: 14px; } .pattern-link { padding: 0 !important; } .pattern-arrow { transform: rotate(90deg); padding: 0; height: 14px; } }
+
+  /* CLOSING SECTION */
+  .closing-section { margin-top: 60px; padding: 44px 40px; background: var(--linen); border-radius: 3px; text-align: center; }
+  .closing-section .section-label { margin-bottom: 14px; }
+  .closing-section .section-title { margin-bottom: 18px; }
+  .closing-section .body-text { max-width: 560px; margin: 0 auto 10px; text-align: left; }
+
+  /* FINALE BLOCK (kept dramatic, no cumulative day count) */
+  .finale-block { background: var(--espresso); padding: 40px 44px; margin: 52px 0 0; position: relative; overflow: hidden; border-radius: 2px; }
+  .finale-block::before { content: ''; position: absolute; top: -50px; right: -50px; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(196,168,130,0.05); pointer-events: none; }
+  .finale-label { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--clay); display: block; margin-bottom: 12px; }
+  .finale-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.8vw, 38px); font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 16px; }
+  .finale-title em { font-style: italic; color: var(--clay-light); }
+  .finale-body { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13.5px; color: rgba(250,247,242,0.62); line-height: 1.9; max-width: 560px; margin-bottom: 14px; }
+  .finale-body strong { color: var(--clay-light); font-weight: 400; }
+
+  /* MEMBERSHIP / COMING SOON */
   .membership-section { margin-top: 60px; padding-top: 52px; border-top: 1px solid var(--clay-light); }
-  .membership-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 22px; }
-  .plan-card { padding: 26px 28px; border: 1px solid var(--clay-light); background: var(--warm-white); position: relative; }
-  .plan-card.featured { border-color: var(--pine); background: var(--pine-light); }
-  .plan-badge { position: absolute; top: -1px; right: 18px; background: var(--pine); color: var(--warm-white); font-family: 'Jost', sans-serif; font-weight: 500; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 11px; }
-  .plan-type { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--soft); margin-bottom: 8px; }
-  .plan-price { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.8vw, 42px); font-weight: 300; color: var(--espresso); line-height: 1; margin-bottom: 3px; }
-  .plan-price span { font-size: 15px; font-weight: 400; color: var(--soft); }
-  .plan-save { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; color: var(--pine); margin-bottom: 16px; display: block; min-height: 18px; }
-  .plan-includes { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--clay-light); }
-  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
-  .plan-features li { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 12.5px; color: var(--mid); line-height: 1.55; display: flex; align-items: flex-start; gap: 10px; }
-  .plan-features li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--clay); flex-shrink: 0; margin-top: 7px; }
-  .plan-cta { display: block; text-align: center; font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 13px 22px; text-decoration: none; transition: all 0.2s; }
-  .plan-cta-primary { background: var(--pine); color: var(--warm-white); }
-  .plan-cta-primary:hover { background: #3d524c; }
-  .plan-cta-secondary { border: 1px solid var(--clay-light); color: var(--mid); }
-  .plan-cta-secondary:hover { border-color: var(--clay); color: var(--espresso); }
-  .membership-note { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11.5px; color: var(--soft); text-align: center; margin-top: 14px; line-height: 1.7; }
-  /* COMING SOON */
   .coming-soon { margin-top: 28px; padding: 30px 32px; border: 1px solid var(--pine-border); background: var(--pine-light); border-radius: 2px; }
   .coming-soon-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--pine); display: block; margin-bottom: 12px; }
   .coming-soon-text { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13.5px; color: var(--mid); line-height: 1.85; margin-bottom: 20px; max-width: 620px; }
@@ -263,20 +350,15 @@
   @media (max-width: 620px) { .coming-soon-grid { grid-template-columns: 1fr; } }
   @media (max-width: 440px) { .coming-soon-highlight { flex-direction: column; gap: 10px; } }
 
-  /* MON-FRI BADGE */
-  .schedule-badge { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 20px 0 4px; }
-  .schedule-days { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(22px, 3.5vw, 30px); color: var(--clay-deep); letter-spacing: 0.04em; }
-  .schedule-note { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--soft); }
-
   /* FOOTER */
   footer { background: var(--deep); padding: 48px 60px 28px; margin-top: 60px; }
   .footer-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
-  .footer-bottom { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(79,104,97,0.1); text-align: center; }
+  .footer-bottom { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(196,168,130,0.1); text-align: center; }
   .footer-copyright { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 300; letter-spacing: 0.08em; color: rgba(250,247,242,0.25); }
   .footer-left { display: flex; flex-direction: column; gap: 8px; }
   .footer-logo { display: flex; align-items: center; gap: 10px; }
   .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--warm-white); letter-spacing: 0.06em; }
-  .footer-tagline { font-size: 0.88rem; font-weight: 300; color: rgba(250,247,242,0.45); font-style: italic; padding-left: 32px; }
+  .footer-tagline { font-size: 0.88rem; font-weight: 300; color: rgba(250,247,242,0.45); font-style: italic; padding-left: 32px; margin-top: 0; }
   .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
   .footer-links { display: flex; gap: 24px; }
   .footer-link { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,247,242,0.5); text-decoration: none; transition: color 0.3s; }
@@ -287,22 +369,58 @@
   .social-link svg { width: 15px; height: 15px; fill: currentColor; }
 
   /* RESPONSIVE */
-  @media (max-width: 960px) { :root { --nav-h: 58px; } nav { padding: 0 24px; } .nav-links { gap: 16px; } footer { padding: 40px 24px 28px; } .footer-top { flex-direction: column; align-items: flex-start; gap: 28px; } .footer-tagline { padding-left: 0; } .footer-right { align-items: flex-start; width: 100%; } .footer-links { flex-wrap: wrap; } }
-  @media (max-width: 640px) { .nav-links { display: none; } .nav-cta { display: none; } .nav-mobile-toggle { display: inline-flex; } nav.nav-open { height: auto; flex-wrap: wrap; padding-bottom: 14px; } nav.nav-open .nav-links { display: flex; width: 100%; order: 3; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 8px; } nav.nav-open .nav-cta { display: inline-block; order: 4; margin-top: 6px; } }
-  @media (max-width: 680px) { .structure-strip { grid-template-columns: repeat(2, 1fr); } .belief-split { grid-template-columns: 1fr; } .somatic-grid { grid-template-columns: 1fr; } .membership-plans { grid-template-columns: 1fr; } .focus-grid { grid-template-columns: 1fr 1fr; } .day63-block { padding: 30px 22px; } .perma-body { padding-left: 20px; } }
-  @media (max-width: 440px) { .focus-grid { grid-template-columns: 1fr; } .header-meta { gap: 16px; } }
+  @media (max-width: 680px) {
+    .structure-strip { grid-template-columns: 1fr; }
+    .header-meta { gap: 20px; }
+    .closing-section { padding: 32px 24px; }
+    .step-header { flex-wrap: wrap; gap: 10px; }
+    .step-duration { margin-left: 0; }
+    .timing-grid { grid-template-columns: 1fr; }
+    .emotion-practice-row { flex-direction: column; gap: 6px; }
+    .ep-family { min-width: 0; }
+    .finale-block { padding: 30px 22px; }
+  }
+  @media (max-width: 960px) {
+    :root { --nav-h: 58px; }
+    nav { padding: 0 24px; }
+    .nav-logo-text { font-size: 1.1rem; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 0.68rem; letter-spacing: 0.08em; }
+    footer { padding: 40px 24px 28px; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 28px; }
+    .footer-tagline { padding-left: 0; }
+    .footer-right { align-items: flex-start; width: 100%; }
+    .footer-links { flex-wrap: wrap; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-mobile-toggle { display: inline-flex; }
+    nav.nav-open { height: auto; min-height: var(--nav-h); flex-wrap: wrap; align-items: center; padding: 0 24px 14px; }
+    nav.nav-open .nav-links { display: flex; width: 100%; order: 3; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 8px; }
+    nav.nav-open .nav-cta { display: inline-block; order: 4; margin-top: 8px; }
+  }
+  @media (max-width: 480px) {
+    :root { --nav-h: 54px; }
+    .nav-logo-text { font-size: 1rem; }
+  }
+  @media print {
+    nav, .system-banner { display: none; }
+    body { background: white; }
+    .practice-step { break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 home">
+  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101, home">
     <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
     <div class="nav-divider"></div>
     <span class="nav-logo-text">innerbalance101</span>
   </a>
-  <button class="nav-mobile-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  <button class="nav-mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
   </button>
   <div class="nav-links" id="site-nav-links">
     <a href="/the-system.html">The System</a>
@@ -316,9 +434,9 @@
 <div class="system-banner">
   <div class="system-banner-inner">
     <span class="banner-stage">01 &nbsp;The SOS</span>
-    <span class="banner-sep">›</span>
+    <span class="banner-sep">&#8250;</span>
     <span class="banner-stage">02 &nbsp;Clarity</span>
-    <span class="banner-sep">›</span>
+    <span class="banner-sep">&#8250;</span>
     <span class="banner-stage active">03 &nbsp;Inner Balance</span>
   </div>
 </div>
@@ -327,21 +445,26 @@
   <span class="brand-label">innerbalance101</span>
   <span class="stage-label">Stage 03 of 03</span>
   <h1 class="page-title">Inner Balance</h1>
-  <p class="page-subtitle">The practice is yours to direct. No prescribed emotion. No assigned script. You bring what is real, and you know what to do with it.</p>
+  <p class="page-subtitle">The same three parts, taken deeper. 21 days to make this the way you meet your own mind.</p>
   <div class="header-meta">
     <div class="meta-item">
-      <span class="meta-value">10</span>
-      <span class="meta-label">Min minimum</span>
+      <span class="meta-value">21</span>
+      <span class="meta-label">Days</span>
     </div>
     <div class="meta-divider"></div>
     <div class="meta-item">
-      <span class="meta-value">You</span>
-      <span class="meta-label">Decide the length</span>
+      <span class="meta-value">30</span>
+      <span class="meta-label">Min daily</span>
     </div>
     <div class="meta-divider"></div>
     <div class="meta-item">
-      <span class="meta-value">Mon–Fri</span>
+      <span class="meta-value">Mon&#8211;Fri</span>
       <span class="meta-label">Weekends optional</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-value">3</span>
+      <span class="meta-label">Final stage</span>
     </div>
   </div>
 </header>
@@ -355,485 +478,561 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </div>
       <div class="sms-cta-heading">
-        <p class="sms-cta-title">Keep your check-ins going.</p>
+        <p class="sms-cta-title">Build inner balance, one text at a time.</p>
         <a href="sms:+17015435900" class="sms-cta-link">Text (701) 543-5900</a>
       </div>
     </div>
     <p class="sms-cta-disclosure">Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to unsubscribe at any time.</p>
   </div>
 
+  <!-- WHAT THIS STAGE IS -->
   <section class="section">
     <span class="section-label">What this stage is</span>
-    <div class="stage-video">
-      <iframe src="https://player.vimeo.com/video/1213150701?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Stage 3 and PERMA framework"></iframe>
-    </div>
-    <p class="body-text">Stage 3 does not add a new tool. It returns the one you have been using, and asks you to run it on your actual life. Not on a prescribed emotion. On what is real and present today.</p>
-    <p class="body-text"><strong>This is where the work deepens.</strong> The thought work reaches further, into inherited beliefs, into the areas of life where your patterns show up most. The somatic practices become longer and more specific. And for the first time, the practice includes intuition and integration: learning to sit with what you have found, and let it change how you move through your days.</p>
-    <div class="callout-rose">
-      <p>"You spent 21 days clearing the noise. Then 21 days learning to see. Now you use what you see to build something that lasts."</p>
-    </div>
-  </section>
+    <h2 class="section-title">You already know how this works.<br><em>Here, it goes deeper.</em></h2>
+    <p class="body-text">Same three parts, same daily practice. What changes: you name everything you're carrying instead of just one thing, using an expanded map, and the thought work goes past the surface thought into the belief actually running it.</p>
+    <p class="body-text"><strong>The commitment is the same shape as before.</strong> A daily practice. 21 days. Monday to Friday, weekends optional.</p>
 
-  <section class="section">
-    <span class="section-label">Building inner coherence</span>
-    <h2 class="section-title">The PERMA Framework: <em>knowing what you are building toward</em></h2>
-    <p class="body-text">Stage 3 introduces a lens for measuring not just emotional regulation, but genuine wellbeing. The PERMA model identifies five areas that determine whether a person is functioning well, not just performing well. Use it as a weekly reflective tool, not a daily metric. Once a week, take five minutes with one area.</p>
-
-    <div class="callout-storm">
-      <p>High-achievers frequently score well on Accomplishment while running quiet deficits in Positive Emotions, Relationships, and Meaning. The practice is not to fix this as a project. It is to begin paying attention to what has been quietly neglected.</p>
-    </div>
-
-    <div class="perma-accordion">
-
-      <div class="perma-item" onclick="togglePerma(this)">
-        <div class="perma-toggle">
-          <span class="perma-letter">P</span>
-          <div class="perma-title-block"><div class="perma-name">Positive Emotions</div><div class="perma-tagline">What are you actually savouring?</div></div>
-          <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="perma-body">
-          <p>Not about staying positive. It is about noticing genuine satisfaction, pleasure, and ease when they appear, and not moving past them so quickly they never register. Many high-achievers experience good moments briefly then return immediately to what needs to be done. The practice is to slow down enough to let them land.</p>
-          <ul class="perma-prompts">
-            <li>What brings me relief, and what brings me real renewal?</li>
-            <li>When do I feel simple pleasure without guilt or urgency?</li>
-            <li>What part of me still believes rest, joy, or softness has to be earned?</li>
-            <li>What did I learn growing up about happiness that I no longer want to live by?</li>
-          </ul>
-        </div>
+    <div class="callout-block">
+      <div class="callout-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="1.5" stroke-linecap="round">
+          <path d="M12 21C12 21 4 13.5 4 8.5C4 5.46 6.69 3 10 3C11.07 3 12 3.5 12 3.5C12 3.5 12.93 3 14 3C17.31 3 20 5.46 20 8.5C20 13.5 12 21 12 21Z"/>
+        </svg>
       </div>
-
-      <div class="perma-item" onclick="togglePerma(this)">
-        <div class="perma-toggle">
-          <span class="perma-letter">E</span>
-          <div class="perma-title-block"><div class="perma-name">Engagement</div><div class="perma-tagline">Where were you fully present?</div></div>
-          <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="perma-body">
-          <p>Engagement is being fully absorbed in something, not just busy, but genuinely present. High-achievers often confuse high-volume activity with engagement. Being stretched and exhausted is not the same as being in flow.</p>
-          <ul class="perma-prompts">
-            <li>What activities make me feel more like myself while I am doing them?</li>
-            <li>Where have I confused busyness with aliveness?</li>
-            <li>What do I keep saying I do not have time for that actually matters to me?</li>
-            <li>If I stopped performing usefulness for one week, what would I want to give my attention to?</li>
-          </ul>
-        </div>
+      <div class="callout-text">
+        <p><strong>Before you begin.</strong> Naming five feelings takes longer than naming one. Give each part the time it's asking for. Not the time on the clock.</p>
       </div>
-
-      <div class="perma-item" onclick="togglePerma(this)">
-        <div class="perma-toggle">
-          <span class="perma-letter">R</span>
-          <div class="perma-title-block"><div class="perma-name">Relationships</div><div class="perma-tagline">Which connections are real?</div></div>
-          <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="perma-body">
-          <p>Genuine connection, where both people are actually present and honest, is one of the strongest predictors of wellbeing. Many high-achievers are skilled at performing connection while privately feeling disconnected. This area looks at quality, not volume.</p>
-          <ul class="perma-prompts">
-            <li>Who lets me feel most unguarded, and what is different there?</li>
-            <li>Where do I over-explain, over-give, or become who I think I need to be?</li>
-            <li>What relationship pattern am I repeating because it feels familiar rather than right?</li>
-            <li>What would being more truthful in a relationship look like this week?</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="perma-item" onclick="togglePerma(this)">
-        <div class="perma-toggle">
-          <span class="perma-letter">M</span>
-          <div class="perma-title-block"><div class="perma-name">Meaning</div><div class="perma-tagline">What are you doing this for?</div></div>
-          <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="perma-body">
-          <p>Meaning is the sense that what you are doing matters, not just to your metrics, but to something larger than personal achievement. Without it, even significant achievement tends to feel hollow. Go underneath output and image. Ask what gives your life weight in the best sense.</p>
-          <ul class="perma-prompts">
-            <li>What matters to me even when no one else sees it?</li>
-            <li>Where have I built my life around urgency instead of meaning?</li>
-            <li>What part of my life feels full, and what part only looks full?</li>
-            <li>If I trusted that my worth is not dependent on constant output, what would I make more room for?</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="perma-item" onclick="togglePerma(this)">
-        <div class="perma-toggle">
-          <span class="perma-letter">A</span>
-          <div class="perma-title-block"><div class="perma-name">Accomplishment</div><div class="perma-tagline">Which wins were actually yours?</div></div>
-          <svg class="perma-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="perma-body">
-          <p>There is a difference between achieving something you chose and achieving something someone else needed you to want. This is not about doing less. It is about doing the right things. Redefine success from the inside instead of inheriting it whole.</p>
-          <ul class="perma-prompts">
-            <li>What does success actually mean to me now?</li>
-            <li>Which goals feel chosen, and which ones feel inherited, rewarded, or expected?</li>
-            <li>What am I still trying to prove, and to whom?</li>
-            <li>What would accomplishment look like if it did not cost me my nervous system?</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
   </section>
 
+  <!-- WHEN TO DO IT -->
   <section class="section">
-    <span class="section-label">Practice structure</span>
-    <h2 class="section-title">Three parts. Deeper application.</h2>
-    <p class="body-text">The shape is simple: feel what is here, transform it, then move onward with it. What changes at Stage 3 is the depth. The check-in becomes a full inquiry. The thought work reaches the belief, not just the thought. The somatic release runs longer. And a closing pause, new to Stage 3, asks you to listen to what the practice is telling you before you carry it into your day.</p>
-    <div class="structure-strip">
-      <div class="strip-part"><div class="strip-num">1</div><div class="strip-name">Feel</div><div class="strip-time">Body Check-In · 5 min</div></div>
-      <div class="strip-part"><div class="strip-num">2</div><div class="strip-name">Transform</div><div class="strip-time">Thought Work + Somatic · 20 min</div></div>
-      <div class="strip-part"><div class="strip-num">3</div><div class="strip-name">Move Onward</div><div class="strip-time">Integrate · 5 min</div></div>
-    </div>
-    <p class="strip-note">Times shown are a recommended minimum. Stay longer in any part that needs it.</p>
-  </section>
-
-  <section class="section">
-    <span class="section-label">Optional: weekly focus</span>
-    <h2 class="section-title">Choose one area of life to work with this week.</h2>
-    <p class="body-text">The daily practice works on whatever is present. But if you want to go deeper in a specific area, where your patterns show up most, or where you want to build more capacity, you can set a weekly focus. This shapes the thought work prompts for that week.</p>
-    <span class="focus-optional">Optional: select one or leave blank</span>
-    <div class="focus-grid">
-
-      <div class="focus-card" onclick="toggleFocus(this)">
-        <div class="focus-card-head">
-          <span class="focus-card-icon">◈</span>
-          <span class="focus-card-label">Work &amp; Performance</span>
-          <svg class="focus-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <span class="section-label">When to do it</span>
+    <h2 class="section-title">Three windows. Each one does something different.</h2>
+    <button class="collapsible-toggle" onclick="toggleCollapsible(this)" aria-expanded="false" data-show="You know this from before, show the three windows" data-hide="Hide the three windows">
+      <span class="collapsible-toggle-text">You know this from before, show the three windows</span>
+      <svg class="collapsible-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="collapsible-panel">
+      <div class="timing-grid">
+        <div class="timing-card">
+          <span class="timing-icon">&#9678;</span>
+          <div class="timing-name">Morning</div>
+          <p class="timing-body">Before the day's demands arrive, while you can still tell the difference between what you're actually feeling and what you're about to perform for everyone else.</p>
         </div>
-        <div class="focus-card-body">
-          <span class="focus-area-tag">Performance · Achievement · Pressure</span>
-          <p>Where are you performing for an audience you have never chosen to perform for? This area looks at the gap between what you do and what you are doing it for.</p>
-          <ul class="focus-prompts">
-            <li>Do I actually need to do anything differently this week, if I already have permission and no one is judging me?</li>
-            <li>Do I like, or love, what I do? And if I do, do I love how I do it, and why?</li>
-            <li>Where am I measuring my worth by my output?</li>
-            <li>What fear is driving my work right now, and is it actually useful?</li>
-            <li>What would it mean to do good work without needing to prove it?</li>
-          </ul>
+        <div class="timing-card">
+          <span class="timing-icon">&#9681;</span>
+          <div class="timing-name">Between things</div>
+          <p class="timing-body">The moment one task ends and before the next begins. A natural seam in the day that most people rush past. This practice is built to use it instead.</p>
+        </div>
+        <div class="timing-card">
+          <span class="timing-icon">&#9689;</span>
+          <div class="timing-name">Evening</div>
+          <p class="timing-body">Close what the day opened. You're not reviewing your to-do list. You're asking what today asked of you, and what it left behind that you're still carrying.</p>
         </div>
       </div>
-
-      <div class="focus-card" onclick="toggleFocus(this)">
-        <div class="focus-card-head">
-          <span class="focus-card-icon">◈</span>
-          <span class="focus-card-label">Relationships &amp; Connection</span>
-          <svg class="focus-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="focus-card-body">
-          <span class="focus-area-tag">Belonging · Presence · Honesty</span>
-          <p>Many high-achievers are skilled at the performance of connection while carrying the weight of disconnection privately. This area looks at how you actually show up with people.</p>
-          <ul class="focus-prompts">
-            <li>Which connections feed me and which deplete me, and am I honest with myself about that?</li>
-            <li>Am I present with the people who matter, or managing internally while appearing engaged?</li>
-            <li>What do I need from others that I have been too capable to ask for?</li>
-            <li>Where am I performing composure in a relationship that deserves something more honest?</li>
-            <li>What would change if I was less controlled and more real with one person this week?</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="focus-card" onclick="toggleFocus(this)">
-        <div class="focus-card-head">
-          <span class="focus-card-icon">◈</span>
-          <span class="focus-card-label">Identity &amp; Self-Worth</span>
-          <svg class="focus-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="focus-card-body">
-          <span class="focus-area-tag">Self-Trust · Beliefs · Who You Are</span>
-          <p>The beliefs driving your self-evaluation were mostly installed before you had the capacity to question them. This area looks at the difference between who you are and who you were taught to be.</p>
-          <ul class="focus-prompts">
-            <li>When I am most critical of myself, what standard am I applying, and where did it come from?</li>
-            <li>Who would I be if I stopped needing to prove I was enough?</li>
-            <li>What parts of myself have I been hiding because they did not fit the acceptable version?</li>
-            <li>What do I actually value, separate from what I have built or been told to value?</li>
-            <li>What does self-trust feel like in my body? When did I last experience it clearly?</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="focus-card" onclick="toggleFocus(this)">
-        <div class="focus-card-head">
-          <span class="focus-card-icon">◈</span>
-          <span class="focus-card-label">Energy &amp; Wellbeing</span>
-          <svg class="focus-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="focus-card-body">
-          <span class="focus-area-tag">Recovery · Body · Sustainable Pace</span>
-          <p>Most high-achievers treat the body as a vehicle for performance rather than the intelligence guiding it. This area looks at what your body has been telling you that your mind has been overriding.</p>
-          <ul class="focus-prompts">
-            <li>What signals has my body been sending that I have ignored to keep going?</li>
-            <li>When did I last genuinely rest, not recover to perform again, but rest without agenda?</li>
-            <li>What belief is underneath my relationship with rest? Is slowing down dangerous in some way I have not examined?</li>
-            <li>What does my energy feel like at the start of the day versus the end? What is creating that gap?</li>
-            <li>What one change would protect my energy rather than spend it?</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="focus-card" onclick="toggleFocus(this)">
-        <div class="focus-card-head">
-          <span class="focus-card-icon">◈</span>
-          <span class="focus-card-label">Purpose &amp; Direction</span>
-          <svg class="focus-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="focus-card-body">
-          <span class="focus-area-tag">Meaning · Values · What Matters</span>
-          <p>Many people arrive at high levels of external success and discover the emptiness that comes from optimising for the wrong target. This area looks at what you are actually building your life toward.</p>
-          <ul class="focus-prompts">
-            <li>What am I doing that connects to something larger than achievement or approval?</li>
-            <li>If my performance metrics disappeared tomorrow, what would still feel worth doing?</li>
-            <li>What have I been postponing until I have achieved enough to feel it is earned?</li>
-            <li>What version of my life feels most like mine, not the most impressive, but the most true?</li>
-            <li>What would I regret not having done or said?</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <div class="ornament">· · ·</div>
-
+  <!-- DAILY STRUCTURE -->
   <section class="section">
-    <span class="section-label">The practice</span>
-    <h2 class="section-title">Three parts. About 30 minutes, adjusted as needed.</h2>
-    <p class="body-text">Monday to Friday, and any other time you need it. Work through the three parts in sequence. Do not read ahead before completing the part you are in.</p>
+    <span class="section-label">The daily structure</span>
+    <h2 class="section-title">Three parts. Same shape as before.<br><em>Everything in them goes deeper.</em></h2>
+    <button class="collapsible-toggle" onclick="toggleCollapsible(this)" aria-expanded="false" data-show="You know the shape from before, show the breakdown" data-hide="Hide the breakdown">
+      <span class="collapsible-toggle-text">You know the shape from before, show the breakdown</span>
+      <svg class="collapsible-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="collapsible-panel">
+      <p class="body-text" style="margin-top:18px;">The method hasn't changed since Stage 1. You feel what's here, you work with it, you close. What changes is what each part can now hold. Part One uses a fuller map. Part Two uses a specific way of meeting your own thoughts. Part Three is where you carry what you found into the rest of your day.</p>
+      <div class="structure-strip">
+        <div class="strip-part">
+          <div class="strip-num">01</div>
+          <div class="strip-name">Feel</div>
+          <div class="strip-time">Body connection &amp; the Feeling Wheel &#183; 5 min</div>
+        </div>
+        <div class="strip-part">
+          <div class="strip-num">02</div>
+          <div class="strip-name">Transform</div>
+          <div class="strip-time">Somatic release &amp; deeper thought work &#183; 20 min</div>
+        </div>
+        <div class="strip-part">
+          <div class="strip-num">03</div>
+          <div class="strip-name">Move Onward</div>
+          <div class="strip-time">Integrate &amp; affirm &#183; 5 min</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div class="practice-accordion">
+  <!-- UNDERSTANDING THE CYCLE -->
+  <section class="section">
+    <span class="section-label">Before you begin: how this works</span>
+    <h2 class="section-title">What happens between something reaching you<br><em>and how you respond to it</em></h2>
+    <p class="body-text">Something reaches you. A message, a look, a deadline, a memory. Before you've even decided anything about it, your beliefs about yourself and about the world have already filtered it. That filtered version is what becomes an emotion. The emotion shows up in your body as a feeling. The feeling produces a thought. The thought drives an action. And the action, done enough times, becomes a habit. The habit is what decides how you meet the next thing that reaches you.</p>
 
-      <div class="practice-step open" id="step-1">
-        <button class="step-toggle" onclick="toggleStep(this)" aria-expanded="true">
-          <span class="step-num-large">01</span>
-          <div class="step-title-block">
-            <div class="step-name">Part One · Feel</div>
-            <div class="step-title-text">Body Check-In</div>
+    <div class="cycle-wheel">
+<svg class="cycle-wheel-svg" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The cycle, shown as a loop you can enter at any point">
+<defs><marker id="cyclearrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--clay-deep)" /></marker></defs>
+<circle cx="240" cy="240" r="172" fill="none" stroke="var(--clay-light)" stroke-width="1" stroke-dasharray="2 5" />
+<path class="cycle-arc" data-arc="0" d="M 287.41,74.66 A 172,172 0 0 1 359.48,116.27" fill="none" marker-end="url(#cyclearrow)" />
+<path class="cycle-arc" data-arc="1" d="M 406.89,198.39 A 172,172 0 0 1 406.89,281.61" fill="none" marker-end="url(#cyclearrow)" />
+<path class="cycle-arc" data-arc="2" d="M 359.48,363.73 A 172,172 0 0 1 287.41,405.34" fill="none" marker-end="url(#cyclearrow)" />
+<path class="cycle-arc" data-arc="3" d="M 192.59,405.34 A 172,172 0 0 1 120.52,363.73" fill="none" marker-end="url(#cyclearrow)" />
+<path class="cycle-arc" data-arc="4" d="M 73.11,281.61 A 172,172 0 0 1 73.11,198.39" fill="none" marker-end="url(#cyclearrow)" />
+<path class="cycle-arc" data-arc="5" d="M 120.52,116.27 A 172,172 0 0 1 192.59,74.66" fill="none" marker-end="url(#cyclearrow)" />
+</svg>
+<div class="cycle-center"><p>Enter this cycle anywhere. That entry point is the practice.</p></div>
+<div class="cycle-node" data-step="0" style="left:50.00%; top:14.17%;"><span class="cycle-label">Stimulus</span><span class="cycle-sub">Something reaches you</span></div>
+<div class="cycle-node is-belief" data-step="1" style="left:81.03%; top:32.08%;"><span class="cycle-label">Belief</span><span class="cycle-sub">Filters it</span></div>
+<div class="cycle-node" data-step="2" style="left:81.03%; top:67.92%;"><span class="cycle-label">Emotion</span><span class="cycle-sub">What gets generated</span></div>
+<div class="cycle-node" data-step="3" style="left:50.00%; top:85.83%;"><span class="cycle-label">Feeling</span><span class="cycle-sub">In the body</span></div>
+<div class="cycle-node" data-step="4" style="left:18.97%; top:67.92%;"><span class="cycle-label">Thought</span><span class="cycle-sub">What you tell yourself</span></div>
+<div class="cycle-node" data-step="5" style="left:18.97%; top:32.08%;"><span class="cycle-label">Action</span><span class="cycle-sub">What you do</span></div>
+</div>
+    <p class="cycle-loop-note">Repeat the action enough times and it becomes a habit. And the habit is what decides how you meet the next thing that reaches you.</p>
+
+    <p class="body-text" style="margin-top:24px;">Most of that sequence runs on autopilot, faster than you can even notice it happening. Stage 3 isn't about stopping the cycle. It's about finding the interval inside it, the small gap between what reaches you and how you respond, and learning to work inside that gap on purpose.</p>
+
+    <p class="body-text">Here's what that can actually look like, in a moment a lot of people know.</p>
+
+    <div class="cycle-example" id="cycle-example">
+      <div class="cycle-example-head">
+        <span class="cycle-example-eyebrow">Watch it play out</span>
+        <button class="cycle-example-play" id="cycle-play" type="button">Play the example</button>
+      </div>
+      <div class="cycle-example-card">
+        <div class="cycle-example-step" id="cycle-example-step">Step 1 of 6</div>
+        <div class="cycle-example-name" id="cycle-example-name">Stimulus</div>
+        <p class="cycle-example-text" id="cycle-example-text">Someone slams the door.</p>
+      </div>
+      <div class="cycle-example-nav">
+        <button class="cycle-example-nav-btn" id="cycle-prev" type="button" aria-label="Previous step">&#8592;</button>
+        <div class="cycle-example-dots" id="cycle-example-dots"></div>
+        <button class="cycle-example-nav-btn" id="cycle-next" type="button" aria-label="Next step">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="callout-pine">
+      <p><strong>That's the whole skill.</strong> Not becoming someone who doesn't react. Becoming someone who can find the interval, look at what's actually running the cycle, and choose the next link in it on purpose. That's what self-diagnosing and self-coaching actually means, and it's what the rest of this stage trains.</p>
+    </div>
+
+    <p class="body-text">In Part One, you'll use an expanded Feeling Wheel, the psychology tool for naming exactly what you're carrying, not just one feeling but everything that's actually present. In Part Two, you'll take that naming and work with both the body and the belief underneath it.</p>
+  </section>
+
+  <div class="ornament">&#183; &#183; &#183;</div>
+
+  <!-- STEP 01: FEEL -->
+  <div class="practice-step" id="step-1">
+    <div class="step-header">
+      <div class="step-num-large">01</div>
+      <div class="step-title-block">
+        <div class="step-name">Part One &#183; Feel</div>
+        <div class="step-title-text">Body Connection</div>
+      </div>
+      <div class="step-duration">5 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="body-text">Sit with both feet on the floor. Close your eyes if that's comfortable. This isn't a formality. It's the foundation the rest of the practice stands on.</p>
+
+      <div class="sub-step">
+        <div class="sub-step-label">A &#183; Where do you feel it?</div>
+        <p class="body-text" style="font-size:13px;">Scan slowly from your feet to the top of your head, before you try to name anything. Notice where there is tension, weight, heat, numbness, or constriction.</p>
+        <ol class="prompt-list">
+          <li class="prompt-item"><span class="prompt-num">&#8594;</span><span class="prompt-text">Jaw, neck, shoulders. Where the load and the bracing sit.</span></li>
+          <li class="prompt-item"><span class="prompt-num">&#8594;</span><span class="prompt-text">Chest. What's tight, hollow, or heavy here?</span></li>
+          <li class="prompt-item"><span class="prompt-num">&#8594;</span><span class="prompt-text">Stomach and gut. This is often where it lives before your mind even names it.</span></li>
+          <li class="prompt-item"><span class="prompt-num">&#8594;</span><span class="prompt-text">Hips and lower back. What have you been carrying without admitting it?</span></li>
+        </ol>
+        <div class="write-area"><div class="write-line"></div><div class="write-line"></div></div>
+      </div>
+
+      <div class="sub-step">
+        <div class="sub-step-label">B &#183; Name everything you're carrying</div>
+        <p class="body-text" style="font-size:13px;">In Stage 2, you used the body-feelings chart to name one emotion at a time. Now you go deeper. Tap every word on the wheel below that's true for you right now, that becomes your list for today.</p>
+
+        <div class="wheel-block" id="feeling-wheel">
+          <div class="wheel-legend">
+            <span class="wheel-legend-item"><span class="wheel-legend-dot" style="background:#B8A48A;"></span>Surprised</span>
+            <span class="wheel-legend-item"><span class="wheel-legend-dot" style="background:#C4A882;"></span>Fearful</span>
+            <span class="wheel-legend-item"><span class="wheel-legend-dot" style="background:#B89090;"></span>Angry</span>
+            <span class="wheel-legend-item"><span class="wheel-legend-dot" style="background:#A09AAA;"></span>Disgusted</span>
+            <span class="wheel-legend-item"><span class="wheel-legend-dot" style="background:#8A90B0;"></span>Sad</span>
+            <span class="wheel-legend-item"><span class="wheel-legend-dot" style="background:#C9A96E;"></span>Happy</span>
           </div>
-          <span class="step-duration">5 minutes</span>
-          <svg class="step-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="step-body">
-          <p class="step-context">Your body knows what is happening before your mind has language for it. The check-in is not a warm-up, it is the foundation of everything that follows. Two minutes here makes the difference between a practice that lands precisely and one that floats over the surface.</p>
-
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">A</span><span class="sub-step-name">Where are you holding it?</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:12px;">Before you name an emotion, locate it physically. Scan from feet to head. Notice where there is tension, weight, heat, numbness, or constriction.</p>
-            <ul class="prompt-list">
-              <li>Jaw, neck, shoulders, the load and the bracing</li>
-              <li>Chest, what is tight, hollow, or heavy here?</li>
-              <li>Stomach and gut, the anxiety lives here before the mind names it</li>
-              <li>Hips and lower back, what have you been carrying without acknowledging?</li>
-            </ul>
-            <div class="write-area"><div class="write-line"></div><div class="write-line"></div></div>
+          <div class="wheel-wrap">
+            <svg class="wheel-svg" viewBox="0 0 840 840" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Expanded Feeling Wheel">
+<circle cx="420" cy="420" r="332" fill="var(--warm-white)" />
+<path d="M 420.00,420.00 L 420.80,328.00 A 92.00,92.00 0 0 1 499.27,373.31 Z" fill="#B8A48A" stroke="var(--warm-white)" stroke-width="2.5" />
+<text x="446.00" y="374.97" transform="rotate(0.00 446.00 374.97)" text-anchor="middle" dominant-baseline="middle" class="wheel-core-label">Surprised</text>
+<g class="wheel-seg" data-emotion="Startled" data-family="surprise" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 420.84,324.00 L 421.71,224.01 A 196.00,196.00 0 0 1 469.07,230.24 L 444.04,327.06 A 96.00,96.00 0 0 0 420.84,324.00 Z" fill="#D8CFC4" stroke="var(--warm-white)" stroke-width="2" /><text x="439.06" y="275.25" transform="rotate(-82.50 439.06 275.25)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3B2F">Startled</text></g>
+<g class="wheel-seg" data-emotion="Shocked" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 421.75,220.01 L 422.88,90.01 A 330.00,330.00 0 0 1 460.22,92.46 L 444.37,221.49 A 200.00,200.00 0 0 0 421.75,220.01 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="437.33" y="155.57" transform="rotate(-86.25 437.33 155.57)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Shocked</text></g>
+<g class="wheel-seg" data-emotion="Dismayed" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 447.83,221.95 L 465.93,93.21 A 330.00,330.00 0 0 1 502.63,100.51 L 470.08,226.37 A 200.00,200.00 0 0 0 447.83,221.95 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="471.70" y="160.09" transform="rotate(-78.75 471.70 160.09)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Dismayed</text></g>
+<g class="wheel-seg" data-emotion="Confused" data-family="surprise" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 445.65,327.49 L 472.38,231.13 A 196.00,196.00 0 0 1 516.52,249.41 L 467.27,336.45 A 96.00,96.00 0 0 0 445.65,327.49 Z" fill="#D8CFC4" stroke="var(--warm-white)" stroke-width="2" /><text x="475.87" y="285.11" transform="rotate(-67.50 475.87 285.11)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3B2F">Confused</text></g>
+<g class="wheel-seg" data-emotion="Disillusioned" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 473.45,227.27 L 508.19,102.00 A 330.00,330.00 0 0 1 543.62,114.03 L 494.92,234.56 A 200.00,200.00 0 0 0 473.45,227.27 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="505.18" y="169.06" transform="rotate(-71.25 505.18 169.06)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Disillusioned</text></g>
+<g class="wheel-seg" data-emotion="Perplexed" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 498.15,235.90 L 548.94,116.23 A 330.00,330.00 0 0 1 582.50,132.78 L 518.48,245.93 A 200.00,200.00 0 0 0 498.15,235.90 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="537.21" y="182.33" transform="rotate(-63.75 537.21 182.33)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Perplexed</text></g>
+<g class="wheel-seg" data-emotion="Amazed" data-family="surprise" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 468.72,337.28 L 519.48,251.12 A 196.00,196.00 0 0 1 557.38,280.20 L 487.29,351.53 A 96.00,96.00 0 0 0 468.72,337.28 Z" fill="#D8CFC4" stroke="var(--warm-white)" stroke-width="2" /><text x="508.88" y="304.17" transform="rotate(-52.50 508.88 304.17)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3B2F">Amazed</text></g>
+<g class="wheel-seg" data-emotion="Astonished" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 521.51,247.67 L 587.49,135.66 A 330.00,330.00 0 0 1 618.60,156.45 L 540.36,260.27 A 200.00,200.00 0 0 0 521.51,247.67 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="567.23" y="199.66" transform="rotate(-56.25 567.23 199.66)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Astonished</text></g>
+<g class="wheel-seg" data-emotion="Awe" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 543.13,262.40 L 623.17,159.96 A 330.00,330.00 0 0 1 651.30,184.63 L 560.18,277.35 A 200.00,200.00 0 0 0 543.13,262.40 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="594.73" y="220.76" transform="rotate(-48.75 594.73 220.76)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Awe</text></g>
+<g class="wheel-seg" data-emotion="Excited" data-family="surprise" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 488.47,352.71 L 559.80,282.62 A 196.00,196.00 0 0 1 588.88,320.52 L 502.72,371.28 A 96.00,96.00 0 0 0 488.47,352.71 Z" fill="#D8CFC4" stroke="var(--warm-white)" stroke-width="2" /><text x="535.83" y="331.12" transform="rotate(-37.50 535.83 331.12)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3B2F">Excited</text></g>
+<g class="wheel-seg" data-emotion="Eager" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 562.65,279.82 L 655.37,188.70 A 330.00,330.00 0 0 1 680.04,216.83 L 577.60,296.87 A 200.00,200.00 0 0 0 562.65,279.82 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="619.24" y="245.27" transform="rotate(-41.25 619.24 245.27)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Eager</text></g>
+<g class="wheel-seg" data-emotion="Energetic" data-family="surprise" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 579.73,299.64 L 683.55,221.40 A 330.00,330.00 0 0 1 704.34,252.51 L 592.33,318.49 A 200.00,200.00 0 0 0 579.73,299.64 Z" fill="#EAE3D9" stroke="var(--warm-white)" stroke-width="1.5" /><text x="640.34" y="272.77" transform="rotate(-33.75 640.34 272.77)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3B2F">Energetic</text></g>
+<path d="M 420.00,420.00 L 500.07,374.70 A 92.00,92.00 0 0 1 500.07,465.30 Z" fill="#C4A882" stroke="var(--warm-white)" stroke-width="2.5" />
+<text x="472.00" y="420.00" transform="rotate(0.00 472.00 420.00)" text-anchor="middle" dominant-baseline="middle" class="wheel-core-label">Fearful</text>
+<g class="wheel-seg" data-emotion="Scared" data-family="fear" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 503.55,372.73 L 590.59,323.48 A 196.00,196.00 0 0 1 608.87,367.62 L 512.51,394.35 A 96.00,96.00 0 0 0 503.55,372.73 Z" fill="#E8D5C0" stroke="var(--warm-white)" stroke-width="2" /><text x="554.89" y="364.13" transform="rotate(-22.50 554.89 364.13)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#5C3D2A">Scared</text></g>
+<g class="wheel-seg" data-emotion="Helpless" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 594.07,321.52 L 707.22,257.50 A 330.00,330.00 0 0 1 723.77,291.06 L 604.10,341.85 A 200.00,200.00 0 0 0 594.07,321.52 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="657.67" y="302.79" transform="rotate(-26.25 657.67 302.79)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Helpless</text></g>
+<g class="wheel-seg" data-emotion="Frightened" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 605.44,345.08 L 725.97,296.38 A 330.00,330.00 0 0 1 738.00,331.81 L 612.73,366.55 A 200.00,200.00 0 0 0 605.44,345.08 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="670.94" y="334.82" transform="rotate(-18.75 670.94 334.82)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Frightened</text></g>
+<g class="wheel-seg" data-emotion="Anxious" data-family="fear" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 512.94,395.96 L 609.76,370.93 A 196.00,196.00 0 0 1 615.99,418.29 L 516.00,419.16 A 96.00,96.00 0 0 0 512.94,395.96 Z" fill="#E8D5C0" stroke="var(--warm-white)" stroke-width="2" /><text x="564.75" y="400.94" transform="rotate(-7.50 564.75 400.94)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#5C3D2A">Anxious</text></g>
+<g class="wheel-seg" data-emotion="Dread" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 613.63,369.92 L 739.49,337.37 A 330.00,330.00 0 0 1 746.79,374.07 L 618.05,392.17 A 200.00,200.00 0 0 0 613.63,369.92 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="679.91" y="368.30" transform="rotate(-11.25 679.91 368.30)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Dread</text></g>
+<g class="wheel-seg" data-emotion="Worried" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 618.51,395.63 L 747.54,379.78 A 330.00,330.00 0 0 1 749.99,417.12 L 619.99,418.25 A 200.00,200.00 0 0 0 618.51,395.63 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="684.43" y="402.67" transform="rotate(-3.75 684.43 402.67)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Worried</text></g>
+<g class="wheel-seg" data-emotion="Insecure" data-family="fear" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 516.00,420.84 L 615.99,421.71 A 196.00,196.00 0 0 1 609.76,469.07 L 512.94,444.04 A 96.00,96.00 0 0 0 516.00,420.84 Z" fill="#E8D5C0" stroke="var(--warm-white)" stroke-width="2" /><text x="564.75" y="439.06" transform="rotate(7.50 564.75 439.06)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#5C3D2A">Insecure</text></g>
+<g class="wheel-seg" data-emotion="Inadequate" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 619.99,421.75 L 749.99,422.88 A 330.00,330.00 0 0 1 747.54,460.22 L 618.51,444.37 A 200.00,200.00 0 0 0 619.99,421.75 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="684.43" y="437.33" transform="rotate(3.75 684.43 437.33)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Inadequate</text></g>
+<g class="wheel-seg" data-emotion="Unworthy" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 618.05,447.83 L 746.79,465.93 A 330.00,330.00 0 0 1 739.49,502.63 L 613.63,470.08 A 200.00,200.00 0 0 0 618.05,447.83 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="679.91" y="471.70" transform="rotate(11.25 679.91 471.70)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Unworthy</text></g>
+<g class="wheel-seg" data-emotion="Threatened" data-family="fear" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 512.51,445.65 L 608.87,472.38 A 196.00,196.00 0 0 1 590.59,516.52 L 503.55,467.27 A 96.00,96.00 0 0 0 512.51,445.65 Z" fill="#E8D5C0" stroke="var(--warm-white)" stroke-width="2" /><text x="554.89" y="475.87" transform="rotate(22.50 554.89 475.87)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#5C3D2A">Threatened</text></g>
+<g class="wheel-seg" data-emotion="Nervous" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 612.73,473.45 L 738.00,508.19 A 330.00,330.00 0 0 1 725.97,543.62 L 605.44,494.92 A 200.00,200.00 0 0 0 612.73,473.45 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="670.94" y="505.18" transform="rotate(18.75 670.94 505.18)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Nervous</text></g>
+<g class="wheel-seg" data-emotion="Exposed" data-family="fear" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 604.10,498.15 L 723.77,548.94 A 330.00,330.00 0 0 1 707.22,582.50 L 594.07,518.48 A 200.00,200.00 0 0 0 604.10,498.15 Z" fill="#F2E7D8" stroke="var(--warm-white)" stroke-width="1.5" /><text x="657.67" y="537.21" transform="rotate(26.25 657.67 537.21)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#5C3D2A">Exposed</text></g>
+<path d="M 420.00,420.00 L 499.27,466.69 A 92.00,92.00 0 0 1 420.80,512.00 Z" fill="#B89090" stroke="var(--warm-white)" stroke-width="2.5" />
+<text x="446.00" y="465.03" transform="rotate(0.00 446.00 465.03)" text-anchor="middle" dominant-baseline="middle" class="wheel-core-label">Angry</text>
+<g class="wheel-seg" data-emotion="Let Down" data-family="anger" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 502.72,468.72 L 588.88,519.48 A 196.00,196.00 0 0 1 559.80,557.38 L 488.47,487.29 A 96.00,96.00 0 0 0 502.72,468.72 Z" fill="#D9C4BE" stroke="var(--warm-white)" stroke-width="2" /><text x="535.83" y="508.88" transform="rotate(37.50 535.83 508.88)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A2A25">Let Down</text></g>
+<g class="wheel-seg" data-emotion="Betrayed" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 592.33,521.51 L 704.34,587.49 A 330.00,330.00 0 0 1 683.55,618.60 L 579.73,540.36 A 200.00,200.00 0 0 0 592.33,521.51 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="640.34" y="567.23" transform="rotate(33.75 640.34 567.23)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Betrayed</text></g>
+<g class="wheel-seg" data-emotion="Disrespected" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 577.60,543.13 L 680.04,623.17 A 330.00,330.00 0 0 1 655.37,651.30 L 562.65,560.18 A 200.00,200.00 0 0 0 577.60,543.13 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="619.24" y="594.73" transform="rotate(41.25 619.24 594.73)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Disrespected</text></g>
+<g class="wheel-seg" data-emotion="Humiliated" data-family="anger" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 487.29,488.47 L 557.38,559.80 A 196.00,196.00 0 0 1 519.48,588.88 L 468.72,502.72 A 96.00,96.00 0 0 0 487.29,488.47 Z" fill="#D9C4BE" stroke="var(--warm-white)" stroke-width="2" /><text x="508.88" y="535.83" transform="rotate(52.50 508.88 535.83)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A2A25">Humiliated</text></g>
+<g class="wheel-seg" data-emotion="Ridiculed" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 560.18,562.65 L 651.30,655.37 A 330.00,330.00 0 0 1 623.17,680.04 L 543.13,577.60 A 200.00,200.00 0 0 0 560.18,562.65 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="594.73" y="619.24" transform="rotate(48.75 594.73 619.24)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Ridiculed</text></g>
+<g class="wheel-seg" data-emotion="Disgraced" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 540.36,579.73 L 618.60,683.55 A 330.00,330.00 0 0 1 587.49,704.34 L 521.51,592.33 A 200.00,200.00 0 0 0 540.36,579.73 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="567.23" y="640.34" transform="rotate(56.25 567.23 640.34)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Disgraced</text></g>
+<g class="wheel-seg" data-emotion="Mad" data-family="anger" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 467.27,503.55 L 516.52,590.59 A 196.00,196.00 0 0 1 472.38,608.87 L 445.65,512.51 A 96.00,96.00 0 0 0 467.27,503.55 Z" fill="#D9C4BE" stroke="var(--warm-white)" stroke-width="2" /><text x="475.87" y="554.89" transform="rotate(67.50 475.87 554.89)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A2A25">Mad</text></g>
+<g class="wheel-seg" data-emotion="Furious" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 518.48,594.07 L 582.50,707.22 A 330.00,330.00 0 0 1 548.94,723.77 L 498.15,604.10 A 200.00,200.00 0 0 0 518.48,594.07 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="537.21" y="657.67" transform="rotate(63.75 537.21 657.67)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Furious</text></g>
+<g class="wheel-seg" data-emotion="Aggressive" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 494.92,605.44 L 543.62,725.97 A 330.00,330.00 0 0 1 508.19,738.00 L 473.45,612.73 A 200.00,200.00 0 0 0 494.92,605.44 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="505.18" y="670.94" transform="rotate(71.25 505.18 670.94)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Aggressive</text></g>
+<g class="wheel-seg" data-emotion="Frustrated" data-family="anger" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 444.04,512.94 L 469.07,609.76 A 196.00,196.00 0 0 1 421.71,615.99 L 420.84,516.00 A 96.00,96.00 0 0 0 444.04,512.94 Z" fill="#D9C4BE" stroke="var(--warm-white)" stroke-width="2" /><text x="439.06" y="564.75" transform="rotate(82.50 439.06 564.75)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A2A25">Frustrated</text></g>
+<g class="wheel-seg" data-emotion="Infuriated" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 470.08,613.63 L 502.63,739.49 A 330.00,330.00 0 0 1 465.93,746.79 L 447.83,618.05 A 200.00,200.00 0 0 0 470.08,613.63 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="471.70" y="679.91" transform="rotate(78.75 471.70 679.91)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Infuriated</text></g>
+<g class="wheel-seg" data-emotion="Annoyed" data-family="anger" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 444.37,618.51 L 460.22,747.54 A 330.00,330.00 0 0 1 422.88,749.99 L 421.75,619.99 A 200.00,200.00 0 0 0 444.37,618.51 Z" fill="#EAD9D5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="437.33" y="684.43" transform="rotate(86.25 437.33 684.43)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A2A25">Annoyed</text></g>
+<path d="M 420.00,420.00 L 419.20,512.00 A 92.00,92.00 0 0 1 340.73,466.69 Z" fill="#A09AAA" stroke="var(--warm-white)" stroke-width="2.5" />
+<text x="394.00" y="465.03" transform="rotate(0.00 394.00 465.03)" text-anchor="middle" dominant-baseline="middle" class="wheel-core-label">Disgusted</text>
+<g class="wheel-seg" data-emotion="Disapproving" data-family="disgust" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 419.16,516.00 L 418.29,615.99 A 196.00,196.00 0 0 1 370.93,609.76 L 395.96,512.94 A 96.00,96.00 0 0 0 419.16,516.00 Z" fill="#D0CDD0" stroke="var(--warm-white)" stroke-width="2" /><text x="400.94" y="564.75" transform="rotate(277.50 400.94 564.75)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#3A3040">Disapproving</text></g>
+<g class="wheel-seg" data-emotion="Judgmental" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 418.25,619.99 L 417.12,749.99 A 330.00,330.00 0 0 1 379.78,747.54 L 395.63,618.51 A 200.00,200.00 0 0 0 418.25,619.99 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="402.67" y="684.43" transform="rotate(273.75 402.67 684.43)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Judgmental</text></g>
+<g class="wheel-seg" data-emotion="Dismissive" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 392.17,618.05 L 374.07,746.79 A 330.00,330.00 0 0 1 337.37,739.49 L 369.92,613.63 A 200.00,200.00 0 0 0 392.17,618.05 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="368.30" y="679.91" transform="rotate(281.25 368.30 679.91)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Dismissive</text></g>
+<g class="wheel-seg" data-emotion="Disappointed" data-family="disgust" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 394.35,512.51 L 367.62,608.87 A 196.00,196.00 0 0 1 323.48,590.59 L 372.73,503.55 A 96.00,96.00 0 0 0 394.35,512.51 Z" fill="#D0CDD0" stroke="var(--warm-white)" stroke-width="2" /><text x="364.13" y="554.89" transform="rotate(292.50 364.13 554.89)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#3A3040">Disappointed</text></g>
+<g class="wheel-seg" data-emotion="Appalled" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 366.55,612.73 L 331.81,738.00 A 330.00,330.00 0 0 1 296.38,725.97 L 345.08,605.44 A 200.00,200.00 0 0 0 366.55,612.73 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="334.82" y="670.94" transform="rotate(288.75 334.82 670.94)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Appalled</text></g>
+<g class="wheel-seg" data-emotion="Revolted" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 341.85,604.10 L 291.06,723.77 A 330.00,330.00 0 0 1 257.50,707.22 L 321.52,594.07 A 200.00,200.00 0 0 0 341.85,604.10 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="302.79" y="657.67" transform="rotate(296.25 302.79 657.67)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Revolted</text></g>
+<g class="wheel-seg" data-emotion="Awful" data-family="disgust" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 371.28,502.72 L 320.52,588.88 A 196.00,196.00 0 0 1 282.62,559.80 L 352.71,488.47 A 96.00,96.00 0 0 0 371.28,502.72 Z" fill="#D0CDD0" stroke="var(--warm-white)" stroke-width="2" /><text x="331.12" y="535.83" transform="rotate(307.50 331.12 535.83)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#3A3040">Awful</text></g>
+<g class="wheel-seg" data-emotion="Nauseated" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 318.49,592.33 L 252.51,704.34 A 330.00,330.00 0 0 1 221.40,683.55 L 299.64,579.73 A 200.00,200.00 0 0 0 318.49,592.33 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="272.77" y="640.34" transform="rotate(303.75 272.77 640.34)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Nauseated</text></g>
+<g class="wheel-seg" data-emotion="Detestable" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 296.87,577.60 L 216.83,680.04 A 330.00,330.00 0 0 1 188.70,655.37 L 279.82,562.65 A 200.00,200.00 0 0 0 296.87,577.60 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="245.27" y="619.24" transform="rotate(311.25 245.27 619.24)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Detestable</text></g>
+<g class="wheel-seg" data-emotion="Repelled" data-family="disgust" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 351.53,487.29 L 280.20,557.38 A 196.00,196.00 0 0 1 251.12,519.48 L 337.28,468.72 A 96.00,96.00 0 0 0 351.53,487.29 Z" fill="#D0CDD0" stroke="var(--warm-white)" stroke-width="2" /><text x="304.17" y="508.88" transform="rotate(322.50 304.17 508.88)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#3A3040">Repelled</text></g>
+<g class="wheel-seg" data-emotion="Horrified" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 277.35,560.18 L 184.63,651.30 A 330.00,330.00 0 0 1 159.96,623.17 L 262.40,543.13 A 200.00,200.00 0 0 0 277.35,560.18 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="220.76" y="594.73" transform="rotate(318.75 220.76 594.73)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Horrified</text></g>
+<g class="wheel-seg" data-emotion="Hesitant" data-family="disgust" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 260.27,540.36 L 156.45,618.60 A 330.00,330.00 0 0 1 135.66,587.49 L 247.67,521.51 A 200.00,200.00 0 0 0 260.27,540.36 Z" fill="#E4E2E5" stroke="var(--warm-white)" stroke-width="1.5" /><text x="199.66" y="567.23" transform="rotate(326.25 199.66 567.23)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#3A3040">Hesitant</text></g>
+<path d="M 420.00,420.00 L 339.93,465.30 A 92.00,92.00 0 0 1 339.93,374.70 Z" fill="#8A90B0" stroke="var(--warm-white)" stroke-width="2.5" />
+<text x="368.00" y="420.00" transform="rotate(0.00 368.00 420.00)" text-anchor="middle" dominant-baseline="middle" class="wheel-core-label">Sad</text>
+<g class="wheel-seg" data-emotion="Lonely" data-family="sadness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 336.45,467.27 L 249.41,516.52 A 196.00,196.00 0 0 1 231.13,472.38 L 327.49,445.65 A 96.00,96.00 0 0 0 336.45,467.27 Z" fill="#C8CCDA" stroke="var(--warm-white)" stroke-width="2" /><text x="285.11" y="475.87" transform="rotate(337.50 285.11 475.87)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#2A3050">Lonely</text></g>
+<g class="wheel-seg" data-emotion="Isolated" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 245.93,518.48 L 132.78,582.50 A 330.00,330.00 0 0 1 116.23,548.94 L 235.90,498.15 A 200.00,200.00 0 0 0 245.93,518.48 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="182.33" y="537.21" transform="rotate(333.75 182.33 537.21)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Isolated</text></g>
+<g class="wheel-seg" data-emotion="Abandoned" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 234.56,494.92 L 114.03,543.62 A 330.00,330.00 0 0 1 102.00,508.19 L 227.27,473.45 A 200.00,200.00 0 0 0 234.56,494.92 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="169.06" y="505.18" transform="rotate(341.25 169.06 505.18)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Abandoned</text></g>
+<g class="wheel-seg" data-emotion="Vulnerable" data-family="sadness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 327.06,444.04 L 230.24,469.07 A 196.00,196.00 0 0 1 224.01,421.71 L 324.00,420.84 A 96.00,96.00 0 0 0 327.06,444.04 Z" fill="#C8CCDA" stroke="var(--warm-white)" stroke-width="2" /><text x="275.25" y="439.06" transform="rotate(352.50 275.25 439.06)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#2A3050">Vulnerable</text></g>
+<g class="wheel-seg" data-emotion="Victimized" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 226.37,470.08 L 100.51,502.63 A 330.00,330.00 0 0 1 93.21,465.93 L 221.95,447.83 A 200.00,200.00 0 0 0 226.37,470.08 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="160.09" y="471.70" transform="rotate(348.75 160.09 471.70)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Victimized</text></g>
+<g class="wheel-seg" data-emotion="Fragile" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 221.49,444.37 L 92.46,460.22 A 330.00,330.00 0 0 1 90.01,422.88 L 220.01,421.75 A 200.00,200.00 0 0 0 221.49,444.37 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="155.57" y="437.33" transform="rotate(356.25 155.57 437.33)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Fragile</text></g>
+<g class="wheel-seg" data-emotion="Guilty" data-family="sadness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 324.00,419.16 L 224.01,418.29 A 196.00,196.00 0 0 1 230.24,370.93 L 327.06,395.96 A 96.00,96.00 0 0 0 324.00,419.16 Z" fill="#C8CCDA" stroke="var(--warm-white)" stroke-width="2" /><text x="275.25" y="400.94" transform="rotate(367.50 275.25 400.94)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#2A3050">Guilty</text></g>
+<g class="wheel-seg" data-emotion="Ashamed" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 220.01,418.25 L 90.01,417.12 A 330.00,330.00 0 0 1 92.46,379.78 L 221.49,395.63 A 200.00,200.00 0 0 0 220.01,418.25 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="155.57" y="402.67" transform="rotate(363.75 155.57 402.67)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Ashamed</text></g>
+<g class="wheel-seg" data-emotion="Remorseful" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 221.95,392.17 L 93.21,374.07 A 330.00,330.00 0 0 1 100.51,337.37 L 226.37,369.92 A 200.00,200.00 0 0 0 221.95,392.17 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="160.09" y="368.30" transform="rotate(371.25 160.09 368.30)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Remorseful</text></g>
+<g class="wheel-seg" data-emotion="Depressed" data-family="sadness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 327.49,394.35 L 231.13,367.62 A 196.00,196.00 0 0 1 249.41,323.48 L 336.45,372.73 A 96.00,96.00 0 0 0 327.49,394.35 Z" fill="#C8CCDA" stroke="var(--warm-white)" stroke-width="2" /><text x="285.11" y="364.13" transform="rotate(382.50 285.11 364.13)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#2A3050">Depressed</text></g>
+<g class="wheel-seg" data-emotion="Empty" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 227.27,366.55 L 102.00,331.81 A 330.00,330.00 0 0 1 114.03,296.38 L 234.56,345.08 A 200.00,200.00 0 0 0 227.27,366.55 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="169.06" y="334.82" transform="rotate(378.75 169.06 334.82)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Empty</text></g>
+<g class="wheel-seg" data-emotion="Inferior" data-family="sadness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 235.90,341.85 L 116.23,291.06 A 330.00,330.00 0 0 1 132.78,257.50 L 245.93,321.52 A 200.00,200.00 0 0 0 235.90,341.85 Z" fill="#DEE1EA" stroke="var(--warm-white)" stroke-width="1.5" /><text x="182.33" y="302.79" transform="rotate(386.25 182.33 302.79)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#2A3050">Inferior</text></g>
+<path d="M 420.00,420.00 L 340.73,373.31 A 92.00,92.00 0 0 1 419.20,328.00 Z" fill="#C9A96E" stroke="var(--warm-white)" stroke-width="2.5" />
+<text x="394.00" y="374.97" transform="rotate(0.00 394.00 374.97)" text-anchor="middle" dominant-baseline="middle" class="wheel-core-label">Happy</text>
+<g class="wheel-seg" data-emotion="Playful" data-family="happiness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 337.28,371.28 L 251.12,320.52 A 196.00,196.00 0 0 1 280.20,282.62 L 351.53,352.71 A 96.00,96.00 0 0 0 337.28,371.28 Z" fill="#E6DCCA" stroke="var(--warm-white)" stroke-width="2" /><text x="304.17" y="331.12" transform="rotate(397.50 304.17 331.12)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3820">Playful</text></g>
+<g class="wheel-seg" data-emotion="Aroused" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 247.67,318.49 L 135.66,252.51 A 330.00,330.00 0 0 1 156.45,221.40 L 260.27,299.64 A 200.00,200.00 0 0 0 247.67,318.49 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="199.66" y="272.77" transform="rotate(393.75 199.66 272.77)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Aroused</text></g>
+<g class="wheel-seg" data-emotion="Cheeky" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 262.40,296.87 L 159.96,216.83 A 330.00,330.00 0 0 1 184.63,188.70 L 277.35,279.82 A 200.00,200.00 0 0 0 262.40,296.87 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="220.76" y="245.27" transform="rotate(401.25 220.76 245.27)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Cheeky</text></g>
+<g class="wheel-seg" data-emotion="Proud" data-family="happiness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 352.71,351.53 L 282.62,280.20 A 196.00,196.00 0 0 1 320.52,251.12 L 371.28,337.28 A 96.00,96.00 0 0 0 352.71,351.53 Z" fill="#E6DCCA" stroke="var(--warm-white)" stroke-width="2" /><text x="331.12" y="304.17" transform="rotate(412.50 331.12 304.17)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3820">Proud</text></g>
+<g class="wheel-seg" data-emotion="Successful" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 279.82,277.35 L 188.70,184.63 A 330.00,330.00 0 0 1 216.83,159.96 L 296.87,262.40 A 200.00,200.00 0 0 0 279.82,277.35 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="245.27" y="220.76" transform="rotate(408.75 245.27 220.76)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Successful</text></g>
+<g class="wheel-seg" data-emotion="Confident" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 299.64,260.27 L 221.40,156.45 A 330.00,330.00 0 0 1 252.51,135.66 L 318.49,247.67 A 200.00,200.00 0 0 0 299.64,260.27 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="272.77" y="199.66" transform="rotate(416.25 272.77 199.66)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Confident</text></g>
+<g class="wheel-seg" data-emotion="Accepted" data-family="happiness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 372.73,336.45 L 323.48,249.41 A 196.00,196.00 0 0 1 367.62,231.13 L 394.35,327.49 A 96.00,96.00 0 0 0 372.73,336.45 Z" fill="#E6DCCA" stroke="var(--warm-white)" stroke-width="2" /><text x="364.13" y="285.11" transform="rotate(427.50 364.13 285.11)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3820">Accepted</text></g>
+<g class="wheel-seg" data-emotion="Respected" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 321.52,245.93 L 257.50,132.78 A 330.00,330.00 0 0 1 291.06,116.23 L 341.85,235.90 A 200.00,200.00 0 0 0 321.52,245.93 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="302.79" y="182.33" transform="rotate(423.75 302.79 182.33)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Respected</text></g>
+<g class="wheel-seg" data-emotion="Valued" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 345.08,234.56 L 296.38,114.03 A 330.00,330.00 0 0 1 331.81,102.00 L 366.55,227.27 A 200.00,200.00 0 0 0 345.08,234.56 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="334.82" y="169.06" transform="rotate(431.25 334.82 169.06)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Valued</text></g>
+<g class="wheel-seg" data-emotion="Peaceful" data-family="happiness" data-ring="middle" tabindex="0" role="button" aria-pressed="false"><path d="M 395.96,327.06 L 370.93,230.24 A 196.00,196.00 0 0 1 418.29,224.01 L 419.16,324.00 A 96.00,96.00 0 0 0 395.96,327.06 Z" fill="#E6DCCA" stroke="var(--warm-white)" stroke-width="2" /><text x="400.94" y="275.25" transform="rotate(442.50 400.94 275.25)" text-anchor="middle" dominant-baseline="middle" class="wheel-mid-label" fill="#4A3820">Peaceful</text></g>
+<g class="wheel-seg" data-emotion="Loving" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 369.92,226.37 L 337.37,100.51 A 330.00,330.00 0 0 1 374.07,93.21 L 392.17,221.95 A 200.00,200.00 0 0 0 369.92,226.37 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="368.30" y="160.09" transform="rotate(438.75 368.30 160.09)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Loving</text></g>
+<g class="wheel-seg" data-emotion="Thankful" data-family="happiness" data-ring="outer" tabindex="0" role="button" aria-pressed="false"><path d="M 395.63,221.49 L 379.78,92.46 A 330.00,330.00 0 0 1 417.12,90.01 L 418.25,220.01 A 200.00,200.00 0 0 0 395.63,221.49 Z" fill="#F1EBDD" stroke="var(--warm-white)" stroke-width="1.5" /><text x="402.67" y="155.57" transform="rotate(446.25 402.67 155.57)" text-anchor="middle" dominant-baseline="middle" class="wheel-out-label" fill="#4A3820">Thankful</text></g>
+<circle cx="420" cy="420" r="92" fill="none" stroke="var(--warm-white)" stroke-width="3" />
+<circle cx="420" cy="420" r="196" fill="none" stroke="var(--warm-white)" stroke-width="1" opacity="0.5" />
+</svg>
           </div>
+          <p class="wheel-hint">Tap a word to mark it. Tap again to remove it.</p>
+        </div>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">B</span><span class="sub-step-name">Name the emotion</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:10px;">Match the sensation to an emotion. Be specific: "anxious" and "scared" both race the heart, but they need different things. Use the <a href="https://innerbalance101.com/stage2-clarity.html#emotions-chart" target="_blank" rel="noopener noreferrer" style="color: var(--clay-deep); text-decoration: underline;">Emotions and Sensations Chart</a> if you need it.</p>
-            <div class="write-area"><div class="write-line"></div><div class="write-line"></div></div>
+        <div class="today-emotions">
+          <span class="today-emotions-label">What you're carrying today</span>
+          <div class="today-chips" data-chips-target="1"></div>
+        </div>
+      </div>
+
+      <div class="sub-step">
+        <div class="sub-step-label">C &#183; What thought is running underneath that?</div>
+        <div class="callout-block" style="background: var(--linen); border-left: 2px solid var(--clay-light); border-radius: 0;">
+          <div class="callout-text">
+            <p style="color: var(--mid);">Write the exact sentence your mind is running. Not the edited version, the real one. One to two lines.</p>
+            <p style="color: var(--mid); margin-top:8px;"><strong style="color: var(--espresso);">Common at Stage 3:</strong> &#8220;I&#8217;ve done the work and I still don&#8217;t trust myself.&#8221; &#8220;I know what to do but I keep choosing the harder way.&#8221; &#8220;Something still feels off and I don&#8217;t know why.&#8221;</p>
           </div>
+        </div>
+        <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
+      </div>
+    </div>
+  </div>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">C</span><span class="sub-step-name">What thought is running underneath that?</span></div>
-            <div class="step-instruction">
-              <p>Write the exact sentence your mind is running. Not the edited version, the real one. One to two lines.</p>
-              <p><strong>Common at Stage 3:</strong> "I've done the work and I still don't trust myself." "I know what to do but I keep choosing the harder way." "Something still feels off and I don't know why."</p>
+  <!-- STEP 02: TRANSFORM -->
+  <div class="practice-step" id="step-2">
+    <div class="step-header">
+      <div class="step-num-large">02</div>
+      <div class="step-title-block">
+        <div class="step-name">Part Two &#183; Transform</div>
+        <div class="step-title-text">Somatic Release &amp; Deeper Thought Work</div>
+      </div>
+      <div class="step-duration">20 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="body-text">This is where the shift actually happens. First the body, then the belief underneath the thought. Don't skip either half. Insight without release just stays in your head. Release without insight repeats itself tomorrow.</p>
+
+      <div class="sub-step">
+        <div class="sub-step-label">A &#183; Your emotions today</div>
+        <div class="today-emotions" style="margin-top:0;">
+          <div class="today-chips" data-chips-target="2"></div>
+        </div>
+        <p class="body-text" style="font-size:13px; margin-top:10px;">This is what you're working with. Want to add more? Scroll back up to the wheel in Part One before you continue.</p>
+        <div class="today-families">
+          <span class="today-emotions-label">Brought back to the six core feelings</span>
+          <div class="family-badges" data-families-target></div>
+        </div>
+        <p class="body-text" style="font-size:12.5px; margin-top:8px; font-style:italic; color:var(--soft);">This is what tells you which movement to use below.</p>
+      </div>
+
+      <div class="sub-step">
+        <div class="sub-step-label">B &#183; Move it through the body</div>
+        <p class="body-text" style="font-size:13px;">Match the practice to whatever you marked. If you marked more than one family, start with whichever has the most charge right now. Set a timer for the full time and stay in it. The nervous system shift happens in the sustained practice, not the first thirty seconds. Each one also links to a guided video, if you'd rather have someone walk you through it out loud the first few times.</p>
+
+        <div class="emotion-practices">
+          <div class="emotion-practice-row ep-fear">
+            <span class="ep-family">Fear &amp; Anxiety</span>
+            <div class="ep-body">
+              <div class="ep-name">Extended Coherence Breathing</div>
+              <span class="ep-time">10 minutes</span>
+              <p class="ep-desc">Five counts in, five counts out, for the full ten minutes. Use for scared, anxious, insecure, or threatened.</p>
+              <a class="ep-link" href="https://www.youtube.com/watch?v=33pmxoUN9nk" target="_blank" rel="noopener noreferrer"><svg class="ep-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>Guided coherent breathing, Yoga with Sheehan</a>
             </div>
-            <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
+          </div>
+          <div class="emotion-practice-row ep-anger">
+            <span class="ep-family">Anger &amp; Frustration</span>
+            <div class="ep-body">
+              <div class="ep-name">Shaking &amp; Discharge</div>
+              <span class="ep-time">10 minutes</span>
+              <p class="ep-desc">Feet hip-width apart, knees soft, let the body vibrate gently from the ground up, increasing if it wants to. This is how the nervous system discharges what being let down, humiliated, or made furious leaves behind.</p>
+              <a class="ep-link" href="https://www.youtube.com/watch?v=FeUioDuJjFI" target="_blank" rel="noopener noreferrer"><svg class="ep-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>Guided TRE practice with Dr. David Berceli</a>
+            </div>
+          </div>
+          <div class="emotion-practice-row ep-sadness">
+            <span class="ep-family">Sadness &amp; Disconnection</span>
+            <div class="ep-body">
+              <div class="ep-name">Qigong Flow</div>
+              <span class="ep-time">10 minutes</span>
+              <p class="ep-desc">Slow arm swings, spinal waves, weight shifting with the breath. The form does not need to be exact, the intention does. Use for lonely, vulnerable, guilty, or depressed.</p>
+              <a class="ep-link" href="https://www.youtube.com/watch?v=1Lx0W43737o" target="_blank" rel="noopener noreferrer"><svg class="ep-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>Guided qigong for grief, Chris Shelton Qigong</a>
+            </div>
+          </div>
+          <div class="emotion-practice-row ep-disgust">
+            <span class="ep-family">Disgust &amp; Aversion</span>
+            <div class="ep-body">
+              <div class="ep-name">Cleansing Breath &amp; Reset</div>
+              <span class="ep-time">10 minutes</span>
+              <p class="ep-desc">Inhale through the nose for four counts, exhale through the mouth for eight with an audible sigh, for five minutes. Then wash your hands and face in cool water, slowly, noticing the sensation the whole time. Disgust wants something out of the body. Give it a physical exit.</p>
+              <a class="ep-link" href="https://www.youtube.com/watch?v=rBdhqBGqiMc" target="_blank" rel="noopener noreferrer"><svg class="ep-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>Huberman Lab on the physiological sigh</a>
+            </div>
+          </div>
+          <div class="emotion-practice-row ep-surprise">
+            <span class="ep-family">Surprise &amp; Disorientation</span>
+            <div class="ep-body">
+              <div class="ep-name">Grounding Through the Senses</div>
+              <span class="ep-time">10 minutes</span>
+              <p class="ep-desc">Name five things you can see, four you can hear, three you can touch, two you can smell, one you can taste. Move slowly. This brings a startled or confused nervous system back into a body that is, right now, safe.</p>
+              <a class="ep-link" href="https://www.youtube.com/watch?v=WQg7seUGDUc" target="_blank" rel="noopener noreferrer"><svg class="ep-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>Guided 5-4-3-2-1 grounding practice</a>
+            </div>
+          </div>
+          <div class="emotion-practice-row ep-happiness">
+            <span class="ep-family">Happiness &amp; Ease</span>
+            <div class="ep-body">
+              <div class="ep-name">Values-Based Savoring</div>
+              <span class="ep-time">10 minutes</span>
+              <p class="ep-desc">Choose one value this good feeling connects to. Stand in a posture that physically represents it, not performed, genuinely felt, and breathe from it for the full ten minutes. Positive states fade fast unless the body is given time to register them.</p>
+              <a class="ep-link" href="https://www.youtube.com/watch?v=vQz9l7SQbFo" target="_blank" rel="noopener noreferrer"><svg class="ep-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>Guided savoring practice, Tara Talks</a>
+            </div>
           </div>
         </div>
+        <p class="body-text" style="font-size:11.5px; margin-top:10px; color:var(--soft);">These videos are made by outside teachers, not innerbalance101. They open in a new tab on YouTube.</p>
       </div>
 
-      <div class="practice-step" id="step-2">
-        <button class="step-toggle" onclick="toggleStep(this)" aria-expanded="false">
-          <span class="step-num-large">02</span>
-          <div class="step-title-block">
-            <div class="step-name">Part Two · Transform</div>
-            <div class="step-title-text">Thought Work &amp; Somatic Release</div>
-          </div>
-          <span class="step-duration">20 minutes</span>
-          <svg class="step-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="step-body">
-          <p class="step-context">This is where the shift happens. First the thought work, journaling included, takes the thought down to the belief underneath it. Then the somatic release moves what the mind has surfaced through the body. The insight alone is not enough. You need to move it through.</p>
+      <div class="sub-step">
+        <div class="sub-step-label">C &#183; Go deeper into the thought</div>
+        <p class="body-text" style="font-size:13px;">A thought creates an emotion. An emotion creates a feeling in the body. A feeling drives an action. Most of what you do today started as a thought you never questioned. Here's what that chain can actually look like, and what changes when you meet the thought with curiosity instead of belief.</p>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">A</span><span class="sub-step-name">Work with the thought</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:12px;">Choose one prompt that matches what came up in the check-in. Write honestly. Do not edit for coherence.</p>
-            <ul class="prompt-list">
-              <li>What specifically am I afraid will happen if I do not handle this perfectly?</li>
-              <li>Is this a fact I am responding to, or a story I have been rehearsing?</li>
-              <li>What am I trying to prove, and who am I proving it to?</li>
-              <li>What would I need to believe about myself for this thought to feel true?</li>
-              <li>What would I tell someone I love who was carrying this thought right now?</li>
-              <li>What does this thought cost me when I act from it?</li>
-            </ul>
-            <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
-          </div>
-
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">B</span><span class="sub-step-name">Inherited or chosen?</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:14px;">Most beliefs driving high-achiever behaviour were installed before there was capacity to evaluate them. A parent's standard, a school environment that only rewarded performance, an early experience of conditional approval. The belief was adopted to stay safe, loved, or successful in that context. The question now is whether it still serves the life being built.</p>
-            <div class="belief-split">
-              <div class="belief-col inherited">
-                <div class="belief-col-label">Inherited: often sounds like</div>
-                <ul class="belief-examples">
-                  <li>"I need to do more to be valuable."</li>
-                  <li>"Rest means I'm falling behind."</li>
-                  <li>"Asking for help shows weakness."</li>
-                  <li>"Being emotional is unprofessional."</li>
-                  <li>"My worth depends on my output."</li>
-                  <li>"If I stop pushing, I'll lose everything I built."</li>
-                </ul>
+        <div class="pattern-example">
+          <div class="pattern-block is-old">
+            <div class="pattern-block-label">The old pattern</div>
+            <div class="pattern-chain">
+              <div class="pattern-link">
+                <div class="pattern-link-tag">Thought</div>
+                <div class="pattern-link-text">&#8220;I&#8217;m fat.&#8221;</div>
               </div>
-              <div class="belief-col chosen">
-                <div class="belief-col-label">Chosen: often sounds like</div>
-                <ul class="belief-examples">
-                  <li>"I work hard because it matters to me, not to prove anything."</li>
-                  <li>"My capacity grows when I recover."</li>
-                  <li>"Trusting others is how I build something sustainable."</li>
-                  <li>"My feelings make me more precise, not less."</li>
-                  <li>"Who I am exists separately from what I achieve."</li>
-                </ul>
+              <div class="pattern-arrow">&#8594;</div>
+              <div class="pattern-link">
+                <div class="pattern-link-tag">Feeling</div>
+                <div class="pattern-link-text">Heavy in the chest and stomach.</div>
+              </div>
+              <div class="pattern-arrow">&#8594;</div>
+              <div class="pattern-link">
+                <div class="pattern-link-tag">Action</div>
+                <div class="pattern-link-text">Dresses to hide instead of how she actually wants to. Plays smaller. Less confident.</div>
               </div>
             </div>
-            <div class="step-instruction">
-              <p><strong>Write the belief you found in the check-in.</strong> Then ask: Where did I first learn this was how I needed to be? What was I trying to stay safe from when I adopted it? Is this belief still true for the life I am building now? What would I choose to believe instead?</p>
-            </div>
-            <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
           </div>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">C</span><span class="sub-step-name">If you set a weekly focus, use it here</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:0;">Return to the focus area you selected above. Use one prompt from that section. Write without editing. This is journaling, not performance.</p>
+          <div class="pattern-transform">
+            <span class="pattern-transform-icon">&#10022;</span>
+            <span class="pattern-transform-text"><strong>Curiosity + Self-Trust + Beginner&#8217;s Mind:</strong> Where is this thought actually coming from? Who taught me my body needed to look a certain way to be worth something?</span>
           </div>
 
-          <div class="sub-step">
-            <div class="sub-step-header"><span class="sub-step-num">D</span><span class="sub-step-name">Somatic Release</span></div>
-            <p class="step-context" style="font-size:13px; margin-bottom:12px;">Thought work creates clarity. Somatic release creates discharge. Choose the one that matches what you found in Part One. Let the body confirm the choice, a slight exhale when you read the right option, a pull toward it.</p>
-          <div class="somatic-grid">
-            <div class="somatic-card">
-              <div class="somatic-card-name">Extended Breathwork</div>
-              <span class="somatic-card-time">5–10 minutes</span>
-              <p>Coherence breathing (5 counts in, 5 out) or the 4-7-8 pattern (inhale 4, hold 7, exhale 8). Set a timer and do not stop early. The nervous system shift happens in the sustained practice. Use for anxiety, pressure, high alert, or a racing mind.</p>
+          <div class="pattern-block is-new">
+            <div class="pattern-block-label">The new pattern</div>
+            <div class="pattern-chain">
+              <div class="pattern-link">
+                <div class="pattern-link-tag">Thought</div>
+                <div class="pattern-link-text">&#8220;What if my body is just a body, moving me through what I need, carrying me?&#8221;</div>
+              </div>
+              <div class="pattern-arrow">&#8594;</div>
+              <div class="pattern-link">
+                <div class="pattern-link-tag">Feeling</div>
+                <div class="pattern-link-text">Something in the chest loosens.</div>
+              </div>
+              <div class="pattern-arrow">&#8594;</div>
+              <div class="pattern-link">
+                <div class="pattern-link-tag">Action</div>
+                <div class="pattern-link-text">&#8220;How can I nurture it?&#8221; Dresses for herself. Movement becomes care instead of performance.</div>
+              </div>
             </div>
-            <div class="somatic-card">
-              <div class="somatic-card-name">Shaking &amp; Discharge</div>
-              <span class="somatic-card-time">5–7 minutes</span>
-              <p>Feet hip-width, knees slightly bent, let the body vibrate gently from the ground up. Increase if it wants to. This is how the nervous system naturally discharges accumulated stress. Use for overwhelm, held frustration, or stored physical pressure.</p>
-            </div>
-            <div class="somatic-card">
-              <div class="somatic-card-name">Qigong Flow</div>
-              <span class="somatic-card-time">7–10 minutes</span>
-              <p>Slow arm swings, spinal waves, weight shifting with breath. The form does not need to be perfect, the intention does. Use for heaviness, disconnection, or when the body needs to move without intensity.</p>
-            </div>
-            <div class="somatic-card">
-              <div class="somatic-card-name">Body Scan Meditation</div>
-              <span class="somatic-card-time">10 minutes</span>
-              <p>Move attention slowly from feet to head, pausing to notice sensation without trying to change it. This is a practice of presence. Noticing without fixing is how the nervous system processes what it has been carrying. Use for dissociation, numbness, or chronic low-level stress.</p>
-            </div>
-            <div class="somatic-card">
-              <div class="somatic-card-name">Guided Visualisation</div>
-              <span class="somatic-card-time">7–10 minutes</span>
-              <p>Close your eyes and build a clear inner resource, a place, a version of yourself, a felt sense of safety. Use specific sensory detail. This trains the nervous system to access a regulated state on demand. Use for uncertainty, self-doubt, or when the future feels threatening.</p>
-            </div>
-            <div class="somatic-card">
-              <div class="somatic-card-name">Values-Based Embodiment</div>
-              <span class="somatic-card-time">5–7 minutes</span>
-              <p>Choose one value you want to embody today. Stand in a posture that physically represents it, not performed, but genuinely felt. Breathe from that posture for 5 minutes. Use when identity or purpose work needs to move from idea to felt sense.</p>
-            </div>
-          </div>
-
-          <div class="callout-pine">
-            <p>Duration matters at Stage 3. The practices above take the full time listed. Set the timer and stay in it. <strong>The nervous system shift happens in the sustained practice, not at the beginning.</strong></p>
-          </div>
           </div>
         </div>
-      </div>
 
-      <div class="practice-step" id="step-4">
-        <button class="step-toggle" onclick="toggleStep(this)" aria-expanded="false">
-          <span class="step-num-large">03</span>
-          <div class="step-title-block">
-            <div class="step-name">Part Three · Move Onward</div>
-            <div class="step-title-text">Reaffirm &amp; Carry It Forward</div>
+        <p class="body-text" style="font-size:13px;">The work isn't forcing a positive thought on top of the old one. It's asking where the old thought actually came from, and finding out if it's still true for the life you're building. Return to the thought you named in Part One. Meet it with these seven postures. Move through as many as you need, you don't have to use all seven every day.</p>
+
+        <div class="qualities-list">
+          <div class="quality-row">
+            <span class="quality-name">Curiosity</span>
+            <div class="quality-body">
+              <p class="quality-def">Approach the thought like you are encountering it for the first time, not like you already know what it means about you.</p>
+              <p class="quality-prompt">What is this thought actually trying to tell me, underneath what it sounds like?</p>
+            </div>
           </div>
-          <span class="step-duration">5 minutes</span>
-          <svg class="step-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="step-body">
-          <p class="step-context">You do not add anything new here. This is where you reaffirm the feeling you generated in Part Two, the new belief, the shift you created, so it comes with you into the rest of your day rather than fading the moment you close the practice.</p>
-
-          <div class="step-instruction">
-            <p><strong>Name the new feeling or belief you developed in the work</strong>, the one you want to keep. Then choose one grounded statement below to seal it. Pick the one your body can actually receive, not the most impressive, the most true.</p>
+          <div class="quality-row">
+            <span class="quality-name">No Judgment</span>
+            <div class="quality-body">
+              <p class="quality-def">Notice the thought without deciding whether having it makes you weak, dramatic, or behind.</p>
+              <p class="quality-prompt">What would I notice here if I were not also judging myself for noticing it?</p>
+            </div>
           </div>
-
-          <ul class="affirmation-list">
-            <li>"I don't need to have all the answers right now. I'm on the right path, at the exact moment I'm meant to be in."</li>
-            <li>"I trust what I already know, and that feels amazing."</li>
-            <li>"Slowing down is living, and this life is just that."</li>
-            <li>"I can hold this sense of inner peace, and come back to it again and again."</li>
-            <li>"My worth is mine, and it feels amazing!"</li>
-            <li>"I have built something real. I can feel it, and that makes it real."</li>
-          </ul>
-
-          <div class="callout-rose">
-            <p>Then smile. A real, physical smile, for having given yourself these minutes.</p>
+          <div class="quality-row">
+            <span class="quality-name">Acceptance</span>
+            <div class="quality-body">
+              <p class="quality-def">This thought is already here. Fighting its presence costs more than the thought itself does.</p>
+              <p class="quality-prompt">What changes if I stop trying to not have this thought?</p>
+            </div>
+          </div>
+          <div class="quality-row">
+            <span class="quality-name">Beginner&#8217;s Mind</span>
+            <div class="quality-body">
+              <p class="quality-def">Set aside what you think you already know about yourself and this pattern. Look at what is actually here today.</p>
+              <p class="quality-prompt">If I had never worked on this before, what would I notice for the first time?</p>
+            </div>
+          </div>
+          <div class="quality-row">
+            <span class="quality-name">Self-Trust</span>
+            <div class="quality-body">
+              <p class="quality-def">You are allowed to trust what you are sensing, even before you can fully explain it.</p>
+              <p class="quality-prompt">What do I already know here that I have been talking myself out of?</p>
+            </div>
+          </div>
+          <div class="quality-row">
+            <span class="quality-name">Gratitude</span>
+            <div class="quality-body">
+              <p class="quality-def">Not for the discomfort itself, but for what it is protecting or pointing to.</p>
+              <p class="quality-prompt">What is this thought trying to keep me safe from, and is that protection still needed?</p>
+            </div>
+          </div>
+          <div class="quality-row">
+            <span class="quality-name">Generosity</span>
+            <div class="quality-body">
+              <p class="quality-def">Extend to yourself the same read you would give someone you love who was carrying this exact thought.</p>
+              <p class="quality-prompt">What would I say to someone I love who told me this thought, word for word?</p>
+            </div>
           </div>
         </div>
-      </div>
 
+        <div class="callout-rose" style="margin-top:22px;">
+          <p>&#8220;The belief was adopted to stay safe, loved, or successful once. The question now is whether it still serves the life you are building.&#8221;</p>
+        </div>
+
+        <div class="sub-step" style="border-top:none; padding-top:0; margin-top:18px;">
+          <div class="sub-step-label">The belief underneath the thought</div>
+          <p class="body-text" style="font-size:13px;">Where did I first learn this was how I needed to be? Is it still true for the life I am building now? What would I choose to believe instead?</p>
+          <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <div class="day63-block">
-    <span class="day63-label">System complete</span>
-    <h2 class="day63-title">You built an inner world.<br><em>Now comes the work of keeping it.</em></h2>
-    <p class="day63-body">Most people never build what you have built. They manage their emotional states from the outside, through wins, approval, and activity, and they never stop long enough to know what is happening on the inside. You did the other thing.</p>
-    <p class="day63-body"><strong>What you do not maintain returns to its default.</strong> High alert is the nervous system's natural setting when nothing is being done to override it. Inner balance is not a destination you arrive at. It is the discipline that overrides the default, every day.</p>
-    <p class="day63-body">What maintains it is the practice itself, now yours to keep. When a familiar state activates, the kind that costs you when it goes unattended, you return to the three parts and move through it. Feel it. Transform it. Move onward. Nothing to construct. You already know the way.</p>
+  <!-- STEP 03: MOVE ONWARD -->
+  <div class="practice-step" id="step-3">
+    <div class="step-header">
+      <div class="step-num-large">03</div>
+      <div class="step-title-block">
+        <div class="step-name">Part Three &#183; Move Onward</div>
+        <div class="step-title-text">Integrate &amp; Affirm</div>
+      </div>
+      <div class="step-duration">5 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="body-text">You're not adding anything new here. You're taking what Part Two surfaced and deciding, on purpose, to carry it forward instead of letting it fade the moment you stand up.</p>
+
+      <div class="sub-step">
+        <div class="sub-step-label">The thought you're choosing instead</div>
+        <div class="write-area"><div class="write-line"></div><div class="write-line"></div></div>
+      </div>
+
+      <div class="sub-step">
+        <div class="sub-step-label">Seal it</div>
+        <p class="body-text" style="font-size:13px;">Pick the one your body can actually receive right now. Not the most impressive. The most true.</p>
+        <ul class="affirmation-list">
+          <li>&#8220;I don&#8217;t need to have all the answers right now. I&#8217;m on the right path, at the exact moment I&#8217;m meant to be in.&#8221;</li>
+          <li>&#8220;I trust what I already know, and that feels amazing.&#8221;</li>
+          <li>&#8220;Slowing down is living, and this life is just that.&#8221;</li>
+          <li>&#8220;I can hold this sense of inner peace, and come back to it again and again.&#8221;</li>
+          <li>&#8220;My worth is mine, and it feels amazing.&#8221;</li>
+          <li>&#8220;I have built something real. I can feel it, and that makes it real.&#8221;</li>
+        </ul>
+        <div class="callout-rose">
+          <p>Then smile. A real, physical smile, for having given yourself these minutes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament">&#183; &#183; &#183;</div>
+
+  <!-- CLOSING -->
+  <div class="closing-section">
+    <span class="section-label">After 21 days</span>
+    <h2 class="section-title">The practice is finished teaching you.<br><em>Now it is just yours.</em></h2>
+    <p class="body-text">By the end of these 21 days, you're not learning the shape of this practice anymore. You know it. Feel, transform, move onward. Three parts, and you decide how long each one takes on a given day.</p>
+    <p class="body-text">That's the whole system, complete. Three stages, three 21-day practices, one shape that doesn't change. What you bring to it will.</p>
+  </div>
+
+  <div class="finale-block">
+    <span class="finale-label">System complete</span>
+    <h2 class="finale-title">You built an inner world.<br><em>Now comes the work of keeping it.</em></h2>
+    <p class="finale-body">Most people never build what you have built. They manage their emotional states from the outside, through wins, approval, and activity, and they never stop long enough to know what is happening on the inside. You did the other thing.</p>
+    <p class="finale-body"><strong>What you do not maintain returns to its default.</strong> High alert is the nervous system&#8217;s natural setting when nothing is being done to override it. Inner balance is not a destination you arrive at. It is the discipline that overrides the default, every day.</p>
+    <p class="finale-body">What maintains it is the practice itself, now yours to keep. When a familiar state activates, the kind that costs you when it goes unattended, you return to the three parts and move through it. Feel it. Transform it. Move onward. Nothing to construct. You already know the way, and you decide how long you need each time you come back to it.</p>
   </div>
 
   <section class="membership-section">
-    <!-- LIBRARY HEADING + PRICING TURNED OFF until launch. To restore, delete this opening comment marker and its closing marker below.
-    <span class="section-label">Continue the practice</span>
-    <h2 class="section-title">The library. An always-growing collection<br><em>of what the work requires.</em></h2>
-    <p class="body-text">Each practice targets one specific emotional transformation. Overwhelm to grounded. Pressure to self-assurance. Self-doubt to self-trust. Guilt to release. Uncertainty to grounded presence. You open the one that matches what is activated and move through it, no construction required.</p>
-    <p class="body-text">The subscription adds monthly themed content, new practices as they are released, seasonal drops, and weekly WhatsApp prompts that keep the practice alive between sessions. One question. No selling.</p>
-
-    <div class="membership-plans">
-      <div class="plan-card">
-        <div class="plan-type">Monthly</div>
-        <div class="plan-price">$19<span> / month</span></div>
-        <span class="plan-save">&nbsp;</span>
-        <div class="plan-includes">What's included</div>
-        <ul class="plan-features">
-          <li>Full access to all current practice guides</li>
-          <li>New practices as they are released</li>
-          <li>Monthly themed practice content</li>
-          <li>Seasonal practice drops (4 per year)</li>
-          <li>Weekly WhatsApp prompts, one question, no selling</li>
-          <li>Cancel anytime</li>
-        </ul>
-        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="plan-cta plan-cta-secondary">Start monthly →</a>
-      </div>
-      <div class="plan-card featured">
-        <div class="plan-badge">Best value</div>
-        <div class="plan-type">Annual</div>
-        <div class="plan-price">$189<span> / year</span></div>
-        <span class="plan-save">Two months free, save $39</span>
-        <div class="plan-includes">Everything in monthly, plus</div>
-        <ul class="plan-features">
-          <li>Full access to all current practice guides</li>
-          <li>New practices as they are released</li>
-          <li>Monthly themed practice content</li>
-          <li>Seasonal practice drops (4 per year)</li>
-          <li>Weekly WhatsApp prompts, one question, no selling</li>
-          <li>Priority access to new practices before public release</li>
-          <li>Annual inner coherence review practice</li>
-        </ul>
-        <a href="https://stan.store/innerbalance101/innerbalance101_store/page/4531304" target="_blank" class="plan-cta plan-cta-primary">Start annual →</a>
-      </div>
-    </div>
-    -->
-
     <div class="coming-soon">
       <span class="coming-soon-label">On the horizon</span>
       <p class="coming-soon-text">This is where the system opens up. Two things are on the way, both built to carry the practice past Stage 3 and keep it alive in real life.</p>
@@ -854,10 +1053,6 @@
         </div>
       </div>
     </div>
-
-    <!--
-    <p class="membership-note">Individual practices are also available without a subscription. Browse the full library at stan.store/innerbalance101</p>
-    -->
   </section>
 
 </div>
@@ -888,10 +1083,95 @@
       </div>
     </div>
   </div>
-  <div class="footer-bottom"><span class="footer-copyright">© 2026 innerbalance101. All rights reserved.</span></div>
+  <div class="footer-bottom"><span class="footer-copyright">&copy; 2026 innerbalance101. All rights reserved.</span></div>
 </footer>
 
 <script>
+  (function() {
+    var EXAMPLE = [
+      { name: 'Stimulus', text: 'Someone slams the door.' },
+      { name: 'Belief', text: 'That slamming the door means they are mad at me.' },
+      { name: 'Emotion', text: 'Scared.' },
+      { name: 'Feeling', text: 'Heaviness in the chest. Shoulders and head drop.' },
+      { name: 'Thought', text: 'I must have said something wrong. I should watch what I say.' },
+      { name: 'Action', text: 'Stay quiet, so I do not make them any more mad.' }
+    ];
+    var wheel = document.querySelector('.cycle-wheel');
+    var panel = document.getElementById('cycle-example');
+    if (!wheel || !panel) { return; }
+
+    var nodes = Array.prototype.slice.call(wheel.querySelectorAll('.cycle-node'));
+    var arcs = Array.prototype.slice.call(wheel.querySelectorAll('.cycle-arc'));
+    var stepEl = document.getElementById('cycle-example-step');
+    var nameEl = document.getElementById('cycle-example-name');
+    var textEl = document.getElementById('cycle-example-text');
+    var dotsWrap = document.getElementById('cycle-example-dots');
+    var playBtn = document.getElementById('cycle-play');
+    var prevBtn = document.getElementById('cycle-prev');
+    var nextBtn = document.getElementById('cycle-next');
+
+    var current = 0;
+    var timer = null;
+
+    EXAMPLE.forEach(function(step, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'cycle-example-dot';
+      dot.setAttribute('aria-label', 'Go to ' + step.name);
+      dot.addEventListener('click', function() { stopPlay(); render(i); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.cycle-example-dot'));
+
+    function render(i) {
+      current = i;
+      var step = EXAMPLE[i];
+      stepEl.textContent = 'Step ' + (i + 1) + ' of ' + EXAMPLE.length;
+      nameEl.textContent = step.name;
+      textEl.textContent = step.text;
+      nodes.forEach(function(n) { n.classList.toggle('is-current', Number(n.getAttribute('data-step')) === i); });
+      arcs.forEach(function(a) { a.classList.toggle('is-traversed', Number(a.getAttribute('data-arc')) < i); });
+      dots.forEach(function(d, di) { d.classList.toggle('is-current', di === i); });
+    }
+
+    function stopPlay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+        playBtn.textContent = 'Play the example';
+        playBtn.classList.remove('is-playing');
+      }
+    }
+
+    function startPlay() {
+      stopPlay();
+      render(0);
+      playBtn.textContent = 'Playing…';
+      playBtn.classList.add('is-playing');
+      timer = setInterval(function() {
+        if (current >= EXAMPLE.length - 1) { stopPlay(); return; }
+        render(current + 1);
+      }, 2200);
+    }
+
+    playBtn.addEventListener('click', function() {
+      if (timer) { stopPlay(); } else { startPlay(); }
+    });
+    prevBtn.addEventListener('click', function() { stopPlay(); render((current - 1 + EXAMPLE.length) % EXAMPLE.length); });
+    nextBtn.addEventListener('click', function() { stopPlay(); render((current + 1) % EXAMPLE.length); });
+
+    render(0);
+  })();
+
+  function toggleCollapsible(btn) {
+    var isOpen = btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    var panel = btn.nextElementSibling;
+    if (panel) { panel.classList.toggle('open', isOpen); }
+    var label = btn.querySelector('.collapsible-toggle-text');
+    if (label) { label.textContent = isOpen ? btn.getAttribute('data-hide') : btn.getAttribute('data-show'); }
+  }
+
   var navEl = document.querySelector('nav');
   var navToggle = document.querySelector('.nav-mobile-toggle');
   if (navEl && navToggle) {
@@ -902,23 +1182,100 @@
     document.querySelectorAll('#site-nav-links a').forEach(function(link) {
       link.addEventListener('click', function() { navEl.classList.remove('nav-open'); navToggle.setAttribute('aria-expanded', 'false'); });
     });
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 640) { navEl.classList.remove('nav-open'); navToggle.setAttribute('aria-expanded', 'false'); }
+    });
   }
-  function toggleStep(btn) {
-    var step = btn.closest('.practice-step');
-    var isOpen = step.classList.contains('open');
-    document.querySelectorAll('.practice-step').forEach(function(s) { s.classList.remove('open'); s.querySelector('.step-toggle').setAttribute('aria-expanded', 'false'); });
-    if (!isOpen) { step.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
-  }
-  function togglePerma(item) {
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('.perma-item').forEach(function(i) { i.classList.remove('open'); });
-    if (!isOpen) item.classList.add('open');
-  }
-  function toggleFocus(card) {
-    var isActive = card.classList.contains('active');
-    document.querySelectorAll('.focus-card').forEach(function(c) { c.classList.remove('active'); });
-    if (!isActive) card.classList.add('active');
-  }
+
+  (function() {
+    var selected = new Set();
+    var wordFamily = {};
+    var wheelSegs = document.querySelectorAll('.wheel-seg');
+    var chipTargets = document.querySelectorAll('.today-chips');
+    var familyTargets = document.querySelectorAll('[data-families-target]');
+    var practicesWrap = document.querySelector('.emotion-practices');
+    var FAMILIES = {
+      surprise:  { label: 'Surprised',  color: '#B8A48A' },
+      fear:      { label: 'Fearful',    color: '#C4A882' },
+      anger:     { label: 'Angry',      color: '#B89090' },
+      disgust:   { label: 'Disgusted',  color: '#A09AAA' },
+      sadness:   { label: 'Sad',        color: '#8A90B0' },
+      happiness: { label: 'Happy',      color: '#C9A96E' }
+    };
+    var FAMILY_ORDER = ['surprise', 'fear', 'anger', 'disgust', 'sadness', 'happiness'];
+
+    function render() {
+      var items = Array.from(selected);
+      chipTargets.forEach(function(target) {
+        target.innerHTML = '';
+        if (items.length === 0) {
+          var empty = document.createElement('span');
+          empty.className = 'today-chips-empty';
+          empty.textContent = 'Nothing marked yet \u2014 use the wheel above.';
+          target.appendChild(empty);
+          return;
+        }
+        items.forEach(function(word) {
+          var chip = document.createElement('span');
+          chip.className = 'today-chip';
+          chip.textContent = word;
+          target.appendChild(chip);
+        });
+      });
+
+      var activeFamilies = new Set(items.map(function(word) { return wordFamily[word]; }));
+      familyTargets.forEach(function(target) {
+        target.innerHTML = '';
+        if (activeFamilies.size === 0) {
+          var empty = document.createElement('span');
+          empty.className = 'today-chips-empty';
+          empty.textContent = 'Mark emotions above to see which families you\u2019re working with.';
+          target.appendChild(empty);
+          return;
+        }
+        FAMILY_ORDER.forEach(function(key) {
+          if (!activeFamilies.has(key)) return;
+          var badge = document.createElement('span');
+          badge.className = 'family-badge';
+          var dot = document.createElement('span');
+          dot.className = 'family-badge-dot';
+          dot.style.background = FAMILIES[key].color;
+          badge.appendChild(dot);
+          badge.appendChild(document.createTextNode(FAMILIES[key].label));
+          target.appendChild(badge);
+        });
+      });
+
+      if (practicesWrap) {
+        practicesWrap.classList.toggle('has-active', activeFamilies.size > 0);
+        practicesWrap.querySelectorAll('.emotion-practice-row').forEach(function(row) {
+          var isMatch = FAMILY_ORDER.some(function(key) {
+            return activeFamilies.has(key) && row.classList.contains('ep-' + key);
+          });
+          row.classList.toggle('is-active', isMatch);
+        });
+      }
+    }
+
+    function toggle(seg) {
+      var word = seg.getAttribute('data-emotion');
+      var family = seg.getAttribute('data-family');
+      wordFamily[word] = family;
+      var isSelected = seg.classList.toggle('selected');
+      seg.setAttribute('aria-pressed', String(isSelected));
+      if (isSelected) { selected.add(word); } else { selected.delete(word); }
+      render();
+    }
+
+    wheelSegs.forEach(function(seg) {
+      seg.addEventListener('click', function() { toggle(seg); });
+      seg.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(seg); }
+      });
+    });
+
+    render();
+  })();
 </script>
 <!-- LinkedIn Insight Tag -->
 <script type="text/javascript">
