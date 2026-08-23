@@ -149,14 +149,32 @@
   .video-slot__note { font-size: 0.8rem; color: rgba(250,247,242,0.42); max-width: 340px; line-height: 1.6; }
 
   /* live embed */
-  .video-embed { margin-bottom: 14px; border: 1px solid rgba(196,168,130,0.22); background: #211a17; }
-  .video-embed__frame { padding: 56.25% 0 0 0; position: relative; }
+  .video-embed { margin-bottom: 30px; border: 1px solid rgba(196,168,130,0.22); background: #211a17; }
+  .video-embed__frame { padding: 75% 0 0 0; position: relative; }
   .video-embed__frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-  .video-sound {
-    display: inline-flex; align-items: center; gap: 7px; margin-bottom: 28px;
-    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay);
+
+  .video-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(33,26,23,0.42); border: none; padding: 0; margin: 0;
+    cursor: pointer; transition: background 0.45s ease; z-index: 3;
   }
-  .video-sound svg { width: 14px; height: 14px; stroke: var(--clay); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .video-overlay.is-live { background: transparent; }
+  .video-overlay__pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(250,247,242,0.95); color: var(--espresso);
+    padding: 15px 28px;
+    font-family: 'Jost', sans-serif; font-size: 0.74rem; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .video-overlay.is-live .video-overlay__pill { opacity: 0; transform: translateY(8px); }
+  .video-overlay.is-paused .video-overlay__pill { opacity: 1; transform: none; }
+  .video-overlay__pill svg {
+    width: 15px; height: 15px; stroke: var(--espresso); fill: none;
+    stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+  }
+  @media (max-width: 640px) { .video-overlay__pill { padding: 13px 20px; font-size: 0.68rem; } }
 
   .fold-trust {
     font-size: 0.8rem; letter-spacing: 0.05em; color: rgba(250,247,242,0.5); margin-top: 16px;
@@ -448,17 +466,20 @@
 
         <div class="video-embed">
           <div class="video-embed__frame">
-            <iframe src="https://player.vimeo.com/video/1220532847?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;playsinline=1"
+            <iframe id="ibVideo"
+                    src="https://player.vimeo.com/video/1220648450?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;playsinline=1&amp;controls=0&amp;keyboard=0&amp;pip=0&amp;title=0&amp;byline=0&amp;portrait=0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     title="The Inner Balance System"
                     loading="eager"></iframe>
+            <button class="video-overlay" id="ibOverlay" type="button" aria-label="Turn the sound on">
+              <span class="video-overlay__pill" id="ibPill">
+                <svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9 9 0 010 13"/></svg>
+                Tap for sound
+              </span>
+            </button>
           </div>
         </div>
-        <span class="video-sound">
-          <svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9 9 0 010 13"/></svg>
-          Turn the sound on
-        </span>
 
         <div class="fold-body">
           <p>Every day, new thoughts arrive. Thoughts create emotion. Emotion accumulates. By the time you notice something is off, it has been filling for weeks.</p>
@@ -1033,6 +1054,66 @@
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
+  /* ── VIDEO: muted autoplay, tap for sound, tap to pause ── */
+  (function () {
+    var frame = document.getElementById('ibVideo');
+    var overlay = document.getElementById('ibOverlay');
+    var pill = document.getElementById('ibPill');
+    if (!frame || !overlay || !window.Vimeo) return;
+
+    var player = new Vimeo.Player(frame);
+    var soundOn = false;
+
+    var ICON_SOUND = '<svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9 9 0 010 13"/></svg>';
+    var ICON_PLAY  = '<svg viewBox="0 0 24 24"><path d="M7 4l12 8-12 8V4z"/></svg>';
+
+    function setPill(icon, label) { pill.innerHTML = icon + ' ' + label; }
+
+    overlay.addEventListener('click', function () {
+      if (!soundOn) {
+        soundOn = true;
+        player.setMuted(false).catch(function () {});
+        player.setVolume(1).catch(function () {});
+        player.play().catch(function () {});
+        overlay.classList.add('is-live');
+        overlay.classList.remove('is-paused');
+        overlay.setAttribute('aria-label', 'Pause the video');
+        return;
+      }
+      player.getPaused().then(function (paused) {
+        if (paused) {
+          player.play();
+        } else {
+          player.pause();
+        }
+      });
+    });
+
+    player.on('play', function () {
+      overlay.classList.add('is-live');
+      overlay.classList.remove('is-paused');
+      overlay.setAttribute('aria-label', 'Pause the video');
+    });
+
+    player.on('pause', function () {
+      if (!soundOn) return;
+      setPill(ICON_PLAY, 'Tap to resume');
+      overlay.classList.add('is-paused');
+      overlay.setAttribute('aria-label', 'Resume the video');
+    });
+
+    player.on('ended', function () {
+      setPill(ICON_PLAY, 'Watch again');
+      overlay.classList.remove('is-live');
+      overlay.classList.add('is-paused');
+    });
+
+    /* if the browser blocked even muted autoplay, keep the prompt visible */
+    player.getPaused().then(function (paused) {
+      if (paused && !soundOn) setPill(ICON_SOUND, 'Tap to play');
+    }).catch(function () {});
+  })();
+
   document.querySelectorAll('.faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () { btn.parentElement.classList.toggle('open'); });
   });
