@@ -4,19 +4,19 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discover What You're Feeling — innerbalance101</title>
+<title>The Emotional Load Assessment — innerbalance101</title>
 <meta name="description" content="A 5-minute assessment that shows you exactly what you're carrying — and which emotions are running loudest right now.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://innerbalance101.com/emotional_load_assessment.html">
 <link rel="canonical" href="https://innerbalance101.com/emotional_load_assessment.html">
-<meta property="og:title" content="Discover What You're Feeling — innerbalance101">
+<meta property="og:title" content="The Emotional Load Assessment — innerbalance101">
 <meta property="og:description" content="A 5-minute assessment that shows you exactly what you're carrying — and which emotions are running loudest right now.">
 <meta property="og:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="innerbalance101 logo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Discover What You're Feeling — innerbalance101">
+<meta name="twitter:title" content="The Emotional Load Assessment — innerbalance101">
 <meta name="twitter:description" content="A 5-minute assessment that shows you exactly what you're carrying — and which emotions are running loudest right now.">
 <meta name="twitter:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png">
 <meta name="twitter:image:alt" content="innerbalance101 logo">
@@ -34,6 +34,9 @@
   --soft:#6B5B4E;
   --mid:#2C2420;
   --deep:#2C2420;
+  --pine:#4F6861;
+  --storm-blue:#6E8397;
+  --dusty-rose:#B67C7C;
 }
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);font-size:18px;line-height:1.6;min-height:100vh}
@@ -45,8 +48,8 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
 .progress-wrap{position:fixed;top:64px;left:0;right:0;z-index:99;background:var(--linen);border-bottom:1px solid rgba(196,168,130,0.15);padding:0 40px;height:48px;display:flex;align-items:center;gap:20px}
 .progress-bar{flex:1;height:3px;background:rgba(196,168,130,0.2);border-radius:99px;overflow:hidden}
-.progress-fill{height:100%;background:var(--clay);border-radius:99px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1)}
-.progress-label{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
+.progress-fill{height:100%;background:var(--pine);border-radius:99px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1)}
+.progress-label{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--pine);white-space:nowrap}
 
 .assessment-wrap{padding-top:112px;min-height:100vh;display:flex;flex-direction:column;align-items:center}
 
@@ -55,26 +58,31 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
 /* Intro */
-.intro-eyebrow{font-size:0.68rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);display:flex;align-items:center;gap:12px;margin-bottom:24px}
-.intro-eyebrow::before{content:'';width:24px;height:1px;background:var(--clay)}
+.intro-eyebrow{font-size:0.68rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--pine);display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.intro-eyebrow::before{content:'';width:24px;height:1px;background:var(--pine)}
 .intro-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,5vw,3.1rem);font-weight:300;line-height:1.15;color:var(--deep);margin-bottom:28px}
 .intro-headline em{font-style:italic;color:var(--clay-deep)}
 .intro-body{font-size:1rem;font-weight:300;line-height:1.9;color:var(--mid);margin-bottom:16px}
-.intro-note{font-size:0.82rem;font-weight:300;color:var(--soft);border-left:2px solid var(--clay-light);padding-left:16px;margin:28px 0 36px;line-height:1.75;font-style:italic}
-.what-youll-get{background:var(--linen);padding:28px 32px;margin-bottom:40px;border-left:3px solid var(--clay)}
-.wyg-title{font-size:0.68rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:14px}
+.intro-note{font-size:0.82rem;font-weight:300;color:var(--soft);border-left:2px solid var(--dusty-rose);padding-left:16px;margin:28px 0 36px;line-height:1.75;font-style:italic}
+.intro-lead{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--mid);margin-bottom:34px;max-width:34em}
+.intro-micro{font-size:0.78rem;font-weight:300;letter-spacing:0.02em;color:var(--soft);margin-top:18px}
+.intro-subhead{font-family:'Cormorant Garamond',serif;font-size:clamp(1.45rem,3.4vw,2.05rem);font-weight:300;line-height:1.25;color:var(--deep);margin:0 0 24px}
+.intro-subhead em{font-style:italic;color:var(--clay-deep)}
+.intro-divider{width:100%;height:1px;background:rgba(196,168,130,0.28);margin:56px 0 44px}
+.what-youll-get{background:var(--linen);padding:28px 32px;margin-bottom:40px;border-left:3px solid var(--pine)}
+.wyg-title{font-size:0.68rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--pine);margin-bottom:14px}
 .wyg-list{list-style:none;display:flex;flex-direction:column;gap:10px}
 .wyg-list li{font-size:0.9rem;font-weight:300;color:var(--mid);display:flex;align-items:flex-start;gap:12px;line-height:1.6}
-.wyg-list li::before{content:'→';color:var(--clay);font-size:0.85rem;margin-top:2px;flex-shrink:0}
+.wyg-list li::before{content:'→';color:var(--pine);font-size:0.85rem;margin-top:2px;flex-shrink:0}
 
 /* Intro visuals */
 .intro-visual-wrap{margin-bottom:44px}
 .phase-journey{width:100%;display:flex;align-items:flex-start;justify-content:center;gap:0;position:relative}
-.phase-journey::before{content:'';position:absolute;top:22px;left:15%;right:15%;height:1px;background:rgba(196,168,130,0.25);z-index:0}
+.phase-journey::before{content:'';position:absolute;top:22px;left:15%;right:15%;height:1px;background:rgba(110,131,151,0.35);z-index:0}
 .phase-step{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;position:relative;z-index:1;max-width:160px}
-.phase-step-icon{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--clay-light);background:var(--warm-white);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.phase-step-icon{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--storm-blue);background:var(--warm-white);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .phase-step-icon svg{width:20px;height:20px}
-.phase-step-num{font-size:0.58rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:2px}
+.phase-step-num{font-size:0.58rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--storm-blue);margin-bottom:2px}
 .phase-step-label{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:400;color:var(--deep);text-align:center;line-height:1.3}
 .phase-step-sub{font-size:0.7rem;font-weight:300;color:var(--soft);text-align:center;line-height:1.55;max-width:120px}
 .phase-connector{width:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding-top:22px}
@@ -138,6 +146,11 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
 /* Validation */
 .val-msg{font-size:0.78rem;color:#b94040;margin-top:-12px;margin-bottom:20px;display:none}
+.q-block.missing{background:rgba(185,64,64,0.04);box-shadow:inset 3px 0 0 #b94040;padding-left:16px;margin-left:-16px}
+.step-divider{width:100%;height:1px;background:rgba(196,168,130,0.3);margin:48px 0 40px}
+.resume-note{background:var(--linen);border-left:3px solid var(--pine);padding:16px 20px;margin-bottom:28px;font-size:0.85rem;font-weight:300;color:var(--mid);line-height:1.7}
+.resume-note a{color:var(--pine);text-decoration:none;font-weight:500;white-space:nowrap}
+.resume-note a:hover{text-decoration:underline}
 .val-msg.show{display:block}
 
 /* Email gate */
@@ -343,7 +356,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 </nav>
 
 <div class="progress-wrap">
-  <span class="progress-label" id="progressLabel">Introduction</span>
+  <span class="progress-label" id="progressLabel">Before you begin</span>
   <div class="progress-bar">
     <div class="progress-fill" id="progressFill" style="width:0%"></div>
   </div>
@@ -353,7 +366,19 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
   <!-- SCREEN 0: INTRO -->
   <div class="screen active" id="s-intro">
-    <div class="intro-eyebrow">Discover What You're Feeling</div>
+    <div class="intro-eyebrow">Free · 5 minutes</div>
+
+    <h1 class="intro-headline">The Emotional<br>Load Assessment</h1>
+    <p class="intro-lead">You'll see what you're carrying right now and where to start. It begins with your body, not with questions about your goals.</p>
+    <div class="resume-note" id="resumeNote" style="display:none">
+      Your answers from earlier are still here.
+      <a href="javascript:void(0)" onclick="go(resumeTarget())">Pick up where you left off &rarr;</a>
+    </div>
+
+    <a href="javascript:void(0)" class="btn-primary" onclick="go('s-body')">Start the assessment</a>
+    <p class="intro-micro">Your results the moment you finish.</p>
+
+    <div class="intro-divider"></div>
 
     <!-- Step journey graphic -->
     <div class="intro-visual-wrap">
@@ -362,60 +387,42 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
         <div class="phase-step">
           <div class="phase-step-icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="12" cy="6" rx="4" ry="5" stroke="var(--clay)" stroke-width="1.3"/>
-              <path d="M8.5 10.5 C6 13 6 18 7 20.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
-              <path d="M15.5 10.5 C18 13 18 18 17 20.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
-              <path d="M8.5 10.5 C10 12 14 12 15.5 10.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
-              <path d="M9 15.5 L15 15.5" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <ellipse cx="12" cy="6" rx="4" ry="5" stroke="var(--storm-blue)" stroke-width="1.3"/>
+              <path d="M8.5 10.5 C6 13 6 18 7 20.5" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M15.5 10.5 C18 13 18 18 17 20.5" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M8.5 10.5 C10 12 14 12 15.5 10.5" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M9 15.5 L15 15.5" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="phase-step-num">Step 1</div>
-          <div class="phase-step-label">Emotional Body</div>
-          <div class="phase-step-sub">Map where tension and sensation live in your body</div>
+          <div class="phase-step-label">Awareness</div>
+          <div class="phase-step-sub">Where you feel it, and how much you notice</div>
         </div>
 
         <div class="phase-connector">
-          <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
 
         <div class="phase-step">
           <div class="phase-step-icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="7.5" stroke="var(--clay)" stroke-width="1.3"/>
-              <circle cx="12" cy="12" r="3.5" stroke="var(--clay)" stroke-width="1.3"/>
-              <circle cx="12" cy="12" r="1" fill="var(--clay)"/>
-              <line x1="12" y1="4" x2="12" y2="2" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
-              <line x1="12" y1="22" x2="12" y2="20" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
-              <line x1="4" y1="12" x2="2" y2="12" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
-              <line x1="22" y1="12" x2="20" y2="12" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="7.5" stroke="var(--storm-blue)" stroke-width="1.3"/>
+              <circle cx="12" cy="12" r="3.5" stroke="var(--storm-blue)" stroke-width="1.3"/>
+              <circle cx="12" cy="12" r="1" fill="var(--storm-blue)"/>
+              <line x1="12" y1="4" x2="12" y2="2" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="12" y1="22" x2="12" y2="20" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="4" y1="12" x2="2" y2="12" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="22" y1="12" x2="20" y2="12" stroke="var(--storm-blue)" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="phase-step-num">Step 2</div>
-          <div class="phase-step-label">Awareness Audit</div>
-          <div class="phase-step-sub">Rate how connected you are to your inner experience</div>
+          <div class="phase-step-label">What you're carrying</div>
+          <div class="phase-step-sub">How much you are holding right now</div>
         </div>
-
-        <div class="phase-connector">
-          <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="var(--clay)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-
-        <div class="phase-step">
-          <div class="phase-step-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="14" width="4" height="6" rx="1" stroke="var(--clay)" stroke-width="1.3"/>
-              <rect x="10" y="10" width="4" height="10" rx="1" stroke="var(--clay)" stroke-width="1.3"/>
-              <rect x="16" y="6" width="4" height="14" rx="1" stroke="var(--clay)" stroke-width="1.3"/>
-            </svg>
-          </div>
-          <div class="phase-step-num">Step 3</div>
-          <div class="phase-step-label">Results &amp; Next Steps</div>
-          <div class="phase-step-sub">See what you're carrying and where to start</div>
-        </div>
-
       </div>
     </div>
 
-    <h1 class="intro-headline">You can name your goals.<br>What's harder to name is<br><em>how you actually feel.</em></h1>
+    <h2 class="intro-subhead">You can name your goals. What's harder to name is <em>how you actually feel.</em></h2>
     <p class="intro-body">Most people can tell you what's on their plate. Very few can tell you what's running underneath it. The pressure that's there even on good days. The depletion that sleep doesn't fix. The noise you've learned to work around.</p>
     <p class="intro-body">This assessment helps you see it clearly. It starts with your body, then looks at how well you notice what's happening inside, then maps which emotions are carrying the most weight right now.</p>
     <blockquote class="intro-note">Five minutes. No right answers. Just slow down enough to be honest.</blockquote>
@@ -427,7 +434,8 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
         <li>Where to start</li>
       </ul>
     </div>
-    <a href="javascript:void(0)" class="btn-primary" onclick="go('s-body')">Start — it takes 5 minutes</a>
+    <a href="javascript:void(0)" class="btn-primary" onclick="go('s-body')">Start the assessment</a>
+    <p class="intro-micro">No right answers.</p>
   </div>
 
   <!-- SCREEN 0b: EMAIL GATE (pre-results) -->
@@ -455,7 +463,7 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
   <!-- SCREEN 1: BODY CHECK-IN -->
   <div class="screen" id="s-body">
-    <div class="phase-tag"><span class="phase-dot"></span>Step 1 of 3: Emotional Body</div>
+    <div class="phase-tag"><span class="phase-dot"></span>Step 1 of 2: Awareness</div>
     <h2 class="screen-headline">Where do you feel it <em>in your body?</em></h2>
     <p class="screen-sub">Before you answer anything, take one breath. Notice where you feel it — not what you're thinking, what you're actually feeling. Not knowing is fine. That tells us something too.</p>
 
@@ -508,46 +516,34 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
 
     <p class="val-msg" id="bodyVal">Please select at least one area or sensation to continue.</p>
 
-    <div class="screen-nav">
-      <button class="btn-back-step" onclick="go('s-intro')">Introduction</button>
-      <button class="btn-primary" onclick="nextBody()">Continue</button>
-    </div>
-  </div>
+    <div class="step-divider"></div>
 
-  <!-- SCREEN 2: AWARENESS AUDIT -->
-  <div class="screen" id="s-awareness">
-    <div class="phase-tag"><span class="phase-dot"></span>Step 2 of 3: Awareness Audit</div>
     <h2 class="screen-headline">How well do you notice <em>what's happening inside you?</em></h2>
     <p class="screen-sub">Rate each statement honestly. 1 means rarely. 5 means almost always. No right answer — just where you actually are.</p>
 
     <div id="awarenessQs">
       <div class="q-block">
-        <div class="q-text">"I can usually name what I'm feeling before it affects my decisions or behaviour."</div>
+        <div class="q-text">"I can usually name what I'm feeling before it starts running the show."</div>
         <div class="scale-row" id="aq1"><div class="scale-opt" onclick="selAQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
-        <div class="q-text">"I notice physical tension in my body before I notice the emotion behind it."</div>
-        <div class="scale-row" id="aq2"><div class="scale-opt" onclick="selAQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
-        <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
-      </div>
-      <div class="q-block">
-        <div class="q-text">"After a difficult interaction or setback, I know what I need to feel settled again."</div>
+        <div class="q-text">"After something hard, I know what I need to regulate my emotions."</div>
         <div class="scale-row" id="aq3"><div class="scale-opt" onclick="selAQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
-        <div class="q-text">"When I'm stuck in a difficult feeling, I can trace it back to a specific thought I'm having."</div>
+        <div class="q-text">"When a feeling won't shift, I can usually find the thought underneath it."</div>
         <div class="scale-row" id="aq4"><div class="scale-opt" onclick="selAQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
-        <div class="q-text">"I tend to push through emotions rather than pause and notice them."</div>
+        <div class="q-text">"I push through what I'm feeling instead of stopping to notice it."</div>
         <div class="scale-row" id="aq5"><div class="scale-opt" onclick="selAQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
       <div class="q-block">
-        <div class="q-text">"I can observe what I'm feeling without being completely consumed by it."</div>
+        <div class="q-text">"I can feel something strongly and still not be swallowed by it."</div>
         <div class="scale-row" id="aq6"><div class="scale-opt" onclick="selAQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selAQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selAQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selAQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selAQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div>
         <div class="scale-labels"><span class="scale-lbl">Rarely</span><span class="scale-lbl">Almost always</span></div>
       </div>
@@ -556,34 +552,34 @@ body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep
     <p class="val-msg" id="awarenessVal">Please answer all six statements to continue.</p>
 
     <div class="screen-nav">
-      <button class="btn-back-step" onclick="go('s-body')">Body check-in</button>
-      <button class="btn-primary" onclick="nextAwareness()">Continue</button>
+      <button class="btn-back-step" onclick="go('s-intro')">Introduction</button>
+      <button class="btn-primary" onclick="nextStep1()">Continue</button>
     </div>
   </div>
 
   <!-- SCREEN 3: SELF-CONNECTION CHECK -->
   <div class="screen" id="s-load">
-    <div class="phase-tag"><span class="phase-dot"></span>Step 3 of 3: Self-Connection</div>
+    <div class="phase-tag"><span class="phase-dot"></span>Step 2 of 2: What you're carrying</div>
     <h2 class="screen-headline">How connected are you <em>to yourself right now?</em></h2>
     <p class="screen-sub">These aren't about what you feel. They're about how close you are to being able to feel it at all. Read each one. Mark how often it's true — not how you want it to be.</p>
 
     <div id="loadQs">
-      <div class="q-block"><div class="q-num">01</div><div class="q-text">I show up to work, answer the emails, take care of the people I love, watch what I eat, sneak in a workout, do everything I'm supposed to do... and yet something still feels off inside.</div><div class="scale-row" id="lq1"><div class="scale-opt" onclick="selLQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">01</div><div class="q-text">I do all of it. The work, the emails, the people I love, the workout I squeeze in. And something still feels off.</div><div class="scale-row" id="lq1"><div class="scale-opt" onclick="selLQ(1,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(1,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(1,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(1,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(1,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
       <div class="q-block"><div class="q-num">02</div><div class="q-text">I can tell you everything I did today. I couldn't tell you how most of it felt.</div><div class="scale-row" id="lq2"><div class="scale-opt" onclick="selLQ(2,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(2,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(2,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(2,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(2,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
-      <div class="q-block"><div class="q-num">03</div><div class="q-text">My body reacts before I've decided anything. I say something I didn't plan, go quiet when I didn't mean to, pull back without choosing to — and only afterward do I ask myself why.</div><div class="scale-row" id="lq3"><div class="scale-opt" onclick="selLQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
-      <div class="q-block"><div class="q-num">04</div><div class="q-text">People around me sometimes notice something is off before I've said anything about it.</div><div class="scale-row" id="lq4"><div class="scale-opt" onclick="selLQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
-      <div class="q-block"><div class="q-num">05</div><div class="q-text">When I stop and ask myself what I actually want, I usually get silence. Or confusion. Or a list of what I think I should want.</div><div class="scale-row" id="lq5"><div class="scale-opt" onclick="selLQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
-      <div class="q-block"><div class="q-num">06</div><div class="q-text">Most of my decisions make sense on paper. Whether they feel right is something I often can't access until much later — if at all.</div><div class="scale-row" id="lq6"><div class="scale-opt" onclick="selLQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
-      <div class="q-block"><div class="q-num">07</div><div class="q-text">When someone asks how I am, I give them the answer that keeps things moving. Whether it's actually true, I'm not always sure.</div><div class="scale-row" id="lq7"><div class="scale-opt" onclick="selLQ(7,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(7,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(7,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(7,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(7,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
-      <div class="q-block"><div class="q-num">08</div><div class="q-text">I'm good at getting through things. I'm less sure I actually feel them while they're happening.</div><div class="scale-row" id="lq8"><div class="scale-opt" onclick="selLQ(8,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(8,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(8,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(8,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(8,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
-      <div class="q-block"><div class="q-num">09</div><div class="q-text">After something hard, I don't really settle. I just move to the next thing and wait for it to pass.</div><div class="scale-row" id="lq9"><div class="scale-opt" onclick="selLQ(9,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(9,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(9,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(9,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(9,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">03</div><div class="q-text">My body reacts before I decide anything. I say something I didn't plan, go quiet when I didn't mean to. Then I replay it over and over again.</div><div class="scale-row" id="lq3"><div class="scale-opt" onclick="selLQ(3,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(3,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(3,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(3,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(3,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">04</div><div class="q-text">People close to me notice something is off before I've said a word.</div><div class="scale-row" id="lq4"><div class="scale-opt" onclick="selLQ(4,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(4,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(4,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(4,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(4,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">05</div><div class="q-text">When I ask myself what I actually want, I get silence. Or confusion. Or a list of what I should want.</div><div class="scale-row" id="lq5"><div class="scale-opt" onclick="selLQ(5,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(5,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(5,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(5,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(5,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">06</div><div class="q-text">My decisions make sense on paper. Whether they feel right, I usually can't tell until much later.</div><div class="scale-row" id="lq6"><div class="scale-opt" onclick="selLQ(6,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(6,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(6,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(6,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(6,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">07</div><div class="q-text">When someone asks how I am, I give the answer that keeps things moving. I'm not always sure it's true.</div><div class="scale-row" id="lq7"><div class="scale-opt" onclick="selLQ(7,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(7,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(7,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(7,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(7,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">08</div><div class="q-text">I'm good at getting through things. I'm not sure I actually feel them while they're happening.</div><div class="scale-row" id="lq8"><div class="scale-opt" onclick="selLQ(8,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(8,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(8,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(8,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(8,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
+      <div class="q-block"><div class="q-num">09</div><div class="q-text">After something hard, I don't settle. I move to the next thing and wait for it to pass.</div><div class="scale-row" id="lq9"><div class="scale-opt" onclick="selLQ(9,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(9,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(9,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(9,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(9,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
       <div class="q-block"><div class="q-num">10</div><div class="q-text">I know when something is wrong. I just don't know how to get back to myself.</div><div class="scale-row" id="lq10"><div class="scale-opt" onclick="selLQ(10,1)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">1</span></div><div class="scale-opt" onclick="selLQ(10,2)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">2</span></div><div class="scale-opt" onclick="selLQ(10,3)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">3</span></div><div class="scale-opt" onclick="selLQ(10,4)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">4</span></div><div class="scale-opt" onclick="selLQ(10,5)"><div class="scale-dot"><div class="dot-inner"></div></div><span class="scale-num">5</span></div></div><div class="scale-labels"><span class="scale-lbl">Not like me</span><span class="scale-lbl">Very like me</span></div></div>
     </div>
 
     <p class="val-msg" id="loadVal">Please answer all ten questions to see your results.</p>
 
     <div class="screen-nav">
-      <button class="btn-back-step" onclick="go('s-awareness')">Awareness audit</button>
+      <button class="btn-back-step" onclick="go('s-body')">Awareness</button>
       <button class="btn-primary" onclick="goToEmailGate()">See my results</button>
     </div>
   </div>
@@ -641,12 +637,78 @@ const state = {
   lq: {}
 };
 
-const SCREENS = ['s-intro','s-email','s-body','s-awareness','s-load','s-results'];
+const SCREENS = ['s-intro','s-email','s-body','s-load','s-results'];
+
+/* ── PROGRESS PERSISTENCE ──────────────────────────
+   Answers survive a refresh or an interruption. Cleared once
+   the results have been produced. */
+var STORAGE_KEY = 'ib101_assessment_progress_v1';
+
+function saveProgress(){
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      zones: Array.from(state.zones),
+      chips: Array.from(state.chips),
+      aq: state.aq,
+      lq: state.lq
+    }));
+  } catch(e){}
+}
+
+function clearProgress(){
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+}
+
+function zoneIdOf(el){
+  var h = el.getAttribute('onclick') || '';
+  var m = h.match(/,\s*'([^']+)'\s*\)/);
+  return m ? m[1] : null;
+}
+
+function restoreProgress(){
+  var raw;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch(e){ return false; }
+  if(!raw) return false;
+  var d;
+  try { d = JSON.parse(raw); } catch(e){ return false; }
+
+  (d.zones||[]).forEach(function(z){ state.zones.add(z) });
+  (d.chips||[]).forEach(function(c){ state.chips.add(c) });
+  document.querySelectorAll('.zone').forEach(function(el){
+    if(state.zones.has(zoneIdOf(el))) el.classList.add('selected');
+  });
+  document.querySelectorAll('.chip').forEach(function(el){
+    if(state.chips.has(el.dataset.s)) el.classList.add('selected');
+  });
+  Object.keys(d.aq||{}).forEach(function(q){ if(d.aq[q]) selAQ(+q, d.aq[q]) });
+  Object.keys(d.lq||{}).forEach(function(q){ if(d.lq[q]) selLQ(+q, d.lq[q]) });
+
+  return state.zones.size>0 || state.chips.size>0 ||
+         Object.keys(state.aq).length>0 || Object.keys(state.lq).length>0;
+}
+
+/* Furthest screen the saved answers justify jumping to */
+function resumeTarget(){
+  var step1Done = (state.zones.size>0 || state.chips.size>0) &&
+                  !AWARENESS_Q.some(function(q){ return !state.aq[q] });
+  if(!step1Done) return 's-body';
+  var loadDone = true;
+  Object.keys(LOAD_DIMS).forEach(function(dk){
+    LOAD_DIMS[dk].forEach(function(q){ if(!state.lq[q]) loadDone = false });
+  });
+  return loadDone ? 's-email' : 's-load';
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  if(restoreProgress()){
+    var note = document.getElementById('resumeNote');
+    if(note) note.style.display = 'block';
+  }
+});
 const PROG = {
-  's-intro':    {pct:0,   label:'Discover What You\'re Feeling'},
-  's-body':     {pct:20,  label:'Step 1: Emotional Body'},
-  's-awareness':{pct:50,  label:'Step 2: Awareness Audit'},
-  's-load':     {pct:78,  label:'Step 3: Self-Connection'},
+  's-intro':    {pct:0,   label:'Before you begin'},
+  's-body':     {pct:25,  label:'Step 1 of 2: Awareness'},
+  's-load':     {pct:65,  label:'Step 2 of 2: What you\'re carrying'},
   's-email':    {pct:90,  label:'Almost there'},
   's-results':  {pct:100, label:'Your Results'}
 };
@@ -662,6 +724,8 @@ function go(id){
 function toggleZone(el,id){
   el.classList.toggle('selected');
   el.classList.contains('selected') ? state.zones.add(id) : state.zones.delete(id);
+  document.getElementById('bodyVal').classList.remove('show');
+  saveProgress();
 }
 
 function toggleChip(el){
@@ -679,33 +743,52 @@ function toggleChip(el){
     el.classList.toggle('selected');
     el.classList.contains('selected') ? state.chips.add(v) : state.chips.delete(v);
   }
+  document.getElementById('bodyVal').classList.remove('show');
+  saveProgress();
 }
 
-function nextBody(){
-  if(state.zones.size===0 && state.chips.size===0){
-    document.getElementById('bodyVal').classList.add('show'); return;
-  }
-  document.getElementById('bodyVal').classList.remove('show');
-  go('s-awareness');
+/* Scroll an element into view, allowing for the fixed nav + progress bar */
+function scrollToEl(el){
+  if(!el) return;
+  var y = el.getBoundingClientRect().top + window.pageYOffset - 150;
+  window.scrollTo({top: Math.max(0,y), behavior:'smooth'});
+}
+
+/* Flag the question blocks that still need an answer */
+function markMissing(ids){
+  document.querySelectorAll('.q-block.missing').forEach(function(b){ b.classList.remove('missing') });
+  ids.forEach(function(id){
+    var row = document.getElementById(id);
+    if(row && row.closest('.q-block')) row.closest('.q-block').classList.add('missing');
+  });
+}
+
+function nextStep1(){
+  var noBody  = (state.zones.size===0 && state.chips.size===0);
+  var missing = AWARENESS_Q.filter(function(q){ return !state.aq[q] });
+
+  document.getElementById('bodyVal').classList.toggle('show', noBody);
+  document.getElementById('awarenessVal').classList.toggle('show', missing.length>0);
+  markMissing(missing.map(function(q){ return 'aq'+q }));
+
+  if(noBody){ scrollToEl(document.getElementById('bodyVal')); return; }
+  if(missing.length){ scrollToEl(document.getElementById('aq'+missing[0])); return; }
+  go('s-load');
 }
 
 function selAQ(q,v){
   state.aq[q]=v;
+  var b1 = document.getElementById('aq'+q); if(b1 && b1.closest('.q-block')) b1.closest('.q-block').classList.remove('missing');
+  saveProgress();
   document.getElementById('aq'+q).querySelectorAll('.scale-opt').forEach(function(o,i){
     o.classList.toggle('sel', i+1===v);
   });
 }
 
-function nextAwareness(){
-  if([1,2,3,4,5,6].some(function(q){return !state.aq[q]})){
-    document.getElementById('awarenessVal').classList.add('show'); return;
-  }
-  document.getElementById('awarenessVal').classList.remove('show');
-  go('s-load');
-}
-
 function selLQ(q,v){
   state.lq[q]=v;
+  var b2 = document.getElementById('lq'+q); if(b2 && b2.closest('.q-block')) b2.closest('.q-block').classList.remove('missing');
+  saveProgress();
   document.getElementById('lq'+q).querySelectorAll('.scale-opt').forEach(function(o,i){
     o.classList.toggle('sel', i+1===v);
   });
@@ -715,19 +798,45 @@ function selLQ(q,v){
    DATA
    ═══════════════════════════════════════ */
 
-function awarenessLabel(r){
-  if(r>=23) return 'Deeply In Tune';
-  if(r>=14) return 'Building Awareness';
+/* ═══════════════════════════════════════
+   SCORING CONFIG
+   Every score is converted to a 0-100 index before it is
+   displayed or sent to Kit. Change the question sets below and
+   every threshold, bar and Kit field follows automatically.
+   ═══════════════════════════════════════ */
+var SCALE_MIN = 1, SCALE_MAX = 5;
+var AWARENESS_Q   = [1,3,4,5,6];     // awareness question ids (2 was dropped)
+var AWARENESS_REV = [5];             // reverse-scored ids
+var LOAD_DIMS = {
+  presence:     [1,2],
+  recognition:  [3,4],
+  authority:    [5,6],
+  authenticity: [7,8],
+  recovery:     [9,10]
+};
+var LOAD_Q_COUNT = Object.keys(LOAD_DIMS).reduce(function(n,k){return n+LOAD_DIMS[k].length},0);
+
+/* Raw sum -> 0-100 index. n = number of questions in that sum. */
+function toIndex(raw, n){
+  var min = n*SCALE_MIN, max = n*SCALE_MAX;
+  if(max === min) return 0;
+  return Math.max(0, Math.min(100, Math.round(((raw-min)/(max-min))*100)));
+}
+
+/* Thresholds are index values (0-100), not raw sums. */
+function awarenessLabel(idx){
+  if(idx>=71) return 'Deeply In Tune';
+  if(idx>=33) return 'Building Awareness';
   return 'Still Finding the Signal';
 }
-function disconnectionLevel(score){
-  if(score>=35) return 'drifted';
-  if(score>=23) return 'partial';
+function disconnectionLevel(idx){
+  if(idx>=63) return 'drifted';
+  if(idx>=33) return 'partial';
   return 'present';
 }
-function disconnectionLabel(score){
-  if(score>=35) return 'Drifted';
-  if(score>=23) return 'Partially Connected';
+function disconnectionLabel(idx){
+  if(idx>=63) return 'Drifted';
+  if(idx>=33) return 'Partially Connected';
   return 'Present';
 }
 
@@ -759,7 +868,7 @@ var AWARENESS_TIERS = {
 };
 
 /* ── PRODUCT LINKS ── */
-var STORE_LINK = 'https://innerbalance101.kit.com/products/the-inner-balance-system?_gl=1*1s69yrn*_gcl_au*MTA5MzkyNzgzNC4xNzgxMTE4ODg5LjEzOTY2Nzc3NTAuMTc4MTEyMTc3Ny4xNzgxMTIxODU5';
+var STORE_LINK = 'https://innerbalance101.kit.com/products/the-inner-balance-system';
 
 var DIM_COPY = {
   presence: {
@@ -823,17 +932,40 @@ var CHIP_LABELS = {
   numb:'numbness', nothing:'nothing specific', unsure:'uncertainty'
 };
 
+/* Returns a promise resolving true only if Kit actually accepted the lead.
+   One retry, then we tell the user the truth instead of assuming. */
 function sendToKit(payload) {
-  try {
-    fetch('/kit-assessment-subscribe', {
+  function attempt(){
+    return fetch('/kit-assessment-subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
-    }).catch(function(error){
-      console.error('Kit assessment submit failed:', error);
-    });
+    }).then(function(res){ return res.ok });
+  }
+  try {
+    return attempt()
+      .catch(function(){ return false })
+      .then(function(ok){ return ok ? true : attempt().catch(function(){ return false }) })
+      .then(function(ok){
+        if(!ok) console.error('Kit assessment submit failed after retry');
+        reportDelivery(ok);
+        return ok;
+      });
   } catch(e){
     console.error('Kit assessment submit failed:', e);
+    reportDelivery(false);
+    return Promise.resolve(false);
+  }
+}
+
+/* Rewrite the results line once we know whether the email is really coming */
+function reportDelivery(ok){
+  var el = document.getElementById('rInbox');
+  if(!el) { setTimeout(function(){ reportDelivery(ok) }, 400); return; }
+  if(ok){
+    el.innerHTML = 'Your full results are on their way to <strong>'+(state.gateEmail||'your inbox')+'</strong>';
+  } else {
+    el.innerHTML = 'We could not send your results by email just now. Everything you need is on this page, so take what you need from it before you go.';
   }
 }
 
@@ -850,20 +982,26 @@ function getBodySignals(){
 }
 
 function calcResults(){
-  var aRaw = [1,2,3,4,6].reduce(function(s,q){return s+state.aq[q]},0) + (6 - state.aq[5]);
+  /* Awareness: sum, flipping the reverse-scored items */
+  var aRaw = AWARENESS_Q.reduce(function(sum,q){
+    var v = state.aq[q] || 0;
+    if(AWARENESS_REV.indexOf(q) !== -1) v = (SCALE_MIN + SCALE_MAX) - v;
+    return sum + v;
+  }, 0);
+  var aIdx = toIndex(aRaw, AWARENESS_Q.length);
 
-  var dims = {
-    presence:     (state.lq[1]||0) + (state.lq[2]||0),
-    recognition:  (state.lq[3]||0) + (state.lq[4]||0),
-    authority:    (state.lq[5]||0) + (state.lq[6]||0),
-    authenticity: (state.lq[7]||0) + (state.lq[8]||0),
-    recovery:     (state.lq[9]||0) + (state.lq[10]||0)
-  };
+  /* Load: raw sum per dimension */
+  var dims = {};
+  Object.keys(LOAD_DIMS).forEach(function(dk){
+    dims[dk] = LOAD_DIMS[dk].reduce(function(sum,q){ return sum + (state.lq[q]||0) }, 0);
+  });
 
-  var discScore = Object.values(dims).reduce(function(a,b){return a+b},0);
+  var discRaw = Object.keys(dims).reduce(function(a,k){return a+dims[k]},0);
+  var discIdx = toIndex(discRaw, LOAD_Q_COUNT);
   var hasBodySignal = state.zones.size>0 || ([...state.chips].some(function(s){return s!=='nothing'&&s!=='unsure'}));
 
-  renderResults(aRaw, dims, discScore, hasBodySignal);
+  renderResults(aIdx, dims, discIdx, hasBodySignal, aRaw, discRaw);
+  clearProgress();
   go('s-results');
 }
 
@@ -873,10 +1011,9 @@ function buildDisconnectionCards(dims, bodySignals){
 
   var html = '';
   sorted.forEach(function(dk, idx){
-    var score = dims[dk];
     var copy = DIM_COPY[dk];
-    var pct = Math.round((score / 10) * 100);
-    var level = score >= 7 ? 'flagged' : (score >= 4 ? 'moderate' : 'low');
+    var pct = toIndex(dims[dk], LOAD_DIMS[dk].length);
+    var level = pct >= 63 ? 'flagged' : (pct >= 25 ? 'moderate' : 'low');
     var barColor = level==='flagged' ? 'var(--clay-deep)' : (level==='moderate' ? 'var(--clay)' : 'var(--clay-light)');
     var barHtml = '<div style="height:6px;background:rgba(196,168,130,0.12);border-radius:99px;overflow:hidden;width:64px;display:inline-block;vertical-align:middle;margin-right:8px"><div style="width:'+pct+'%;height:100%;border-radius:99px;background:'+barColor+';transition:width 0.8s"></div></div>';
 
@@ -933,15 +1070,15 @@ function toggleCard(id){
   card.classList.toggle('open');
 }
 
-function renderResults(aRaw, dims, discScore, hasBody){
-  var tier = awarenessLabel(aRaw);
-  var discLevel = disconnectionLevel(discScore);
-  var discLabelText = disconnectionLabel(discScore);
+function renderResults(aIdx, dims, discIdx, hasBody, aRaw, discRaw){
+  var tier = awarenessLabel(aIdx);
+  var discLevel = disconnectionLevel(discIdx);
+  var discLabelText = disconnectionLabel(discIdx);
   var profile = DISC_PROFILES[discLevel];
   var bodySignals = getBodySignals();
 
   // Profile code for Kit compatibility (HA/LA _ HL/LL)
-  var isHighDisc = discScore >= 25;
+  var isHighDisc = discIdx >= 38;
   var isHighAwareness = tier !== 'Still Finding the Signal';
   var profileCode = (isHighAwareness ? 'HA' : 'LA') + '_' + (isHighDisc ? 'HL' : 'LL');
 
@@ -954,8 +1091,11 @@ function renderResults(aRaw, dims, discScore, hasBody){
     first_name: state.gateName  || '',
     fields: {
       profile:                profileCode,
-      load_score:             discScore,
-      awareness_score:        aRaw,
+      load_score:             discIdx,          // 0-100 index
+      awareness_score:        aIdx,             // 0-100 index
+      score_scale:            '0-100',
+      load_score_raw:         discRaw,
+      awareness_score_raw:    aRaw,
       disconnection_level:    discLabelText,
       awareness_tier:         tier,
       disconnection_profile:  profile.title,
@@ -974,14 +1114,13 @@ function renderResults(aRaw, dims, discScore, hasBody){
       '<div class="r-hero-eyebrow">Your Results</div>'+
       '<h2 class="r-hero-title"><em>'+heroGreeting+'</em></h2>'+
       '<p class="r-hero-desc">Below you will see how connected you are to your own inner experience, where the disconnection is showing up most, and what to do with it.</p>'+
-      '<div class="r-hero-inbox">Your full results have been sent to <strong>'+(state.gateEmail||'your inbox')+'</strong></div>'+
+      '<div class="r-hero-inbox" id="rInbox">Sending your results to <strong>'+(state.gateEmail||'your inbox')+'</strong></div>'+
     '</div>';
 
   document.getElementById('rDashboard').innerHTML = '';
 
   // ── DISCONNECTION SCORE + CARDS ──
-  var discPct = Math.round(((discScore - 10) / 40) * 100);
-  discPct = Math.max(2, Math.min(96, discPct));
+  var discPct = Math.max(2, Math.min(96, discIdx));
   var spectrumColor = discLevel === 'drifted' ? 'var(--clay-deep)' : (discLevel === 'partial' ? 'var(--clay)' : 'var(--clay-light)');
 
   var cardIntroLine = '';
@@ -1008,7 +1147,7 @@ function renderResults(aRaw, dims, discScore, hasBody){
           '<div style="position:absolute;top:50%;transform:translate(-50%,-50%);left:'+discPct+'%;width:18px;height:18px;background:'+spectrumColor+';border-radius:50%;border:2.5px solid var(--warm-white);box-shadow:0 0 0 1.5px '+spectrumColor+'"></div>'+
         '</div>'+
         '<div style="margin-top:16px;display:flex;align-items:center;gap:12px">'+
-          '<span style="font-family:\'Cormorant Garamond\',serif;font-size:2rem;font-weight:400;color:var(--deep)">'+discScore+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/50</span></span>'+
+          '<span style="font-family:\'Cormorant Garamond\',serif;font-size:2rem;font-weight:400;color:var(--deep)">'+discIdx+'<span style="font-size:0.9rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/100</span></span>'+
           '<span style="display:inline-block;font-size:0.63rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:4px 12px;background:rgba(196,168,130,0.12);color:var(--clay-deep)">'+discLabelText+'</span>'+
         '</div>'+
       '</div>'+
@@ -1033,8 +1172,8 @@ function renderResults(aRaw, dims, discScore, hasBody){
     '<div class="r-awareness-section">'+
       '<div class="r-section-title">Your Awareness Pattern</div>'+
       '<div class="r-awareness-scores">'+
-        '<div class="r-as-cell"><div class="r-as-label">Self-Connection</div><div class="r-as-value">'+discScore+'<span style="font-size:0.85rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/50</span></div><div class="r-as-sub">'+discLabelText+'</div></div>'+
-        '<div class="r-as-cell"><div class="r-as-label">Self-Awareness</div><div class="r-as-value">'+aRaw+'<span style="font-size:0.85rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/30</span></div><div class="r-as-sub">'+tier+'</div></div>'+
+        '<div class="r-as-cell"><div class="r-as-label">Self-Connection</div><div class="r-as-value">'+discIdx+'<span style="font-size:0.85rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/100</span></div><div class="r-as-sub">'+discLabelText+'</div></div>'+
+        '<div class="r-as-cell"><div class="r-as-label">Self-Awareness</div><div class="r-as-value">'+aIdx+'<span style="font-size:0.85rem;color:var(--soft);font-family:\'Jost\',sans-serif;font-weight:300">/100</span></div><div class="r-as-sub">'+tier+'</div></div>'+
       '</div>'+
       '<div class="r-awareness-card">'+
         '<div class="r-awareness-tier">'+tier+'</div>'+
@@ -1047,7 +1186,7 @@ function renderResults(aRaw, dims, discScore, hasBody){
     '</div>';
 
   // ── PROFILE + RECOMMENDATION ──
-  var personalLine = 'Your self-connection score is '+discScore+' out of 50 — '+discLabelText+'.';
+  var personalLine = 'Your self-connection score is '+discIdx+' out of 100. '+discLabelText+'.';
   if(!isHighAwareness){
     personalLine += ' Your awareness is still developing — that makes the practice more important, not harder.';
   }
@@ -1157,10 +1296,16 @@ function retakeAssessment(){
 // ── EMAIL GATE ──
 var gateSubmitted = false;
 function goToEmailGate(){
-  if([1,2,3,4,5,6,7,8,9,10].some(function(q){return !state.lq[q]})){
-    document.getElementById('loadVal').classList.add('show'); return;
-  }
-  document.getElementById('loadVal').classList.remove('show');
+  var missing = [];
+  Object.keys(LOAD_DIMS).forEach(function(dk){
+    LOAD_DIMS[dk].forEach(function(q){ if(!state.lq[q]) missing.push(q) });
+  });
+  missing.sort(function(a,b){ return a-b });
+
+  document.getElementById('loadVal').classList.toggle('show', missing.length>0);
+  markMissing(missing.map(function(q){ return 'lq'+q }));
+
+  if(missing.length){ scrollToEl(document.getElementById('lq'+missing[0])); return; }
   go('s-email');
 }
 function submitGateEmail(){
