@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stage 1 — The SOS | innerbalance101</title>
+<meta name="theme-color" content="#FAF7F2">
+<title>Stage 1 · The SOS | innerbalance101</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://innerbalance101.com/stage1-sos.html">
 <meta name="description" content="Stage 1 of the Inner Balance System. A 10-minute daily practice to stop the spiral and return to yourself. 21 days. innerbalance101." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://innerbalance101.com/stage1-sos.html" />
-<meta property="og:title" content="Stage 1 — The SOS | innerbalance101" />
+<meta property="og:title" content="Stage 1 · The SOS | innerbalance101" />
 <meta property="og:description" content="Stage 1 of the Inner Balance System. A 10-minute daily practice to stop the spiral and return to yourself. 21 days. innerbalance101." />
 <meta property="og:image" content="https://innerbalance101.com/images/Logo%20IB101-1.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,6 +28,12 @@
     --soft: #9C8575;
     --mid: #6B5B4E;
     --espresso: #2C2420;
+    --pine: #4F6861;
+    --pine-light: rgba(79,104,97,0.08);
+    --pine-border: rgba(79,104,97,0.25);
+    --rose: #B67C7C;
+    --rose-light: rgba(182,124,124,0.08);
+    --rose-border: rgba(182,124,124,0.25);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -281,7 +288,7 @@
   .timing-body { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; line-height: 1.7; color: var(--mid); }
 
   /* STRUCTURE STRIP */
-  .structure-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 28px; background: var(--clay-light); border-radius: 3px; overflow: hidden; }
+  .structure-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 28px; background: var(--clay-light); border-radius: 3px; overflow: hidden; }
   .strip-part { background: var(--linen); padding: 16px 14px; text-align: center; }
   .strip-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--clay); line-height: 1; margin-bottom: 6px; }
   .strip-name { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
@@ -331,6 +338,18 @@
   .resource-info { flex: 1; }
   .resource-title { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.88rem; color: var(--deep); margin-bottom: 3px; }
   .resource-meta { font-size: 0.72rem; font-weight: 300; color: var(--soft); }
+
+  /* AUDIO PLACEHOLDER: guided audio sits alongside the written steps */
+  .audio-placeholder { display: flex; align-items: center; gap: 16px; border: 1.5px dashed var(--pine-border); background: var(--pine-light); border-radius: 2px; padding: 18px 20px; margin: 18px 0 22px; }
+  .audio-placeholder.accent-rose { border-color: var(--rose-border); background: var(--rose-light); }
+  .audio-placeholder-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--pine); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .audio-placeholder.accent-rose .audio-placeholder-icon { background: var(--rose); }
+  .audio-placeholder-icon svg { width: 14px; height: 14px; fill: white; margin-left: 2px; }
+  .audio-placeholder-info { flex: 1; }
+  .audio-placeholder-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pine); margin-bottom: 4px; }
+  .audio-placeholder.accent-rose .audio-placeholder-label { color: var(--rose); }
+  .audio-placeholder-title { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.9rem; color: var(--espresso); margin-bottom: 3px; }
+  .audio-placeholder-meta { font-size: 0.72rem; font-weight: 300; color: var(--soft); }
   .resource-cta { font-size: 0.72rem; color: var(--clay); letter-spacing: 0.06em; flex-shrink: 0; }
   .resource-note { font-size: 12px; font-weight: 300; font-style: italic; color: var(--soft); line-height: 1.7; margin-top: 8px; }
 
@@ -391,23 +410,323 @@
     :root { --nav-h: 54px; }
     .nav-logo-text { font-size: 1rem; }
   }
-  @media print {
-    nav, .system-banner { display: none; }
-    body { background: white; }
-    .practice-step { break-inside: avoid; }
+
+  /* ---------- V2: secondary palette ---------- */
+  :root {
+    --storm: #6E8397;
+    --storm-light: rgba(110,131,151,0.10);
+    --storm-border: rgba(110,131,151,0.30);
+    --rose-text: #8F5A5A;
+    --storm-text: #4D6275;
+    --pine-text: #3E554E;
   }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 64px); }
+
+  .practice-step { border-left: 4px solid var(--tone, var(--clay)); }
+  .practice-step.tone-rose  { --tone: var(--rose);  --tone-text: var(--rose-text);  --tone-light: var(--rose-light);  --tone-border: var(--rose-border); }
+  .practice-step.tone-storm { --tone: var(--storm); --tone-text: var(--storm-text); --tone-light: var(--storm-light); --tone-border: var(--storm-border); }
+  .practice-step.tone-pine  { --tone: var(--pine);  --tone-text: var(--pine-text);  --tone-light: var(--pine-light);  --tone-border: var(--pine-border); }
+  .practice-step .step-header { background: var(--tone-light, rgba(196,168,130,0.10)); }
+  .practice-step .step-num-large { color: var(--tone, var(--clay)); }
+  .practice-step .step-name, .practice-step .sub-step-label { color: var(--tone-text, var(--clay-deep)); }
+  .practice-step .step-duration { color: var(--tone-text, var(--soft)); }
+  .practice-step .audio-placeholder { border-color: var(--tone-border, var(--pine-border)); background: var(--tone-light, var(--pine-light)); }
+  .practice-step .audio-placeholder-icon { background: var(--tone, var(--pine)); }
+  .practice-step .audio-placeholder-label { color: var(--tone-text, var(--pine)); }
+  .practice-step .affirmation-list li { border-bottom-color: var(--tone-border, rgba(196,168,130,0.2)); }
+
+  /* three-colour rule under the header */
+  .tone-rule { display: flex; justify-content: center; gap: 6px; margin: 26px auto 0; }
+  .tone-rule span { display: block; width: 44px; height: 3px; border-radius: 2px; }
+  .tone-rule span:nth-child(1) { background: var(--rose); }
+  .tone-rule span:nth-child(2) { background: var(--storm); }
+  .tone-rule span:nth-child(3) { background: var(--pine); }
+
+  /* sticky part navigator (app feel, hidden in print) */
+  .part-nav { position: sticky; top: var(--nav-h); z-index: 60; background: rgba(250,247,242,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--clay-light); }
+  .part-nav-inner { max-width: 860px; margin: 0 auto; padding: 9px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .part-pill { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--clay-light); border-radius: 999px; text-decoration: none; font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); background: transparent; transition: background 0.25s, color 0.25s, border-color 0.25s; white-space: nowrap; }
+  .part-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--dot); flex-shrink: 0; }
+  .part-pill[data-part="1"] { --dot: var(--rose);  --pill-bg: var(--rose-light);  --pill-bd: var(--rose-border);  --pill-fg: var(--rose-text); }
+  .part-pill[data-part="2"] { --dot: var(--storm); --pill-bg: var(--storm-light); --pill-bd: var(--storm-border); --pill-fg: var(--storm-text); }
+  .part-pill[data-part="3"] { --dot: var(--pine);  --pill-bg: var(--pine-light);  --pill-bd: var(--pine-border);  --pill-fg: var(--pine-text); }
+  .part-pill.is-active { background: var(--pill-bg); border-color: var(--pill-bd); color: var(--pill-fg); font-weight: 500; }
+  @media (max-width: 560px) { .part-nav-inner { padding: 8px 12px; gap: 6px; } .part-pill { font-size: 9.5px; letter-spacing: 0.06em; padding: 8px 6px; gap: 6px; } .part-pill .pill-long { display: none; } }
+
+  /* structure strip takes the part colours */
+  .strip-part { border-top: 3px solid var(--tone); }
+  .strip-part:nth-child(1) { --tone: var(--rose); }
+  .strip-part:nth-child(2) { --tone: var(--storm); }
+  .strip-part:nth-child(3) { --tone: var(--pine); }
+  .strip-part:nth-child(1) .strip-num { color: var(--rose); }
+  .strip-part:nth-child(2) .strip-num { color: var(--storm); }
+  .strip-part:nth-child(3) .strip-num { color: var(--pine); }
+  .structure-strip { background: var(--clay-light); }
+  .strip-part a { text-decoration: none; display: block; color: inherit; }
+
+  /* audio slots: ready for real files */
+  .audio-placeholder audio { width: 100%; margin-top: 10px; height: 38px; }
+  .audio-slot.is-live { border-style: solid; }
+  .audio-slot.is-live .audio-placeholder-icon { display: none; }
+
+  /* the quiet end note */
+  .end-note { margin-top: 30px; padding: 26px 8px 4px; border-top: 1px solid var(--pine-border); text-align: center; }
+  .end-note-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--pine-text); display: block; margin-bottom: 10px; }
+  .end-note p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 1.2rem; line-height: 1.5; color: var(--pine-text); max-width: 520px; margin: 0 auto; }
+
+  .accept-block { margin-top: 18px; padding: 16px 18px; border-left: 3px solid var(--rose); background: var(--rose-light); border-radius: 0 3px 3px 0; }
+  .accept-block .accept-label { display: block; font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose-text); margin-bottom: 8px; }
+  .accept-block .body-text { margin-bottom: 8px; }
+  .accept-block .body-text:last-child { margin-bottom: 0; }
+  .why-block { margin-top: 44px; border: 1.5px solid var(--pine-border); border-top: 4px solid var(--pine); border-radius: 3px; background: #fffdf9; padding: 28px 30px; }
+  .why-block .overview-label { color: var(--pine-text); }
+  .why-block .body-text:last-child { margin-bottom: 0; }
+  @media (max-width: 560px) { .why-block { padding: 22px 20px; } }
+  .end-note.why { text-align: left; }
+  .end-note.why .end-note-label { text-align: center; }
+  .end-note.why p { text-align: left; max-width: 560px; margin: 0 auto 14px; font-size: 1.15rem; }
+  .learn-more { margin-top: 14px; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13.5px; line-height: 1.6; color: var(--mid); }
+  .learn-more a { color: var(--storm-text); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--storm-border); padding-bottom: 1px; white-space: nowrap; }
+  /* overview card: What this is / When to do it / How each day works */
+  .overview { margin-top: 36px; border: 1.5px solid var(--clay-light); border-top: 4px solid var(--clay); border-radius: 3px; background: #fffdf9; }
+  .overview-row { padding: 26px 30px; }
+  .overview-row + .overview-row { border-top: 1px solid var(--clay-light); }
+  .overview-label { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--clay-deep); display: block; margin-bottom: 12px; }
+  .overview-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(22px, 3.6vw, 30px); line-height: 1.2; color: var(--espresso); margin-bottom: 14px; }
+  .overview-title em { font-style: italic; color: var(--clay-deep); }
+  .overview .body-text:last-child { margin-bottom: 0; }
+  .overview-note { background: var(--pine-light); border-left: 3px solid var(--pine); padding: 14px 18px; margin-top: 16px; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 13px; line-height: 1.7; color: var(--pine-text); }
+  .overview-note strong { font-weight: 500; }
+  .when-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .when-list li { display: flex; gap: 12px; align-items: baseline; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.6; color: var(--mid); }
+  .when-list li::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--clay); flex-shrink: 0; transform: translateY(-1px); }
+  .when-list strong { font-weight: 500; color: var(--espresso); margin-right: 4px; }
+  .overview .structure-strip { margin-top: 14px; grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 560px) { .overview .strip-part { padding: 14px 6px; } .overview .strip-name { font-size: 9px; letter-spacing: 0.06em; } .overview .strip-num { font-size: 24px; } }
+  .start-divider { display: flex; align-items: center; gap: 16px; margin: 40px 0 0; color: var(--clay-deep); }
+  .start-divider::before, .start-divider::after { content: ''; flex: 1; height: 1px; background: var(--clay-light); }
+  .start-divider span { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; }
+  .start-divider svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .practice-step:first-of-type { margin-top: 24px; }
+  @media (max-width: 560px) { .overview-row { padding: 22px 20px; } }
+
+  .hint-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 1.2rem; line-height: 1.4; color: var(--storm-text); background: var(--storm-light); border-left: 3px solid var(--storm); padding: 12px 18px; margin: 0 0 16px; }
+
+  .sms-optional { display: inline-block; font-family: 'Jost', sans-serif; font-weight: 500; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; background: rgba(44,36,32,0.12); color: var(--espresso); padding: 2px 8px; border-radius: 999px; margin-right: 6px; vertical-align: 1px; }
+
+  .feel-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; line-height: 1.45; color: var(--rose-text); margin: 4px 0 16px; }
+  /* ---------- V3: web interface guidelines + contrast pass ---------- */
+  :root { --rose-text: #804F4F; }
+
+  /* skip link */
+  .skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--espresso); color: var(--warm-white); padding: 12px 18px; font-family: 'Jost', sans-serif; font-size: 13px; text-decoration: none; border-radius: 2px; }
+  .skip-link:focus-visible { top: 12px; }
+  main:focus { outline: none; }
+
+  /* visible keyboard focus */
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--espresso); outline-offset: 3px; }
+  .system-banner a:focus-visible, footer a:focus-visible { outline-color: var(--clay-light); }
+  .part-pill:focus-visible { outline-offset: 2px; }
+
+  /* touch */
+  a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,104,97,0.15); }
+  .nav-mobile-toggle { width: 44px; height: 44px; }
+  .sms-cta-toggle { min-height: 44px; }
+  .social-link { width: 44px; height: 44px; }
+  .part-pill { min-height: 44px; }
+  nav.nav-open .nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
+
+  /* hover states */
+  .part-pill:hover { background: var(--pill-bg, var(--linen)); border-color: var(--pill-bd, var(--clay)); color: var(--pill-fg, var(--espresso)); }
+  .strip-part a:hover .strip-name { color: var(--espresso); }
+  .nav-cta:hover { background: var(--pine); }
+  .nav-links a:hover { color: var(--pine-text); }
+
+  /* headings */
+  h1, h2 { text-wrap: balance; }
+
+  /* contrast: small text moves off Clay, Clay Deep and Soft */
+  .brand-label, .stage-label, .section-label, .overview-label, .timing-name, .eft-diagram-label, .start-divider { color: var(--pine-text); }
+  .meta-value, .resource-cta { color: var(--pine-text); }
+  .section-title em, .overview-title em { color: var(--pine-text); }
+  .page-subtitle, .meta-label, .strip-time, .resource-meta, .audio-placeholder-meta, .resource-note { color: var(--mid); }
+  .affirmation-list li { color: var(--tone-text, var(--pine-text)); font-weight: 400; }
+  .practice-step.tone-rose .step-num-large, .strip-part:nth-child(1) .strip-num { color: var(--rose-text); }
+  .banner-stage { opacity: 0.72; }
+  .banner-stage.active { opacity: 1; }
+  .footer-copyright { color: rgba(250,247,242,0.6); }
+  .footer-tagline { color: rgba(250,247,242,0.62); }
+  .sms-cta-panel p.sms-cta-disclosure { font-size: 11px; color: rgba(44,36,32,0.9); }
+
+  /* small phones: keep the three part pills on one row */
+  @media (max-width: 380px) {
+    .part-nav-inner { padding: 8px 8px; gap: 4px; }
+    .part-pill { font-size: 9px; letter-spacing: 0.03em; padding: 8px 3px; gap: 4px; }
+    .part-pill i { width: 6px; height: 6px; }
+  }
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ---------- V4: taste pass (hierarchy, readability, images) ---------- */
+  /* Shape rule: cards, tags and buttons use 2-3px corners. Only the play icons are circles. */
+  .page-body, .part-nav-inner { max-width: 760px; }
+
+  /* readable measure and size */
+  .body-text { font-size: 16px; font-weight: 400; line-height: 1.75; max-width: 65ch; }
+  .when-list li { font-size: 16px; font-weight: 400; }
+  .learn-more, .overview-note { font-size: 15px; font-weight: 400; max-width: 65ch; }
+  .feel-line, .hint-line { max-width: 60ch; }
+  .resource-note { font-size: 14px; max-width: 65ch; }
+  .sms-cta-panel p { font-size: 14px; font-weight: 400; }
+
+  /* hero: one eyebrow, one action */
+  .begin-btn { display: inline-block; margin-top: 30px; padding: 15px 34px; background: var(--espresso); color: var(--warm-white); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.3s, transform 0.15s; }
+  .begin-btn:hover { background: var(--pine); }
+  .begin-btn:active, .nav-cta:active { transform: scale(0.98); }
+  .part-pill { border-radius: 3px; }
+  .part-pill:hover { color: var(--pill-fg, var(--espresso)); }
+
+  /* labels: headings, not eyebrows */
+  .overview-label { font-size: 15px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; margin-bottom: 10px; }
+  .sub-step-label { font-size: 15px; font-weight: 500; letter-spacing: 0.01em; text-transform: none; margin-bottom: 10px; line-height: 1.4; }
+
+  /* collapsible overview */
+  .overview-summary { display: flex; align-items: center; gap: 16px; padding: 18px 30px; min-height: 56px; cursor: pointer; list-style: none; font-family: 'Jost', sans-serif; }
+  .overview-summary::-webkit-details-marker { display: none; }
+  .overview-summary-title { font-weight: 500; font-size: 15px; color: var(--espresso); }
+  .overview-summary-hint { flex: 1; font-weight: 400; font-size: 13px; color: var(--mid); }
+  .overview-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--espresso); transition: transform 0.25s; }
+  .overview[open] .overview-summary { border-bottom: 1px solid var(--clay-light); }
+  .overview[open] .overview-chevron { transform: rotate(180deg); }
+  summary:focus-visible { outline: 2px solid var(--espresso); outline-offset: -4px; }
+  @media (max-width: 560px) { .overview-summary { padding: 16px 20px; } .overview-summary-hint { display: none; } .overview-summary-title { flex: 1; } }
+
+  /* optional SMS box: quiet, not the loudest block on the page */
+  .sms-cta { background: var(--linen); border: 1px solid var(--clay-light); border-left: 4px solid var(--pine); border-radius: 3px; }
+  .sms-cta-toggle { background: transparent; border-top: 1px solid var(--clay-light); }
+  .sms-cta-toggle:hover { background: rgba(79,104,97,0.07); }
+  .sms-cta-link { color: var(--pine-text); border-bottom-color: var(--pine); }
+  .sms-cta-link:hover { border-color: var(--pine-text); }
+  .sms-optional { background: var(--pine-light); color: var(--pine-text); border: 1px solid var(--pine-border); border-radius: 2px; }
+  .sms-cta-panel p.sms-cta-disclosure { border-top-color: var(--clay-light); }
+
+  /* flatter structure: fewer boxes inside boxes */
+  .eft-diagram-wrap { background: none; border: none; padding: 8px 0 4px; }
+  .eft-diagram-wrap svg { max-width: 540px; }
+  .resource-card { background: transparent; border: none; border-top: 1px solid var(--clay-light); border-bottom: 1px solid var(--clay-light); border-radius: 0; padding: 16px 0; }
+  .resource-card:hover { background: rgba(79,104,97,0.06); border-color: var(--clay-light); }
+  .resource-icon { background: var(--pine); }
+  .resource-icon svg { fill: var(--warm-white); }
+  .accept-block { background: none; padding: 2px 0 2px 18px; border-radius: 0; }
+  .why-block { border: none; border-top: 2px solid var(--pine); border-radius: 0; background: none; padding: 28px 0 0; }
+  .nav-mobile-toggle { border-radius: 3px; }
+
+  /* writing lines are for the printed page */
+  .write-area, .prompt-list { display: none; }
+  .write-hint { font-size: 14px; color: var(--mid); margin: 4px 0 14px; max-width: 60ch; }
+  .print-link { background: none; border: none; padding: 0; font: inherit; color: var(--pine-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; min-height: 24px; }
+
+  /* images */
+  .step-figure { margin: 0; border-bottom: 1px solid var(--clay-light); }
+  .step-figure img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+  @media (max-width: 560px) { .step-figure img { aspect-ratio: 4 / 3; } }
+  .closing-section { display: grid; grid-template-columns: 240px 1fr; gap: 36px; align-items: center; text-align: left; padding: 36px; }
+  .closing-figure { margin: 0; }
+  .closing-figure img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; border-radius: 3px; }
+  .closing-section .section-title { margin-bottom: 16px; }
+  .closing-section .body-text { margin: 0 0 10px; max-width: 65ch; }
+  @media (max-width: 680px) { .closing-section { grid-template-columns: 1fr; gap: 24px; padding: 24px; } .closing-figure img { aspect-ratio: 4 / 3; object-position: 50% 20%; } }
+
+    .eft-legend{display:none;font-size:15px;line-height:1.6;color:var(--mid);margin:0;text-align:left}
+  @media (max-width:560px){.eft-legend{display:block}}
+@media print {
+    nav, .system-banner, .sms-cta, footer, .nav-mobile-toggle, .audio-placeholder, .part-nav, .tone-rule { display: none !important; }
+    body { background: #fff; }
+    .page-body { max-width: 720px; padding: 0 10px 30px; }
+    .page-header { padding: 18px 0 26px; border-bottom: 3px double var(--pine); margin-bottom: 6px; }
+    .stage-label { color: var(--pine); }
+    a { color: inherit; text-decoration: none; }
+
+    /* Document pagination: each numbered step opens on its own printed page,
+       so this reads as a workbook rather than a cut-down webpage. */
+    .practice-step { page-break-before: always; break-before: page; border-left: 4px solid var(--tone, var(--clay)); }
+    .sub-step { break-inside: avoid; page-break-inside: avoid; }
+    .practice-step .step-header { background: transparent; border-bottom: 2px solid var(--tone, var(--clay)); }
+    .practice-step { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .closing-section { page-break-before: always; break-before: page; break-inside: avoid; page-break-inside: avoid; }
+
+    /* Secondary palette (pine + rose) so the printed page isn't only beige/brown */
+    .section-label { color: var(--pine); }
+    
+    
+
+    .callout-block { background: var(--pine-light); border: 1px solid var(--pine-border); border-left: 4px solid var(--pine); color: var(--espresso); }
+    .callout-block .body-text, .callout-block strong { color: var(--espresso); }
+    .callout-icon { display: none; }
+    .callout-text p, .callout-text p strong { color: var(--espresso); }
+    .timing-card { break-inside: avoid; page-break-inside: avoid; }
+    .section-label, .section-title { break-after: avoid; page-break-after: avoid; }
+    .overview { break-inside: avoid; page-break-inside: avoid; border-top-color: var(--pine); background: #fff; }
+    .overview-label { color: var(--pine); }
+    .overview { margin-top: 18px; }
+    .overview-row { padding: 14px 24px; }
+    .overview-title { font-size: 22px; margin-bottom: 8px; }
+    .overview .body-text { font-size: 12.5px; line-height: 1.6; margin-bottom: 6px; }
+    .overview-note { margin-top: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.55; }
+    .when-list { gap: 6px; }
+    .when-list li { font-size: 12.5px; line-height: 1.5; }
+    .page-header { padding-bottom: 14px; }
+    .overview-note { background: var(--pine-light); }
+    .hint-line { background: var(--storm-light); }
+    .start-divider { display: none; }
+    .learn-more { display: none; }
+    .why-block { break-inside: avoid; page-break-inside: avoid; border-top-color: var(--pine); }
+
+    .timing-card { background: #fff; border: 1px solid var(--clay-light); border-top: 3px solid var(--rose); }
+    .timing-card:nth-child(2) { border-top-color: var(--storm); }
+    .timing-card:nth-child(3) { border-top-color: var(--pine); }
+    .timing-card::before { display: none; }
+    .strip-part { background: #fff; border: 1px solid var(--clay-light); }
+    .structure-strip { background: var(--clay-light); }
+
+    .eft-diagram-wrap { background: var(--rose-light); border: 1px solid var(--rose-border); }
+    .resource-icon, .resource-cta { display: none; }
+    .resource-card { background: #fff; border: 1px solid var(--clay-light); }
+
+    a[href^="http"]::after { content: " (" attr(href) ")"; font-weight: 400; font-size: 0.68em; color: var(--soft); }
+
+    .write-line, .prompt-line { border-bottom: 1px solid #a89a86; }
+    .affirmation-list li { border-bottom: none; border-left: 3px solid var(--rose-border); padding-left: 14px; }
+
+    .closing-section { background: var(--pine-light); border: 1px solid var(--pine-border); }
+
+    .ornament { display: none; }
+  }
+  @media print {
+    .write-area, .prompt-list { display: flex; }
+    .screen-only, .begin-btn, .step-figure, .closing-figure, .overview-summary { display: none !important; }
+    .body-text { font-size: 13.5px; max-width: none; }
+    .closing-section { display: block; }
+  }
+  @media print{.eft-legend{display:none !important}}
 </style>
 </head>
+
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- NAV (matching index exactly) -->
-<nav>
-  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 — home">
-    <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
+<nav aria-label="Main">
+  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 home">
+    <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
     <div class="nav-divider"></div>
     <span class="nav-logo-text">innerbalance101</span>
   </a>
-  <button class="nav-mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+  <button class="nav-mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-nav-links" aria-expanded="false">
     <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
   </button>
   <div class="nav-links" id="site-nav-links">
@@ -419,7 +738,7 @@
   <a href="https://innerbalance101.com/emotional_load_assessment.html" class="nav-cta">Free assessment</a>
 </nav>
 
-<!-- SYSTEM BANNER — Stage 01 active -->
+<!-- SYSTEM BANNER: Stage 01 active -->
 <div class="system-banner">
   <div class="system-banner-inner">
     <span class="banner-stage active">01 &nbsp;The SOS</span>
@@ -434,7 +753,6 @@
 
 <!-- PAGE HEADER -->
 <header class="page-header">
-  <span class="brand-label">innerbalance101</span>
   <span class="stage-label">Stage 01 of 03</span>
   <h1 class="page-title">The SOS</h1>
   <p class="page-subtitle">Stop the spiral. Come back to yourself. Ten minutes a day for 21 days.</p>
@@ -450,34 +768,84 @@
     </div>
     <div class="meta-divider"></div>
     <div class="meta-item">
-      <span class="meta-value">Any time</span>
-      <span class="meta-label">When</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-value">Day 22</span>
-      <span class="meta-label">Clarity unlocks</span>
+      <span class="meta-value">3</span>
+      <span class="meta-label">Parts</span>
     </div>
   </div>
+  <a class="begin-btn" href="#step-1">Begin Part 1</a>
 </header>
 
+<!-- PART NAVIGATOR -->
+<div class="part-nav" role="navigation" aria-label="Practice parts">
+  <div class="part-nav-inner">
+    <a class="part-pill" data-part="1" href="#step-1">Feel it</a>
+    <a class="part-pill" data-part="2" href="#step-2">Thought work</a>
+    <a class="part-pill" data-part="3" href="#step-3"><span>Release<span class="pill-long"> &amp; close</span></span></a>
+  </div>
+</div>
+
 <!-- PAGE BODY -->
-<div class="page-body">
+<main class="page-body" id="main" tabindex="-1">
+
+  <!-- AUDIO: the guided audio lives in Part 1 only. When the recording is ready, put its file path in that slot's data-audio-src
+       (for example /audio/stage1-feel-it.mp3). The slot turns into a player automatically. The written steps always stay on the page. -->
+
+  <!-- OVERVIEW: what this is, when to do it, how each day works -->
+  <details class="overview" id="overview" open>
+    <summary class="overview-summary"><span class="overview-summary-title">Before you start</span><span class="overview-summary-hint">What this is, when to do it, how each day works</span><svg class="overview-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+    <div class="overview-row">
+      <h2 class="overview-title">Here are ten minutes <em>to feel better.</em></h2>
+      <p class="body-text">Stressed. Tense. Overwhelmed. Too much on your mind and too much in your body. Nothing is wrong with you. Your system is carrying a lot.</p>
+      <p class="body-text">This short practice helps you set it down. You feel what's here, catch the thought that's making it louder, and move it out through your body. No experience needed. Nothing to get right.</p>
+      <p class="body-text"><strong>The commitment is 10&nbsp;minutes. Daily. 21&nbsp;days to build the foundation.</strong> Stage 2 unlocks after this one.</p>
+      <p class="overview-note"><strong>Before you begin.</strong> This only works when you actually do it. The shift happens in your body, so follow the order: sensation first, emotion second, thought third, then release.</p>
+      <p class="learn-more">Curious why this works? There is a short note at the end, for after your practice. <a href="#why-this-works">Read it here &darr;</a></p>
+    </div>
+    <div class="overview-row">
+      <span class="overview-label">When to do it</span>
+      <ul class="when-list">
+        <li><span><strong>Morning.</strong> Before the day's noise arrives. This is when you build the habit.</span></li>
+        <li><span><strong>In the spiral.</strong> When overwhelm peaks. Two minutes is enough to interrupt it.</span></li>
+        <li><span><strong>Evening.</strong> Name what the day activated and set it down. What you don't process, your nervous system keeps holding.</span></li>
+      </ul>
+    </div>
+    <div class="overview-row">
+      <span class="overview-label">How each day works</span>
+      <p class="body-text">Three parts, in this order. Same every day. Do not skip ahead.</p>
+      <div class="structure-strip">
+        <div class="strip-part"><a href="#step-1">
+          <div class="strip-num">01</div>
+          <div class="strip-name">Feel it</div>
+          <div class="strip-time">2 min</div>
+        </a></div>
+        <div class="strip-part"><a href="#step-2">
+          <div class="strip-num">02</div>
+          <div class="strip-name">Thought work</div>
+          <div class="strip-time">2 min</div>
+        </a></div>
+        <div class="strip-part"><a href="#step-3">
+          <div class="strip-num">03</div>
+          <div class="strip-name">Release &amp; close</div>
+          <div class="strip-time">6 min</div>
+        </a></div>
+      </div>
+    </div>
+  </details>
 
   <!-- SMS SUPPORT CTA -->
   <div class="sms-cta" id="sms-cta">
     <div class="sms-cta-top">
       <div class="sms-cta-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </div>
       <div class="sms-cta-heading">
-        <p class="sms-cta-title">Build mindfulness one text at a time.</p>
+        <p class="sms-cta-title"><span class="sms-optional">Optional</span> Build mindfulness one text at a time.</p>
         <a href="sms:+17015435900" class="sms-cta-link">Text (701) 543-5900</a>
       </div>
     </div>
     <button class="sms-cta-toggle" onclick="toggleSmsCta(this)" aria-expanded="false" aria-controls="sms-cta-panel">
       <span>How it works</span>
-      <svg class="sms-cta-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="sms-cta-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
     <div class="sms-cta-panel" id="sms-cta-panel">
       <p>These are tips. Short exercises to build mindfulness during the day, when the spiral is loudest.</p>
@@ -486,153 +854,120 @@
     </div>
   </div>
 
-  <!-- WHAT THIS STAGE IS -->
-  <section class="section">
-    <span class="section-label">What this stage is</span>
-    <h2 class="section-title">Stage 1 is not about going deep.<br><em>It is about getting stable.</em></h2>
-    <p class="body-text">Overwhelm is the feeling of having too much happening at once. Too many thoughts, tasks, or emotions all asking for attention at the same time. It pulls you forward into what needs to be done, what might go wrong, what cannot be dropped.</p>
-    <p class="body-text">Nothing is wrong with you. Your system is responding to carrying a lot. This practice is here to help you come back into the present and create a little space again.</p>
-    <p class="body-text"><strong>The commitment is 10 minutes. Daily. 21 days to build the foundation.</strong> Stage 2 unlocks on Day 22.</p>
 
-    <div class="callout-block">
-      <div class="callout-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="1.5" stroke-linecap="round">
-          <path d="M12 21C12 21 4 13.5 4 8.5C4 5.46 6.69 3 10 3C11.07 3 12 3.5 12 3.5C12 3.5 12.93 3 14 3C17.31 3 20 5.46 20 8.5C20 13.5 12 21 12 21Z"/>
-        </svg>
-      </div>
-      <div class="callout-text">
-        <p><strong>Before you begin.</strong> This practice only works when you actually do it. The shift happens in your body. Your body registers what your mind is still processing. This practice works in sequence: sensation first, emotion second, thought third. Follow it through.</p>
-      </div>
-    </div>
-  </section>
+  <div class="start-divider" id="start"><span>Start here <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span></div>
 
-  <!-- WHEN TO DO IT -->
-  <section class="section">
-    <span class="section-label">When to do it</span>
-    <h2 class="section-title">Three windows. Each one works differently.</h2>
-    <div class="timing-grid">
-      <div class="timing-card">
-        <span class="timing-icon">&#9678;</span>
-        <div class="timing-name">Morning</div>
-        <p class="timing-body">You haven't entered the day's noise yet. Your nervous system is rested. This is when you build the habit, before anything external competes for your attention.</p>
-      </div>
-      <div class="timing-card">
-        <span class="timing-icon">&#9681;</span>
-        <div class="timing-name">In the spiral</div>
-        <p class="timing-body">The moment you feel overwhelm peaking. You don't need to wait for a scheduled time. Two minutes of this practice is enough to interrupt the pattern before it runs.</p>
-      </div>
-      <div class="timing-card">
-        <span class="timing-icon">&#9689;</span>
-        <div class="timing-name">Evening</div>
-        <p class="timing-body">Close out what you carried. You are not replaying or planning. You are naming what the day activated and setting it down. What you do not process before sleep, your nervous system continues to hold.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- STRUCTURE STRIP -->
-  <section class="section">
-    <span class="section-label">The daily structure</span>
-    <h2 class="section-title">Four parts. Same every day.<br><em>Ten minutes total.</em></h2>
-    <p class="body-text">This practice works in sequence. You name what's happening in your mind, move it through your body, return to the present, and close. Each step builds on the last. Do not skip ahead.</p>
-    <div class="structure-strip">
-      <div class="strip-part">
-        <div class="strip-num">01</div>
-        <div class="strip-name">Thought work</div>
-        <div class="strip-time">2 min</div>
-      </div>
-      <div class="strip-part">
-        <div class="strip-num">02</div>
-        <div class="strip-name">EFT Tapping</div>
-        <div class="strip-time">6 min</div>
-      </div>
-      <div class="strip-part">
-        <div class="strip-num">03</div>
-        <div class="strip-name">Gratitude</div>
-        <div class="strip-time">1 min</div>
-      </div>
-      <div class="strip-part">
-        <div class="strip-num">04</div>
-        <div class="strip-name">Close</div>
-        <div class="strip-time">1 min</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP 01: THOUGHT WORK -->
-  <div class="practice-step" id="step-1">
+  <!-- STEP 01: FEEL IT -->
+  <div class="practice-step tone-rose" id="step-1">
     <div class="step-header">
       <div class="step-num-large">01</div>
       <div class="step-title-block">
-        <div class="step-name">Thought work</div>
-        <div class="step-title-text">Stop the autopilot</div>
+        <div class="step-name">Part 1 of 3: Feel it</div>
+        <h2 class="step-title-text">Sink into what's here</h2>
       </div>
       <div class="step-duration">2 minutes</div>
     </div>
+    <figure class="step-figure"><img src="images/stage1/stage1-part1-deep-breath.jpg" width="1000" height="1250" alt="Illustrated woman standing in a sunlit kitchen with her eyes closed, one hand on her chest and a mug in the other, taking a slow breath." loading="lazy" decoding="async" style="object-position:50% 6%"></figure>
     <div class="step-body">
-      <p class="body-text">Between what's happening around you and how you respond to it, there is a gap. That gap is where this whole practice lives. Most of the time we skip right over it. A thought triggers a feeling, the feeling drives a behaviour, and it becomes a habit you didn't choose. Mindfulness is the practice of stepping into that gap long enough to see what is actually going on.</p>
-      <p class="body-text">With overwhelm, that gap has been flooded. Your brain is running on autopilot in doing mode: active, scanning, trying to manage everything at once. Before you can look at any thought clearly, you need to shift into being mode for a few minutes. The breath is how you do that.</p>
+      <div class="audio-placeholder audio-slot" data-audio-src="">
+        <div class="audio-placeholder-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <div class="audio-placeholder-info">
+          <div class="audio-placeholder-label">Guided audio, coming soon</div>
+          <div class="audio-placeholder-title">Part 1: Feel it</div>
+          <div class="audio-placeholder-meta">2 minutes, voice-guided. Follow along with the steps below.</div>
+        </div>
+      </div>
+      <p class="feel-line">You don't have to fix anything yet. For two minutes, the only job is to feel what's here.</p>
 
       <div class="sub-step">
-        <div class="sub-step-label">1 — breathe in</div>
-        <p class="body-text">Take three slow, deliberate breaths. Inhale for 4 counts. Exhale for 6.</p>
+        <h3 class="sub-step-label">A. Breathe in</h3>
+        <p class="body-text">Take three slow, deliberate breaths. Inhale for 4&nbsp;counts. Exhale for 6.</p>
         <p class="body-text">The longer exhale tells your brain you are not in danger right now. It moves you from automatic to aware.</p>
       </div>
 
       <div class="sub-step">
-        <div class="sub-step-label">2 — find it in your body</div>
-        <p class="body-text">Without trying to fix anything yet, ask yourself: <em>Where in my body am I feeling overwhelmed right now?</em></p>
-        <p class="body-text">Scan gently. Maybe it's a tightness in the chest. A buzzing through your limbs. Shallow breathing, tension behind your eyes, your mind jumping before it finishes anything. Notice it without labeling it. Approach it with curiosity, like you're encountering it for the first time. That seeing is already doing something.</p>
+        <h3 class="sub-step-label">B. Find it in your body</h3>
+        <p class="body-text">Without trying to fix anything or judge what you find, ask yourself: <em>Where in my body am I feeling overwhelmed right now?</em></p>
+        <p class="body-text">Scan gently. Maybe it's a tightness in the chest. A buzzing through your limbs. Shallow breathing, tension behind your eyes, your mind jumping before it finishes anything. Notice it first. You don't need to name it yet. Approach it with curiosity, like you're encountering it for the first time.</p>
       </div>
 
       <div class="sub-step">
-        <div class="sub-step-label">3 — write your thoughts</div>
-        <p class="body-text">Set a timer for 60 seconds. Write down every thought your brain is generating right now. No editing. No organising. Just let it out.</p>
-        <div class="write-area">
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-        </div>
-        <p class="body-text">Read back what you wrote. These are sentences in your mind, not facts about your life. You're stepping into the gap right now, catching the thought before it runs the show.</p>
+        <h3 class="sub-step-label">C. Let yourself name it</h3>
+        <p class="body-text">Now give it a name, in your own words. Overwhelmed. Anxious. Tired. Stretched thin. Whatever is true. You don't need the perfect word. Say it quietly to yourself: <em>I'm feeling&hellip;</em></p>
+        <p class="body-text" style="margin-bottom:6px;"><strong>Right now I'm feeling:</strong></p>
+        <p class="write-hint screen-only">Write it in a notebook or your notes app, or <button type="button" class="print-link" onclick="window.print()">print this page</button> for lines to write on.</p>
+        <div class="write-area"><div class="write-line"></div></div>
+        <p class="body-text">Then let it be here for a few breaths. It's allowed to be here.</p>
+      </div>
+      <div class="accept-block">
+        <span class="accept-label">This is acceptance</span>
+        <p class="body-text"><strong>Feeling it without fixing it is the practice of acceptance.</strong> Acceptance does not mean you like it, or that it stays. It means you stop arguing with what is already here.</p>
+        <p class="body-text">No judgment. No &ldquo;I shouldn't feel this.&rdquo; You are not doing it wrong. Whatever you find is allowed, and meeting it this way is what lets it begin to move.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 02: THOUGHT WORK -->
+  <div class="practice-step tone-storm" id="step-2">
+    <div class="step-header">
+      <div class="step-num-large">02</div>
+      <div class="step-title-block">
+        <div class="step-name">Part 2 of 3: Thought work</div>
+        <h2 class="step-title-text">Catch the thought</h2>
+      </div>
+      <div class="step-duration">2 minutes</div>
+    </div>
+    <figure class="step-figure"><img src="images/stage1/stage1-part2-journaling.jpg" width="1000" height="1000" alt="Illustrated woman resting her chin on her hand while writing in a journal at a sunlit desk, with a speckled mug beside her." loading="lazy" decoding="async" style="object-position:50% 22%"></figure>
+    <div class="step-body">
+      <p class="body-text">You've felt it. Now listen for the thought that goes with it. With overwhelm, your mind is usually running a lot of them at once.</p>
+
+      <div class="sub-step">
+        <h3 class="sub-step-label">A. Write your thoughts</h3>
+        <p class="body-text">Set a timer for 60&nbsp;seconds. Write down every thought your brain is generating right now. No editing. No organising. Just let it out.</p>
+        <div class="write-area"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
+        <p class="body-text">Read back what you wrote. These are sentences in your mind, not facts about your life. You're catching the thought before it runs the show.</p>
       </div>
 
       <div class="sub-step">
-        <div class="sub-step-label">4 — find a thought you can believe</div>
+        <h3 class="sub-step-label">B. Find a new thought, a gentler one you can believe</h3>
+        <p class="hint-line">Thoughts shape emotions. Emotions shape actions.</p>
         <p class="body-text">Look at your list. Find the thought carrying the most charge.</p>
         <p class="body-text" style="margin-bottom:6px;"><strong>Current thought:</strong></p>
         <div class="write-area"><div class="write-line"></div></div>
         <p class="body-text">We are not forcing a positive replacement. Your brain won't buy that, and it will feel worse. We are loosening the grip on this thought just enough to allow something slightly more spacious in. A thought you can actually believe right now.</p>
         <p class="body-text" style="margin-bottom:6px;"><strong>Try these on and see what fits:</strong></p>
         <ul class="affirmation-list">
-          <li>"I have a lot to do. I can choose what comes first."</li>
-          <li>"I don't have to solve everything today."</li>
-          <li>"One thing at a time is enough."</li>
-          <li>"I've been here before and found my way through."</li>
+          <li>&ldquo;I have a lot to do. I can choose what comes first.&rdquo;</li>
+          <li>&ldquo;I don't have to solve everything today.&rdquo;</li>
+          <li>&ldquo;One thing at a time is enough.&rdquo;</li>
+          <li>&ldquo;I've been here before and found my way through.&rdquo;</li>
         </ul>
-        <p class="body-text" style="margin-bottom:6px;"><strong>My shifted thought:</strong></p>
+        <p class="body-text" style="margin-bottom:6px;"><strong>My new, gentler thought:</strong></p>
         <div class="write-area"><div class="write-line"></div></div>
         <p class="body-text">Sit with it. Breathe. Notice if there is even a small release somewhere in your body when you think it. A little less chest tightness. A bit more air. That is what we are going for.</p>
       </div>
     </div>
   </div>
 
-  <!-- STEP 02: EFT TAPPING -->
-  <div class="practice-step" id="step-2">
+  <!-- STEP 03: RELEASE & CLOSE -->
+  <div class="practice-step tone-pine" id="step-3">
     <div class="step-header">
-      <div class="step-num-large">02</div>
+      <div class="step-num-large">03</div>
       <div class="step-title-block">
-        <div class="step-name">EFT Tapping</div>
-        <div class="step-title-text">Move it through the body</div>
+        <div class="step-name">Part 3 of 3: Release &amp; close</div>
+        <h2 class="step-title-text">Move it through the body, then close</h2>
       </div>
       <div class="step-duration">6 minutes</div>
     </div>
+    <figure class="step-figure"><img src="images/stage1/stage1-part3-eft-tapping.jpg" width="1000" height="1250" alt="Illustrated woman seated at a kitchen counter with her eyes closed, gently tapping beside her eye with two fingers." loading="lazy" decoding="async" style="object-position:50% 6%"></figure>
     <div class="step-body">
-      <p class="body-text">EFT (Emotional Freedom Techniques) involves tapping specific acupressure points on the face and body while staying present with the feeling you identified in Step 1. Research shows it reduces cortisol measurably. The mechanism is direct: tapping sends calming signals to the amygdala, interrupting the stress response at its source.</p>
+      <div class="sub-step" style="border-top:none; padding-top:0; margin-top:0;">
+        <h3 class="sub-step-label">A. Tap it through</h3>
+        <p class="body-text">EFT (Emotional Freedom Techniques) involves tapping specific acupressure points on the face and body while staying present with the feeling you named in Part 1. Research shows it reduces cortisol measurably. The mechanism is direct: tapping sends calming signals to the amygdala, interrupting the stress response at its source.</p>
 
       <div class="eft-diagram-wrap">
         <p class="eft-diagram-label">EFT Tapping Points</p>
-        <svg width="100%" viewBox="0 0 680 720" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" viewBox="0 0 680 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the EFT tapping points on the face and upper body: top of head, eyebrow, side of eye, under eye, under nose, chin, collarbone and under arm.">
           <path d="M310 370 Q300 395 298 430 L382 430 Q380 395 370 370 Z" fill="#E8C5A5"/>
           <path d="M220 480 Q240 440 298 432 L382 432 Q440 440 460 480 L470 580 L210 580 Z" fill="#E8C5A5"/>
           <ellipse cx="340" cy="250" rx="95" ry="115" fill="#F0D0B0"/>
@@ -660,108 +995,93 @@
           <circle cx="309" cy="456" r="7" fill="#A68B65"/>
           <circle cx="448" cy="520" r="7" fill="#A68B65"/>
           <line x1="333" y1="148" x2="180" y2="100" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="174" y="96" text-anchor="end" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Top of Head</text>
+          <text x="174" y="96" text-anchor="end" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Top of Head</text>
           <line x1="295" y1="234" x2="160" y2="210" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="154" y="206" text-anchor="end" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Eyebrow</text>
+          <text x="154" y="206" text-anchor="end" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Eyebrow</text>
           <line x1="395" y1="252" x2="510" y2="232" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="516" y="236" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Side of Eye</text>
+          <text x="516" y="236" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Side of Eye</text>
           <line x1="383" y1="270" x2="510" y2="270" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="516" y="274" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Under Eye</text>
+          <text x="516" y="274" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Under Eye</text>
           <line x1="347" y1="294" x2="510" y2="310" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="516" y="314" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Under Nose</text>
+          <text x="516" y="314" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Under Nose</text>
           <line x1="333" y1="316" x2="160" y2="330" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="154" y="334" text-anchor="end" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Chin</text>
+          <text x="154" y="334" text-anchor="end" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Chin</text>
           <line x1="309" y1="456" x2="160" y2="456" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="154" y="460" text-anchor="end" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Collarbone</text>
+          <text x="154" y="460" text-anchor="end" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Collarbone</text>
           <line x1="455" y1="520" x2="510" y2="520" stroke="#A68B65" stroke-width="0.8" stroke-dasharray="4 3"/>
-          <text x="516" y="524" font-family="Jost, sans-serif" font-size="13" fill="#6B5B4E">Under Arm</text>
+          <text x="516" y="524" font-family="Jost, sans-serif" font-size="21" fill="#6B5B4E">Under Arm</text>
         </svg>
+        <p class="eft-legend">The points: top of head, eyebrow, side of eye, under eye, under nose, chin, collarbone, under arm.</p>
       </div>
+
 
       <a href="https://youtu.be/cmB264VOw80?si=JHWirqkQ_VxkgsMj" target="_blank" rel="noopener" class="resource-card">
         <div class="resource-icon">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="resource-info">
-          <p class="resource-title">Brad Yates &#183; EFT Tapping for Overwhelm</p>
-          <p class="resource-meta">YouTube &#183; ~6 minutes &#183; Opens in new tab</p>
+          <p class="resource-title">Brad Yates: EFT Tapping for Overwhelm</p>
+          <p class="resource-meta">YouTube, about 6 minutes, opens in a new tab</p>
         </div>
         <span class="resource-cta">Watch &#8594;</span>
       </a>
-      <p class="resource-note">Hold the thought or feeling you identified in Step 1 while you tap. Stay present until the video ends. If the charge softens, notice it. If it doesn't, that is okay too.</p>
+      <p class="resource-note">Hold the feeling you named in Part 1 while you tap. Tap for about four minutes, as much of the video as you have time for. If the charge softens, notice it. If it doesn't, that is okay too. Keep the last two minutes for what comes next.</p>
+      </div>
+
+      <div class="sub-step">
+        <h3 class="sub-step-label">B. Gratitude</h3>
+        <p class="body-text">This isn't about pretending the overwhelm wasn't real. It's about shifting your nervous system from a threat orientation toward the present. Genuine gratitude changes what your brain is scanning for. Your body follows.</p>
+        <p class="body-text">Write down 3 things you are genuinely grateful for right now. They don't need to be significant.</p>
+        <ol class="prompt-list">
+          <li class="prompt-item"><span class="prompt-num">1.</span><div style="flex:1;"><div class="prompt-line"></div></div></li>
+          <li class="prompt-item"><span class="prompt-num">2.</span><div style="flex:1;"><div class="prompt-line"></div></div></li>
+          <li class="prompt-item"><span class="prompt-num">3.</span><div style="flex:1;"><div class="prompt-line"></div></div></li>
+        </ol>
+        <p class="body-text" style="margin-top:18px;">Once you've written them, take one breath. Let the sensation settle in your body, not just your head.</p>
+      </div>
+
+      <div class="sub-step">
+        <h3 class="sub-step-label">C. Notice what's here</h3>
+        <p class="body-text">Place one hand on your heart. Notice any sense of ease that's here now. A quiet feeling of being connected to something bigger than the overwhelm. You don't have to make it bigger. Just notice it.</p>
+        <p class="body-text">Then choose one statement that feels steady and believable right now. Not aspirational. Just true.</p>
+        <ul class="affirmation-list">
+          <li>&ldquo;I'm allowed to take this one step at a time.&rdquo;</li>
+          <li>&ldquo;I don't need to carry everything at once.&rdquo;</li>
+          <li>&ldquo;I support myself today.&rdquo;</li>
+        </ul>
+        <p class="body-text" style="margin-top:18px;">Take one slow breath to seal it. Then gently return to your day.</p>
+      </div>
     </div>
   </div>
 
-  <!-- STEP 03: GRATITUDE -->
-  <div class="practice-step" id="step-3">
-    <div class="step-header">
-      <div class="step-num-large">03</div>
-      <div class="step-title-block">
-        <div class="step-name">Gratitude</div>
-        <div class="step-title-text">Return to the present</div>
-      </div>
-      <div class="step-duration">1 minute</div>
-    </div>
-    <div class="step-body">
-      <p class="body-text">This isn't about pretending the overwhelm wasn't real. It's about shifting your nervous system from a threat orientation toward the present. Genuine gratitude changes what your brain is scanning for. Your body follows.</p>
-      <p class="body-text">Write down 3 things you are genuinely grateful for right now. They don't need to be significant.</p>
-      <ol class="prompt-list">
-        <li class="prompt-item">
-          <span class="prompt-num">1.</span>
-          <div style="flex:1;"><div class="prompt-line"></div></div>
-        </li>
-        <li class="prompt-item">
-          <span class="prompt-num">2.</span>
-          <div style="flex:1;"><div class="prompt-line"></div></div>
-        </li>
-        <li class="prompt-item">
-          <span class="prompt-num">3.</span>
-          <div style="flex:1;"><div class="prompt-line"></div></div>
-        </li>
-      </ol>
-      <p class="body-text" style="margin-top:18px;">Once you've written them, take one breath. Let the sensation settle in your body, not just your head.</p>
-    </div>
-  </div>
-
-  <!-- STEP 04: CLOSE -->
-  <div class="practice-step" id="step-4">
-    <div class="step-header">
-      <div class="step-num-large">04</div>
-      <div class="step-title-block">
-        <div class="step-name">Close</div>
-        <div class="step-title-text">Set the tone for what comes next</div>
-      </div>
-      <div class="step-duration">1 minute</div>
-    </div>
-    <div class="step-body">
-      <p class="body-text">Place one hand on your heart. Choose one statement that feels steady and believable right now. Not aspirational. Just true.</p>
-      <ul class="affirmation-list">
-        <li>"I'm allowed to take this one step at a time."</li>
-        <li>"I don't need to carry everything at once."</li>
-        <li>"I support myself today."</li>
-      </ul>
-      <p class="body-text" style="margin-top:18px;">Take one slow breath to seal it. Then gently return to your day.</p>
-    </div>
-  </div>
+  <!-- WHY THIS WORKS: its own block, outside the three parts -->
+  <section class="why-block" id="why-this-works" aria-label="Why this works">
+    <span class="overview-label">Why this works</span>
+    <h2 class="overview-title">You followed something <em>that knew what you needed.</em></h2>
+    <p class="body-text">You opened this page because something in you knew you needed a pause. That was your intuition, and following it is the first part of the practice.</p>
+    <p class="body-text">What you just did is grounded in research on attention, emotion and the nervous system. Slow breathing, feeling what is here, catching the thought and moving it through your body each have science behind them. Together they train mindfulness, the skill of noticing what is happening without being run by it, and acceptance, the skill of letting it be here without judgment.</p>
+    <p class="body-text">You don't need to understand it for it to work. Each time you do it, you build a skill, the way a muscle gets stronger with use. The pause gets easier to find. Stage 2 shows you more of how it works.</p>
+  </section>
 
   <div class="ornament">&#183; &#183; &#183;</div>
 
-  <!-- CLOSING SECTION -->
   <div class="closing-section">
-    <span class="section-label">After 21 days</span>
-    <h2 class="section-title">The spiral still starts.<br><em>But you know what to do.</em></h2>
-    <p class="body-text">Overwhelm often comes from living too far ahead. Today, you chose to come back to yourself. Return to this daily. The shift becomes permanent when the practice does.</p>
-    <p class="body-text">When you reach Day 22, Stage 2 opens. That is where you learn to see what has been underneath the overwhelm all along.</p>
+    <figure class="closing-figure"><img src="images/stage1/stage1-closing-gratitude.jpg" width="720" height="800" alt="Illustrated woman at her desk with her eyes closed and one hand resting on her chest, calm and content." loading="lazy" decoding="async"></figure>
+    <div class="closing-copy">
+    <h2 class="section-title">You showed up for yourself today. <em>That is the practice.</em></h2>
+    <p class="body-text">You don't have to feel perfect to be finished. Notice what's different from when you started. Even a little lighter, a little steadier, counts. Come back tomorrow and do it again.</p>
+    <p class="body-text">Do this daily for 21 days and it becomes a steady place you can return to whenever things get loud. Once you complete these 21 days, Stage 2 opens. That is where you learn to see what has been underneath all along.</p>
+    </div>
   </div>
 
-</div>
+</main>
 
 <!-- FOOTER (matching index exactly) -->
 <footer>
   <div class="footer-top">
     <div class="footer-left">
       <div class="footer-logo">
-        <svg width="22" height="22" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#FAF7F2"/></svg>
+        <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#FAF7F2"/></svg>
         <span class="footer-logo-text">innerbalance101</span>
       </div>
       <div class="footer-tagline">From performing fine to actually being fine.</div>
@@ -809,6 +1129,43 @@
       }
     });
   }
+
+
+  // Guided audio slots: when data-audio-src has a file, the slot becomes a player.
+  document.querySelectorAll('.audio-slot').forEach(function (slot) {
+    var src = (slot.getAttribute('data-audio-src') || '').trim();
+    if (!src) return;
+    var info = slot.querySelector('.audio-placeholder-info');
+    var label = slot.querySelector('.audio-placeholder-label');
+    if (label) label.textContent = 'Listen';
+    var player = document.createElement('audio');
+    player.controls = true; player.preload = 'none'; player.src = src;
+    info.appendChild(player);
+    slot.classList.add('is-live');
+  });
+
+  // Part navigator: highlight the part you're in.
+  (function () {
+    var pills = document.querySelectorAll('.part-pill');
+    var steps = [1, 2, 3].map(function (n) { return document.getElementById('step-' + n); });
+    if (!pills.length || !('IntersectionObserver' in window)) return;
+    var setActive = function (n) { pills.forEach(function (p) { var on = p.getAttribute('data-part') === String(n); p.classList.toggle('is-active', on); if (on) { p.setAttribute('aria-current', 'location'); } else { p.removeAttribute('aria-current'); } }); };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id.replace('step-', '')); });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    steps.forEach(function (s) { if (s) io.observe(s); });
+  })();
+
+  // Overview: open on the first visit, collapsed on return visits. Always open when printing.
+  (function () {
+    var d = document.getElementById('overview');
+    if (!d) return;
+    try {
+      var k = 'ib101-stage1-overview-seen';
+      if (window.localStorage.getItem(k)) { d.removeAttribute('open'); } else { window.localStorage.setItem(k, '1'); }
+    } catch (e) {}
+    window.addEventListener('beforeprint', function () { d.setAttribute('open', ''); });
+  })();
 
   function toggleSmsCta(btn) {
     const box = document.getElementById('sms-cta');
