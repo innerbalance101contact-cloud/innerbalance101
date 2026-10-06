@@ -5,7 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#FAF7F2">
 <title>Stage 2: Clarity | innerbalance101</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face { font-family: 'Jost'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('fonts/jost-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('fonts/cormorant-garamond-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 300 700; font-display: swap; src: url('fonts/cormorant-garamond-latin-wght-italic.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+</style>
 <style>
   :root {
     --warm-white: #FAF7F2;
@@ -1221,6 +1227,23 @@
     .body-text { font-size: 13.5px; }
     .closing-section { display: block; }
   }
+</style>
+<style>
+  /* v5: type floor, tap areas, ornament contrast */
+  .part-pill, .strip-name, .eft-diagram-label, .resource-meta, .resource-cta, .footer-copyright,
+  .when-icon span, .when-icon strong, .overview .strip-name { font-size: max(12px, 1em); }
+  .part-pill, .overview .strip-name, .strip-name { font-size: 12px; }
+  .part-pill { letter-spacing: 0.04em; }
+  .ornament { color: var(--mid); }
+  .footer-link { display: inline-block; padding: 13px 4px; min-height: 44px; box-sizing: border-box; }
+  .print-link { min-height: 44px; padding: 10px 6px; }
+  .sms-cta-link, .ep-link, .resource-cta, .skip-link { min-height: 44px; display: inline-flex; align-items: center; }
+  main a:not([class]), .step-body a:not([class]), .body-text a, .fit-link, .learn-more a { position: relative; }
+  main a:not([class])::after, .step-body a:not([class])::after, .body-text a::after { content: ''; position: absolute; inset: -10px -2px; }
+  .banner-stage, .banner-sep, .stage-label, .meta-label, .strip-time, .sms-optional, .step-duration,
+  .audio-placeholder-label, .audio-placeholder-meta, .how-it-works, .cs-badge, .section-label { font-size: 12px; }
+  .listen-opt strong { font-size: 12px; }
+  .when-icon strong, .draw-card strong, strong { font-size: inherit; }
 </style>
 </head>
 
