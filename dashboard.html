@@ -300,7 +300,7 @@ if (navEl && navToggle) {
 
   function stageCard(s, me) {
     const open = s.open;
-    const href = s.path + '.html';
+    const href = s.path.replace(/\.html$/, '') + '.html';
     let cta = '', meta = '';
     if (!me.system && !me.admin) {
       cta = '<p class="lockline">Included with the system.</p>';
