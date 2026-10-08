@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Members | innerbalance101</title>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1F2F2A;--bark:#2C2420;--paper:#FAF7F2;--linen:#F0E8DC;--clay:#C4A882;--clay-deep:#A68B65;--pine:#4F6861;--soft:#6B5B4E;--line:#DDD0BE;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--bark);font-family:'Jost',sans-serif;font-size:16px;line-height:1.55}
+  header{background:var(--forest);color:var(--paper);padding:20px 24px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  header h1{font-family:'Vollkorn',serif;font-weight:500;font-size:1.5rem;margin:0}
+  header a{color:var(--clay);font-size:.95rem}
+  main{max-width:1100px;margin:0 auto;padding:28px 24px 80px}
+  h2{font-family:'Vollkorn',serif;font-weight:500;font-size:1.3rem;margin:32px 0 10px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  input[type=email],input[type=search]{flex:1;min-width:220px;padding:11px 12px;border:1px solid var(--clay-deep);border-radius:4px;font:inherit;background:var(--paper)}
+  button{font:inherit;cursor:pointer;border-radius:4px;border:1px solid var(--clay-deep);background:var(--clay);color:var(--bark);padding:9px 14px;font-weight:500}
+  button.line{background:transparent}
+  button:disabled{opacity:.5;cursor:default}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.95rem}
+  th{background:var(--linen);font-weight:500;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+  .tag{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.8rem;border:1px solid var(--line)}
+  .on{background:#E4ECE8;border-color:var(--pine);color:var(--forest)}
+  .off{background:#F3E4E0;border-color:#B67C7C;color:#6b3b3b}
+  select{font:inherit;padding:7px;border:1px solid var(--clay-deep);border-radius:4px;background:var(--paper)}
+  .msg{margin:12px 0;padding:10px 14px;border-radius:4px;background:var(--linen);display:none}
+  .msg.show{display:block}.msg.bad{background:#F3E4E0}
+  .wrap{overflow-x:auto}
+  .muted{color:var(--soft);font-size:.9rem}
+</style>
+</head>
+<body>
+<header><h1>Members</h1><span><a href="/dashboard.html">My dashboard</a></span></header>
+<main>
+  <div id="msg" class="msg" role="status"></div>
+
+  <h2>Give access</h2>
+  <div class="card">
+    <div class="row">
+      <input type="email" id="newEmail" placeholder="member@email.com" autocomplete="off">
+      <button id="grantBtn">Give access</button>
+    </div>
+    <p class="muted" style="margin:10px 0 0">Use the email they sign up with. Works for past buyers, gifts and comps. If they already have access, this restores it.</p>
+  </div>
+
+  <h2>Members <span class="muted" id="count"></span></h2>
+  <div class="row" style="margin-bottom:10px"><input type="search" id="q" placeholder="Search by email"></div>
+  <div class="wrap"><table>
+    <thead><tr><th>Email</th><th>Access</th><th>Progress (days)</th><th>Open stages up to</th><th></th></tr></thead>
+    <tbody id="rows"><tr><td colspan="5" class="muted">Loading…</td></tr></tbody>
+  </table></div>
+  <p class="muted">"Progress rule" means Stage 2 opens after 21 days of Stage 1, and Stage 3 after 21 days of Stage 2. Choosing a stage opens everything up to it for that person regardless of progress. Pausing keeps their progress.</p>
+
+  <h2>Purchases that matched nothing</h2>
+  <div id="unmatched" class="card muted">None.</div>
+</main>
+<script>
+  const $ = (id) => document.getElementById(id);
+  let DATA = { members: [], unmatched: [], stageLabels: [] };
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  function show(t, bad) { const m = $('msg'); m.textContent = t; m.className = 'msg show' + (bad ? ' bad' : ''); }
+
+  async function api(method, body) {
+    const r = await fetch('/api/admin', { method, headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: body ? JSON.stringify(body) : undefined });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || ('Error ' + r.status));
+    return j;
+  }
+  async function load() {
+    try { DATA = await api('GET'); render(); }
+    catch (e) { show('Could not load members: ' + e.message, true); }
+  }
+  function render() {
+    const q = $('q').value.trim().toLowerCase();
+    const list = DATA.members.filter((m) => !q || m.email.includes(q));
+    $('count').textContent = '(' + DATA.members.filter((m) => m.active).length + ' active of ' + DATA.members.length + ')';
+    $('rows').innerHTML = list.length ? list.map((m) => {
+      const opt = (v, t) => '<option value="' + v + '"' + ((m.unlockThrough === null ? 'null' : String(m.unlockThrough)) === v ? ' selected' : '') + '>' + t + '</option>';
+      return '<tr data-email="' + esc(m.email) + '"><td>' + esc(m.email) + '</td>' +
+        '<td><span class="tag ' + (m.active ? 'on' : 'off') + '">' + (m.active ? 'Active' : (m.revoked ? 'Paused' : 'No access')) + '</span></td>' +
+        '<td>' + m.stages.map((n) => n + '/' + DATA.daysPerStage).join(' · ') + '</td>' +
+        '<td><select data-act="stage">' + opt('null', 'Progress rule') + opt('0', 'Stage 1') + opt('1', 'Stage 2') + opt('2', 'Stage 3') + '</select></td>' +
+        '<td>' + (m.active ? '<button class="line" data-act="revoke">Pause</button>' : '<button data-act="grant">Restore</button>') + '</td></tr>';
+    }).join('') : '<tr><td colspan="5" class="muted">No members yet.</td></tr>';
+    $('unmatched').innerHTML = DATA.unmatched.length
+      ? DATA.unmatched.map((u) => esc(u.email) + ': ' + esc((u.unmatched || []).join(', '))).join('<br>')
+      : 'None.';
+  }
+  async function act(body, ok) {
+    try { await api('POST', body); show(ok); await load(); }
+    catch (e) { show(e.message, true); await load(); }
+  }
+  $('grantBtn').onclick = () => {
+    const email = $('newEmail').value.trim();
+    act({ action: 'grant', email }, 'Access given to ' + email + '.').then(() => { $('newEmail').value = ''; });
+  };
+  $('q').oninput = render;
+  $('rows').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    const email = b.closest('tr').dataset.email;
+    if (b.dataset.act === 'revoke') { if (confirm('Pause access for ' + email + '? Their progress is kept.')) act({ action: 'revoke', email }, 'Paused ' + email + '.'); }
+    if (b.dataset.act === 'grant') act({ action: 'grant', email }, 'Restored ' + email + '.');
+  });
+  $('rows').addEventListener('change', (e) => {
+    const s = e.target.closest('select'); if (!s) return;
+    const email = s.closest('tr').dataset.email;
+    act({ action: 'stage', email, unlockThrough: s.value === 'null' ? null : Number(s.value) }, 'Updated stages for ' + email + '.');
+  });
+  load();
+</script>
+</body>
+</html>

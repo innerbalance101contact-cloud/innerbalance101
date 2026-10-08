@@ -23,7 +23,7 @@ export async function onRequestGet({ request, env }) {
   const stages = STAGES.map((s, i) => ({
     slug: s.slug, label: s.label, path: s.path + ".html",
     ...summaries[s.slug],
-    open: hasSystem && (admin || stageOpen(progress, i)),
+    open: hasSystem && (admin || stageOpen(progress, i, rec)),
   }));
 
   return json({

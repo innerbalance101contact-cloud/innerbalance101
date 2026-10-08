@@ -40,7 +40,7 @@ export async function onRequestPost({ request, env }) {
   const [rec, progress] = await Promise.all([getAccessRecord(kv, session.email), getProgress(kv, session.email)]);
 
   if (!admin && !canOpenStages(rec)) return json({ error: "no access" }, 403);
-  if (!admin && !stageOpen(progress, stageIndex)) return json({ error: "stage not open yet" }, 403);
+  if (!admin && !stageOpen(progress, stageIndex, rec)) return json({ error: "stage not open yet" }, 403);
 
   const entry = progress.stages[stage] || { days: [] };
   const set = new Set(entry.days);

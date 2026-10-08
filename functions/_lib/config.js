@@ -49,4 +49,5 @@ export const STAGE_REQUIRES = ["inner-balance-system"];
 export const PROTECTED = [
   ...STAGES.map((s, i) => ({ path: s.path, kind: "stage", stageIndex: i })),
   { path: "/dashboard", kind: "account" },
+  { path: "/admin", kind: "admin" },
 ];

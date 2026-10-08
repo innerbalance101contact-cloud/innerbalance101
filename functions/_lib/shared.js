@@ -196,8 +196,11 @@ export function streakOf(days, todayStr) {
 }
 
 // Is this stage open for this person, given sequencing?
-export function stageOpen(progress, stageIndex) {
+// `rec.unlockThrough` (set by an admin) opens stages up to that index (0, 1 or 2)
+// regardless of progress.
+export function stageOpen(progress, stageIndex, rec = null) {
   if (!STAGES_ARE_SEQUENTIAL || stageIndex === 0) return true;
+  if (Number.isInteger(rec?.unlockThrough) && stageIndex <= rec.unlockThrough) return true;
   return stageSummary(progress, STAGES[stageIndex - 1].slug).complete;
 }
 

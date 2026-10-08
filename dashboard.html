@@ -336,7 +336,7 @@ if (navEl && navToggle) {
         '<a class="btn" href="/the-system.html">See the system</a></div><div style="height:48px"></div>';
     }
     html += '<div class="stages">' + me.stages.map((s) => stageCard(s, me)).join('') + '</div>';
-    html += '<div class="account"><p>Signed in as ' + esc(me.email) + '</p><button type="button" class="btn-line" id="out">Sign out</button></div>';
+    html += '<div class="account"><p>Signed in as ' + esc(me.email) + (me.admin ? ' · <a href="/admin">Manage members</a>' : '') + '</p><button type="button" class="btn-line" id="out">Sign out</button></div>';
     root.innerHTML = html;
     document.getElementById('out').onclick = async () => { await signOut(); location.href = '/login.html'; };
   }

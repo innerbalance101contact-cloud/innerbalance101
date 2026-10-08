@@ -36,6 +36,7 @@ export async function onRequest(context) {
 
   const kv = kvOf(env);
   const admin = isAdmin(session.email, env);
+  if (rule.kind === "admin") return admin ? locked(await next()) : redirect("/dashboard.html");
   if (admin) return locked(await next());
 
   const rec = await getAccessRecord(kv, session.email);
@@ -44,7 +45,7 @@ export async function onRequest(context) {
     if (!canOpenStages(rec)) return redirect("/dashboard.html?locked=system");
     if (rule.stageIndex > 0) {
       const progress = await getProgress(kv, session.email);
-      if (!stageOpen(progress, rule.stageIndex)) return redirect("/dashboard.html?locked=sequence");
+      if (!stageOpen(progress, rule.stageIndex, rec)) return redirect("/dashboard.html?locked=sequence");
     }
     return locked(await next());
   }
