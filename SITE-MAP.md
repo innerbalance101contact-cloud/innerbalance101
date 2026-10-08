@@ -24,6 +24,7 @@ Last organised: 8 October 2026. Site root is the repo root, so live pages stay a
 
 ## 3. Plumbing (do not move)
 - functions/ (Cloudflare Pages functions: checkout, Stripe webhook, Kit assessment subscribe)
+- Payment code (functions/create-checkout.js, functions/stripe-webhook.js, js/stripe.js): decision pending, do not touch yet
 - js/ (auth.js, stripe.js)
 - _redirects, robots.txt, sitemap.xml
 - functions/1, js/1, Resources/temp are empty placeholder files that keep folders in git
