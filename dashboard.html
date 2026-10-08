@@ -1,329 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Dashboard | innerbalance101</title>
-<meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#FAF7F2">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex, nofollow">
+<title>Your dashboard | innerbalance101</title>
+<meta name="description" content="Your progress through the innerbalance101 system.">
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --pine:#4F6861;--mist:#D9E1DE;--pine-deep:#3F5751;
-    --clay:var(--pine);--clay-light:var(--mist);--clay-deep:var(--pine-deep);
-    --warm-white:#FAF7F2;--linen:#F0E8DC;--deep:#2C2420;--soft:#6B5B4E;
+  /* ─── TOKENS ───────────────────────────────────────────────────────
+     Deep earth palette. Forest and Bark carry the page, Clay is the
+     only action colour, Pine structures, Storm Blue explains, Dusty
+     Rose appears once (the founder quote).                           */
+  :root {
+    --forest:#1F2F2A;
+    --forest-raise:#2B403A;
+    --pine:#4F6861;
+    --pine-deep:#3F5751;
+    --bark:#2C2420;
+    --bark-soft:#5F5046;
+    --paper:#FAF7F2;
+    --linen:#F0E8DC;
+    --clay:#C4A882;
+    --clay-deep:#A68B65;
+    --rose:#B67C7C;
+    --rose-on-dark:#C48E8E;
+    --rose-deep:#8A5050;
+    --blue:#6E8397;
+    --blue-light:#AFC1CF;
+    --on-dark:#FAF7F2;
+    --on-dark-2:rgba(250,247,242,0.8);
+    --on-dark-3:rgba(250,247,242,0.62);
+    --rule-dark:rgba(250,247,242,0.18);
+    --rule-light:rgba(44,36,32,0.16);
+    --serif:'Vollkorn',Georgia,'Times New Roman',serif;
+    --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
     --nav-h:64px;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--deep);min-height:100vh;}
 
-  /* ── NAV ── */
-  nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--warm-white);border-bottom:1px solid rgba(196,168,130,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100;}
-  .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-  .nav-logo-img{height:28px;width:auto;}
-  .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;letter-spacing:0.08em;color:var(--deep);}
-  .nav-right{display:flex;align-items:center;gap:24px;}
-  .nav-user{font-size:0.78rem;font-weight:300;color:var(--soft);}
-  .nav-signout{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft);background:none;border:none;cursor:pointer;transition:color 0.2s;padding:0;}
-  .nav-signout:hover{color:var(--clay-deep);}
-
-  /* ── LAYOUT ── */
-  .page{max-width:1100px;margin:0 auto;padding:calc(var(--nav-h) + 56px) 48px 80px;}
-
-  /* ── HEADER ── */
-  .dash-header{margin-bottom:56px;}
-  .dash-eyebrow{font-size:0.66rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:10px;}
-  .dash-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;line-height:1.15;color:var(--deep);margin-bottom:8px;}
-  .dash-subtitle{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.6;}
-
-  /* ── LOADING ── */
-  #loadingState{text-align:center;padding:80px 0;font-size:0.88rem;color:var(--soft);font-weight:300;letter-spacing:0.05em;}
-
-  /* ── SECTIONS ── */
-  .section{margin-bottom:56px;}
-  .section-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--deep);margin-bottom:4px;}
-  .section-sub{font-size:0.8rem;font-weight:300;color:var(--soft);margin-bottom:24px;}
-  .section-divider{border:none;border-top:1px solid rgba(196,168,130,0.25);margin-bottom:28px;}
-
-  /* ── ASSESSMENT RESULT ── */
-  .assessment-card{background:var(--linen);border:1px solid rgba(196,168,130,0.3);padding:32px 36px;display:flex;gap:40px;align-items:flex-start;}
-  .assessment-score{flex-shrink:0;text-align:center;}
-  .assessment-score-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--clay-deep);line-height:1;}
-  .assessment-score-label{font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--soft);margin-top:4px;}
-  .assessment-details h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--deep);margin-bottom:8px;}
-  .assessment-details p{font-size:0.88rem;font-weight:300;color:var(--soft);line-height:1.65;max-width:560px;}
-  .retake-link{display:inline-block;margin-top:14px;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--clay);text-decoration:none;transition:color 0.2s;}
-  .retake-link:hover{color:var(--clay-deep);}
-  .no-assessment{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.65;}
-  .no-assessment a{color:var(--clay);text-decoration:none;font-weight:400;}
-  .no-assessment a:hover{color:var(--clay-deep);}
-
-  /* ── CONTENT GRID ── */
-  .content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .content-card{background:var(--warm-white);border:1px solid rgba(196,168,130,0.3);padding:28px 28px 24px;display:flex;flex-direction:column;}
-  .content-card--locked{opacity:0.55;pointer-events:none;}
-  .content-card--featured{background:var(--deep);border-color:var(--deep);color:var(--warm-white);}
-  .content-kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:10px;}
-  .content-card--featured .content-kicker{color:rgba(217,225,222,0.8);}
-  .content-card--locked .content-kicker::after{content:' · locked';}
-  .content-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--deep);line-height:1.25;margin-bottom:8px;}
-  .content-card--featured .content-name{color:var(--warm-white);}
-  .content-desc{font-size:0.82rem;font-weight:300;color:var(--soft);line-height:1.6;flex:1;margin-bottom:20px;}
-  .content-card--featured .content-desc{color:rgba(250,247,242,0.7);}
-  .content-cta{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--deep);text-decoration:none;padding:10px 18px;border:1px solid rgba(196,168,130,0.4);transition:background 0.2s,border-color 0.2s;align-self:flex-start;}
-  .content-cta:hover{background:var(--linen);border-color:var(--clay);}
-  .content-card--featured .content-cta{color:var(--warm-white);border-color:rgba(217,225,222,0.4);}
-  .content-card--featured .content-cta:hover{background:rgba(255,255,255,0.08);}
-  .btn-buy{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-white);background:var(--clay);border:none;padding:10px 18px;cursor:pointer;transition:background 0.2s;align-self:flex-start;}
-  .btn-buy:hover{background:var(--clay-deep);}
-
-  /* ── PROGRESS BAR ── */
-  .progress-wrap{margin-bottom:10px;}
-  .progress-label{display:flex;justify-content:space-between;font-size:0.72rem;font-weight:300;color:var(--soft);margin-bottom:6px;}
-  .progress-bar{height:3px;background:rgba(196,168,130,0.2);border-radius:2px;overflow:hidden;}
-  .progress-fill{height:100%;background:var(--clay);border-radius:2px;transition:width 0.5s ease;}
-
-  /* ── SUBSCRIPTION ── */
-  .sub-card{background:var(--warm-white);border:1px solid rgba(196,168,130,0.3);padding:28px 32px;}
-  .sub-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
-  .sub-info h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--deep);margin-bottom:4px;}
-  .sub-info p{font-size:0.82rem;font-weight:300;color:var(--soft);line-height:1.6;}
-  .sub-badge{font-size:0.65rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;padding:5px 12px;border-radius:2px;background:var(--mist);color:var(--pine-deep);}
-  .sub-badge.active{background:#E8F0ED;color:#2A4A41;}
-  .sub-actions{display:flex;gap:12px;flex-wrap:wrap;}
-  .btn-outline{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:9px 18px;border:1px solid rgba(196,168,130,0.4);background:none;color:var(--deep);cursor:pointer;transition:background 0.2s,border-color 0.2s;}
-  .btn-outline:hover{background:var(--linen);border-color:var(--clay);}
-
-  /* ── EMPTY STATE ── */
-  .empty-state{background:var(--linen);padding:40px 36px;text-align:center;}
-  .empty-state p{font-size:0.9rem;font-weight:300;color:var(--soft);line-height:1.65;max-width:420px;margin:0 auto 20px;}
-  .btn-cta{display:inline-block;font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--warm-white);background:var(--deep);padding:12px 24px;text-decoration:none;transition:background 0.2s;}
-  .btn-cta:hover{background:var(--clay-deep);}
-
-  @media(max-width:860px){
-    .page{padding:calc(var(--nav-h)+40px) 28px 60px;}
-    .content-grid{grid-template-columns:1fr 1fr;}
-    .assessment-card{flex-direction:column;gap:20px;}
-    nav{padding:0 24px;}
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:18px; scroll-padding-top:calc(var(--nav-h) + 16px); }
+  @media (prefers-reduced-motion:no-preference) { html { scroll-behavior:smooth; } }
+  body {
+    font-family:var(--sans);
+    font-size:1rem;
+    line-height:1.65;
+    color:var(--bark);
+    background:var(--paper);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    font-variant-numeric:lining-nums;
   }
-  @media(max-width:560px){
-    .content-grid{grid-template-columns:1fr;}
-    .dash-title{font-size:2rem;}
+  img { display:block; max-width:100%; }
+  a { color:inherit; }
+  p { max-width:62ch; }
+  h1, h2, h3 { font-family:var(--serif); font-weight:500; letter-spacing:-0.012em; text-wrap:balance; }
+  .bubble-after p, .hero-sub, .claim, .close blockquote { text-wrap:balance; }
+  h1, h2, h3, .bubble-after p, .offer-price { word-spacing:0.05em; }
+
+  :focus-visible { outline:3px solid var(--pine); outline-offset:3px; }
+  .on-dark :focus-visible, nav :focus-visible.on-dark { outline-color:var(--clay); }
+
+  .skip-link {
+    position:absolute; left:16px; top:-60px; z-index:200;
+    background:var(--bark); color:var(--paper); padding:12px 18px; text-decoration:none;
   }
+  .skip-link:focus { top:12px; }
+
+  .wrap { max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,64px); }
+  .on-dark { color:var(--on-dark); }
+  .on-dark p { color:var(--on-dark-2); }
+
+  /* ─── ACTION ───────────────────────────────────────────────────────
+     One button style for the whole page. Clay is reserved for action. */
+  .btn {
+    display:inline-flex; align-items:center; justify-content:center;
+    min-height:54px; padding:14px 32px;
+    background:var(--clay); color:var(--bark);
+    font-family:var(--sans); font-size:1.02rem; font-weight:500; line-height:1.2;
+    text-decoration:none; border-radius:3px;
+    transition:background-color 0.2s ease;
+  }
+  .btn:hover { background:#D3BA97; }
+  .btn-small { min-height:44px; padding:10px 20px; font-size:0.92rem; }
+  .btn-note { font-size:0.9rem; margin-top:12px; color:var(--bark-soft); }
+  .on-dark .btn-note { color:var(--on-dark-3); }
+  .link {
+    font-size:1rem; color:inherit; text-decoration:underline;
+    text-decoration-thickness:1px; text-underline-offset:0.28em;
+    display:inline-block; padding:10px 0;
+  }
+  .link:hover { text-decoration-thickness:2px; }
+  .veo-inner .btn { white-space:nowrap; }
+  figcaption a { display:inline-block; padding:12px 0; min-height:44px; }
+
+  /* ─── NAV ──────────────────────────────────────────────────────────── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center; gap:24px;
+    height:var(--nav-h); padding:0 clamp(20px,5vw,64px);
+    background:rgba(250,247,242,0.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--rule-light);
+  }
+  .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; min-height:44px; }
+  .nav-logo-text { font-family:var(--serif); font-size:1.28rem; font-weight:500; letter-spacing:0.01em; color:var(--bark); }
+  .nav-divider { width:1px; height:24px; background:var(--clay); }
+  .nav-links { display:flex; gap:30px; align-items:center; margin-left:auto; }
+  .nav-links a {
+    font-size:0.96rem; color:var(--bark-soft); text-decoration:none;
+    padding:12px 0; transition:color 0.2s;
+  }
+  .nav-links a:hover { color:var(--bark); text-decoration:underline; text-underline-offset:0.3em; }
+  .nav-mobile-toggle {
+    display:none; align-items:center; justify-content:center;
+    width:44px; height:44px; border:1px solid var(--rule-light); border-radius:6px;
+    background:transparent; color:var(--bark); cursor:pointer; flex-shrink:0;
+  }
+  .nav-mobile-toggle svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; }
+
+
+  .page-hero { background:var(--forest); margin-top:var(--nav-h); padding:clamp(64px,12vh,140px) 0 clamp(64px,11vh,128px); }
+  .page-hero h1 { font-size:clamp(2rem,4.6vw,4rem); line-height:1.05; font-weight:500; letter-spacing:-0.022em; margin-bottom:clamp(28px,5vh,48px); }
+  .page-hero h1 span { display:block; }
+  .h1-quiet { color:rgba(250,247,242,0.5); }
+  .page-hero .lead { font-size:clamp(1.15rem,1.7vw,1.4rem); line-height:1.5; color:var(--on-dark) !important; max-width:34ch; margin-bottom:32px; text-wrap:balance; }
+
+  footer { background:var(--forest); color:var(--on-dark); padding:64px 0 32px; }
+  .footer-top { display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .footer-logo { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .footer-logo-text { font-family:var(--serif); font-size:1.25rem; font-weight:500; color:var(--paper); }
+  .footer-tagline { font-family:var(--serif); font-size:1.1rem; color:var(--on-dark-2); max-width:24ch; line-height:1.4; }
+  .footer-right { display:flex; flex-direction:column; align-items:flex-end; gap:16px; }
+  .footer-links { display:flex; gap:28px; flex-wrap:wrap; }
+  .footer-link { color:var(--on-dark-2); text-decoration:none; font-size:0.98rem; padding:11px 0; display:inline-block; }
+  .footer-link:hover { color:var(--paper); text-decoration:underline; text-underline-offset:0.3em; }
+  .social-links { display:flex; gap:4px; }
+  .social-link { display:grid; place-items:center; min-width:44px; min-height:44px; color:var(--on-dark-2); }
+  .social-link:hover { color:var(--paper); }
+  .social-link svg { width:20px; height:20px; fill:currentColor; }
+  .footer-bottom { margin-top:48px; padding-top:24px; border-top:1px solid var(--rule-dark); font-size:0.9rem; color:var(--on-dark-3); }
+
+  @media (max-width:960px){ .footer-right{align-items:flex-start;} }
+  @media (max-width:640px){
+    :root{--nav-h:60px;}
+    .nav-links,.nav-cta{display:none;}
+    .nav-mobile-toggle{display:inline-flex;}
+    nav.nav-open{height:auto;min-height:var(--nav-h);flex-wrap:wrap;align-content:flex-start;padding-bottom:16px;}
+    nav.nav-open .nav-links{display:flex;width:100%;order:3;flex-direction:column;align-items:flex-start;gap:2px;padding-top:8px;margin-left:0;}
+    nav.nav-open .nav-cta{display:inline-flex;order:4;margin-top:10px;}
+    .nav-logo-text{font-size:1.1rem;}
+    .btn{width:100%;}
+    .footer-top{flex-direction:column;}
+  }
+  html{color-scheme:light;}
+
+
+  .dash-sec{padding:clamp(48px,7vw,96px) 0 clamp(72px,10vw,128px);}
+  .notice{max-width:62ch;margin:0 0 32px;padding:16px 18px;border-left:3px solid var(--clay-deep);background:var(--linen);font-size:1rem;}
+  .notice a{text-underline-offset:0.28em;}
+  .stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.5vw,28px);margin-bottom:56px;}
+  .stage{background:var(--linen);border:1px solid var(--rule-light);border-radius:3px;padding:26px 24px;display:flex;flex-direction:column;}
+  .stage.locked{background:transparent;border-style:dashed;}
+  .stage .kicker{font-size:0.78rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--pine-deep);margin-bottom:10px;}
+  .stage h3{font-size:1.4rem;line-height:1.15;margin-bottom:6px;}
+  .stage .desc{font-size:0.98rem;color:var(--bark-soft);margin-bottom:18px;}
+  .count{font-family:var(--serif);font-size:1.7rem;line-height:1.1;margin-bottom:10px;}
+  .bar{height:4px;background:rgba(79,104,97,0.18);margin-bottom:14px;overflow:hidden;}
+  .fill{height:100%;background:var(--pine);}
+  .meta{font-size:0.92rem;color:var(--bark-soft);margin-bottom:18px;}
+  .stage .btn{margin-top:auto;}
+  .stage .lockline{margin-top:auto;font-size:0.92rem;color:var(--bark-soft);}
+  .account{border-top:1px solid var(--rule-light);padding-top:28px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;}
+  .account p{font-size:0.98rem;color:var(--bark-soft);}
+  .btn-line{background:none;border:1px solid rgba(44,36,32,0.35);border-radius:3px;min-height:44px;padding:8px 20px;font:500 0.95rem var(--sans);color:var(--bark);cursor:pointer;}
+  .btn-line:hover{background:var(--linen);}
+  .buy{max-width:62ch;}
+  .buy h2{font-size:1.7rem;margin-bottom:12px;}
+  .buy p{margin-bottom:22px;font-size:1.08rem;}
+  @media (max-width:900px){.stages{grid-template-columns:minmax(0,1fr);}}
+
 </style>
 </head>
 <body>
-
-<nav>
-  <a href="/" class="nav-logo">
-    <img src="/images/Logo IB101-1.png" alt="innerbalance101" class="nav-logo-img">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main">
+  <a href="https://innerbalance101.com/" class="nav-logo" aria-label="innerbalance101 home">
+    <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4" fill="none"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg>
+    <div class="nav-divider"></div>
     <span class="nav-logo-text">innerbalance101</span>
   </a>
-  <div class="nav-right">
-    <span class="nav-user" id="navUserName"></span>
-    <button class="nav-signout" onclick="handleSignOut()">Sign out</button>
+  <button class="nav-mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  </button>
+  <div class="nav-links" id="site-nav-links">
+    <a href="/the-system.html">The System</a>
+    <a href="/about.html">About</a>
+    <a href="https://innerbalance101.com/blog/">Blog</a>
+    <a href="/contact.html">Contact</a>
   </div>
+  <a href="https://innerbalance101.com/emotional_load_assessment.html" class="btn btn-small nav-cta">Take the free assessment</a>
 </nav>
+<main id="main">
 
-<main class="page" id="mainContent" style="display:none;">
-
-  <!-- HEADER -->
-  <div class="dash-header">
-    <p class="dash-eyebrow">Your dashboard</p>
-    <h1 class="dash-title" id="dashGreeting">Welcome back.</h1>
-    <p class="dash-subtitle">Your practices, progress, and account — all in one place.</p>
+<header class="page-hero on-dark" style="padding-bottom:clamp(40px,7vh,80px)">
+  <div class="wrap">
+    <h1 id="hello">Your dashboard.</h1>
+    <p class="lead" id="lead">One stage at a time. Missing a day does not reset anything.</p>
   </div>
+</header>
 
-  <!-- ASSESSMENT RESULT -->
-  <section class="section">
-    <h2 class="section-title">Emotional Load Assessment</h2>
-    <p class="section-sub">Your most recent result</p>
-    <hr class="section-divider">
-    <div id="assessmentContent">
-      <p class="no-assessment">You haven't completed the assessment yet. <a href="/emotional_load_assessment.html">Take it now — it takes 5 minutes.</a></p>
-    </div>
-  </section>
-
-  <!-- PURCHASED CONTENT -->
-  <section class="section">
-    <h2 class="section-title">Your Practices</h2>
-    <p class="section-sub">Content you have access to</p>
-    <hr class="section-divider">
-    <div id="practicesContent"></div>
-  </section>
-
-  <!-- THE INNER BALANCE SYSTEM -->
-  <section class="section" id="systemSection" style="display:none;">
-    <h2 class="section-title">The Inner Balance System</h2>
-    <p class="section-sub">Your three-stage journey</p>
-    <hr class="section-divider">
-    <div id="systemContent"></div>
-  </section>
-
-  <!-- SUBSCRIPTION / ACCOUNT -->
-  <section class="section">
-    <h2 class="section-title">Account</h2>
-    <p class="section-sub">Billing and access</p>
-    <hr class="section-divider">
-    <div id="accountContent"></div>
-  </section>
+<section class="dash-sec">
+  <div class="wrap" id="root" aria-live="polite">
+    <p>Loading your progress.</p>
+  </div>
+</section>
 
 </main>
-
-<div id="loadingState">Loading your dashboard…</div>
-
-<script type="module">
-  import { requireAuth, getUserProfile, signOut, onAuthChange } from '/js/auth.js';
-  import { checkout, hasPurchased, showPurchaseToast } from '/js/stripe.js';
-
-  // All five standalone guides
-  const GUIDES = [
-    { slug:'overwhelm-guide',   label:'Overwhelm',   href:'/overwhelm-10min.html'  },
-    { slug:'pressure-guide',    label:'Pressure',    href:'/pressure-10min.html'   },
-    { slug:'self-doubt-guide',  label:'Self-Doubt',  href:'/self-doubt-10min.html' },
-    { slug:'uncertainty-guide', label:'Uncertainty', href:'/uncertainty-10min.html'},
-    { slug:'guilt-guide',       label:'Guilt',       href:'/guilt-10min.html'      },
-  ];
-
-  const STAGES = [
-    { slug:'stage-1', label:'Stage 1 — SOS',           href:'/stage1-sos.html',          desc:'Immediate regulation. 21 days.'          },
-    { slug:'stage-2', label:'Stage 2 — Clarity',       href:'/stage2-clarity.html',      desc:'Understanding the pattern. 21 days.'     },
-    { slug:'stage-3', label:'Stage 3 — Inner Balance', href:'/stage3-inner-balance.html',desc:'Sustainable inner world. 21 days.'        },
-  ];
-
-  // ── check for post-purchase redirect ────────────────────────────────────────
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('purchase') === 'success') {
-    showPurchaseToast('Purchase complete — your content is now unlocked.');
-    window.history.replaceState({}, '', '/dashboard.html');
-  }
-
-  // ── require auth (redirects to /login.html if not signed in) ───────────────
-  const user = await requireAuth();
-
-  // ── load profile ────────────────────────────────────────────────────────────
-  const profile = await getUserProfile();
-
-  // ── update nav ──────────────────────────────────────────────────────────────
-  const firstName = (profile?.displayName || user.displayName || 'there').split(' ')[0];
-  document.getElementById('navUserName').textContent = user.email;
-  document.getElementById('dashGreeting').textContent = `Welcome back, ${firstName}.`;
-
-  // ── show page ────────────────────────────────────────────────────────────────
-  document.getElementById('loadingState').style.display = 'none';
-  document.getElementById('mainContent').style.display  = 'block';
-
-  const purchases = profile?.purchases || [];
-
-  // ────────────────────────────────────────────────────────────────────────────
-  // ASSESSMENT RESULT
-  // ────────────────────────────────────────────────────────────────────────────
-  const assessment = profile?.assessment;
-  if (assessment) {
-    document.getElementById('assessmentContent').innerHTML = `
-      <div class="assessment-card">
-        <div class="assessment-score">
-          <div class="assessment-score-num">${assessment.score ?? '—'}</div>
-          <div class="assessment-score-label">/ ${assessment.maxScore ?? 100}</div>
+<footer class="on-dark">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#FAF7F2"/></svg>
+          <span class="footer-logo-text">innerbalance101</span>
         </div>
-        <div class="assessment-details">
-          <h3>${assessment.category || 'Your result'}</h3>
-          <p>${assessment.summary || ''}</p>
-          <a href="/emotional_load_assessment.html" class="retake-link">Retake assessment →</a>
+        <div class="footer-tagline">From performing fine to actually being fine.</div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="/the-system.html" class="footer-link">The System</a>
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="https://innerbalance101.com/blog/" class="footer-link">Blog</a>
+          <a href="/contact.html" class="footer-link">Contact</a>
         </div>
-      </div>`;
-  }
-
-  // ────────────────────────────────────────────────────────────────────────────
-  // PRACTICES
-  // ────────────────────────────────────────────────────────────────────────────
-  const hasBundleOrSystem = hasPurchased(purchases, 'practice-bundle')
-                         || hasPurchased(purchases, 'inner-balance-system');
-
-  const practiceCards = GUIDES.map(g => {
-    const owned = hasBundleOrSystem || hasPurchased(purchases, g.slug);
-    if (owned) {
-      return `
-        <div class="content-card">
-          <p class="content-kicker">10-min practice</p>
-          <h3 class="content-name">${g.label}</h3>
-          <p class="content-desc">Your somatic practice guide for ${g.label.toLowerCase()}.</p>
-          <a href="${g.href}" class="content-cta">Open practice →</a>
-        </div>`;
-    } else {
-      return `
-        <div class="content-card content-card--locked">
-          <p class="content-kicker">10-min practice</p>
-          <h3 class="content-name">${g.label}</h3>
-          <p class="content-desc">Your somatic practice guide for ${g.label.toLowerCase()}.</p>
-          <button class="btn-buy" onclick="IB101Stripe.checkout('${g.slug}','${user.email}','${user.uid}')">Unlock →</button>
-        </div>`;
-    }
-  }).join('');
-
-  const hasPurchasedAnything = purchases.length > 0;
-
-  document.getElementById('practicesContent').innerHTML = hasPurchasedAnything || true
-    ? `<div class="content-grid">${practiceCards}</div>`
-    : `<div class="empty-state">
-        <p>You don't have any practices yet. The Practice Bundle gives you all five guides.</p>
-        <button class="btn-cta" onclick="IB101Stripe.checkout('practice-bundle','${user.email}','${user.uid}')">Get the Practice Bundle</button>
-       </div>`;
-
-  // ────────────────────────────────────────────────────────────────────────────
-  // INNER BALANCE SYSTEM (only show if purchased)
-  // ────────────────────────────────────────────────────────────────────────────
-  if (hasPurchased(purchases, 'inner-balance-system')) {
-    document.getElementById('systemSection').style.display = 'block';
-    const progress = profile?.progress || {};
-
-    const stageCards = STAGES.map((s, i) => {
-      const pct = progress[s.slug] ?? 0;
-      const isCurrent = i === 0 || progress[STAGES[i - 1]?.slug] >= 100;
-      return `
-        <div class="content-card${i === 0 ? ' content-card--featured' : ''}">
-          <p class="content-kicker">Stage ${i + 1} · ${pct}% complete</p>
-          <h3 class="content-name">${s.label}</h3>
-          <p class="content-desc">${s.desc}</p>
-          <div class="progress-wrap">
-            <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-          </div>
-          <a href="${s.href}" class="content-cta">Continue →</a>
-        </div>`;
-    }).join('');
-
-    document.getElementById('systemContent').innerHTML =
-      `<div class="content-grid">${stageCards}</div>`;
-  }
-
-  // ────────────────────────────────────────────────────────────────────────────
-  // ACCOUNT / SUBSCRIPTION
-  // ────────────────────────────────────────────────────────────────────────────
-  const purchaseList = purchases.length
-    ? purchases.map(p => `<li style="font-size:0.85rem;font-weight:300;color:var(--soft);padding:4px 0;">${p.replace(/-/g,' ')}</li>`).join('')
-    : '<li style="font-size:0.85rem;font-weight:300;color:var(--soft);">No purchases yet</li>';
-
-  document.getElementById('accountContent').innerHTML = `
-    <div class="sub-card">
-      <div class="sub-row">
-        <div class="sub-info">
-          <h3>${user.email}</h3>
-          <p>Member since ${profile?.createdAt?.toDate?.()?.toLocaleDateString('en-GB', {month:'long',year:'numeric'}) || 'recently'}</p>
-          <ul style="list-style:none;margin-top:12px;">${purchaseList}</ul>
-        </div>
-        <div class="sub-actions">
-          <button class="btn-outline" onclick="window.location.href='mailto:hello@innerbalance101.com?subject=Account%20query'">Contact support</button>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.83v2.19h.05c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.14V24h-4v-7.2c0-1.72-.03-3.93-2.39-3.93-2.39 0-2.76 1.87-2.76 3.8V24h-4V8z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg>
+          </a>
         </div>
       </div>
-    </div>`;
+    </div>
+    <div class="footer-bottom">&copy; 2026 innerbalance101. All rights reserved.</div>
+  </div>
+</footer>
+<script>
 
-  // ── sign out ─────────────────────────────────────────────────────────────────
-  window.handleSignOut = async function() {
-    await signOut();
-    window.location.href = '/';
-  };
+const navEl = document.querySelector('nav');
+const navToggle = document.querySelector('.nav-mobile-toggle');
+if (navEl && navToggle) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navEl.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  document.querySelectorAll('#site-nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navEl.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 640) {
+      navEl.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 </script>
+<script type="module">
+  import { getMe, signOut } from '/js/auth.js';
 
+  const root = document.getElementById('root');
+  const params = new URLSearchParams(location.search);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+
+  const COPY = {
+    'stage-1': 'Settle the body first. A short daily practice for the moments that overwhelm you.',
+    'stage-2': 'Understand the pattern. Name what is driving the load.',
+    'stage-3': 'Hold the balance. Make it something you do, not something you chase.',
+  };
+
+  function notice(me) {
+    const l = params.get('locked');
+    if (l === 'system' || (!me.system && !me.admin)) {
+      return 'Your account is signed in, but we do not see a purchase for <strong>' + esc(me.email) + '</strong>. If you bought with a different email, sign in with that one. Bought just now? Access can take a minute to arrive. Still stuck? Write to <a href="mailto:hello@innerbalance101.com">hello@innerbalance101.com</a>.';
+    }
+    if (l === 'sequence') return 'That stage opens after you complete the one before it. Take it a day at a time.';
+    return '';
+  }
+
+  function stageCard(s, me) {
+    const open = s.open;
+    const href = s.path + '.html';
+    let cta = '', meta = '';
+    if (!me.system && !me.admin) {
+      cta = '<p class="lockline">Included with the system.</p>';
+    } else if (!open) {
+      cta = '<p class="lockline">Opens after the stage before it is complete.</p>';
+    } else {
+      meta = s.complete ? 'Complete.' : ((me.daysPerStage - s.count) + ' to go.' + (s.streak > 1 ? ' ' + s.streak + '-day run.' : '') + (s.doneToday ? ' Today is marked.' : ''));
+      const label = s.complete ? 'Revisit stage' : (s.count ? 'Continue' : 'Begin');
+      cta = '<a class="btn btn-small" href="' + esc(href) + '">' + label + '</a>';
+    }
+    return '<article class="stage' + (open ? '' : ' locked') + '">' +
+      '<p class="kicker">' + esc(s.label.split(':')[0]) + '</p>' +
+      '<h3>' + esc((s.label.split(':')[1] || s.label).trim()) + '</h3>' +
+      '<p class="desc">' + esc(COPY[s.slug] || '') + '</p>' +
+      (open ? '<p class="count">' + s.count + ' of ' + me.daysPerStage + ' days</p><div class="bar"><div class="fill" style="width:' + s.pct + '%"></div></div>' : '') +
+      (meta ? '<p class="meta">' + esc(meta) + '</p>' : '') + cta + '</article>';
+  }
+
+  async function main() {
+    let me = null;
+    try { me = await getMe(); } catch (e) { /* offline */ }
+    if (!me) { location.replace('/login.html?next=' + encodeURIComponent('/dashboard.html')); return; }
+
+    const first = (me.name || '').split(' ')[0];
+    document.getElementById('hello').textContent = first ? first + ', here is where you are.' : 'Here is where you are.';
+
+    const msg = notice(me);
+    let html = msg ? '<div class="notice" role="status">' + msg + '</div>' : '';
+
+    if (!me.system && !me.admin) {
+      html += '<div class="buy"><h2>The Inner Balance System</h2>' +
+        '<p>Three stages. Sixty-three days. Self-guided. Once you have it, your progress lives here.</p>' +
+        '<a class="btn" href="/the-system.html">See the system</a></div><div style="height:48px"></div>';
+    }
+    html += '<div class="stages">' + me.stages.map((s) => stageCard(s, me)).join('') + '</div>';
+    html += '<div class="account"><p>Signed in as ' + esc(me.email) + '</p><button type="button" class="btn-line" id="out">Sign out</button></div>';
+    root.innerHTML = html;
+    document.getElementById('out').onclick = async () => { await signOut(); location.href = '/login.html'; };
+  }
+  main();
+</script>
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "9631452";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9631452&fmt=gif" />
+</noscript>
 </body>
 </html>
