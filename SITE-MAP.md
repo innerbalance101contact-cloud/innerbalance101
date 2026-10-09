@@ -32,4 +32,4 @@ Last organised: 8 October 2026. Updated for the member system. Site root is the 
 
 ## 5. Reference documents published at the root (decide later)
 - innerbalance101-brand-board.html
-- emotions-sensations-chart.html
+- (emotions-sensations-chart.html was removed; it now redirects to the branded PDF)

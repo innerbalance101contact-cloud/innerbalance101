@@ -8,3 +8,6 @@
 /guilt-10min.html        /the-system.html   301
 /bundle-download.html    /the-system.html   301
 /pdfs/*                  /the-system.html   301
+
+# The old HTML chart page is replaced by the branded PDF.
+/emotions-sensations-chart.html   /Resources/Emotions%20.pdf   301
