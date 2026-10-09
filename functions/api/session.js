@@ -6,7 +6,7 @@
  * purchase by signing up with their address.
  */
 import {
-  json, sameOrigin, verifyFirebaseIdToken, makeSessionCookie, sessionCookie,
+  json, kvOf, sameOrigin, verifyFirebaseIdToken, makeSessionCookie, sessionCookie,
 } from "../_lib/shared.js";
 
 export async function onRequestPost({ request, env }) {
@@ -22,6 +22,17 @@ export async function onRequestPost({ request, env }) {
   }
   if (!claims.email) return json({ error: "no email on account" }, 401);
   if (claims.email_verified !== true) return json({ error: "email not verified" }, 403);
+
+  // Remember verified sign-ups so the admin page can list people who have no access yet.
+  const kv = kvOf(env);
+  if (kv) {
+    const email = claims.email.toLowerCase();
+    try {
+      if (!(await kv.get(`seen:${email}`))) {
+        await kv.put(`seen:${email}`, JSON.stringify({ at: new Date().toISOString(), name: claims.name || "" }));
+      }
+    } catch { /* never block sign-in on a bookkeeping write */ }
+  }
 
   const cookie = await makeSessionCookie({ email: claims.email, name: claims.name, uid: claims.sub }, env);
   return json({ ok: true, email: claims.email.toLowerCase() }, 200, { "Set-Cookie": cookie });

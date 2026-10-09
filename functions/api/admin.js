@@ -38,7 +38,9 @@ export async function onRequestGet({ request, env }) {
   const kv = kvOf(env);
   if (!kv) return json({ error: "storage not configured" }, 500);
 
-  const [accessKeys, unmatchedKeys] = await Promise.all([listKeys(kv, "access:"), listKeys(kv, "unmatched:", 100)]);
+  const [accessKeys, unmatchedKeys, seenKeys] = await Promise.all([
+    listKeys(kv, "access:"), listKeys(kv, "unmatched:", 100), listKeys(kv, "seen:"),
+  ]);
   const members = await Promise.all(accessKeys.map(async (key) => {
     const email = key.slice("access:".length);
     const [rec, progress] = await Promise.all([getAccessRecord(kv, email), getProgress(kv, email)]);
@@ -56,8 +58,16 @@ export async function onRequestGet({ request, env }) {
   }));
   members.sort((a, b) => (b.since || "").localeCompare(a.since || ""));
 
+  const activeSet = new Set(members.filter((m) => m.active).map((m) => m.email));
+  const waiting = (await Promise.all(seenKeys.map(async (key) => {
+    const email = key.slice("seen:".length);
+    if (activeSet.has(email)) return null;
+    const v = await kv.get(key, { type: "json" });
+    return { email, at: v?.at || null, name: v?.name || "" };
+  }))).filter(Boolean).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+
   const unmatched = (await Promise.all(unmatchedKeys.map((k) => kv.get(k, { type: "json" })))).filter(Boolean);
-  return json({ members, unmatched, daysPerStage: DAYS_PER_STAGE, stageLabels: STAGES.map((s) => s.label) });
+  return json({ members, waiting, unmatched, daysPerStage: DAYS_PER_STAGE, stageLabels: STAGES.map((s) => s.label) });
 }
 
 export async function onRequestPost({ request, env }) {
