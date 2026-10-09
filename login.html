@@ -186,6 +186,23 @@
   .reset-panel{display:none;}
   .note-box{max-width:480px;margin:0 auto 18px;padding:14px 16px;border-left:3px solid var(--clay-deep);background:var(--linen);font-size:0.97rem;}
 
+
+  /* ─── NAV: buy first, sign in clear, menu button readable ─── */
+  .nav-links a.nav-signin{border:1.5px solid #2C2420;border-radius:3px;padding:8px 16px;color:#2C2420;font-weight:500;min-height:44px;display:inline-flex;align-items:center}
+  .nav-links a.nav-signin:hover{background:#2C2420;color:#FAF7F2;text-decoration:none}
+  .nav-mobile-toggle{border:1.5px solid #2C2420 !important;background:#F0E8DC !important;color:#2C2420 !important}
+  @media (max-width:640px){
+    nav{gap:10px;padding:0 16px}
+    .nav-logo{order:0;margin-right:auto}
+    .nav-cta,nav.nav-open .nav-cta{width:auto !important;display:inline-flex !important;order:1;margin:0 !important;min-height:42px;padding:8px 9px;font-size:.8rem;white-space:nowrap}
+    .nav-logo{gap:8px}
+    .nav-mobile-toggle{width:42px;height:42px}
+    .nav-mobile-toggle{order:2}
+    nav.nav-open .nav-links{order:3}
+    nav.nav-open .nav-links a.nav-signin{width:100%;justify-content:center;margin-top:6px}
+    .nav-logo-text{font-size:.88rem}
+  }
+  @media (max-width:400px){.nav-divider{display:none}}
 </style>
 </head>
 <body>
@@ -204,9 +221,9 @@
     <a href="/about.html">About</a>
     <a href="https://innerbalance101.com/blog/">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="/dashboard.html">Your practice</a>
+    <a href="/dashboard.html" class="nav-signin" data-signin>Sign in</a>
   </div>
-  <a href="https://innerbalance101.com/emotional_load_assessment.html" class="btn btn-small nav-cta">Take the free assessment</a>
+  <a href="/the-system.html" class="btn btn-small nav-cta">Get the system</a>
 </nav>
 <main id="main">
 
@@ -230,7 +247,7 @@
         <form id="signinForm">
           <div class="field"><label for="siEmail">Email</label><input type="email" id="siEmail" required autocomplete="email"></div>
           <div class="field"><label for="siPassword">Password</label><input type="password" id="siPassword" required autocomplete="current-password"></div>
-          <button type="button" class="linkbtn" id="forgotBtn">Forgot password?</button>
+          <button type="button" class="linkbtn" id="forgotBtn">Forgot your password, or never set one? Reset it here.</button>
           <button type="submit" class="btn" id="signinBtn">Sign in</button>
         </form>
         <div class="or">or</div>
@@ -275,7 +292,7 @@
           <a href="/about.html" class="footer-link">About</a>
           <a href="https://innerbalance101.com/blog/" class="footer-link">Blog</a>
           <a href="/contact.html" class="footer-link">Contact</a>
-          <a href="/dashboard.html" class="footer-link">Your practice</a>
+          <a href="/dashboard.html" class="footer-link" data-signin>Sign in</a>
         </div>
         <div class="social-links">
           <a href="https://www.linkedin.com/company/innerbalance101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="innerbalance101 on LinkedIn">
@@ -376,6 +393,7 @@ if (navEl && navToggle) {
       show('Account created. We sent a verification link to ' + email + '. Open it, then sign in. Use the email you bought with.', 'success');
     } catch (err) {
       btn.disabled = false; btn.textContent = 'Create account';
+      if ((err.code || '').includes('email-already-in-use')) { existing(email); return; }
       show(friendly(err));
     }
   });
@@ -393,9 +411,25 @@ if (navEl && navToggle) {
     catch (err) { show(friendly(err)); }
   };
 
+
+  // This email already has an account (older sign-ups may never have set a password).
+  function existing(email) {
+    tab('in'); $('siEmail').value = email;
+    const el = $('statusMsg');
+    el.className = 'status show';
+    el.textContent = 'You already have an account with ' + email + '. If you do not remember setting a password, set a new one. ';
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'linkbtn'; b.textContent = 'Send me a reset link';
+    b.onclick = async () => {
+      try { await resetPassword(email); show('Reset link sent to ' + email + '. Open it, choose a password, then sign in here.', 'success'); }
+      catch (err) { show(friendly(err)); }
+    };
+    el.appendChild(b);
+  }
+
   function friendly(err) {
     const c = err.code || '';
-    if (/user-not-found|wrong-password|invalid-credential/.test(c)) return 'Email or password is incorrect. Try again.';
+    if (/user-not-found|wrong-password|invalid-credential/.test(c)) return 'Email or password is incorrect. If you have never set a password, use "Reset it here" under the password box.';
     if (c.includes('email-already-in-use')) return 'An account with this email already exists. Sign in instead.';
     if (c.includes('weak-password')) return 'Password must be at least 8 characters.';
     if (c.includes('too-many-requests')) return 'Too many attempts. Wait a few minutes and try again.';
@@ -421,5 +455,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <noscript>
 <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9631452&fmt=gif" />
 </noscript>
+<script>fetch('/api/me',{credentials:'same-origin'}).then(function(r){return r.ok?r.json():null}).then(function(m){if(m&&m.email)document.querySelectorAll('[data-signin]').forEach(function(a){a.textContent='Your practice'})}).catch(function(){});</script>
 </body>
 </html>

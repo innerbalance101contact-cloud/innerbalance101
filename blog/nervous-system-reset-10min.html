@@ -448,6 +448,23 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 :focus-visible { outline:3px solid #2C2420; outline-offset:3px; }
 .on-dark :focus-visible, footer :focus-visible, nav.on-dark :focus-visible { outline-color:#FAF7F2; }
 .tnum, .stat-num, .stat-value, .facts { font-variant-numeric:lining-nums tabular-nums; }
+
+  /* ─── NAV: buy first, sign in clear, menu button readable ─── */
+  .nav-links a.nav-signin{border:1.5px solid #2C2420;border-radius:3px;padding:8px 16px;color:#2C2420;font-weight:500;min-height:44px;display:inline-flex;align-items:center}
+  .nav-links a.nav-signin:hover{background:#2C2420;color:#FAF7F2;text-decoration:none}
+  .nav-mobile-toggle{border:1.5px solid #2C2420 !important;background:#F0E8DC !important;color:#2C2420 !important}
+  @media (max-width:640px){
+    nav{gap:10px;padding:0 16px}
+    .nav-logo{order:0;margin-right:auto}
+    .nav-cta,nav.nav-open .nav-cta{width:auto !important;display:inline-flex !important;order:1;margin:0 !important;min-height:42px;padding:8px 9px;font-size:.8rem;white-space:nowrap}
+    .nav-logo{gap:8px}
+    .nav-mobile-toggle{width:42px;height:42px}
+    .nav-mobile-toggle{order:2}
+    nav.nav-open .nav-links{order:3}
+    nav.nav-open .nav-links a.nav-signin{width:100%;justify-content:center;margin-top:6px}
+    .nav-logo-text{font-size:.88rem}
+  }
+  @media (max-width:400px){.nav-divider{display:none}}
 </style>
 </head>
 
@@ -468,9 +485,9 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
     <a href="/about.html">About</a>
     <a href="https://innerbalance101.com/blog/" aria-current="page">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="/dashboard.html">Your practice</a>
+    <a href="/dashboard.html" class="nav-signin" data-signin>Sign in</a>
   </div>
-  <a href="https://innerbalance101.com/emotional_load_assessment.html" class="btn btn-small nav-cta">Take the free assessment</a>
+  <a href="/the-system.html" class="btn btn-small nav-cta">Get the system</a>
 </nav>
 
 
@@ -621,5 +638,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <noscript>
 <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9631452&amp;fmt=gif" />
 </noscript>
+<script>fetch('/api/me',{credentials:'same-origin'}).then(function(r){return r.ok?r.json():null}).then(function(m){if(m&&m.email)document.querySelectorAll('[data-signin]').forEach(function(a){a.textContent='Your practice'})}).catch(function(){});</script>
 </body>
 </html>
