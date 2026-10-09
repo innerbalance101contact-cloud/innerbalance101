@@ -65,7 +65,6 @@
     <thead><tr><th>Email</th><th>Access</th><th>Type</th><th>Progress (days)</th><th>Open stages up to</th><th></th></tr></thead>
     <tbody id="rows"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody>
   </table></div>
-  <p class="muted" id="kitcheck"></p>
   <p class="muted">"Progress rule" means Stage 2 opens after 21 days of Stage 1, and Stage 3 after 21 days of Stage 2. Choosing a stage opens everything up to it for that person regardless of progress. Pausing keeps their progress.</p>
 
   <h2>Account activity <span class="muted" id="pcount"></span></h2>
@@ -156,10 +155,6 @@
     const t = document.querySelector('tr.trail[data-for="' + CSS.escape(r.dataset.trail) + '"]'); if (t) t.hidden = !t.hidden;
   });
   function render() {
-    const kc = DATA.kitCheck;
-    $('kitcheck').textContent = !kc ? '' : kc.ok
-      ? 'Checked Kit for refunds just now. Statuses Kit reports: ' + Object.entries(kc.statuses || {}).map(([k, v]) => k + ' ' + v).join(', ') + '.'
-      : 'Kit refund check is off: ' + kc.error;
     renderWaiting(); renderPeople(); renderEvents();
     const q = $('q').value.trim().toLowerCase();
     const list = DATA.members.filter((m) => !q || m.email.includes(q));
