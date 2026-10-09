@@ -48,6 +48,8 @@ export const STAGE_REQUIRES = ["inner-balance-system"];
 // Paths are matched after lowercasing and stripping ".html" and trailing "/".
 export const PROTECTED = [
   ...STAGES.map((s, i) => ({ path: s.path, kind: "stage", stageIndex: i })),
+  // Printable guides: locked the same way as the stage they belong to.
+  { path: "/guides/stage-1-sos-guide", kind: "stage", stageIndex: 0 },
   { path: "/dashboard", kind: "account" },
   { path: "/admin", kind: "admin" },
 ];
