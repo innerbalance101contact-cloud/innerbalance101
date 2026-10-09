@@ -1771,6 +1771,13 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 @media (max-width: 680px) { .overview-nudge .sms-cta-copy { padding: 0 20px 4px 20px; } }
 @media print { .overview-nudge { display: none; } }
 .overview-nudge .body-text a, .g-card .overview-nudge a { color: var(--pine-text, #3F5751); text-decoration: underline; text-underline-offset: 3px; }
+
+/* text nudge: keyword instructions + tappable button */
+.sms-cta .sms-cta-icon,.sms-cta .sms-cta-icon svg{width:26px;height:26px}
+.sms-cta .sms-cta-steps{margin:.2rem 0 .7rem;font-size:15.5px;line-height:1.45}
+.sms-cta .sms-cta-steps strong{white-space:nowrap}
+.sms-cta .sms-cta-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.25rem;border:0;border-radius:999px;background:#2C3B35;color:#FAF7F2;text-decoration:none;font-weight:500;font-size:15px}
+@media print{.sms-cta .sms-cta-link{display:none}}
 </style>
 </head>
 
@@ -1844,9 +1851,9 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
     <div class="overview-row">
       <span class="overview-label">What this is</span>
       <h2 class="overview-title">Stage&nbsp;1 gave you ground.<br><em>Now build a practice that feels like you.</em></h2>
-      <p class="body-text">Overwhelm is probably what you felt. It may also have been something else, something that took over and ran you on autopilot. Anger. Worry. Guilt. A feeling you have not named yet.</p>
-      <p class="body-text">Whatever it is, it shapes your reactions and steers your decisions. It costs more energy than you can see.</p>
-      <p class="body-text">This stage gives you the tools to see it. Over 21&nbsp;days you notice which emotions show up for you, where they live in your body, and which thought is driving them. Then you build a pause between what activates you and how you respond. That pause is mindfulness: paying attention on purpose, without judgment.</p>
+      <p class="body-text">The Stage&nbsp;1 practice takes you out of the autopilot that keeps generating the same emotions.</p>
+      <p class="body-text">Overwhelm is probably what you felt. It may also have been something else. It does not matter whether it was overwhelm, anger, worry or guilt keeping you stuck in a loop. What matters is that you had little moments that took you out of it, showing you it was possible, even if it was for a few minutes or a few hours. You can come back to that practice anytime.</p>
+      <p class="body-text">Here, we expand it. You have 10 minutes or 20, and consistency is the key. What you build in this stage are the tools to start a practice that feels more like you.</p>
       <p class="body-text"><strong>Every day is different.</strong> What you feel on Monday will not be what you feel on Thursday. The order stays the same. What you bring to it changes.</p>
       <p class="overview-note"><strong>Before you begin.</strong> Accept what you find and don’t judge it. You don’t need the right word for what you feel. The chart in Part&nbsp;1 helps you find it, starting from what you notice in your body.</p>
       <p class="learn-more">Want to see what you are building? <a href="#in-the-moment">Read about the pause &darr;</a></p>
@@ -1893,17 +1900,17 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
     </div>
 
     <div class="overview-row overview-nudge">
-      <span class="overview-label">Between sessions</span>
-      <p class="body-text"><strong>Mindfulness is a daily practice. More than once a day is ideal.</strong> Your 20&nbsp;minutes are the anchor. In between, take two minutes wherever you are. <a href="#in-the-moment">Here is how.</a></p>
+      <span class="overview-label">Every day</span>
+      <p class="body-text"><strong>Mindfulness is a daily practice, and more than once a day is ideal.</strong> Your 20&nbsp;minutes are the anchor. In between, a little text nudge reminds you to take two minutes wherever you are. <a href="#in-the-moment">Here is how.</a></p>
       <div class="sms-cta">
         <div class="sms-cta-top">
-          <div class="sms-cta-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="sms-cta-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div>
           <div class="sms-cta-heading">
-            <p class="sms-cta-title"><span class="sms-optional">Optional</span> A text nudge between sessions.</p>
-            <a href="sms:+17015435900" class="sms-cta-link">Text (701) 543-5900</a>
+            <p class="sms-cta-title"><span class="sms-optional">Optional</span> Get the text nudges.</p>
+            <p class="sms-cta-steps">Text the word <strong>[KEYWORD]</strong> to (701) 543-5900. The word switches it on. A plain &ldquo;hello&rdquo; will not.</p>
+            <a href="sms:+17015435900?&amp;body=[KEYWORD]" class="sms-cta-link">Tap to text [KEYWORD]</a>
           </div>
         </div>
-        <p class="sms-cta-copy">Get a short reminder to take two minutes wherever you are.</p>
         <p class="sms-cta-disclosure">Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to unsubscribe at any time.</p>
       </div>
       <p class="overview-dl screen-only">Prefer paper? <a href="/guides/stage-2-clarity-guide.pdf" download>Download the printable guide (PDF).</a></p>
