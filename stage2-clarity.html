@@ -1563,6 +1563,10 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   .g-steps li { padding: 14px 0 12px; border-top: 1.5px dashed rgba(196,168,130,0.6); }
   .g-word { display: block; font-family: 'Vollkorn', serif; font-weight: 500; font-size: 40px; line-height: 1.05; color: #FAF7F2; margin: 0 0 4px; }
   .g-ask { display: block; font-size: 16px; line-height: 1.5; color: rgba(250,247,242,0.92); }
+  .g-card .ep-link { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; margin: 4px 0 14px; border-radius: 999px; background: #C4A882; color: #2C2420; border: 0; font-size: 16px; font-weight: 500; text-decoration: none; }
+  .g-card .ep-desc a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; margin: 6px 0 0; border-radius: 999px; background: #C4A882; color: #2C2420 !important; font-size: 16px; font-weight: 500; text-decoration: none !important; }
+  .g-card .ep-link::after, .g-card .ep-desc a::after { content: none; }
+  [data-theme=dark] .g-card .body-text { font-size: 15.5px; line-height: 1.48; }
 /* Desktop: show the guide as the five printed pages, on a desk */
 .sheet-dl { display: none; }
 @media screen and (min-width: 681px) {
@@ -1832,10 +1836,10 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
       <span class="overview-label">What this is</span>
       <h2 class="overview-title">Stage&nbsp;1 gave you ground.<br><em>Now find what was underneath.</em></h2>
       <p class="body-text">Overwhelm is rarely just overwhelm. Underneath it, one or several emotions have been running quietly. They shape your reactions, steer your decisions, and cost more energy than you can see.</p>
-      <p class="body-text">Over 21&nbsp;days you practise noticing which emotions show up for you, where they live in your body, and which thought is usually driving them. Then you start to create space between what activates you and how you respond.</p>
+      <p class="body-text">Over 21&nbsp;days you practise noticing which emotions show up for you, where they live in your body, and which thought is usually driving them. Then you start to create space between what activates you and how you respond. That space is a pause, and the pause is what this stage builds. It is a mindfulness practice: paying attention on purpose, without judgment.</p>
       <p class="body-text"><strong>Every day is different.</strong> What you feel on Monday will not be what you feel on Thursday. The order stays the same. What you bring to it changes.</p>
       <p class="overview-note"><strong>Before you begin.</strong> Accept what you find and don’t judge it. You don’t need the right word for what you feel. The chart in Part&nbsp;1 helps you find it, starting from what you notice in your body.</p>
-      <p class="learn-more">Want to understand why this works? <a href="#in-the-moment">See how mindfulness fits in &darr;</a></p>
+      <p class="learn-more">Want to see what you are building? <a href="#in-the-moment">Read about the pause &darr;</a></p>
     </div>
     <div class="overview-row overview-split">
       <div class="overview-col">
@@ -2190,29 +2194,29 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
     </div>
     <div class="moment-why">
 
-    <span class="overview-label">Why it works</span>
-    <h2 class="overview-title">What mindfulness adds<br><em>is a moment in the middle.</em></h2>
+    <span class="overview-label">What the practice builds</span>
+    <h2 class="overview-title">What you are building<br><em>is a pause.</em></h2>
     <p class="body-text">Something happens and we react. A message lands. A comment stings. Your body responds before you have decided anything.</p>
 
-    <div class="flow-label">Without mindfulness</div>
-    <div class="gap-flow gap-flow-2" aria-label="Without mindfulness: stimulus, then response">
+    <div class="flow-label">Without a pause</div>
+    <div class="gap-flow gap-flow-2" aria-label="Without a pause: stimulus, then response">
       <div class="gap-box"><span class="gap-name">Stimulus</span><span class="gap-sub">What happens</span></div>
       <span class="gap-arrow" aria-hidden="true">&rarr;</span>
       <div class="gap-box"><span class="gap-name">Response</span><span class="gap-sub">Automatic. Before you choose.</span></div>
     </div>
 
-    <div class="flow-label flow-label-train">With mindfulness <span>what you are training</span></div>
-    <div class="gap-flow" aria-label="With mindfulness: stimulus, mindfulness, then response">
+    <div class="flow-label flow-label-train">With a pause <span>what you are training</span></div>
+    <div class="gap-flow" aria-label="With a pause: stimulus, the pause, then response">
       <div class="gap-box"><span class="gap-name">Stimulus</span><span class="gap-sub">What happens</span></div>
       <span class="gap-arrow" aria-hidden="true">&rarr;</span>
-      <div class="gap-box gap-mid"><span class="gap-name">Mindfulness</span><span class="gap-sub">Notice. Name. Choose.</span></div>
+      <div class="gap-box gap-mid"><span class="gap-name">The pause</span><span class="gap-sub">Notice. Name. Choose.</span></div>
       <span class="gap-arrow" aria-hidden="true">&rarr;</span>
       <div class="gap-box"><span class="gap-name">Response</span><span class="gap-sub">Chosen</span></div>
     </div>
 
-    <p class="body-text">That moment in the middle is where your interpretation lives. Your beliefs filter what you experience, and they shape what you do next. Mindfulness gives you time to see that happening.</p>
+    <p class="body-text">The pause is where your interpretation lives. Your beliefs filter what you experience, and they shape what you do next. This practice gives you time to see that happening.</p>
 
-    <p class="moment-note"><strong>This is mindfulness.</strong> Paying attention on purpose, in the present moment, without judgment. It does not empty your mind or remove the emotion. It gives you a moment between feeling and acting, and a choice about what comes next. Your practice in Parts 1 to 3 trains it.</p>
+    <p class="moment-note"><strong>You are practising mindfulness.</strong> That means paying attention on purpose, in the present moment, without judgment. It does not empty your mind or remove the emotion. Parts 1 to 3 train it each day. The two minutes above are how you use it when life activates you.</p>
 
     </div>
   </section>
@@ -2414,7 +2418,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     var c = el('section', 'g-card');
     c.appendChild(el('div', 'g-brand', MARK + '<span>innerbalance101</span>'));
     c.appendChild(el('h1', 'g-title', $('.overview-title', rows[0]).innerHTML));
-    $$('.body-text', rows[0]).slice(0, 2).forEach(function (p) { c.appendChild(clone(p)); });
+    var ps = $$('.body-text', rows[0]);
+    if (ps[0]) c.appendChild(clone(ps[0]));
+    if (ps[1]) {
+      var sents = txt(ps[1]).split(/(?<=\.)\s+/), at = -1;
+      sents.forEach(function (x, n) { if (at < 0 && /^Then you start/.test(x)) at = n; });
+      var p2 = el('p', 'body-text', (at > 0 ? sents.slice(at) : sents).join(' '));
+      c.appendChild(p2);
+    }
     var r = el('div', 'g-row'); r.appendChild(skipLink()); r.appendChild(momentLink()); r.appendChild(howLink()); c.appendChild(r);
     return c;
   } });
@@ -2507,7 +2518,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   // In the moment
   var why = $('.moment-why'), pause = $('#pause');
-  card({ sect: 'end', theme: 'dark', where: 'In the moment', next: 'Why it works', key: 'in-the-moment', build: function () {
+  card({ sect: 'end', theme: 'dark', where: 'In the moment', next: 'Next', key: 'in-the-moment', build: function () {
     var c = el('section', 'g-card g-pause');
     c.appendChild(el('h1', 'g-title', txt($('.pause-title', pause))));
     c.appendChild(el('p', 'g-lead', txt($('.pause-lead', pause))));
@@ -2524,11 +2535,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(el('p', 'body-text', txt($('.pause-foot', pause))));
     return c;
   } });
-  card({ sect: 'end', theme: 'light', where: 'Why it works', next: 'Next', build: function () {
+  card({ sect: 'end', theme: 'light', where: 'What you are building', next: 'Next', build: function () {
     var c = pick(why, [2, 3, 4], '')(); c.insertBefore(el('h1', 'g-title', $('.overview-title', why).innerHTML), c.firstChild); return c;
   } });
-  card({ sect: 'end', theme: 'light', where: 'Why it works', next: 'Next', build: pick(why, [5, 6, 7], '') });
-  card({ sect: 'end', theme: 'light', where: 'Why it works', next: 'Next', build: pick(why, [8], '') });
+  card({ sect: 'end', theme: 'light', where: 'What you are building', next: 'Next', build: pick(why, [5, 6, 7], '') });
+  card({ sect: 'end', theme: 'light', where: 'What you are building', next: 'Next', build: pick(why, [8], '') });
   card({ sect: 'end', theme: 'dark', where: 'You did it', next: '', key: 'finish', parks: true, build: function () {
     var c = el('section', 'g-card');
     c.appendChild(el('h1', 'g-title', $('.section-title', closing).innerHTML));
@@ -2565,7 +2576,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   function openSheet() {
     panel.innerHTML = '<div class="g-panel-head"><h2 id="g-sheet-h">How it works</h2><button type="button" class="g-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div>';
     var when = $('.overview-split .when-list:not(.need-list)', rows[1]) || $('.when-list:not(.need-list)', overview);
-    var every = $$('.body-text', rows[0])[2]; if (every) panel.appendChild(clone(every));
+    var more = $$('.body-text', rows[0]); if (more[1]) panel.appendChild(clone(more[1])); if (more[2]) panel.appendChild(clone(more[2]));
     panel.appendChild(el('span', 'overview-label', 'When to do it'));
     if (when) panel.appendChild(clone(when));
     panel.appendChild(el('span', 'overview-label', 'How each day works'));
