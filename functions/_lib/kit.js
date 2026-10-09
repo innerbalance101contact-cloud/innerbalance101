@@ -122,3 +122,37 @@ export async function processKitEvent(kv, params, body, now = Date.now()) {
 
   return { ok: false, action: "error", detail: `unknown ev "${ev}"` };
 }
+
+/**
+ * Asks Kit for purchases and marks anyone refunded there as "refunded, access still on".
+ * Needs a Kit v4 API key in env KIT_V4_API_KEY. Never switches access off by itself.
+ */
+export async function syncKitRefunds(kv, env, slug, now = Date.now()) {
+  if (!env.KIT_V4_API_KEY) return { ok: false, error: "Add KIT_V4_API_KEY in Cloudflare to let the site check Kit for refunds." };
+  const statuses = {}; const flagged = []; let after = null;
+  try {
+    for (let page = 0; page < 5; page++) {
+      const url = "https://api.kit.com/v4/purchases?per_page=200" + (after ? `&after=${encodeURIComponent(after)}` : "");
+      const r = await fetch(url, { headers: { "X-Kit-Api-Key": env.KIT_V4_API_KEY, Accept: "application/json" } });
+      if (!r.ok) return { ok: false, error: `Kit answered ${r.status}`, statuses };
+      const d = await r.json();
+      for (const p of d.purchases || []) {
+        const st = String(p.status || "").toLowerCase();
+        statuses[st || "(blank)"] = (statuses[st || "(blank)"] || 0) + 1;
+        if (!st || st === "paid" || st === "succeeded") continue;
+        if (!/refund|cancel|void|dispute|chargeback/.test(st)) continue;
+        const email = String(p.email_address || "").trim().toLowerCase();
+        if (!email) continue;
+        const rec = await readAccess(kv, email);
+        const g = rec.grants?.[slug];
+        if (!g || g.revoked || g.refundHold) continue;
+        g.refundHold = new Date(now).toISOString(); g.refundSrc = "kit";
+        await kv.put(`access:${email}`, JSON.stringify(rec));
+        flagged.push(email);
+      }
+      if (!d.pagination?.has_next_page) break;
+      after = d.pagination.end_cursor;
+    }
+  } catch (e) { return { ok: false, error: String(e.message || e), statuses }; }
+  return { ok: true, statuses, flagged, at: new Date(now).toISOString() };
+}

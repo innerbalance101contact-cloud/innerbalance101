@@ -9,7 +9,7 @@ import {
   json, kvOf, sameOrigin, getSession, isAdmin, getAccessRecord, getProgress,
   canOpenStages, stageSummary,
 } from "../_lib/shared.js";
-import { applyGrant, applyRevoke, processKitEvent } from "../_lib/kit.js";
+import { applyGrant, applyRevoke, processKitEvent, syncKitRefunds } from "../_lib/kit.js";
 import { STAGES, DAYS_PER_STAGE, STAGE_REQUIRES } from "../_lib/config.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -38,6 +38,12 @@ export async function onRequestGet({ request, env }) {
   const kv = kvOf(env);
   if (!kv) return json({ error: "storage not configured" }, 500);
 
+  // Ask Kit about refunds (at most once a minute) before reading members.
+  let kitCheck = (await kv.get("meta:refundcheck", { type: "json" })) || null;
+  if (!kitCheck || Date.now() - (kitCheck.ts || 0) > 60000) {
+    kitCheck = { ...(await syncKitRefunds(kv, env, STAGE_REQUIRES[0])), ts: Date.now() };
+    await kv.put("meta:refundcheck", JSON.stringify(kitCheck));
+  }
   const [accessKeys, unmatchedKeys, seenKeys] = await Promise.all([
     listKeys(kv, "access:"), listKeys(kv, "unmatched:", 100), listKeys(kv, "seen:"),
   ]);
@@ -104,7 +110,7 @@ export async function onRequestGet({ request, env }) {
     };
   }))).filter(Boolean);
 
-  return json({ members, waiting, unmatched, people, events, daysPerStage: DAYS_PER_STAGE, stageLabels: STAGES.map((s) => s.label) });
+  return json({ kitCheck, members, waiting, unmatched, people, events, daysPerStage: DAYS_PER_STAGE, stageLabels: STAGES.map((s) => s.label) });
 }
 
 export async function onRequestPost({ request, env }) {
