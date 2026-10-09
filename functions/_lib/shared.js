@@ -233,3 +233,22 @@ export function cleanDate(d, now = Date.now()) {
   const utc = Date.parse(utcStr + "T00:00:00Z");
   return Number.isFinite(t) && Math.abs(t - utc) <= 86400000 ? d : utcStr;
 }
+
+
+/**
+ * Account trail: what a person did on the login page, newest last. Lets the admin
+ * page show where someone stopped (never activated, wrong password, locked out...).
+ * Keeps the last 40 steps per email for 180 days. Repeats within 10 minutes are skipped.
+ */
+export async function logEvent(kv, email, e, c = "", now = Date.now()) {
+  email = String(email || "").trim().toLowerCase();
+  if (!kv || !email || email.length > 200) return;
+  const key = `log:${email}`;
+  let arr = [];
+  try { arr = (await kv.get(key, { type: "json" })) || []; } catch { arr = []; }
+  const last = arr[arr.length - 1];
+  if (last && last.e === e && last.c === c && now - last.t < 10 * 60 * 1000) return;
+  arr.push({ t: now, e, c });
+  if (arr.length > 40) arr = arr.slice(-40);
+  await kv.put(key, JSON.stringify(arr), { expirationTtl: 60 * 60 * 24 * 180 });
+}

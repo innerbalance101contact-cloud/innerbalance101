@@ -6,7 +6,7 @@
  * purchase by signing up with their address.
  */
 import {
-  json, kvOf, sameOrigin, getAccessRecord, canOpenStages, verifyFirebaseIdToken, makeSessionCookie, sessionCookie,
+  json, kvOf, sameOrigin, getAccessRecord, canOpenStages, verifyFirebaseIdToken, logEvent, makeSessionCookie, sessionCookie,
 } from "../_lib/shared.js";
 
 export async function onRequestPost({ request, env, waitUntil }) {
@@ -30,6 +30,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
   if (kv) {
     const email = claims.email.toLowerCase();
     try {
+      await logEvent(kv, email, (await kv.get(`seen:${email}`)) ? "signed_in" : "activated");
       if (!(await kv.get(`seen:${email}`))) {
         await kv.put(`seen:${email}`, JSON.stringify({ at: new Date().toISOString(), name: claims.name || "" }));
         const rec = await getAccessRecord(kv, email);

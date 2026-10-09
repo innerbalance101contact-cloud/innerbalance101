@@ -332,7 +332,7 @@ if (navEl && navToggle) {
 
 </script>
 <script type="module">
-  import { signUp, signIn, signInWithGoogle, resetPassword, getMe } from '/js/auth.js';
+  import { signUp, signIn, signInWithGoogle, resetPassword, getMe, trace } from '/js/auth.js';
   const $ = (id) => document.getElementById(id);
   const params = new URLSearchParams(location.search);
   function destination() {
@@ -377,8 +377,9 @@ if (navEl && navToggle) {
     } catch (err) {
       btn.disabled = false; btn.textContent = 'Sign in';
       if (err.code === 'ib101/email-not-verified') {
+        trace('signin_unverified', $('siEmail').value.trim());
         show('Verify your email first. We sent a link to ' + err.email + '. Open it, then sign in here.', 'success');
-      } else show(friendly(err));
+      } else { trace('signin_error', $('siEmail').value.trim(), err.code || ''); show(friendly(err)); }
     }
   });
 
@@ -393,6 +394,7 @@ if (navEl && navToggle) {
       show('Account created. We sent a verification link to ' + email + '. Open it, then sign in. Use the email you bought with.', 'success');
     } catch (err) {
       btn.disabled = false; btn.textContent = 'Create account';
+      trace('signup_error', email, err.code || '');
       if ((err.code || '').includes('email-already-in-use')) { existing(email); return; }
       show(friendly(err));
     }
@@ -407,8 +409,8 @@ if (navEl && navToggle) {
   $('resetBtn').onclick = async () => {
     const email = $('resetEmail').value.trim();
     if (!email) { show('Enter your email address.'); return; }
-    try { await resetPassword(email); show('Reset link sent. Check your inbox.', 'success'); }
-    catch (err) { show(friendly(err)); }
+    try { await resetPassword(email); trace('reset_sent', email); show('Reset link sent. Check your inbox.', 'success'); }
+    catch (err) { trace('reset_error', email, err.code || ''); show(friendly(err)); }
   };
 
 
@@ -421,7 +423,7 @@ if (navEl && navToggle) {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'linkbtn'; b.textContent = 'Send me a reset link';
     b.onclick = async () => {
-      try { await resetPassword(email); show('Reset link sent to ' + email + '. Open it, choose a password, then sign in here.', 'success'); }
+      try { await resetPassword(email); trace('reset_sent', email); show('Reset link sent to ' + email + '. Open it, choose a password, then sign in here.', 'success'); }
       catch (err) { show(friendly(err)); }
     };
     el.appendChild(b);

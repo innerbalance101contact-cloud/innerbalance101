@@ -68,7 +68,41 @@ export async function onRequestGet({ request, env }) {
   }))).filter(Boolean).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
 
   const unmatched = (await Promise.all(unmatchedKeys.map((k) => kv.get(k, { type: "json" })))).filter(Boolean);
-  return json({ members, waiting, unmatched, daysPerStage: DAYS_PER_STAGE, stageLabels: STAGES.map((s) => s.label) });
+  // Account trail: where each person got to on the login page.
+  const logKeys = await listKeys(kv, "log:", 500);
+  const seenSet = new Set(seenKeys.map((k) => k.slice("seen:".length)));
+  const memberMap = new Map(members.map((m) => [m.email, m]));
+  const people = (await Promise.all(logKeys.map(async (k) => {
+    const email = k.slice("log:".length);
+    const log = (await kv.get(k, { type: "json" })) || [];
+    if (!log.length) return null;
+    const activated = seenSet.has(email) || log.some((x) => x.e === "activated" || x.e === "signed_in");
+    const m = memberMap.get(email);
+    const last = log[log.length - 1];
+    const status = m && m.active ? "member"
+      : activated ? "activated"
+      : log.some((x) => x.e === "signup_created") ? "not_activated"
+      : "trying";
+    return { email, status, last: last.t, steps: log.slice(-12) };
+  }))).filter(Boolean).sort((a, b) => b.last - a.last).slice(0, 150);
+
+  // What Kit has told us lately (14 days): purchases, refunds, tag changes.
+  const evtKeys = (await listKeys(kv, "evt:", 400)).slice(-40).reverse();
+  const events = (await Promise.all(evtKeys.map(async (k) => {
+    const v = await kv.get(k, { type: "json" });
+    if (!v) return null;
+    const p = v.payload || {};
+    const pur = p.purchase && typeof p.purchase === "object" ? p.purchase : p;
+    return {
+      at: v.at, ev: v.ev, action: v.result?.action, detail: v.result?.detail,
+      email: p.email_address || p.subscriber?.email_address || pur.email_address || "",
+      status: pur.status || "",
+      products: Array.isArray(pur.products) ? pur.products.map((x) => x?.name).filter(Boolean) : [],
+      amount: pur.total ?? pur.amount ?? null,
+    };
+  }))).filter(Boolean);
+
+  return json({ members, waiting, unmatched, people, events, daysPerStage: DAYS_PER_STAGE, stageLabels: STAGES.map((s) => s.label) });
 }
 
 export async function onRequestPost({ request, env }) {

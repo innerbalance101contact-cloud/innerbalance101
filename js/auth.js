@@ -66,6 +66,10 @@ export async function signUp(email, password, displayName = "") {
   const cred = await createUserWithEmailAndPassword(auth, email, password);
   if (displayName) await updateProfile(cred.user, { displayName });
   await sendEmailVerification(cred.user, { url: `${location.origin}/login.html` });
+  try {
+    const token = await cred.user.getIdToken();
+    await fetch("/api/trace", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` }, body: JSON.stringify({ event: "signup_created" }) });
+  } catch { /* bookkeeping only */ }
   await firebaseSignOut(auth);
   return { needsVerification: true, email };
 }
@@ -92,6 +96,13 @@ export async function signOut() {
   try { await firebaseSignOut(auth); } catch { /* already out */ }
 }
 
+/** Tell the admin page where someone got stuck. Never blocks the page. */
+export function trace(event, email, code = "") {
+  try {
+    fetch("/api/trace", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ event, email, code }), keepalive: true }).catch(() => {});
+  } catch { /* ignore */ }
+}
+
 export async function resetPassword(email) {
   await sendPasswordResetEmail(auth, email);
 }
@@ -104,5 +115,5 @@ export async function getMe() {
   return res.ok ? res.json() : null;
 }
 
-window.IB101Auth = { signUp, signIn, signInWithGoogle, signOut, resetPassword, getMe };
+window.IB101Auth = { trace, signUp, signIn, signInWithGoogle, signOut, resetPassword, getMe };
 export { auth };
