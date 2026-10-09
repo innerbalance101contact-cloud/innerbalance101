@@ -133,7 +133,7 @@ export async function syncKitRefunds(kv, env, slug, now = Date.now()) {
   try {
     for (let page = 0; page < 5; page++) {
       const url = "https://api.kit.com/v4/purchases?per_page=200" + (after ? `&after=${encodeURIComponent(after)}` : "");
-      const r = await fetch(url, { headers: { "X-Kit-Api-Key": env.KIT_V4_API_KEY, Accept: "application/json" } });
+      const r = await fetch(url, { headers: { "X-Kit-Api-Key": String(env.KIT_V4_API_KEY).trim(), Accept: "application/json" } });
       if (!r.ok) return { ok: false, error: `Kit answered ${r.status}`, statuses };
       const d = await r.json();
       for (const p of d.purchases || []) {
