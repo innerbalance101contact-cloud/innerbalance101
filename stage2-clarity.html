@@ -1281,6 +1281,441 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 .tnum, .stat-num, .stat-value, .facts { font-variant-numeric:lining-nums tabular-nums; }
 
 .wyg-list li::before, .r-awareness-tips li::before, .when-list li::before { width:12px !important; height:2px !important; border-radius:0 !important; background:#3F5751 !important; }
+
+/* ─── Print layout v2 (9 Oct 2026): Stage 2 ─── */
+@media print {
+  html, body { margin: 0; padding: 0; background: #fff; }
+  .page-body { max-width: none; padding: 0; }
+  #ib101-progress { display: none !important; }
+
+  /* Page 1: what this is and how it works */
+  .page-header { padding: 8px 0 14px; margin-bottom: 0; }
+  .page-header { padding: 12px 0 16px; }
+  .overview { margin-top: 12px; }
+  .overview-row { padding: 11px 26px; }
+  .overview-title { font-size: 24px; margin-bottom: 8px; }
+  .overview .body-text { font-size: 14px; line-height: 1.5; margin-bottom: 5px; }
+  .overview-note { font-size: 13.5px; line-height: 1.5; padding: 7px 14px; margin-top: 6px; }
+  .when-list { gap: 6px; }
+  .when-list li { font-size: 14px; line-height: 1.45; }
+  .overview .structure-strip { margin-top: 8px; }
+  .overview .strip-part { padding: 8px 14px; }
+
+  /* Pages 2-4: one part per page, tighter spacing */
+  .practice-step { margin: 0; border-radius: 0; min-height: 9.3in; break-inside: avoid; page-break-inside: avoid; }
+  .practice-step .step-header { padding: 10px 20px; gap: 14px; }
+  .practice-step .step-num-large { font-size: 30px; }
+  .practice-step .step-title-text { font-size: 19px; }
+  .step-body { padding: 10px 20px 12px; }
+  .step-body .body-text { font-size: 13px; line-height: 1.5; margin-bottom: 6px; }
+  .step-body .body-text:last-child { margin-bottom: 0; }
+  .feel-line { font-size: 1.05rem; line-height: 1.4; margin: 2px 0 8px; }
+  .sub-step { margin-top: 10px; padding-top: 10px; }
+  .sub-step-label { font-size: 13.5px; margin-bottom: 5px; }
+  .write-area { margin: 6px 0 8px; gap: 0; }
+  .write-line { height: 30px; }
+  #step-3 .write-line, #step-3 .prompt-item .prompt-line { height: 28px; min-height: 28px; }
+  .prompt-list { margin-top: 6px; gap: 0; }
+  .prompt-item .prompt-line { margin-top: 0; min-height: 28px; }
+  .prompt-item { align-items: flex-end; }
+  .prompt-num { font-size: 15px; line-height: 1; padding-bottom: 5px; }
+  .affirmation-list { margin: 6px 0; }
+  .affirmation-list li { font-size: 14px; padding: 4px 0 4px 14px; }
+  .hint-line { font-size: 1rem; padding: 7px 14px; margin: 0 0 8px; }
+  .accept-block { margin-top: 10px; padding: 8px 0 8px 14px; }
+  .accept-block .body-text { margin-bottom: 5px; }
+  .accept-block .accept-label { margin-bottom: 4px; }
+  .resource-note { font-size: 12.5px; line-height: 1.5; margin-top: 6px; max-width: none; }
+  .resource-card { display: block; margin: 8px 0 0; padding: 8px 12px; }
+  .resource-cta, .resource-icon { display: none !important; }
+  .resource-card::after { display: block; margin-top: 2px; font-size: 11px; word-break: break-all; }
+  .resource-title { font-size: 13px; }
+  .resource-meta { font-size: 12px; }
+
+
+  /* Page 5: why this works, then the close */
+  .moment { break-before: page; page-break-before: always; margin-top: 0; padding-top: 22px; }
+  .moment .overview-title { font-size: 26px; }
+  .moment .body-text { font-size: 16px; line-height: 1.7; margin-bottom: 12px; }
+  .closing-section { break-before: auto; page-break-before: auto; margin-top: 28px; padding: 26px 30px; }
+  .closing-section .section-title { font-size: 26px; }
+  .closing-section .body-text { font-size: 16px; line-height: 1.7; }
+}
+
+/* ─── Print branding (brand board colours, Vollkorn + Jost, logo and footer) ─── */
+:root { --paper: #FAF7F2; --blue-light: #AFC1CF; }
+.print-brand, .print-footer { display: none; }
+@page { size: Letter; margin: 0.4in 0.5in 0.7in; }
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-variant-numeric: lining-nums; color: var(--bark); }
+  h1, h2, h3, .page-title, .step-title-text, .overview-title, .section-title { font-family: 'Vollkorn', serif; font-weight: 500; }
+
+  /* Logo + footer */
+  .print-brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
+  .print-brand span { font-family: 'Vollkorn', serif; font-size: 19px; font-weight: 500; color: var(--paper, #FAF7F2); letter-spacing: 0.01em; }
+  .print-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; position: fixed; left: 0; right: 0; bottom: 0; height: 0.3in; padding-top: 6px; border-top: 1px solid var(--pine); font-family: 'Jost', sans-serif; font-size: 10px; line-height: 1; color: var(--bark-soft); background: #fff; }
+  .print-footer .pf-brand { display: flex; align-items: center; gap: 7px; }
+  .print-footer .pf-brand span { font-family: 'Vollkorn', serif; font-size: 12.5px; font-weight: 500; color: var(--forest); }
+
+  /* Page 1: Forest header */
+  .page-header { background: var(--forest); color: var(--paper); border-bottom: 0; border-radius: 0; padding: 8px 30px 10px; margin: 0; }
+  .page-header .header-meta { margin-top: 6px; }
+  .page-header .page-subtitle { margin: 0 0 8px; }
+  .page-header .stage-label { color: rgba(250,247,242,0.8); }
+  .page-header .page-title { color: var(--paper); font-size: 34px; margin: 0 0 2px; line-height: 1.1; }
+  .page-header .page-subtitle { color: rgba(250,247,242,0.85); }
+  .page-header .meta-value { color: var(--paper); font-family: 'Vollkorn', serif; }
+  .page-header .meta-label { color: rgba(250,247,242,0.7); }
+  .page-header .meta-divider { background: rgba(250,247,242,0.3); }
+  .overview { border-top-color: var(--pine); }
+  .overview-label, .sub-step-label { color: var(--pine-deep); }
+  .overview-title em { color: var(--pine-deep); }
+  .strip-num, .strip-part:nth-child(n) .strip-num { color: var(--pine-deep); font-family: 'Vollkorn', serif; }
+
+  /* Pages 2 to 4: Forest bar, Linen ground, one thin accent rule per part */
+  .practice-step { background: var(--linen); }
+  .practice-step .step-header { background: var(--forest); border-bottom: 3px solid var(--tone, var(--pine)); }
+  .practice-step .step-num-large, .practice-step.tone-rose .step-num-large { color: var(--paper); font-family: 'Vollkorn', serif; }
+  .practice-step .step-name { color: rgba(250,247,242,0.82); }
+  .practice-step .step-title-text { color: var(--paper); }
+  .practice-step .step-duration { color: rgba(250,247,242,0.82); }
+  .practice-step .sub-step-label { color: var(--pine-deep); }
+  .feel-line { color: var(--pine-deep); font-family: 'Vollkorn', serif; }
+  .accept-block { background: var(--paper); border-left: 3px solid var(--pine); }
+  .accept-block .accept-label { color: var(--pine-deep); }
+  .affirmation-list li, .practice-step .affirmation-list li { color: var(--pine-deep); font-family: 'Vollkorn', serif; border-left: 3px solid var(--tone, var(--pine)); }
+  .hint-line { color: #3F5568; }
+  .write-line, .prompt-line { border-bottom: 1px solid rgba(79,104,97,0.6); }
+  .prompt-num { color: var(--pine-deep); font-family: 'Vollkorn', serif; }
+  .eft-diagram-wrap { background: var(--paper); border: 1px solid #DDD0BE; }
+  .eft-diagram-label { color: var(--pine-deep); }
+  .resource-card { background: var(--paper); border: 1px solid #DDD0BE; }
+  .resource-card::after { color: var(--bark-soft); }
+  .resource-note { color: var(--bark-soft); }
+
+  /* Page 5 */
+  .moment { border-top: 2px solid var(--pine); }
+  .moment .overview-label { color: var(--pine-deep); }
+  .closing-section { background: var(--forest); border: 0; border-radius: 0; color: var(--paper); }
+  .closing-section .section-title { color: var(--paper); }
+  .closing-section .section-title em { color: rgba(250,247,242,0.78); font-style: normal; }
+  .closing-section .body-text, .closing-section .body-text strong { color: rgba(250,247,242,0.92); }
+}
+
+/* ─── Overview: "When to do it" and "What you need" side by side ─── */
+.overview-split { display: grid; grid-template-columns: 1fr 1fr; column-gap: 0; padding-left: 0; padding-right: 0; }
+.overview-split .overview-col { padding: 0 30px; min-width: 0; }
+.overview-split .overview-col + .overview-col { border-left: 1px solid var(--clay-light); }
+.overview-split .when-list { margin-top: 0; }
+@media (max-width: 680px) {
+  .overview-split { grid-template-columns: 1fr; row-gap: 22px; }
+  .overview-split .overview-col { padding: 0 20px; }
+  .overview-split .overview-col + .overview-col { border-left: 0; border-top: 1px solid var(--clay-light); padding-top: 22px; }
+}
+@media print {
+  .overview-split { padding: 11px 0; }
+  .overview-split .overview-col { padding: 0 24px; }
+  .overview-split .overview-label { margin-bottom: 6px; }
+}
+
+/* What you need: line icons instead of dash bullets */
+.need-list li::before { display: none !important; }
+.need-list li { align-items: flex-start; gap: 12px; }
+.need-list .need-icon { width: 22px; height: 22px; flex-shrink: 0; color: var(--pine-deep, #3F5751); margin-top: 1px; }
+@media print { .need-list .need-icon { width: 23px; height: 23px; margin-top: 0; } }
+
+/* ─── App mode on phones: full-screen cards, one idea per screen ─── */
+.g-app { display: none; }
+@media print { .g-app { display: none !important; } }
+@media screen {
+  html.guided, html.guided body { height: 100%; overflow: hidden; background: #FAF7F2; }
+  html.guided body > *:not(.g-app):not(script):not(style):not(noscript):not(link) { display: none !important; }
+  html.guided .g-app { display: flex; }
+
+  .g-app {
+    --g-bg: #FAF7F2; --g-fg: #2C2420; --g-soft: #5F5046; --g-rule: #DDD0BE; --g-accent: #3F5751; --g-seg: #4F6861;
+    position: fixed; inset: 0; height: 100vh; height: 100dvh; flex-direction: column; overflow: hidden;
+    background: var(--g-bg); color: var(--g-fg); font-family: 'Jost', system-ui, sans-serif; font-size: 18px; line-height: 1.6;
+    z-index: 100; -webkit-tap-highlight-color: transparent;
+  }
+  .g-app[data-theme="linen"] { --g-bg: #F0E8DC; }
+  .g-app[data-theme="dark"] { --g-bg: #1F2F2A; --g-fg: #FAF7F2; --g-soft: rgba(250,247,242,0.82); --g-rule: rgba(250,247,242,0.24); --g-accent: #AFC1CF; --g-seg: #FAF7F2; }
+  .g-app[data-tone="rose"]  { --g-seg: #B67C7C; --tone: #B67C7C; --tone-text: #8A5050; --tone-light: #F3E6E3; --tone-border: #E3C9C6; }
+  .g-app[data-tone="storm"] { --g-seg: #6E8397; --tone: #6E8397; --tone-text: #4D6275; --tone-light: #E3E8EC; --tone-border: #C3CFD8; }
+  .g-app[data-tone="pine"]  { --g-seg: #4F6861; --tone: #4F6861; --tone-text: #3E554E; --tone-light: #E6ECEA; --tone-border: #BFCDC8; }
+
+  /* Wide screens, preview file only: show the app inside a phone-sized frame */
+  html[data-preview].guided, html[data-preview].guided body { background: #CFC6B8; }
+  @media (min-width: 681px) {
+    html[data-preview].guided .g-app { inset: auto; top: 50%; left: 50%; width: 390px; height: min(844px, calc(100dvh - 32px)); transform: translate(-50%, -50%); border-radius: 30px; box-shadow: 0 24px 60px rgba(44,36,32,0.28), 0 0 0 10px #2C2420; }
+  }
+
+  .g-top { flex: none; padding: calc(8px + env(safe-area-inset-top)) 18px 6px; }
+  .g-toprow { display: flex; align-items: center; gap: 10px; }
+  .g-x { width: 44px; height: 44px; margin-left: -12px; display: grid; place-items: center; color: var(--g-fg); border-radius: 50%; }
+  .g-x svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+  .g-segs { flex: 1; display: flex; gap: 5px; }
+  .g-seg { flex: 1; height: 4px; border-radius: 2px; background: var(--g-rule); overflow: hidden; position: relative; }
+  .g-seg i { position: absolute; inset: 0; width: 0; background: var(--g-seg); transition: width .35s ease; }
+  .g-where { margin: 2px 0 0; font-size: 14.5px; line-height: 1.3; color: var(--g-soft); min-height: 19px; }
+
+  .g-scroll { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding: 8px 26px 20px; outline: 0; }
+  .g-card { max-width: 520px; margin: 0 auto; min-height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 6px 0 10px; animation: g-in-next .28s ease both; }
+  .g-card.g-back-in { animation-name: g-in-back; }
+  @keyframes g-in-next { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+  @keyframes g-in-back { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .g-card { animation: none; } .g-seg i { transition: none; } }
+
+  .g-brand { display: flex; align-items: center; gap: 10px; margin: 0 0 28px; }
+  .g-brand span { font-family: 'Vollkorn', serif; font-size: 20px; font-weight: 500; color: var(--g-fg); }
+  .g-kicker { margin: 0 0 12px; font-size: 15px; line-height: 1.4; color: var(--g-soft); }
+  .g-title { font-family: 'Vollkorn', serif; font-weight: 500; font-size: clamp(28px, 8.4vw, 36px); line-height: 1.14; letter-spacing: -0.012em; margin: 0 0 20px; color: var(--g-fg); text-wrap: balance; }
+  .g-title.g-small { font-size: clamp(25px, 7vw, 30px); }
+  .g-title em { font-style: normal; color: var(--g-accent); }
+  .g-card .body-text { font-size: 17px; line-height: 1.55; max-width: none; color: var(--g-fg); margin: 0 0 14px; }
+  .g-card .body-text strong { font-weight: 500; color: var(--g-fg); }
+  .g-card .body-text:last-child { margin-bottom: 0; }
+  .g-card em { font-style: italic; }
+  .g-hero { margin: 0 0 16px; }
+  .g-hero img { display: block; width: 100%; height: 14dvh; max-height: 130px; min-height: 90px; aspect-ratio: auto; object-fit: cover; object-position: center 30%; border-radius: 14px; }
+  @media (max-height: 700px) { .g-hero img { height: 15dvh; min-height: 84px; } .g-card .body-text { font-size: 16.5px; line-height: 1.5; margin-bottom: 10px; } }
+  .g-card .feel-line { font-size: 1.3rem; line-height: 1.4; color: var(--g-accent); margin: 0; max-width: none; }
+  .g-card .hint-line { font-size: 1.2rem; max-width: none; margin: 0 0 18px; }
+  .g-card .write-hint { font-size: 15px; line-height: 1.5; color: var(--g-soft); max-width: none; }
+  .g-card .write-hint a { color: var(--g-accent); text-decoration: underline; text-underline-offset: 3px; }
+  .g-card .write-area, .g-card .prompt-list { display: none; }
+  .g-card .accept-label { display: none; }
+  .g-card .affirmation-list { margin: 8px 0 14px; }
+  .g-card .affirmation-list li { font-size: 1.3rem; padding: 12px 0 12px 16px; border-left: 3px solid var(--tone, #4F6861); border-bottom: 0; margin-bottom: 8px; color: var(--g-accent); }
+  .g-card .prompt-item .prompt-line { min-height: 36px; }
+  .g-card .need-list { gap: 18px; }
+  .g-card .need-list li { font-size: 18px; line-height: 1.5; color: var(--g-soft); gap: 16px; }
+  .g-card .need-list li strong { font-size: 18px; color: var(--g-fg); display: block; margin: 0 0 2px; }
+  .g-card .need-list .need-icon { width: 30px; height: 30px; margin-top: 2px; color: var(--g-accent); }
+  .g-card .overview-note { max-width: none; font-size: 16px; margin: 22px 0 0; }
+  .g-card .eft-diagram-wrap { margin: 6px 0 18px; padding: 14px 6px; }
+  .g-card .eft-diagram-wrap svg { max-width: 100%; }
+  .g-card .resource-card { margin: 0 0 16px; }
+  .g-card .resource-note { font-size: 16px; max-width: none; }
+  .g-link { align-self: flex-start; margin: 18px 0 0; padding: 10px 0; min-height: 44px; background: none; border: 0; font: inherit; font-size: 16px; color: var(--g-soft); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+  .g-card .ib101-prog { margin: 22px 0 0; max-width: none; background: rgba(250,247,242,0.96); }
+  .g-card .sms-cta { margin: 22px 0 0; max-width: none; }
+  .g-card .closing-copy .body-text { color: var(--g-fg); }
+
+  .g-bottom { flex: none; display: flex; gap: 12px; padding: 10px 20px calc(14px + env(safe-area-inset-bottom)); background: var(--g-bg); }
+  .g-btn { font-family: 'Jost', system-ui, sans-serif; cursor: pointer; border-radius: 4px; height: 56px; }
+  .g-back { flex: none; width: 56px; display: grid; place-items: center; background: none; border: 1.5px solid var(--g-rule); color: var(--g-fg); }
+  .g-back svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .g-next { flex: 1; border: 0; background: #C4A882; color: #2C2420; font-size: 18px; font-weight: 500; }
+  .g-next:active { background: #D3BA97; }
+  .g-btn[hidden] { display: none; }
+  .g-btn:focus-visible, .g-x:focus-visible, .g-link:focus-visible { outline: 3px solid var(--g-accent); outline-offset: 3px; }
+  .g-app[data-theme="dark"] .g-btn:focus-visible, .g-app[data-theme="dark"] .g-x:focus-visible { outline-color: #FAF7F2; }
+
+  .g-sheet { position: absolute; inset: 0; z-index: 10; display: flex; align-items: flex-end; background: rgba(31,47,42,0.55); }
+  .g-sheet[hidden] { display: none; }
+  .g-panel { width: 100%; max-height: 90%; overflow-y: auto; background: #FAF7F2; color: #2C2420; border-radius: 18px 18px 0 0; padding: 20px 24px calc(26px + env(safe-area-inset-bottom)); animation: g-up .26s ease both; }
+  @keyframes g-up { from { transform: translateY(40px); opacity: .6; } to { transform: none; opacity: 1; } }
+  .g-panel h2 { font-family: 'Vollkorn', serif; font-weight: 500; font-size: 26px; margin: 0; }
+  .g-panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .g-panel .overview-label { margin: 22px 0 10px; font-size: 16px; }
+  .g-panel .when-list li { font-size: 17px; line-height: 1.5; }
+  .g-panel .structure-strip { margin-top: 6px; }
+  .g-panel .overview-dl { margin: 20px 0 0; font-size: 16px; color: #5F5046; }
+  .g-panel .overview-dl a { color: #3E554E; text-decoration: underline; text-underline-offset: 3px; }
+  .g-panel .screen-only { display: block; }
+  .g-close { width: 44px; height: 44px; margin-right: -10px; display: grid; place-items: center; background: none; border: 0; color: #2C2420; cursor: pointer; }
+  .g-close svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+}
+@media (max-width: 680px), (min-width: 681px) { html.guided .g-card.g-dark .body-text { font-size: 16.5px; line-height: 1.5; margin-bottom: 10px; } }
+
+.g-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 22px; margin: 14px 0 0; }
+.g-row .g-link { margin: 0; }
+.g-skip { min-height: 44px; padding: 0 18px; border-radius: 999px; background: transparent; border: 1.5px solid currentColor; color: var(--g-fg); font: inherit; font-size: 16px; font-weight: 500; cursor: pointer; }
+.g-skip:focus-visible { outline: 3px solid var(--g-accent); outline-offset: 3px; }
+  .g-prompt { display: flex; gap: 14px; margin: 0 0 26px; align-items: flex-start; }
+  .g-pnum { font-family: 'Vollkorn', serif; font-size: 26px; line-height: 1.2; color: var(--g-accent); flex: 0 0 auto; }
+  .g-q { font-size: 20px; line-height: 1.45; color: var(--g-fg); margin: 0; }
+  .g-pnote { font-size: 15.5px; line-height: 1.5; color: var(--g-soft); margin: 8px 0 0; }
+  .g-card.g-chart { justify-content: flex-start; padding-top: 4px; }
+  .g-chart .chart-wrapper { padding: 8px; box-shadow: none; }
+  .g-chart .chart-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .g-chart .emotion-row { grid-template-columns: 1fr; gap: 2px; margin-bottom: 4px; }
+  .g-chart .emotion-name { padding: 4px 6px; justify-content: flex-start; }
+  .g-chart .sensation-pair { flex-direction: row; gap: 4px; }
+  .g-chart .sensation { padding: 2px 5px; font-size: 12px; justify-content: flex-start; }
+  .g-chart .chart-legend { display: none; }
+  .g-card .gap-flow { margin: 14px 0; }
+  .g-card .moment-note { margin: 4px 0 8px; }
+  .g-card .moment-list li { font-size: 17px; line-height: 1.5; }
+  .g-card .emotion-practice-row { background: none; padding: 0; }
+  .g-card .ep-desc { font-size: 17px; line-height: 1.55; color: var(--g-fg); }
+  .g-card .ep-link, .g-card .ep-desc a { font-size: 17px; }
+  .g-card .eft-points { margin: 10px 0; }
+  [data-theme=dark] .g-card .body-text { font-size: 16px; line-height: 1.5; margin-bottom: 10px; }
+  .g-card .need-list { gap: 14px; }
+  .g-card .ep-desc, .g-card .ep-link, .g-card .ep-desc a { font-size: 16px; }
+  .g-card .need-list li, .g-card .need-list li strong { font-size: 16.5px; line-height: 1.45; }
+/* Desktop: show the guide as the five printed pages, on a desk */
+.sheet-dl { display: none; }
+@media screen and (min-width: 681px) {
+  html:not(.guided) body { background: #D8CFC1; }
+  .sheet-dl { display: inline-flex; align-items: center; gap: 8px; position: fixed; top: 138px; right: 28px; z-index: 70; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #A07E5A; color: #FAF7F2; font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; box-shadow: 0 6px 18px rgba(44,36,32,0.22); }
+  .sheet-dl:hover { background: #8A6A49; }
+  .sheet-dl:focus-visible { outline: 3px solid #1F2F2A; outline-offset: 3px; }
+  .sheet-dl svg { width: 16px; height: 16px; }
+  .part-nav { background: rgba(216,207,193,0.96); border-bottom: 1px solid rgba(44,36,32,0.12); }
+  main.page-body { max-width: 940px; padding-left: 0; padding-right: 0; }
+  .part-nav-inner { max-width: 940px; }
+  .start-divider, .ornament { display: none; }
+  /* page labels */
+  .page-header, #step-1, #step-2, #step-3, .moment { position: relative; }
+  .page-header::before, #step-1::before, #step-2::before, #step-3::before, .moment::before { position: absolute; top: -30px; right: 0; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.04em; color: #4A3F37; }
+  .page-header::before { content: "Page 1 of 5"; }
+  #step-1::before { content: "Page 2 of 5"; }
+  #step-2::before { content: "Page 3 of 5"; }
+  #step-3::before { content: "Page 4 of 5"; }
+  .moment::before { content: "Page 5 of 5"; }
+  /* page 1: header + overview on one sheet */
+  .page-header { max-width: 940px; margin: 60px auto 0; box-shadow: 0 14px 40px rgba(44,36,32,0.18); border-radius: 3px 3px 0 0; }
+  main.page-body { padding-top: 0; }
+  #overview { margin: 0; padding: 8px 56px 40px; border-radius: 0 0 3px 3px; box-shadow: 0 14px 40px rgba(44,36,32,0.18); }
+  #sms-cta { display: none; }
+  /* pages 2 to 4 */
+  .practice-step { margin: 64px 0 0; border-radius: 3px; box-shadow: 0 14px 40px rgba(44,36,32,0.18); }
+  /* page 5: why + closing */
+  .moment { margin: 64px 0 0; padding: 48px 56px 8px; background: #FFFDF9; border-radius: 3px 3px 0 0; box-shadow: 0 14px 40px rgba(44,36,32,0.18); }
+  .closing-section { margin: 0; border-radius: 0 0 3px 3px; box-shadow: 0 14px 40px rgba(44,36,32,0.18); }
+}
+@media print { .sheet-dl { display: none !important; } }
+@media screen and (min-width: 681px) {
+  .part-nav { position: fixed; top: var(--nav-h); left: 0; right: 0; }
+  .page-header { margin-top: 112px; }
+  .page-header::before { top: -30px; }
+  .step-figure img, .step-figure picture img { width: 100%; height: 220px; object-fit: cover; object-position: center 30%; }
+}
+@media screen and (min-width: 681px) { .overview-dl { display: none; } }
+/* Stage 2 print fit */
+@media print {
+  .chart-details { break-before: auto !important; page-break-before: auto !important; margin-top: 6px; }
+  .chart-details > summary { display: none; }
+  .chart-details-inner { padding: 0; }
+  .chart-intro { display: none; }
+  .family-line { margin: 2px 0 6px; gap: 4px; }
+  .family-line span { font-size: 11px; padding: 2px 8px; }
+  .practice-step .chart-wrapper { padding: 6px; background: #fffdf9; border: 1px solid #DDD0BE; }
+  .practice-step .chart-legend { padding: 3px 8px; margin-bottom: 5px; gap: 5px; }
+  .practice-step .legend-intro, .practice-step .legend-block { font-size: 10px; padding: 1px 6px; }
+  .practice-step .chart-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; grid-template-areas: "happiness anger fear sadness" "happiness anger surprise disgust"; align-items: start; }
+  .chart-grid .happiness { grid-area: happiness; } .chart-grid .anger { grid-area: anger; } .chart-grid .fear { grid-area: fear; }
+  .chart-grid .surprise { grid-area: surprise; } .chart-grid .sadness { grid-area: sadness; } .chart-grid .disgust { grid-area: disgust; }
+  .practice-step .emotion-group { gap: 2px; padding: 3px; break-inside: avoid; }
+  .practice-step .group-header { min-height: 0; padding: 2px; }
+  .practice-step .group-header-text { font-size: 12px; }
+  .practice-step .emotion-row { display: block; }
+  .practice-step .emotion-name { padding: 1px 3px; font-size: 9.5px; justify-content: flex-start; line-height: 1.25; }
+  .practice-step .sensation-pair { flex-direction: row; gap: 3px; flex-wrap: wrap; }
+  .practice-step .sensation { padding: 0 3px; font-size: 7.8px; line-height: 1.3; background: transparent !important; justify-content: flex-start; }
+
+  /* Part 3: practices in two columns */
+  .emotion-practices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+  .emotion-practice-row { padding: 6px 9px; break-inside: avoid; }
+  .emotion-practice-row .ep-family { display: block; width: auto; flex: none; font-size: 11.5px; margin-bottom: 2px; }
+  .ep-name { font-size: 12px; margin-bottom: 1px; }
+  .ep-desc { font-size: 10.5px; line-height: 1.4; margin-top: 3px; }
+  .ep-link, .ep-desc a { font-size: 10.5px; }
+  .eft-points { margin: 4px 0; gap: 3px; }
+  .eft-point { font-size: 9px; padding: 1px 6px; }
+  .ep-fallback { grid-column: 1 / -1; }
+  .end-note { margin-top: 6px; padding: 6px 12px; }
+  .end-note p { font-size: 11.5px; line-height: 1.4; margin: 0; }
+  #step-3 .affirmation-list { margin: 3px 0; }
+  #step-3 .affirmation-list li { font-size: 12px; padding: 2px 0 2px 12px; margin-bottom: 2px; }
+  /* Part 2: prompts */
+  #step-2 .prompt-note { font-size: 11.5px; }
+  /* Moment page */
+  .moment { padding: 18px 26px; }
+  .moment .body-text { font-size: 13px; line-height: 1.5; margin-bottom: 7px; }
+  .moment .overview-title { font-size: 22px; margin-bottom: 6px; }
+  .gap-flow { margin: 8px 0; } .gap-box { padding: 6px 8px; }
+  .moment-note { font-size: 12.5px; line-height: 1.45; padding: 8px 14px; margin: 4px 0 8px; }
+  .moment-list { margin: 6px 0; gap: 4px; } .moment-list li { font-size: 12.5px; line-height: 1.45; }
+  .closing-section { margin-top: 14px; padding: 18px 26px; }
+  .closing-section .body-text { font-size: 14px; line-height: 1.55; margin-bottom: 6px; max-width: none; }
+  .closing-section .section-title { font-size: 22px; margin-bottom: 8px; }
+}
+@media print {
+  #step-1 .step-body, #step-3 .step-body, #step-2 .step-body { padding: 8px 20px 8px; }
+  #step-1 .body-text, #step-3 .body-text { font-size: 12px; line-height: 1.42; margin-bottom: 4px; }
+  #step-1 .sub-step, #step-3 .sub-step { margin-top: 6px; padding-top: 6px; }
+  #step-1 .sub-step-label, #step-3 .sub-step-label { font-size: 12.5px; margin-bottom: 3px; }
+  #step-1 .write-line { height: 24px; }
+  #step-1 .write-area { margin: 2px 0 4px; }
+  #step-1 .accept-block { margin-top: 6px; padding: 6px 0 6px 12px; }
+  #step-1 .accept-block .accept-label { margin-bottom: 2px; font-size: 11px; }
+  #step-3 .write-line { height: 24px; }
+  #step-3 .write-area { margin: 2px 0 4px; }
+}
+@media print {
+  .page-header { padding: 6px 30px 8px; }
+  .page-header .header-meta { margin-top: 4px; }
+  .overview { margin-top: 8px; }
+  .overview-row { padding: 8px 26px; }
+  .overview-title { font-size: 22px; margin-bottom: 5px; }
+  .overview .body-text { font-size: 13px; line-height: 1.45; margin-bottom: 4px; }
+  .overview-note { font-size: 12.5px; line-height: 1.45; padding: 5px 12px; margin-top: 4px; }
+  .when-list li { font-size: 12.5px; line-height: 1.4; }
+  .when-list { gap: 4px; }
+  .overview-split { padding: 8px 0; }
+  .overview .structure-strip { margin-top: 5px; }
+  .overview .strip-part { padding: 5px 12px; }
+  .overview .strip-num { font-size: 20px; }
+}
+@media print {
+  .step-body .body-text, .step-body .write-area, .step-body .prompt-list { max-width: none; }
+  #step-1 .write-line { height: 20px; }
+  #step-1 .write-area { margin: 0 0 3px; }
+  #step-1 .step-header { padding: 7px 20px; }
+  #step-1 .sub-step.flow .body-text { margin-bottom: 3px; }
+  .practice-step .chart-legend { display: none; }
+  #step-1 .accept-block .body-text { margin-bottom: 3px; }
+}
+@media print {
+  #step-1 .accept-block .body-text { font-size: 11.5px; line-height: 1.38; }
+  #step-1 .accept-block { margin-top: 4px; padding: 4px 0 4px 12px; }
+  #step-1 .family-line { margin: 1px 0 4px; }
+  #step-1 .step-body { padding-top: 6px; }
+  #step-3 .step-body .body-text { font-size: 11.5px; }
+  #step-3 .affirmation-list li { font-size: 11.5px; padding: 1px 0 1px 12px; }
+  #step-3 .end-note { margin-top: 4px; padding: 5px 12px; }
+  .emotion-practice-row { padding: 5px 9px; }
+}
+@media print {
+  #step-1 .body-text { font-size: 11.5px; line-height: 1.38; margin-bottom: 3px; }
+  #step-1 .sub-step { margin-top: 4px; padding-top: 4px; }
+  #step-1 .step-body { padding-bottom: 4px; }
+  #step-3 .step-body .body-text { font-size: 11px; line-height: 1.38; margin-bottom: 3px; }
+  #step-3 .sub-step { margin-top: 4px; padding-top: 4px; }
+  #step-3 .emotion-practice-row a::after { display: inline; margin-left: 4px; font-size: 8px; word-break: break-all; }
+  .ep-desc { margin-top: 2px; line-height: 1.35; }
+  #step-3 .end-note p { font-size: 11px; line-height: 1.35; }
+  #step-3 .end-note-label { font-size: 10.5px; margin-bottom: 1px; }
+  #step-3 .write-line { height: 20px; }
+  /* Part 2: prompts fill the page, number sits with its question */
+  #step-2 .prompt-item { align-items: flex-start; margin-bottom: 4px; }
+  #step-2 .prompt-num { padding-bottom: 0; font-size: 15px; line-height: 1.3; }
+  #step-2 .prompt-text { font-size: 14px; line-height: 1.4; }
+  #step-2 .prompt-line { height: 78px; min-height: 78px; margin-top: 4px; }
+  #step-2 .step-body .body-text { font-size: 13px; line-height: 1.5; }
+  #step-2 .hint-line { font-size: 1rem; }
+}
+@media print {
+  #step-1 .family-line { display: none; }
+  .practice-step .sensation { font-size: 8.6px; }
+  .practice-step .emotion-name { font-size: 10px; }
+  #step-2 .prompt-line { height: 92px; min-height: 92px; }
+}
 </style>
 </head>
 
@@ -1318,6 +1753,7 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 
 <!-- PAGE HEADER -->
 <header class="page-header">
+  <div class="print-brand"><svg width="30" height="30" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#FAF7F2" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#FAF7F2" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#FAF7F2"/></svg><span>innerbalance101</span></div>
   <span class="stage-label">Stage&nbsp;02 of 03</span>
   <h1 class="page-title">Clarity</h1>
   <p class="page-subtitle">Name it. Notice it. Create space between the trigger and the response.</p>
@@ -1358,13 +1794,24 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
       <p class="overview-note"><strong>Before you begin.</strong> Accept what you find and don’t judge it. You don’t need the right word for what you feel. The chart in Part&nbsp;1 helps you find it, starting from what you notice in your body.</p>
       <p class="learn-more">Want to understand why this works? <a href="#in-the-moment">See how mindfulness fits in &darr;</a></p>
     </div>
-    <div class="overview-row">
-      <span class="overview-label">When to do it</span>
-      <ul class="when-list">
+    <div class="overview-row overview-split">
+      <div class="overview-col">
+        <span class="overview-label">When to do it</span>
+        <ul class="when-list">
         <li><span><strong>Morning.</strong> Before the day’s noise arrives. Your system is rested, so you set the quality of your attention first.</span></li>
         <li><span><strong>Lunchtime.</strong> Half the day is behind you and your body has information. Process it before it travels into the afternoon.</span></li>
         <li><span><strong>Before bed.</strong> Name what the day activated, move it through, and set it down. What you don’t process, your nervous system keeps holding overnight.</span></li>
       </ul>
+      </div>
+      <div class="overview-col">
+        <span class="overview-label">What you need</span>
+        <ul class="when-list need-list">
+        <li><svg class="need-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 1.5"/><path d="M9.5 3h5"/><path d="M12 3v3"/></svg><span><strong>A timer or stopwatch.</strong> These twenty minutes are yours, start to finish.</span></li>
+        <li><svg class="need-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.5 12 4l8.5 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span><strong>A quiet space.</strong> Somewhere you feel safe, where nobody needs you for twenty minutes.</span></li>
+        <li><svg class="need-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h10a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 16 20H6z"/><path d="M9.5 8.5h5M9.5 12h3"/><path d="M15.5 16.5l4-4 1.5 1.5-4 4-2 .5z"/></svg><span><strong>A notebook and pen.</strong> Or loose paper. You will write in every part.</span></li>
+        <li><svg class="need-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c1.8 2.2 3 3.8 3 5.6a3 3 0 0 1-6 0c0-1.8 1.2-3.4 3-5.6z"/><rect x="8" y="12.5" width="8" height="8" rx="1"/><path d="M6 20.5h12"/></svg><span><strong>Optional.</strong> Some music, an essential oil, a candle. Pick one thing that tells your body this time is for you.</span></li>
+      </ul>
+      </div>
     </div>
     <div class="overview-row">
       <span class="overview-label">How each day works</span>
@@ -1386,6 +1833,7 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
           <div class="strip-time">11&nbsp;min</div>
         </a></div>
       </div>
+      <p class="overview-dl screen-only">Prefer paper? <a href="/guides/stage-2-clarity-guide.pdf" download>Download the printable guide (PDF).</a></p>
     </div>
   </details>
 
@@ -1432,7 +1880,7 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
         <p class="body-text">You are not looking for what is wrong, and you are not judging what you find. You are looking for where something is. Any tension? Any heaviness? Anywhere you are holding something that has not released?</p>
         <p class="body-text"><strong>That is your starting point today. Work with what is actually there.</strong></p>
         <p class="body-text" style="margin-bottom:6px;"><strong>What I notice in my body:</strong></p>
-        <p class="write-hint screen-only">Write it in a notebook or your notes app, or <button type="button" class="print-link" onclick="window.print()">print this page</button> for lines to write on.</p>
+        <p class="write-hint screen-only">Write it in a notebook or your notes app, or <a class="print-link" href="/guides/stage-2-clarity-guide.pdf" download>download the printable guide</a> for lines to write on.</p>
         <div class="write-area"><div class="write-line"></div></div>
       </div>
 
@@ -1736,6 +2184,9 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   </div>
 
 </main>
+<a class="sheet-dl" href="/guides/stage-2-clarity-guide.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg>Download PDF</a>
+<div class="print-footer" aria-hidden="true"><div class="pf-brand"><svg width="16" height="16" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="#2C2420" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="#2C2420" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="#2C2420"/></svg><span>innerbalance101</span></div><div>&copy; 2026 innerbalance101. All rights reserved.</div><div>innerbalance101.com</div></div>
+
 
 <footer>
   <div class="footer-top">
@@ -1840,5 +2291,315 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <noscript>
 <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9631452&fmt=gif" />
 </noscript>
+<script>
+// App mode on phones: the stage opens as full-screen cards, one idea per screen.
+// The cards are built from the page's own text, so edits to the copy carry through.
+// Wider screens (and printing) keep the whole page.
+(function () {
+  var main = document.getElementById('main');
+  if (!main || !window.matchMedia) return;
+  var root = document.documentElement;
+  var mq = window.matchMedia('(max-width: 680px)');
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var txt = function (n) { return n ? n.textContent.replace(/\s+/g, ' ').trim() : ''; };
+  var kids = function (n) { return Array.prototype.slice.call(n.children); };
+
+  var overview = $('#overview'), header = $('.page-header');
+  var rows = $$('.overview-row', overview);
+  var steps = [$('#step-1'), $('#step-2'), $('#step-3')];
+  var closing = $('.closing-section'), prog = $('#ib101-progress'), sms = $('.sms-cta');
+  if (!overview || rows.length < 3 || !steps[0] || !steps[1] || !steps[2] || !closing) return;
+  var subsOf = function (s) { return $$('.sub-step', s); };
+
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function clone(n) {
+    var c = n.cloneNode(true);
+    c.removeAttribute('id');
+    $$('[id]', c).forEach(function (x) { x.removeAttribute('id'); });
+    $$('img', c).forEach(function (i) { i.loading = 'eager'; });
+    return c;
+  }
+  function add(parent, nodes) { nodes.forEach(function (n) { if (n) parent.appendChild(n.nodeType ? n : n); }); return parent; }
+  var MARK = '<svg width="30" height="30" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="currentColor" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="currentColor"/></svg>';
+
+  var how = function () { openSheet(); };
+  function skipLink() { var b = el('button', 'g-skip', 'Skip to the practice'); b.type = 'button'; b.addEventListener('click', function () { show(2, 1); }); return b; }
+  function howLink() { var b = el('button', 'g-link', 'How it works'); b.type = 'button'; b.addEventListener('click', how); return b; }
+
+  // ── screens ──────────────────────────────────────────────
+  var cards = [];
+  function card(o) { cards.push(o); }
+  function heroFor(c, n) { var f = $('.step-figure', steps[n]); if (f) { var h = el('div', 'g-hero'); h.appendChild(clone($('img', f))); c.appendChild(h); } }
+
+  // a screen from a slice of a parent's children (indexes), with an optional title
+  function pick(parent, idx, title, hero) {
+    return function () {
+      var c = el('section', 'g-card'), ks = kids(parent);
+      if (hero != null) heroFor(c, hero);
+      if (title) c.appendChild(el('h1', 'g-title' + (title.length > 34 ? ' g-small' : ''), title));
+      idx.forEach(function (n) { if (ks[n]) c.appendChild(clone(ks[n])); });
+      return c;
+    };
+  }
+  function subScreen(n, subIdx, from, to, titleFrom, hero) {
+    return function () {
+      var sub = subsOf(steps[n])[subIdx], ks = kids(sub);
+      var c = el('section', 'g-card');
+      if (hero) heroFor(c, n);
+      var title = txt(ks[0]).replace(/^[A-Z]\.\s*/, '');
+      if (titleFrom != null) title = txt(ks[titleFrom]).replace(/:\s*$/, '');
+      var t = el('h1', 'g-title' + (title.length > 34 ? ' g-small' : ''));
+      t.textContent = title;
+      c.appendChild(t);
+      ks.slice(from, to).forEach(function (k) { if (k !== ks[titleFrom]) c.appendChild(clone(k)); });
+      return c;
+    };
+  }
+  var P1 = whereOf(0), P2 = whereOf(1), P3 = whereOf(2);
+  function whereOf(n) { var s = steps[n]; return txt($('.step-name', s)) + ' · ' + txt($('.step-duration', s)); }
+  function T(t) { return txt($('.step-title-text', steps[t])); }
+
+  card({ sect: 'intro', theme: 'dark', where: txt($('.stage-label', header)) + ' · ' + txt($('.page-title', header)), next: 'Continue', key: 'intro', build: function () {
+    var c = el('section', 'g-card');
+    c.appendChild(el('div', 'g-brand', MARK + '<span>innerbalance101</span>'));
+    c.appendChild(el('h1', 'g-title', $('.overview-title', rows[0]).innerHTML));
+    $$('.body-text', rows[0]).slice(0, 2).forEach(function (p) { c.appendChild(clone(p)); });
+    var r = el('div', 'g-row'); r.appendChild(skipLink()); r.appendChild(howLink()); c.appendChild(r);
+    return c;
+  } });
+  card({ sect: 'intro', theme: 'light', where: 'Before you start', next: 'I’m ready', build: function () {
+    var c = el('section', 'g-card');
+    var lab = $$('.overview-label', rows[1])[1];
+    c.appendChild(el('h1', 'g-title', txt(lab)[0].toUpperCase() + txt(lab).slice(1)));
+    c.appendChild(clone($('.need-list', rows[1])));
+    var note = $('.overview-note', rows[0]); if (note) c.appendChild(clone(note));
+    return c;
+  } });
+
+  // Part 1
+  card({ sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Next', key: 'step-1', build: subScreen(0, 0, 1, undefined, undefined, true) });
+  card({ sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Next', build: function () {
+    var sub = subsOf(steps[0])[1], ks = kids(sub), c = el('section', 'g-card');
+    c.appendChild(el('h1', 'g-title', 'Find it on the chart'));
+    c.appendChild(clone(ks[1]));
+    var fam = $('.family-line', sub); if (fam) c.appendChild(clone(fam));
+    return c;
+  } });
+  card({ sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Next', build: function () {
+    var c = el('section', 'g-card g-chart');
+    c.appendChild(el('h1', 'g-title g-small', 'The Emotions & Sensations Chart'));
+    var inner = $('#emotions-chart .chart-details-inner'); if (inner) { var cl = clone(inner); var ci = $('.chart-intro', cl); if (ci) ci.parentNode.removeChild(ci); c.appendChild(cl); }
+    return c;
+  } });
+  card({ sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Next', build: subScreen(0, 2, 1) });
+  card({ sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Continue to Part 2', build: function () {
+    var b = $('.accept-block', steps[0]), c = el('section', 'g-card');
+    c.appendChild(el('h1', 'g-title', txt($('.accept-label', b))));
+    $$('.body-text', b).forEach(function (p) { c.appendChild(clone(p)); });
+    return c;
+  } });
+
+  // Part 2
+  card({ sect: 'p2', theme: 'linen', tone: 'storm', where: P2, next: 'Next', key: 'step-2', build: function () {
+    var c = el('section', 'g-card'), b = $('.step-body', steps[1]);
+    heroFor(c, 1);
+    c.appendChild(el('h1', 'g-title', T(1)));
+    c.appendChild(clone($('.hint-line', b)));
+    c.appendChild(clone($('.body-text', b)));
+    return c;
+  } });
+  function prompts(from, to, title) {
+    return function () {
+      var c = el('section', 'g-card'), items = $$('.prompt-item', steps[1]).slice(from, to);
+      c.appendChild(el('h1', 'g-title g-small', title));
+      items.forEach(function (it) {
+        var q = el('div', 'g-prompt');
+        q.appendChild(el('span', 'g-pnum', txt($('.prompt-num', it))));
+        var w = el('div', 'g-ptext'); w.appendChild(el('p', 'g-q', txt($('.prompt-text', it))));
+        var nt = $('.prompt-note', it); if (nt) w.appendChild(el('p', 'g-pnote', txt(nt)));
+        q.appendChild(w); c.appendChild(q);
+      });
+      return c;
+    };
+  }
+  card({ sect: 'p2', theme: 'linen', tone: 'storm', where: P2, next: 'Next', build: prompts(0, 2, 'Write short answers') });
+  card({ sect: 'p2', theme: 'linen', tone: 'storm', where: P2, next: 'Continue to Part 3', build: function () {
+    var c = prompts(2, 4, 'Now the gentler thought')();
+    var last = $$('.step-body > .body-text', steps[1]).pop(); if (last) c.appendChild(clone(last));
+    return c;
+  } });
+
+  // Part 3
+  card({ sect: 'p3', theme: 'linen', tone: 'pine', where: P3, next: 'Next', key: 'step-3', build: subScreen(2, 0, 1, 3, undefined, true) });
+  $$('.emotion-practice-row', steps[2]).forEach(function (row) {
+    card({ sect: 'p3', theme: 'linen', tone: 'pine', where: P3, next: 'Next', build: function () {
+      var c = el('section', 'g-card');
+      c.appendChild(el('p', 'g-kicker', txt($('.ep-family', row))));
+      var nm = $('.ep-name', row); c.appendChild(el('h1', 'g-title g-small', nm ? nm.innerHTML : ''));
+      kids($('.ep-body', row)).forEach(function (k) { if (k !== nm) c.appendChild(clone(k)); });
+      return c;
+    } });
+  });
+  card({ sect: 'p3', theme: 'linen', tone: 'pine', where: P3, next: 'Next', build: subScreen(2, 1, 1, 3) });
+  card({ sect: 'p3', theme: 'linen', tone: 'pine', where: P3, next: 'Next', build: function () {
+    var sub = subsOf(steps[2])[1], ks = kids(sub), c = el('section', 'g-card');
+    c.appendChild(el('h1', 'g-title', 'Choose your thought'));
+    [3, 4, 5, 7].forEach(function (n) { if (ks[n]) c.appendChild(clone(ks[n])); });
+    return c;
+  } });
+  card({ sect: 'p3', theme: 'linen', tone: 'pine', where: P3, next: 'Finish', build: function () {
+    var en = $('.end-note', subsOf(steps[2])[1]), c = el('section', 'g-card');
+    c.appendChild(el('h1', 'g-title', txt($('.end-note-label', en))));
+    $$('p', en).forEach(function (p) { c.appendChild(clone(p)); });
+    return c;
+  } });
+
+  // In the moment
+  var why = $('#in-the-moment');
+  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', key: 'in-the-moment', build: function () {
+    var c = pick(why, [2, 3, 4], '')(); c.insertBefore(el('h1', 'g-title', $('.overview-title', why).innerHTML), c.firstChild); return c;
+  } });
+  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', build: pick(why, [5, 6, 7], '') });
+  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', build: pick(why, [8, 9], '') });
+  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', build: pick(why, [10, 11], 'Take two minutes') });
+  card({ sect: 'end', theme: 'dark', where: 'You did it', next: '', key: 'finish', parks: true, build: function () {
+    var c = el('section', 'g-card');
+    c.appendChild(el('h1', 'g-title', $('.section-title', closing).innerHTML));
+    $$('.closing-copy .body-text', closing).forEach(function (p) { c.appendChild(clone(p)); });
+    if (prog) c.appendChild(park(prog));
+    if (sms) c.appendChild(park(sms));
+    return c;
+  } });
+
+  // Live elements (they run their own code) are moved into the card and put back afterwards.
+  var parked = [];
+  function park(node) { parked.push({ n: node, p: node.parentNode, s: node.nextSibling }); return node; }
+  function unpark() { while (parked.length) { var x = parked.pop(); if (x.p) x.p.insertBefore(x.n, x.s); } }
+
+  // ── shell ────────────────────────────────────────────────
+  var sects = ['intro', 'p1', 'p2', 'p3', 'end'];
+  var app = el('div', 'g-app');
+  app.setAttribute('role', 'region');
+  app.setAttribute('aria-label', 'Clarity, step by step');
+  app.innerHTML =
+    '<header class="g-top"><div class="g-toprow">' +
+    '<a class="g-x" href="/dashboard.html" aria-label="Back to your dashboard"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></a>' +
+    '<div class="g-segs" aria-hidden="true">' + sects.map(function () { return '<span class="g-seg"><i></i></span>'; }).join('') + '</div></div>' +
+    '<p class="g-where" aria-live="polite"></p></header>' +
+    '<div class="g-scroll" id="g-scroll" tabindex="-1"></div>' +
+    '<footer class="g-bottom"><button type="button" class="g-btn g-back" aria-label="Back"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg></button>' +
+    '<button type="button" class="g-btn g-next">Next</button></footer>' +
+    '<div class="g-sheet" hidden><div class="g-panel" role="dialog" aria-modal="true" aria-labelledby="g-sheet-h"></div></div>';
+  document.body.appendChild(app);
+  var scroller = $('#g-scroll', app), where = $('.g-where', app), backBtn = $('.g-back', app), nextBtn = $('.g-next', app);
+  var segs = $$('.g-seg i', app), sheet = $('.g-sheet', app), panel = $('.g-panel', app);
+
+  // ── how it works (sheet) ─────────────────────────────────
+  function openSheet() {
+    panel.innerHTML = '<div class="g-panel-head"><h2 id="g-sheet-h">How it works</h2><button type="button" class="g-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div>';
+    var when = $('.overview-split .when-list:not(.need-list)', rows[1]) || $('.when-list:not(.need-list)', overview);
+    var every = $$('.body-text', rows[0])[2]; if (every) panel.appendChild(clone(every));
+    panel.appendChild(el('span', 'overview-label', 'When to do it'));
+    if (when) panel.appendChild(clone(when));
+    panel.appendChild(el('span', 'overview-label', 'How each day works'));
+    var d3 = $$('.overview-label', rows[2])[0], p3 = $('.body-text', rows[2]);
+    if (p3) panel.appendChild(clone(p3));
+    var strip = $('.structure-strip', rows[2]); if (strip) panel.appendChild(clone(strip));
+    var dl = $('.overview-dl', rows[2]); if (dl) panel.appendChild(clone(dl));
+    sheet.hidden = false;
+    $('.g-close', panel).addEventListener('click', closeSheet);
+    $('.g-close', panel).focus();
+  }
+  function closeSheet() { sheet.hidden = true; panel.innerHTML = ''; }
+  sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) closeSheet(); });
+  panel.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href^="#"]'); if (a) { e.preventDefault(); closeSheet(); } });
+
+  // ── navigation ───────────────────────────────────────────
+  var KEY = 'ib101-stage2-app';
+  var i = 0, on = false;
+  function today() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify({ i: i, d: today() })); } catch (e) {} }
+  function load() {
+    try {
+      var v = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (v && v.d === today() && v.i >= 0 && v.i < cards.length) return v.i;
+      if (v) return 2;
+    } catch (e) {}
+    return 0;
+  }
+
+  function show(n, dir) {
+    unpark();
+    closeSheet();
+    i = Math.max(0, Math.min(cards.length - 1, n));
+    var c = cards[i];
+    app.setAttribute('data-theme', c.theme);
+    if (c.tone) app.setAttribute('data-tone', c.tone); else app.removeAttribute('data-tone');
+    var node = c.build();
+    if (dir < 0) node.classList.add('g-back-in');
+    scroller.innerHTML = '';
+    scroller.appendChild(node);
+    scroller.scrollTop = 0;
+    where.textContent = c.where;
+    backBtn.hidden = i === 0;
+    nextBtn.hidden = !c.next;
+    nextBtn.textContent = c.next;
+    sects.forEach(function (s, k) {
+      var idx = [], j;
+      for (j = 0; j < cards.length; j++) if (cards[j].sect === s) idx.push(j);
+      var pos = idx.indexOf(i), w = pos >= 0 ? (pos + 1) / idx.length : (idx[0] < i ? 1 : 0);
+      segs[k].style.width = Math.round(w * 100) + '%';
+      segs[k].style.background = '';
+      var tone = { p1: '#B67C7C', p2: '#6E8397', p3: '#4F6861' }[s];
+      if (tone && c.theme !== 'dark') segs[k].style.background = tone;
+    });
+    save();
+    try { scroller.focus({ preventScroll: true }); } catch (e) {}
+  }
+  function goTo(hash) {
+    var key = hash.replace('#', '');
+    for (var k = 0; k < cards.length; k++) if (cards[k].key === key) { show(k, 1); return true; }
+    return false;
+  }
+
+  backBtn.addEventListener('click', function () { show(i - 1, -1); });
+  nextBtn.addEventListener('click', function () { show(i + 1, 1); });
+  document.addEventListener('click', function (e) {
+    if (!on || !app.contains(e.target)) return;
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (a && goTo(a.getAttribute('href'))) e.preventDefault();
+  });
+  // swipe
+  var tx = 0, ty = 0;
+  scroller.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  scroller.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 2) return;
+    if (dx < 0 && cards[i].next) show(i + 1, 1); else if (dx > 0 && i > 0) show(i - 1, -1);
+  }, { passive: true });
+
+  function enable() {
+    if (on) return;
+    on = true;
+    root.classList.add('guided');
+    var start = load();
+    try { localStorage.getItem(KEY) || localStorage.setItem(KEY, JSON.stringify({ i: 0, d: today() })); } catch (e) {}
+    if (location.hash && goTo(location.hash)) return;
+    show(start, 1);
+  }
+  function disable() {
+    if (!on) return;
+    on = false;
+    unpark();
+    root.classList.remove('guided');
+  }
+  function sync() { if (mq.matches || root.hasAttribute('data-preview')) enable(); else disable(); }
+  if (mq.addEventListener) mq.addEventListener('change', sync); else if (mq.addListener) mq.addListener(sync);
+  sync();
+})();
+</script>
+
 </body>
 </html>

@@ -50,6 +50,7 @@ export const PROTECTED = [
   ...STAGES.map((s, i) => ({ path: s.path, kind: "stage", stageIndex: i })),
   // Printable guides: locked the same way as the stage they belong to.
   { path: "/guides/stage-1-sos-guide", kind: "stage", stageIndex: 0 },
+  { path: "/guides/stage-2-clarity-guide", kind: "stage", stageIndex: 1 },
   { path: "/dashboard", kind: "account" },
   { path: "/admin", kind: "admin" },
 ];
