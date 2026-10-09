@@ -15,10 +15,11 @@ Last organised: 8 October 2026. Updated for the member system. Site root is the 
 - innerbalance101-brand-board.html (internal brand reference, noindex, redesigned 8 Oct 2026)
 - images/, fonts/, favicon.svg, naomi.jpeg
 
-## 2. Live, not redesigned yet (older look)
+## 2. Restyled in a later pass (same tokens, full accessibility audit not yet run)
 - system-offer-a.html, system-offer-b.html
 - privacy-policy.html, terms-and-conditions.html
 - hb-gift.html (free "Come Back to Yourself" guide, noindex)
+- login.html, dashboard.html, admin.html, resources.html
 - Resources/ (Emotions and Feelings-List PDFs)
 
 ## 3. Plumbing (do not move)
