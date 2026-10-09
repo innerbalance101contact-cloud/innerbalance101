@@ -102,11 +102,11 @@
     $('rows').innerHTML = list.length ? list.map((m) => {
       const opt = (v, t) => '<option value="' + v + '"' + ((m.unlockThrough === null ? 'null' : String(m.unlockThrough)) === v ? ' selected' : '') + '>' + t + '</option>';
       return '<tr data-email="' + esc(m.email) + '"><td>' + esc(m.email) + '</td>' +
-        '<td><span class="tag ' + (m.active ? 'on' : 'off') + '">' + (m.active ? 'Active' : (m.revoked ? 'Paused' : 'No access')) + '</span></td>' +
+        '<td><span class="tag ' + (m.active ? 'on' : 'off') + '">' + (m.active ? 'Active' : (m.refunded ? 'Refunded' : (m.revoked ? 'Paused' : 'No access'))) + '</span></td>' +
         '<td>' + srcLabel(m.src) + '</td>' +
         '<td>' + m.stages.map((n) => n + '/' + DATA.daysPerStage).join(' · ') + '</td>' +
         '<td><select data-act="stage">' + opt('null', 'Progress rule') + opt('0', 'Stage 1') + opt('1', 'Stage 2') + opt('2', 'Stage 3') + '</select></td>' +
-        '<td>' + (m.active ? '<button class="line" data-act="revoke">Pause</button>' : '<button data-act="grant">Restore</button>') + ' <button class="line" data-act="remove">Remove</button></td></tr>';
+        '<td>' + (m.active ? '<button class="line" data-act="revoke">Pause</button> <button class="line" data-act="refund">Refunded</button>' : '<button data-act="grant">Restore</button>') + ' <button class="line" data-act="remove">Remove</button></td></tr>';
     }).join('') : '<tr><td colspan="6" class="muted">No members yet.</td></tr>';
     $('unmatched').innerHTML = DATA.unmatched.length
       ? DATA.unmatched.map((u) => esc(u.email) + ': ' + esc((u.unmatched || []).join(', '))).join('<br>')
@@ -129,6 +129,7 @@
     const b = e.target.closest('button[data-act]'); if (!b) return;
     const tr = b.closest('tr'); if (!tr) return;
     const email = tr.dataset.email;
+    if (b.dataset.act === 'refund') { if (confirm('Mark ' + email + ' as refunded and switch their access off? Return the money in Kit or Stripe first. Their progress is kept.')) act({ action: 'refund', email }, 'Marked refunded and switched off: ' + email + '.'); return; }
     if (b.dataset.act === 'revoke') { if (confirm('Pause access for ' + email + '? Their progress is kept.')) act({ action: 'revoke', email }, 'Paused ' + email + '.'); }
     if (b.dataset.act === 'remove') { if (confirm('Remove ' + email + ' from this list? This clears their access and progress here. Their login account and Kit subscriber are not touched.')) act({ action: 'remove', email }, 'Removed ' + email + '.'); return; }
     if (b.dataset.act === 'grant') act({ action: 'grant', email }, 'Access given to ' + email + '.');

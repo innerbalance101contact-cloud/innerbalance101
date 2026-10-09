@@ -11,7 +11,8 @@
  */
 import { PRODUCT_RULES } from "./config.js";
 
-const DENY_STATUS = new Set(["refunded", "failed", "canceled", "cancelled", "voided", "disputed"]);
+const DENY_STATUS = new Set(["failed"]);
+const REVOKE_STATUS = new Set(["refunded", "canceled", "cancelled", "voided", "disputed", "chargeback"]);
 const DAY = 86400000;
 
 export function emailOf(body) {
@@ -64,9 +65,9 @@ export async function applyGrant(kv, email, slug, { days = null, src = "kit", no
   return rec;
 }
 
-export async function applyRevoke(kv, email, slug, { now = Date.now() } = {}) {
+export async function applyRevoke(kv, email, slug, { now = Date.now(), reason = null } = {}) {
   const rec = await readAccess(kv, email);
-  rec.grants[slug] = { ...(rec.grants[slug] || { at: new Date(now).toISOString() }), revoked: true, revokedAt: new Date(now).toISOString() };
+  rec.grants[slug] = { ...(rec.grants[slug] || { at: new Date(now).toISOString() }), revoked: true, revokedAt: new Date(now).toISOString(), ...(reason ? { revokedReason: reason } : {}) };
   await kv.put(`access:${email}`, JSON.stringify(rec));
   return rec;
 }
@@ -86,6 +87,12 @@ export async function processKitEvent(kv, params, body, now = Date.now()) {
     const purchase = purchaseOf(body);
     const status = String(purchase?.status || "").toLowerCase();
     if (DENY_STATUS.has(status)) return { ok: true, action: "ignored", detail: `status ${status}` };
+
+    if (REVOKE_STATUS.has(status)) {
+      const { grants: rg } = grantsForPurchase(purchase);
+      for (const g of rg) await applyRevoke(kv, email, g.slug, { now, reason: status });
+      return { ok: true, action: "revoked", detail: `${status}: ${rg.map((g) => g.slug).join(",") || "nothing matched"}` };
+    }
 
     const txn = purchase?.transaction_id || purchase?.id;
     if (txn) {

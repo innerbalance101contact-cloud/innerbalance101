@@ -51,6 +51,7 @@ export async function onRequestGet({ request, env }) {
       revoked: !!(grant && grant.revoked),
       since: grant?.at || null,
       src: grant?.src || null,
+      refunded: grant?.revokedReason === "refunded",
       unlockThrough: Number.isInteger(rec.unlockThrough) ? rec.unlockThrough : null,
       stages: STAGES.map((s) => stageSummary(progress, s.slug).count),
       updatedAt: progress.updatedAt || null,
@@ -87,6 +88,9 @@ export async function onRequestPost({ request, env }) {
     await applyGrant(kv, email, slug, { src: "admin" });
   } else if (body.action === "revoke") {
     await applyRevoke(kv, email, slug);
+  } else if (body.action === "refund") {
+    // Records that the money was returned (done in Kit/Stripe) and switches access off.
+    await applyRevoke(kv, email, slug, { reason: "refunded" });
   } else if (body.action === "stage") {
     const v = body.unlockThrough;
     if (v !== null && ![0, 1, 2].includes(v)) return json({ error: "bad stage" }, 400);
