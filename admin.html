@@ -91,7 +91,7 @@
     $('waiting').innerHTML = DATA.waiting.length ? DATA.waiting.map((w) =>
       '<tr data-email="' + esc(w.email) + '"><td>' + esc(w.email) + (w.name ? ' <span class="muted">' + esc(w.name) + '</span>' : '') + '</td>' +
       '<td>' + (w.at ? new Date(w.at).toLocaleDateString() : '') + '</td>' +
-      '<td><button data-act="grant">Give access</button></td></tr>').join('') : '<tr><td colspan="3" class="muted">None.</td></tr>';
+      '<td><button data-act="grant">Give access</button> <button class="line" data-act="remove">Remove</button></td></tr>').join('') : '<tr><td colspan="3" class="muted">None.</td></tr>';
   }
   function render() {
     renderWaiting();
@@ -105,7 +105,7 @@
         '<td>' + srcLabel(m.src) + '</td>' +
         '<td>' + m.stages.map((n) => n + '/' + DATA.daysPerStage).join(' · ') + '</td>' +
         '<td><select data-act="stage">' + opt('null', 'Progress rule') + opt('0', 'Stage 1') + opt('1', 'Stage 2') + opt('2', 'Stage 3') + '</select></td>' +
-        '<td>' + (m.active ? '<button class="line" data-act="revoke">Pause</button>' : '<button data-act="grant">Restore</button>') + '</td></tr>';
+        '<td>' + (m.active ? '<button class="line" data-act="revoke">Pause</button>' : '<button data-act="grant">Restore</button>') + ' <button class="line" data-act="remove">Remove</button></td></tr>';
     }).join('') : '<tr><td colspan="6" class="muted">No members yet.</td></tr>';
     $('unmatched').innerHTML = DATA.unmatched.length
       ? DATA.unmatched.map((u) => esc(u.email) + ': ' + esc((u.unmatched || []).join(', '))).join('<br>')
@@ -125,6 +125,7 @@
     const tr = b.closest('tr'); if (!tr) return;
     const email = tr.dataset.email;
     if (b.dataset.act === 'revoke') { if (confirm('Pause access for ' + email + '? Their progress is kept.')) act({ action: 'revoke', email }, 'Paused ' + email + '.'); }
+    if (b.dataset.act === 'remove') { if (confirm('Remove ' + email + ' from this list? This clears their access and progress here. Their login account and Kit subscriber are not touched.')) act({ action: 'remove', email }, 'Removed ' + email + '.'); return; }
     if (b.dataset.act === 'grant') act({ action: 'grant', email }, 'Access given to ' + email + '.');
   });
   $('rows').addEventListener('change', (e) => {

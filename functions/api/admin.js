@@ -93,6 +93,11 @@ export async function onRequestPost({ request, env }) {
     const rec = await getAccessRecord(kv, email);
     if (v === null) delete rec.unlockThrough; else rec.unlockThrough = v;
     await kv.put(`access:${email}`, JSON.stringify(rec));
+  } else if (body.action === "remove") {
+    // Clears this site's records for the email (access, progress, sign-up note).
+    // The login account (Firebase) and the Kit subscriber are separate and stay.
+    if (isAdmin(email, env)) return json({ error: "admin emails cannot be removed here" }, 400);
+    await Promise.all([`access:${email}`, `progress:${email}`, `seen:${email}`].map((k) => kv.delete(k)));
   } else {
     return json({ error: "unknown action" }, 400);
   }
