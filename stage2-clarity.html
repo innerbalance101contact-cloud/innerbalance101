@@ -1557,6 +1557,12 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   .g-card .need-list { gap: 14px; }
   .g-card .ep-desc, .g-card .ep-link, .g-card .ep-desc a { font-size: 16px; }
   .g-card .need-list li, .g-card .need-list li strong { font-size: 16.5px; line-height: 1.45; }
+
+  .g-pause .g-lead { font-size: 17px; line-height: 1.5; color: rgba(250,247,242,0.8); margin: 0 0 18px; }
+  .g-steps { list-style: none; margin: 0; padding: 0; }
+  .g-steps li { padding: 14px 0 12px; border-top: 1.5px dashed rgba(196,168,130,0.6); }
+  .g-word { display: block; font-family: 'Vollkorn', serif; font-weight: 500; font-size: 40px; line-height: 1.05; color: #FAF7F2; margin: 0 0 4px; }
+  .g-ask { display: block; font-size: 16px; line-height: 1.5; color: rgba(250,247,242,0.92); }
 /* Desktop: show the guide as the five printed pages, on a desk */
 .sheet-dl { display: none; }
 @media screen and (min-width: 681px) {
@@ -1716,6 +1722,42 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   .practice-step .emotion-name { font-size: 10px; }
   #step-2 .prompt-line { height: 92px; min-height: 92px; }
 }
+
+/* In the moment: the action first, as one strong block */
+.moment { padding: 0; overflow: hidden; }
+.moment .pause { background: var(--forest, #1F2F2A); color: var(--paper, #FAF7F2); padding: 40px 36px 34px; }
+.moment .pause-title { font-family: 'Vollkorn', serif; font-weight: 500; font-size: clamp(26px, 4.4vw, 36px); line-height: 1.18; color: var(--paper, #FAF7F2); margin: 0 0 10px; max-width: 20ch; }
+.moment .pause-lead { font-family: 'Jost', sans-serif; font-size: 17px; line-height: 1.5; color: rgba(250,247,242,0.8); margin: 0 0 26px; }
+.moment .pause-steps { list-style: none; margin: 0; padding: 0; }
+.moment .pause-steps li { display: grid; grid-template-columns: minmax(150px, 0.36fr) 1fr; column-gap: 28px; align-items: center; padding: 22px 0; border-top: 1.5px dashed rgba(196,168,130,0.6); }
+.moment .pause-word { font-family: 'Vollkorn', serif; font-weight: 500; font-size: clamp(36px, 6vw, 54px); line-height: 1; color: var(--paper, #FAF7F2); }
+.moment .pause-ask { font-family: 'Jost', sans-serif; font-size: 17px; line-height: 1.55; color: rgba(250,247,242,0.94); max-width: 42ch; }
+.moment .pause-foot { font-family: 'Jost', sans-serif; font-size: 15.5px; line-height: 1.6; color: rgba(250,247,242,0.78); margin: 10px 0 0; max-width: 62ch; padding-top: 20px; border-top: 1.5px dashed rgba(196,168,130,0.6); }
+.moment .moment-why { padding: 30px 36px 32px; }
+@media (max-width: 680px) {
+  .moment .pause { padding: 30px 22px 26px; }
+  .moment .pause-steps li { grid-template-columns: 1fr; row-gap: 6px; padding: 18px 0; }
+  .moment .moment-why { padding: 24px 22px; }
+}
+.part-nav-inner { grid-template-columns: repeat(4, 1fr); }
+.part-pill-moment { color: var(--storm-text, #3F5568); }
+@media (max-width: 680px) { .part-nav-inner { grid-template-columns: repeat(2, 1fr); } }
+@media print {
+  .moment { padding: 0; }
+  .moment .pause { padding: 16px 26px 12px; }
+  .moment .pause-title { font-size: 21px; margin-bottom: 3px; max-width: none; }
+  .moment .pause-lead { font-size: 12.5px; margin-bottom: 8px; }
+  .moment .pause-steps li { grid-template-columns: 130px 1fr; padding: 7px 0; column-gap: 18px; }
+  .moment .pause-word { font-size: 28px; }
+  .moment .pause-ask { font-size: 12.5px; line-height: 1.4; }
+  .moment .pause-foot { font-size: 11.5px; line-height: 1.45; margin-top: 4px; padding-top: 8px; }
+  .moment .moment-why { padding: 12px 26px 12px; }
+  .moment .gap-flow-2, .moment .flow-label:not(.flow-label-train) { display: none; }
+  .moment .moment-why .body-text { font-size: 12.5px; line-height: 1.45; margin-bottom: 5px; }
+  .moment .moment-why .overview-title { font-size: 19px; margin-bottom: 4px; }
+  .moment-why .moment-note { font-size: 12px; padding: 6px 12px; margin: 3px 0; }
+  .part-pill-moment { display: none; }
+}
 </style>
 </head>
 
@@ -1773,6 +1815,7 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
     <a class="part-pill" data-part="1" href="#step-1">Feel it</a>
     <a class="part-pill" data-part="2" href="#step-2">Thought work</a>
     <a class="part-pill" data-part="3" href="#step-3"><span>Release<span class="pill-long"> &amp; close</span></span></a>
+    <a class="part-pill part-pill-moment" href="#in-the-moment">In the moment</a>
   </div>
 </div>
 
@@ -2135,7 +2178,19 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 
   <!-- IN THE MOMENT -->
   <section class="moment" id="in-the-moment" aria-label="In the moment">
-    <span class="overview-label">In the moment</span>
+    <div class="pause" id="pause">
+      <h2 class="pause-title">When something activates you, take two minutes.</h2>
+      <p class="pause-lead">You do not need to wait for your next session.</p>
+      <ol class="pause-steps">
+        <li><span class="pause-word">Notice</span><span class="pause-ask">Stop. One slow exhale, longer than the inhale. Where do I feel this in my body?</span></li>
+        <li><span class="pause-word">Name</span><span class="pause-ask">What am I feeling? What thought is driving it?</span></li>
+        <li><span class="pause-word">Choose</span><span class="pause-ask">Do I want to respond from that thought, or from what is underneath it?</span></li>
+      </ol>
+      <p class="pause-foot">You do not need a perfect answer. The pause is the point. If your attention gets pulled back into the spiral, notice it and come back. That is the practice. The pause is what 21&nbsp;days of this builds.</p>
+    </div>
+    <div class="moment-why">
+
+    <span class="overview-label">Why it works</span>
     <h2 class="overview-title">What mindfulness adds<br><em>is a moment in the middle.</em></h2>
     <p class="body-text">Something happens and we react. A message lands. A comment stings. Your body responds before you have decided anything.</p>
 
@@ -2159,13 +2214,7 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 
     <p class="moment-note"><strong>This is mindfulness.</strong> Paying attention on purpose, in the present moment, without judgment. It does not empty your mind or remove the emotion. It gives you a moment between feeling and acting, and a choice about what comes next. Your practice in Parts 1 to 3 trains it.</p>
 
-    <p class="body-text"><strong>When something activates you during the day, take two minutes.</strong> You do not need to wait for your next session.</p>
-    <ul class="moment-list">
-      <li><span><strong>Notice.</strong> Stop. One slow exhale, longer than the inhale. Where do I feel this in my body?</span></li>
-      <li><span><strong>Name.</strong> What am I feeling? What thought is driving it?</span></li>
-      <li><span><strong>Choose.</strong> Do I want to respond from that thought, or from what is underneath it?</span></li>
-    </ul>
-    <p class="body-text">You do not need a perfect answer. The pause is the point. If your attention gets pulled back into the spiral, notice it and come back. That is the practice. The pause is what 21&nbsp;days of this builds.</p>
+    </div>
   </section>
 
   <div class="ornament" aria-hidden="true">&#183; &#183; &#183;</div>
@@ -2325,6 +2374,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   var how = function () { openSheet(); };
   function skipLink() { var b = el('button', 'g-skip', 'Skip to the practice'); b.type = 'button'; b.addEventListener('click', function () { show(2, 1); }); return b; }
+  function momentLink() { var b = el('button', 'g-link', 'In the moment'); b.type = 'button'; b.addEventListener('click', function () { for (var k = 0; k < cards.length; k++) { if (cards[k].key === 'in-the-moment') { show(k, 1); return; } } }); return b; }
   function howLink() { var b = el('button', 'g-link', 'How it works'); b.type = 'button'; b.addEventListener('click', how); return b; }
 
   // ── screens ──────────────────────────────────────────────
@@ -2365,7 +2415,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(el('div', 'g-brand', MARK + '<span>innerbalance101</span>'));
     c.appendChild(el('h1', 'g-title', $('.overview-title', rows[0]).innerHTML));
     $$('.body-text', rows[0]).slice(0, 2).forEach(function (p) { c.appendChild(clone(p)); });
-    var r = el('div', 'g-row'); r.appendChild(skipLink()); r.appendChild(howLink()); c.appendChild(r);
+    var r = el('div', 'g-row'); r.appendChild(skipLink()); r.appendChild(momentLink()); r.appendChild(howLink()); c.appendChild(r);
     return c;
   } });
   card({ sect: 'intro', theme: 'light', where: 'Before you start', next: 'I’m ready', build: function () {
@@ -2456,13 +2506,29 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   } });
 
   // In the moment
-  var why = $('#in-the-moment');
-  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', key: 'in-the-moment', build: function () {
+  var why = $('.moment-why'), pause = $('#pause');
+  card({ sect: 'end', theme: 'dark', where: 'In the moment', next: 'Why it works', key: 'in-the-moment', build: function () {
+    var c = el('section', 'g-card g-pause');
+    c.appendChild(el('h1', 'g-title', txt($('.pause-title', pause))));
+    c.appendChild(el('p', 'g-lead', txt($('.pause-lead', pause))));
+    var ol = el('ol', 'g-steps');
+    $$('.pause-steps li', pause).forEach(function (li) {
+      var r = el('li'); r.appendChild(el('span', 'g-word', txt($('.pause-word', li)))); r.appendChild(el('span', 'g-ask', txt($('.pause-ask', li)))); ol.appendChild(r);
+    });
+    c.appendChild(ol);
+    return c;
+  } });
+  card({ sect: 'end', theme: 'dark', where: 'In the moment', next: 'Next', build: function () {
+    var c = el('section', 'g-card');
+    c.appendChild(el('h1', 'g-title', 'The pause is the point'));
+    c.appendChild(el('p', 'body-text', txt($('.pause-foot', pause))));
+    return c;
+  } });
+  card({ sect: 'end', theme: 'light', where: 'Why it works', next: 'Next', build: function () {
     var c = pick(why, [2, 3, 4], '')(); c.insertBefore(el('h1', 'g-title', $('.overview-title', why).innerHTML), c.firstChild); return c;
   } });
-  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', build: pick(why, [5, 6, 7], '') });
-  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', build: pick(why, [8, 9], '') });
-  card({ sect: 'end', theme: 'light', where: 'In the moment', next: 'Next', build: pick(why, [10, 11], 'Take two minutes') });
+  card({ sect: 'end', theme: 'light', where: 'Why it works', next: 'Next', build: pick(why, [5, 6, 7], '') });
+  card({ sect: 'end', theme: 'light', where: 'Why it works', next: 'Next', build: pick(why, [8], '') });
   card({ sect: 'end', theme: 'dark', where: 'You did it', next: '', key: 'finish', parks: true, build: function () {
     var c = el('section', 'g-card');
     c.appendChild(el('h1', 'g-title', $('.section-title', closing).innerHTML));
