@@ -331,9 +331,10 @@ if (navEl && navToggle) {
     let html = msg ? '<div class="notice" role="status">' + msg + '</div>' : '';
 
     if (!me.system && !me.admin) {
-      html += '<div class="buy"><h2>The Inner Balance System</h2>' +
-        '<p>Three stages. Sixty-three days. Self-guided. Once you have it, your progress lives here.</p>' +
-        '<a class="btn" href="/the-system.html">See the system</a></div><div style="height:48px"></div>';
+      html += '<div class="buy"><h2>Your account is ready. Your access is not yet.</h2>' +
+        '<p>The stages unlock when you get the Inner Balance System. Three stages, twenty-one days each, one practice a day. Once you have it, use this same email and everything opens here, with your progress saved.</p>' +
+        '<p><a class="btn" href="https://innerbalance101.kit.com/products/the-inner-balance-system?step=checkout">Get the full system</a> &nbsp; <a href="https://innerbalance101.kit.com/products/the-inner-balance-system-2?step=checkout" style="font-size:0.98rem">Or pay over three months</a></p>' +
+        '<p style="font-size:0.95rem;color:var(--bark-soft)">Already paid with a different email? Write to <a href="mailto:hello@innerbalance101.com">hello@innerbalance101.com</a> and we will connect it. <a href="/the-system.html">See what is inside</a>.</p></div><div style="height:48px"></div>';
     }
     html += '<div class="stages">' + me.stages.map((s) => stageCard(s, me)).join('') + '</div>';
     html += '<div class="account"><p>Signed in as ' + esc(me.email) + (me.admin ? ' · <a href="/admin">Manage members</a>' : '') + '</p><button type="button" class="btn-line" id="out">Sign out</button></div>';
