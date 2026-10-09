@@ -12,6 +12,7 @@ Last organised: 8 October 2026. Updated for the member system. Site root is the 
 - login.html, dashboard.html (member sign in and progress, noindex)
 - stage1-sos.html, stage2-clarity.html, stage3-inner-balance.html (locked: sign in and a purchase are required, enforced by functions/_middleware.js)
 - blog/ (index plus 30 posts) and blog/post-template.html
+- innerbalance101-brand-board.html (internal brand reference, noindex, redesigned 8 Oct 2026)
 - images/, fonts/, favicon.svg, naomi.jpeg
 
 ## 2. Live, not redesigned yet (older look)
@@ -31,5 +32,4 @@ Last organised: 8 October 2026. Updated for the member system. Site root is the 
 - library-outdated/, outdated-misc/ and bundle-download.html were deleted in October 2026. Old library addresses redirect to /the-system.html through _redirects. The files remain in git history if ever needed.
 
 ## 5. Reference documents published at the root (decide later)
-- innerbalance101-brand-board.html
 - (emotions-sensations-chart.html was removed; it now redirects to the branded PDF)
