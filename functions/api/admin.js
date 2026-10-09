@@ -9,7 +9,7 @@ import {
   json, kvOf, sameOrigin, getSession, isAdmin, getAccessRecord, getProgress,
   canOpenStages, stageSummary,
 } from "../_lib/shared.js";
-import { applyGrant, applyRevoke } from "../_lib/kit.js";
+import { applyGrant, applyRevoke, processKitEvent } from "../_lib/kit.js";
 import { STAGES, DAYS_PER_STAGE, STAGE_REQUIRES } from "../_lib/config.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -93,6 +93,14 @@ export async function onRequestPost({ request, env }) {
     const rec = await getAccessRecord(kv, email);
     if (v === null) delete rec.unlockThrough; else rec.unlockThrough = v;
     await kv.put(`access:${email}`, JSON.stringify(rec));
+  } else if (body.action === "simulate-purchase") {
+    // Test only: runs the same code path as the Kit purchase webhook, with a Kit-shaped payload.
+    const now0 = Date.now();
+    const r = await processKitEvent(kv, { ev: "purchase" }, {
+      id: `test-${now0}`, transaction_id: `test-${now0}`, status: "paid", email_address: email,
+      products: [{ name: "The Inner Balance System", sku: "", unit_price: 0, quantity: 1 }],
+    }, now0);
+    if (r.action !== "granted" || !/stage|practice|system|\w/.test(r.detail || "")) return json({ error: `webhook logic returned ${r.action}: ${r.detail}` }, 400);
   } else if (body.action === "remove") {
     // Clears this site's records for the email (access, progress, sign-up note).
     // The login account (Firebase) and the Kit subscriber are separate and stay.

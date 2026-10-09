@@ -45,8 +45,9 @@
     <div class="row">
       <input type="email" id="newEmail" placeholder="member@email.com" autocomplete="off">
       <button id="grantBtn">Give access</button>
+      <button id="simBtn" class="line">Test purchase</button>
     </div>
-    <p class="muted" style="margin:10px 0 0">Use the email they sign up with. Works for past buyers, gifts and comps. If they already have access, this restores it.</p>
+    <p class="muted" style="margin:10px 0 0">"Test purchase" runs the Kit purchase logic for an email without paying. Use the email they sign up with. Works for past buyers, gifts and comps. If they already have access, this restores it.</p>
   </div>
 
   <h2>Signed up, no access yet <span class="muted" id="wcount"></span></h2>
@@ -118,6 +119,10 @@
   $('grantBtn').onclick = () => {
     const email = $('newEmail').value.trim();
     act({ action: 'grant', email }, 'Access given to ' + email + '.').then(() => { $('newEmail').value = ''; });
+  };
+  $('simBtn').onclick = () => {
+    const email = $('newEmail').value.trim();
+    act({ action: 'simulate-purchase', email }, 'Simulated Kit purchase processed for ' + email + '. Sign in as them to check Stage 1.');
   };
   $('q').oninput = render;
   document.addEventListener('click', (e) => {
