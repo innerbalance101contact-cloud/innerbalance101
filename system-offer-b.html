@@ -72,32 +72,112 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
 <meta name="twitter:image:alt" content="The Inner Balance System. Stop performing fine, start actually being fine.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ─── TOKENS ───────────────────────────────────────────────────────
+     Deep earth palette. Forest and Bark carry the page, Clay is the
+     only action colour, Pine structures, Storm Blue explains, Dusty
+     Rose appears once (the founder quote).                           */
   :root {
-    --warm-white: #FAF7F2;
-    --linen: #F0E8DC;
-    --clay: #C4A882;
-    --clay-light: #DDD0BE;
-    --clay-deep: #A68B65;
-    --soft: #9C8575;
-    --mid: #6B5B4E;
-    --espresso: #2C2420;
-    --pine: #4F6861;
-    --pine-light: rgba(79,104,97,0.08);
-    --pine-border: rgba(79,104,97,0.25);
-    --nav-h: 58px;
+    --forest:#1F2F2A;
+    --forest-raise:#2B403A;
+    --pine:#4F6861;
+    --pine-deep:#3F5751;
+    --bark:#2C2420;
+    --bark-soft:#5F5046;
+    --paper:#FAF7F2;
+    --linen:#F0E8DC;
+    --clay:#C4A882;
+    --clay-deep:#A68B65;
+    --rose:#B67C7C;
+    --rose-on-dark:#C48E8E;
+    --rose-deep:#8A5050;
+    --blue:#6E8397;
+    --blue-light:#AFC1CF;
+    --on-dark:#FAF7F2;
+    --on-dark-2:rgba(250,247,242,0.8);
+    --on-dark-3:rgba(250,247,242,0.62);
+    --rule-dark:rgba(250,247,242,0.18);
+    --rule-light:rgba(44,36,32,0.16);
+    --serif:'Vollkorn',Georgia,'Times New Roman',serif;
+    --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --nav-h:64px;
   }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:18px; scroll-padding-top:calc(var(--nav-h) + 16px); }
+  @media (prefers-reduced-motion:no-preference) { html { scroll-behavior:smooth; } }
+  body {
+    font-family:var(--sans);
+    font-size:1rem;
+    line-height:1.65;
+    color:var(--bark);
+    background:var(--paper);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    font-variant-numeric:lining-nums;
+  }
+  img { display:block; max-width:100%; }
+  a { color:inherit; }
+  p { max-width:62ch; }
+  h1, h2, h3 { font-family:var(--serif); font-weight:500; letter-spacing:-0.012em; text-wrap:balance; }
+  .bubble-after p, .hero-sub, .claim, .close blockquote { text-wrap:balance; }
+  h1, h2, h3, .bubble-after p, .offer-price { word-spacing:0.05em; }
+
+  :focus-visible { outline:3px solid var(--pine); outline-offset:3px; }
+  .on-dark :focus-visible, nav :focus-visible.on-dark { outline-color:var(--clay); }
+
+  .skip-link {
+    position:absolute; left:16px; top:-60px; z-index:200;
+    background:var(--bark); color:var(--paper); padding:12px 18px; text-decoration:none;
+  }
+  .skip-link:focus { top:12px; }
+
+  .wrap { max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,64px); }
+  .on-dark { color:var(--on-dark); }
+  .on-dark p { color:var(--on-dark-2); }
+
+  /* ─── ACTION ───────────────────────────────────────────────────────
+     One button style for the whole page. Clay is reserved for action. */
+  .btn {
+    display:inline-flex; align-items:center; justify-content:center;
+    min-height:54px; padding:14px 32px;
+    background:var(--clay); color:var(--bark);
+    font-family:var(--sans); font-size:1.02rem; font-weight:500; line-height:1.2;
+    text-decoration:none; border-radius:3px;
+    transition:background-color 0.2s ease;
+  }
+  .btn:hover { background:#D3BA97; }
+  .btn-small { min-height:44px; padding:10px 20px; font-size:0.92rem; }
+  .btn-note { font-size:0.9rem; margin-top:12px; color:var(--bark-soft); }
+  .on-dark .btn-note { color:var(--on-dark-3); }
+  .link {
+    font-size:1rem; color:inherit; text-decoration:underline;
+    text-decoration-thickness:1px; text-underline-offset:0.28em;
+    display:inline-block; padding:10px 0;
+  }
+  .link:hover { text-decoration-thickness:2px; }
+
+  /* legacy names used by this page's content styles, mapped to the current palette */
+  :root{
+    --warm-white:var(--paper); --clay-light:#DDD0BE; --deep:var(--bark); --espresso:var(--bark);
+    --mid:var(--bark); --soft:var(--bark-soft); --mist:#D9E1DE;
+    --accent:var(--pine-deep); --accent-on-dark:var(--paper);
+  }
+
+  /* page */
+
+  
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; font-size: 17px; }
   body {
-    font-family: 'Jost', sans-serif;
+    font-family:var(--sans);
     background: var(--warm-white);
     color: var(--espresso);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     line-height: 1.68;
-    font-weight: 300;
+    font-weight:400;
   }
   a { color: inherit; }
   em { font-style: italic; }
@@ -112,7 +192,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
     border-bottom: 1px solid rgba(79,104,97,0.16);
   }
   .nav-logo-text {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--serif);
     font-size: 1.18rem; font-weight: 500; letter-spacing: 0.08em;
     color: var(--espresso); text-decoration: none;
   }
@@ -124,7 +204,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   .narrow { max-width: 660px; margin: 0 auto; }
   section { padding: 76px 0; }
   .sec-alt { background: var(--linen); }
-  .sec-dark { background: var(--espresso); color: var(--warm-white); }
+  .sec-dark { background: var(--forest); color: var(--warm-white); }
 
   .eyebrow {
     font-size: 0.62rem; font-weight: 400; letter-spacing: 0.32em;
@@ -133,14 +213,14 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   }
   .sec-dark .eyebrow { color: var(--clay); }
   h2.sec-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-family: var(--serif); font-weight:400;
     font-size: clamp(29px, 4.3vw, 47px); line-height: 1.12;
     letter-spacing: 0.005em; margin-bottom: 28px;
   }
   h2.sec-title em { color: var(--clay-deep); }
   .sec-dark h2.sec-title em { color: var(--clay-light); }
   h3.sub-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-family: var(--serif); font-weight: 400;
     font-size: clamp(20px, 2.5vw, 26px); line-height: 1.25; margin-bottom: 14px;
   }
   p { margin-bottom: 19px; font-size: 1rem; color: var(--mid); }
@@ -152,7 +232,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   .ornament { text-align: center; color: var(--clay); letter-spacing: 0.5em; padding: 6px 0; }
 
   .pullquote {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+    font-family: var(--serif); font-weight:400; font-style: italic;
     font-size: clamp(24px, 3.4vw, 34px); line-height: 1.32; color: var(--espresso);
     text-align: center; max-width: 640px; margin: 46px auto; padding: 34px 0;
     border-top: 1px solid var(--clay-light); border-bottom: 1px solid var(--clay-light);
@@ -161,7 +241,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   /* ───────── FOLD (centered) ───────── */
   .fold {
     margin-top: var(--nav-h);
-    background: var(--espresso); color: var(--warm-white);
+    background: var(--forest); color: var(--warm-white);
     padding: 56px 0 62px; position: relative; overflow: hidden;
   }
   .fold::before {
@@ -176,7 +256,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
     line-height: 1.6;
   }
   h1 {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-family: var(--serif); font-weight:400;
     font-size: clamp(36px, 6vw, 66px); line-height: 1.03;
     color: var(--warm-white); margin-bottom: 22px; letter-spacing: 0.005em;
   }
@@ -228,7 +308,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
     display: inline-flex; align-items: center; gap: 10px;
     background: rgba(250,247,242,0.95); color: var(--espresso);
     padding: 14px 26px;
-    font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500;
+    font-family:var(--sans); font-size: 0.72rem; font-weight: 500;
     letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
     transition: opacity 0.45s ease, transform 0.45s ease;
   }
@@ -249,7 +329,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   /* ───────── BUTTONS ───────── */
   .btn-primary {
     display: inline-block; text-align: center; text-decoration: none;
-    background: var(--espresso); color: var(--warm-white);
+    background: var(--forest); color: var(--warm-white);
     font-size: 0.84rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase;
     padding: 19px 46px; transition: background 0.3s; border: none; cursor: pointer;
   }
@@ -270,8 +350,8 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   .statbar-item { padding: 30px 18px; text-align: center; border-right: 1px solid var(--pine-border); }
   .statbar-item:last-child { border-right: none; }
   .statbar-val {
-    font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 44px);
-    font-weight: 300; color: var(--clay-deep); line-height: 1; display: block; margin-bottom: 9px;
+    font-family: var(--serif); font-size: clamp(30px, 4vw, 44px);
+    font-weight:400; color: var(--clay-deep); line-height: 1; display: block; margin-bottom: 9px;
   }
   .statbar-lab {
     font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -303,17 +383,17 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   .stage-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 38px; }
   .stage-card { border: 1px solid var(--clay-light); padding: 30px 26px; background: var(--warm-white); }
   .stage-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 300;
+    font-family: var(--serif); font-size: 2.1rem; font-weight:400;
     color: var(--clay); line-height: 1; display: block; margin-bottom: 10px;
   }
-  .stage-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; margin-bottom: 10px; }
+  .stage-name { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; margin-bottom: 10px; }
   .stage-card p { font-size: 0.92rem; margin-bottom: 14px; }
   .stage-meta { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--soft); }
 
   /* ───────── OFFER BLOCK ───────── */
   .offer-box { max-width: 720px; margin: 0 auto; border: 1px solid var(--clay); background: var(--warm-white); }
   .offer-head { padding: 34px 38px 26px; border-bottom: 1px solid var(--clay-light); }
-  .offer-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
+  .offer-title { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
   .offer-kicker { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--soft); }
   .offer-body { padding: 30px 38px; }
   .offer-sublabel { font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--clay-deep); margin-bottom: 18px; display: block; }
@@ -328,7 +408,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   }
   .offer-list li strong { color: var(--espresso); font-weight: 500; }
   .offer-price-block { padding: 30px 38px 34px; border-top: 1px solid var(--clay-light); text-align: center; background: var(--linen); }
-  .offer-price { font-family: 'Cormorant Garamond', serif; font-size: 3.4rem; font-weight: 300; line-height: 1; margin-bottom: 8px; }
+  .offer-price { font-family: var(--serif); font-size: 3.4rem; font-weight:400; line-height: 1; margin-bottom: 8px; }
   .offer-terms { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--soft); margin-bottom: 22px; }
   .offer-guarantee-line { font-size: 0.82rem; color: var(--mid); margin-top: 16px; }
   .offer-honest {
@@ -349,24 +429,24 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   .founder-body p { font-size: 1.02rem; }
   .founder-body p.first { font-size: 1.14rem; color: var(--espresso); }
   .founder-break {
-    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem;
+    font-family: var(--serif); font-style: italic; font-size: 1.3rem;
     color: var(--clay-deep); margin: 30px 0; line-height: 1.4;
   }
   .founder-sig-row { display: flex; align-items: center; gap: 14px; margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--clay-light); }
-  .founder-sig-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; }
+  .founder-sig-name { font-family: var(--serif); font-size: 1.25rem; }
   .founder-sig-role { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--soft); }
 
   /* ───────── SCIENCE ───────── */
   .science-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 38px; }
   .science-card { border-top: 1px solid var(--pine-border); padding-top: 20px; }
-  .science-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 10px; }
+  .science-card h4 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 10px; }
   .science-card p { font-size: 0.9rem; margin-bottom: 0; }
 
   /* ───────── FIT ───────── */
   .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 38px; }
   .fit-col { padding: 32px 30px; border: 1px solid var(--clay-light); background: var(--warm-white); }
   .fit-col--no { background: rgba(107,91,78,0.05); }
-  .fit-head { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 20px; }
+  .fit-head { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 20px; }
   .fit-head strong { font-weight: 500; }
   .fit-list { list-style: none; }
   .fit-list li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 0.95rem; color: var(--mid); line-height: 1.55; }
@@ -392,12 +472,12 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   .faq-item { border-bottom: 1px solid var(--clay-light); }
   .faq-q {
     width: 100%; text-align: left; background: none; border: none; cursor: pointer;
-    font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 400; color: var(--espresso);
+    font-family:var(--sans); font-size: 1rem; font-weight: 400; color: var(--espresso);
     padding: 21px 34px 21px 0; position: relative; line-height: 1.5;
   }
   .faq-q::after {
     content: '+'; position: absolute; right: 4px; top: 19px;
-    font-size: 1.3rem; font-weight: 300; color: var(--clay-deep);
+    font-size: 1.3rem; font-weight:400; color: var(--clay-deep);
   }
   .faq-item.open .faq-q::after { content: '−'; }
   .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
@@ -406,8 +486,8 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   .faq-a p:last-child { margin-bottom: 22px; }
 
   /* ───────── FOOTER ───────── */
-  footer { background: var(--espresso); color: rgba(250,247,242,0.5); padding: 46px 0 40px; text-align: center; }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--warm-white); letter-spacing: 0.08em; margin-bottom: 8px; }
+  footer { background: var(--forest); color: rgba(250,247,242,0.5); padding: 46px 0 40px; text-align: center; }
+  .footer-logo { font-family: var(--serif); font-size: 1.15rem; color: var(--warm-white); letter-spacing: 0.08em; margin-bottom: 8px; }
   .footer-tag { font-size: 0.8rem; margin-bottom: 20px; }
   .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
   .footer-links a { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: rgba(250,247,242,0.55); }
@@ -417,7 +497,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
   /* ───────── STICKY BAR ───────── */
   .sticky-bar {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
-    background: var(--espresso); padding: 11px 22px;
+    background: var(--forest); padding: 11px 22px;
     border-top: 1px solid rgba(196,168,130,0.25);
     display: flex; align-items: center; justify-content: center; gap: 22px;
     transform: translateY(110%); transition: transform 0.35s ease;
@@ -455,10 +535,10 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
     display: inline-block; font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase;
     background: var(--pine); color: var(--warm-white); padding: 5px 12px; margin-bottom: 16px;
   }
-  .order-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.45rem; line-height: 1.2; margin-bottom: 4px; }
+  .order-title { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.2; margin-bottom: 4px; }
   .order-kicker { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--soft); margin-bottom: 18px; }
   .order-price { display: flex; align-items: baseline; gap: 10px; padding-bottom: 16px; border-bottom: 1px solid var(--clay-light); margin-bottom: 18px; }
-  .order-price__amount { font-family: 'Cormorant Garamond', serif; font-size: 2.9rem; font-weight: 300; line-height: 1; }
+  .order-price__amount { font-family: var(--serif); font-size: 2.9rem; font-weight:400; line-height: 1; }
   .order-price__term { font-size: 0.76rem; color: var(--soft); line-height: 1.45; }
   .order-list { list-style: none; margin-bottom: 20px; }
   .order-list li { position: relative; padding-left: 24px; margin-bottom: 10px; font-size: 0.86rem; color: var(--mid); line-height: 1.5; }
@@ -466,7 +546,7 @@ src="https://www.facebook.com/tr?id=1814273426658049&ev=PageView&noscript=1"
     content: ''; position: absolute; left: 2px; top: 6px; width: 10px; height: 5px;
     border-left: 1.5px solid var(--pine); border-bottom: 1.5px solid var(--pine); transform: rotate(-45deg);
   }
-  .order-card .btn-primary { display: block; width: 100%; background: var(--espresso); color: var(--warm-white); padding: 17px 18px; }
+  .order-card .btn-primary { display: block; width: 100%; background: var(--forest); color: var(--warm-white); padding: 17px 18px; }
   .order-card .btn-primary:hover { background: var(--clay-deep); }
   .order-alt { display: block; text-align: center; font-size: 0.8rem; color: var(--soft); margin-top: 13px; line-height: 1.6; }
   .order-alt a { color: var(--clay-deep); text-decoration: underline; text-underline-offset: 3px; }
