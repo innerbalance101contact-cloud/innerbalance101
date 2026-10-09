@@ -15,7 +15,6 @@ Last organised: 8 October 2026. Updated for the member system. Site root is the 
 - images/, fonts/, favicon.svg, naomi.jpeg
 
 ## 2. Live, not redesigned yet (older look)
-- bundle-download.html
 - system-offer-a.html, system-offer-b.html
 - privacy-policy.html, terms-and-conditions.html
 - hb-gift.html (free "Come Back to Yourself" guide, noindex)
@@ -27,14 +26,9 @@ Last organised: 8 October 2026. Updated for the member system. Site root is the 
 - Data lives in Cloudflare KV (IB101_DATA): access, progress, webhook log
 - _redirects, robots.txt, sitemap.xml
 - functions/1 and js/1 are empty placeholder files that keep folders in git
-- Retired Stripe code (functions/create-checkout.js, functions/stripe-webhook.js, js/stripe.js): delete once the new login and dashboard are live. Kit handles payment.
 
-## 4. Outdated (kept for history, safe to delete from GitHub when ready)
-- library-outdated/ holds library.html, the five 10-minute practice pages and their PDFs (library-outdated/pdfs/).
-  Old addresses redirect here through _redirects, so nothing 404s. Pages are noindex and out of the sitemap.
-  Still pointing at them: bundle-download.html and some blog posts.
-  When you delete the folder, remove those links and the library lines in _redirects first.
-- outdated-misc/ holds auth.js and create-checkout.js (identical copies of js/auth.js and functions/create-checkout.js, not referenced anywhere) and REVERT_ad734857_message.md (a stray git note).
+## 4. Removed
+- library-outdated/, outdated-misc/ and bundle-download.html were deleted in October 2026. Old library addresses redirect to /the-system.html through _redirects. The files remain in git history if ever needed.
 
 ## 5. Reference documents published at the root (decide later)
 - innerbalance101-brand-board.html

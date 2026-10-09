@@ -1,1 +1,0 @@
-# This commit reverts commit ad734857c084a7dd024b92348f813a65c133474a\n\nReverts the changes made by merging pull request #24 "Add Terms and Conditions page with footer links across all pages."

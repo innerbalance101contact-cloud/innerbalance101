@@ -1,9 +1,10 @@
-# Library pages moved to /library-outdated/ (kept as history). Old links keep working.
-/library.html            /library-outdated/library.html            301
-/library                 /library-outdated/library.html            301
-/overwhelm-10min.html    /library-outdated/overwhelm-10min.html    301
-/pressure-10min.html     /library-outdated/pressure-10min.html     301
-/self-doubt-10min.html   /library-outdated/self-doubt-10min.html   301
-/uncertainty-10min.html  /library-outdated/uncertainty-10min.html  301
-/guilt-10min.html        /library-outdated/guilt-10min.html        301
-/pdfs/*                  /library-outdated/pdfs/:splat             301
+# The old library and practice pages are retired. Old links go to the system page.
+/library.html            /the-system.html   301
+/library                 /the-system.html   301
+/overwhelm-10min.html    /the-system.html   301
+/pressure-10min.html     /the-system.html   301
+/self-doubt-10min.html   /the-system.html   301
+/uncertainty-10min.html  /the-system.html   301
+/guilt-10min.html        /the-system.html   301
+/bundle-download.html    /the-system.html   301
+/pdfs/*                  /the-system.html   301
