@@ -52,6 +52,8 @@ export async function onRequestGet({ request, env }) {
       since: grant?.at || null,
       src: grant?.src || null,
       refunded: grant?.revokedReason === "refunded",
+      refundHold: !!(grant && grant.refundHold && !grant.revoked),
+      refundHoldAt: grant?.refundHold || null,
       unlockThrough: Number.isInteger(rec.unlockThrough) ? rec.unlockThrough : null,
       stages: STAGES.map((s) => stageSummary(progress, s.slug).count),
       updatedAt: progress.updatedAt || null,
@@ -122,9 +124,18 @@ export async function onRequestPost({ request, env }) {
     await applyGrant(kv, email, slug, { src: "admin" });
   } else if (body.action === "revoke") {
     await applyRevoke(kv, email, slug);
+  } else if (body.action === "refund-hold" || body.action === "refund-hold-clear") {
+    // Money has been (or is being) returned, but access stays on until Naomi turns it off.
+    const rec = await getAccessRecord(kv, email);
+    const g = rec.grants?.[slug];
+    if (!g) return json({ error: "no access record for that email" }, 400);
+    if (body.action === "refund-hold") g.refundHold = new Date().toISOString(); else delete g.refundHold;
+    await kv.put(`access:${email}`, JSON.stringify(rec));
   } else if (body.action === "refund") {
     // Records that the money was returned (done in Kit/Stripe) and switches access off.
     await applyRevoke(kv, email, slug, { reason: "refunded" });
+    const rec2 = await getAccessRecord(kv, email);
+    if (rec2.grants?.[slug]) { delete rec2.grants[slug].refundHold; await kv.put(`access:${email}`, JSON.stringify(rec2)); }
   } else if (body.action === "stage") {
     const v = body.unlockThrough;
     if (v !== null && ![0, 1, 2].includes(v)) return json({ error: "bad stage" }, 400);
