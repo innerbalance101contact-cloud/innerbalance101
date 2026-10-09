@@ -100,7 +100,7 @@ export async function onRequestPost({ request, env }) {
       id: `test-${now0}`, transaction_id: `test-${now0}`, status: "paid", email_address: email,
       products: [{ name: "The Inner Balance System", sku: "", unit_price: 0, quantity: 1 }],
     }, now0);
-    if (r.action !== "granted" || !/stage|practice|system|\w/.test(r.detail || "")) return json({ error: `webhook logic returned ${r.action}: ${r.detail}` }, 400);
+    if (r.action !== "granted" || r.detail === "nothing matched") return json({ error: `webhook logic returned ${r.action}: ${r.detail}` }, 400);
   } else if (body.action === "remove") {
     // Clears this site's records for the email (access, progress, sign-up note).
     // The login account (Firebase) and the Kit subscriber are separate and stay.
