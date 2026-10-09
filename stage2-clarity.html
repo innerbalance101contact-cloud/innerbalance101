@@ -1567,6 +1567,9 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   .g-card .ep-desc a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; margin: 6px 0 0; border-radius: 999px; background: #C4A882; color: #2C2420 !important; font-size: 16px; font-weight: 500; text-decoration: none !important; }
   .g-card .ep-link::after, .g-card .ep-desc a::after { content: none; }
   [data-theme=dark] .g-card .body-text { font-size: 15.5px; line-height: 1.48; }
+  .g-card .body-text a { color: var(--g-accent); text-decoration: underline; text-underline-offset: 3px; }
+  .g-card .sms-cta-copy { font-size: 15.5px; line-height: 1.5; padding: 0 20px 6px 20px; margin: 0; }
+  [data-theme=dark] .g-card .body-text { font-size: 15px; line-height: 1.46; }
 /* Desktop: show the guide as the five printed pages, on a desk */
 .sheet-dl { display: none; }
 @media screen and (min-width: 681px) {
@@ -1762,6 +1765,12 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   .moment-why .moment-note { font-size: 12px; padding: 6px 12px; margin: 3px 0; }
   .part-pill-moment { display: none; }
 }
+
+.overview-nudge .sms-cta { margin: 14px 0 0; }
+.overview-nudge .sms-cta-copy { font-family: 'Jost', sans-serif; font-size: 15px; line-height: 1.5; color: var(--espresso); padding: 0 24px 4px 48px; margin: 0; }
+@media (max-width: 680px) { .overview-nudge .sms-cta-copy { padding: 0 20px 4px 20px; } }
+@media print { .overview-nudge { display: none; } }
+.overview-nudge .body-text a, .g-card .overview-nudge a { color: var(--pine-text, #3F5751); text-decoration: underline; text-underline-offset: 3px; }
 </style>
 </head>
 
@@ -1834,9 +1843,10 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
     <summary class="overview-summary"><span class="overview-summary-title">Before you start</span><span class="overview-summary-hint">What this is, when to do it, how each day works</span><svg class="overview-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
     <div class="overview-row">
       <span class="overview-label">What this is</span>
-      <h2 class="overview-title">Stage&nbsp;1 gave you ground.<br><em>Now find what was underneath.</em></h2>
-      <p class="body-text">Overwhelm is rarely just overwhelm. Underneath it, one or several emotions have been running quietly. They shape your reactions, steer your decisions, and cost more energy than you can see.</p>
-      <p class="body-text">Over 21&nbsp;days you practise noticing which emotions show up for you, where they live in your body, and which thought is usually driving them. Then you start to create space between what activates you and how you respond. That space is a pause, and the pause is what this stage builds. It is a mindfulness practice: paying attention on purpose, without judgment.</p>
+      <h2 class="overview-title">Stage&nbsp;1 gave you ground.<br><em>Now build a practice that feels like you.</em></h2>
+      <p class="body-text">Overwhelm is probably what you felt. It may also have been something else, something that took over and ran you on autopilot. Anger. Worry. Guilt. A feeling you have not named yet.</p>
+      <p class="body-text">Whatever it is, it shapes your reactions and steers your decisions. It costs more energy than you can see.</p>
+      <p class="body-text">This stage gives you the tools to see it. Over 21&nbsp;days you notice which emotions show up for you, where they live in your body, and which thought is driving them. Then you build a pause between what activates you and how you respond. That pause is mindfulness: paying attention on purpose, without judgment.</p>
       <p class="body-text"><strong>Every day is different.</strong> What you feel on Monday will not be what you feel on Thursday. The order stays the same. What you bring to it changes.</p>
       <p class="overview-note"><strong>Before you begin.</strong> Accept what you find and don’t judge it. You don’t need the right word for what you feel. The chart in Part&nbsp;1 helps you find it, starting from what you notice in your body.</p>
       <p class="learn-more">Want to see what you are building? <a href="#in-the-moment">Read about the pause &darr;</a></p>
@@ -1880,24 +1890,25 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
           <div class="strip-time">11&nbsp;min</div>
         </a></div>
       </div>
+    </div>
+
+    <div class="overview-row overview-nudge">
+      <span class="overview-label">Between sessions</span>
+      <p class="body-text"><strong>Mindfulness is a daily practice. More than once a day is ideal.</strong> Your 20&nbsp;minutes are the anchor. In between, take two minutes wherever you are. <a href="#in-the-moment">Here is how.</a></p>
+      <div class="sms-cta">
+        <div class="sms-cta-top">
+          <div class="sms-cta-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="sms-cta-heading">
+            <p class="sms-cta-title"><span class="sms-optional">Optional</span> A text nudge between sessions.</p>
+            <a href="sms:+17015435900" class="sms-cta-link">Text (701) 543-5900</a>
+          </div>
+        </div>
+        <p class="sms-cta-copy">Get a short reminder to take two minutes wherever you are.</p>
+        <p class="sms-cta-disclosure">Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to unsubscribe at any time.</p>
+      </div>
       <p class="overview-dl screen-only">Prefer paper? <a href="/guides/stage-2-clarity-guide.pdf" download>Download the printable guide (PDF).</a></p>
     </div>
   </details>
-
-  <!-- SMS SUPPORT CTA -->
-  <div class="sms-cta">
-    <div class="sms-cta-top">
-      <div class="sms-cta-icon">
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2C2420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      </div>
-      <div class="sms-cta-heading">
-        <p class="sms-cta-title"><span class="sms-optional">Optional</span> Build clarity, one text at a time.</p>
-        <a href="sms:+17015435900" class="sms-cta-link">Text (701) 543-5900</a>
-      </div>
-    </div>
-    <p class="sms-cta-disclosure">Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to unsubscribe at any time.</p>
-  </div>
-
 
   <div class="start-divider" id="start"><span>Start here <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span></div>
 
@@ -2377,7 +2388,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   var MARK = '<svg width="30" height="30" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#C4A882" stroke-width="1.4"/><line x1="9" y1="32" x2="55" y2="32" stroke="currentColor" stroke-width="1.6"/><line x1="32" y1="13" x2="32" y2="51" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 3.5"/><circle cx="19" cy="32" r="3.5" fill="#C4A882"/><circle cx="45" cy="32" r="3.5" fill="#C4A882"/><circle cx="32" cy="32" r="2" fill="currentColor"/></svg>';
 
   var how = function () { openSheet(); };
-  function skipLink() { var b = el('button', 'g-skip', 'Skip to the practice'); b.type = 'button'; b.addEventListener('click', function () { show(2, 1); }); return b; }
+  function skipLink() { var b = el('button', 'g-skip', 'Skip to the practice'); b.type = 'button'; b.addEventListener('click', function () { show(firstPart(), 1); }); return b; }
+  function firstPart() { for (var k = 0; k < cards.length; k++) { if (cards[k].key === 'step-1') return k; } return 2; }
   function momentLink() { var b = el('button', 'g-link', 'In the moment'); b.type = 'button'; b.addEventListener('click', function () { for (var k = 0; k < cards.length; k++) { if (cards[k].key === 'in-the-moment') { show(k, 1); return; } } }); return b; }
   function howLink() { var b = el('button', 'g-link', 'How it works'); b.type = 'button'; b.addEventListener('click', how); return b; }
 
@@ -2420,12 +2432,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(el('h1', 'g-title', $('.overview-title', rows[0]).innerHTML));
     var ps = $$('.body-text', rows[0]);
     if (ps[0]) c.appendChild(clone(ps[0]));
-    if (ps[1]) {
-      var sents = txt(ps[1]).split(/(?<=\.)\s+/), at = -1;
-      sents.forEach(function (x, n) { if (at < 0 && /^Then you start/.test(x)) at = n; });
-      var p2 = el('p', 'body-text', (at > 0 ? sents.slice(at) : sents).join(' '));
-      c.appendChild(p2);
-    }
+    if (ps[2]) c.appendChild(clone(ps[2]));
     var r = el('div', 'g-row'); r.appendChild(skipLink()); r.appendChild(momentLink()); r.appendChild(howLink()); c.appendChild(r);
     return c;
   } });
@@ -2435,6 +2442,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(el('h1', 'g-title', txt(lab)[0].toUpperCase() + txt(lab).slice(1)));
     c.appendChild(clone($('.need-list', rows[1])));
     var note = $('.overview-note', rows[0]); if (note) c.appendChild(clone(note));
+    return c;
+  } });
+
+  card({ sect: 'intro', theme: 'light', where: 'Between sessions', next: 'Start Part 1', build: function () {
+    var n = $('.overview-nudge', overview), c = el('section', 'g-card');
+    c.appendChild(el('h1', 'g-title', 'A daily practice'));
+    var p = $('.body-text', n); if (p) c.appendChild(clone(p));
+    var s = $('.sms-cta', n) || $('.sms-cta'); if (s) c.appendChild(clone(s));
     return c;
   } });
 
@@ -2576,7 +2591,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   function openSheet() {
     panel.innerHTML = '<div class="g-panel-head"><h2 id="g-sheet-h">How it works</h2><button type="button" class="g-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div>';
     var when = $('.overview-split .when-list:not(.need-list)', rows[1]) || $('.when-list:not(.need-list)', overview);
-    var more = $$('.body-text', rows[0]); if (more[1]) panel.appendChild(clone(more[1])); if (more[2]) panel.appendChild(clone(more[2]));
+    var more = $$('.body-text', rows[0]); if (more[1]) panel.appendChild(clone(more[1])); if (more[3]) panel.appendChild(clone(more[3]));
     panel.appendChild(el('span', 'overview-label', 'When to do it'));
     if (when) panel.appendChild(clone(when));
     panel.appendChild(el('span', 'overview-label', 'How each day works'));
@@ -2602,7 +2617,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     try {
       var v = JSON.parse(localStorage.getItem(KEY) || 'null');
       if (v && v.d === today() && v.i >= 0 && v.i < cards.length) return v.i;
-      if (v) return 2;
+      if (v) return firstPart();
     } catch (e) {}
     return 0;
   }
