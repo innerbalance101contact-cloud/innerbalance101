@@ -2887,6 +2887,8 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 .g-app .g-card.g-first .g-part em{font-style:normal;font-size:16px;font-weight:500}
 .g-app .g-card.g-first .g-title{font-size:clamp(26px,7.4vw,32px)}
 .g-app .g-card.g-first .body-text{font-size:15px}
+.g-app .g-topnote{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin:0 0 18px;padding:0 0 12px;border-bottom:1px solid rgba(0,0,0,.1)}
+.g-app .g-needmore{font-size:12px;opacity:.7}
 </style>
 </head>
 <body>
@@ -3986,9 +3988,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   }
   function withBack(fn, key, label) {
     return function () {
-      var c = fn(), r = el('div', 'g-row'), b = el('button', 'g-link', label); b.type = 'button';
+      var c = fn(), r = el('div', 'g-row g-topnote'), b = el('button', 'g-link', label); b.type = 'button';
       b.addEventListener('click', function () { goTo('#' + key); });
-      r.appendChild(b); c.appendChild(r); return c;
+      r.appendChild(el('span', 'g-needmore', 'Need to understand more?')); r.appendChild(b); c.insertBefore(r, c.firstChild); return c;
     };
   }
   var T1 = { sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Next' };
@@ -4025,7 +4027,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(clone($('.body-text', b)));
     return c;
   });
-  C(T1, { key: 'do-1' }, withBack(sub(0, 0, [0, 1]), 'step-1', 'Read the intro first'));
+  C(T1, { key: 'do-1' }, withBack(sub(0, 0, [0, 1]), 'step-1', 'What this part is about'));
   C(T1, {}, function () {
     var c = el('section', 'g-card g-wheel'), ks = kids(drop(0, 0));
     c.appendChild(el('h1', 'g-title', 'Mark what is here'));
@@ -4066,7 +4068,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   });
   C(T2, {}, split(1, 0, 0, 1, '.lc-row', 0, 3, 'Example: Lunch at the desk', true));
   C(T2, {}, split(1, 0, 0, 1, '.lc-row', 3, 9, 'The rest of the loop', false));
-  C(T2, { key: 'do-2' }, withBack(sub(1, 1, [0, 1, 2, 3]), 'step-2', 'Read the idea behind it first'));
+  C(T2, { key: 'do-2' }, withBack(sub(1, 1, [0, 1, 2, 3]), 'step-2', 'How our experiences are built'));
   C(T2, {}, sub(1, 1, [4, 5, 6, 7, 8, 9, 10], { title: 'Write its loop' }));
   C(T2, {}, split(1, 2, 0, 1, '.quality-row', 0, 3, 'Question it', true));
   C(T2, {}, split(1, 2, 0, 1, '.quality-row', 3, 9, 'Keep asking', false, 2));
