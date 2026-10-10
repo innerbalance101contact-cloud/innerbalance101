@@ -2901,6 +2901,74 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 .part-break .part-break-line{margin:6px 0 10px;font-size:1.05rem}
 .part-break-link{font-family:'Jost',sans-serif;font-size:14px;color:inherit;border-bottom:1px solid currentColor;text-decoration:none}
 @media print{.part-break{margin:12px 0;padding:8px 12px}.part-break-link{display:none}}
+
+/* ===== print: tighter pages ===== */
+@media print {
+  /* Part 1: the wheel floats beside the text; the rest wraps around it */
+  .wheel-block { float: right; width: 372px; margin: 0 0 8px 16px; }
+  .emotion-practices { clear: both; }
+  .wheel-block .wheel-wrap { padding: 2px; }
+  .wheel-block .wheel-wrap svg { max-width: 372px; }
+  .wheel-block .wheel-legend { flex-wrap: wrap; gap: 3px 6px; margin-bottom: 3px; }
+  .wheel-block .wheel-legend-item { font-size: 9.5px; padding: 2px 6px; }
+  .wheel-hint, .today-emotions, .today-families { display: none !important; }
+  .emotion-practices { gap: 6px; }
+  .emotion-practice-row { padding: 6px 9px; }
+  .emotion-practice-row .ep-body p, .emotion-practice-row .ep-body { font-size: 11.5px; line-height: 1.38; }
+
+  /* Part 2: idea section in columns */
+  .part2-idea { display: grid; grid-template-columns: 1fr 1fr; column-gap: 22px; }
+  .part2-idea > .theory-part:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 392px; column-gap: 14px; align-items: start; }
+  .part2-idea > .theory-part:first-child > * { grid-column: 1; }
+  .part2-idea > .theory-part:first-child > .cycle-block { grid-column: 2; grid-row: 1 / span 4; margin: 0; }
+  .part2-idea .cycle-wheel { max-width: 390px; }
+  .part2-idea .cycle-loop-note { font-size: 11px; margin: 2px 0 0; }
+  .part2-idea .overview-title { font-size: 20px; margin-bottom: 4px; }
+  .part2-idea .theory-lead { font-size: 15px; margin: 2px 0 4px; }
+  .part2-idea .body-text { font-size: 12px; line-height: 1.45; margin-bottom: 5px; }
+  .loop-compare .lc-row { padding: 4px 0; }
+  .loop-compare p { font-size: 11.5px; line-height: 1.35; padding: 4px 8px; margin: 0; }
+  .qualities-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 20px; }
+  .quality-row { padding: 6px 0; break-inside: avoid; }
+  .write-line, .loop-write .write-line { height: 20px; }
+  .write-area { margin: 4px 0; }
+  .part-break { margin: 10px 0 8px; padding: 6px 12px; }
+  .step-body > .body-text, .drop-body > .body-text { font-size: 12.5px; line-height: 1.45; margin-bottom: 6px; }
+}
+@media print {
+  .emotion-practices { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 6px !important; }
+  .emotion-practice-row { flex-direction: column; gap: 2px; }
+  .emotion-practice-row .ep-family { min-width: 0; }
+  .emotion-practice-row .ep-body { font-size: 10.5px !important; line-height: 1.32 !important; }
+  .emotion-practice-row a, .emotion-practice-row .ep-link { font-size: 10.5px; }
+  .wheel-block { width: 350px; }
+  .wheel-block .wheel-wrap svg { max-width: 350px; }
+}
+@media print {
+  .qualities-list { display: block !important; column-count: 2; column-gap: 22px; }
+  .quality-row { break-inside: avoid; page-break-inside: avoid; display: block; padding: 5px 0; }
+  .quality-row .quality-body, .quality-row .quality-prompt { font-size: 11.5px; line-height: 1.38; }
+  .loop-write, .write-area, .listen-opts, .change-steps, .loop-compare .lc-row { break-inside: avoid; page-break-inside: avoid; }
+  .loop-write { margin: 2px 0; }
+  .write-line { height: 17px !important; }
+  .sub-step { margin-bottom: 8px; padding-top: 8px; }
+  .step-body > .body-text, .drop-body > .body-text { font-size: 12px; line-height: 1.4; margin-bottom: 4px; }
+  .sub-step-label { margin-bottom: 4px; }
+}
+@media print {
+  .why-block { break-before: auto !important; page-break-before: auto !important; margin-top: 10px !important; padding-top: 6px; }
+  .sub-step-label, [data-was="summary"] { break-after: avoid; page-break-after: avoid; }
+  .drop-body > .body-text:first-child { break-after: avoid; page-break-after: avoid; }
+}
+@media print {
+  .why-block { padding: 4px 0 0 !important; margin-top: 6px !important; }
+  .why-block .overview-title { font-size: 17px; margin: 2px 0 4px; }
+  .why-block .fit-list li, .why-block .fit-list { font-size: 11.5px; line-height: 1.4; margin-bottom: 3px; }
+  .why-block .body-text { font-size: 11.5px; margin-bottom: 4px; }
+  .closing-section { margin-top: 8px !important; padding: 12px 18px !important; }
+  .closing-section .section-title { font-size: 19px; margin-bottom: 4px; }
+  .closing-section .body-text { font-size: 11.5px; line-height: 1.42; margin-bottom: 4px; }
+}
 </style>
 </head>
 <body>
