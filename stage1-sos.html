@@ -1085,6 +1085,26 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   .step-figure img, .step-figure picture img { width: 100%; height: 220px; object-fit: cover; object-position: center 30%; }
 }
 @media screen and (min-width: 681px) { .overview-dl { display: none; } }
+/* text card on dark cards: keep its own light surface readable; first card stays compact */
+.g-app .g-card .sms-cta .sms-cta-title, .g-app .g-card .sms-cta .sms-cta-steps, .g-app .g-card .sms-cta .sms-cta-disclosure { color: #2C2420; }
+.g-app .g-card .sms-cta .sms-cta-steps { margin: .15rem 0 .55rem; font-size: 14.5px; line-height: 1.4; }
+.g-app .g-card .sms-cta .sms-cta-top { padding: 12px 16px 10px; gap: 10px; }
+.g-app .g-card .sms-cta .sms-cta-link { min-height: 42px; font-size: 14.5px; }
+.g-app .g-card .sms-cta .sms-cta-disclosure { padding: 8px 16px 10px; font-size: 12px; line-height: 1.45; }
+.g-app .g-card.g-first .g-brand { display: none; }
+.g-app .g-card.g-first .sms-cta { margin: 14px 0 0; }
+.g-app .g-card .moment-note, .g-app .g-card .overview-note { }
+.g-app[data-theme="dark"] .g-card .moment-note, .g-app[data-theme="dark"] .g-card .overview-note, .g-app[data-theme="dark"] .g-card .why-note { color: rgba(250,247,242,0.9); background: rgba(250,247,242,0.07); border-left-color: #AFC1CF; }
+.g-app[data-theme="dark"] .g-card .moment-note strong, .g-app[data-theme="dark"] .g-card .overview-note strong, .g-app[data-theme="dark"] .g-card .why-note strong { color: #FAF7F2; }
+.g-app .g-card.g-first .sms-cta .sms-cta-title { margin: 0 0 2px; font-size: 13px; }
+.g-app .g-card.g-first .g-title { margin-bottom: 14px; }
+.g-app .g-card.g-first .sms-cta .sms-cta-title { display: none; }
+.g-app .g-card.g-first .body-text { font-size: 15px; line-height: 1.42; margin-bottom: 8px; }
+.g-app .g-card.g-first .g-title { font-size: clamp(26px, 7.6vw, 32px); }
+.g-app .g-card.g-need .need-list li { padding-top: 6px; padding-bottom: 6px; font-size: 15px; line-height: 1.4; }
+.g-app .g-card.g-need .overview-note { margin: 12px 0 0; padding: 10px 16px; font-size: 14.5px; line-height: 1.5; }
+.g-app .g-card.g-need .g-row { margin: 6px 0 0; gap: 0 20px; }
+.g-app .g-card.g-need .g-row .g-link { min-height: 36px; padding: 6px 0; font-size: 15px; }
 </style>
 </head>
 
@@ -1630,28 +1650,21 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
   }
 
   card({ sect: 'intro', theme: 'dark', where: txt($('.stage-label', header)) + ' · ' + txt($('.page-title', header)), next: 'Continue', key: 'intro', build: function () {
-    var c = el('section', 'g-card');
+    var c = el('section', 'g-card g-first');
     c.appendChild(el('div', 'g-brand', MARK + '<span>innerbalance101</span>'));
     c.appendChild(el('h1', 'g-title', $('.overview-title', rows[0]).innerHTML));
     $$('.body-text', rows[0]).forEach(function (p) { c.appendChild(clone(p)); });
-    var r = el('div', 'g-row'); r.appendChild(skipLink()); r.appendChild(howLink()); c.appendChild(r);
+    var nd = $('.overview-nudge', overview); if (nd) { var sc0 = $('.sms-cta', nd); if (sc0) c.appendChild(clone(sc0)); }
+    var r = el('div', 'g-row'); r.appendChild(skipLink()); c.appendChild(r);
     return c;
   } });
-  card({ sect: 'intro', theme: 'light', where: 'Before you start', next: 'Next', build: function () {
-    var c = el('section', 'g-card');
+  card({ sect: 'intro', theme: 'light', where: 'Before you start', next: 'Start Part 1', build: function () {
+    var c = el('section', 'g-card g-need');
     var lab = $$('.overview-label', rows[1])[1];
     c.appendChild(el('h1', 'g-title', txt(lab)[0].toUpperCase() + txt(lab).slice(1)));
     c.appendChild(clone($('.need-list', rows[1])));
     var note = $('.overview-note', rows[0]); if (note) c.appendChild(clone(note));
-    var r2 = el('div', 'g-row'); r2.appendChild(skipLink()); r2.appendChild(howLink()); c.appendChild(r2);
-    return c;
-  } });
-
-  card({ sect: 'intro', theme: 'light', where: 'Between sessions', next: 'I’m ready', build: function () {
-    var n = $('.overview-nudge', overview), c = el('section', 'g-card');
-    c.appendChild(el('h1', 'g-title', 'A daily practice'));
-    var p = $('.body-text', n); if (p) c.appendChild(clone(p));
-    var sc = $('.sms-cta', n); if (sc) c.appendChild(clone(sc));
+    var r2 = el('div', 'g-row'); r2.appendChild(howLink()); c.appendChild(r2);
     return c;
   } });
 
