@@ -2881,6 +2881,12 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
 .g-app .g-moves .emotion-practices.has-active .emotion-practice-row.is-active{opacity:1;box-shadow:none}
 .g-app .g-first .body-text{font-size:.93rem;line-height:1.5;margin-bottom:.55rem}
 .g-app .g-card.g-first .g-title{font-size:clamp(22px,6.3vw,27px);margin-bottom:10px}
+.g-app .g-card.g-first .g-jump{display:flex;gap:10px;margin-top:16px}
+.g-app .g-card.g-first .g-part{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px;border-radius:12px;text-align:left;line-height:1.2}
+.g-app .g-card.g-first .g-part span{font-size:12px;opacity:.8}
+.g-app .g-card.g-first .g-part em{font-style:normal;font-size:16px;font-weight:500}
+.g-app .g-card.g-first .g-title{font-size:clamp(26px,7.4vw,32px)}
+.g-app .g-card.g-first .body-text{font-size:15px}
 </style>
 </head>
 <body>
@@ -3981,6 +3987,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   var T1 = { sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Next' };
   var T2 = { sect: 'p2', theme: 'linen', tone: 'storm', where: P2, next: 'Next' };
   function C(base, extra, build) { var o = {}, k; for (k in base) o[k] = base[k]; for (k in extra) o[k] = extra[k]; o.build = build; card(o); }
+  function partBtn(key, a, b) { var x = el('button', 'g-skip g-part', '<span>Go to ' + a + '</span><em>' + b + '</em>'); x.type = 'button'; x.addEventListener('click', function () { goTo('#' + key); }); return x; }
   function whyLink() { var b = el('button', 'g-link', 'Why this works'); b.type = 'button'; b.addEventListener('click', function () { goTo('#why-this-works'); }); return b; }
 
   card({ sect: 'intro', theme: 'dark', where: txt($('.stage-label', header)) + ' · ' + txt($('.page-title', header)), next: 'Continue', key: 'intro', build: function () {
@@ -3988,10 +3995,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(el('div', 'g-brand', MARK + '<span>innerbalance101</span>'));
     c.appendChild(el('h1', 'g-title', $('.overview-title', rows[0]).innerHTML));
     var ps = $$('.body-text', rows[0]);
-    if (ps[0]) c.appendChild(clone(ps[0]));
     if (ps[2]) c.appendChild(clone(ps[2]));
     var nd = $('.overview-nudge', overview); if (nd) { var sc0 = $('.sms-cta', nd); if (sc0) c.appendChild(clone(sc0)); }
-    var r = el('div', 'g-row'); r.appendChild(skipLink()); c.appendChild(r);
+    var r = el('div', 'g-row g-jump'); r.appendChild(partBtn('step-1', 'Part 1 of 2', 'Reset')); r.appendChild(partBtn('step-2', 'Part 2 of 2', 'Inner Compass')); c.appendChild(r);
     return c;
   } });
   card({ sect: 'intro', theme: 'light', where: 'Before you start', next: 'Start Part 1', build: function () {
