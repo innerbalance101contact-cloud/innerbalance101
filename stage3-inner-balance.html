@@ -3984,6 +3984,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       return c;
     };
   }
+  function withBack(fn, key, label) {
+    return function () {
+      var c = fn(), r = el('div', 'g-row'), b = el('button', 'g-link', label); b.type = 'button';
+      b.addEventListener('click', function () { goTo('#' + key); });
+      r.appendChild(b); c.appendChild(r); return c;
+    };
+  }
   var T1 = { sect: 'p1', theme: 'linen', tone: 'rose', where: P1, next: 'Next' };
   var T2 = { sect: 'p2', theme: 'linen', tone: 'storm', where: P2, next: 'Next' };
   function C(base, extra, build) { var o = {}, k; for (k in base) o[k] = base[k]; for (k in extra) o[k] = extra[k]; o.build = build; card(o); }
@@ -3997,7 +4004,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     var ps = $$('.body-text', rows[0]);
     if (ps[2]) c.appendChild(clone(ps[2]));
     var nd = $('.overview-nudge', overview); if (nd) { var sc0 = $('.sms-cta', nd); if (sc0) c.appendChild(clone(sc0)); }
-    var r = el('div', 'g-row g-jump'); r.appendChild(partBtn('step-1', 'Part 1 of 2', 'Reset')); r.appendChild(partBtn('step-2', 'Part 2 of 2', 'Inner Compass')); c.appendChild(r);
+    var r = el('div', 'g-row g-jump'); r.appendChild(partBtn('do-1', 'Part 1 of 2', 'Reset')); r.appendChild(partBtn('do-2', 'Part 2 of 2', 'Inner Compass')); c.appendChild(r);
     return c;
   } });
   card({ sect: 'intro', theme: 'light', where: 'Before you start', next: 'Start Part 1', build: function () {
@@ -4018,7 +4025,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(clone($('.body-text', b)));
     return c;
   });
-  C(T1, {}, sub(0, 0, [0, 1]));
+  C(T1, { key: 'do-1' }, withBack(sub(0, 0, [0, 1]), 'step-1', 'Read the intro first'));
   C(T1, {}, function () {
     var c = el('section', 'g-card g-wheel'), ks = kids(drop(0, 0));
     c.appendChild(el('h1', 'g-title', 'Mark what is here'));
@@ -4059,7 +4066,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   });
   C(T2, {}, split(1, 0, 0, 1, '.lc-row', 0, 3, 'Example: Lunch at the desk', true));
   C(T2, {}, split(1, 0, 0, 1, '.lc-row', 3, 9, 'The rest of the loop', false));
-  C(T2, {}, sub(1, 1, [0, 1, 2, 3]));
+  C(T2, { key: 'do-2' }, withBack(sub(1, 1, [0, 1, 2, 3]), 'step-2', 'Read the idea behind it first'));
   C(T2, {}, sub(1, 1, [4, 5, 6, 7, 8, 9, 10], { title: 'Write its loop' }));
   C(T2, {}, split(1, 2, 0, 1, '.quality-row', 0, 3, 'Question it', true));
   C(T2, {}, split(1, 2, 0, 1, '.quality-row', 3, 9, 'Keep asking', false, 2));
