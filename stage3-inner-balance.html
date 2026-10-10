@@ -3349,11 +3349,6 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
       <p class="body-text"><strong>Start with how you show up.</strong> For driven, high-performing women, work is where this loop runs loudest. The same recipe works in every other part of your life. Once you know it, take it there.</p>
       <p class="body-text">Look at what you find the way you would look at someone you love. Curious, not critical. That is the lens for every step below.</p>
 
-      <div class="part-break" id="practice-2">
-        <span class="overview-label">Now the practice</span>
-        <p class="part-break-line">That&rsquo;s the idea. Now you do it. Five steps, twenty minutes. Start with the example if you want to see it first, or go straight to step A.</p>
-        <a class="part-break-link" href="#step-2-a">Go to step A &darr;</a>
-      </div>
       <details class="sub-step step-drop flow" open>
         <summary class="sub-step-label"><span>Example: Lunch at the desk</span></summary>
         <div class="drop-body">
@@ -3369,6 +3364,11 @@ p, li, blockquote, figcaption { text-wrap:pretty; }
         </div>
       </details>
 
+      <div class="part-break" id="practice-2">
+        <span class="overview-label">Now the practice</span>
+        <p class="part-break-line">That&rsquo;s the idea. Now you do it. Five steps, twenty minutes. Start with step A.</p>
+        <a class="part-break-link" href="#step-2-a">Go to step A &darr;</a>
+      </div>
       <details id="step-2-a" class="sub-step step-drop flow">
         <summary class="sub-step-label"><span>A. See it (5&nbsp;min)</span></summary>
         <div class="drop-body">
@@ -4071,18 +4071,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     c.appendChild(clone(ks[2])); c.appendChild(clone(ks[3]));
     return c;
   });
-  card({ sect: 'p2', theme: 'dark', where: P2, next: 'See an example first', key: 'practice-2', build: function () {
+  C(T2, {}, split(1, 0, 0, 1, '.lc-row', 0, 3, 'Example: Lunch at the desk', true));
+  C(T2, {}, split(1, 0, 0, 1, '.lc-row', 3, 9, 'The rest of the loop', false));
+  card({ sect: 'p2', theme: 'dark', where: P2, next: 'Start step A', key: 'practice-2', build: function () {
     var c = el('section', 'g-card g-break'), pb = $('#practice-2');
     c.appendChild(el('p', 'g-kicker', txt($('.overview-label', pb))));
     c.appendChild(el('h1', 'g-title', 'That’s the idea.<br><em>Now you do it.</em>'));
-    c.appendChild(el('p', 'body-text', 'Five steps, twenty minutes. Start with the example if you want to see it first, or go straight to step A.'));
-    var r = el('div', 'g-row'), b = el('button', 'g-skip', 'Start with step A'); b.type = 'button';
-    b.addEventListener('click', function () { goTo('#do-2'); });
-    r.appendChild(b); c.appendChild(r);
+    c.appendChild(el('p', 'body-text', 'Five steps, twenty minutes. Start with step A.'));
     return c;
   } });
-  C(T2, {}, split(1, 0, 0, 1, '.lc-row', 0, 3, 'Example: Lunch at the desk', true));
-  C(T2, {}, split(1, 0, 0, 1, '.lc-row', 3, 9, 'The rest of the loop', false));
   C(T2, { key: 'do-2' }, withBack(sub(1, 1, [0, 1, 2, 3]), 'how-built', 'Need to understand more? How our experiences are built'));
   C(T2, {}, sub(1, 1, [4, 5, 6, 7, 8, 9, 10], { title: 'Write its loop' }));
   C(T2, {}, split(1, 2, 0, 1, '.quality-row', 0, 3, 'Question it', true));
